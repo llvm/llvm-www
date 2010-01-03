@@ -1,0 +1,301 @@
+<!--#include virtual="header.incl" -->
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">Subversion Migration</div>
+<div class="www_text">
+  <p>This document contains notes about the planned migration of the CVS code
+  repository to Subversion.</p>
+<ol>
+  <li><a href="#schedule">Schedule</a></li>
+  <li><a href="#impact">Impact</a>
+  <li><a href="#status">Status</a>
+  <li><a href="#renaming">Module Renaming</a>
+  <li><a href="#branches">Branch Status</a>
+  <li><a href="#tags">Tag Status</a>
+  <li><a href="#process">Migration Process</a>
+</ol>
+</div>
+
+<div class="www_subsection"><a href="schedule">Schedule</a></div>
+<div class="www_text">
+  <p><b>When</b>: June 29, 2007, 09:00 CDT, 07:00 PDT, 14:00 UTC.</p>
+  <p><b>Duration</b>: Approximately 4 hours</p>
+  <p><b>Notices:</b>: Notices will be sent out 3 days before, 1 day before, and
+  1 hour before the conversion actually takes place.</p>
+  <p><b>Impact</b>: CVS commits will be unavailable for approximately 4 hours
+  while the migration takes place. Anonymous CVS checkout will still be allowed
+  during this time frame. Once the migration is done, CVS will remain in
+  read-only mode and Subversion will be enable for read and write access.</p>
+  <p><b>Fallback Plan</b>: If the conversion cannot be completed successfully
+  in 4 hours, we will turn CVS commit access back on and try the migration
+  again at a later date.</p>
+</div>
+
+<div class="www_subsection"><a href="impact">User Impact</a></div>
+<div class="www_text">
+  <p>Here are some things you need to know about how to use Subversion once the
+  migration is done and how to prepare for the change.</p>
+  <ul>
+    <li><b>Subversion Version</b>: 1.4.3. You can use older clients, but we
+    recommend that you upgrade to 1.4.3 to gain most benefit.</li>
+    <li><b>URLS</b>: Subversion uses URLs to specify the repository. Our 
+    configuration uses HTTPS URLs. The host name portion of the URL for all
+    LLVM related repositories is <tt>llvm.org</tt>. The URL for accessing any of
+    the modules in the LLVM repository is:
+    <a href="https://llvm.org/svn/llvm-project">
+      https://llvm.org/svn/llvm-project</a>. Note that the URL uses the HTTPS
+    protocol. This is necessary to ensure that passwords are not transmitted in
+    the clear.</li>
+    <li><b>Browsing</b>: You can browse the latest revision of the repository
+    with any web browser by just pointing it at the URL shown above.</li>
+    <li><b>Modules</b>: The repository contains several modules. Each module is
+    contained in a top level directory and has its own <tt>trunk</tt>,
+    <tt>branches</tt>, and <tt>tags</tt> directories at the second level. Some
+    of the modules have changed name. See the <a href="#renaming">Renaming</a>
+    section for details.</li>
+    <li><b>Checkout Access</b>: You can checkout any llvm module by simply using
+    the svn command with the above URL. For example:<pre>
+    svn co https://llvm.org/svn/llvm-project/llvm/trunk llvm
+    </pre>This will give you a local <tt>llvm</tt> directory that contains the
+    contents of the "llvm" module.</li>
+    <li><b>Commit Access</b>: If you have commit access you will need to supply
+    a user name and password to commit. We recommend that you check out using a
+    URL like this: <tt>https://uname@llvm.org/svn/llvm-project/...</tt>. You 
+    should replace "uname" with your actual user name.  When you attempt to 
+    commit you will get a password prompt from the Subversion command. Enter 
+    your password to complete the commit.</li>
+    <li><b>Available Now:</b>: You can try these out now. Only a few users have
+    commit access (those who are testing it). Any changes made will be discarded
+    before the June 29th conversion.</li>
+  </ul>
+</div>
+
+<div class="www_subsection"><a href="status">Status</a></div>
+<div class="www_text">
+  <p><b>Status as of 2007-06-26</b><br/>We are finally ready to do the migration
+  on June 29th. Access to the final repository location is now available. It
+  will be updated twice per day until the conversion occurs.</p>
+  <p><b>Status as of 2007-04-20</b><br/>We have successfully migrated all the
+  sub-projects targeted for conversion over the UIUC internal network. The
+  Subversion snapshot is available for access (for testing only).</p>
+  <p><b>Status as of 2007-04-07</b><br/>All the technology is in place for the
+  migration to occur. We are now only waiting for TSG to install the 
+  authentication tokens so that existing "commit" users will be granted 
+  read/write access to the subversion repository. Migration will occur
+  next week.</p>
+  <p><b>Status as of 2007-04-06</b><br/>Last night TSG got the repository 
+  converted with the conversion script and the ViewVC service setup and 
+  configured. The public read-only access is configured. Private read-write
+  access was granted to a few people (for testing). This isn't ready to be used
+  yet, but you can visit:
+  <a href="http://subversion.cs.uiuc.edu/viewvc/llvm">ViewVC</a> and
+  <a href="http://subversion.cs.uiuc.edu/pub/svn/llvm">Public SVN</a>.</p>
+
+  <p><i>Status as of 2007-04-05</i><br/>The migration is awaiting some
+  research that needs to be done by UIUC's Technical Services Group. A few
+  issues were raised that could lead to loss of functionality for the project if
+  not addressed carefully. We have been building a Subversion repository on a
+  test machine every night for a week now and that automated process seems to be
+  working smoothly.  The nightly test with check-out from Subversion is also 
+  working smoothly.
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="renaming">Renaming</a></div>
+<div class="www_text">
+  <p>Since everything will be in one SVN repository, we thought we'd take this
+  opportunity to rename some top level directories to reduce redundancy. This
+  will be more important with Subversion because of Subversion URLs which will
+  already contain llvm.org (host) and llvm-<i>something</i> (repository). We
+  don't need another level of "llvm" in the top level directories as well.</p>
+  <p>The proposed renamining is shown in the table below.</p>
+  <table class="www">
+    <tr><th>Old Name</th><th>New Name</th></tr>
+    <tr><td>llvm</td><td>llvm</td></tr>
+    <tr><td>llvm-test</td><td>test-suite</td></tr>
+    <tr><td>llvm-stacker</td><td>stacker</td></tr>
+    <tr><td>llvm-java</td><td>java</td></tr>
+    <tr><td>llvm-tv</td><td>television</td></tr>
+    <tr><td>llvm-poolalloc</td><td>poolalloc</td></tr>
+    <tr><td>nightlytest-serverside</td><td>nightly-test</td></tr>
+  </table>
+  <p><b>NOTE</b>: Due to synchronization of commits in the conversion process, 
+  we will transition all of the above to Subversion in one shot. 
+  This will allow SVN revision numbers to increase temporally instead 
+  of disjointedly if the projects were imported one at a time. It also 
+  permits revision groups to span across projects. For example, 
+  changes to llvm and llvm-stacker made at the same time with 
+  the same commit comment would be grouped as one SVN revision.
+  This increases the atomicity of commits and reduces the total number of
+  revisions in the SVN repository.</p>
+  <p><b>NOTE</b>: we will be converting neither llvm-www (UIUC web site) nor 
+  llvm-gcc (old version 3).</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="branches">Branch Status</a></div>
+<div class="www_text">
+  <p>The existing branches have been categorized as shown in the table below. If
+  a branch is scheduled to be removed and you need it, please let 
+  <a href="mailto:rspencer@reidspencer.com">Reid</a> know as soon as
+  possible.</p>
+  <h3>Branches To Be Kept</h3>
+  <table class="www">
+    <tr><th>Name</th><th>Description</th></tr>
+    <tr><td>release_*</td><td>Release branches (10 total)</td></tr>
+    <tr><td>see</td><td>Branch SVA project (will be renamed "SVA")</td></tr>
+    <tr><td>parallel</td><td>Branch for parallel features? (not sure)</td></tr>
+    <tr><td>vector_llvm</td><td>Branch for vector stuff? (not sure)</td></tr>
+    <tr><td>PowerPC_0</td>
+      <td>An early version of the PowerPC target, needed by release_13.</td>
+    </tr>
+  </table>
+
+  <h3>Branches To Be Removed</h3>
+  <table class="www">
+    <tr><th>Name</th><th>Description</th></tr>
+    <tr><td>autoconf</td>
+      <td>appears to be an early version, even before the autoconf
+        directory existed</td>
+    </tr>
+    <tr><td>bug_122</td>
+      <td>a bug fix branch that I created long ago. Its not needed any more.
+      </td>
+    </tr>
+    <tr><td>jrsdev</td>
+      <td>has exactly 2 header files in it, one for reoptimizer, the other for 
+        SparcV9</td>
+    </tr>
+    <tr><td>llvm</td>
+      <td>appears to be a *very* early version (docs has only LangRef.html, 
+        and only 3 tools)</td>
+    </tr>
+    <tr><td>regalloc_linearscan</td>
+      <td>has only 3 old header files in it</td>
+    </tr>
+    <tr><td>pre-11, prerelease_*</td>
+      <td>John created these as the first step towards a release, but it 
+        hasn't been done that way since (there's no prerelease_12 or later).  
+        I think its not important to retain these.</td>
+    </tr>
+    <tr><td>SignlessTypes</td>
+      <td>Reid created this and doesn't need/want it</td>
+    </tr>
+    <tr><td>unlabelled-*</td>
+      <td>these three appear to be mistakes (only a few files each)</td>
+    </tr>
+  </table>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="tags">Tag Status</a></div>
+<div class="www_text">
+  <p>Below are some tables of tag names to be kept or removed when the migration
+  occurs.</p>
+  <h3>Tags To Be Kept</h3>
+  <table class="www">
+    <tr><th>Name</th><th>Description</th></tr>
+    <tr><td>RELEASE_*</td><td>These are the release tags (7 total).</td></tr>
+    <tr><td>start</td><td>This seems to be the very first tag. It is required
+        by the RELEASE_* tags.</td></tr>
+  </table>
+  <h3>Tags To Be Removed</h3>
+  <table class="www">
+    <tr><th>Name</th><th>Description</th></tr>
+    <tr><td>byebye</td><td>Contains just the old lib/Analysis/DataStructure
+        stuff. It is inappropriately named and definitely not needed</td></tr>
+    <tr><td>jtc</td><td>Assuming this is John Criswell's tag and he wants
+        it</td>
+    </tr>
+    <tr><td>jtcllva</td><td>Assuming this is the LLVA tag</td></tr>
+    <tr><td>LLVM_PRE111</td><td>This is a pre-release tag to go with a branch 
+        we're planning to remove.</td>
+    </tr>
+    <tr><td>new_merge_vector</td><td>Appears to be a merging tag. Pretty sure
+        its unneeded at this point</td>
+    </tr>
+    <tr><td>PowerPC_0_0</td><td>Required by PowerPC_0 branch</td></tr>
+    <tr><td>PARALLEL_ROOT</td><td>Root of the parallel branch</td></tr>
+    <tr><td>PRE10</td><td>Root of a branch we're deleting</td></tr>
+    <tr><td>PRE101</td><td>Root of a branch we're deleting</td></tr>
+    <tr><td>PRE11</td><td>Root of a branch we're deleting</td></tr>
+    <tr><td>PRE11_ROOT</td><td>Root of a branch we're deleting</td></tr>
+    <tr><td>PRE2_ROOT</td><td>Root of a branch we're deleting</td></tr>
+    <tr><td>regalloc_linearscan_mergein_main</td><td>Merge point of branch 
+        we're deleting</td></tr>
+    <tr><td>RC15</td><td>This should have been ROOT_RELEASE_15, I think</td>
+    <tr><td>ROOT_RELEASE_*</td><td>These are the root version tags for release
+        branches (9 total). They aren't needed in SVN because of the way SVN
+        handles branches.</td>
+    </tr>
+    <tr><td>ROOT_VLLVM</td><td>The root version tag for the vector_llvm branch.</td></tr>
+    <tr><td>ST_incr_*</td><td>SignlessTypes tags, not needed any more</td></tr>
+  </table>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="process">Migration Process</a></div>
+<div class="www_text">
+  <p>The following describes the sequence of events that need to occur in order
+  to complete the migration from CVS to Subversion. While this is mostly
+  internal to the people doing the conversion, it may be useful for you to see
+  what the process is.</p>
+  <p>The list below shows the logical order in which things need to be done
+  without assigning any dates to them.</p>
+  <ol>
+    <li><b>(done) Test Repository Up</b>. </li>
+    <li><b>Integrate email notification script</b>. The email notification
+    script needs to be put into the convert script so that conversion
+    automatically has the post-commit hook set up.</li>
+    <li><b>Configure ViewVC</b>. We need to get ViewVC up and running so that it
+    is presenting the SVN repository from its new host (Zion). The main web 
+    page probably needs to be updated too.</li>
+    <li><b>(done) NewNightlyTest.pl -usesvn</b>. This script needs to be updated
+    so that the -usesvn option gets the right repository by default.</li>
+    <li><b>Final CutOver</b>. The cut-over to SVN needs to be done. Currently
+    scheduled for 6/29/2007 at 9:00am CDT.</li>
+    <li><b>GettingStarted.html</b>. Update this to reflect the new checkout
+    commands needed.</li>
+    <li><b>NewNightlyTest.pl Defaults to SVN</b>. This script needs to be 
+    updated so that the default repository is Subversion and the ability to 
+    use CVS is taken away.</li>
+    <li><b>Documents</b>. We need to rewrite the /docs/ url to go to
+    /svn/llvm-project/llvm/trunk/docs/. There's no need to have an auto-update
+    rule any more as this will always provide the latest.</li>
+    <li><b>llvm-www</b>. The web pages (but not releases sibudir) for the main 
+    web site need to be put into a new "website" module in Subversion. We can 
+    do this with the cvs2svn script again and (I think) tell it to ignore the 
+    releases directory.</li>
+    <li><b>Web Site Auto Update</b>. We don't need to check out any more, we
+    just need a rewrite rule. Basically, http://llvm.org/ needs to be rewritten
+    as accessing http://llvm.org/svn/llvm-project/website/trunk/. This is sure
+    to provde the latest version without a check out.</li>
+    <li><b>Releases</b>. We need a strategy for dealing with releases. I'd be
+    fine if these were just put in the web server's document root and not
+    version controlled. They are huge and not changed much (ever). In any event,
+    whatever we do we should jsut rewrite the /releases/ URL to point to some
+    place where the releases are stored (or create /releases/ in the document
+    root).</li>
+    <li><b>Doxygen</b>. The crontab on Zion needs to be fixed so that doxygen is
+    generated from the right sources. Probably it should be generated into some
+    standard location on Zion and then the /doxygen/ URL mapped to that
+    location.</li>
+    <li><b>llvm-gcc</b>. The llvm-gcc repository hosted by Apple needs to be
+    migrated to the Zion repository. This should be as simple as dump and load
+    since they are both Subversion.</li>
+    <li><b>HLVM</b>. The HLVM repository hosted by Reid needs to be
+    migrated to the Zion repository. This should be as simple as dump and load
+    since they are both Subversion.</li>
+  </ol>
+</div>
+
+<!-- *********************************************************************** -->
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+<br/>Last modified: $Date: 2007/06/26 22:33:16 $
+</address>
+<!--#include virtual="footer.incl" -->

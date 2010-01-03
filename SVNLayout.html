@@ -1,0 +1,220 @@
+<!--#include virtual="header.incl" -->
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">Subversion Layout and Policy</div>
+<div class="www_text">
+  <p>This document contains notes about the planned layout of the Subversion
+  repository and policies surrounding its use.</p>
+<ol>
+  <li><a href="#intro">Introduction</a></li>
+  <li><a href="#url">URL</a>
+  <li><a href="#top-level">Top Level</a>
+  <li><a href="#llvm-top">The llvm-top Module</a>
+  <li><a href="#core">Rename 'llvm' as 'core'</a>
+  <li><a href="#website">The website Module</a>
+  <li><a href="#practices">Best Practices</a>
+</ol>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="intro">Introduction</a></div>
+<div class="www_text">
+  <p>There has been some confusion recently about how the Subversion repository
+  should be laid out.  This document provides some proposals for the layout
+  including some reasoning for the decisions made. It is intended to be used as
+  a working draft until we have consensus and then as the specification for the
+  actual layout work to be done.</p>
+  <p>Much of the content here was culled from an IRC conversation between Chris,
+  Reid, Tanya and Gordon on July 2nd 2007</p>
+  <p>The sub-sections below each describe one layout construct.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="url">URL</a></div>
+<div class="www_text">
+  <p>Right now, access to subversion is provided through URLs of this form:</p>
+  <ul>
+    <li><tt>http://llvm.org/svn/llvm-project/...</tt></li>
+    <li><tt>https://user@llvm.org/svn/llvm-project/...</tt></li>
+  </ul>
+  <p>The former is for anonymous access, the later for authenticated read-write
+  access.</p>
+  <p>Given that the URL already contains "llvm.org", the llvm-project directory
+  is redundant and should be dropped.</p>
+  <p>It is proposed that all URLS should be shortened to these prefixes:</p>
+  <ul>
+    <li><tt>http://llvm.org/svn/...</tt></li>
+    <li><tt>https://user@llvm.org/svn/...</tt></li>
+  </ul>
+  <p><b>Advantages</b>:</p>
+  <ul>
+    <li>Shorter paths are always welcome.</li>
+    <li>We don't intend for the project to have multiple repositories.</li>
+    <li>No confusion about "llvm-project".</li>
+  </ul>
+  <p><b>Disadvantages</b>:</p>
+  <ul>
+    <li>We won't be able to utilize multiple subversion repositories (some would
+    claim this to be an advantage).</li>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="top-level">The Top Level</a></div>
+<div class="www_text">
+  <p>After much discussion, it was decided that the root of the repository
+  should contain only directories with one directory for each module 
+  (sub-project). Under each of those directories are the usual <tt>trunk</tt>,
+  <tt>branches</tt>, and <tt>tags</tt> directories.
+  <pre>
+    http://llvm.org/svn/llvm/
+       trunk/
+          lib/
+          include/
+          tools/
+          ...
+       tags/
+          RELEASE_10
+          ...
+          RELEASE_20
+
+    http://llvm.org/svn/llvm-gcc/
+       trunk/
+          gcc/
+          libcpp/
+          libiberty/
+          ...
+       tags/
+       branches/
+
+    ...
+  </pre>
+  <p>In other words, we are using the recommended and customary layout for the
+  repository as described in the Subversion project's 
+  <a href="http://svn.collab.net/repos/svn/trunk/doc/user/svn-best-practices.html">Best Practices</a>.
+
+  <p>There was some discussion about putting (only) the <tt>trunk</tt>,
+  <tt>branches</tt>, and <tt>tags</tt> directories at the top level with
+  sub-directories under each of those for the various modules. This was rejected
+  because of the following factors:</p>
+  <ul>
+    <li>It is not the conventional or customary arrangement for modules in a
+    repository.</li>
+    <li>It goes against the standard layout recommended by the Subversion
+    Best Practices.</li>
+    <li>It prevents a whole module from being dumped in a consistent state 
+    because there is no top level directory that contains the trunk, the
+    branches and the tags all together. Having everything in one directory is a
+    requirement for having this history correctly mapped when you dump that
+    directory. This would make it difficult to move a module to a new
+    repository, for example.</li>
+    <li>The perceived benefits of this layout be handled by the
+    <tt><a href="#llvm-top">llvm-top</a></tt> module. The original motivation
+    for this layout was:
+    <ul>
+      <li>Allows a more natural checkout URL by putting the "trunk" above the
+      module name so that it isn't necessary to specify a local directory name
+      for the thing checked out. For example, you could just:<pre>
+        svn co http://llvm.org/svn/trunk/llvm
+      </pre>instead of:<pre>
+        svn co http://llvm.org/svn/llvm/trunk llvm
+      </pre>However, this isn't a huge inconvenience and it only needs to be 
+        done once for the <a href="#llvm-top">llvm-top</a> module. From there 
+        the makefile can fetch, configure and build  what is needed.</li>
+      <li>Allows master release tags and branches to be created more easily. The
+      idea was that the modules of the project are quite interdependent and we
+      would want some kind of "version lock" on them. Turns out that since
+      everything is in the same repository and commits are atomic, that we can
+      simply use a revision number. If more specialized releases are needed, we
+      can handle them in llvm-top.</li>
+    </ul>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="llvm-top">llvm-top</a></div>
+<div class="www_text">
+  <p>We have decided that there should be a module, named <tt>llvm-top</tt> that
+  contains some "top level" stuff. This is the module that you should check out
+  at the top level of your working directory. It should also be the only module
+  you need to check out manually because the Makefile in llvm-top will assist
+  you with checking out, configuring, and building the other modules. This
+  module may also have some top level documentation (project policies, etc.) but
+  nothing specific about individual modules.</p>
+  <p>For example, we expect the typical developer scenario to go something like
+  this:<pre>
+    svn co http://llvm.org/svn/llvm-top/trunk llvm-top
+    cd llvm-top            # enter the llvm-top module you just checked out
+    make get-llvm          # fetches the llvm module from subversion
+    make get-test-suite    # fetches the llvm test suite module from subversion
+    make get-llvm-gcc      # fetches the llvm-gcc module from subversion
+    make tested-C-compiler # configures and builds both llvm and llvm-gcc 
+                           # and runs the test suite against llvm-gcc c compiler
+  </pre>
+  <p>Note here that the user could have just done "make tested-C-compiler" which
+  would know that it depended on <tt>llvm</tt>, <tt>llvm-gcc</tt>, and 
+  <tt>test-suite</tt>, checked them out automatically, and then proceeded with
+  the configure and build.</p>
+  <p>I have created an initial version of llvm-top in the repository already.
+  Please try it out and let me know what you think.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="core">Rename llvm as core</a></div>
+<div class="www_text">
+  <p>We would like to, at some point, rename the <tt>llvm</tt> module as 
+  <tt>core</tt> (or something similar). The reasons for this are:</p>
+  <ul>
+    <li>The notion of checking out "llvm" from "llvm" is a bit confusing,
+    especially for folks new to the project.</li>
+    <li>The name no longer reflects the reality. We will likely be moving things
+    out of <tt>llvm</tt> and into other modules so that it really will
+    become just the core compiler code.</li>
+    <li>We thought you all would enjoy some serious confusion.</li>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="website">The 'website' module</a></div>
+<div class="www_text">
+  <p>Because the project has become a federation of related projects, we are
+  redesigning the web site. The new website will, strangely enough, be located
+  in a module named <tt>website</tt>. This will be the site that is presented
+  for the <tt>http://llvm.org/</tt> URL. This will describe the project as a
+  whole and then provide places where each module (sub-project) can insert its
+  own content.</p>
+  <p>Chris Lattner is working on a prototype for this and a proposal for the
+  site.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection"><a name="practices">Best Practices</a></div>
+<div class="www_text">
+  <p>We intend that developers follow the 
+  <a href="http://svn.collab.net/repos/svn/trunk/doc/user/svn-best-practices.html">Best Practices</a> 
+  defined by the Subversion project. Most of the items on that page have been
+  official or unofficial practice within the LLVM development community for
+  several years. Please make sure you read these best practices and then this
+  list of notes and exceptions:</p>
+  <ol>
+    <li><i>Use a sane repository layout</i>. The best practice recommends that
+    there be a "project root" with <tt>/trunk</tt>, <tt>/branches</tt>, and
+    <tt>/tags</tt>. We will follow that advice so that all top level directories
+    are for the modules (sub-projects) with t-t-b as a layer under each of them.
+    However, we have a slight twist. We want to have a module that gets checked
+    out first as the top level on the client side as 
+    <a href="#llvm-top">discussed above</a>.</li>
+    <li>The "issue tracker" discussed means our Bugzilla system.</li>
+    <li>We will use the <i>Branch-When-Needed</i> system of branching.</li>
+  </ol>
+</div>
+
+<!-- *********************************************************************** -->
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+<br/>Last modified: $Date: 2007/07/04 19:50:11 $
+</address>
+<!--#include virtual="footer.incl" -->

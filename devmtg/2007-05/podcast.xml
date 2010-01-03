@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+	<channel>
+		<lastBuildDate>Fri, 13 Jul 2007 18:08:44 -0700</lastBuildDate>
+		<title>LLVM Developers&apos; Meeting Proceedings</title>
+		<itunes:author>Chris Hanson</itunes:author>
+		<link>http://llvm.org/devmtg/2007-05/</link>
+		<generator></generator>
+		<description>Proceedings of the LLVM Developers&apos; Meeting.</description>
+		<itunes:subtitle />
+		<itunes:summary>Proceedings of the LLVM Developers&apos; Meeting.</itunes:summary>
+		<language>en</language>
+		<copyright></copyright>
+		<itunes:owner>
+			<itunes:name></itunes:name>
+			<itunes:email></itunes:email>
+		</itunes:owner>
+		<category>Software How-To</category>
+		<itunes:category text="Technology">
+			<itunes:category text="Software How-To" />
+		</itunes:category>
+		<itunes:keywords />
+		<itunes:explicit>no</itunes:explicit>
+		<item>
+			<title>2007-05: Feedback on the Meeting</title>
+			<itunes:author>Chris Lattner</itunes:author>
+			<description />
+			<itunes:subtitle />
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/15-Lattner-Feedback.mov" length="5208315" />
+			<guid>http://llvm.org/devmtg/2007-05/15-Lattner-Feedback.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:42:43 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:02:58</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Project Management, License, Naming</title>
+			<itunes:author>Reid Spencer, Chris Lattner</itunes:author>
+			<description />
+			<itunes:subtitle />
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/14-Spencer-ProjMgmt.mov" length="11440033" />
+			<guid>http://llvm.org/devmtg/2007-05/14-Spencer-ProjMgmt.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:42:36 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:07:48</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Adoption Goals</title>
+			<itunes:author>Chris Lattner</itunes:author>
+			<description>While our adoption has increased greatly recently, we&apos;re still tiny compared to other compiler and virtual machine systems.</description>
+			<itunes:subtitle>While our adoption has increased greatly recently, we&apos;re still tiny compared to other compiler and virtual machine systems.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/13-Lattner-Adoption.mov" length="27653337" />
+			<guid>http://llvm.org/devmtg/2007-05/13-Lattner-Adoption.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:42:28 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:20:30</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: LLVM Roadmap</title>
+			<itunes:author>Reid Spencer</itunes:author>
+			<description>Does the development community care to disclose and maintain advance information about what is being worked on?</description>
+			<itunes:subtitle>Does the development community care to disclose and maintain advance information about what is being worked on?</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/12-Spencer-Roadmap.mov" length="11036026" />
+			<guid>http://llvm.org/devmtg/2007-05/12-Spencer-Roadmap.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:42:22 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:08:27</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Concurrency Primitives</title>
+			<itunes:author>Christopher Lamb</itunes:author>
+			<description>For multi-threaded shared memory models.</description>
+			<itunes:subtitle>For multi-threaded shared memory models.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/11-Lamb-Concurrency.mov" length="31687569" />
+			<guid>http://llvm.org/devmtg/2007-05/11-Lamb-Concurrency.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:42:16 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:17:44</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: LLVM in OpenGL and for Dynamic Languages</title>
+			<itunes:author>Chris Lattner</itunes:author>
+			<description>A presentation put together in 10 minutes, talking about LLVM being used for OpenGL and some speculative talk about dynamic languages.</description>
+			<itunes:subtitle>A presentation put together in 10 minutes, talking about LLVM being used for OpenGL and some speculative talk about dynamic languages.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/10-Lattner-OpenGL.mov" length="36104928" />
+			<guid>http://llvm.org/devmtg/2007-05/10-Lattner-OpenGL.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:41:18 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:23:57</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: New LLVM C Front-end</title>
+			<itunes:author>Steve Naroff</itunes:author>
+			<description>This talk describes a new from-scratch C frontend (which is aiming to support Objective C and C++ someday) for LLVM, built as a native part of the LLVM system and in the LLVM design style.</description>
+			<itunes:subtitle>This talk describes a new from-scratch C frontend (which is aiming to support Objective C and C++ someday) for LLVM, built as a native part of the LLVM system and in the LLVM design style.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/09-Naroff-CFE.mov" length="42245351" />
+			<guid>http://llvm.org/devmtg/2007-05/09-Naroff-CFE.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:41:09 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:37:37</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Secure Virtual Architecture</title>
+			<itunes:author>John Criswell</itunes:author>
+			<description>A presentation on our research to create a virtual machine that operates below the operating system and a brief introduction to some of the novel security capabilities that our architecture can enable.</description>
+			<itunes:subtitle>A presentation on our research to create a virtual machine that operates below the operating system and a brief introduction to some of the novel security capabilities that our architecture can enable.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/08-Criswell-SVA.mov" length="23897946" />
+			<guid>http://llvm.org/devmtg/2007-05/08-Criswell-SVA.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:40:49 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:21:01</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: HLVM</title>
+			<itunes:author>Reid Spencer</itunes:author>
+			<description>An overview of HLVM, its current status and its goals after integration with LLVM.</description>
+			<itunes:subtitle>An overview of HLVM, its current status and its goals after integration with LLVM.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/06-Spencer-HLVM.mov" length="21762840" />
+			<guid>http://llvm.org/devmtg/2007-05/06-Spencer-HLVM.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:28:29 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:18:48</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Introduction To Predicate Simplifier</title>
+			<itunes:author>Nick Lewycky</itunes:author>
+			<description>A review of the design and implementation of LLVM&apos;s Predicate Simplifier Pass, otherwise known as VRP (Value Range Propagation).</description>
+			<itunes:subtitle>A review of the design and implementation of LLVM&apos;s Predicate Simplifier Pass, otherwise known as VRP (Value Range Propagation).</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.mov" length="33791978" />
+			<guid>http://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:27:47 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:30:06</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: The LLVM Code Generator</title>
+			<itunes:author>Evan Cheng</itunes:author>
+			<description>An overview of the LLVM generic code generator design and changes to it that are coming in the future.</description>
+			<itunes:subtitle>An overview of the LLVM generic code generator design and changes to it that are coming in the future.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/04-Cheng-Codegen.mov" length="45278249" />
+			<guid>http://llvm.org/devmtg/2007-05/04-Cheng-Codegen.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:27:14 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:40:23</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Demystifying the LLVM Pass Manager</title>
+			<itunes:author>Devang Patel</itunes:author>
+			<description>The PassManager, which manages the execution of all LLVM passes, was recently revised to be simpler and more useful. This talk will help you understand what the new pass manager does and how to use it.</description>
+			<itunes:subtitle>The PassManager, which manages the execution of all LLVM passes, was recently revised to be simpler and more useful. This talk will help you understand what the new pass manager does and how to use it.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/03-Patel-Passmanager.mov" length="32524323" />
+			<guid>http://llvm.org/devmtg/2007-05/03-Patel-Passmanager.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:26:47 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:28:07</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: Introductions</title>
+			<itunes:author>Everyone</itunes:author>
+			<description>Everyone introduced themselves to the group.</description>
+			<itunes:subtitle>Everyone introduced themselves to the group.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/02-Introductions.mov" length="26939229" />
+			<guid>http://llvm.org/devmtg/2007-05/02-Introductions.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:22:17 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:22:03</itunes:duration>
+			<itunes:keywords />
+		</item>
+		<item>
+			<title>2007-05: A brief history of LLVM</title>
+			<itunes:author>Vikram Adve, Chris Lattner</itunes:author>
+			<description>During this brief session, Vikram and Chris (the originators of LLVM) presented a brief history of the early history of LLVM.</description>
+			<itunes:subtitle>During this brief session, Vikram and Chris (the originators of LLVM) presented a brief history of the early history of LLVM.</itunes:subtitle>
+			<itunes:summary />
+			<enclosure type="video/quicktime" url="http://llvm.org/devmtg/2007-05/01-History.mov" length="17264732" />
+			<guid>http://llvm.org/devmtg/2007-05/01-History.mov</guid>
+			<pubDate>Fri, 25 May 2007 17:21:22 -0700</pubDate>
+			<category>Software How-To</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:duration>00:14:31</itunes:duration>
+			<itunes:keywords />
+		</item>
+	</channel>
+</rss>

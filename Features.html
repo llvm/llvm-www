@@ -1,0 +1,129 @@
+<!--#include virtual="header.incl" -->
+<div class="www_sectiontitle">LLVM Features</div>
+
+<p>The <a href="releases/">LLVM compiler system</a> for C and C++ includes the
+following:</p>
+
+<ul>
+  <li>Front-ends for C, C++, Objective-C, Fortran, etc based on the GCC 4.2 
+   parsers.  
+  They support the ANSI-standard C and C++ languages to the same degree that
+  GCC supports them. Additionally, many GCC extensions are supported.  
+
+  <li>A stable implementation of the LLVM instruction set, which serves
+  as both the online and offline code representation, together with assembly
+  (ASCII) and bytecode (binary) readers and writers, and a verifier.</li>
+
+  <li>A powerful pass-management system that automatically sequences passes
+  (including analysis, transformation, and code-generation passes) based on
+  their dependences, and pipelines them for efficiency.</li>
+
+  <li>A wide range of global scalar optimizations.</li>
+
+  <li>A link-time interprocedural optimization framework with a rich set of
+  analyses and transformations, including sophisticated whole-program pointer
+  analysis, call graph construction, and support for profile-guided
+  optimizations.</li>
+
+  <li>An easily retargettable code generator, which currently supports X86, 
+      X86-64, PowerPC, PowerPC-64, ARM, Thumb, SPARC, Alpha, CellSPU, PIC16
+      MIPS, MSP430, SystemZ, and XCore.</li>
+
+  <li>A Just-In-Time (JIT) code generation system, which currently supports 
+  X86, X86-64, PowerPC and PowerPC-64.</li>
+  
+  <li>Support for generating DWARF debugging information.</li>
+
+  <li>A C back-end useful for testing and for generating native code on targets
+  other than the ones listed above.</li>
+
+  <li>A profiling system similar to gprof.</li>
+
+  <li>A test framework with a number of benchmark codes and applications.</li>
+
+  <li>APIs and debugging tools to simplify rapid development of LLVM
+  components.</li>
+</ul>
+
+<div class="www_sectiontitle">Strengths of the LLVM System</div>
+
+<div class="www_text">
+
+<ol>
+  <li>LLVM uses a simple <a href="docs/LangRef.html">low-level language</a> with
+  strictly defined semantics.</li>
+
+  <li>It includes front-ends for <a
+  href="docs/CommandGuide/html/llvmgcc.html">C</a> and
+  <a href="docs/CommandGuide/html/llvmgxx.html">C++</a>.  Front-ends for
+  Java, Scheme, and other languages are in development.</li>
+
+  <li>It includes an aggressive optimizer, including scalar, interprocedural,
+   profile-driven, and some simple loop optimizations.</li>
+  
+  <li>It supports a <a
+  href="http://llvm.org/pubs/2004-01-30-CGO-LLVM.html">life-long
+  compilation model</a>, including link-time, install-time, run-time, and
+  offline optimization.</li>
+
+  <li>LLVM has full support for <a href="docs/GarbageCollection.html">accurate
+  garbage collection</a>.</li>
+
+  <li>The LLVM code generator is relatively easy to retarget, and makes use of
+      a powerful target description language.</li>
+
+  <li>LLVM has extensive <a href="docs/">documentation</a> and has
+  hosted many <a href="ProjectsWithLLVM/">projects</a> of various sorts.</li>
+
+  <li>Many third-party users have claimed that LLVM is easy to work with and
+  develop for.  For example, the (now removed) Stacker front-end was written
+  in 4 days by someone who started knowing nothing about LLVM.  Additionally,
+  LLVM has tools to make
+  <a href="docs/Bugpoint.html">development easier</a>.</li>
+
+  <li>LLVM is under active development and is constantly being extended,
+  enhanced and improved.  See the status updates on the left bar to see the rate
+  of development.</li>
+
+  <li>LLVM is freely available under an OSI-approved "three-clause BSD" <a
+  href="http://llvm.org/docs/FAQ.html#license">license</a>.</li>
+  
+  <li>LLVM is currently used by several commercial entities, who contribute 
+      many extensions and new features.</li>
+</ol>
+
+</div>
+
+<div class="www_sectiontitle">LLVM Audience</div>
+
+<p>LLVM can be used in many different kinds of projects.  You might be
+interested in LLVM if you are:</p>
+
+<ul>
+  <li>A compiler researcher interested in compile-time, link-time
+  (interprocedural), and runtime transformations for C and C++ programs.</li>
+
+  <li>A virtual machine researcher/developer interested in a portable,
+  language-independent instruction set and compilation framework.</li>
+
+  <li>An architecture researcher interested in compiler/hardware
+  techniques.</li>
+
+  <li>A security researcher interested in static analysis or
+  instrumentation.</li>
+
+  <li>An instructor or developer interested in a system for quick prototyping of
+  compiler transformations.</li>
+
+  <li>An end-user who wants to get better performance out of your code.</li>
+</ul>
+
+<div class="www_sectiontitle">Want to Know More?</div>
+
+<p>
+You can <a href="docs/">browse the documentation online</a>,
+try <a href="/demo/index.cgi">LLVM in your web browser</a>,  or
+<a href="/releases/index.html">download the source code.</a>
+</p>
+
+<!--#include virtual="footer.incl" -->

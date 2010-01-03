@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>The LLVM Compiler Infrastructure Project</title>
+  <link rel="stylesheet" href="/llvm.css" type="text/css">
+</head>
+
+<body style="margin-left:0;">
+
+<div class="www_title">
+  The <strong>LLVM</strong> Compiler Infrastructure
+</div>
+
+<table width="100%" border=0 cellpadding=10>
+<tr>
+<td valign=top align=center>
+
+<!-- <img src="img/DragonSmall.png" width="136" height="136"> -->
+
+<b>Site Map:</b>
+<div class="www_sidebar">
+<a href="/">Overview</a><br>
+<a href="/Features.html">Features</a><br>
+<a href="/docs/">Documentation</a><br>
+<a href="/docs/CommandGuide/">Command Guide</a><br>
+<a href="/docs/#maillist">Support</a><br>
+<a href="/docs/FAQ.html">FAQ</a><br>
+<a href="/pubs/">Publications</a><br>
+<a href="/ProjectsWithLLVM/">LLVM&nbsp;Projects</a><br>
+<a href="/OpenProjects.html">Open&nbsp;Projects</a><br>
+<a href="/Users.html">LLVM&nbsp;Users</a><br>
+<a href="/developers.cgi">LLVM&nbsp;Developers</a><br>
+<a href="/bugs/">Bug&nbsp;Database</a><br>
+<a href="/Logo.html">LLVM Logo</a><br>
+<a href="http://blog.llvm.org/">Blog</a><br>
+</div>
+
+<br>
+
+<b>Download!</b>
+<div class="www_sidebar">
+<span style="font-size:smaller">Download now:</span>
+<a href="/releases/"><b>LLVM&nbsp;2.6</b></a><br>
+
+<br>
+<span style="font-size:smaller">Try the</span><br>
+<a href="/demo/"><b>online demo</b></a><br>
+<br>
+
+<span style="font-size:smaller">View the open-source</span><br>
+<a href="/releases/2.6/LICENSE.TXT"><b>license</b></a>
+</div>
+
+<br>
+
+<b>Search&nbsp;this&nbsp;Site</b>
+
+<div class="www_sidebar">
+  <form action="http://www.google.com/search" method="get">
+    <div>
+      <input type="hidden" name="sitesearch" value="llvm.org">
+      <input type=text name=q size=11><br>
+      <input type=submit value="Search!" name="submit">
+    </div>
+  </form>
+</div>
+
+<br>
+
+<b>Status&nbsp;Updates</b>
+<div class="www_sidebar">
+  <span style="font-size:smaller">
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2009-October/000033.html">Oct 23, 2009</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2009-March/000031.html">March 2, 2009</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2008-November/000030.html">Nov 9, 2008</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2008-June/000027.html">Jun 9, 2008</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2008-February/000025.html">Feb 11, 2008</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2007-September/000024.html">Sep 26, 2007</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2007-May/000023.html">May 23, 2007</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2007-February/000021.html">Feb 21, 2007</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2006-November/000020.html">Nov 19, 2006</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2006-August/000019.html">Aug 9, 2006</a><br>	
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2006-April/000018.html">Apr 20, 2006</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2005-November/000017.html">Nov 8, 2005</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2005-May/000016.html">May 18, 2005</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2005-February/000015.html">Feb 14, 2005</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2004-December/000013.html">Dec 9, 2004</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2004-October/000012.html">Oct 11, 2004</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2004-August/000011.html">Aug 13, 2004</a><br>
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2004-July/000010.html">Jul 12, 2004</a><br>
+  <a href="/OldNews.html">Older News</a><br>
+  </span>
+</div>
+
+<br>
+
+<b>Developer&nbsp;Mtgs</b>
+<div class="www_sidebar">
+  <span style="font-size:smaller">
+  <a href="http://llvm.org/devmtg/2009-10">Oct 2, 2009</a><br>
+  <a href="http://llvm.org/devmtg/2008-08-23">Aug 23, 2008</a><br>
+  <a href="http://llvm.org/devmtg/2008-08/">Aug 1, 2008</a><br>
+  <a href="http://llvm.org/devmtg/2007-05/">May 25, 2007</a><br>
+  </span>
+</div>
+
+<br>
+
+<b>Useful&nbsp;Links</b>
+<div class="www_sidebar">
+  <span style="font-size:smaller">Mailing Lists:</span><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM-dev</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmbugs">LLVM-bugs</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-testresults">LLVM-testresults</a>
+  <br><br>
+
+  <span style="font-size:smaller">IRC Channel:</span><br>
+  <a href="/docs/#irc">irc.oftc.net #llvm</a>
+
+  <br><br>
+
+  <span style="font-size:smaller">Dev. Resources:</span><br>
+  <a href="/doxygen/">doxygen</a>
+  <a href="/viewvc/llvm-project/llvm/">ViewVC</a><br>
+  <a href="/nightlytest/">Nightly Tester</a><br>
+  <a href="/bugs/">LLVM Bugzilla</a><br>
+  <a href="http://google1.osuosl.org:8011/">Buildbot</a>
+</div>
+
+<br>
+
+<span style="font-size:smaller">Maintained by:<br> <a href="mailto:sabre@nondot.org">Chris
+Lattner</a></span>
+
+</td>
+<td valign=top>

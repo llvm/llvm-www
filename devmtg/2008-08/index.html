@@ -1,0 +1,379 @@
+<!--#include virtual="../../header.incl" -->
+
+<div class="www_sectiontitle">2008 LLVM Developers' Meeting</div>
+<table>
+	<tr><td valign="top">
+<ol>
+	<li><a href="#proceedings">Proceedings</a></li>
+	<li><a href="#attendees">Attendees</a></li>
+</ol>
+</td><td>
+<ul>
+  <li><b>What</b>: The second general meeting of LLVM Developers and Users.
+  </li>
+  <li><b>Why</b>: To get acquainted, learn how LLVM is used, and exchange 
+  ideas.</li>
+  <li><b>When</b>: August 1, 2008</li>
+  <li><b>Where</b>: Apple Campus</li>
+</ul>
+</td></tr></table>
+
+<p><b>Sponsored By: Apple, Google, Adobe, University of Illinois</b></p>
+
+<p>The meeting served as a forum for <a href="http://llvm.org">LLVM</a>
+developers and users to get acquainted, learn how LLVM is used, and 
+exchange ideas about LLVM, future extensions, and its (potential)
+applications.</p>
+
+<div class="www_sectiontitle" id="proceedings">Proceedings</div>
+
+<p>The day was structured to have general overview/introduction talks about some
+major LLVM subsystems, followed by talks on applications of LLVM for various
+specific projects.</p>
+
+<p>In addition to being available here, the videos are also available <a 
+href="http://www.youtube.com/view_play_list?p=E05430D58DF9A720">on youtube</a>.</p>
+
+<table class="www">
+  <tr><th>Media</th><th>Who</th><th>Description</th></tr>
+      
+  <tr>
+    <td align="center">
+      [<a href="Lattner_Intro_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Lattner_Intro_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Chris Lattner<br><i>Apple, Inc.</i></td>
+    <td><b>Welcome and Thanks</b> - A brief welcome, thanks and some logistics
+    for the day.</td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Naroff_Clang.pdf">Slides</a>]
+      [<a href="Naroff_Clang_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Naroff_Clang_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Steve Naroff<br><i>Apple, Inc.</i></td>
+    <td>
+      <b>Clang Internals</b> - <a href="http://clang.llvm.org/">Clang</a> is
+      is a new C/ObjC/C++ front-end in development as part of the LLVM project.
+      This talk describes its current status, high level architecture, and how
+      its Abstract Syntax Trees (ASTs) work.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Gohman_CodeGenAndSelectionDAGs.pdf">Slides</a>]
+      [<a href="Gohman_CodeGenAndSelectionDAGs_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Gohman_CodeGenAndSelectionDAGs_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Dan Gohman<br><i>Apple, Inc.</i></td>
+    <td><b>CodeGen Overview and Focus on SelectionDAGs</b> - A high-level
+    overview of the LLVM Code Generator, with specific depth and overview in the
+    area of the SelectionDAG phases.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Cheng_RegisterAllocation.pdf">Slides</a>]
+      [<a href="Cheng_RegisterAllocation_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Cheng_RegisterAllocation_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Evan Cheng<br><i>Apple, Inc.</i></td>
+    <td><b>LLVM Register Allocation</b> - Description of the current design and
+    architecture of the LLVM register allocator.  The talk discusses some
+    optimizations that are currently performed as well as describing future
+    directions and where we'd like to go.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Begeman_EfficientJIT.pdf">Slides</a>]
+      [<a href="Begeman_EfficientJIT_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Begeman_EfficientJIT_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Nate Begeman<br><i>Apple, Inc.</i></td>
+    <td><b>Building an Efficient JIT</b> - LLVM provides many of the facilities
+    that you need to assemble a JIT for various purposes.  This talk walks
+    you through construction of a simple JIT for C code (based on Clang) and
+    talks about some of the important APIs for doing this.  After getting it
+    working, Nate describes the efficiency implications of various choices and
+    describes how to dramatically improve the efficiency of the first
+    implementation.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Rose_AdobePixelBender.pdf">Slides</a>]
+      [<a href="Rose_AdobePixelBender_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Rose_AdobePixelBender_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Chuck Rose III<br><i>Adobe Inc.</i></td>
+    <td><b>Adobe Image Foundation and Adobe PixelBender</b> - Adobe Image
+        Foundation is a system for JIT compiling code written in the Adobe
+        PixelBender language to run on the CPU and GPU.  This talk describes how
+        AIF and PixelBender work and how it uses LLVM to evaluate dependencies,
+        reason about dirty regions of images, and do pixel processing when a GPU
+        cannot handle a program.        
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Kremenek_StaticAnalyzer.pdf">Slides</a>]
+      [<a href="Kremenek_StaticAnalyzer_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Kremenek_StaticAnalyzer_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Ted Kremenek<br><i>Apple, Inc.</i></td>
+    <td><b>Finding Bugs with the Clang Static Analyzer</b> - The Clang Static 
+        Analyzer is a standalone tool that find bugs in C and Objective-C 
+        programs.  The analyzer is 100% open source and part of the Clang 
+        project (a new C/Objective-C/C++ frontend for LLVM).  Although still 
+        very early in its development, the tool has been effective at finding 
+        thousands of bugs in real-world C and Objective-C programs. This talk
+        presents a high-level overview of the goals, implementation, and 
+        current status of the tool.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Lopes_PHP-JIT-InTwoDays.pdf">Slides</a>]
+      [<a href="Lopes_PHP-JIT-InTwoDays_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Lopes_PHP-JIT-InTwoDays_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Nuno Lopes<br><i>Instituto Superior Tecnico</i></td>
+    <td><b>Building a JIT compiler for PHP in 2 days</b> - This talk describes
+    the implementation of the PHP interpreter and how it was easily changed into
+    an LLVM JIT.  This discusses why the facilities that LLVM provides make this
+    easy, and gives some (very early) results.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Korobeynikov_LLVMC2-CompilerDriver.pdf">Slides</a>]
+      [<a href="Korobeynikov_LLVMC2-CompilerDriver_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Korobeynikov_LLVMC2-CompilerDriver_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Anton Korobeynikov<br><i>Saint Petersburg State University</i></td>
+    <td><b>llvmc2 Compiler Driver</b> - 'llvmc2' is the LLVM Compiler Driver,
+    which is useful to people building new languages and tools from the LLVM
+    toolchain. This talk describes the constraints and purpose of a compiler
+    driver and discusses how llvmc2 fills the needs and works with those
+    constraints.  Finally, the talk describes some of the low-level architecture
+    and future directions of llvmc2.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Criswell_SVA.pdf">Slides</a>]
+      [No&nbsp;video]
+    </td>
+    <td>John Criswell<br><i>University of Illinois</i></td>
+    <td><b>SVA: Using LLVM to Provide Memory Safety</b> - <a 
+        href="http://sva.cs.uiuc.edu/">SVA</a> is an aggressive approach to
+        provide an efficient compiler-based system with memory safety on top
+        of the LLVM IR. <i>Unfortunately, video is not available due to 
+        camera problems.</i>
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Geoffray_VMKitProject.pdf">Slides</a>]
+      [<a href="Geoffray_VMKitProject_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Geoffray_VMKitProject_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Nicolas Geoffray<br><i>Universite Pierre et Marie Curie</i></td>
+    <td><b>The VMKit Project</b> - VMKit is an implementation of the Java and
+    .NET Virtual Machines that use LLVM to optimize and JIT compile the code.
+    This talk describes how VMKit integrates components from various systems,
+    how bytecode translation works, describes the current performance status
+    of the system, and discusses areas for future extension.
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      [<a href="Sander_HW-SW-CoDesignflowWithLLVM.pdf">Slides</a>]
+      [<a href="Sander_HW-SW-CoDesignflowWithLLVM_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Sander_HW-SW-CoDesignflowWithLLVM_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Tim Sander<br><i>Technischen Universitat Darmstadt</i></td>
+    <td><b>Designflow: using LLVM to compile to Hardware</b> - This project uses
+    LLVM to compile code to a mixed hardware and software implementation.  This
+    detects pieces of programs that may be efficiently compiled to VHDL and
+    synthesized them onto an FPGA.  The rest of the program is compiled to
+    PowerPC code and uses to drive the FPGA.  The system automatically handles
+    data migration and other handshaking between the two systems.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      [<a href="Petersen_FlashCCompiler.pdf">Slides</a>]
+      [<a href="Petersen_FlashCCompiler_Hi.m4v">Video&nbsp;Hi</a>]
+      [<a href="Petersen_FlashCCompiler_Lo.3gp">Video&nbsp;Lo</a>]
+    </td>
+    <td>Scott Petersen<br><i>Adobe Inc.</i></td>
+    <td><b>Flash C Compiler: Compiling C code to the Adobe Flash Virtual
+        Machine</b> - FlaCC is a research project that compiles C code to
+        ActionScript using llvm-gcc with a custom flash code generator.  This
+        enables almost arbitrary C and C++ code to be executed safely and
+        efficiently within a Flash container on web pages.  This talk describes
+        the implementation of the system and shows several compelling examples
+        that use it to run other language and CPU interpreters within Flash as
+        well as run existing large programs within C.  The demos are also
+        extremely impressive :).
+    </td>
+  </tr>
+</table>  
+
+
+
+<div class="www_sectiontitle"><a name="attendees">Attendees</a></div>
+<div class="www_text">
+<p>This table lists all attendees that have registered for this
+year's conference.</p>
+
+<table class="www">
+<tr><th>Name</th><th>Organization</th></tr>
+<tr><td>Talin -</td><td>Google</td></tr>
+<tr><td>Vikram Adve</td><td>University of Illinois at Urbana-Champaign</td></tr>
+<tr><td>Nathan Allan</td><td>Alphora / Database Consulting Group</td></tr>
+<tr><td>Owen Anderson</td><td>Apple, Inc.</td></tr>
+<tr><td>Chris Aoki</td><td>Sun Microsystems, Inc.</td></tr>
+<tr><td>Michael AuYeung</td><td>The Aerospace Corporation</td></tr>
+<tr><td>Joseph Battelle</td><td>Logitech</td></tr>
+<tr><td>Nate Begeman</td><td>Apple, Inc.</td></tr>
+<tr><td>Kris Bell</td><td>Apple, Inc.</td></tr>
+<tr><td>Jay Bharadwaj</td><td>Intel Corporation</td></tr>
+<tr><td>Robert Bowdidge</td><td>Self</td></tr>
+<tr><td>Max Burke</td><td>Electronic Arts</td></tr>
+<tr><td>Anders Carlsson</td><td>Apple, Inc.</td></tr>
+<tr><td>Chandler Carruth</td><td>Google, Inc</td></tr>
+<tr><td>Evan Cheng</td><td>Apple, Inc.</td></tr>
+<tr><td>Andy Chou</td><td>Coverity, Inc.</td></tr>
+<tr><td>Eric Christopher</td><td>Apple, Inc</td></tr>
+<tr><td>Jan Civlin</td><td>AMD</td></tr>
+<tr><td>Marshall Clow</td><td>Qualcomm, Inc.</td></tr>
+<tr><td>John Criswell</td><td>University of Illinois</td></tr>
+<tr><td>Brooks Davis</td><td>The Aerospace Corporation / The FreeBSD Project</td></tr>
+<tr><td>Andrew Donoho</td><td>IBM</td></tr>
+<tr><td>Stefanus Du Toit</td><td>RapidMind</td></tr>
+<tr><td>Daniel Dunbar</td><td>Stanford University / Apple Inc.</td></tr>
+<tr><td>Bernardo Elayda</td><td>Wind River</td></tr>
+<tr><td>Ken Ferry</td><td>Apple, Inc.</td></tr>
+<tr><td>Tim Foley</td><td>Self</td></tr>
+<tr><td>Chandrashekhar Garud</td><td>Sun Microsystems</td></tr>
+<tr><td>Nicolas Geoffray</td><td>Université Pierre et Marie Curie</td></tr>
+<tr><td>Dan Gohman</td><td>Apple, Inc.</td></tr>
+<tr><td>John Golenbieski</td><td>Self</td></tr>
+<tr><td>Eric Gouriou</td><td>Apple, Inc.</td></tr>
+<tr><td>Ryan Govostes</td><td>Alacatia Labs, Inc.</td></tr>
+<tr><td>David Greene</td><td>Cray, Inc.</td></tr>
+<tr><td>Jim Grosbach</td><td>Apple, Inc.</td></tr>
+<tr><td>Vinod Grover</td><td>NVIDIA</td></tr>
+<tr><td>Alfonso Guerra</td><td>Apokalypse Software Corp.</td></tr>
+<tr><td>Mohammad Reza Haghighat</td><td>Intel Corporation</td></tr>
+<tr><td>Chris Hanson</td><td>Apple, Inc.</td></tr>
+<tr><td>Kurt Harriman</td><td>Greenplum</td></tr>
+<tr><td>Stuart Hastings</td><td>Apple, Inc.</td></tr>
+<tr><td>John Hixson</td><td>University of the Pacific</td></tr>
+<tr><td>Robert Hundt</td><td>Google</td></tr>
+<tr><td>Oliver Hunt</td><td>Apple, Inc.</td></tr>
+<tr><td>Changhao Jiang</td><td>Facebook Inc.</td></tr>
+<tr><td>dale johannesen</td><td>Apple, Inc.</td></tr>
+<tr><td>Francois Jouaux</td><td>Apple, Inc.</td></tr>
+<tr><td>Benjamin King</td><td>DemandEO.com</td></tr>
+<tr><td>George King</td><td>arboreality.net</td></tr>
+<tr><td>Nick Kledzik</td><td>Apple, Inc.</td></tr>
+<tr><td>Anton Korobeynikov</td><td>Saint Petersburg State University</td></tr>
+<tr><td>Ted Kremenek</td><td>Apple, Inc.</td></tr>
+<tr><td>Chris Lattner</td><td>Apple, Inc.</td></tr>
+<tr><td>Tanya Lattner</td><td>Apple, Inc.</td></tr>
+<tr><td>Andrew Lenharth</td><td>University of Illinois</td></tr>
+<tr><td>Mark Leone</td><td>Self</td></tr>
+<tr><td>Julien Lerouge</td><td>Apple, Inc.</td></tr>
+<tr><td>Nicholas Lewycky</td><td>Google</td></tr>
+<tr><td>Nuno Lopes</td><td>Instituto Superior Técnico</td></tr>
+<tr><td>olivier maggi</td><td>numeriz</td></tr>
+<tr><td>Dmitri Makarov</td><td>AMD</td></tr>
+<tr><td>Ali Mashtizadeh</td><td>VMware, Inc.</td></tr>
+<tr><td>Henry Mason</td><td>Apple, Inc.</td></tr>
+<tr><td>Scott Michel</td><td>Aerospace</td></tr>
+<tr><td>Keir Mierle</td><td>Google</td></tr>
+<tr><td>Daniel Moniz</td><td>Unified Research</td></tr>
+<tr><td>Marcel Moolenaar</td><td>The FreeBSD Project</td></tr>
+<tr><td>Alireza Moshtaghi</td><td>Microchip Technology</td></tr>
+<tr><td>Ginger Myles</td><td>Apple, Inc.</td></tr>
+<tr><td>Prashanth Narayanaswamy</td><td>Sun Microsystems</td></tr>
+<tr><td>Steve Naroff</td><td>Apple, Inc.</td></tr>
+<tr><td>Ted Neward</td><td>Neward &amp; Associates</td></tr>
+<tr><td>Jay O'Conor</td><td>Self</td></tr>
+<tr><td>Maksim Panchenko</td><td>Sun Microsystems</td></tr>
+<tr><td>Ji Young Park</td><td>AMD Inc.</td></tr>
+<tr><td>Terence Parr</td><td>University of San Francisco</td></tr>
+<tr><td>Devang Patel</td><td>Apple, Inc.</td></tr>
+<tr><td>Scott Petersen</td><td>Adobe Systems, Inc.</td></tr>
+<tr><td>Richard Phillips</td><td>Wolfram Research</td></tr>
+<tr><td>Ernest Prabhakar</td><td>Apple, Inc.</td></tr>
+<tr><td>Gregor Purdy</td><td>Apple, Inc.</td></tr>
+<tr><td>Paul Ramsey</td><td>Dreamworks Animation</td></tr>
+<tr><td>Joseph Ranieri</td><td>Alacatia Labs, Inc.</td></tr>
+<tr><td>Nicholas Ray</td><td>Windly Games.</td></tr>
+<tr><td>Rob Reynolds</td><td>Alphora / Database Consulting Group</td></tr>
+<tr><td>Bryn Rhodes</td><td>Alphora / Database Consulting Group</td></tr>
+<tr><td>Stephen Richardson</td><td>Mucho Consultio, SA de CV</td></tr>
+<tr><td>Charles Rose</td><td>Adobe Systems Incorporated</td></tr>
+<tr><td>Tim Sander</td><td>Integrated Systems and Circuits, Technische Universität Darmstadt</td></tr>
+<tr><td>Shirish Seetharam</td><td>Cisco Systems</td></tr>
+<tr><td>Mitesh Shah</td><td>ARC International</td></tr>
+<tr><td>Craig Smith</td><td>National Instruments</td></tr>
+<tr><td>Evan Smyth</td><td>DreamWorks Animation</td></tr>
+<tr><td>Pratik Solanki</td><td>Apple, Inc.</td></tr>
+<tr><td>Mike Stump</td><td>Apple, Inc.</td></tr>
+<tr><td>Andre Sublette</td><td>Self</td></tr>
+<tr><td>Richard Sweet</td><td>Adobe Systems</td></tr>
+<tr><td>Yan Tang</td><td>VMware</td></tr>
+<tr><td>Caroline Tice</td><td>Apple, Inc.</td></tr>
+<tr><td>Ross Towle</td><td>Sun</td></tr>
+<tr><td>Andrew Trick</td><td>Hewlett-Packard</td></tr>
+<tr><td>Hemant Trivedi</td><td>Silicon Informatics, Inc</td></tr>
+<tr><td>Erick Tryzelaar</td><td>self</td></tr>
+<tr><td>Mon Ping Wang</td><td>Apple, Inc.</td></tr>
+<tr><td>Douglas Watt</td><td>XMOS Semiconductor</td></tr>
+<tr><td>Patrick Webster</td><td>Self</td></tr>
+<tr><td>Marcel Weiher</td><td>Apple, Inc.</td></tr>
+<tr><td>Sam Weinig</td><td>Apple, Inc.</td></tr>
+<tr><td>Steve Weissinger</td><td>Wind River</td></tr>
+<tr><td>Bill Wendling</td><td>Apple, Inc.</td></tr>
+<tr><td>Hans-Martin Will</td><td>Vincent 3D Rendering Library (OSS project)</td></tr>
+<tr><td>Pen-Chung Yew</td><td>University of Minnesota</td></tr>
+<tr><td>Anna Zaks</td><td>New York University</td></tr>
+<tr><td>Mark Zarins</td><td>GrammaTech</td></tr>
+<tr><td>Robert Zeh</td><td>None</td></tr>
+<tr><td>Jie Zhang</td><td>Greenplum Inc.</td></tr>
+<tr><td>Bixia Zheng</td><td>AMD</td></tr>
+<tr><td>Vojin Zivojnovic</td><td>ARM</td></tr>
+</table>
+<p><b>Total Confirmed: 118</b></p>
+</div>
+
+<!-- *********************************************************************** -->
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+<br>Last modified: $Date: 2009/07/27 20:27:50 $
+</address>
+
+<!--#include virtual="../../footer.incl" -->

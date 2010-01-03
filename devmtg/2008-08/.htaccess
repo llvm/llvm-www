@@ -1,0 +1,5 @@
+AddType audio/mpeg mp3
+AddType audio/x-m4a m4a
+AddType video/x-m4v m4v
+AddType video/mp4 mp4 
+AddType video/3gpp 3gp

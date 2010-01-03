@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /bugs
+Disallow: /doxygen
+Disallow: /cvsweb
+Disallow: /stats
+Disallow: /testresults/X86
+Disallow: /nightlytest
+Disallow: /viewvc
+Disallow: /nightlytest2
+Disallow: /devmtg/2008-08/*.m4v$
+Disallow: /devmtg/2008-08/*.3gp$
+Disallow: /svn

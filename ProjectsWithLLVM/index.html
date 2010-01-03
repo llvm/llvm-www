@@ -1,0 +1,813 @@
+<!--#include virtual="../header.incl" -->
+<div class="www_sectiontitle">Projects built with LLVM</div>
+
+<div class="www_text">
+
+<p>This page is an incomplete list of the projects built with LLVM, sorted in
+reverse chronological order.  The idea of this list is to show some of the
+things that have been done with LLVM for various course projects or for other
+purposes, which can be used as a source of ideas for future projects.  Another
+good place to look is the list of <a href="../pubs">published papers and
+theses that use LLVM</a>.</p>
+
+<p>Note that this page is not intended to reflect that current state of LLVM or
+show endorsement of any particular project over another.  This is just a
+showcase of the hard work various people have done.  It also shows a bit about
+how the capabilities of LLVM have evolved over time.</p>
+
+<p>We are always looking for new contributions to this page.  If you work on a
+project that uses LLVM for a course or a publication, we would definitely like
+to hear about it, and would like to include your work here as well.  Please just
+send email to <a href="mailto:sabre@nondot.org">Chris Lattner</a> with an entry
+like those below.  We're not particularly looking for source code (though we
+welcome source-code contributions through the normal channels), but instead
+would like to put up the "polished results" of your work, including reports,
+papers, presentations, posters, or anything else you have.</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="toc">Table of Contents</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_text">
+
+<ul>
+<li><a href="#rubinius">Rubinius: a Ruby implementation</a></li>
+<li><a href="#unladenswallow">Unladen Swallow: an optimization branch of
+    CPython</a></li>
+<li><a href="#macruby">MacRuby</a></li>
+<li><a href="#tta-tce">TTA-based Codesign Environment (TCE)</a></li>
+<li><a href="#icedtea">The IcedTea Version of Sun's OpenJDK</a></li>
+<li><a href="#pure">The Pure Programming Language Compiler</a></li>
+<li><a href="#LDC">LDC Compiler for the D Programming Language</a></li>
+<li><a href="#compilerwrite">How to Write Your Own Compiler</a></li>
+<li><a href="#puzzles">Register Allocation by Puzzle Solving</a></li>
+<li><a href="#faust">Faust Real-Time Signal Processing System</a></li>
+<li><a href="#adobe-hydra">Adobe "Hydra" Language</a></li>
+<li><a href="#Calysto">Calysto Static Checker</a></li>
+<li><a href="#ssa_ra">Improvements on SSA-Based Register Allocation</a></li>
+<li><a href="#LENS">LENS Project</a></li>
+<li><a href="#trident">Trident Compiler</a></li>
+<li><a href="#ascenium">Ascenium Reconfigurable Processor Compiler</a></li>
+<li><a href="#pypy">The PyPy Python Implementation Project</a></li>
+<li><a href="#scheme">Scheme to LLVM Translator</a></li>
+<li><a href="#llvmtv">LLVM Visualization Tool</a></li>
+<li><a href="#linearscan">Improvements to Linear Scan register
+    allocation</a></li>
+<li><a href="#llvaemu">LLVA-emu project</a></li>
+<li><a href="#spedi">SPEDI: Static Patch Extraction and Dynamic
+    Insertion</a></li>
+<li><a href="#ssapre">An LLVM Implementation of SSAPRE</a></li>
+<li><a href="#jello">Jello: a retargetable <b>J</b>ust-In-Time compil<b>e</b>r
+    for <b>LL</b>VM bytec<b>o</b>de</a></li>
+</ul>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="rubinius">Rubinius</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By <a href="http://rubini.us/community.html">Evan Phoenix and the Rubinius team</a>
+</div>
+
+<div class="www_text">
+<p><a href="http://github.com/evanphx/rubinius">Rubinius</a> is a new virtual
+machine for Ruby. It leverages LLVM to dynamically compile Ruby code down to
+machine code using LLVM's JIT.</p>
+</div>
+
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="unladenswallow">Unladen Swallow</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By the <a href="http://groups.google.com/group/unladen-swallow">Unladen Swallow
+community</a>
+</div>
+
+<div class="www_text">
+<p><a href="http://code.google.com/p/unladen-swallow/">Unladen Swallow</a> is a
+branch of <a href="http://python.org/">Python</a> intended to be fully
+compatible and significantly faster.  It uses LLVM's optimization passes and JIT
+compiler.</p>
+</div>
+
+
+<!--=========================================================================-->
+
+<div class="www_subsection">
+<a name="macruby">MacRuby</a>
+</div>
+
+<div class="www_subsubsection">
+By the
+<a href="http://www.macruby.org/project.html">MacRuby Project Team</a>
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://macruby.org">MacRuby</a> is an implementation of Ruby on top of core Mac OS X technologies, such as the Objective-C common runtime and garbage collector, and the CoreFoundation framework. It is principally developed by Apple and aims at enabling the creation of full-fledged Mac OS X applications.</p>
+
+<p>
+MacRuby uses LLVM for optimization passes, JIT and AOT compilation of Ruby expressions. It also uses zero-cost DWARF exceptions to implement Ruby exception handling.
+</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="tta-tce">TTA-based Codesign Environment (TCE)</a>
+</div>
+
+<div class="www_subsubsection">
+By the Flexible Design Methodologies for Application Specific Processors (FlexASP) Team
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://tce.cs.tut.fi">TCE</a> is a toolset for designing 
+application-specific processors (ASP) based on
+the Transport triggered architecture (TTA). The toolset provides a complete
+co-design flow from C programs down to synthesizable VHDL and parallel program
+binaries. Processor customization points include the register files, function
+units, supported operations, and the interconnection network.</p>
+
+<p>
+TCE uses llvm-gcc and LLVM for C language support, target independent
+optimizations and also for parts of code generation. TCE generates new
+LLVM-based code generators "on the fly" for the designed TTA processors and
+loads them in to the compiler backend as runtime libraries to avoid per-target
+recompilation of larger parts of the compiler chain.
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="icedtea">The IcedTea Version of Sun's OpenJDK</a>
+</div>
+
+<div class="www_subsubsection">
+By Gary Benson (Red Hat, USA)
+</div>
+
+<div class="www_text">
+<p>
+The <a href="http://icedtea.classpath.org/">IcedTea</a>
+project was formed to provide a harness to build OpenJDK
+using only free software build tools and to provide replacements for
+the not-yet free parts of OpenJDK.  Over time, various extensions to
+OpenJDK have been included in IcedTea.
+</p>
+<p> One of these extensions is
+<a href="http://openjdk.java.net/projects/zero/">Zero.</a>
+OpenJDK only supports x86 and SPARC
+processors; Zero is a processor-independent layer that allows OpenJDK
+to build and run using any processor.  Zero contains a JIT compiler
+called <a href="http://icedtea.classpath.org/wiki/ZeroSharkFaq">Shark</a>
+which uses LLVM to provide native code generation without
+introducing processor-dependent code.
+</p>
+<p> The development of Zero and Shark were funded by Red Hat.
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="pure">The Pure Programming Language Compiler</a>
+</div>
+
+<div class="www_subsubsection">
+By Albert Graef, Johannes Gutenberg University Mainz (Germany)
+</div>
+
+<div class="www_text">
+<p> <a href="http://pure-lang.googlecode.com/">Pure</a> is an 
+algebraic/functional
+programming language based on term rewriting. Programs are collections
+of equations which are used to evaluate expressions in a symbolic
+fashion. Pure offers dynamic typing, eager and lazy evaluation, lexical
+closures, a hygienic macro system (also based on term rewriting),
+built-in list and matrix support (including list and matrix
+comprehensions) and an easy-to-use C interface. The interpreter uses
+LLVM as a backend to JIT-compile Pure programs to fast native code.</p>
+
+<p>In addition to the usual algebraic data structures, Pure also has
+MATLAB-style matrices in order to support numeric computations and
+signal processing in an efficient way. Pure is mainly aimed at
+mathematical applications right now, but it has been designed as a
+general purpose language. The dynamic interpreter environment and the C
+interface make it possible to use it as a kind of functional scripting
+language for many application areas.
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="LDC">LDC Compiler for the D Programming Language</a>
+</div>
+
+<div class="www_subsubsection">
+By the <a href="http://groups.google.com/group/ldc-dev/">LDC Community</a>
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://www.dsource.org/projects/ldc">LDC</a> is a compiler for the <a 
+href="http://www.digitalmars.com/d">D programming Language</a>. It is based on
+the latest DMD frontend and uses LLVM as its backend.  LLVM provides a
+fast and modern backend for high quality code generation.</a>
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="compilerwrite">How to Write Your Own Compiler</a>
+</div>
+
+<div class="www_subsubsection">
+By <a href="http://staff.polito.it/silvano.rivoira/">Silvano Rivoira, Politecnico di Torino</a>
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://staff.polito.it/silvano.rivoira/HowToWriteYourOwnCompiler.htm">
+This project</a> describes the development of a compiler front end producing 
+LLVM Assembly Code for a Java-like programming language.  It is used in a 
+course on Compilers to show how to incrementally design and implement the 
+successive phases of the translation process by means of  common tools such 
+as JFlex and Cup.  The source code developed at each step is made available.
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="puzzles">Register Allocation by Puzzle Solving</a>
+</div>
+
+<div class="www_subsubsection">
+By Fernando Pereira and Jens Palsberg, UCLA.
+</div>
+
+<div class="www_text">
+<p>
+In this project, we have shown that register allocation can be viewed
+as solving a collection of puzzles.
+We model the register file as a puzzle board and
+the program variables as puzzle pieces;
+pre-coloring and register aliasing fit in naturally.
+For architectures such as x86, SPARC V8, and StrongARM,
+we can solve the puzzles in polynomial time, and we have augmented
+the puzzle solver with a simple heuristic for spilling.
+For SPEC CPU2000, our implementation is as fast as
+the extended version of linear scan used by LLVM.
+Our implementation produces Pentium code that is of similar quality to the
+code produced by the slower, state-of-the-art iterated register coalescing
+algorithm of George and Appel augmented with extensions by Smith, Ramsey, and
+Holloway.
+</p>
+
+<p>
+<a href="http://compilers.cs.ucla.edu/fernando/projects/puzzles/">Project
+   page</a> with a link to a tool that verifies the output of LLVM's register 
+   allocator.
+</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection" id="faust">
+Faust Real-Time Signal Processing System
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By <a href="http://www.grame.fr">Grame, National Center of Music Creation</a>
+</div>
+
+<div class="www_text">
+
+<p>
+FAUST is a compiled language for real-time audio signal processing. The name
+FAUST stands for Functional AUdio STream. Its programming model combines two
+approaches: functional programming and block diagram composition. You can
+think of FAUST as a structured block diagram language with a textual syntax.
+The project aims at developing a new backend for Faust that will directly
+produce LLVM IR instead of the C++ class Faust currently produces. With a
+(yet to come) library version of the Faust compiler, it will allow
+developers to embed Faust + LLVM JIT to dynamically define, compile on the
+fly and execute Faust plug-ins. LLVM IR and tools also allows some nice
+bytecode manipulations like "partial evaluation/specialization" that will
+also be investigated.
+</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="adobe-hydra">Adobe "Hydra" Language</a>
+<br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By Adobe Systems Incorporated
+</div>
+
+<div class="www_text">
+
+<p>
+Efficient use of the computational resources available for image processing is
+a goal of the <a href="http://labs.adobe.com/wiki/index.php/AIF_Toolkit">Adobe 
+Image Foundation</a> project.  Our language, "Hydra", is used 
+to describe single- and multi-stage image processing kernels, which are then 
+compiled and run on a target machine within a larger application.  Similarly 
+to how its namesake had many heads, our Hydra can be run on the GPU or 
+alternately on the host CPU(s).  AIF uses LLVM for our CPU path.</p>
+
+<p>
+The first Adobe application to use our system is the soon-to-ship After 
+Effects CS3.  We welcome you to try out our public beta found at 
+<a href="http://labs.adobe.com/technologies/aftereffectscs3/">labs.adobe.com</a>.
+</p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="Calysto">Calysto Static Checker</a>
+<br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By Domagoj Babic, UBC.
+</div>
+
+<div class="www_text">
+
+<p>
+<a href="http://www.cs.ubc.ca/~babic/index_calysto.htm">Calysto</a>
+is a scalable context- and path-sensitive SSA-based static
+assertion checker. Unlike other static
+checkers, Calysto analyzes SSA directly, which means that it not only
+checks the original code, but also the front-end (including
+SSA-optimizations) of the compiler which
+was used to compile the code. The advantage of doing static checking on
+the SSA is language independency and the fact that the checked code is much
+closer to the generated assembly than the source code.
+</p>
+
+<p>
+Several main factors contribute to Calysto's scalability:
+   <ul>
+     <li> A novel SSA symbolic execution algorithm that exploits the
+     structure of the control flow graph to minimize the number of
+     paths that need to be considered.</li>
+
+     <li> Lazy interprocedural analysis.</li>
+     <li> Tight integration with the
+       <a href="http://www.cs.ubc.ca/~babic/index_spear.htm">Spear</a>
+       automated theorem prover, designed for software static
+       checking.</li>
+     <li> And, of course, fast implementations of the basic algorithms
+     in LLVM (dominator trees, postdominance, etc.).</li>
+  </ul>
+</p>
+
+<p>
+Currently, Calysto is still in the development phase, and the first results
+are encouraging. Most likely, the first public release will happen some
+time in the fall 2007.
+<a href="http://www.cs.ubc.ca/~babic/index_spear.htm">Spear</a>
+and Calysto generated
+<a href="http://www.cs.ubc.ca/~babic/index_benchmarks.htm">benchmarks</a>
+are available.
+</p>
+
+</div>
+
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="ssa_ra">Improvements on SSA-Based Register Allocation.</a>
+</div>
+
+<div class="www_subsubsection">
+By Fernando Pereira, UCLA.
+</div>
+
+<div class="www_text">
+<p>
+The register allocation problem has an exact polynomial solution when restricted
+to programs in the Single Static Assignment (SSA) form.
+Although striking, this major theoretical accomplishment has yet to be endorsed empirically.
+This project consists in the implementation of a complete
+SSA-based register allocator using the
+<A href="http://llvm.org/" target="blank">LLVM</A> compiler framework.
+We have implemented a static transformation of the target program that simplifies the
+implementation of the register allocator and improves the quality of the code that
+it generates.
+We also describe novel techniques to perform register coalescing and
+SSA-elimination.
+In order to validate our allocation technique, we extensively compare different
+flavors of our method against a modern and heavily tuned extension of
+the linear-scan register allocator described
+<A href="2004-Fall-CS426-LS.pdf">here</A>.
+The proposed algorithm consistently produces faster code when the target
+architecture provides a small number of registers.
+For instance, we have achieved an average speed-up of 9.2% when limiting the
+number of registers to four general purpose and three reserved register.
+By augmenting the algorithm with an aggressive coalescing technique, we have
+
+been able to raise the speed improvement up to 13.0%.
+</p>
+
+<P>
+This project was supported by the google's
+<A href="http://code.google.com/soc/" target="blank">Summer of Code</A>
+initiative. Fernando Pereira is funded by
+<A href="http://www.capes.gov.br/capes/portal/" target="blank">CAPES</A>
+under process number 218603-9.
+</P>
+
+<p>
+<a href="http://compilers.cs.ucla.edu/fernando/projects/soc/">Project page.</a>
+</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="LENS">LENS Project</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By Michael O. McCracken, UCSD.
+</div>
+
+<div class="www_text">
+<p>
+The <a href="http://www.cs.ucsd.edu/~mmccrack/lens/">LENS Project</a> 
+is intended to improve the task of measuring programs and
+investigating their behavior.  LENS defines an external representation 
+of a program in XML to store useful information
+that is accessible based on program structure, including loop 
+structure information.</p>
+
+<p>Lens defines a flexible naming scheme for program components 
+based on XPath and the LENS XML document structure. This allows
+users and tools to selectively query program behavior from a
+uniform interface, allowing users or tools to ask a variety of
+questions about program components, which can be answered by any
+tool that understands the query. Queries, metrics and program
+structure are all stored in the LENS file, and are annotated with 
+version names that support historical comparison and scientific 
+record-keeping.</p>
+
+<p>Compiler writers can use LENS to expose results of transformations
+and analyses for a program easily, without worrying about display or
+handling information overload. This functionality has been
+demonstrated using LLVM. LENS uses LLVM for two purposes: first, to
+generate the initial program structure file in XML using an LLVM
+pass, and second, as a demonstration of the advantages of selective
+querying for compiler information, with an interface built into LLVM
+that allows LLVM passes to easily respond to queries in a LENS file.</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="trident">Trident Compiler</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By <a href="http://www.lanl.gov/">Los Alamos National Laboratory</a>
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://trident.sf.net/">Trident</a> is a compiler for
+floating point algorithms written in C, producing Register Transfer
+Level VHDL descriptions of circuits targetted for reconfigurable logic
+devices. Trident automatically extracts parallelism and pipelines loop
+bodies using conventional compiler optimizations and scheduling
+techniques. Trident also provides an open framework for
+experimentation, analysis, and optimization of floating point
+algorithms on FPGAs and the flexibility to easily integrate custom
+floating point libraries.</p>
+
+<p>
+Trident uses the LLVM C/C++ front-end to parse input languages and
+produce low-level platform independent code.</p>
+</div>
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="ascenium">Ascenium Reconfigurable Processor Compiler</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By <a href="http://www.ascenium.com/">Ascenium Corporation</a>
+</div>
+
+<div class="www_text">
+<p>
+Ascenium is a fine-grained continuously reconfigurable processor that
+handles most instructions at hard-wired speeds while retaining the ability
+to be targeted by conventional high level languages, giving users "all the
+performance of hardware, all the ease of software."</p>
+
+<p>
+The Ascenium team prefers LLVM bytecodes as input to its code generator for
+several reasons:
+<ul>
+<li>LLVM's all inclusive format makes global optimizations and
+consolidations such as global data dependency analysis easy.</li>
+<li>LLVM's rich and strictly typed format generally make subtle and
+sophisticated optimizations easy.</li>
+<li>LLVM's great ancillary tools and documentation make it easy to
+work with -- even hardware geeks can understand it!</li>
+</ul>
+</p>
+
+<p>Ascenium's <a href="http://www.hotchips.org/archives/hc17/">HOT CHIPS 17</a>
+<a href="Ascenium.pdf">presentation</a> describes the architecture and compiler
+in more detail.</p>
+</div>
+
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="pypy">The PyPy Python Implementation Project</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">
+By Carl Friedrich Bolz, Richard Emslie, Eric van Riet Paap and the rest 
+of the PyPy Team
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://codespeak.net/pypy/dist/pypy/doc/news.html">The PyPy Project</a> 
+is a reimplementation
+of <a href="http://www.python.org/">Python</a> written in Python itself, 
+that is flexible and easy to experiment with. Our
+ long-term goals are to target a large variety of platforms, small and large,
+by providing a compiler toolsuite that can produce custom Python versions.
+Platform, Memory and Threading models are to become aspects of the translation
+process - as opposed to encoding low level details into a language 
+implementation itself. Eventually, dynamic optimization techniques - 
+implemented as another translation aspect - should become robust against 
+language changes.</p>
+
+<p>At the time of this writing, PyPy currently targets LLVM and C.</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="scheme">Scheme to LLVM Translator</a><br>
+</div>
+<!--=========================================================================-->
+
+<div class="www_subsubsection">By Tobias Nurmiranta</div>
+
+<div class="www_text">
+<p>
+This is a <a href="http://www.ida.liu.se/~tobnu/scheme2llvm/">small scheme
+compiler</a> for LLVM, written in scheme.  It is good enough to compile itself
+and work.</p>
+
+<p>The code is quite similar to the code in the book SICP (Structure and
+Interpretation of Computer Programs), chapter five, with the difference that it
+implements the extra functionality that SICP assumes that the explicit control
+evaluator (virtual machine) already have. Much functionality of the compiler is
+implemented in a subset of scheme, llvm-defines, which are compiled to llvm
+functions.</p>
+</div>
+
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="llvmtv">LLVM Visualization Tool</a>
+</div>
+<!--=========================================================================-->
+<!-- CS497rej: Object-Oriented Programming and Design (Spring 2004) Project -->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By <a href="http://misha.brukman.net/">Misha Brukman</a>,
+<a href="http://nondot.org/tonic/">Tanya Brethour</a>, and
+<a href="http://netfiles.uiuc.edu/gaeke/www/">Brian Gaeke</a><br>
+</div>
+
+<div class="www_text">
+<p>
+The LLVM Visualization Tool (LLVM-TV) can be used to visualize the effects
+of transformations written in the LLVM framework.  Our visualizations
+reflect the state of a compilation unit at a single instant in time,
+between transformations; we call these saved states "snapshots".  A user
+can visualize a sequence of snapshots of the same module---for example,
+as a program is being optimized---or snapshots of different modules,
+for comparison purposes.
+</p>
+
+<p>
+Our target audience consists of developers working within the LLVM
+framework, who are trying to understand the LLVM representation and its
+analyses and transformations.  In addition, LLVM-TV has been designed
+to make it easy to add new kinds of program visualization modules.
+LLVM-TV is based on the <a href="http://www.wxwindows.org">wxWidgets</a>
+cross-platform GUI framework, and uses AT&amp;T Research's
+<a href="http://www.research.att.com/sw/tools/graphviz">GraphViz</a> to
+draw graphs.
+</p>
+
+<p><a href="http://wiki.cs.uiuc.edu/cs497rej/LLVM+Visualization+Tool">Wiki
+page</a> with overview; design doc, and user manual.  You can download 
+llvm-tv from LLVM SVN (http://llvm.org/svn/llvm-project/television/trunk).</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="linearscan">Improvements to Linear Scan register allocation</a>
+</div>
+<!--=========================================================================-->
+<!-- CS426: Advanced Compilers (Fall 2003) Project<br>-->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By <a href="mailto:alkis@cs.uiuc.edu">Alkis Evlogimenos</a>
+</div>
+
+<div class="www_text">
+<p>Linear scan register allocation is a fast global register allocation first
+presented in <a href="http://citeseer.ist.psu.edu/poletto99linear.html">Linear
+Scan Register Allocation</a> as an alternative to the more widely used graph
+coloring approach. In this paper, I apply the linear scan register allocation
+algorithm in a system with SSA form and show how to improve the algorithm by
+taking advantage of lifetime holes and memory operands, and also eliminate the
+need for reserving registers for spill code.</p>
+
+<p>Project report: <a href="2004-Fall-CS426-LS.ps">PS</a>, <a
+href="2004-Fall-CS426-LS.pdf">PDF</a></p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="llvaemu">LLVA-emu project</a>
+</div>
+<!--=========================================================================-->
+<!-- CS497YYZ: Hot Topics in Operating Systems (Fall 2003) -->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By <a href="http://misha.brukman.net/">Misha Brukman</a> and
+<a href="http://netfiles.uiuc.edu/gaeke/www/">Brian Gaeke</a>
+</div>
+
+<div class="www_text">
+<p>"Traditional architectures use the hardware instruction set for dual
+purposes: first, as a language in which to express the semantics of software
+programs, and second, as a means for controlling the hardware. The thesis of
+the <a href="/pubs/2003-10-01-LLVA.html">Low-Level Virtual Architecture</a>
+project is to decouple these two uses from one another, allowing software to be
+expressed in a semantically richer, more easily-manipulated format, and
+allowing for more powerful optimizations and whole-program analyses directly on
+compiled code.</p>
+
+<p>The semantically rich format we use in LLVA, which is based on the LLVM
+compiler infrastructure's intermediate representation, can best be understood
+as a "virtual instruction set". This means that while its instructions are
+closely matched to those available in the underlying hardware, they may not
+correspond exactly to the instructions understood by the underlying hardware.
+These underlying instructions we call the "implementation instruction set."
+Between the two layers lives the translation layer, typically implemented in
+software.</p>
+
+<p>In this project, we have taken our next logical steps in this effort by (1)
+porting the entire Linux kernel to LLVA, and (2) engineering an environment in
+which a kernel can be run directly from its LLVM bytecode representation --
+essentially, a minimal, but complete, emulated computer system with LLVA as its
+native instruction set. The emulator we have invented, llva-emu, executes
+kernel code by translating programs "just-in-time" from the LLVM bytecode
+format to the processor's native instruction set.</p>
+
+<p>
+Project report: <a href="2003-Fall-CS497YYZ-LLVA-emu.ps">PS</a>,
+<a href="2003-Fall-CS497YYZ-LLVA-emu.pdf">PDF</a>
+</p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="spedi">SPEDI: Static Patch Extraction and Dynamic Insertion</a>
+</div>
+<!--=========================================================================-->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By Brian Fahs
+</div>
+
+<div class="www_text">
+<p>"As every modern computer user has experienced, software updates and
+upgrades frequently require programs and sometimes the entire operating system
+to be restarted. This can be a painful and annoying experience. What if this
+common annoyance could be avoided completely or at least significantly reduced?
+Imagine only rebooting your system when you wanted to shut your computer down or
+only closing an application when you wanted rather than when an update occurs.
+The purpose of this project is to investigate the potential of performing
+dynamic patching of executables and create a patching tool capable of
+automatically generating patches and applying them to applications that are
+already running. This project should answer questions like: How can dynamic
+updating be performed? What type of analysis is required? Can this analysis be
+effectively automated? What can be updated in the running executable (e.g.,
+algorithms, organization, data, etc.)?"</p>
+
+<p>Project report: <a href="2003-Fall-CS497YYZ-SPEDI.ps">PS</a>, <a
+href="2003-Fall-CS497YYZ-SPEDI.pdf">PDF</a></p>
+
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="ssapre">An LLVM Implementation of SSAPRE</a>
+</div>
+<!--=========================================================================-->
+<!--CS426: Advanced Compilers (Fall 2002)-->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By <a href="http://nondot.org/tonic/">Tanya Brethour</a>,
+Joel Stanley, and Bill Wendling
+</div>
+
+<div class="www_text">
+<p>"In this report we present implementation details, empirical performance
+data, and notable modifications to an algorithm for PRE based on [the 1999
+TOPLAS SSAPRE paper].  In [the 1999 TOPLAS SSAPRE paper], a particular
+realization of PRE, known as SSAPRE, is described, which is more efficient than
+traditional PRE implementations because it relies on useful properties of Static
+Single-Assignment (SSA) form to perform dataflow analysis in a much more sparse
+manner than the traditional bit-vector-based approach.  Our implementation is
+specific to a SSA-based compiler infrastructure known as LLVM (Low-Level Virtual
+Machine)."</p>
+
+<p>Project report: <a href="2002-Fall-CS426-SSAPRE.ps">PS</a>, <a
+href="2002-Fall-CS426-SSAPRE.pdf">PDF</a></p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="jello">Jello: a retargetable <u>J</u>ust-In-Time compil<u>e</u>r for
+  <u>LL</u>VM bytec<u>o</u>de</a>
+</div>
+<!--=========================================================================-->
+<!-- CS497CZ: Dynamic Translation and Optimization (Spring 2002)-->
+
+<!-- _______________________________________________________________________ -->
+<div class="www_subsubsection">
+By <a href="http://nondot.org/sabre/">Chris Lattner</a>,
+<a href="http://misha.brukman.net/">Misha Brukman</a>, and
+<a href="http://netfiles.uiuc.edu/gaeke/www/">Brian Gaeke</a>
+</div>
+
+<div class="www_text">
+<p>"We present the design and implementation of Jello, a <i>retargetable</i>
+Just-In-Time (JIT) compiler for the Intel IA32 architecture.  The input to Jello
+is a C program statically compiled to Low-Level Virtual Machine (LLVM) bytecode.
+Jello takes advantage of the features of the LLVM bytecode representation to
+permit efficient run-time code generation, while emphasizing retargetability.
+Our approach uses an abstract machine code representation in Static Single
+Assignment form that is machine-independent, but can handle machine-specific
+features such as implicit and explicit register references.  Because this
+representation is target-independent, many phases of code generation can be
+target-independent, making the JIT easily retargetable to new platforms without
+changing the code generator.  Jello's ultimate goal is to provide a flexible
+host for future research in runtime optimization for programs written in
+languages which are traditionally compiled statically."</p>
+
+<p>Note that Jello eventually evolved into the current LLVM JIT, which is part
+of the tool <b>lli</b>.</p>
+
+<p>Project report: <a href="2002-Spring-CS497CZ-Jello.ps">PS</a>, <a
+href="2002-Spring-CS497CZ-Jello.pdf">PDF</a></p>
+</div>
+
+<!--#include virtual="../footer.incl" --></html>

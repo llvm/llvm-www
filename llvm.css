@@ -1,0 +1,101 @@
+/*
+ * LLVM website style sheet
+ */
+
+/* No borders on image links */
+a:link img, a:visited img { border-style: none }
+
+address img { float: right; width: 88px; height: 31px; }
+address     { clear: right; }
+
+/* Main website */
+.www_title  { font-family: "Georgia,Palatino,Times,Roman";
+              font-size: 33pt; 
+              text-align: center;}
+
+.www_sidebar  { text-align: center; 
+               font-family: "Georgia,Palatino,Times,Roman";
+               font-size: 12pt;
+               margin-left: 0em; margin-right: 0em;
+               padding: 0.15em 0.15em 0.15em .15em; 
+               width: 100%;
+               background: url("img/lines.gif");
+               border: 2px solid #cccccc }
+
+.www_sectiontitle, .www_subsection {
+               border-width: 1px;
+               border-style: solid none solid none;
+               text-align: center;
+               vertical-align: middle;
+               font-family: "Georgia,Palatino,Times,Roman";
+               font-weight: bold; font-size: 18pt;
+               background: url("img/lines.gif");
+               padding: 0.1em 0.1em 0.1em .1em; 
+               width: 100%;
+               margin-bottom: 0.3em; }
+
+.www_subsection { width: 75%;
+                  text-align: left;  font-size: 12pt; }
+
+.www_subsubsection { margin: 1.0em 0.5em 0.5em 0.5em;
+                     font-weight: bold; font-style: oblique;
+                     border-bottom: 1px solid #999999; font-size: 12pt;
+                     width: 75%; }
+
+.www_code { border: solid 1px gray; background: #eeeeee;
+            margin: 0 1em 0 1em; 
+            padding: 0 1em 0 1em;
+            display: table; }
+
+.www_footer { text-align: left; padding: 0 0 0 0 }
+
+/* Publications */
+.pub_title  { font-family: "Georgia,Palatino,Times,Roman";
+              font-size: 24pt; 
+              text-align: center }
+
+.pub_author { font-size: 14pt; text-align: center }
+
+/* Releases */
+.rel_container { text-align: center;
+                 margin-left: 20% }
+
+.rel_title   { text-align: center;
+               font-family: "Georgia,Palatino,Times,Roman";
+               font-weight: bold; font-size: 28pt;
+               margin-bottom: 0.5em }
+
+
+.rel_section { vertical-align: middle;
+               border-width: 1px;
+               border-style: solid none solid none;
+               text-align: center;
+               vertical-align: middle;
+               font-family: "Georgia,Palatino,Times,Roman";
+               font-weight: bold; font-size: 18pt;
+               background: url("img/lines.gif");
+               margin: 1em 0.5em 1em 0.5em;
+               padding-left: 1em;
+               width: 300px }
+
+.rel_sectiontxt { padding: 0 1em 0 1em; 
+                  margin: 1em 0.5em 1em 0.5em }
+
+.rel_intro,
+.rel_boxtext { text-align: left; 
+               font-family: "Georgia,Palatino,Times,Roman";
+               font-size: 11pt;
+               padding: 0.5em 0.5em 0.5em 1.5em; 
+               margin-left: 2em; margin-right: 3em;
+               width: 60%;
+               background: #f7f7f7;
+               border: 2px solid #cccccc }
+.www TD, TH    { border: 2px solid gray; padding: 4pt 4pt 2pt 2pt; 
+                 text-align: left; }
+.www TH        { border: 2px solid gray; font-weight: bold; font-size: 105%; 
+                 color: black; background: url("img/lines.gif");
+                 font-family: "Georgia,Palatino,Times,Roman,SanSerif"; 
+                 text-align: center; vertical-align: middle; }
+TABLE.www      { text-align: left; border: 2px solid black; 
+                 border-collapse: collapse; margin-top: 1em; margin-left: 1em; 
+                 margin-right: 1em; margin-bottom: 1em; }

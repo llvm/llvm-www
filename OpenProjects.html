@@ -1,0 +1,498 @@
+<!--#include virtual="header.incl" -->
+
+<div class="www_sectiontitle">Open LLVM Projects</div>
+
+<ul>
+  <li><a href="#what">What is this?</a></li>
+  <li><a href="#subprojects">LLVM Subprojects: Clang and VMKit</a></li>
+  <li><a href="#improving">Improving the current system</a>
+  <ol>
+    <li><a href="#code-cleanups">Implementing Code Cleanup bugs</a></li>
+    <li><a href="#programs">Compile programs with the LLVM Compiler</a></li>
+    <li><a href="#llvmtest">Add programs to the llvm-test suite</a></li>
+    <li><a href="#benchmark">Benchmark the LLVM compiler</a></li>
+    <li><a href="#misc_imp">Miscellaneous Improvements</a></li>
+  </ol></li>
+
+  <li><a href="#new">Adding new capabilities to LLVM</a>
+  <ol>
+    <li><a href="#llvm_ir">Extend the LLVM intermediate representation</a></li>
+    <li><a href="#pointeranalysis">Pointer and Alias Analysis</a></li>
+    <li><a href="#profileguided">Profile-Guided Optimization</a></li>
+    <li><a href="#compaction">Code Compaction</a></li>
+    <li><a href="#xforms">New Transformations and Analyses</a></li>
+    <li><a href="#codegen">Code Generator Improvements</a></li>
+    <li><a href="#misc_new">Miscellaneous Additions</a></li>
+  </ol></li>
+</ul>
+
+<div class="doc_author">
+  <p>Written by the <a href="http://llvm.org/">LLVM Team</a></p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="what">What is this?</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+
+<p>This document is meant to be a sort of "big TODO list" for LLVM.  Each
+project in this document is something that would be useful for LLVM to have, and
+would also be a great way to get familiar with the system.  Some of these
+projects are small and self-contained, which may be implemented in a couple of
+days, others are larger.  Several of these projects may lead to interesting
+research projects in their own right.  In any case, we welcome all
+contributions.</p>
+
+<p>If you are thinking about tackling one of these projects, please send a mail
+to the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM
+Developer's</a> mailing list, so that we know the project is being worked on.
+Additionally this is a good way to get more information about a specific project
+or to suggest other projects to add to this page.
+</p>
+
+<p>The projects in this page are open-ended. More specific projects are
+filed as unassigned enhancements in the <a href="http://llvm.org/bugs/">
+LLVM bug tracker</a>. See the <a href="http://llvm.org/bugs/buglist.cgi?keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_severity=enhancement&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=unassigned">list of currently outstanding issues</a> if you wish to help improve LLVM.</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="subprojects">LLVM Subprojects: Clang and VMKit</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+
+<p>In addition to hacking on the main LLVM project, LLVM has several subprojects,
+   including Clang and VMKit.  If you are interested in working on these, please
+   see their "Open projects" page:</p>
+
+<ul>
+<li>The <a href="http://clang.llvm.org/OpenProjects.html">Clang Open 
+    Projects</a> list.</li>
+</ul>
+
+<ul>
+<li>The <a href="http://vmkit.llvm.org/OpenProjects.html">VMKit Open
+    Projects</a> list.</li>
+</ul>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="improving">Improving the current system</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+
+<p>Improvements to the current infrastructure are always very welcome and tend
+to be fairly straight-forward to implement.  Here are some of the key areas that
+can use improvement...</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="code-cleanups">Implementing Code Cleanup bugs</a>
+</div>
+
+<div class="www_text">
+
+<p>
+The <a href="http://llvm.org/bugs/">LLVM bug tracker</a> occasionally
+has <a
+  href="http://llvm.org/bugs/buglist.cgi?short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=code-cleanup&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Bug+Number&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">"code-cleanup" bugs</a> filed in it.  
+Taking one of these and fixing it is a good way to get your feet wet in the 
+LLVM code and discover how some of its components work.
+</p>
+<p>Additionally, there are performance improvements in LLVM that need to get
+fixed. These are marked with the <tt>slow-compile</tt> keyword. Use 
+<a href="http://llvm.org/bugs/buglist.cgi?short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=slow-compile&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;namedcmd=Bugs+I+Fixed&amp;newqueryname=&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">this Bugzilla query</a>
+to find them.</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="llvmtest">Add programs to the llvm-test testsuite</a>
+</div>
+
+<div class="www_text">
+
+<p>
+The <a href="docs/TestingGuide.html#wholeprograms">llvm-test</a> testsuite is
+a large collection of programs we use for nightly testing of generated code
+performance, compile times, correctness, etc.  Having a large testsuite gives
+us a lot of coverage of programs and enables us to spot and improve any
+problem areas in the compiler.</p>
+
+<p>
+One extremely useful task, which does not require in-depth knowledge of 
+compilers, would be to extend our testsuite to include <a href=
+"http://nondot.org/sabre/LLVMNotes/#benchmarks">new programs and benchmarks</a>.
+In particular, we are interested in cpu-intensive programs that have few
+library dependencies, produce some output that can be used for correctness
+testing, and that are redistributable in source form.  Many different programs 
+are suitable, for example, see <a 
+href="http://nondot.org/sabre/LLVMNotes/#benchmarks">this list</a> for some
+potential candidates.
+</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="programs">Compile programs with the LLVM Compiler</a>
+</div>
+
+<div class="www_text">
+
+<p>We are always looking for new testcases and benchmarks for use with LLVM.  In
+particular, it is useful to try compiling your favorite C source code with LLVM.
+If it doesn't compile, try to figure out why or report it to the <a
+href="http://lists.cs.uiuc.edu/pipermail/llvmbugs/">llvm-bugs</a> list.  If you
+get the program to compile, it would be extremely useful to convert the build
+system to be compatible with the LLVM Programs testsuite so that we can check it
+into SVN and the automated tester can use it to track progress of the
+compiler.</p>
+
+<p>When testing a code, try running it with a variety of optimizations, and with
+all the back-ends: CBE, llc, and lli.</p>
+
+</div>
+
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="benchmark">Benchmark the LLVM compiler</a>
+</div>
+
+<div class="www_text">
+
+<p>Find benchmarks either using our <a
+href="http://llvm.org/nightlytest/">test results</a> or on your own,
+where LLVM code generators do not produce optimal code or simply where another
+compiler produces better code.  Try to minimize the test case that demonstrates
+the issue.  Then, either <a href="http://llvm.org/bugs/">submit a
+bug</a> with your testcase and the code that LLVM produces vs. the code that it
+<em>should</em> produce, or even better, see if you can improve the code
+generator and submit a patch.  The basic idea is that it's generally quite easy
+for us to fix performance problems if we know about them, but we generally don't
+have the resources to go finding out why performance is bad.</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="misc_imp">Miscellaneous Improvements</a>
+</div>
+
+<div class="www_text">
+
+<ol>
+
+<li><a href="http://llvm.org/bugs/show_bug.cgi?id=2116">Add support for
+transactions to the PassManager</a> for improved bugpoint.</li>
+<li><a href="http://llvm.org/bugs/show_bug.cgi?id=539">Improve bugpoint to 
+support running tests in parallel on MP machines</a>.</li>
+</ol>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="new">Adding new capabilities to LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+
+<p>Sometimes creating new things is more fun than improving existing things.
+These projects tend to be more involved and perhaps require more work, but can
+also be very rewarding.</p>
+
+<p>Add support for Type Based Alias Analysis (TBAA) to LLVM.  This is not an
+   easy or straight-forward project, but the wins can be big.  For an intro to
+   what this is and an extreme example <a 
+    href="http://www.ice.gelato.org/oct07/pres_pdf/gelato_ICE07oct_aliasing_isaev_intel.pdf">see this presentation</a>.</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="llvm_ir">Extend the LLVM intermediate representation</a>
+</div>
+
+<div class="www_text">
+
+<p>Many proposed <a href="http://nondot.org/sabre/LLVMNotes/">extensions and
+improvements to LLVM core</a> are awaiting design and implementation.</p>
+
+<ol>
+<li><a href="http://nondot.org/sabre/LLVMNotes/DebugInfoImprovements.txt">Improvements 
+for Debug Information Generation</a></li>
+<li><a href="http://llvm.org/PR1269">EH support for non-call exceptions</a></li>
+<li>Add support for representing Type Based Alias Analysis (TBAA) in the 
+LLVM IR.</li>
+<li>Many ideas for feature requests are stored in LLVM bugzilla.  Just <a
+  href="http://llvm.org/bugs/buglist.cgi?short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=new-feature&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;namedcmd=All+PRs&amp;newqueryname=&amp;order=Bug+Number&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">search for bugs with a "new-feature" keyword</a>.</li>
+</ol>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="pointeranalysis">Pointer and Alias Analysis</a>
+</div>
+
+<div class="www_text">
+
+<p>We have a <a href="docs/AliasAnalysis.html">strong base for development</a> of
+both pointer analysis based optimizations as well as pointer analyses
+themselves.  It seems natural to want to take advantage of this:</p>
+
+<ol>
+<li>The globals mod/ref pass basically does really simple and cheap  
+bottom-up context sensitive alias analysis.  It being simple and cheap  
+are really important, but there are simple things that we could do to  
+better capture the effects of functions that access pointer  
+arguments.  This can be really important for C++ methods, which spend  
+lots of time accessing pointers off 'this'.</li>
+
+<li>Implement support for representing language-specific Type Based Alias 
+Analysis information in the LLVM IR.</li>
+
+<li>The alias analysis API supports the getModRefBehavior method, which  
+allows the implementation to give details analysis of the functions.   
+For example, we could implement <a href="http://llvm.org/PR1604">full knowledge 
+of printf/scanf</a> side effects, which would be useful.  This feature is in
+place but not being used for anything right now.</li>
+<li>We need some way to reason about errno.  Consider a loop like this:
+
+<pre>
+    for ()
+      x += sqrt(loopinvariant);
+</pre>
+
+<p>We'd like to transform this into:</p>
+
+<pre>
+    t = sqrt(loopinvariant);
+    for ()
+      x += t;
+</pre>
+
+<p>This transformation is safe, because the value of errno isn't  
+otherwise changed in the loop and the exit value of errno from the  
+loop is the same.  We currently can't do this, because sqrt clobbers  
+errno, so it isn't "readonly" or "readnone" and we don't have a good  
+way to model this.</p>
+
+<p>The hard part of this project is figuring out how to describe errno  
+in the optimizer: each libc #defines errno to something different it  
+seems.  Maybe the solution is to have a __builtin_errno_addr() or  
+something and change sys headers to use it.</p>
+
+<li>There are lots of ways to optimize out and <a 
+href="http://llvm.org/PR452">improve handling of 
+memcpy/memset</a>.</li>
+
+<li>We need a LoopPass that replaces loops with scalar stores in them  
+into memset/memcpy calls. This dramatically speeds up programs like  
+'viterbi' in the testsuite, as well as some SPEC benchmarks.</li>
+
+</ol>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="profileguided">Profile-Guided Optimization</a>
+</div>
+
+<div class="www_text">
+
+<p>We now have a unified infrastructure for writing profile-guided
+transformations, which will work either at offline-compile-time or in the JIT,
+but we don't have many transformations.  We would welcome new profile-guided
+transformations as well as improvements to the current profiling system.
+</p>
+
+<p>Ideas for profile-guided transformations:</p>
+
+<ol>
+<li>Superblock formation (with many optimizations)</li>
+<li>Loop unrolling/peeling</li>
+<li>Profile directed inlining</li>
+<li>Code layout</li>
+<li>...</li>
+</ol>
+
+<p>Improvements to the existing support:</p>
+
+<ol>
+<li>The current block and edge profiling code that gets inserted is very simple
+and inefficient.  Through the use of control-dependence information, many fewer
+counters could be inserted into the code.  Also, if the execution count of a
+loop is known to be a compile-time or runtime constant, all of the counters in
+the loop could be avoided.</li>
+
+<li>You could implement one of the "static profiling" algorithms which analyze a
+piece of code an make educated guesses about the relative execution frequencies
+of various parts of the code.</li>
+
+<li>You could add path profiling support, or adapt the existing LLVM path
+profiling code to work with the generic profiling interfaces.</li>
+</ol>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="compaction">Code Compaction</a>
+</div>
+
+<div class="www_text">
+<p>LLVM aggressively optimizes for performance, but does not yet optimize for code size.
+With a new ARM backend, there is increasing interest in using LLVM for embedded systems
+where code size is more of an issue.
+</p>
+
+<p>Someone interested in working on implementing code compaction in LLVM might want to read
+<a href="http://citeseer.ist.psu.edu/425696.html">this</a> article, describing using
+link-time optimizations for code size optimization.
+</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="xforms">New Transformations and Analyses</a>
+</div>
+
+<div class="www_text">
+
+<ol>
+  <li>Implement a Loop Dependence Analysis Infrastructure<br>
+    - Design some way to represent and query dep analysis</li>
+  <li>Value range propagation pass</li>
+  <li>More fun with loops: 
+    <a href="http://www.cs.ualberta.ca/~amaral/cascon/CDP04/tal.html">
+      Predictive Commoning
+    </a>
+  </li>
+  <li>Type inference (aka. devirtualization)</li>
+  <li><a href="http://nondot.org/sabre/LLVMNotes/BuiltinUnreachable.txt">Value
+      assertions</a> (also <a href="http://llvm.org/PR810">PR810</a>).</li>
+</ol>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_sectiontitle">
+  <a name="codegen">Code Generator Improvements</a>
+</div>
+
+<div class="www_text">
+
+<ol>
+<li>Implement 'stack slot coloring' to allocate two frame indexes to the same
+    stack offset if their live ranges don't overlap.  This can reuse a bunch of
+    analysis machinery from LiveIntervals.  Making the stack smaller is good
+    for cache use and very important on targets where loads have limited 
+    displacement like ppc, thumb, mips, sparc, etc.  This should be done as
+    a pass before prolog epilog insertion.  This is now done for register
+    allocator temporaries, but not for allocas.</li>
+<li>Implement 'shrink wrapping', which is the intelligent placement of callee
+    saved register save/restores.  Right now PrologEpilogInsertion always saves
+    every (modified) callee save reg in the prolog and restores it in the 
+    epilog.  However, some paths through a function (e.g. an early exit) may 
+    not use all regs.  Sinking the save down the CFG avoids useless work on
+    these paths. Work has started on this, please inquire on llvmdev.</li>
+<li>Rename ISD::BIT_CONVERT to ISD::BITCAST to match the llvm ir concept</li>
+<li>Finish adapting existing targets to use the calling convention description
+    mechanism (see lib/Target/X86/X86CallingConv.td for an example).</li>
+<li>Implement interprocedural register allocation. The CallGraphSCCPass can be
+    used to implement a bottom-up analysis that will determine the *actual* 
+    registers clobbered by a function. Use the pass to fine tune register usage 
+    in callers based on *actual* registers used by the callee.</li>
+<li>Implement a <a href="http://llvm.org/bugs/show_bug.cgi?id=408">verifier for 
+    codegen level instructions</a>.  To help track down malformed machineinstrs 
+    sooner and make debugging problems easier.</li>
+</ol>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_sectiontitle">
+  <a name="misc_new">Miscellaneous Additions</a>
+</div>
+
+<div class="www_text">
+
+<ol>
+<li>Port the <a href="http://www-sop.inria.fr/mimosa/fp/Bigloo/">Bigloo</A>
+Scheme compiler, from Manuel Serrano at INRIA Sophia-Antipolis, to
+output LLVM bytecode. It seems that it can already output .NET
+bytecode, JVM bytecode, and C, so LLVM would ostensibly be another good
+candidate.</li>
+<li>Write a new frontend for some other language (Java? OCaml? Forth?)</li>
+<li>Random test vector generator: Use a C grammar to generate random C code,
+e.g., <a href="http://code.google.com/p/quest-tester/">quest</a>;
+run it through llvm-gcc, then run a random set of passes on it using opt.
+Try to crash <tt><a href="/docs/CommandGuide/html/opt.html">opt</a></tt>. When
+<tt>opt</tt> crashes, use <tt><a
+href="/docs/CommandGuide/html/bugpoint.html">bugpoint</a></tt> to reduce the
+test case and post it to a website or mailing list.  Repeat ad infinitum.</li> 
+<li>Add sandbox features to the Interpreter: catch invalid memory accesses,
+  potentially unsafe operations (access via arbitrary memory pointer) etc.
+</li>
+<li>Port <a href="http://valgrind.org">Valgrind</a> to use LLVM codegeneration
+  and optimization passes instead of its own.</li>
+<li>Create an LLVM pass that adds memory safety checks to code, like
+  <a href="http://valgrind.org/">Valgrind</a> does for binaries, or like
+  <a href="http://gcc.gnu.org/wiki/Mudflap_Pointer_Debugging">mudflap</a> does
+  for gcc compiled code.
+</li>
+<li>Write LLVM IR level debugger (extend Interpreter?)</li>
+<li>Write an LLVM Superoptimizer.  It would be interesting to take ideas from 
+    this superoptimizer for x86:
+<a href="http://theory.stanford.edu/~aiken/publications/papers/asplos06.pdf">paper #1</a> and <a href="http://theory.stanford.edu/~sbansal/superoptimizer.html">paper #2</a> and adapt them to run on LLVM code.<p>
+
+It would seem that operating on LLVM code would save a lot of time 
+because its semantics are much simpler than x86.  The cost of operating 
+on LLVM is that target-specific tricks would be missed.<p>
+
+The outcome would be a new LLVM pass that subsumes at least the 
+instruction combiner, and probably a few other passes as well.  Benefits 
+would include not missing cases missed by the current combiner and also 
+more easily adapting to changes in the LLVM IR.<p>
+
+All previous superoptimizers have worked on linear sequences of code. 
+It would seem much better to operate on small subgraphs of the program 
+dependency graph.</li>
+</ol>
+
+</div>
+
+<!-- *********************************************************************** -->
+
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+
+  <a href="http://llvm.org">LLVM Compiler Infrastructure</a><br>
+  Last modified: $Date: 2009/12/16 09:03:23 $
+</address>
+
+<!--#include virtual="footer.incl" -->

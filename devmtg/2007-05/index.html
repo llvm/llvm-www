@@ -1,0 +1,270 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<!-- FIXME: we need to add the meta tag to the head tag, which we can't do with 
+     the current web page. Duplicate this block and hope it all works out. -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>The LLVM Compiler Infrastructure Project</title>
+  <link rel="stylesheet" href="/llvm.css" type="text/css">
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" 
+        href="http://llvm.org/devmtg/2007-05/podcast.xml">
+</head>
+
+<!--#include virtual="../../header.incl" -->
+
+<!--
+<html>
+<head>
+  <link rel="stylesheet" href="http://llvm.org/llvm.css" type="text/css">
+</head>-->
+
+<div class="www_sectiontitle">May 25, 2007<br/>LLVM Developers'
+ Meeting Proceedings</div>
+
+<div class="www_text">
+  <p>Someone write a blurb here. ~60 people attended.</p>
+
+  <p> These videos are also viewable on <a 
+href="http://www.youtube.com/view_play_list?p=AA11ACE45D6B0E4C">youtube</a>.</p>
+
+  <p>Chris Hanson contributed a <a href="podcast.xml">podcast feed</a> that you
+     <A href="itpc://llvm.org/devmtg/2007-05/podcast.xml">subscribe to</a> in 
+     iTunes or on Apple TV.</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle"><a name="proceedings">Proceedings</a></div>
+<div class="www_text">
+  <p>All videos are presented in QuickTime format, all slides are in PDF
+  format.</p>
+  
+  <table class="www">
+    <tr><th>Event</th><th>Media</th><th>Who</th>
+      <th>Description</th></tr>
+    <tr><th rowspan="3"><h3>Session 0:<br/>Introductions</h3></th></tr>
+        
+    <tr><td><a href="01-History.mov">video</a></td>
+    
+      <td>Vikram&nbsp;Adve<br/>Chris&nbsp;Lattner</td>
+      <td><b>A brief history of LLVM</b> - During this brief session, Vikram and
+        Chris (the originators of LLVM) presented a brief history of the early
+        history of LLVM.</td>
+    </tr>
+    
+    <tr><td><a href="02-Introductions.mov">video</a></td>
+      <td>Everyone</td>
+      <td><b>Introductions</b> - Everyone introduced themselves to the group.
+      </td>
+    </tr>
+    
+    <tr><td><h3>Break</h3></td><td></td><td></td><td></td></tr>
+        
+    <tr><th rowspan="5"><h3>Session 1:<br>Learning LLVM</h3></th>
+        <th>Media</th><th>Speaker</th><th>Description</th></tr>
+        
+    <tr><td>
+        <a href="03-Patel-Passmanager.pdf">slides</a><br>
+        <a href="03-Patel-Passmanager.mov">video</a>
+        </td>
+    <td>Devang&nbsp;Patel</td>
+      <td><b>Demystifying The LLVM Pass Manager</b> - The PassManager, which
+        manages the execution of all LLVM passes, was recently revised to be
+        simpler and more useful. This talk will help you understand what the new
+        pass manager does and how to use it.</td>
+    </tr>
+    <tr><td>
+        <a href="04-Cheng-Codegen.pdf">slides</a><br>
+        <a href="04-Cheng-Codegen.mov">video</a>
+    </td>
+    <td>Evan&nbsp;Cheng</td>
+      <td><b>The LLVM Code Generator</b> - An overview of the LLVM generic code
+        generator design and changes to it that are coming in the future.</td>
+    </tr>
+    <tr><td>
+        <a href="05-Lewycky-Predsimplify.pdf">slides</a><br>
+        <a href="05-Lewycky-Predsimplify.mov">video</a>
+    </td>
+        <td>Nick&nbsp;Lewycky</td>
+      <td><b>Introduction To Predicate Simplifier</b> - A review of the design 
+        and implementation of LLVM's Predicate Simplifier Pass, otherwise known
+        as VRP (Value Range Propagation).
+      </td>
+    </tr>
+    <tr>
+      <td><a href="06-Spencer-HLVM.mov">video</a><br/>
+          <a href="06-Spencer-HLVM.pdf">slides</a></td>
+      <td>Reid&nbsp;Spencer</td>
+      <td><b>HLVM</b> - An overview of HLVM, its current
+        status and its goals after integration with LLVM.</td>
+    </tr>
+    
+    <tr><td><h3>Lunch</h3></td><td></td><td></td><td></td></tr>
+
+    <tr><th rowspan="5"><h3>Session 2:<br>Using LLVM</h3></th>
+      <th>Media</th><th>Speaker</th><th>Description</th>
+    </tr>
+    <tr><td><a href="07-Michel-Cell.pdf">slides (PDF)</a></td><td>Scott&nbsp;Michel</td>
+      <td><b>The Cell BE Symbiotic Processor Element Backend</b> - A presentation
+        of the practice and experience that resulted from Aerospace's
+        implementation of an LLVM back-end Target for the Cell BE Symbiotic
+        Processor Element.</td>
+    </tr>
+    <tr><td><a href="08-Criswell-SVA.mov">video</a><br>
+            <a href="08-Criswell-SVA.pdf">slides (PDF)</a><br>
+            <a href="08-Criswell-SVA.ppt">slides (PPT)</a>
+    <td>John&nbsp;Criswell</td>
+      <td><b>Secure Virtual Architecture</b> - A presentation on our research to
+       create a virtual machine that operates below the operating system and a
+        brief introduction to some of the novel security capabilities that our
+         architecture can enable.</td>
+    </tr>
+    <tr><td><a href="09-Naroff-CFE.pdf">slides</a><br>
+           <a href="09-Naroff-CFE.mov">video</a>
+            
+      </td><td>Steve&nbsp;Naroff</td>
+      <td><b>New LLVM C Front-end</b> - This talk describes a new from-scratch 
+         C frontend (which is aiming to support Objective C and C++ someday)
+         for LLVM, built as a native part of the LLVM system and in the LLVM
+         design style.</td>
+    </tr>
+    <tr><td>
+      <a href="10-Lattner-OpenGL.pdf">slides</a>
+      <a href="10-Lattner-OpenGL.mov">video</a>
+    </td>
+      <td>Chris&nbsp;Lattner</td>
+      <td><b>LLVM in OpenGL and for Dynamic Languages</b> - A presentation put
+      together in 10 minutes, talking about LLVM being used for OpenGL and some
+      speculative talk about dynamic languages.</td>
+    </tr>
+    
+    <tr><td><h4>Break</h4></td><td></td><td></td><td></td></tr>
+
+    <tr><th rowspan="6"><h3>Session 3:<br/>Discussions</h3></th>
+      <th>Media</th><th>Leader</th><th>Discussion Topic</th>
+    </tr>
+    <tr><td><a href="11-Lamb-Concurrency.mov">video</a></td>
+      <td>Christopher&nbsp;Lamb</td>
+      <td><b>Concurrency Primitives</b> - For multi-threaded shared memory 
+        models.</td>
+    </tr>
+    <tr><td><a href="12-Spencer-Roadmap.mov">video</a></td>
+      <td>Reid&nbsp;Spencer</td>
+      <td><b>LLVM Roadmap</b> - Does the development community care to disclose 
+        and maintain advance information about what is being worked on?</td>
+    </tr>
+    <tr><td><a href="13-Lattner-Adoption.mov">video</a></td>
+    <td>Chris&nbsp;Lattner</td>
+      <td><b>Adoption Goals</b> -  While our adoption has increased greatly 
+        recently, we're still tiny compared to other compiler and virtual
+        machine systems.</td>
+    </tr>
+    <tr><td><a href="14-Spencer-ProjMgmt.mov">video</a></td>
+      <td>Reid&nbsp;Spencer<br>Chris&nbsp;Lattner</td>
+      <td><b>Project Management, License, Naming</b></td>
+    </tr>
+    <tr><td><a href="15-Lattner-Feedback.mov">video</a></td>
+    <td>Chris&nbsp;Lattner</td>
+      <td><b>Feedback on the Meeting</b></td>
+    </tr>
+
+  </table>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle"><a name="attendees">Attendees</a></div>
+<div class="www_text">
+  <p>The table below lists the confirmed attendees for the meeting.</p>
+  <table>
+    <tr style="vertical-align:top">
+      <td>
+  <table class="www">
+    <tr><th colspan="2">Confirmed Attendees</th></tr>
+    <tr><th>Name</th><th>Organization</th></tr>
+    <tr><td>Vikram Adve</td><td>UIUC</td></tr>
+    <tr><td>Bob Archer</td><td>Adobe Systems Incorporated.</td></tr>
+    <tr><td>Owen Anderson</td><td>Independent</td></tr>
+    <tr><td>Ryan Brown</td><td>Google</td></tr>
+    <tr><td>Evan Cheng</td><td>Apple Inc.</td></tr>
+    <tr><td>Josh Conner</td><td>Apple Inc.</td></tr>
+    <tr><td>John Criswell</td><td>UIUC</td></tr>
+    <tr><td>Kat Danielson</td><td>Apple Inc.</td></tr>
+    <tr><td>Mike Engler</td><td>Adobe Systems Incorporated.</td></tr>
+    <tr><td>Rafael Esp&iacute;ndola</td><td>Google</td></tr>
+    <tr><td>Tomas Evensen</td><td>Wind River</td></tr>
+    <tr><td>Samuel Figueroa</td><td>Apple Inc.</td></tr>
+    <tr><td>Han Gao</td><td>Adobe Systems Incorporated.</td></tr>
+    <tr><td>Dan Gohman</td><td>Cray Inc.</td></tr>
+    <tr><td>Lang Hames</td><td>University of Sydney</td></tr>
+    <tr><td>Stuart Hastings</td><td>Apple Inc.</td></tr>
+    <tr><td>Victor Hernandez</td><td>Apple Inc.</td></tr>
+    <tr><td>Robert Hundt</td><td>Google</td></tr>
+    <tr><td>Dale Johannesen</td><td>Apple Inc.</td></tr>
+    <tr><td>Ted Kremenek</td><td>Independent</td></tr>
+    <tr><td>Christopher Lamb</td><td>Ageia Technologies, Inc.</td></tr>
+    <tr><td>Chris Lattner</td><td>Apple Inc.</td></tr>
+    <tr><td>Tanya Lattner</td><td>Independent</td></tr>
+    <tr><td>Andrew Lenharth</td><td>UIUC</td></tr>
+    <tr><td>Julien Lerouge</td><td>Apple Inc.</td>
+    <tr><td>Nick Lewycky</td><td>Independent</td></tr>
+  </table>
+      </td>
+      <td>
+  <table class="www">
+    <tr><th colspan="2">Confirmed Attendees</th></tr>
+    <tr><th>Name</th><th>Organization</th></tr>
+    <tr><td>Efrem Lipkin</td><td>CoDesign</td></tr>
+    <tr><td>Gabe McArthur</td><td>Independent</td></tr>
+    <tr><td>Paul McJones</td><td>Adobe Systems Incorporated.</td></tr>
+    <tr><td>Scott Michel</td><td>Aerospace</td></tr>
+    <tr><td>Dan Moniz</td><td>Matasano</td></tr>
+    <tr><td>Alireza Moshtaghi</td><td>Microchip Technology</td></tr>
+    <tr><td>Lakshmankumar Mukkavilli</td><td>Cisco Systems</td></tr>
+    <tr><td>Robert Mykland</td><td>Ascenium Corp.</td></tr>
+    <tr><td>Steve Naroff</td><td>Apple Inc.</td></tr>
+    <tr><td>Devang Patel</td><td>Apple Inc.</td></tr>
+    <tr><td>Fernando Magno Quintao Pereira</td><td>UCLA</td></tr>
+    <tr><td>Jeff Poznanovic</td><td>Cray Inc.</td></tr>
+    <tr><td>Ron Price</td><td>Apple Inc.</td></tr>
+    <tr><td>Chuck Rose</td><td>Adobe Systems Incorporated.</td></tr>
+    <tr><td>Mark Schimmel</td><td>Wind River</td></tr>
+    <tr><td>Reid Spencer</td><td>Independent</td></tr>
+    <tr><td>Raju Subbian</td><td>Wind River</td></tr>
+    <tr><td>Mark Thomas</td><td>Aerospace</td></tr>
+    <tr><td>Sarah Thompson</td><td>NASA, Ames Research Center</td></tr>
+    <tr><td>Andrew Trick</td><td>HP</td></tr>
+    <tr><td>Bill Wendling</td><td>Apple Inc.</td></tr>
+    <tr><td>Marcel Weiher</td><td>MetaObject</td></tr>
+    <tr><td>James Weisner</td><td>Ascenium Corp.</td></tr>
+    <tr><td>Calum Wilkie</td><td>Microchip Technology</td></tr>
+    <tr><td>Scott Williams</td><td>Google</td></tr>
+  </table>
+      </td>
+    </tr>
+  </table>
+  <p><b>Total confirmed: 51</b></p>
+  <table class="www">
+    <tr><th colspan="2">Unconfirmed Attendees</th></tr>
+    <tr><th>Name</th><th>Organization</th></tr>
+    <tr><td>Michael McCracken</td><td>UCSD, Ph.D. Candidate</td></tr>
+    <tr><td>Kelly Wilson</td><td>University of Calgary</td></tr>
+    <tr><td>Unconfirmed 1</td><td>NASA, Ames</td></tr>
+  </table>
+  <p><b>Total unconfirmed: 3</b></p>
+</div>
+
+<!-- *********************************************************************** -->
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+<br/>Last modified: $Date: 2007/11/07 04:28:49 $
+</address>
+<!--#include virtual="../../footer.incl" -->

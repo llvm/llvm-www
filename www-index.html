@@ -1,0 +1,184 @@
+<!--#include virtual="header.incl" -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%">
+<!-- Start of the left bar... -->
+<tr>
+<td valign="top" style="width:64%">
+
+<div class="www_sectiontitle">LLVM Overview</div>
+
+<div class="www_text">
+
+<p>Low Level Virtual Machine (LLVM) is:</p>
+
+<ol>
+
+<li><p><a href="pubs/2004-01-30-CGO-LLVM.html"> A compilation strategy</a>
+designed to enable effective program optimization across the entire lifetime of
+a program.  LLVM supports effective optimization at compile time, link-time
+(particularly interprocedural), run-time and offline (i.e., after software is
+installed), while remaining transparent to developers and maintaining
+compatibility with existing build scripts.</p></li>
+
+<li><p><a href="docs/LangRef.html">A virtual instruction set</a> - LLVM
+is a low-level object code representation that uses simple RISC-like
+instructions, but provides rich, language-independent, type information and
+dataflow (SSA) information about operands. This combination enables
+sophisticated transformations on object code, while remaining light-weight
+enough to be attached to the executable. This combination is key to allowing
+link-time, run-time, and offline transformations.</p></li>
+
+<li><p><a href="pubs/2002-12-LattnerMSThesis.html">A compiler infrastructure</a>
+- LLVM is also a collection of source code that implements the language and
+compilation strategy. The primary components of the LLVM infrastructure are a
+GCC-based <a href="docs/CommandGuide/html/llvmgcc.html">C &amp; C++
+front-end</a>, a link-time optimization framework with a growing set of global
+and interprocedural analyses and transformations, static back-ends for 
+<a href="Features.html">many popular (and some obscure)</a> architectures,
+a back-end which emits portable C code, and a Just-In-Time compilers for
+several architectures.</p></li>
+
+<li><p>LLVM does <i>not</i> imply things that you would expect from a 
+high-level virtual machine.  It does not require garbage collection or 
+run-time code generation (In fact, LLVM makes a great static compiler!).
+Note that optional LLVM components can be used to <i>build</i> high-level 
+virtual machines and other systems that need these services.</p></li>
+
+</ol>
+
+<p>LLVM is a robust system, particularly well suited for developing new
+mid-level <a href="pubs/2005-05-04-LattnerPHDThesis.html">
+language-independent analyses and optimizations</a> of all sorts,
+including those that require <a href="pubs/2003-05-05-LCTES03-CodeSafety.html">
+extensive interprocedural analysis</a>.  LLVM is also a great target for <a
+href="http://clang.llvm.org/">front-end development</a> for conventional or research
+programming languages, including those which require <a
+href="pubs/2004-01-30-CGO-LLVM.html">compile-time, link-time, or run-time
+optimization</a> for effective implementation, proper tail calls or garbage
+collection.  We have an incomplete <a
+href="ProjectsWithLLVM/">list of projects</a> which have used LLVM for various
+purposes, showing that you can get up-and-running quickly with LLVM, giving time
+to do interesting things, even if you only have a semester in a University
+course.  We also have a list of <a href="OpenProjects.html">ideas for 
+projects</a> in LLVM.</p>
+
+</div>  
+
+<div class="www_sectiontitle">Want to learn more?</div>
+
+<p>If you'd like to learn more about LLVM, take a look at the <a 
+href="docs/tutorial/">LLVM Tutorials</a> and the extensive
+<a href="docs/">documentation</a> for LLVM.  In particular, all of
+the tools distributed with LLVM are described in the <a
+href="docs/CommandGuide/">LLVM Command Guide</a>.  If you're interested in what
+source-language features and optimizations we support, please check out the <a
+href="demo/">LLVM demo page</a>.  If you'd like to browse through the source
+code, either check out <a href="/doxygen/">doxygen</a> or <a
+href="releases/">download the most recent release</a>.  Finally, if you're
+interested in LLVM, have questions, and can't find any answers, please ask on
+the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM
+Developer</a> mailing list.</p>
+
+</td>
+
+<!-- Dividing space between columns -->
+<td style="width:2%"></td>
+<!-- Start of the right bar... 359 -->
+<td valign="top" style="width:35%">
+
+<div class="www_sectiontitle">Latest LLVM Release!</div>
+
+<div class="www_text">
+  <p><b>October 23, 2009</b>: LLVM 2.6 is now <a href="releases/"><b>available
+  for download</b></a>!  LLVM is publicly available under an open source <a
+  href="releases/2.6/LICENSE.TXT">License</a>.  Also, you might want to
+  check out <a href="docs/ReleaseNotes.html#whatsnew"><b>the new 
+  features</b></a> in SVN that will appear in the next LLVM release.  If
+  you want them early, <a href="releases/">download LLVM</a> through 
+  anonymous SVN.</p>
+</div>
+
+<br>
+
+<div class="www_sectiontitle">Upcoming Releases</div>
+
+<div class="www_text">
+<p>LLVM 2.7 release schedule soon.</p>
+<!--<ul>
+<li>Aug  21 - Code Freeze</li>
+<li>Aug  28 - Pre-release1 testing begins</li>
+<li>Sept 04 - Pre-release1 testing ends</li>
+<li>Oct  17 - Pre-release2 testing begins</li>
+<li>Oct  21  - Pre-release2 testing ends</li>
+<li>Oct  23  - Release!</li>
+</ul>-->
+</div>
+
+<br>
+
+<div class="www_sectiontitle">Upcoming Meeting</div>
+
+<div class="www_text">
+<p>Sometime 2010.</p>
+</div>
+
+<br>
+
+<div class="www_sectiontitle">Try out LLVM in your browser</div>
+
+<div class="www_text">
+   <p>If you'd like to experiment with LLVM, but don't want to download it and
+   compile it, we've got just the thing for you.  You can now compile C and C++
+   <a href="/demo/">in your browser</a>, to see what the LLVM representation
+   looks like, to see what various C/C++ constructs map to in LLVM, and try out
+   some of the optimizers.</p>
+</div>
+
+<br>
+
+<!-- 
+
+<div class="www_sectiontitle">Neat uses and features of LLVM</div>
+
+<p>Here is a random application or feature of LLVM:</p>
+
+<div class="www_code">
+<!--#exec cgi="random-box.cgi"-->
+</div>
+
+<p>If you have an addition, please <a href="mailto:sabre@nondot.org">send it
+in</a>.</p>
+
+<div class="www_sectiontitle">Funding</div>
+
+  <p>The initial research and development of LLVM was sponsored by the
+  National Science Foundation (NSF)
+    <a href="http://www.cise.nsf.gov/fndg/pubs/display2.cfm?pgm_pims_id=5160&amp;pgm_supp_id=10070&amp;loc=acir&amp;pub_id=5372&amp;div=acir">NSF
+  <i>Next Generation Software</i></a> program through grants EIA-0093426 (an
+  NSF CAREER award) and EIA-0103756.  It was also supported in part by the
+  University of Illinois, other NSF grants, the MARCO/DARPA <a
+	  href="http://www.gigascale.org/"><i>Gigascale 
+  Systems Research Center</i></a> (GSRC), and the Motorola University
+  Partnerships in Research program.</p>
+
+  <p>LLVM has since "graduated" from research funding to largely industry
+    funding.  The continued development and support of LLVM is funded by <a
+    href="http://www.apple.com/">Apple Inc.</a>, the NSF, the
+    University of Illinois, <a
+    href="http://www.autoesl.com/">AutoESL Design Technologies, Inc.</a>, and
+    others.  Please <a href="mailto:llvm-oversight@cs.uiuc.edu">send us
+    email</a> if you would like your company added to
+    this list.  LLVM has also benefited greatly from numerous source code
+    contributions from other individuals, listed <a
+    href="developers.cgi">here</a>.
+      </p>
+
+-->
+
+<!-- End of the right column -->
+        </td>
+    </tr>
+</table>
+
+<!--#include virtual="attrib.incl" -->
+<!--#include virtual="footer.incl" -->
