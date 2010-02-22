@@ -1,4 +1,4 @@
-#!/usr/dcs/software/supported/bin/perl -w
+#!/usr/bin/perl -w
 # LLVM Web Demo script
 #
 
@@ -127,7 +127,7 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM 2.5 in your browser!
+  Try out LLVM 2.6 in your browser!
 </div>
 
 <table border=0><tr><td>
