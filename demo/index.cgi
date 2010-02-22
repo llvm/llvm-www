@@ -10,7 +10,6 @@ use Mail::Send;
 $| = 1;
 
 my $ROOT = "/tmp/webcompile";
-#my $ROOT = "/home/vadve/lattner/webcompile";
 
 open( STDERR, ">&STDOUT" ) or die "can't redirect stderr to stdout";
 
@@ -22,12 +21,11 @@ my $MAILADDR        = 'sabre@nondot.org';
 my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVMdev mailing list</a>.';
 my $LOGO_IMAGE_URL  = 'cathead.png';
 my $TIMEOUTAMOUNT   = 20;
-$ENV{'LD_LIBRARY_PATH'} = '/home/vadve/shared/localtools/fc1/lib/';
 
 my @PREPENDPATHDIRS =
   (  
-    '/home/vadve/shared/llvm-gcc4.2/bin/',
-    '/home/vadve/shared/llvm-2.5/Release/bin');
+    '/opt/llvm-gcc-releases/llvm-gcc/bin',
+    '/opt/llvm-releases/llvm');
 
 my $defaultsrc = "#include <stdio.h>\n#include <stdlib.h>\n\n" .
                  "int factorial(int X) {\n  if (X == 0) return 1;\n" .
