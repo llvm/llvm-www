@@ -197,6 +197,9 @@ have the resources to go finding out why performance is bad.</p>
 
 <ol>
 
+<li>Completely rewrite bugpoint.  In addition to being a mess, bugpoint suffers
+from a number of problems where it will "lose" a bug when reducing.  It should
+be rewritten from scratch to solve these and other problems.</li>
 <li><a href="http://llvm.org/bugs/show_bug.cgi?id=2116">Add support for
 transactions to the PassManager</a> for improved bugpoint.</li>
 <li><a href="http://llvm.org/bugs/show_bug.cgi?id=539">Improve bugpoint to 
