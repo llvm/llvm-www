@@ -69,6 +69,32 @@
 
 <br>
 
+<b>Useful&nbsp;Links</b>
+<div class="www_sidebar">
+  <span style="font-size:smaller">Mailing Lists:</span><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM-dev</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmbugs">LLVM-bugs</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
+  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-testresults">LLVM-testresults</a>
+  <br><br>
+
+  <span style="font-size:smaller">IRC Channel:</span><br>
+  <a href="/docs/#irc">irc.oftc.net #llvm</a>
+
+  <br><br>
+
+  <span style="font-size:smaller">Dev. Resources:</span><br>
+  <a href="/doxygen/">doxygen</a>
+  <a href="/viewvc/llvm-project/llvm/">ViewVC</a><br>
+<!--  <a href="/nightlytest/">Nightly Tester</a><br> -->
+  <a href="/bugs/">LLVM Bugzilla</a><br>
+  <a href="http://google1.osuosl.org:8011/">Buildbot</a>
+</div>
+
+<br>
+
 <b>Status&nbsp;Updates</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
@@ -108,31 +134,6 @@
 
 <br>
 
-<b>Useful&nbsp;Links</b>
-<div class="www_sidebar">
-  <span style="font-size:smaller">Mailing Lists:</span><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM-dev</a><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmbugs">LLVM-bugs</a><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
-  <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-testresults">LLVM-testresults</a>
-  <br><br>
-
-  <span style="font-size:smaller">IRC Channel:</span><br>
-  <a href="/docs/#irc">irc.oftc.net #llvm</a>
-
-  <br><br>
-
-  <span style="font-size:smaller">Dev. Resources:</span><br>
-  <a href="/doxygen/">doxygen</a>
-  <a href="/viewvc/llvm-project/llvm/">ViewVC</a><br>
-<!--  <a href="/nightlytest/">Nightly Tester</a><br> -->
-  <a href="/bugs/">LLVM Bugzilla</a><br>
-  <a href="http://google1.osuosl.org:8011/">Buildbot</a>
-</div>
-
-<br>
 
 <span style="font-size:smaller">Maintained by:<br> <a href="mailto:sabre@nondot.org">Chris
 Lattner</a></span>
