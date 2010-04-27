@@ -127,7 +127,7 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM 2.6 in your browser!
+  Try out LLVM 2.7 in your browser!
 </div>
 
 <table border=0><tr><td>
