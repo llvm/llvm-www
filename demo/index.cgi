@@ -25,6 +25,7 @@ my $TIMEOUTAMOUNT   = 20;
 my @PREPENDPATHDIRS =
   (  
     '/opt/llvm-gcc-releases/llvm-gcc/bin',
+    '/opt/clang-releases/llvm',
     '/opt/llvm-releases/llvm');
 
 my $defaultsrc = "#include <stdio.h>\n#include <stdlib.h>\n\n" .
