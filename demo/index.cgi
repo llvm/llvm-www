@@ -25,8 +25,7 @@ my $TIMEOUTAMOUNT   = 20;
 my @PREPENDPATHDIRS =
   (  
     '/opt/llvm-gcc-releases/llvm-gcc/bin',
-    '/opt/clang-releases/llvm',
-    '/opt/llvm-releases/llvm');
+    '/opt/clang-releases/llvm/bin');
 
 my $defaultsrc = "#include <stdio.h>\n#include <stdlib.h>\n\n" .
                  "int factorial(int X) {\n  if (X == 0) return 1;\n" .
