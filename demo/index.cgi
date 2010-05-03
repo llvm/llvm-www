@@ -15,17 +15,45 @@ open( STDERR, ">&STDOUT" ) or die "can't redirect stderr to stdout";
 
 if ( !-d $ROOT ) { mkdir( $ROOT, 0777 ); }
 
+# Automatically update shown llvm version.
+sub llvmVersion {
+    my $version = `llvm-config --version 2>&1`;
+    if ( $version =~ /^(\w+\.\w+)\s*$/ ) {
+      return $1;
+    } else {
+      return ""; # don't show any version if unknown
+    }
+}
+
 my $LOGFILE         = "$ROOT/log.txt";
 my $FORM_URL        = 'index.cgi';
 my $MAILADDR        = 'sabre@nondot.org';
 my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVMdev mailing list</a>.';
-my $LOGO_IMAGE_URL  = 'cathead.png';
+my $LOGO_IMAGE_URL  = '/img/DragonSmall.png';
 my $TIMEOUTAMOUNT   = 20;
+my $LLVM_VERSION    = llvmVersion();
 
 my @PREPENDPATHDIRS =
   (  
     '/opt/llvm-gcc-releases/llvm-gcc/bin',
     '/opt/clang-releases/llvm/bin');
+
+my %COMPILER_LANGUAGE_COMBINATIONS =
+  (
+    'clang' =>
+      {
+        'C' => 1,
+        'C++' => 1,
+        'Objective-C' => 1,
+        'Objective-C++' => 1
+      },
+    'llvm-gcc' =>
+      {
+        'C' => 1,
+        'C++' => 1,
+        'Fortran' => 1
+      }
+  );
 
 my $defaultsrc = "#include <stdio.h>\n#include <stdlib.h>\n\n" .
                  "int factorial(int X) {\n  if (X == 0) return 1;\n" .
@@ -91,6 +119,33 @@ sub dumpFile {
     }
 }
 
+sub llvmTargets {
+    my %targets = ();
+    my $isReadingTargets = 0;
+    # Read list of available targets from llc tool.
+    open( LLC, 'llc -version 2>&1|' ) or barf("Can't read llc output: $!");
+    while ( <LLC> ) {
+        chomp;
+        if ( /Registered Targets:/ ) {
+            $isReadingTargets = 1;
+            next;
+        }
+        if ( $isReadingTargets and /^\s*(\S+)\s+- ([^[]+)( \[experimental\])?$/ ) {
+            $targets{$1} = { label => $2, experimental => $3 };
+        }
+    }
+    close( LLC );
+    # Fail to user if we didn't get a list. Possible error: The list format of
+    # targets from `llc -version` changed. If so, update the above code.
+    barf(
+      "This page is currently unavailable. The llc tool failed sanity check: Didn't return any list of available targets."
+    ) unless %targets;
+    # Insert standard targets.
+    $targets{'llvm'} = { label => 'LLVM assembly', experimental => 0 };
+    $targets{'cpp'}  = { label => 'LLVM C++ API code', experimental => 0 };
+    return %targets;
+}
+
 sub syntaxHighlightLLVM {
   my ($input) = @_;
   $input =~ s@\b(void|i\d+|float|double|x86_fp80|fp128|ppc_fp128|type|label|opaque)\b@<span class="llvm_type">$1</span>@g;
@@ -127,12 +182,12 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM 2.7 in your browser!
+  Try out LLVM $LLVM_VERSION in your browser!
 </div>
 
 <table border=0><tr><td>
-<img align=right width=100 height=111 src="$LOGO_IMAGE_URL">
-</td><td>
+<img src="$LOGO_IMAGE_URL" alt="small dragon logo" width="136" height="136">
+</td><td style="padding-left: 10px">
 EOF
 
 if ( -f "$ROOT/locked" ) {
@@ -141,7 +196,7 @@ if ( -f "$ROOT/locked" ) {
   my $currtime = time();
   if ($locktime + 60 > $currtime) {
     print "This page is already in use by someone else at this ";
-    print "time, try reloading in a second or two.  Meow!</td></tr></table>'\n";
+    print "time, try reloading in a second or two.  Rarh!</td></tr></table>'\n";
     exit 0;
   }
 }
@@ -149,10 +204,26 @@ if ( -f "$ROOT/locked" ) {
 system("touch $ROOT/locked");
 
 print <<END;
-Bitter Melon the cat says, paste a C/C++/Fortran program in the text box or
-upload one from your computer, and you can see LLVM compile it, meow!!
+The mighty LLVM dragon says, paste a C/Obj-C/C++/Fortran program in the text
+box or upload one from your computer, and you can see LLVM compile it, rarh!!
 </td></tr></table><p>
 END
+
+# Load list of available targets, before we output the rest of the page. If it
+# fails, an error message will be displayed.
+my %llvmTargets = llvmTargets();
+my %targetLabels = map { $_ => $llvmTargets{$_}->{'label'} } keys %llvmTargets;
+
+sub llvmTargetsSortedByLabel {
+  $llvmTargets{$a}->{'label'} cmp $llvmTargets{$b}->{'label'};
+}
+
+my @experimentalTargets = sort llvmTargetsSortedByLabel grep {     $llvmTargets{$_}->{'experimental'} } keys %llvmTargets;
+my @stableTargets       = sort llvmTargetsSortedByLabel grep { not $llvmTargets{$_}->{'experimental'} } keys %llvmTargets;
+# Show llvm and cpp targets first in list as they're kind of special.
+@stableTargets = grep { $_ ne 'llvm' and $_ ne 'cpp' } @stableTargets;
+@stableTargets = ('llvm', 'cpp', @stableTargets);
+
 
 print $c->start_multipart_form( 'POST', $FORM_URL );
 
@@ -169,7 +240,7 @@ advice</a>)<br>\n";
 
 print $c->textarea(
     -name    => "source",
-    -rows    => 16,
+    -rows    => 20,
     -columns => 60,
     -default => $source
 ), "<br>";
@@ -184,12 +255,19 @@ print '<p></td><td valign=top>';
 
 print "<center><h3>General Options</h3></center>";
 
+print "Compiler: ",
+  $c->radio_group(
+    -name    => 'compiler',
+    -values  => [ 'clang', 'llvm-gcc' ],
+    -default => 'clang'
+  ), ' <a href="DemoInfo.html#compiler">?</a><p>';
+
 print "Source language: ",
   $c->radio_group(
     -name    => 'language',
-    -values  => [ 'C', 'C++', 'Fortran' ],
+    -values  => [ 'C', 'C++', 'Objective-C', 'Objective-C++', 'Fortran' ],
     -default => 'C'
-  ), "<p>";
+  ), ' <a href="DemoInfo.html#language">?</a><p>';
 
 print "Optimization level: ",
   $c->radio_group(
@@ -211,15 +289,26 @@ print $c->checkbox(
 
 print "<center><h3>Output Options</h3></center>";
 
+print "Target: ",
+  $c->popup_menu(
+    -name    => 'target',
+    -default => 'llvm',
+    -values  => [
+      $c->optgroup(
+        -name   => 'Stable targets',
+        -values => \@stableTargets,
+        -labels => \%targetLabels
+      ), $c->optgroup(
+        -name   => 'Experimental targets',
+        -values => \@experimentalTargets,
+        -labels => \%targetLabels
+      )]
+  ), ' <a href="DemoInfo.html#target">?</a><p>';
+
 print $c->checkbox(
     -name => 'showbcanalysis',
     -label => 'Show detailed bytecode analysis'
   ),' <a href="DemoInfo.html#bcanalyzer">?</a><br>';
-
-print $c->checkbox(
-    -name => 'showllvm2cpp',
-    -label => 'Show LLVM C++ API code'
-  ), ' <a href="DemoInfo.html#llvm2cpp">?</a>';
 
 print "</td></tr></table>";
 
@@ -243,8 +332,14 @@ sub sanitychecktools {
     $sanitycheckfail .= ' llvm-gcc'
       if ( `llvm-gcc --version 2>&1` !~ /Free Software Foundation/ );
 
+    $sanitycheckfail .= ' clang'
+      if `clang --help 2>&1` !~ /clang "gcc-compatible" driver/;
+
     $sanitycheckfail .= ' llvm-ld'
       if `llvm-ld --help 2>&1` !~ /llvm linker/;
+
+    $sanitycheckfail .= ' llc'
+      if `llc --help 2>&1` !~ /llvm system compiler/;
 
     $sanitycheckfail .= ' llvm-bcanalyzer'
       if `llvm-bcanalyzer --help 2>&1` !~ /bcanalyzer/;
@@ -295,6 +390,8 @@ my %suffixes = (
     'C'                => '.c',
     'C++'              => '.cc',
     'Fortran'          => '.f90',
+    'Objective-C'      => '.m',
+    'Objective-C++'    => '.mm',
     'preprocessed C'   => '.i',
     'preprocessed C++' => '.ii'
 );
@@ -306,15 +403,19 @@ my %languages = (
     '.ii'   => 'preprocessed C++',
     '.cc'   => 'C++',
     '.cpp'  => 'C++',
+    '.m'    => 'Objective-C',
+    '.mm'   => 'Objective-C++',
     '.f'    => 'Fortran',
     '.f90'  => 'Fortran'
 );
-my %language_options = (
+my %gcc_options = (
     'Java'             => '',
     'JO99'             => '',
     'C'                => '-fnested-functions',
     'C++'              => '',
     'Fortran'          => '',
+    'Objective-C'      => '',
+    'Objective-C++'    => '',
     'preprocessed C'   => '-fnested-functions',
     'preprocessed C++' => ''
 );
@@ -341,6 +442,27 @@ if ($uploaded_file_name) {
     close $fh;
 }
 
+# Sanity checks on input.
+if ($c->param) {
+
+    # Ensure that the combination of compiler and language is valid.
+    my $compiler = $c->param('compiler');
+    my $language = $c->param('language');
+    my $compilerHTML = $c->escapeHTML($compiler);
+    my $languageHTML = $c->escapeHTML($language);
+    barf(
+      "The $compilerHTML compiler does not support $languageHTML code. Please choose another compiler."
+    ) unless exists $COMPILER_LANGUAGE_COMBINATIONS{$compiler}{$language};
+
+    # Since we inject target name in command line tool (llc), we need to
+    # validate it properly. Check if chosen target is an known valid target.
+    my $target = $c->param('target');
+    my $targetHTML = $c->escapeHTML($target);
+    barf(
+      "Unknown target $targetHTML. Please choose another one."
+    ) unless exists $llvmTargets{$target};
+}
+
 if ($c->param && $source) {
     print $c->hr;
     my $extension = $suffixes{ $c->param('language') };
@@ -365,12 +487,23 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
     $stats = "-ftime-report"
 	if ( $c->param('showstats') );
 
-    my $options = $language_options{ $c->param('language') };
-    $options .= " -O3" if $c->param('optlevel') ne "None";
-
-    try_run( "llvm C/C++/Fortran front-end (llvm-gcc)",
-	"llvm-gcc -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
-      $outputFile );
+    my $compiler = $c->param('compiler');
+    if ( $compiler eq 'clang' ) {
+        my $options = ( $c->param('optlevel') eq "None" ) ? "-O0" : "-O3";
+        try_run( "llvm C/C++/Objective-C/Objective-C++ front-end (clang)",
+          "clang -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
+          $outputFile );
+    } elsif ( $compiler eq 'llvm-gcc' ) {
+        my $options = $gcc_options{ $c->param('language') };
+        $options .= " -O3" if $c->param('optlevel') ne "None";
+        try_run( "llvm C/C++/Fortran front-end (llvm-gcc)",
+          "llvm-gcc -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
+          $outputFile );
+    } else {
+        # This shouldn't happen as we already checked whether the compiler/
+        # language combination is valid, which implies the compiler is known.
+        barf("Unknown compiler.");
+    }
 
     if ( $c->param('showstats') && -s $timerFile ) {
         my ( $UnhilightedResult, $HtmlResult ) =
@@ -402,13 +535,25 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
 
     print " Bytecode size is ", -s $bytecodeFile, " bytes.\n";
 
-    my $disassemblyFile = getname(".ll");
-    try_run( "llvm-dis",
-        "llvm-dis -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
-        $outputFile );
+    my $target = $c->param('target');
+    my $targetLabel = $llvmTargets{$target}->{'label'};
+
+    my $disassemblyFile;
+    if ( $target eq 'llvm' ) {
+        $disassemblyFile = getname(".ll");
+        try_run( "llvm-dis",
+            "llvm-dis -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
+            $outputFile );
+    } else {
+        $disassemblyFile = getname(".s");
+        my $options = ( $c->param('optlevel') eq "None" ) ? "-O0" : "-O3";
+        try_run( "llc",
+            "llc -march=$target -asm-verbose $options -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
+            $outputFile );
+    }
 
     if ( $c->param('cxxdemangle') ) {
-        print " Demangling disassembler output.\n";
+        print " Demangling target output.\n";
         my $tmpFile = getname(".ll");
         system("c++filt < $disassemblyFile > $tmpFile 2>&1");
         system("mv $tmpFile $disassemblyFile");
@@ -416,23 +561,23 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
 
     my ( $UnhilightedResult, $HtmlResult );
     if ( -s $disassemblyFile ) {
+        my $programName = ( $target eq 'llvm' ) ? 'disassembler' : 'static compiler';
         ( $UnhilightedResult, $HtmlResult ) =
-          dumpFile( "Output from LLVM disassembler", $disassemblyFile );
-        print syntaxHighlightLLVM($HtmlResult);
+          dumpFile( "Output from llvm $programName targeting $targetLabel", $disassemblyFile );
+        if ( $target eq 'llvm' ) {
+            $HtmlResult = syntaxHighlightLLVM($HtmlResult);
+        }
+        # It would be nice to support highlighting of other assembly files.
+        print $HtmlResult;
     }
     else {
-        print "<p>Hmm, that's weird, llvm-dis didn't produce any output.</p>\n";
+        print "<p>Hmm, that's weird, llvm-dis/llc didn't produce any output.</p>\n";
     }
 
     if ( $c->param('showbcanalysis') ) {
       my $analFile = getname(".bca");
       try_run( "llvm-bcanalyzer", "llvm-bcanalyzer $bytecodeFile > $analFile 2>&1", 
         $analFile);
-    }
-    if ($c->param('showllvm2cpp') ) {
-      my $l2cppFile = getname(".l2cpp");
-      try_run("llvm2cpp","llc -march=cpp $bytecodeFile -o $l2cppFile 2>&1",
-        $l2cppFile);
     }
 
     # Get the source presented by the user to CGI, convert newline sequences to simple \n.
