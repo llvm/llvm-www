@@ -37,15 +37,15 @@ described in more detail on the
   <!-- From Chuck Rose -->
   <tr>
     <td>Adobe Systems Incorporated</td>
-    <td>Optimizer and JIT codegen for the <a 
+    <td>Optimizer and JIT codegen for the <a
      href="http://llvm.org/ProjectsWithLLVM/#adobe-hydra">Hydra Language</a>.</td>
   </tr>
 
   <!-- From Adobe web site -->
   <tr>
     <td>Adobe Systems Incorporated</td>
-    <td><a href="http://labs.adobe.com/wiki/index.php/Alchemy">Alchemy C/C++ Compiler for the ActionScript 
-    Virtual Machine (AVM2)</a>.  See the <A href="http://labs.adobe.com/wiki/index.php/Alchemy:FAQ">FAQ</a> 
+    <td><a href="http://labs.adobe.com/wiki/index.php/Alchemy">Alchemy C/C++ Compiler for the ActionScript
+    Virtual Machine (AVM2)</a>.  See the <A href="http://labs.adobe.com/wiki/index.php/Alchemy:FAQ">FAQ</a>
     and <a href="http://llvm.org/devmtg/2008-08/">Scott Petersen's DevMtg talk</a> for more details.</td>
   </tr>
 
@@ -55,7 +55,7 @@ described in more detail on the
     <td>
     ActionScript 3 Ahead-of-Time (AOT) Compiler for iPhone software
     development.  See Aditya Bansod's
-    <a href="http://www.adobe.com/devnet/logged_in/abansod_iphone.html">blog entry</a> 
+    <a href="http://www.adobe.com/devnet/logged_in/abansod_iphone.html">blog entry</a>
     and
     <a href="http://labs.adobe.com/technologies/flashcs5/appsfor_iphone/#divider">
     this video</a> for more details.
@@ -72,37 +72,37 @@ described in more detail on the
   <!-- http://lists.cs.uiuc.edu/pipermail/llvmdev/2008-March/012978.html -->
   <tr>
     <td><a name="Apple">Apple Inc.</a></td>
-    <td>Mac OS X 10.4 (and later): Uses the LLVM JIT for <a 
-href="http://lists.cs.uiuc.edu/pipermail/llvmdev/2006-August/006492.html">optimizing 
-        many parts of the OpenGL pipeline</a>, including emulating vertex/pixel shaders 
-        when hardware support is missing, performing texture format 
+    <td>Mac OS X 10.4 (and later): Uses the LLVM JIT for <a
+href="http://lists.cs.uiuc.edu/pipermail/llvmdev/2006-August/006492.html">optimizing
+        many parts of the OpenGL pipeline</a>, including emulating vertex/pixel shaders
+        when hardware support is missing, performing texture format
         conversion before uploading to the GPU, efficiently packing GPU buffers
         for vertex submission, and many others.<p>
 
-        Xcode 3.1 (and later): <a 
-href="http://lists.cs.uiuc.edu/pipermail/llvmdev/2008-March/012978.html">llvm-gcc 4.2 
-        compiler</a> is now available for use in Xcode or from the command line.  It 
+        Xcode 3.1 (and later): <a
+href="http://lists.cs.uiuc.edu/pipermail/llvmdev/2008-March/012978.html">llvm-gcc 4.2
+        compiler</a> is now available for use in Xcode or from the command line.  It
         supports PPC32/X86-32/X86-64 and includes transparent LTO integration.<p>
 
-        Mac OS X 10.6 (and later): The <a 
+        Mac OS X 10.6 (and later): The <a
           href="http://en.wikipedia.org/wiki/OpenCL">OpenCL</a> GPGPU implementation is <a
 href="http://developer.apple.com/mac/library/documentation/Performance/Conceptual/OpenCL_MacProgGuide/OpenCLontheMacPlatform/OpenCLontheMacPlatform.html">built on Clang and LLVM compiler technology</a>.  This
         requires parsing an extended dialect of C at runtime and JIT compiling it to run
-        on the CPU, GPU, or both at the same time.  In addition, several performance 
-        sensitive pieces of Mac OS X 10.6 were built with llvm-gcc such as OpenSSL 
+        on the CPU, GPU, or both at the same time.  In addition, several performance
+        sensitive pieces of Mac OS X 10.6 were built with llvm-gcc such as OpenSSL
         and Hotspot.  Finally, the <a href="http://compiler-rt.llvm.org/">compiler_rt</a>
         library has replaced libgcc and is now a part of libsystem.dylib.<p>
 
-        Xcode 3.2 (and later): <a 
-    href="http://www.cocoabuilder.com/archive/message/xcode/2009/8/28/30113">Clang is 
-        now included as a production quality C and Objective-C compiler</a> that is 
+        Xcode 3.2 (and later): <a
+    href="http://www.cocoabuilder.com/archive/message/xcode/2009/8/28/30113">Clang is
+        now included as a production quality C and Objective-C compiler</a> that is
         available for use in Xcode or from the command line.  It supports X86-32/X86-64
-        and builds code 2-3x faster than GCC in "-O0 -g" mode.  Many "developer tools" 
-        GUI apps were shipped built with Clang, including Xcode, Interface Builder, 
+        and builds code 2-3x faster than GCC in "-O0 -g" mode.  Many "developer tools"
+        GUI apps were shipped built with Clang, including Xcode, Interface Builder,
         Automator, and several others.<p>
 
-        Xcode 3.2 (and later): The <a 
-href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/index.html">Xcode 
+        Xcode 3.2 (and later): The <a
+href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/index.html">Xcode
         Static Analyzer</a> is built on the Clang static
         analyzer, and allows Xcode users easy access to the Clang Static Analyzer as
         well as a first class user interface to dig through and visualize results.<p>
@@ -130,7 +130,7 @@ href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/ind
   <!-- Announcement at 2008 dev. meeting -->
   <tr>
     <td>Codedgers Inc.</td>
-    <td>Secure code transformation and obfuscation tool codename 
+    <td>Secure code transformation and obfuscation tool codename
       <a href="http://www.codedgers.com/docs/morpher.pdf">'Morpher'</a>
     </td>
   </tr>
@@ -138,7 +138,7 @@ href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/ind
   <!-- Ok'd by Luiz DeRose and David Greene -->
   <tr>
     <td>Cray Inc.</td>
-    <td>Backend for the Cray x86 compiler, available on the Cray XT5 and 
+    <td>Backend for the Cray x86 compiler, available on the Cray XT5 and
         later machines.</td>
   </tr>
 
@@ -175,7 +175,7 @@ href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/ind
 
   <tr>
     <td>REAL Software</td>
-     <td>Optimizer and code generator for <a 
+     <td>Optimizer and code generator for <a
      href="http://www.realsoftwareblog.com/2010/03/compiler-better-stronger-faster.html">RBScript and REAL Studio compiler</a>.</td>
   </tr>
 
@@ -194,15 +194,15 @@ href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/ind
   </tr>
 
   <!-- XMOS web site: https://technology.xmos.com/open-source
-"The LLVM project provides an open source compiler for C and other languages. 
+"The LLVM project provides an open source compiler for C and other languages.
 At present we have ported the back-end code generator to our architecture. It
-is our intention to work with the LLVM community and add analysis for 
+is our intention to work with the LLVM community and add analysis for
 multi-core code generation to the compiler."
  -->
   <tr>
     <td>XMOS Technology</td>
     <td>
-      <a href="http://www.xmos.com/open-source">Backend port for their 
+      <a href="http://www.xmos.com/open-source">Backend port for their
        architecture</a>, also working on multicore codegen support.
     </td>
   </tr>
@@ -225,7 +225,7 @@ multi-core code generation to the compiler."
     <td><a href="http://objective.modula2.net">Objective Modula-2 Project</a></td>
     <td>Modula-2 compiler w/ObjC runtime support. Targets Objective-C and LLVM.</td>
   </tr>
-  
+
   <!-- http://llvm.org/ProjectsWithLLVM/#IcedTea -->
   <!-- Authorized and described by Gary Benson, Lead on the Shark JIT
 	  within IcedTea -->
@@ -240,7 +240,7 @@ multi-core code generation to the compiler."
     <td><a href="http://pypy.org">PyPy Project</a></td>
     <td>Python interpreter written in Python.  Targets LLVM and C.</td>
   </tr>
-  
+
   <!-- http://www.grame.fr/~letz/faust_llvm.html -->
   <tr>
     <td><a href="http://faust.grame.fr/">Faust Signal Processing Language</a></td>
@@ -260,7 +260,7 @@ multi-core code generation to the compiler."
     <td><a href="http://www.ioquake3.org">IOQuake3</a></td>
     <td>IOQuake3 Raytracing Patch, <a href="http://www.quake3world.com/forum/viewtopic.php?f=7&amp;t=36482">uses LLVM for runtime shader compilation.</a></td>
   </tr>
- 
+
   <!-- Email sent to llvmdev -->
   <tr>
     <td><a href="http://mdevan.nfshost.com/llvm-py/">
@@ -391,7 +391,7 @@ Selective Symbolic Execution</a></li>
   <tr>
     <td><a href="http://faramir.ugent.be/">GH-SEL, INTEC, Ghent University</a></td>
     <td><a href="http://users.ugent.be/~badams/">Bram Adams</a></td>
-    <td>Aspect weaver for an AOP-language for C called 
+    <td>Aspect weaver for an AOP-language for C called
       <a href="http://users.ugent.be/~badams/aspicere2/">Aspicere2</a></td>
   </tr>
 
@@ -579,7 +579,7 @@ Selective Symbolic Execution</a></li>
 </table>
 </div>
 
-    
+
 <!-- *********************************************************************** -->
 <hr>
 <address>
