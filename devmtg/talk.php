@@ -1,8 +1,7 @@
-<?
+ <?
 
 // Database details. 
 include("connectDB.php");
-
 mysql_connect("127.0.0.1", $user, $password) or die(mysql_error());
 mysql_select_db($database);
 
@@ -10,8 +9,7 @@ virtual("../header.incl");
 
 function notify() {
 
-$to = "llvm-devmtg-admin@nondot.org";
-//$to = "tonic@nondot.org";
+$to = "lattner@apple.com";
 $subject = "LLVM Dev Meeting Talk Proposal";
 
 $body = '<html><body>';
@@ -203,12 +201,9 @@ print '</form>';
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Talk Proposal</div>
 
-Talk proposals are closed for this year.
-<? exit; ?>
-
 <?
 
-if (array_key_exists('verify', $_POST)) {
+if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
   if(!empty($formErrors)) {
      showForm($formErrors);
@@ -219,7 +214,8 @@ if (array_key_exists('verify', $_POST)) {
 
 }
 else {
-   showForm();
+   $formErrors = '';
+   showForm($formErrors);
 }
 ?>
 
