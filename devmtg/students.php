@@ -245,13 +245,9 @@ print '</form>';
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Student & Active Contributor Funding Request</div>
 
-<b>Student Funding is closed for this year. </b> 
-
-<? exit; ?>
-
 <?
 
-if (array_key_exists('verify', $_POST)) {
+if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
   if(!empty($formErrors)) {
      showForm($formErrors);
@@ -262,7 +258,7 @@ if (array_key_exists('verify', $_POST)) {
 
 }
 else {
-   showForm();
+   showForm('');
 }
 ?>
 
