@@ -1,5 +1,5 @@
-<?
-
+ <?
+ 
 // Database details. 
 include("connectDB.php");
 
@@ -10,8 +10,7 @@ virtual("../header.incl");
 
 function notify() {
 
-$to = "llvm-devmtg-admin@nondot.org";
-//$to = "tonic@nondot.org";
+$to = "lattner@apple.com";
 $subject = "LLVM Dev Meeting Student & Active Contributor Funding Request";
 
 $body = '<html><body>';
@@ -244,7 +243,7 @@ print '</form>';
 ?>
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Student & Active Contributor Funding Request</div>
-
+ 
 <?
 
 if (isset($_POST['verify'])) {
