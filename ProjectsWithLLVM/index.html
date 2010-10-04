@@ -35,6 +35,7 @@ papers, presentations, posters, or anything else you have.</p>
 <div class="www_text">
 
 <ul>
+<li><a href="#jade">Just-in-time Adaptive Decoder Engine (Jade)</a></li>
 <li><a href="#crack">The Crack Programming Language</a></li>
 <li><a href="#rubinius">Rubinius: a Ruby implementation</a></li>
 <li><a href="#unladenswallow">Unladen Swallow: an optimization branch of
@@ -66,6 +67,23 @@ papers, presentations, posters, or anything else you have.</p>
     for <b>LL</b>VM bytec<b>o</b>de</a></li>
 </ul>
 
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+<a name="jade">Just-in-time Adaptive Decoder Engine (Jade)</a>
+</div>
+
+<div class="www_subsubsection">
+By Jérôme Gorin (ARTEMIS/Institut Telecom/Telecom SudParis), Mickaël Raulet, Matthieu Wipliez (IETR/INSA Rennes)
+</div>
+
+<div class="www_text">
+<p>
+<a href="http://sourceforge.net/apps/trac/orcc/wiki/JadeDocumentation">Jade</a> (Just-in-time Adaptive Decoder Engine) is a generic video decoder engine using LLVM for just-in-time compilation of video decoder configurations. Those configurations are designed by MPEG Reconfigurable Video Coding (RVC) committee. MPEG RVC standard is built on a stream-based dataflow representation of decoders. It is composed of a standard library of coding tools written in RVC-CAL language and a dataflow configuration -- block diagram -- of a decoder.
+</p>
+<p>
+Jade project is hosted as part of the Open RVC-CAL Compiler (<a href=" http://orcc.sf.net">Orcc</a>) and requires it to translate the RVC-CAL standard library of video coding tools into an LLVM assembly code.</p>
 </div>
 
 <!--=========================================================================-->
