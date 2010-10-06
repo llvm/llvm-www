@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="/releases/"><b>LLVM&nbsp;2.7</b></a><br>
+<a href="/releases/"><b>LLVM&nbsp;2.8</b></a><br>
 
 <br>
 <span style="font-size:smaller">Try the</span><br>
@@ -50,7 +50,7 @@
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/2.7/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/2.8/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
@@ -98,6 +98,7 @@
 <b>Status&nbsp;Updates</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2010-October/000036.html">Oct  5, 2010</a><br>
   <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2010-April/000034.html">Apr 27, 2010</a><br>
   <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2009-October/000033.html">Oct 23, 2009</a><br>
   <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2009-March/000031.html">March 2, 2009</a><br>
