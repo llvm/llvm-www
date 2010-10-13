@@ -243,8 +243,10 @@ print '</form>';
 ?>
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Student & Active Contributor Funding Request</div>
- 
+
+<p>The deadline has passed.</p> 
 <?
+exit();
 
 if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
