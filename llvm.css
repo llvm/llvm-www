@@ -101,11 +101,28 @@ TABLE.www      { text-align: left; border: 2px solid black;
                  margin-right: 1em; margin-bottom: 1em; }
 
 /* Dev Meeting Agenda */
-table.devmtg {
-	border: 1px solid #cef;}
-th.devmtg {
-	font-weight: bold;
-	background-color: #58ACFA;
-	border-bottom: 1px solid #58ACFA; }
-tr.devmtg {
-	background-color: #A9D0F5}
+#devmtg
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse:collapse;
+}
+#devmtg td, #devmtg th 
+{
+font-size:1em;
+border:1px solid #045FB4;
+padding:3px 7px 2px 7px;
+}
+#devmtg th 
+{
+font-size:1.1em;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#045FB4;
+color:#ffffff;
+}
+#devmtg tr.alt td 
+{
+color:#000000;
+background-color:#81BEF7;
+}
