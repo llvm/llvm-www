@@ -99,3 +99,13 @@ address     { clear: right; }
 TABLE.www      { text-align: left; border: 2px solid black; 
                  border-collapse: collapse; margin-top: 1em; margin-left: 1em; 
                  margin-right: 1em; margin-bottom: 1em; }
+
+/* Dev Meeting Agenda */
+table.devmtg {
+	border: 1px solid #cef;}
+th.devmtg {
+	font-weight: bold;
+	background-color: #58ACFA;
+	border-bottom: 1px solid #58ACFA; }
+tr.devmtg {
+	background-color: #A9D0F5}
