@@ -205,6 +205,11 @@ transactions to the PassManager</a> for improved bugpoint.</li>
 <li><a href="http://llvm.org/bugs/show_bug.cgi?id=539">Improve bugpoint to 
 support running tests in parallel on MP machines</a>.</li>
 <li>Add JIT support to the SPARC port.</li> 
+<li>Move more optimizations out of the <tt>-instcombine</tt> pass and into
+InstructionSimplify.  The optimizations that should be moved are those that
+do not create new instructions, for example turning <tt>sub i32 %x, 0</tt>
+into <tt>%x</tt>.  Many passes use InstructionSimplify to clean up code as
+they go, so making it smarter can result in improvements all over the place.</li>
 </ol>
 
 </div>
