@@ -424,7 +424,6 @@ link-time optimizations for code size optimization.
     epilog.  However, some paths through a function (e.g. an early exit) may 
     not use all regs.  Sinking the save down the CFG avoids useless work on
     these paths. Work has started on this, please inquire on llvmdev.</li>
-<li>Rename ISD::BIT_CONVERT to ISD::BITCAST to match the llvm ir concept</li>
 <li>Finish adapting existing targets to use the calling convention description
     mechanism (see lib/Target/X86/X86CallingConv.td for an example).</li>
 <li>Implement interprocedural register allocation. The CallGraphSCCPass can be
