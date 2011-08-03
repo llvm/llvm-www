@@ -148,7 +148,7 @@ system("touch $ROOT/locked");
 
 print <<END;
 Paste a C/C++ program in the text box or
-upload one from your computer, and you can see LLVM compile it, meow!!
+upload one from your computer, and you can see LLVM compile it!!
 </td></tr></table><p>
 END
 
