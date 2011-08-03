@@ -19,13 +19,11 @@ my $LOGFILE         = "$ROOT/log.txt";
 my $FORM_URL        = 'index.cgi';
 my $MAILADDR        = 'sabre@nondot.org';
 my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVMdev mailing list</a>.';
-my $LOGO_IMAGE_URL  = 'cathead.png';
+my $LOGO_IMAGE_URL  = '../img/DragonSmall.png';
 my $TIMEOUTAMOUNT   = 20;
 
 my @PREPENDPATHDIRS =
-  (  
-    '/opt/llvm-gcc-releases/llvm-gcc/bin',
-    '/opt/clang-releases/llvm/bin');
+    ('/opt/clang-releases/llvm/bin');
 
 my $defaultsrc = "#include <stdio.h>\n#include <stdlib.h>\n\n" .
                  "int factorial(int X) {\n  if (X == 0) return 1;\n" .
@@ -127,7 +125,7 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM 2.7 in your browser!
+  Try out LLVM 2.9 in your browser!
 </div>
 
 <table border=0><tr><td>
@@ -141,7 +139,7 @@ if ( -f "$ROOT/locked" ) {
   my $currtime = time();
   if ($locktime + 60 > $currtime) {
     print "This page is already in use by someone else at this ";
-    print "time, try reloading in a second or two.  Meow!</td></tr></table>'\n";
+    print "time, try reloading in a second or two.</td></tr></table>'\n";
     exit 0;
   }
 }
@@ -149,7 +147,7 @@ if ( -f "$ROOT/locked" ) {
 system("touch $ROOT/locked");
 
 print <<END;
-Bitter Melon the cat says, paste a C/C++/Fortran program in the text box or
+Paste a C/C++ program in the text box or
 upload one from your computer, and you can see LLVM compile it, meow!!
 </td></tr></table><p>
 END
@@ -187,7 +185,7 @@ print "<center><h3>General Options</h3></center>";
 print "Source language: ",
   $c->radio_group(
     -name    => 'language',
-    -values  => [ 'C', 'C++', 'Fortran' ],
+    -values  => [ 'C', 'C++' ],
     -default => 'C'
   ), "<p>";
 
@@ -240,14 +238,13 @@ sub sanitychecktools {
     $sanitycheckfail .= ' llvm-dis'
       if `llvm-dis --help 2>&1` !~ /ll disassembler/;
 
-    $sanitycheckfail .= ' llvm-gcc'
-      if ( `llvm-gcc --version 2>&1` !~ /Free Software Foundation/ );
-
     $sanitycheckfail .= ' llvm-ld'
       if `llvm-ld --help 2>&1` !~ /llvm linker/;
 
     $sanitycheckfail .= ' llvm-bcanalyzer'
       if `llvm-bcanalyzer --help 2>&1` !~ /bcanalyzer/;
+    $sanitycheckfail .= ' clang'
+      if `clang --version 2>&1` !~ /clang/;
 
     barf(
 "<br/>The demo page is currently unavailable. [tools: ($sanitycheckfail ) failed sanity check]"
@@ -312,10 +309,10 @@ my %languages = (
 my %language_options = (
     'Java'             => '',
     'JO99'             => '',
-    'C'                => '-fnested-functions',
+    'C'                => '',
     'C++'              => '',
     'Fortran'          => '',
-    'preprocessed C'   => '-fnested-functions',
+    'preprocessed C'   => '',
     'preprocessed C++' => ''
 );
 
@@ -357,8 +354,8 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
     my $pid       = $$;
 
     my $bytecodeFile = getname(".bc");
-    my $outputFile   = getname(".llvm-gcc.out");
-    my $timerFile    = getname(".llvm-gcc.time");
+    my $outputFile   = getname(".clang.out");
+    my $timerFile    = getname(".clang.time");
 
     my $stats = '';
     #$stats = "-Wa,--stats,--time-passes,--info-output-file=$timerFile"
@@ -368,8 +365,8 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
     my $options = $language_options{ $c->param('language') };
     $options .= " -O3" if $c->param('optlevel') ne "None";
 
-    try_run( "llvm C/C++/Fortran front-end (llvm-gcc)",
-	"llvm-gcc -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
+    try_run( "llvm C/C++ front-end (clang)",
+	"clang -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
       $outputFile );
 
     if ( $c->param('showstats') && -s $timerFile ) {
