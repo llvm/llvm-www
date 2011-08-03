@@ -103,7 +103,7 @@ sub syntaxHighlightLLVM {
 sub mailto {
     my ( $recipient, $body ) = @_;
     my $msg =
-      new Mail::Send( Subject => "LLVM Demo Page Run", To => $recipient );
+      new Mail::Send( Subject => "LLVM/Clang Demo Page Run", To => $recipient );
     my $fh = $msg->open();
     print $fh $body;
     $fh->close();
@@ -116,7 +116,7 @@ print <<EOF;
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <title>Try out LLVM in your browser!</title>
+  <title>Try out LLVM and Clang in your browser!</title>
   <style>
     \@import url("syntax.css");
     \@import url("http://llvm.org/llvm.css");
@@ -125,7 +125,7 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM 2.9 in your browser!
+  Try out LLVM and Clang 2.9 in your browser!
 </div>
 
 <table border=0><tr><td>
@@ -148,7 +148,7 @@ system("touch $ROOT/locked");
 
 print <<END;
 Paste a C/C++ program in the text box or
-upload one from your computer, and you can see LLVM compile it!!
+upload one from your computer, and you can see LLVM and Clang compile it!!
 </td></tr></table><p>
 END
 
