@@ -149,6 +149,7 @@ system("touch $ROOT/locked");
 print <<END;
 Paste a C/C++ program in the text box or
 upload one from your computer, and you can see LLVM and Clang compile it!!
+Rawr!!!
 </td></tr></table><p>
 END
 
