@@ -2,3 +2,40 @@
 
 .llvm_type    { font-style: oblique; color: green }
 .llvm_keyword { font-weight: bold; color: blue }
+
+.terminalStyle0 { }
+.terminalStyle030, .terminalStyle130 { color:gray }
+.terminalStyle031, .terminalStyle131 { color:red }
+.terminalStyle032, .terminalStyle132 { color:green }
+.terminalStyle033, .terminalStyle133 { color:yellow }
+.terminalStyle034, .terminalStyle134 { color:blue }
+.terminalStyle035, .terminalStyle135 { color:magenta }
+.terminalStyle036, .terminalStyle136 { color:cyan }
+.terminalStyle037, .terminalStyle137 { color:white }
+
+.terminalStyle040, .terminalStyle140 { background-color:gray }
+.terminalStyle041, .terminalStyle141 { background-color:red }
+.terminalStyle042, .terminalStyle142 { background-color:green }
+.terminalStyle043, .terminalStyle143 { background-color:yellow }
+.terminalStyle044, .terminalStyle144 { background-color:blue }
+.terminalStyle045, .terminalStyle145 { background-color:magenta }
+.terminalStyle046, .terminalStyle146 { background-color:cyan }
+.terminalStyle047, .terminalStyle147 { background-color:white }
+
+.terminalStyle1,
+.terminalStyle130,
+.terminalStyle131,
+.terminalStyle132,
+.terminalStyle133,
+.terminalStyle134,
+.terminalStyle135,
+.terminalStyle136,
+.terminalStyle137,
+.terminalStyle140,
+.terminalStyle141,
+.terminalStyle142,
+.terminalStyle143,
+.terminalStyle144,
+.terminalStyle145,
+.terminalStyle146,
+.terminalStyle147 { font-weight:bold }
