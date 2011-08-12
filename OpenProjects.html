@@ -242,8 +242,6 @@ improvements to LLVM core</a> are awaiting design and implementation.</p>
 <li><a href="http://nondot.org/sabre/LLVMNotes/DebugInfoImprovements.txt">Improvements 
 for Debug Information Generation</a></li>
 <li><a href="http://llvm.org/PR1269">EH support for non-call exceptions</a></li>
-<li>Add support for representing Type Based Alias Analysis (TBAA) in the 
-LLVM IR.</li>
 <li>Many ideas for feature requests are stored in LLVM bugzilla.  Just <a
   href="http://llvm.org/bugs/buglist.cgi?short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=new-feature&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;namedcmd=All+PRs&amp;newqueryname=&amp;order=Bug+Number&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">search for bugs with a "new-feature" keyword</a>.</li>
 </ol>
@@ -268,9 +266,6 @@ are really important, but there are simple things that we could do to
 better capture the effects of functions that access pointer  
 arguments.  This can be really important for C++ methods, which spend  
 lots of time accessing pointers off 'this'.</li>
-
-<li>Implement support for representing language-specific Type Based Alias 
-Analysis information in the LLVM IR.</li>
 
 <li>The alias analysis API supports the getModRefBehavior method, which  
 allows the implementation to give details analysis of the functions.   
