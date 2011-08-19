@@ -9,7 +9,7 @@ virtual("../header.incl");
 
 function notify() {
 
-$to = "lattner@apple.com";
+$to = "lattner@apple.com,clattner@apple.com,dkipping@qualcomm.com";
 $subject = "LLVM Dev Meeting Talk Proposal";
 
 $body = '<html><body>';
@@ -20,6 +20,13 @@ $body .= '<p>Email: ' . $_POST['email'] . '</p>';
 $body .= '<p>Phone: ' . $_POST['phone'] . '</p>';
 $body .= '<p>Title: ' . $_POST['title'] . '</p>';
 $body .= "<p>Summary: " . $_POST['summary'] . '</p>';
+
+if($_POST['talkType'] == 1)
+$talkType = "Talk";
+else if($_POST['talkType'] == 2)
+$talkType = "BOF";
+
+$body .= '<p>Type: ' . $talkType . '</p>';
 
 if($_POST['min'] == 1)
 $min =20;
@@ -45,7 +52,7 @@ $body .= '<p>Max Length: ' . $max . ' minutes</p>';
 
 $body .= '</body></html>';
 
-$headers = 'From: tonic@nondot.org' . "\r\n";
+$headers = 'From: lattner@apple.com' . "\r\n";
 $headers .= 'Content-Type: text/html; charset="iso-8859-1"'."\n";
 mail($to, $subject, $body, $headers);
 
@@ -58,9 +65,9 @@ function my_escape_string(&$item, $key) {
 
 function processForm() {
   array_walk($_POST, 'my_escape_string');
-  $sql = "INSERT into presenters (lastName, firstName, organization, email, phone, title, summary, minLength, maxLength) VALUES('$_POST[last]', '$_POST[first]', '$_POST[org]', '$_POST[email]', '$_POST[phone]', '$_POST[title]', '$_POST[summary]','$_POST[min]', '$_POST[max]')";
+  $sql = "INSERT into presenters (lastName, firstName, organization, email, phone, title, summary, minLength, maxLength,talkType) VALUES('$_POST[last]', '$_POST[first]', '$_POST[org]', '$_POST[email]', '$_POST[phone]', '$_POST[title]', '$_POST[summary]','$_POST[min]', '$_POST[max]', '$_POST[talkType]')";
   mysql_query($sql) or die(mysql_error());
-print 'Congratulations! Your talk proposal for the LLVM Developers\' Meeting has been submitted. We will contact you once the agenda has been finalized. <p>Please sign up for the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p>';
+print 'Congratulations! Your talk proposal for the LLVM Developers\' Meeting has been submitted. We will contact you once the agenda has been finalized. <p>Please sign up for the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p><p>If you need funding support to present, please apply <a href="http://www.llvm.org/devmtg/sponsor.php">here</a> for sponsorsip.';
  notify();
 }
 
@@ -82,6 +89,9 @@ function validateForm() {
 
    if ($_POST['phone']=="")
      array_push($errors, "Phone number must be provided");
+
+   if ($_POST['talkType'] == "")
+     array_push($errors, "Please select Talk or BOF");
 
    if ($_POST['title'] == "")
      array_push($errors, "Please provide talk title");
@@ -181,15 +191,20 @@ inputText("phone", 50, 100, $_POST);
 print '</td>';
 print '</tr>';
 print '</table>';
+print '<p>Select Talk or BOF: ';
+inputRadioCheck("talkType", $_POST, 1);
+print ' Talk ';
+inputRadioCheck("talkType", $_POST, 2);
+print ' BOF </p>';
 print '<p>Mininum talk length: ';
 inputList('min', $_POST);
 print '</p><p>Maximum talk length: ';
 inputList('max', $_POST);
-print '<p>Talk Title: </p>';
+print '<p>Talk/BOF Title: </p>';
 print '<p>';
 inputTextArea("title", 5, 60, $_POST);
 print '</p>';
-print '<p>Talk Summary: </p>';
+print '<p>Talk/BOF Summary: </p>';
 print '<p>';
 inputTextArea("summary", 10, 60, $_POST);
 print '</p>';
@@ -200,10 +215,8 @@ print '</form>';
 ?>
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Talk Proposal</div>
-<p>
-The deadline to submit a talk proposal has passed. We hope you can make the meeting.</p>
+
 <?
-exit();
 
 if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
