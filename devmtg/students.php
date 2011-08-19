@@ -10,8 +10,8 @@ virtual("../header.incl");
 
 function notify() {
 
-$to = "lattner@apple.com";
-$subject = "LLVM Dev Meeting Student & Active Contributor Funding Request";
+$to = "lattner@apple.com,clattner@apple.com,dkipping@qualcomm.com";
+$subject = "LLVM Dev Meeting Student, Presenter, and Active Contributor Funding Request";
 
 $body = '<html><body>';
 
@@ -44,7 +44,7 @@ $body .= '<p>Reasons for needing funding: ' . $_POST['comments'] . '</p>';
 
 $body .= '</body></html>';
 
-$headers = 'From: tonic@nondot.org' . "\r\n";
+$headers = 'From: lattner@apple.com' . "\r\n";
 $headers .= 'Content-Type: text/html; charset="iso-8859-1"'."\n";
 mail($to, $subject, $body, $headers);
 
@@ -243,10 +243,7 @@ print '</form>';
 ?>
 
 <div class="www_sectiontitle">LLVM Developers' Meeting - Student & Active Contributor Funding Request</div>
-
-<p>The deadline has passed.</p> 
 <?
-exit();
 
 if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
