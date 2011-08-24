@@ -16,7 +16,7 @@ open( STDERR, ">&STDOUT" ) or die "can't redirect stderr to stdout";
 if ( !-d $ROOT ) { mkdir( $ROOT, 0777 ); }
 
 my $LOGFILE         = "$ROOT/log.txt";
-my $FORM_URL        = 'index.cgi';
+my $FORM_URL        = 'test.cgi';
 my $MAILADDR        = 'sabre@nondot.org';
 my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVMdev mailing list</a>.';
 my $LOGO_IMAGE_URL  = '../img/DragonSmall.png';
@@ -70,6 +70,12 @@ sub addlog {
     close LOG;
 }
 
+sub syntaxHighlightConsoleOutput {
+  my ($input) = @_;
+  $input =~ s@\033\[(?:\d;)?(\d);?((?:\d\d)?)m@</span><span class="terminalStyle$1$2">@g;
+  return $input;
+}
+
 sub dumpFile {
     my ( $header, $file ) = @_;
     my $result;
@@ -80,7 +86,7 @@ sub dumpFile {
     close FILE;
     my $UnhilightedResult = $result;
     my $HtmlResult        =
-      "<h3>$header</h3>\n<pre>\n" . $c->escapeHTML($result) . "\n</pre>\n";
+      "<h3>$header</h3>\n<pre>\n<span>" . syntaxHighlightConsoleOutput($c->escapeHTML($result)) . "</span>\n</pre>\n";
     if (wantarray) {
         return ( $UnhilightedResult, $HtmlResult );
     }
@@ -367,7 +373,7 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
     $options .= " -O3" if $c->param('optlevel') ne "None";
 
     try_run( "llvm C/C++ front-end (clang)",
-	"clang -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
+	"clang -fcolor-diagnostics -emit-llvm -msse3 -W -Wall $options $stats -o $bytecodeFile -c $inputFile > $outputFile 2>&1",
       $outputFile );
 
     if ( $c->param('showstats') && -s $timerFile ) {
