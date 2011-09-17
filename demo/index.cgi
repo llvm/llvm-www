@@ -159,6 +159,18 @@ Rawr!!!
 </td></tr></table><p>
 END
 
+my %llvmTargets = ();
+$llvmTargets{'x86'} = { label => '32-bit X86: Pentium-Pro and above'  };
+$llvmTargets{'x86-64'}  = { label => '64-bit X86: EM64T and AMD64' };
+$llvmTargets{'llvm'} = { label => 'LLVM assembly' };
+$llvmTargets{'cpp'}  = { label => 'LLVM C++ API code' };
+my %targetLabels = map { $_ => $llvmTargets{$_}->{'label'} } keys %llvmTargets;
+sub llvmTargetsSortedByLabel {
+  $llvmTargets{$a}->{'label'} cmp $llvmTargets{$b}->{'label'};
+}
+
+my @sortedTargets = sort llvmTargetsSortedByLabel keys %llvmTargets;
+
 print $c->start_multipart_form( 'POST', $FORM_URL );
 
 my $source = $c->param('source');
@@ -216,15 +228,18 @@ print $c->checkbox(
 
 print "<center><h3>Output Options</h3></center>";
 
+print "Target: ",
+  $c->popup_menu(
+    -name    => 'target',
+    -default => 'llvm',
+    -values => \@sortedTargets,
+    -labels => \%targetLabels
+  ), ' <a href="DemoInfo.html#target">?</a><p>';
+
 print $c->checkbox(
     -name => 'showbcanalysis',
     -label => 'Show detailed bytecode analysis'
   ),' <a href="DemoInfo.html#bcanalyzer">?</a><br>';
-
-print $c->checkbox(
-    -name => 'showllvm2cpp',
-    -label => 'Show LLVM C++ API code'
-  ), ' <a href="DemoInfo.html#llvm2cpp">?</a>';
 
 print "</td></tr></table>";
 
@@ -245,8 +260,14 @@ sub sanitychecktools {
     $sanitycheckfail .= ' llvm-dis'
       if `llvm-dis --help 2>&1` !~ /ll disassembler/;
 
+    $sanitycheckfail .= ' clang'
+      if `clang --help 2>&1` !~ /clang "gcc-compatible" driver/;
+
     $sanitycheckfail .= ' llvm-ld'
       if `llvm-ld --help 2>&1` !~ /llvm linker/;
+
+    $sanitycheckfail .= ' llc'
+      if `llc --help 2>&1` !~ /llvm system compiler/;
 
     $sanitycheckfail .= ' llvm-bcanalyzer'
       if `llvm-bcanalyzer --help 2>&1` !~ /bcanalyzer/;
@@ -294,31 +315,23 @@ sub try_run {
 }
 
 my %suffixes = (
-    'Java'             => '.java',
-    'JO99'             => '.jo9',
     'C'                => '.c',
     'C++'              => '.cc',
-    'Fortran'          => '.f90',
+    'Objective-C'      => '.m',
+    'Objective-C++'    => '.mm',
     'preprocessed C'   => '.i',
     'preprocessed C++' => '.ii'
 );
 my %languages = (
-    '.jo9'  => 'JO99',
-    '.java' => 'Java',
     '.c'    => 'C',
     '.i'    => 'preprocessed C',
     '.ii'   => 'preprocessed C++',
     '.cc'   => 'C++',
     '.cpp'  => 'C++',
-    '.f'    => 'Fortran',
-    '.f90'  => 'Fortran'
 );
 my %language_options = (
-    'Java'             => '',
-    'JO99'             => '',
     'C'                => '',
     'C++'              => '',
-    'Fortran'          => '',
     'preprocessed C'   => '',
     'preprocessed C++' => ''
 );
@@ -346,6 +359,14 @@ if ($uploaded_file_name) {
 }
 
 if ($c->param && $source) {
+    # Since we inject target name in command line tool (llc), we need to
+    # validate it properly. Check if chosen target is an known valid target.
+    my $target = $c->param('target');
+    my $targetHTML = $c->escapeHTML($target);
+    barf(
+      "Unknown target $targetHTML. Please choose another one."
+    ) unless exists $llvmTargets{$target};
+
     print $c->hr;
     my $extension = $suffixes{ $c->param('language') };
     barf "Unknown language; can't compile\n" unless $extension;
@@ -406,13 +427,25 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
 
     print " Bytecode size is ", -s $bytecodeFile, " bytes.\n";
 
-    my $disassemblyFile = getname(".ll");
-    try_run( "llvm-dis",
-        "llvm-dis -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
-        $outputFile );
+    my $target = $c->param('target');
+    my $targetLabel = $llvmTargets{$target}->{'label'};
+
+    my $disassemblyFile;
+    if ( $target eq 'llvm' ) {
+        $disassemblyFile = getname(".ll");
+        try_run( "llvm-dis",
+            "llvm-dis -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
+            $outputFile );
+    } else {
+        $disassemblyFile = getname(".s");
+        my $options = ( $c->param('optlevel') eq "None" ) ? "-O0" : "-O3";
+        try_run( "llc",
+            "llc -march=$target -asm-verbose $options -o=$disassemblyFile $bytecodeFile > $outputFile 2>&1",
+            $outputFile );
+    }
 
     if ( $c->param('cxxdemangle') ) {
-        print " Demangling disassembler output.\n";
+        print " Demangling target output.\n";
         my $tmpFile = getname(".ll");
         system("c++filt < $disassemblyFile > $tmpFile 2>&1");
         system("mv $tmpFile $disassemblyFile");
@@ -420,23 +453,23 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
 
     my ( $UnhilightedResult, $HtmlResult );
     if ( -s $disassemblyFile ) {
+        my $programName = ( $target eq 'llvm' ) ? 'disassembler' : 'static compiler';
         ( $UnhilightedResult, $HtmlResult ) =
-          dumpFile( "Output from LLVM disassembler", $disassemblyFile );
-        print syntaxHighlightLLVM($HtmlResult);
+          dumpFile( "Output from llvm $programName targeting $targetLabel", $disassemblyFile );
+        if ( $target eq 'llvm' ) {
+            $HtmlResult = syntaxHighlightLLVM($HtmlResult);
+        }
+        # It would be nice to support highlighting of other assembly files.
+        print $HtmlResult;
     }
     else {
-        print "<p>Hmm, that's weird, llvm-dis didn't produce any output.</p>\n";
+        print "<p>Hmm, that's weird, llvm-dis/llc didn't produce any output.</p>\n";
     }
 
     if ( $c->param('showbcanalysis') ) {
       my $analFile = getname(".bca");
       try_run( "llvm-bcanalyzer", "llvm-bcanalyzer $bytecodeFile > $analFile 2>&1", 
         $analFile);
-    }
-    if ($c->param('showllvm2cpp') ) {
-      my $l2cppFile = getname(".l2cpp");
-      try_run("llvm2cpp","llc -march=cpp $bytecodeFile -o $l2cppFile 2>&1",
-        $l2cppFile);
     }
 
     # Get the source presented by the user to CGI, convert newline sequences to simple \n.
