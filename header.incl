@@ -90,7 +90,7 @@
   <a href="/viewvc/llvm-project/">ViewVC</a><br>
 <!--  <a href="/nightlytest/">Nightly Tester</a><br> -->
   <a href="/bugs/">LLVM Bugzilla</a><br>
-  <a href="http://google1.osuosl.org:8011/">Buildbot</a>
+  <a href="http://lab.llvm.org:8011/">Buildbot</a>
 </div>
 
 <br>
