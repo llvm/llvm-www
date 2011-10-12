@@ -217,7 +217,8 @@ print '</form>';
 <div class="www_sectiontitle">LLVM Developers' Meeting - Talk Proposal</div>
 
 <?
-
+print 'The deadline for talk proposals has passed.';
+exit();
 if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
   if(!empty($formErrors)) {
