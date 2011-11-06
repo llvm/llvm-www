@@ -206,14 +206,14 @@ In addition to back-end details, this talk will also highlight the use of Clang 
 We will present two dynamic testing tools based on compile-time instrumentation, both tools use the LLVM compiler.
 <ul><li>AddressSanitizer (ASan) finds memory bugs, such as use-after-free and out-of-bound accesses to heap and stack. This tool could be seen as a partial replacement for Valgrind and similar tools. The major advantages over Valgrind are the speed (less than 2x slowdown on average) and the ability to handle bugs related to stack and globals.
 </li>
-<ul<li>ThreadSanitizer (TSan) finds data races. It uses the same race detection algorithm as the Valgrind-based TSan, but compile-time instrumentation allows it to be much faster (2x-4x slowdown).
+<li>ThreadSanitizer (TSan) finds data races. It uses the same race detection algorithm as the Valgrind-based TSan, but compile-time instrumentation allows it to be much faster (2x-4x slowdown).
 </li></ul>
 We will also share our experience in deploying theses testing tools in large software projects.
 </p>
 
 <p>
 <b><a id="talk13">Intel OpenCL SDK Vectorizer</a></b><br>
-<i>Nadav Rotem -  Intel</i>
+<i>Nadav Rotem -  Intel</i><br>
 In this talk, we will present our OpenCL SDK and its core technology – the vectorizer compiler. We plan to present an overview of our vectorizer and discuss our experience with the LLVM compiler toolkit over the last few years. We will discuss some of our design decisions and our and plans for future features (future instruction sets, vector select, predicated instructions, etc).
 </p>
 
