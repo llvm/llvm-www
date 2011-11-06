@@ -8,6 +8,8 @@
         <li><a href="#sponsor">Funding Assistance</a></li>
         <li><a href="#location">Location</a></li>
 	<li><a href="#agenda">Agenda</a></li>
+        <li><a href="#abstracts">Talk Abstracts</a></li>
+        <li><a href="#poster">Poster Abstracts</a></li>
         <li><a href="#dinner">Dinner</a></li>
 </ol>
 </td><td>
@@ -108,7 +110,11 @@ Take Hwy CA-87 South (Guadalupe Parkway). Exit on Park Avenue. Turn left on Park
 <tr class="alt"><td><b><a href="#talk7">SKIR: Just-in-Time Compilation for Parallelism with LLVM</a></b><br>Jeff Fifield, <i>University of Colorado</i></td><td>Second Hall</td></tr>
 <tr class="alt"><td><b>Improving the Clang Driver BOF</b><br>James Molloy, <i>ARM</i></td><td>TBD</td></tr>
 
-<tr><td>3:05 - 3:45</td><td><b>Posters</b></td><td>TBD</td></tr>
+<tr><td rowspan=4>3:05 - 3:45</td><td><b>Posters</b></td><td>TBD</td></tr>
+<tr><td><b><a href="#poster3">LunarGLASS: A LLVM-based shader compiler stack</a></b><br>Michael Ilseman, <i>LunarG</i></td><td>TBD</td></tr>
+<tr><td><b><a href="#poster4">Symbolic Testing of OpenCL Code</a></b><br>Peter Collingbourne, <i>Imperial College London</i></td><td>TBD</td></tr>
+<tr><td><b><a href="#poster2">Code verification based on attributes annotation - Implementing custom attributes check using Clang</a></b><br>Michael Han, <i>Autodesk</i></td><td>TBD</td></tr>
+<tr><td><b><a href="#poster1">Parfait - A Scalable Static Bug-Checking Tool Built on LLVM</a></b><br>Cristina Cifuentes, Nathan Keynes, Andrew Craik, Lian Li, Nathan Hawes, Andrew Browne, and Manuel Valdiviezo, <i>Oracle Labs</i></td><td>TBD</td></tr>
 
 <tr class="alt"><td rowspan=2>3:45 - 4:30</td><td><b><a href="#talk6">Register Allocation in LLVM 3.0</a></b><br>Jakob Olesen, <i>Apple</i></td><td>Main Hall</td></tr>
 <tr class="alt"><td><b><a href="#talk9">Exporting 3D scenes from Maya to WebGL using clang and LLVM</a></b><br>Jochen Wilhelmy, <i>consultant</i></td><td>Second Hall</td></tr>
@@ -125,6 +131,7 @@ Take Hwy CA-87 South (Guadalupe Parkway). Exit on Park Avenue. Turn left on Park
 </table>
 </p>
 
+<div class="www_sectiontitle" id="abstracts">Talk Abstracts</div>
 <p>
 <b><a id="talk1">Integrating LLVM into FreeBSD</a></b><br>
 <i>Brooks Davis -  The FreeBSD Project</i><br>
@@ -241,6 +248,44 @@ This talk will describe our experiences in porting LLVM to Qualcomm's latest gen
 <b><a id="talk17">Polly - First successful optimizations - How to proceed?</a></b><br>
 <i>Tobias Grosser -  ENS/INRIA</i><br>
 Polly, the LLVM Polyhedral Optimizer, was presented one year ago. At that point, only the basic infrastructure was in place and many important parts not even started. Even though Polly is still more research than production quality, we made big improvements during the last 12 months. Polly itself moved to the LLVM infrastructure with Bugtracker, Buildbot and VCS. It can now conveniently be loaded into clang as part of clang -O3. We also implemented automatic SIMD and OpenMP code generation and we created a bridge to the external PoCC optimizer. With PoCC and Polly, we were able to compile and _optimize_ the first benchmarks fully automatically and have shown significant improvements over clang -O3. In this talk we give a detailed update about the current status and want to present ideas on how to move further. These will include both research relevant ideas like automatic OpenCL code generation as well as concepts on how to develop robust loop transformations and vectorization for mainstream use.  http://polly.grosser.es
+</p>
+
+
+<div class="wwww_sectiontitle" id="poster">Poster Abstracts</div>
+<p>
+<b><a id="poster1">Parfait - A Scalable Static Bug-Checking Tool Built on LLVM</a></b><br>       
+<i>Cristina Cifuentes, Nathan Keynes, Andrew Craik, Lian Li, Nathan Hawes, Andrew Browne, and Manuel Valdiviezo   - Oracle Labs</i><br>
+Parfait is a static bug-checking tool for C/C++ applications built on the LLVM framework. Parfait achieves precision and scalability at the same time by employing a layered program analysis framework. In Parfait, different analyses varying in precision and runtime expense are invoked on demand to detect defects of a specific type, effectively achieving higher precision with smaller runtime overheads.
+<br>
+Parfait has been deployed into several development organizations within Oracle. It is being run over millions of lines of C and C++ code on a daily basis. Parfait is currently processing code written for a variety of different platforms including:
+<ul>
+     <li> Oracle Solaris Studio on Solaris</li>
+     <li>Microsoft Visual C/C++ on Windows (excluding MFC headers)</li>
+     <li>GCC on Linux</li>
+     <li>Intel C/C++ Compiler on Linux</li>
+</ul>
+
+Despite the size and complexity of the code bases being analyzed, the Parfait false-positive rate has remained below 10%.
+<br>>
+This poster will present the design of the Parfait tool, summarize our experience with the LLVM infrastructure, and present more comprehensive results than the preliminary results we first presented to the LLVM community at the LLVM Developers Conference in 2009.
+</p>
+
+<p>
+<b><a id="poster2">Code verification based on attributes annotation - Implementing custom attributes check using Clang</a></b><br>
+<i>Michael Han  - Autodesk   </i><br>
+Introduce a tool named "Hippocrates" we developed at Autodesk based on Clang's attribute system to help engineers verify functions being behaved as designed. The talk will focus on the motivation and goal of the tool, how we hacked Clang (would be a very high level 1000 feet overview due to time limits), and some results of using the tool on our large code base like Autodesk Maya with millions of lines C++ code.
+</p>
+
+<p>
+<b><a id="poster3">LunarGLASS: A LLVM-based shader compiler stack</b><br>
+<i>Michael Ilseman   - LunarG  </i><br>
+LunarGLASS is an LLVM-based shader compiler stack. It brings a new approach to shader compilation by splitting the common shared intermediate representation (IR) into two levels; the top level is completely platform independent while the bottom level is dynamically tailorable to different families of architecture.  http://www.lunarglass.org/documentation
+</p>
+
+<p>
+<b><a id="poster4">Symbolic Testing of OpenCL Code</b><br>
+<i>Peter Collingbourne  - Imperial College London  </i><br>
+The poster will describe our research on the subject of verification of OpenCL kernels using symbolic execution. We present an effective technique for crosschecking a C program against an accelerated OpenCL version, as well as a technique for detecting data races in OpenCL programs. Our techniques are implemented in KLEE-CL, a symbolic execution engine based on KLEE and KLEE-FP that supports symbolic reasoning on the equivalence between symbolic values. Our approach is to symbolically model the OpenCL environment using an OpenCL runtime library targeted to symbolic execution. Using this model we are able to run OpenCL programs symbolically, keeping track of memory accesses for the purpose of race detection. We then compare the symbolic result against the plain C program in order to detect mismatches between the two versions. We applied KLEE-CL to the Parboil benchmark suite, the Bullet physics library and the OP2 library, in which we were able to find a total of seven errors: three mismatches between the OpenCL and C implementations, two memory errors, one OpenCL compiler bug and one race condition.
 </p>
 
 <div class="www_sectiontitle" id="dinner">Dinner</div>
