@@ -397,6 +397,10 @@ link-time optimizations for code size optimization.
 <div class="www_text">
 
 <ol>
+<li>Merge the delay slot filling logic that is duplicated into (at least) 
+    the Sparc and Mips backends into a single target independent pass. 
+     Likewise, the branch shortening logic in several targets should be merged  
+     together into one pass.</li>
 <li>Implement 'stack slot coloring' to allocate two frame indexes to the same
     stack offset if their live ranges don't overlap.  This can reuse a bunch of
     analysis machinery from LiveIntervals.  Making the stack smaller is good
