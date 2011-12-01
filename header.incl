@@ -88,8 +88,8 @@
   <span style="font-size:smaller">Dev. Resources:</span><br>
   <a href="/doxygen/">doxygen</a>
   <a href="/viewvc/llvm-project/">ViewVC</a><br>
-<!--  <a href="/nightlytest/">Nightly Tester</a><br> -->
-  <a href="/bugs/">LLVM Bugzilla</a><br>
+  <a href="http://blog.llvm.org/">Blog</a>
+  <a href="/bugs/">Bugzilla</a><br>
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
 </div>
 
