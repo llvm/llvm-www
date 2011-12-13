@@ -131,7 +131,7 @@ print <<EOF;
 <body leftmargin="10" marginwidth="10">
 
 <div class="www_sectiontitle">
-  Try out LLVM and Clang 2.9 in your browser!
+  Try out LLVM and Clang 3.0 in your browser!
 </div>
 
 <table border=0><tr><td>
