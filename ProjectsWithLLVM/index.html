@@ -65,6 +65,7 @@ papers, presentations, posters, or anything else you have.</p>
 <li><a href="#ssapre">An LLVM Implementation of SSAPRE</a></li>
 <li><a href="#jello">Jello: a retargetable <b>J</b>ust-In-Time compil<b>e</b>r
     for <b>LL</b>VM bytec<b>o</b>de</a></li>
+<li><a href="#emscripten">Emscripten: An LLVM to JavaScript Compiler</a></li>
 </ul>
 
 </div>
@@ -842,6 +843,33 @@ of the tool <b>lli</b>.</p>
 
 <p>Project report: <a href="2002-Spring-CS497CZ-Jello.ps">PS</a>, <a
 href="2002-Spring-CS497CZ-Jello.pdf">PDF</a></p>
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="emscripten">Emscripten: An LLVM to JavaScript Compiler</a>
+</div>
+<div class="www_subsubsection">
+By Alon Zakai and the rest of
+the <a href="https://raw.github.com/kripken/emscripten/incoming/AUTHORS">
+Emscripten contributors</a>
+</div>
+
+<div class="www_text">
+<p><a href="http://emscripten.org">Emscripten</a> compiles LLVM bitcode
+into JavaScript, which makes it possible to compile C and C++ source code to
+JavaScript (by first compiling it into LLVM bitcode using Clang), which can be
+run on the web. Emscripten has been used to port large existing C and C++
+codebases, for example Python (the standard CPython implementation),
+the Bullet physics engine, and the eSpeak speech synthesizer, among many
+others.</p>
+
+<p>Emscripten itself is written in JavaScript. Significant components include the
+<a href="https://github.com/kripken/emscripten/blob/master/docs/paper.pdf?raw=true">
+Relooper Algorithm</a> which generates high-level JavaScript control flow
+structures ("if", "while", etc.) from the low-level basic block information
+present in LLVM bitcode, as well as a JavaScript parser for LLVM assembly.
+</p>
 </div>
 
 <!--#include virtual="../footer.incl" --></html>
