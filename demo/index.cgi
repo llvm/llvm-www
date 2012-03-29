@@ -427,7 +427,6 @@ s@(\n)?#include.*[<"](.*\.\..*)[">].*\n@$1#error "invalid #include file $2 detec
 
     print " Bytecode size is ", -s $bytecodeFile, " bytes.\n";
 
-    my $target = $c->param('target');
     my $targetLabel = $llvmTargets{$target}->{'label'};
 
     my $disassemblyFile;
