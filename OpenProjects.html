@@ -465,13 +465,8 @@ test case and post it to a website or mailing list.  Repeat ad infinitum.</li>
 <li>Add sandbox features to the Interpreter: catch invalid memory accesses,
   potentially unsafe operations (access via arbitrary memory pointer) etc.
 </li>
-<li>Port <a href="http://valgrind.org">Valgrind</a> to use LLVM codegeneration
+<li>Port <a href="http://valgrind.org">Valgrind</a> to use LLVM code generation
   and optimization passes instead of its own.</li>
-<li>Create an LLVM pass that adds memory safety checks to code, like
-  <a href="http://valgrind.org/">Valgrind</a> does for binaries, or like
-  <a href="http://gcc.gnu.org/wiki/Mudflap_Pointer_Debugging">mudflap</a> does
-  for gcc compiled code.
-</li>
 <li>Write LLVM IR level debugger (extend Interpreter?)</li>
 <li>Write an LLVM Superoptimizer.  It would be interesting to take ideas from 
     this superoptimizer for x86:
