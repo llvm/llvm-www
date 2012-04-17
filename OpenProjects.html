@@ -427,8 +427,6 @@ link-time optimizations for code size optimization.
     epilog.  However, some paths through a function (e.g. an early exit) may 
     not use all regs.  Sinking the save down the CFG avoids useless work on
     these paths. Work has started on this, please inquire on llvmdev.</li>
-<li>Finish adapting existing targets to use the calling convention description
-    mechanism (see lib/Target/X86/X86CallingConv.td for an example).</li>
 <li>Implement interprocedural register allocation. The CallGraphSCCPass can be
     used to implement a bottom-up analysis that will determine the *actual* 
     registers clobbered by a function. Use the pass to fine tune register usage 
