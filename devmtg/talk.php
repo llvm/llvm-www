@@ -9,8 +9,8 @@ virtual("../header.incl");
 
 function notify() {
 
-$to = "lattner@apple.com,clattner@apple.com,dkipping@qualcomm.com";
-$subject = "LLVM Dev Meeting Talk Proposal";
+$to = "lattner@apple.com,clattner@apple.com";
+$subject = "LLVM Dev Meeting Session Proposal";
 
 $body = '<html><body>';
 
@@ -25,6 +25,10 @@ if($_POST['talkType'] == 1)
 $talkType = "Talk";
 else if($_POST['talkType'] == 2)
 $talkType = "BOF";
+else if($_POST['talkType'] == 3)
+$talkType = "Poster";
+else if($_POST['talkType'] == 4)
+$talkType = "Hackers' Session";
 
 $body .= '<p>Type: ' . $talkType . '</p>';
 
@@ -91,7 +95,7 @@ function validateForm() {
      array_push($errors, "Phone number must be provided");
 
    if ($_POST['talkType'] == "")
-     array_push($errors, "Please select Talk or BOF");
+     array_push($errors, "Please select Talk, BOF, Poster, or Hackers' Session");
 
    if ($_POST['title'] == "")
      array_push($errors, "Please provide talk title");
@@ -191,20 +195,24 @@ inputText("phone", 50, 100, $_POST);
 print '</td>';
 print '</tr>';
 print '</table>';
-print '<p>Select Talk or BOF: ';
+print '<p>Select Talk, BOF, Posters, or Hackers\' Session: ';
 inputRadioCheck("talkType", $_POST, 1);
 print ' Talk ';
 inputRadioCheck("talkType", $_POST, 2);
-print ' BOF </p>';
+print ' BOF ';
+inputRadioCheck("talkType", $_POST, 3);
+print ' Poster ';
+inputRadioCheck("talkType", $_POST, 4);
+print ' Hackers\' Session ';
 print '<p>Mininum talk length: ';
 inputList('min', $_POST);
 print '</p><p>Maximum talk length: ';
 inputList('max', $_POST);
-print '<p>Talk/BOF Title: </p>';
+print '<p>Talk/BOF/Posters/Hackers\' Session Title: </p>';
 print '<p>';
 inputTextArea("title", 5, 60, $_POST);
 print '</p>';
-print '<p>Talk/BOF Summary: </p>';
+print '<p>Summary: </p>';
 print '<p>';
 inputTextArea("summary", 10, 60, $_POST);
 print '</p>';
@@ -214,11 +222,9 @@ print '</form>';
 }
 ?>
 
-<div class="www_sectiontitle">LLVM Developers' Meeting - Talk Proposal</div>
+<div class="www_sectiontitle">LLVM Developers' Meeting - Session Proposal</div>
 
 <?
-print 'The deadline for talk proposals has passed.';
-exit();
 if (isset($_POST['verify'])) {
   $formErrors = validateForm($_POST);
   if(!empty($formErrors)) {
