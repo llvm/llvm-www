@@ -195,7 +195,7 @@ inputText("phone", 50, 100, $_POST);
 print '</td>';
 print '</tr>';
 print '</table>';
-print '<p>Select Talk, BOF, Posters, or Hackers\' Session: ';
+print '<p>Select Talk, BOF, Posters, or Hackers\' Session:</p> ';
 inputRadioCheck("talkType", $_POST, 1);
 print ' Talk ';
 inputRadioCheck("talkType", $_POST, 2);
