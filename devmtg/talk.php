@@ -27,8 +27,6 @@ else if($_POST['talkType'] == 2)
 $talkType = "BOF";
 else if($_POST['talkType'] == 3)
 $talkType = "Poster";
-else if($_POST['talkType'] == 4)
-$talkType = "Hackers' Session";
 
 $body .= '<p>Type: ' . $talkType . '</p>';
 
@@ -95,7 +93,7 @@ function validateForm() {
      array_push($errors, "Phone number must be provided");
 
    if ($_POST['talkType'] == "")
-     array_push($errors, "Please select Talk, BOF, Poster, or Hackers' Session");
+     array_push($errors, "Please select Talk, BOF, or Poster");
 
    if ($_POST['title'] == "")
      array_push($errors, "Please provide talk title");
@@ -195,7 +193,7 @@ inputText("phone", 50, 100, $_POST);
 print '</td>';
 print '</tr>';
 print '</table>';
-print '<p>Select Talk, BOF, Posters, or Hackers\' Session:</p> ';
+print '<p>Select Talk, BOF, or Poster:</p> ';
 inputRadioCheck("talkType", $_POST, 1);
 print ' Talk ';
 inputRadioCheck("talkType", $_POST, 2);
@@ -203,12 +201,11 @@ print ' BOF ';
 inputRadioCheck("talkType", $_POST, 3);
 print ' Poster ';
 inputRadioCheck("talkType", $_POST, 4);
-print ' Hackers\' Session ';
 print '<p>Mininum talk length: ';
 inputList('min', $_POST);
 print '</p><p>Maximum talk length: ';
 inputList('max', $_POST);
-print '<p>Talk/BOF/Posters/Hackers\' Session Title: </p>';
+print '<p>Talk/BOF/Poster Title: </p>';
 print '<p>';
 inputTextArea("title", 5, 60, $_POST);
 print '</p>';
