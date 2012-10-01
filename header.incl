@@ -91,6 +91,7 @@
   <a href="http://blog.llvm.org/">Blog</a>
   <a href="/bugs/">Bugzilla</a><br>
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
+  <a href="http://llvm.org/perf">LNT</a>
 </div>
 
 <br>
