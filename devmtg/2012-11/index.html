@@ -5,12 +5,14 @@
         <tr><td valign="top">
 <ol>
         <li><a href="#registration">Registration</a></li>
-        <li><a href="#program">Call for Talks, Posters, and BoFs! </a></li>
         <li><a href="#sessions">Meeting Overview</a></li>
         <li><a href="#hackers">Hackers' Lab</a></li>
         <li><a href="#cocktail">Cocktail Hour</a></li>
+        <li><a href="#agenda">Meeting Agenda</a></li>
+        <li><a href="#abstracts">Talk Abstracts</a></li>
+        <li><a href="#poster">Poster Abstracts</a></li>
         <li><a href="#dinner">Dinner</a></li>
-        <li><a href="#hotel">Hotel & Parking</a></li>
+        <li><a href="#hotel">Location (Hotel, Parking)</a></li>
 </ol>
 </td><td>
 <ul>
@@ -20,7 +22,7 @@
 </ul>
 </td></tr></table>
 
-<p align="center"><h2><b>SPONSORED BY: <a href="http://apple.com">Apple</a>, <a href="http://www.qualcomm.com/quicinc/">QuIC</a>, <a href="http://www.google.com">Google</a></b></h2></p>
+<p align="center"><h2><b>SPONSORED BY: <a href="http://apple.com">Apple</a>, <a href="http://www.qualcomm.com/quicinc/">QuIC</a>, <a href="http://www.google.com">Google</a></b>, <a href="http://intel.com">Intel</a></h2></p>
 
 <p>The meeting serves as a forum for <a href="http://llvm.org">LLVM</a>,
 <a href="http://clang.llvm.org">Clang</a>, <a href="http://lldb.llvm.org">LLDB</a> and 
@@ -42,16 +44,11 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
 
 <div class="www_sectiontitle" id="registration">Registration</div>
 <p>
-<b><a href="http://www.seeuthere.com/LLVMdevmtg2012">Registration</a> is now open!</b>
+<b><a href="http://www.seeuthere.com/LLVMdevmtg2012">Registration</a> is closing soon!</b>
 </p>
 <p>
-New this year will be a $25 registration fee which will help support the event. If you need financial assistance for this fee, please contact Tanya Lattner (llvm-devmtg@nondot.org). Registration is capped at 250 attendees. Unlike previous years, the dinner will not have a lower cap and all are invited to attend. Registration will close on October 30, 2012.
+Registration will close on October 31, 2012. We have increased attendance to 300 attendees, and the registration fee is now $150. Unfortunately, the hackers lab, dinner, and cocktail hour have all met the original attendee cap and are closed.
 </p>
-
-<div class="www_sectiontitle" id="program">Call for Talks, Posters, and BoFs!</div>
-<p>We are now accepting proposals for talks, posters, or Birds of a Feather sessions. Topics can include the LLVM, Clang, LLDB, core infrastructure, new uses and applications of LLVM components, etc.
-</p>
-<p>If you are interested in any of the above, please submit your proposal <a href="../talk.php">here.</a> The deadline for all proposals is <b>September 17, 2012.</b>
 
 <div class="www_sectiontitle" id="sessions">Meeting Overview</div>
 <p>
@@ -68,12 +65,231 @@ More info coming soon.
 More info coming soon.
 </p>
 
+<div class="www_sectiontitle" id="agenda">Agenda</div>
+<p>
+<table id="devmtg">
+  <tr><th>Time</th><th>Talk</th><th>Location</th></tr>
+  
+  <tr><td>8:00 - 9:00</td><td>Breakfast</td><td>TBD</td></tr>
+  <tr class="alt"><td>9:00 - 9:15</td><td><b>Welcome</b><br>Chris Lattner, <i>Apple</i></td><td>Room 1</td></tr>
+  
+  <tr><td>9:15 - 10:00</td><td><b><a href="#talk1">LLVM and Clang on the Most Powerful Supercomputer in the World</a></b><br>Hal Finkel, <i>Argonne National Laboratory</i></td><td>Room 1</td></tr>
+  
+  <tr class="alt"><td rowspan=3>10:00 - 10:45</td><td><b><a href="#talk2">The AArch64 backend: status and plans
+</a></b><br>Tim Northover, <i>ARM</i></td><td>Room 1</td></tr>
+  <tr class="alt"><td><b><a href="#talk3">Parsing Documentation Comments in Clang</a></b><br>Dmitri Gribenko, <i>HPC Center National Technical University of Ukraine Kiev Polytechnic Institute</i></td><td>Room 2</td></tr>
+  <tr class="alt"><td><b>BOF: Polly's Auto-vectorization capabilities</b><br>Zino Benaissa, <i>QuIC</i></td><td>Room 3</td></tr>
+  
+  <tr><td>10:45 - 11:15</td><td>Break</td><td>TBD</td></tr>
+  
+  <tr class="alt"><td rowspan=3>11:15 - 12:00</td><td><b><a href="#talk4">MemorySanitizer, ThreadSanitizer. 
+    Scalable run-time detection of uninitialized memory reads and data races with LLVM instrumentation.</a></b><br>Kostya Serebryany, <i>Google</i></td><td>Room 1</td></tr>
+  <tr class="alt"><td><b><a href="#talk5">Verified LLVM: Formalizing the semantics of the LLVM Intermediate Representation for Verified Program Transformations</a></b><br>Santosh Nagarakatte, <i>University of Pennsylvania/Rutgers University</i></td><td>Room 2</td></tr>
+  <tr class="alt"><td><b>BOF: SelectionDAG and DAGCombiner - how can they be improved?</b><br>James Molloy, <i>ARM</i></td><td>Room 3</td></tr>
+  
+  <tr><td rowspan=3>12:00 - 12:45</td><td><b><a href="#talk6">Modules</a></b><br>Doug Gregor, <i>Apple</i></td><td>Room 1</td></tr>
+  <tr><td><b><a href="#talk7">Integrated Security, using LLVM for Dynamic and Static Security Tasks</a></b><br>Jared Carlson, <i>GoToTheBoard</i></td><td>Room 2</td></tr>
+  <tr><td><b>BOF: Instruction scheduling for Superscalar and VLIW platforms. Temporal perspective</b><br>Sergei Larin, <i>QuIC</i></td><td>Room 3</td></tr>
+  
+  <tr class="alt"><td>12:45 - 2:00</td><td>Lunch</td><td>TBD</td></tr>
+  
+  <tr><td rowspan=3>2:00 - 2:45</td><td><b><a href="#talk8">How good are Clang's diagnostics, anyway?</a></b><br>Matt Beaumont-Gay, <i>Google</i></td><td>Room 1</td></tr>
+  <tr><td><b><a href="#talk9">TBAA in LLVM</a></b><br>Dan Gohman, <i>Google</i></td><td>Room 2</td></tr>
+  <tr><td><b>BOF: SPIR - A Standard Portable IR for OpenCL Kernel Language</b><br>Boaz Ouriel, <i>Intel</i></td><td>Room 3</td></tr>
+  
+  <tr class="alt"><td rowspan=3>2:45 - 3:30</td><td><b><a href="#talk10">Shevlin Park: A C++ AMP implementation in Clang/LLVM using OpenCL</a></b><br>Dillon Sharlet, <i>Intel</i></td><td>Room 1</td></tr>
+  <tr class="alt"><td><b><a href="#talk11">Generating Hardware Description with the Target-Independent Code Generator</a></b><br>Hongbin Zheng, <i>Sun Yat-sen University</i></td><td>Room 2</td></tr>
+  <tr class="alt"><td><b>BOF: Memory Safety, Debugging Tools, and Automated Defenses</b><br>John Criswell, <i>University of Illinois</i></td><td>Room 3</td></tr>
+  
+  <tr><td rowspan=4>3:30 - 4:30</td><td><b>Posters</b></td><td>TBD</td></tr>
+  <tr><td><b><a href="#poster1">MemorySanitizer, ThreadSanitizer</a></b><br>Kostya Serebryany, <i>Google</i></td><td></td></tr>
+  <tr><td><b><a href="#poster2">Vuo: Visual programming for multimedia artists</a></b><br>Jaymie Strecker, <i>Kosada</i></td><td></td></tr>
+  <tr><td><b><a href="#poster3">Scout: Using Clang/LLVM to Build A Domain-Specific Language for In Situ Data Analysis and Visualization on Emerging Architectures</a></b><br>Christine Ahrens, <i>Los Alamos National Laboratory</i></td><td></td></tr>
+
+  
+  <tr class="alt"><td rowspan=3>4:30 - 5:15</td><td><b><a href="#talk12">Zero-Cost Abstractions and Future Directions for Modern Optimizing Compilers</a></b><br>Chandler Carruth, <i>Google</i></td><td>Room 1</td></tr>
+  <tr class="alt"><td><b><a href="#talk13">Building a Checker in 24 hours</a></b><br>Anna Zaks, <i>Apple</i></td><td>Room 2</td></tr>
+  <tr class="alt"><td><b>BOF: LLDB</b><br>Andy Kaylors, <i>Intel</i></td><td>Room 2</td></tr>
+  
+  <tr><td rowspan=3>5:15 - 6:00</td><td><b>BOF: Vectorization in LLVM</b><br>Nadav Rotem, <i>Apple</i></td><td>Room 1</td></tr>
+  <tr><td><b>Lighting Talks TBD</b><br></td><td>Room 2</td></tr>
+  <tr><td><b>UnBOF</b><br>TBD</td><td>Room 3</td></tr>
+ 
+  <tr><td class="alt">6:30 - 9:30</td><td>Dinner</td><td></td></tr>
+</table>
+</p>
+
+<div class="www_sectiontitle" id="abstracts">Talk Abstracts</div>
+<p>
+<b><a id="talk1">LLVM and Clang on the Most Powerful Supercomputer in the World
+</a></b><br>
+<i>Hal Finkel -  Argonne National Laboratory</i><br>
+The IBM Blue Gene/Q (BG/Q) now holds the first and third slots on the Top500 list of the world's most powerful supercomputers, and LLVM with Clang now provides a high-quality autovectorizing C/C++ compiler for the BG/Q. In this talk, I'll describe the process of porting LLVM and Clang to the BG/Q, and how the LLVM IR is mapped to the BG/Q's unique vector instruction set. This process has required enhancements to all levels: From the PowerPC backend through the frontend, including the development of the basic-block autovectorizer. I will demonstrate that, for a large class of codes, LLVM with Clang produces code with superior performance compared to that produced by the vendor-supplied compilers.
+</p>
+
+<p>
+<b><a id="talk2">The AArch64 backend: status and plans</a></b><br>
+<i>Tim Northover - ARM</i><br>
+A backend for ARM’s new 64-bit architecture, AArch64, will very soon be added to LLVM. I intend to discuss what we’ve done to make sure it is a good base for future work: correct, extensible and useful. I will talk about areas we’ve found easy to test and the more challenging corners. The MC Hammer suite introduced at the Euro-LLVM conference ensured the completeness and correctness of encoding
+information, and to a lesser extent, assembly. Difficult corners I will give more details on are the usual suspects: instruction selection, relocations and the constant island pass.
+<br>
+As well as our testing methodology I will mention some idiosyncrasies of both the architecture and backend, and suggest potentially interesting future projects of varying sizes in optimisation and features for AArch64. I’ll describe some of the facilities already available for those wanting to work on the backend and what they can expect from it already: roughly speaking, correct compilation of standard C and C++ code with Clang. I will also describe some of our own plans for improving the backend and the goals we have for it in the medium term.
+</p>
+
+<p>
+<b><a id="talk3">Parsing Documentation Comments in Clang</a></b><br>
+<i>Dmitri Gribenko - HPC Center National Technical University of Ukraine Kiev Polytechnic Institute</i><br>
+The documentation written in comments is usually processed by a third-party
+tool while the compiler just ignores it, but the compiler could extract some
+extra information from it.  We could use documentation from comments to enhance tools based on Clang libraries.  Now Clang does additional semantic checking on documentation and emits warnings to help the programmer ensure that comments don't get stale.  Code completion APIs now include documentation associated
+with each completion result.  libclang is enhanced with an API to get the
+documentation attached to any declaration; this could be used to build a
+Clang-based Doxygen-like tool.<br>
+
+In future, when we try to tackle automatic refactoring, we could use this
+framework to update names referenced in comments so that documentation stays up
+to date.
+</p>
+
+<p> 
+<b><a id="talk4">MemorySanitizer, ThreadSanitizer. 
+  Scalable run-time detection of uninitialized memory reads and data races with LLVM instrumentation</a></b><br>
+<i>Kostya Serebryany - Google</i><br>
+Following the success of AddressSanitizer (asan), a fast detector of use-after-free and buffer overflow bugs, we have developed two more bug detection tools based on similar ideas.
+MemorySanitizer (msan, http://code.google.com/p/memory-sanitizer/) detects uninitialized memory reads.  It shares many ideas with Valgrind/Memcheck, however it is also different in two important ways: it uses compile-time instrumentation (LLVM) and 1:1 direct shadow memory mapping.
+Unless the entire program (including libc) is instrumented, msan requires a simple binary instrumentation component (we have an implementation based on DynamoRIO). The slowdown introduced by the tool is typically 2x-3x (compare to Valgrind's 20x).
+ThreadSanitizer (tsan, http://code.google.com/p/thread-sanitizer/) detects data races. The tool has been briefly mentioned at the 2011 llvm dev meeting but has matured since that time. Similarly to asan and msan, it uses compile-time instrumentation (LLVM), but 95% of the logic is contained in the run-time library.
+Tsan uses 1:4 direct shadow memory mapping (i.e. uses ~5x more memory). It does not have locks or atomic instructions on the fast path, which makes it scale to large and heavily threaded applications. The slowdown varies between 3x and 10x. 
+</p>
+
+<p>
+<b><a id="talk5">Verified LLVM: Formalizing the semantics of the LLVM Intermediate Representation for Verified Program Transformations</a></b><br>
+<i>Santosh Nagarakatte - University of Pennsylvania/Rutgers University</i><br>
+This talk will describe our research on building Vellvm (verified
+LLVM), a framework for reasoning about programs expressed in LLVM’s
+intermediate representation and transformations that operate on
+it. Vellvm provides a mechanized formal semantics of LLVM’s
+intermediate representation, its type system, and properties of its
+SSA form. The framework is built using the Coq interactive theorem
+prover. It includes multiple operational semantics and proves
+relations among them to facilitate different reasoning styles and
+proof techniques. To validate Vellvm’s design, we extract an
+interpreter from the Coq formal semantics that can execute programs
+from LLVM test suite and thus be compared against LLVM reference
+implementations.
+<br>
+This talk will also highlight Vellvm’s practicality by demonstrating
+our efforts in formalizing and verifing a variant of mem2reg
+optimization within the LLVM compiler suite, and our previoulsy
+proposed SoftBoundCETS memory safety transformation operating on the
+LLVM IR.  The talk will conclude highlighting the benefits of such
+formalization efforts to expose compiler bugs and the avenues such a
+formalizing effort can benefit from compiler developer involvement.
+<br>
+Joint work with Jianzhou Zhao, Milo M K Martin and Steve Zdancewic at the University of Pennsylvania.	
+</p>
+
+<p>
+<b><a id="talk6">Modules</a></b><br>
+<i>Doug Gregor - Apple</i><br>
+The C preprocessor has long been a source of problems for programmers and tools alike. Programmers must contend with widespread macro pollution and include-ordering problems due to ill-behaved headers. Developers habitually employ various preprocessor workarounds, such as LONG_MACRO_PREFIXES, include guards, and the occasional #undef of a library macro to mitigate these problems. Tools, on the other hand, must cope with the inherent  scalability problems associated with parsing the same headers repeatedly, because each different preprocessing context could effect how a header is interpreted---even though the programmer rarely wants it. Modules seeks to solve this problem by isolating the interface of a particular library and compiling it (once) into an efficient, serialized representation that can be efficiently imported whenever that library is used, improving both the programmer's experience and the scalability of the compilation process.
+</p>
+
+<p>
+<b><a id="talk7">Integrated Security, using LLVM for Dynamic and Static Security Tasks</a></b><br>
+<i>Jared Carlson - GoToTheBoard</i><br>
+This talk will discuss how to leverage the LLVM and LLDB tools and technologies to create a flexible security infrastructure.  The talk discusses incorporating both static and dynamic analysis techniques by using LLVM and LLDB components and that these can easily be integrated back into LLVM development workflow.  These tools will help find exploitable bugs within the llvm development environment, illustrate their consequences and are customizable and easily shared within the community.
+<br>
+Funded by DARPA as a Cyber Fast Track effort, we are currently incorporating LLDB and other open source python libraries along with re-written static analysis scripts so that the tools can be easily integrated and altered into a workflow.  It is anticipated that milestone two, an alpha, will be finished in early September and then the project will wrap up in early November with a beta release.
+<br>
+The talk will discuss how we use the tools to investigate bug severity, utilize artificial intelligence techniques to predispose fuzzing, draw conclusions, and utilize the LLVM technology quite to target various architectures if desired.
+</p>
+
+<p> 
+<b><a id="talk8">How good are Clang's diagnostics, anyway?</a></b><br>
+<i>Matt Beaumont-Gay - Google</i><br>
+Most of the feedback we get on Clang’s diagnostics is in the form of bug reports (or occasionally people saying nice things about us on the Internet). As developers, we also eat our own proverbial dogfood, and we can assess new diagnostics against various open-source and proprietary codebases, but we don’t have a large-scale view into the diagnostics experience for code that’s under development.
+<br>
+The build system for Google’s shared codebase keeps all of the output for all of the builds that we do. So, like a good Google engineer, I wrote a MapReduce, using the build result store as input. We now have a daily batch job that crunches through all of the compiler stderr from the last day, parses out detailed, structured information about the diagnostics that Clang produced, and writes the information into a database for later analysis. I’ll discuss the design of the MapReduce, touch on the various pieces of infrastructure that make it work, and present results on the diagnostics seen by Google engineers in their day-to-day work.	
+</p>
+
+<p>
+<b><a id="talk9">TBAA in LLVM</a></b><br>
+<i>Dan Gohman - Google</i><br>
+LLVM’s Type-Based Alias Analysis framework enables more aggressive optimization for the C family of languages, and it can also be used by other language frontends.
+</p> 
+
+<p>
+<b><a id="talk10">Shevlin Park: A C++ AMP implementation in Clang/LLVM using OpenCL</a></b><br>
+<i>Dillon Sharlet - Intel</i><br>
+We describe “Shevlin Park”, a prototype implementation of Microsoft’s C++AMP built on CLANG, LLVM, and OpenCL.    We fully describe Shevlin Park’s implementation including how CLANG/LLVM can be augmented to easily accommodate C++AMP programming constructs, how C++AMP computation can be expressed as OpenCL compute kernels, and finally how the C++AMP runtime library can be easily implemented on an OpenCL runtime.   Using several benchmarks, we evaluate Shevlin Park’s performance  versus Microsoft’s DirectX based C++AMP, and also against conventional OpenCL.  
+</p>
+
+<p> 
+<b><a id="talk11">Generating Hardware Description with the Target-Independent Code Generator
+</a></b><br>
+<i>Hongbin Zheng - Sun Yat-sen University</i><br>
+Though there exist several projects generating hardware description from LLVM IR (i.e. High-level Synthesis, HLS), they are all working on the LLVM IR layer. However, the LLVM IR layer is not the best layer to perform HLS.<br>
+
+In this talk, I am going to introduce our open source HLS framework, named Shang. Our HLS framework mainly implements its transformations and analyses in the Target-Independent Code Generator, with the HLS-specific TargetMachine, named VTargetMachine.
+</p>
+
+<p>
+<b><a id="talk12">Zero-Cost Abstractions and Future Directions for Modern Optimizing Compilers</a></b><br>
+<i>Chandler Carruth - Google</i><br>
+Today, Clang is a fantastic C++ optimizing compiler. It leverages all of the compiler infrastructure built as part of the LLVM project and produces binaries which have excellent performance. As compiler writers, we have done our jobs very well. So what’s next? Where is the next big opportunity for optimizing compilers, especially in the context of modern C++ code?
+<br>
+As C++ becomes more popular, and the C++ code bases of the world become larger and more modern, we are faced with some interesting optimization challenges. C++ is popular today due to its excellent performance, but too often certain aspects of this performance rely on hand-tuned code, despite the often elusive promise of C++ providing zero-cost abstractions to programmers. In practice, the abstractions of modern C++ are not in fact zero-cost. This creates a serious danger, as the design of C++, the standard library, and many user libraries, all rely upon the abstractions they introduce having zero cost to allow layering and composing them without a combinatorial explosion of overhead. We are approaching a world where the overheads and costs our compilers fail to remove from abstractions will be magnified into the reality of Wirth’s Law: our software is getting slower more rapidly than hardware becomes faster.
+<br>
+How do we reverse this trend? We must begin to focus optimizations on decomposing the abstractions formed in modern languages. It is these abstractions, the things which programmers naively expect to be free, which lead to the most surprising and difficult to correct performance problems. These are what must be compiled optimally to allow both idiomatic and common programming patterns to remain efficient and to achieve system wide performance improvements in a world of flat profiles. In this talk, I will walk through what some of these abstractions end up looking like in modern C++ code, explain several ways in which LLVM optimizes away these abstractions, and propose several new optimizations to further address these problems.
+</p>
+
+<p>
+<b><a id="talk13">Building a Checker in 24 hours
+</a></b><br>
+<i>Anna Zaks - Apple</i><br>
+Clang Static Analyzer (http://clang-analyzer.llvm.org/) is a bug finding tool based on path sensitive symbolic execution of user code. We are going to introduce basic concepts behind the analyzer and describe what it takes to write a new check.	 
+</p>
+
+<div class="www_sectiontitle" id="poster">Poster Abstracts</div>
+<p>
+<b><a id="poster1">MemorySanitizer, ThreadSanitizer</a></b><br>       
+<i>Kostya Serebryany - Google</i><br>
+Following the success of AddressSanitizer (asan), a fast detector of use-after-free and buffer overflow bugs, we have developed two more bug detection tools based on similar ideas.
+MemorySanitizer (msan, http://code.google.com/p/memory-sanitizer/) detects uninitialized memory reads.  It shares many ideas with Valgrind/Memcheck, however it is also different in two important ways: it uses compile-time instrumentation (LLVM) and 1:1 direct shadow memory mapping.
+Unless the entire program (including libc) is instrumented, msan requires a simple binary instrumentation component (we have an implementation based on DynamoRIO). The slowdown introduced by the tool is typically 2x-3x (compare to Valgrind's 20x).
+ThreadSanitizer (tsan, http://code.google.com/p/thread-sanitizer/) detects data races. The tool has been briefly mentioned at the 2011 llvm dev meeting but has matured since that time. Similarly to asan and msan, it uses compile-time instrumentation (LLVM), but 95% of the logic is contained in the run-time library.
+Tsan uses 1:4 direct shadow memory mapping (i.e. uses ~5x more memory). It does not have locks or atomic instructions on the fast path, which makes it scale to large and heavily threaded applications. The slowdown varies between 3x and 10x. 
+</p>
+
+<p>
+<b><a id="poster2">Vuo: Visual programming for multimedia artists</a></b><br>
+<i>Jaymie Strecker - Kosada</i><br>
+Vuo is a new programming environment for multimedia artists. We’re building Vuo’s compiler and linker on top of LLVM. We chose LLVM because LLVM makes it easy to add features that multimedia artists enjoy — features that would have taken months or years to write from scratch. 
+<br>
+Why do multimedia artists need a programming environment? Because very often their job is to create software: interactive art and music, animations, visualizations, games, special effects, museum exhibits, and kiosks. Yet their background is in art or music, not programming. Many multimedia artists get around this by using programming environments where, instead of typing a program, they drag-and-drop building blocks onto a canvas and draw lines to connect them. These “node-based” or “visual” programming environments include Max, VVVV, Quartz Composer — and, soon, Vuo. 
+<br>
+LLVM is helping Vuo become more powerful and flexible. Vuo programs are compiled and therefore faster than interpreted programs — thanks to LLVM’s APIs for code generation and optimization. Vuo programs will be able to target Mac, Windows, Linux, iOS, and Android — thanks to LLVM’s support for various targets. Vuo developers will be able to write new building blocks in C and, eventually, other languages (e.g. C#, Python, JavaScript, PHP, Lua) — thanks to LLVM’s many frontends and Mono’s LLVM backend. 
+<br>
+LLVM solves problems of parsing and code generation so we don’t have to. Instead, we can focus on adding features that multimedia artists appreciate, like live coding (the ability to edit a program while it’s running) and easy debugging. LLVM is helping Vuo become flexible, feature-rich, and fun.
+</p>
+
+<p>
+<b><a id="poster3">Scout: Using Clang/LLVM to Build A Domain-Specific Language for In Situ Data Analysis and Visualization on Emerging Architectures</b><br>
+<i>Christine Ahrens - Los Alamos National Laboratory</i><br>
+As supercomputing architectures change rapidly and larger amounts of data must be processed, it is difficult to create an efficient and versatile workflow for scientific simulations at scale.  These large-scale scientific applications require computation, data analysis and visualization.  Our approach is to explore building a programming language that can provide appropriate programming abstractions, a development toolchain and runtime layers that support existing scientific applications on emerging architectures without having to significantly rewrite or refactor their code.  
+<br>
+Towards this goal, we have developed Scout, a domain-specific language that provides conservative extensions to C/C++ via the LLVM/Clang compiler 
+<br>
+The poster will provide example Scout programs, a high-level system diagram, visualization support details and architecture support details.  It will also contain a discussion of our experiences using LLVM/Clang, Scout design considerations and future goals.
+</p>
+
 <div class="www_sectiontitle" id="dinner">Dinner</div>
 <p>
 More info coming soon.
 </p>
 
-<div class="www_sectiontitle" id="logistics">Hotel & Parking</div>
+<div class="www_sectiontitle" id="logistics">Hotel and Parking</div>
 <p>
 More info coming soon.
 </p>
