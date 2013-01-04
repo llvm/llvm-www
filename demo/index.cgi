@@ -1,14 +1,15 @@
 #!/usr/bin/perl -w
 # LLVM Web Demo script
 #
-# Disable demo page for now.
-print "Demo page is temporarily disabled";
-exit 0;
 
 use strict;
 use CGI;
 use POSIX;
 use Mail::Send;
+
+# Disable demo page for now.
+print "Demo page is temporarily disabled";
+exit 0;
 
 $| = 1;
 
