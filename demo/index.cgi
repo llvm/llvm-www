@@ -7,10 +7,6 @@ use CGI;
 use POSIX;
 use Mail::Send;
 
-# Disable demo page for now.
-print "Demo page is temporarily disabled";
-exit 0;
-
 $| = 1;
 
 my $ROOT = "/tmp/webcompile";
@@ -137,11 +133,12 @@ print <<EOF;
 <div class="www_sectiontitle">
   Try out LLVM and Clang 3.0 in your browser!
 </div>
-
+The LLVM demo page is currently disabled.
 <table border=0><tr><td>
 <img align=right width=100 height=111 src="$LOGO_IMAGE_URL">
 </td><td>
 EOF
+exit 0;
 
 if ( -f "$ROOT/locked" ) {
   my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$locktime) = 
