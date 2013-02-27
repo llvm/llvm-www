@@ -11,6 +11,7 @@
     <li><a href="#programs">Compile programs with the LLVM Compiler</a></li>
     <li><a href="#llvmtest">Add programs to the llvm-test suite</a></li>
     <li><a href="#benchmark">Benchmark the LLVM compiler</a></li>
+    <li><a href="#statistics">Benchmark Statistics and Warning System</a></li>
     <li><a href="#misc_imp">Miscellaneous Improvements</a></li>
   </ol></li>
 
@@ -198,6 +199,44 @@ bug</a> with your testcase and the code that LLVM produces vs. the code that it
 generator and submit a patch.  The basic idea is that it's generally quite easy
 for us to fix performance problems if we know about them, but we generally don't
 have the resources to go finding out why performance is bad.</p>
+
+</div>
+
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="statistics">Benchmark Statistics and Warning System</a>
+</div>
+
+<div class="www_text">
+
+<p>The <a href='http://llvm.org/perf/db_default/v4/nts/recent_activity'>
+LNT perf database</a> has some nice features like detect moving average,
+standard deviations, variations, etc. But the report page give too much emphasis
+on the individual variation (where noise can be higher than signal), eg.
+<a href='http://llvm.org/perf/db_default/v4/nts/graph?plot.0=10.341.3&highlight_run=8943'>
+this case</a>.</p>
+
+<p>The first part of the project would be to create an analysis tool that would
+track moving averages and report:
+<ul>
+ <li>If the current result is higher/lower than the previous moving average by
+     more than (configurable) S standard deviations</li>
+ <li>If the current moving average is more than S standard deviations of the
+     Base run</li>
+ <li>If the last A moving averages are in constant increase/decrease of more
+     than P percent</li>
+</ul>
+
+<p>The second part would be to create a web page which would show all related
+benchmarks (possibly configurable, like a dashboard) and show the basic statistics
+with red/yellow/green colour codes to show status and links to more detailed
+analysis of each benchmark.</p>
+
+<p>A possible third part would be to be able to automatically cross reference
+different builds, so that if you group them by architecture/compiler/number
+of CPUs, this automated tool would understand that the changes are more common
+to one particular group.</p>
 
 </div>
 
