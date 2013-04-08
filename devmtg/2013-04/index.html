@@ -522,6 +522,21 @@ format.
 <b><a id="poster4">ENHANCE - Enabling heterogeneous hardware acceleration using novel programming and scheduling models
 </a></b><br>
 <i>Dustin Feld</i><br>
+Developers faced with the task of creating parallel applications on
+heterogeneous computing architectures often fail to reach acceptable
+performance and speed-up values due to sub-optimal communication patterns
+in their application. At the same time, the operating system often is
+not able to reach optimal resource utilization, due to missing possibilities
+for relocating user threads and user processes across hardware boundaries.
+Some of these issues can already be tackled at compile time if the compiler is
+able to understand coding and design patterns and acts accordingly.
+
+In this presentation we introduce an automatic framework for parallelization,
+check-pointing, and task scheduling based on the LLVM compiler framework. Our
+work includes techniques which facilitate an efficient usage of heterogeneous
+resources with a dynamic and automated approach. Furthermore, a task scheduling
+framework on a single node basis takes care of the fair use scheduling of
+available hardware resource in a multi-user environment.
 </p>
 
 <p>
@@ -559,6 +574,24 @@ viewed with any tab size without losing alignment.
 <b><a id="poster6">Noise: A Clang Extension for User-Defined Optimization Strategies
 </a></b><br>
 <i>Ralf Karrenberg - Saarland University</i><br>
+In this talk, we present "Noise", a language extension to Clang that enables a
+programmer to control the optimization process on a code region.
+Noise is a language extension that allows a programmer to create custom
+optimization strategies and apply them to specific code segments.
+This enables fine-grained control over the optimizations applied by the compiler
+to conveniently tune code without actually rewriting it.
+With Noise, the programmer can easily choose optimizations and their order
+without interfering with the standard optimizations being applied to the
+remaining program.
+This is especially important for legacy code in the High-Performance Computing
+(HPC) environment, but is also relevant in other performance-sensitive fields
+such as computer graphics.
+We present our implementation for C/C++ within the Clang frontend using
+attributes. In addition to exposing LLVM's internal optimization phases,
+Noise also has special transformations built-in, for example data-parallel loop
+vectorization on the basis of "Whole-Function Vectorization".
+We show first results demonstrating the effectiveness of Noise on HPC code in
+production.
 </p>
 
 <p>
@@ -693,7 +726,13 @@ I make intensive use of the vector instructions of LLVM.
 <p>
 <b><a id="poster7">Rebuild of all Debian packages using Clang instead of gcc
 </a></b><br>
-<i>Sylvestre Ledru - Debian</i><br>
+<i>Sylvestre Ledru - Debian / IRILL</i><br>
+Besides the GNU/Linux kernel, Debian is now able to run with two others
+kernels (KFreeBSD &amp; HURD). However, in terms of compilation, Debian is
+still coupled to gcc.
+This lightning talk will present the results of the rebuild of the whole
+Debian archive with various clang versions. A necessary step to make
+Debian compiler agnostic.
 </p>
 
 
