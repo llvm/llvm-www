@@ -177,10 +177,7 @@ A few words about the organization :
            13:35 - 14:20</td>
                               <td>Dussane</td>           <td>Talk : <a href="#talk8">lld - Solving the Linking Performance Problem</a></td> </tr> <tr>
                               <td>R&eacute;sistants</td> <td>Talk : <a href="#talk13">An experimental framework for Pragma Handling in Clang</a></td> </tr>
-  <tr> <td rowspan="2">
-           14:20 - 15:05</td>
-                              <td>Dussane</td>           <td>Talk : <a href="#talk5">Debug Info - Status and Directions</a></td> </tr> <tr>
-                              <td>R&eacute;sistants</td> <td>Talk : <a href="#talk11">Implementing Data Layout Optimizations in LLVM Framework</a></td> </tr>
+  <tr> <td>14:20 - 15:05</td> <td>Dussane</td>           <td>Talk : <a href="#talk5">Debug Info - Status and Directions</a></td> </tr>
 
   <tr> <td>15:05 - 16:05</td> <td>Dussane</td>           <td>Tutorial : <a href="#tuto1">The Clang AST - a tutorial</a></td> </tr>
 
@@ -406,21 +403,6 @@ and X86 OpenCL compilers. It is also used to validate correctness of the
 workloads during ongoing development of the compilers. As part of the work
 we extended existing interpreter to support the missing vector and aggregate
 data types and plan to upstream the changes to llvm.org.
-</p>
-
-<p>
-<b><a id="talk11">Implementing Data Layout Optimizations in LLVM Framework
-</a></b><br>
-<i>Prashantha Naduthota</i><br>
-The difference in speeds between processor and memory are increasing day by
-day. Compilers try to alleviate the same by different strategies.
-For regular array accesses in loops, array access patterns are modifed
-for better cache behaviour subject to program correctness.
-Large structure fields can be reordered for better cache behaviour
-by modifying the layout of the data. In this work, we discuss the different
-Data Layout Optimizations implemented in LLVM frame work to gain better
-memory behaviour. CPU 2006 SPEC benchmarks showed impressive gains upto 140
-percent because of the optimizations.
 </p>
 
 <p>
