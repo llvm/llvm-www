@@ -63,6 +63,7 @@ papers, presentations, posters, or anything else you have.</p>
 <li><a href="#jello">Jello: a retargetable <b>J</b>ust-In-Time compil<b>e</b>r
     for <b>LL</b>VM bytec<b>o</b>de</a></li>
 <li><a href="#emscripten">Emscripten: An LLVM to JavaScript Compiler</a></li>
+<li><a href="#ESL">ESL: Embedded Systems Language</a></li>
 </ul>
 
 </div>
@@ -818,6 +819,24 @@ Relooper Algorithm</a> which generates high-level JavaScript control flow
 structures ("if", "while", etc.) from the low-level basic block information
 present in LLVM bitcode, as well as a JavaScript parser for LLVM assembly.
 </p>
+</div>
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="ESL">Embedded Systems Language</a>
+</div>
+
+<div class="www_text">
+<p><a href="http://code.google.com/p/esl">ESL (Embedded Systems Language)</a>
+is a new programming language designed for efficient implementation
+of embedded systems and other low-level system programming projects.
+ESL is a typed compiled language with features that allow the programmer
+to dictate the concrete representation of data values; useful when dealing,
+for example, with communication protocols or device registers.</p>
+
+<p>Novel features are: no reserved words, procedures can return multiple
+values, automatic endian conversion, methods on types (but no classes).
+The syntax is more Pascal-like than C-like, but with C bracketing.
+The compiler bootstraps from LL IR.</p>
 </div>
 
 <!--#include virtual="../footer.incl" --></html>
