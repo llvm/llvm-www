@@ -44,6 +44,11 @@ license.</p>
     href="https://address-sanitizer.googlecode.com/files/LLVM-3.4.r190067-win32.exe">mirror</a>),
   based on SVN r190067.  </p>
 
+  <p>To use the LLVM toolchain from Visual Studio, open project properties and
+  change the "Platform Toolset" from the current value to "llvm".
+  Alternatively, in a continuous integration setting, invoke MSBuild with
+  <code>/p:CLTool=C:\Program Files\LLVM 3.4.svn\bin\clang-cl.exe</code></p>
+
   <p>Currently, the package only includes <a
     href="http://clang.llvm.org">clang</a> and the <a
     href="https://code.google.com/p/address-sanitizer/wiki/AddressSanitizer">Address
