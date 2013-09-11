@@ -469,6 +469,11 @@ link-time optimizations for code size optimization.
     used to implement a bottom-up analysis that will determine the *actual* 
     registers clobbered by a function. Use the pass to fine tune register usage 
     in callers based on *actual* registers used by the callee.</li>
+<li>Add support for 16-bit x86 assembly and real mode to the assembler and
+    disassembler, for use by BIOS code. This includes both 16-bit instruction
+    encodings as well as privileged instructions (lgdt, lldt, ltr, lmsw, clts,
+    invd, invlpg, wbinvd, hlt, rdmsr, wrmsr, rdpmc, rdtsc) and the control and
+    debug registers.
 </ol>
 
 </div>
