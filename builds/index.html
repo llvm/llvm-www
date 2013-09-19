@@ -48,8 +48,8 @@ license.</p>
   section of "Configuration Properties" change "Platform Toolset" to
   "LLVM-vs2010" or "LLVM-vs2012".
 
-  <p>Alternatively, in a continuous integration setting, invoke MSBuild with
-  <code>/p:CLTool=C:\Program Files\LLVM 3.4.svn\bin\clang-cl.exe</code></p>
+  <p>Alternatively, invoke MSBuild with <code>/p:PlatformToolset=LLVM-vs2012</code>
+  to try out the toolchain without modifying the project files.</p>
 
   <p>Currently, the package only includes
     <a href="http://clang.llvm.org">clang</a>,
