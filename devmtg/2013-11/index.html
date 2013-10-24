@@ -95,7 +95,7 @@ More info coming soon.
   <tr class="alt"><td><b><a href="#talk11">Bringing clang and LLVM to Visual C++ users</a></b><br>Reid Kleckner, <i>Google</i></td><td>Mercantile</td></tr>
   <tr class="alt"><td><b>BOF: High Level Loop Optimization / Polly</b><br>Tobias Grosser, <i>INRIA</i><br> Sebastian Pop, <i>QuIC</i><br> Zino Benaissa, <i>QuIC</i></td><td>Currency</td></tr>
 
-<tr><td>3:30 - 4:30</td><td><b>Posters</b></td><td>TBD</td></tr>
+<tr><td>3:30 - 4:30</td><td><b><a href="#poster">Posters</a></b></td><td>TBD</td></tr>
 
 <tr class="alt"><td rowspan=3>4:30 - 5:15</td><td><b><a href="#talk12">Building a Modern Database with LLVM</a></b><br>Skye Wanderman-Milne, <i>Cloudera</i></td><td>Banking Hall</td></tr>
   <tr class="alt"><td><b><a href="#talk13">Adapting LLDB for your hardware: Remote Debugging the Hexagon DSP</a></b><br>Colin Riley, <i>Codeplay</i></td><td>Mercantile</td></tr>
@@ -255,7 +255,35 @@ Finally, we will cover an alternate strategy to provide more traditional and det
 
 <div class="www_sectiontitle" id="poster">Poster Abstracts</div>
 <p>
-Coming soon.
+<b>Finding a few needles in some large haystacks: Identifying missing target optimizations using a superoptimizer</b><br>
+<i>Hal Finkel - Argonne National Laboratory</i><br>
+So you're developing an LLVM backend, and you've added a bunch of TableGen patterns, custom DAG combines and other lowering code; are you done? This poster describes the development of a specialized superoptimizer, applied to the output of the compiler on large codebases, to look for missing optimizations in the PowerPC backend. This superoptimizer extracts potentially-interesting instruction sequences from assembly code, and then uses the open-source CVC4 SMT solver to search for provably-correct shorter alternatives.
+</p>
+
+<p>
+<b>Intel® AVX-512 Architecture. Comprehensive vector extension for HPC and enterprise</b><br>
+<i>Elena Demikhovsky, Intel® Software and Services Group - Israel</i><br>
+Knights Landing (KNL) is the second generation of the Intel® MIC architecture-based products. KNL will support Intel® Advanced Vector Extensions 512  instruction set architecture, a significant leap in SIMD support.  This new ISA, designed with unprecedented level of richness, offers a new level of support and opportunities for vectorizing compilers to target efficiently. The poster presents Intel®AVX-512 ISA and shows how the new capabilities may be used in LLVM compiler.
+</p>
+
+<p>
+<b>Fracture: Inverting the Target Independent Code Generator</b><br>
+<i>Richard T. Carback III – Charles Stark Draper Laboratories</i><br>
+Fracture is a TableGen backend and associated library that ingests a basic block of target instructions and emits a DAG which resembles the post-legalization phase of LLVM’s SelectionDAG instruction selection process. It leverages the pre-existing target TableGen definitions, without modification, to provide a generic way to abstract LLVM IR efficiently from different target instruction sets. Fracture can speed up a variety of applications and also enable generic implementations of a number of static and dynamic analysis tools. Examples include interactive debuggers or disassemblers that provide LLVM IR representations to users unfamiliar with the instruction set, static analysis algorithms that solve indirect control transfer (ICT) problems modified for IR to use KLEE or other LLVM technologies, and IR-based decompilers or emulators extended to work on machine binaries.
+</p>
+
+<p>
+<b>Automatic generation of LLVM backends from LISA</b><br>
+<i>Jeroen Dobbelaere - Synopsys</i><br>
+LISA (language for instruction-set architectures) allows for the efficient specification of processor architectures,
+including non-standard, customized architectures. Using a LISA input specification designers can automatically
+generate instruction-set simulator, assembler, linker, debugger interface as well as RTL.
+<br>
+We have extended LISA to allow for the generation of a LLVM compiler backend tailored to the custom architecture.
+This work includes the development of a new scheduler that is able to handle hazards with high latency and delay slots,
+expanding the applicability of LLVM to a wider range of architectures. The LISA-based design flow allows for rapid
+architectural explorations, profiling dozens of different processors architectures within hours, with the automatic
+generation of a LLVM compiler being a key enabler of this design methodology.
 </p>
 
 <div class="www_sectiontitle" id="dinner">Evening Social</div>
