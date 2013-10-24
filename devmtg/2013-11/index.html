@@ -96,7 +96,7 @@ More info coming soon.
   <tr class="alt"><td><b><a href="#talk13">Adapting LLDB for your hardware: Remote Debugging the Hexagon DSP</a></b><br>Colin Riley, <i>Codeplay</i></td><td>Mercantile</td></tr>
   <tr class="alt"><td><b>BOF: Optimizations using LTO</b><br>Zino Benaissa, <i>QuIC</i></td><td>Currency</td></tr>
 
-<tr><td rowspan=3>5:15 - 6:15</td><td><b>PGO in LLVM: Status and Current Work</b><br>Bob Wilson, <i>Apple</i><br> Chandler Carruth, <i>Google</i><br> Diego Novillo, <i>Google</i></td><td>Banking Hall</td></tr>
+<tr><td rowspan=3>5:15 - 6:15</td><td><a href="#talk13"><b>PGO in LLVM: Status and Current Work</a></b><br>Bob Wilson, <i>Apple</i><br> Chandler Carruth, <i>Google</i><br> Diego Novillo, <i>Google</i></td><td>Banking Hall</td></tr>
   <tr><td><b>Lighting Talks</b><br></td><td>Mercantile</td></tr>
   <tr><td><b>BOF: JIT & MCJIT</b><br>Andy Kaylor, <i>Intel Corporation</i></td><td>Currency</td></tr>
 
@@ -164,8 +164,89 @@ AddressSanitizer is a fast memory error detector that uses LLVM for compile-time
 <li>Similarly, stack-use-after-return detector finds uses of stack variables after the functions they are defined in have exited.</li>
 <li>LeakSanitizer finds heap memory leaks; it is built on top of AddressSanitizer memory allocator.</li>
 <li>We will also give an update on AddressSanitizer for Linux kernel.
-</li></p>
+</li></ul>
+</p>
 
+<p>
+<b><a id="talk7">A Detailed Look at the R600 Backend</a></b><br>
+<i>Tom Stellard - Advanced Micro Devices Inc.</i><br>
+The R600 backend, which targets AMD GPUs, was merged into LLVM prior to
+the 3.3 release.  It is one component of AMD's open source GPU drivers
+which provide support for several popular graphics and compute APIs.
+The backend supports two different generation of GPUs, the older
+VLIW4/VLIW5 architecture and the more recent GCN architecture.  In this
+talk, I will discuss the history of the R600 backend, how it is used,
+and why we choose to use LLVM for our open source drivers.  Additionally,
+I'll give an in-depth look at the backend and its features and present an
+overview of the unique architecture of supported GPUs.  I will describe
+the challenges this architecture presented in writing an LLVM backend and
+the approaches we have taken for instruction selection and scheduling.
+I will also look at the future goals for this backend and areas for
+improvement in the backend as well as core LLVM.
+</p>
+
+<p>
+<b><a id="talk8">Developer Toolchain for the PlayStation®4</a></b><br>
+<i>Paul T. Robinson - Sony Computer Entertainment America</i><br>
+The PlayStation®4 has a developer toolchain centered on Clang as the CPU compiler.  We describe how Clang/LLVM fits into Sony Computer Entertainment's (mostly proprietary) toolchain, focusing on customizations, game-developer experience, and working with the open-source community.
+</p>
+
+<p>
+<b><a id="talk9">Annotations for Safe Parallelism in Clang</a></b><br>
+<i>Alexandros Tzannes -
+University of Illinois, Urbana-Champaign</i><br>
+Coming soon.
+</p>
+
+<p>
+<b><a id="talk10">Vectorization in LLVM</a></b><br>
+<i>Nadav Rotem - Apple, Arnold Schwaighofer - Apple</i><br>
+Vectorization is a powerful optimization that can accelerate programs in multiple domains.  Over the last year two new vectorization passes were added to LLVM: the Loop-vectorizer, which vectorizes loops, and the SLP-vectorizer, which combines independent scalar calculations into a vector. Both of these optimizations together show a significant performance increase on many applications.  In this talk we’ll present our work on the vectorizers in the past year.  We’ll discuss the overall architecture of these passes, the cost model for deciding when vectorization is profitable, and describe some interesting design tradeoffs. Finally, we want to talk about some ideas to further improve the vectorization infrastructure.
+</p>
+
+<p>
+<b><a id="talk11">Bringing clang and LLVM to Visual C++ users
+</a></b><br>
+<i>Reid Kleckner - Google</i><br>
+This talk covers the work we've been doing to help make clang and LLVM more
+compatible with Microsoft's Visual C++ toolchain.  With a compatible toolchain,
+we can deliver all of the features that clang and LLVM have to offer, such as
+AddressSanitizer.  Perhaps the most important point of compatibility is the C++
+ABI, which is a huge and complicated beast that covers name mangling, calling
+conventions, record layout, vtable layout, virtual inheritance, and more.  This
+talk will go into detail about some of the more interesting parts of the ABI.
+</p>
+
+<p>
+<b><a id="talk12">Building a Modern Database with LLVM</a></b><br>
+<i>Skye Wanderman-Milne - Cloudera</i><br>
+Cloudera Impala is a low-latency SQL query engine for Apache Hadoop. In order to achieve optimal CPU efficiency and query execution times, Impala uses LLVM to perform JIT code generation to take advantage of query-specific information unavailable at compile time. For example, code generation allows us to remove many conditionals (and the associated branch misprediction overhead) necessary for handling multiples types, operators, functions, etc.; inline what would otherwise be virtual function calls; and propagate query-specific constants. These optimization can reduce overall query time by almost 300%.
+<br>
+In this talk, I'll outline the motivation for using LLVM within Impala and go over some examples and results of JIT optimizations we currently perform, as well as ones we'd like to implement in the future.
+</p>
+
+<p>
+<b><a id="talk13">Adapting LLDB for your hardware: Remote Debugging the Hexagon DSP
+</a></b><br>
+<i>Colin Riley - Codeplay</i><br>
+LLDB is at the stage of development where support is being added for a wide range of hardware devices. Its modular approach means adapting it to debug a new system has a well-defined step-by-step process, which can progress fairly quickly. Presented is a guide of what implementation steps are required to get your hardware supported via LLDB using Remote Debugging, giving examples from work we are doing to support the Hexagon DSP within LLDB.
+</p>
+
+<p>
+<b><a id="talk13">PGO in LLVM: Status and Current Work
+</a></b><br>
+<i>Bob Wilson - Apple,
+Chandler Carruth - Google,
+Diego Novillo - Google</i><br>
+Profile Guided Optimization (PGO) is one of the most fundamental weaknesses in the LLVM optimization portfolio. We have had several attempts to build it, and to this day we still lack a holistic platform for driving optimizations through profiling. This talk will consist of three light-speed crash courses on where PGO is in LLVM, where it needs to be, and how several of us are working to get it there.
+<br>
+First, we will present some motivational background on what PGO is good for and what it isn't. We will cover exactly how profile information interacts with the LLVM optimizations, the strategies we use at a high level to organize and use profile information, and the specific optimizations that are in turn driven by it. Much of this will cover infrastructure as it exists today, with some forward-looking information added into the mix.
+<br>
+Next, we will cover one planned technique for getting profile information into LLVM: AutoProfile. This technique simplifies the use and deployment of PGO by using external profile sources such as Linux perf events or other sample-based external profilers. When available, it has some key advantages: no instrumentation build mode, reduced instrumentation overhead, and more predictable application behavior by using hardware to assist the profiling.
+<br>
+Finally, we will cover an alternate strategy to provide more traditional and detailed profiling through compiler inserted instrumentation. This approach will also strive toward two fundamental goals: resilience of the profile to beth source code and compiler changes, and visualization of the profile by developers to understand how their code is being exercised. The second draws obvious parallels with code coverage tools, and the design tries to unify these two use cases in a way that the same infrastructure can drive both.
+
+</p>
 
 <div class="www_sectiontitle" id="poster">Poster Abstracts</div>
 <p>
