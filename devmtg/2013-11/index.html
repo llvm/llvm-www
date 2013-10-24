@@ -106,9 +106,66 @@ More info coming soon.
 
 
 <div class="www_sectiontitle" id="abstracts">Talk Abstracts</div>
+
 <p>
-Coming soon.
+<b><a id="talk1">LLVM: 10 years and going strong
+</a></b><br>
+<i>Chris Lattner - Apple,
+Vikram Adve - University of Illinois, Urbana-Champaign</i><br>
+Keynote talk celebrating the 10th anniversary of LLVM 1.0.
 </p>
+
+<p>
+<b><a id="talk2">Emscripten: Compiling LLVM bitcode to JavaScript</a></b><br>
+<i>Alon Zakai - Mozilla</i><br>
+Emscripten is an open source compiler that converts LLVM bitcode to JavaScript. JavaScript is a fairly unusual target for compilation, being a high-level dynamic language instead of a low-level CPU assembly, but efficient compilation to JavaScript is useful because of the ubiquity of web browsers which use it as their standard language. This talk will detail how Emscripten utilizes LLVM and clang to convert C/C++ into JavaScript, and cover the specific challenges that compiling to JavaScript entails, such as the lack of goto statements, while on the other hand making other aspects of compilation simpler, for example having native exception handling support. Some such issues are general and have to do with JavaScript itself, but specific challenges with Emscripten's interaction with LLVM will also be described, as well as opportunities for better integration between the projects in the future.
+</p>
+
+<p>
+<b><a id="talk3">Code Size Reduction using Similar Function Merging</a></b><br>
+<i>Tobias Edler von Koch - University of Edinburgh / QuIC, Pranav Bhandarkar - QuIC</i><br>
+Code size reduction is a critical goal for compiler optimizations targeting embedded applications. While LLVM continues to improve its performance optimization capabilities, it is currently still lacking a robust set of optimizations specifically targeting code size. In our talk, we will describe an optimization pass that aims to reduce code size by merging similar functions at the IR level. Significantly extending the existing MergeFunctions optimization, the pass is capable of merging multiple functions even if there are minor differences between them. A number of heuristics are used to determine when merging of functions is profitable. Alongside hash tables, these also ensure that compilation time remains at an acceptable level. We will describe our experience of using this new optimization pass to reduce the code size of a significant embedded application at Qualcomm Innovation Center by 2%. 
+</p>
+
+<p>
+<b><a id="talk4">Julia: An LLVM-based approach to scientific computing</a></b><br>
+<i>Keno Fischer - Harvard College/MIT CSAIL</i><br>
+Julia is a new high-level dynamic programming language specifically designed for
+scientific and technical computing, while at the same time not ignoring the 
+need for the expressiveness and the power of a modern general purpose 
+programming language. 
+<br>
+Thanks to LLVM's JIT compilation capabilities, for which Julia was written 
+from the ground up, Julia can achieve a level of performance usually reserved 
+for compiled programs written in C, C++ or other compiled languages. It thus 
+manages to bridge the gap between very high level languages such as MATLAB, R or 
+Python usually used for algorithm prototyping and those languages used when 
+performance is of the essence, reducing development time and the possibility for
+subtle differences between the prototype and the production algorithms.
+</p>
+
+<p>
+<b><a id="talk5">Verifying optimizations using SMT solvers</a></b><br>
+<i>Nuno Lopes - INESC-ID / U. Lisboa</i><br>
+Instcombine and Selection DAG optimizations, although usually simple, can easily hide bugs.
+We've had many cases in the past where these optimizers were producing wrong code in certain corner cases.
+In this talk I'll describe a way to prove the correctness of such optimization using an off-the-shelf SMT solver (bit-vector theory).  I'll give examples of past bugs found in these optimizations, how to encode them into SMT-Lib 2 format, and how to spot the bugs.
+The encoding to the SMT format, although manual, is straightfoward and consumes little time. The verification is then automatic.
+</p>
+
+<p>
+<b><a id="talk6">New Address Sanitizer Features</a></b><br>
+<i>Kostya Serebryany - Google,
+Alexey Samsonov - Google</i><br>
+AddressSanitizer is a fast memory error detector that uses LLVM for compile-time instrumentation. In this talk we will present several new features in AddressSanitizer.
+<ul>
+<li>Initialization order checker finds bugs where the program behavior depends on the order in which global variables from different modules are initialized.</li>
+<li>Stack-use-after-scope detector finds uses of stack-allocated objects outside of the scope where they are defined.</li>
+<li>Similarly, stack-use-after-return detector finds uses of stack variables after the functions they are defined in have exited.</li>
+<li>LeakSanitizer finds heap memory leaks; it is built on top of AddressSanitizer memory allocator.</li>
+<li>We will also give an update on AddressSanitizer for Linux kernel.
+</li></p>
+
 
 <div class="www_sectiontitle" id="poster">Poster Abstracts</div>
 <p>
