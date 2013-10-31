@@ -204,7 +204,7 @@ The PlayStation®4 has a developer toolchain centered on Clang as the CPU compil
 <b><a id="talk9">Annotations for Safe Parallelism in Clang</a></b><br>
 <i>Alexandros Tzannes -
 University of Illinois, Urbana-Champaign</i><br>
-Coming soon.
+The Annotations for Safe Parallelism (ASaP) project at UIUC is implementing a static checker in Clang to allow writing provably safe parallel code. ASaP is inspired by DPJ (Deterministic Parallel Java) but unlike it, it does not extend the base language. Instead, we rely on the rich C++11 attribute system to enrich C++ types and to pass information to our ASaP checker. The ASaP checker gives strong guarantees such as race-freedom, *strong* atomicity, and deadlock freedom for commonly used parallelism patterns, and it is at the prototyping stage where we can prove the parallel safety of simple TBB programs. We are evolving ASaP in collaboration with our Autodesk partners who help guide its design in order to solve incrementally complex problems faced by real software teams in industry. In this presentation, I will present an overview of how the checker works, what is currently supported, what we have "in the works", and some discussion about incorporating some of the ideas of the thread safety annotation to assist our analysis.
 </p>
 
 <p>
