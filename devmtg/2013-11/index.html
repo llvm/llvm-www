@@ -290,6 +290,13 @@ architectural explorations, profiling dozens of different processors architectur
 generation of a LLVM compiler being a key enabler of this design methodology.
 </p>
 
+<p>
+<b> clad - Automatic Differentiation with Clang</b><br>
+<i>Violeta Ilieva (Princeton University), CERN; Vassil Vassilev, CERN</i><br>
+Automatic differentiation (AD) evaluates the derivative of a function specified in a computer program by applying a set of techniques to change the semantics of that function. Unlike other methods for differentiation, such as numerical and symbolic, AD yields machine-precision derivatives even of complicated functions at relatively low processing and storage costs. We would like to present our AD tool, clad - a clang plugin that derives C++ functions through implementing source code transformation and employing the chain rule of differential calculus in its forward mode. That is, clad decomposes the original functions into elementary statements and generates their derivatives with respect to the user-defined independent variables. The combination of these intermediate expressions forms additional source code, built through modifying clang’s abstract syntax tree (AST) along the control flow. Compared to other tools, clad has the advantage of relying on clang and llvm modules for parsing the original program. It uses clang's plugin mechanism for constructing the derivative's AST representation, for generating executable code, and for performing global analysis. Thus it results in low maintenance, high compatibility, and excellent performance.
+</p>
+
+
 <div class="www_sectiontitle" id="light">Lightning Talk Abstracts</div>
 <p>
 <b>Fixing MC for ARM v7-A: Just a few corner cases – how hard can it be?</b><br>
