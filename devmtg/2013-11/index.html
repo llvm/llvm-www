@@ -86,15 +86,17 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
 
 <p>
 <b><a id="talk1">LLVM: 10 years and going strong
-</a></b> <a href="slides/Lattner-LLVM Early Days.pdf">Slides[1]<a><br>
+</a></b><br>
 <i>Chris Lattner - Apple,
 Vikram Adve - University of Illinois, Urbana-Champaign</i><br>
+<a href="slides/Lattner-LLVM Early Days.pdf">Slides[1]<a><br>
 Keynote talk celebrating the 10th anniversary of LLVM 1.0.
 </p>
 
 <p>
-<b><a id="talk2">Emscripten: Compiling LLVM bitcode to JavaScript</a></b> <a href="slides/Zakai-Emscripten.pdf">Slides</a><br>
+<b><a id="talk2">Emscripten: Compiling LLVM bitcode to JavaScript</a></b><br>
 <i>Alon Zakai - Mozilla</i><br>
+<a href="slides/Zakai-Emscripten.pdf">Slides</a><br>
 Emscripten is an open source compiler that converts LLVM bitcode to JavaScript. JavaScript is a fairly unusual target for compilation, being a high-level dynamic language instead of a low-level CPU assembly, but efficient compilation to JavaScript is useful because of the ubiquity of web browsers which use it as their standard language. This talk will detail how Emscripten utilizes LLVM and clang to convert C/C++ into JavaScript, and cover the specific challenges that compiling to JavaScript entails, such as the lack of goto statements, while on the other hand making other aspects of compilation simpler, for example having native exception handling support. Some such issues are general and have to do with JavaScript itself, but specific challenges with Emscripten's interaction with LLVM will also be described, as well as opportunities for better integration between the projects in the future.
 </p>
 
@@ -105,8 +107,9 @@ Code size reduction is a critical goal for compiler optimizations targeting embe
 </p>
 
 <p>
-<b><a id="talk4">Julia: An LLVM-based approach to scientific computing</a></b> <a href="slides/Fischer-Julia.html">Slides</a><br>
+<b><a id="talk4">Julia: An LLVM-based approach to scientific computing</a></b><br>
 <i>Keno Fischer - Harvard College/MIT CSAIL</i><br>
+<a href="slides/Zakai-Emscripten.pdf">Slides</a><br>
 Julia is a new high-level dynamic programming language specifically designed for
 scientific and technical computing, while at the same time not ignoring the 
 need for the expressiveness and the power of a modern general purpose 
@@ -131,9 +134,10 @@ The encoding to the SMT format, although manual, is straightfoward and consumes 
 </p>
 
 <p>
-<b><a id="talk6">New Address Sanitizer Features</a></b> <a href="slides/Serebryany-ASAN.pdf">Slides</a><br>
+<b><a id="talk6">New Address Sanitizer Features</a></b><br>
 <i>Kostya Serebryany - Google,
 Alexey Samsonov - Google</i><br>
+<a href="slides/Serebryany-ASAN.pdf">Slides</a><br>
 AddressSanitizer is a fast memory error detector that uses LLVM for compile-time instrumentation. In this talk we will present several new features in AddressSanitizer.
 <ul>
 <li>Initialization order checker finds bugs where the program behavior depends on the order in which global variables from different modules are initialized.</li>
@@ -145,8 +149,9 @@ AddressSanitizer is a fast memory error detector that uses LLVM for compile-time
 </p>
 
 <p>
-<b><a id="talk7">A Detailed Look at the R600 Backend</a></b> <a href="slides/Stellard-R600.pdf">Slides</a><br>
+<b><a id="talk7">A Detailed Look at the R600 Backend</a></b><br>
 <i>Tom Stellard - Advanced Micro Devices Inc.</i><br>
+<a href="slides/Stellard-R600.pdf">Slides</a><br>
 The R600 backend, which targets AMD GPUs, was merged into LLVM prior to
 the 3.3 release.  It is one component of AMD's open source GPU drivers
 which provide support for several popular graphics and compute APIs.
@@ -163,8 +168,9 @@ improvement in the backend as well as core LLVM.
 </p>
 
 <p>
-<b><a id="talk8">Developer Toolchain for the PlayStation®4</a></b> <a href="slides/Robinson-PS4Toolchain.pdf">Slides</a><br>
+<b><a id="talk8">Developer Toolchain for the PlayStation®4</a></b><br>
 <i>Paul T. Robinson - Sony Computer Entertainment America</i><br>
+<a href="slides/Robinson-PS4Toolchain.pdf">Slides</a><br>
 The PlayStation®4 has a developer toolchain centered on Clang as the CPU compiler.  We describe how Clang/LLVM fits into Sony Computer Entertainment's (mostly proprietary) toolchain, focusing on customizations, game-developer experience, and working with the open-source community.
 </p>
 
@@ -176,15 +182,17 @@ The Annotations for Safe Parallelism (ASaP) project at UIUC is implementing a st
 </p>
 
 <p>
-<b><a id="talk10">Vectorization in LLVM</a></b> <a href="slides/Rotem-Vectorization.pdf">Slides</a><br>
+<b><a id="talk10">Vectorization in LLVM</a></b><br>
 <i>Nadav Rotem - Apple, Arnold Schwaighofer - Apple</i><br>
+<a href="slides/Rotem-Vectorization.pdf">Slides</a><br>
 Vectorization is a powerful optimization that can accelerate programs in multiple domains.  Over the last year two new vectorization passes were added to LLVM: the Loop-vectorizer, which vectorizes loops, and the SLP-vectorizer, which combines independent scalar calculations into a vector. Both of these optimizations together show a significant performance increase on many applications.  In this talk we’ll present our work on the vectorizers in the past year.  We’ll discuss the overall architecture of these passes, the cost model for deciding when vectorization is profitable, and describe some interesting design tradeoffs. Finally, we want to talk about some ideas to further improve the vectorization infrastructure.
 </p>
 
 <p>
 <b><a id="talk11">Bringing clang and LLVM to Visual C++ users
-</a></b>i <a href="slides/Kleckner-ClangVisualC++.pdf">Slides</a><br>
+</a></b><br>
 <i>Reid Kleckner - Google</i><br>
+<a href="slides/Kleckner-ClangVisualC++.pdf">Slides</a><br>
 This talk covers the work we've been doing to help make clang and LLVM more
 compatible with Microsoft's Visual C++ toolchain.  With a compatible toolchain,
 we can deliver all of the features that clang and LLVM have to offer, such as
@@ -195,8 +203,9 @@ talk will go into detail about some of the more interesting parts of the ABI.
 </p>
 
 <p>
-<b><a id="talk12">Building a Modern Database with LLVM</a></b> <a href="slides/Wanderman-Milne-Cloudera.pdf">Slides</a><br>
+<b><a id="talk12">Building a Modern Database with LLVM</a></b><br>
 <i>Skye Wanderman-Milne - Cloudera</i><br>
+<a href="slides/Wanderman-Milne-Cloudera.pdf">Slides</a><br>
 Cloudera Impala is a low-latency SQL query engine for Apache Hadoop. In order to achieve optimal CPU efficiency and query execution times, Impala uses LLVM to perform JIT code generation to take advantage of query-specific information unavailable at compile time. For example, code generation allows us to remove many conditionals (and the associated branch misprediction overhead) necessary for handling multiples types, operators, functions, etc.; inline what would otherwise be virtual function calls; and propagate query-specific constants. These optimization can reduce overall query time by almost 300%.
 <br>
 In this talk, I'll outline the motivation for using LLVM within Impala and go over some examples and results of JIT optimizations we currently perform, as well as ones we'd like to implement in the future.
@@ -204,17 +213,19 @@ In this talk, I'll outline the motivation for using LLVM within Impala and go ov
 
 <p>
 <b><a id="talk13">Adapting LLDB for your hardware: Remote Debugging the Hexagon DSP
-</a></b> <a href="slides/Riley-DebugginWithLLDB.pdf">Slides</a><br>
+</a></b><br>
 <i>Colin Riley - Codeplay</i><br>
+<a href="slides/Riley-DebugginWithLLDB.pdf">Slides</a><br>
 LLDB is at the stage of development where support is being added for a wide range of hardware devices. Its modular approach means adapting it to debug a new system has a well-defined step-by-step process, which can progress fairly quickly. Presented is a guide of what implementation steps are required to get your hardware supported via LLDB using Remote Debugging, giving examples from work we are doing to support the Hexagon DSP within LLDB.
 </p>
 
 <p>
 <b><a id="talk14">PGO in LLVM: Status and Current Work
-</a></b> <a href="slides/Carruth-PGO.pdf">Slides</a><br>
+</a></b><br>
 <i>Bob Wilson - Apple,
 Chandler Carruth - Google,
 Diego Novillo - Google</i><br>
+<a href="slides/Carruth-PGO.pdf">Slides</a><br>
 Profile Guided Optimization (PGO) is one of the most fundamental weaknesses in the LLVM optimization portfolio. We have had several attempts to build it, and to this day we still lack a holistic platform for driving optimizations through profiling. This talk will consist of three light-speed crash courses on where PGO is in LLVM, where it needs to be, and how several of us are working to get it there.
 <br>
 First, we will present some motivational background on what PGO is good for and what it isn't. We will cover exactly how profile information interacts with the LLVM optimizations, the strategies we use at a high level to organize and use profile information, and the specific optimizations that are in turn driven by it. Much of this will cover infrastructure as it exists today, with some forward-looking information added into the mix.
