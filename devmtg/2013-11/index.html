@@ -48,7 +48,7 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
 
 <tr><td><a href="slides/Zakai-Emscripten.pdf">Slides</a><br>Video</td><td><b><a href="#talk2">Emscripten: Compiling LLVM bitcode to JavaScript
 </a></b><br>Alon Zakai, <i>Mozilla</i></td></tr>
-  <tr><td>Slides<br>Video</td><td><b><a href="#talk3">Code Size Reduction using Similar Function Merging</a></b><br>Tobias Edler von Koch, <i>University of Edinburgh / QuIC</i><br> Pranav Bhandarkar, <i>QuIC</i></td></tr>
+  <tr><td><a href="slides/Koch-FunctionMerging.pdf">Slides</a><br>Video</td><td><b><a href="#talk3">Code Size Reduction using Similar Function Merging</a></b><br>Tobias Edler von Koch, <i>University of Edinburgh / QuIC</i><br> Pranav Bhandarkar, <i>QuIC</i></td></tr>
   <tr><td><td><a href="#bof1"><b>BOF: Performance Tracking & Benchmarking Infrastructure</b></a><br>Kristof Beyls, <i>ARM</i></td></tr>
 
 
@@ -103,6 +103,7 @@ Emscripten is an open source compiler that converts LLVM bitcode to JavaScript. 
 <p>
 <b><a id="talk3">Code Size Reduction using Similar Function Merging</a></b><br>
 <i>Tobias Edler von Koch - University of Edinburgh / QuIC, Pranav Bhandarkar - QuIC</i><br>
+<a href="slides/Koch-FunctionMerging.pdf">Slides</a><br>
 Code size reduction is a critical goal for compiler optimizations targeting embedded applications. While LLVM continues to improve its performance optimization capabilities, it is currently still lacking a robust set of optimizations specifically targeting code size. In our talk, we will describe an optimization pass that aims to reduce code size by merging similar functions at the IR level. Significantly extending the existing MergeFunctions optimization, the pass is capable of merging multiple functions even if there are minor differences between them. A number of heuristics are used to determine when merging of functions is profitable. Alongside hash tables, these also ensure that compilation time remains at an acceptable level. We will describe our experience of using this new optimization pass to reduce the code size of a significant embedded application at Qualcomm Innovation Center by 2%. 
 </p>
 
