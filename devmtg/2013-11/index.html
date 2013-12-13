@@ -241,6 +241,7 @@ Finally, we will cover an alternate strategy to provide more traditional and det
 <p>
 <b>Finding a few needles in some large haystacks: Identifying missing target optimizations using a superoptimizer</b><br>
 <i>Hal Finkel - Argonne National Laboratory</i><br>
+<a href="slides/Finkel-Poster.pdf">Poster</a><br>
 So you're developing an LLVM backend, and you've added a bunch of TableGen patterns, custom DAG combines and other lowering code; are you done? This poster describes the development of a specialized superoptimizer, applied to the output of the compiler on large codebases, to look for missing optimizations in the PowerPC backend. This superoptimizer extracts potentially-interesting instruction sequences from assembly code, and then uses the open-source CVC4 SMT solver to search for provably-correct shorter alternatives.
 </p>
 
@@ -253,6 +254,7 @@ Knights Landing (KNL) is the second generation of the Intel® MIC architecture-b
 <p>
 <b>Fracture: Inverting the Target Independent Code Generator</b><br>
 <i>Richard T. Carback III – Charles Stark Draper Laboratories</i><br>
+<a href="slides/Carback-Poster.pdf">Poster</a><br>
 Fracture is a TableGen backend and associated library that ingests a basic block of target instructions and emits a DAG which resembles the post-legalization phase of LLVM’s SelectionDAG instruction selection process. It leverages the pre-existing target TableGen definitions, without modification, to provide a generic way to abstract LLVM IR efficiently from different target instruction sets. Fracture can speed up a variety of applications and also enable generic implementations of a number of static and dynamic analysis tools. Examples include interactive debuggers or disassemblers that provide LLVM IR representations to users unfamiliar with the instruction set, static analysis algorithms that solve indirect control transfer (ICT) problems modified for IR to use KLEE or other LLVM technologies, and IR-based decompilers or emulators extended to work on machine binaries.
 </p>
 
@@ -273,6 +275,7 @@ generation of a LLVM compiler being a key enabler of this design methodology.
 <p>
 <b> clad - Automatic Differentiation with Clang</b><br>
 <i>Violeta Ilieva (Princeton University), CERN; Vassil Vassilev, CERN</i><br>
+<a href="slides/Vassilev-Poster.pdf">Poster</a><br>
 Automatic differentiation (AD) evaluates the derivative of a function specified in a computer program by applying a set of techniques to change the semantics of that function. Unlike other methods for differentiation, such as numerical and symbolic, AD yields machine-precision derivatives even of complicated functions at relatively low processing and storage costs. We would like to present our AD tool, clad - a clang plugin that derives C++ functions through implementing source code transformation and employing the chain rule of differential calculus in its forward mode. That is, clad decomposes the original functions into elementary statements and generates their derivatives with respect to the user-defined independent variables. The combination of these intermediate expressions forms additional source code, built through modifying clang’s abstract syntax tree (AST) along the control flow. Compared to other tools, clad has the advantage of relying on clang and llvm modules for parsing the original program. It uses clang's plugin mechanism for constructing the derivative's AST representation, for generating executable code, and for performing global analysis. Thus it results in low maintenance, high compatibility, and excellent performance.
 </p>
 
