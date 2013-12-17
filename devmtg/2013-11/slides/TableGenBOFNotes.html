@@ -1,0 +1,54 @@
+<html>
+<head><title>TableGen BOF</title></head>
+<body>
+
+<h1>TableGen BOF</h1>
+<h3><i>Mihail Popa</i></h3>
+
+<p>The BoF was attended by quite a lot of people and there was general agreement
+   that tablegen needs improvement in some shape or form. However there are many
+   divergent ideas as to how to go about this improvement. Of course this is
+   completely natural, tablegen being a versatile tool used by many different
+   people for many different purposes.</p>
+
+<p>Part of the attendees focused on missing features. Feature requests include:</p>
+
+<ul>
+<li>support for vector literals</li>
+<li>support for instruction/patterns with multiple outputs</li>
+<li>support complex transforms where types of input and output differ</li>
+<li>remove need of magic vars in complex patterns</li>
+<li>improve support for permutations of operands</li>
+<li>ability to implement DAG combines in tablegen</li>
+<li>auto detect/infer constraints</li>
+<li>add support or missing patterns and/or selectable insts</li>
+<li>extend tablegen unit tests to go beyond simple syntactic constructs</li>
+<li>automatically add MCDesc fields</li>
+<li>improve debug-ability and error reporting</li>
+<li>auto-inversion for predicates</li>
+</ul>
+
+<p>It was commented that the current state of tablegen is due to its quite rapid
+   growth through the past years. Then point was raised that, probably, we will
+   not be fixing anything by simply bolting on top further functionality.</p>
+
+<p>My desire was to steer the discussion towards how to design tablegen as a
+   proper domain specific language targeted at compiler construction. I think
+   it was generally agreed that this is a distant goal worth pursuing and that
+   the first steps is to first document what tablegen currently has.</p>
+
+<p>The root cause for lack of documentation was identified as:</p>
+
+<blockquote><i>
+"People don't feel authoritative enough to go ahead and write docs.
+ Many community members are knowledgeable in small pieces,
+ but don’t feel are qualified to author documentation".</i>
+</blockquote>
+
+<p>It was generally agreed that a way to solve this is to create a shared
+   repository where everyone can commit any pieces of information they might
+   have. We hope it will grow to a proper documentation for tablegen's features.
+   Once gotten there we would be in a much better position to decide how to
+   further develop this tool.</p>
+
+</body>

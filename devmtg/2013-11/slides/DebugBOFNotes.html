@@ -1,0 +1,32 @@
+<html>
+<head><title>Debug Info BOF</title></head>
+<body>
+
+<h1>Debug Info BOF</h1>
+<h3><i>Eric Christopher</i></h3>
+
+<p>Optimized debugging is still a big miss with a lof of metadata being lost at
+   various stages, mostly affecting variable tracking, leastly affecting line
+   information.</p>
+
+<p>Dwarf 4 seems to be the standard that LLVM is being coded to, Dwarf 3 in
+   maintenance mode, Dwarf 2 is dead. Still, would be good to have some mechanism
+   to limit the version of Dwarf symbols, to avoid breaking compatibility with
+   older toolchains for a small feature.</p>
+
+<p>In time, Dwarf 3 will be deprecated, and the story will repeat, and it’s clear
+   and accepted by all that this is the natural course of thing.</p>
+
+<p>Verifier will check debug info, so metadata is supposed to be consistent
+   after validation.</p>
+
+<p>Metadata may lose type information and be left with line, function and scope
+   info. The rest can be inferred from IR.</p>
+
+<p>Debug metadata is widely known to be huge and methods to reduce the size in
+   IR are being considered, including emitting Dwarf directly in IR, converting
+   the most common constructs to text literals (including small numbers, < 4-8
+   digits), packing (zip) the contents, etc.</p>
+
+</body>
+
