@@ -34,34 +34,219 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
 </p>
 
 
-<div class="www_sectiontitle" id="call">Call for Papers</div>
+<div class="www_sectiontitle" id="call">Schedule</div>
 <p>
-We invite academic, industrial and hobbyist speakers to present their
-work on developing or using LLVM, Clang, LLDB, Polly, Compiler-RT, etc.
+
+<table id="devmtg">
+  <tr><th>Media</th><th>Talk</th></tr>
+
+  <tr><td>9:00-9:05</td><td><b>Welcome</b><br />Tobias Grosser & Sylvestre Ledru</td></tr>
+  <tr><td>9:05-9:50</td><td><a href="#talk1"><b>Clang: Re-inventing the Compiler</b></a><br />Alp Toker</td></tr>
+  <tr><td>10:00-10:25</td><td><a href="#talk2"><b>Auto-Vectorization in LLVM</b></a><br />Renato Golin</td></tr>
+
+  <tr><td>10:30:00	10:55:00</td><td><a href="#talk3"><b>The Avatar project - improving embedded security with S2E, KLEE and Qemu</b></a><br />Luca Bruno</td></tr>
+  <tr><td>11:00:00-11:50:00</td><td><a href="#talk4"><b>The LLVMLinux project</b></a><br />Jan-Simon Möller</td></tr>
+  <tr><td>11:55:00-12:25:00</td><td><a href="#talk5"><b>How to contribute to LLVM</b></a><br />Sylvestre Ledru</td></tr>
+
+<td><td colspan="2">&nbsp;</td></tr>
+  <tr><td>12:25:00-13:00:00</td><td>Lunch break</td></tr>
+<td><td colspan="2">&nbsp;</td></tr>
+
+  <tr><td>13:00:00-13:25:00</td><td><a href="#talk6"><b>Two uses cases for the clang C++ parser: Online Code Browser and Qt moc Replacement.</b></a><br />Olivier Goffart</td></tr>
+  <tr><td>13:30:00-14:25:00</td><td><a href="#talk7"><b>Statically compiling Ruby with LLVM</b></a><br />lrz</td></tr>
+  <tr><td>14:30:00-15:25:00</td><td><a href="#talk8"><b>LDC - the LLVM-based D compiler</b></a><br />Kai Nacke</td></tr>
+  <tr><td>15:30:00-15:55:00</td><td><a href="#talk9"><b>Case study/tutorial on using LLVM in REPL systems</b></a><br />David Tweed</td></tr>
+  <tr><td>16:00:00-16:25:00</td><td><a href="#talk10"><b>An approach for energy consumption analysis of programs using LLVM</b></a><br />Kyriakos Georgiou</td></tr>
+  <tr><td>16:30:00-16:55:00</td><td><a href="#talk11"><b>High Level Loop Optimizations in LLVM</b></a><br />Tobias Grosser</td></tr>
+</table>
+
 </p>
+<div class="www_sectiontitle" id="abstracts">Talk Abstracts</div>
+
 <p>
-We are looking for:
+<b><a id="talk1">Clang: Re-inventing the Compiler
+</a></b><br />
+<i>Alp Toker</i><br />
+The LLVM clang C++ compiler has exceeded all expectations in the last year, gaining unprecedented new features that let you explore, rewrite and rediscover your source code.<br />
+
+This is a talk about the human story of a compiler: What can we achieve going beyond compilation? Why are we compelled to invent a better wheel? How can we make everyday life better for coders, and could the compiler itself become an instrument for wider social change?
+<br />
+Developed by an eclectic team of academics, supercomputer hobbyists and vendors including Apple and Google, the LLVM project has proven itself as a hotbed of innovation leading the renaissance in C-family programming languages, recently receiving the coveted ACM Software System Award.
+<br />
+Whether you're a kernel hacker, app developer or front-end designer, clang is different to other compilers, it's coming to a machine near you in 2014 and may well impact your work: Here's what you need to know.
+</p>
+
+<p>
+<b><a id="talk2">Auto-Vectorization in LLVM</a></b><br />
+<i>Renato Golin</i><br />
+Auto-Vectorization has come a long way since the early vector-processing CPUs, and compilers generally take a long time to implement it, prioritizing other more generic features instead. But with all recent high-end chips containing some form of SIMD operations, auto-vectorization became a necessary feature on any modern compiler. LLVM was perhaps the latest of the big compilers to have a decent vectorization engine, but it has grown considerably for the last year, and the investment on SIMD code generation will not diminish. This presentation outlines the past implementations, what we currently have available and peeks into the engineering pipeline to see what else we are working on.
+</p>
+
+<p>
+<b><a id="talk3">The Avatar project - improving embedded security with S2E, KLEE and Qemu</a></b><br />
+<i>Luca Bruno</i><br />
+Avatar is a research framework that enables complex
+dynamic analysis of embedded devices by orchestrating the execution
+of an emulator together with the real hardware.<br />
+It is built on top of S2E/Qemu, KLEE and LLVM and its main goal is to
+enable advanced security analysis of pristine ARM source-less firmware,
+eg. through dynamic tracing or symbolic execution.<br />
+
+This talk will show the key-features of S2E in enabling runtime binary
+analysis (using Qemu virtualization and KLEE/LLVM symbolic execution)
+and how Avatar uses it to orchestrate analysis and execution at
+the emulator<->device edge.<br />
+To address the growing concerns about the security of embedded
+systems, it is important to perform accurate analysis of
+firmware binaries, even when the source code or the hardware
+documentation are not available. Unlike static analysis, dynamic
+analysis relies on the ability to execute software in a controlled
+environment, which is however difficult due the lack of documentation
+and the large variety of subtly different hardware on the market.
+<br />
+In this talk we present Avatar, a framework that enables such complex
+analysis of embedded devices. In particular we will introduce S2E,
+a C++ project which leverages several components to do binary emulation,
+including:
 <ul>
-  <li>Keynote speakers.</li>
-  <li>Technical presentations (30 minutes plus questions and discussion)
-     related to development of LLVM, Clang etc.</li>
-  <li>Presentations about the use of LLVM, Clang in commercial or academic
-     projects as well as in the open source world.</li>
-  <li>Tutorials</li>
-  <li>Lightning talks (5 minutes)</li>
+<li>Qemu for machine virtualization</li>
+<li>LLVM as the IR of choice</li>
+<li>KLEE for symbolic execution of LLVM IR</li>
+<li>S2E plugins for hooking into data and control flow</li>
 </ul>
+Then we show the Avatar framework, which acts as an analysis driver,
+context switcher and memory forwarder. Avatar is currently written
+in Python and on top of basic features, it includes several
+techniques to improve the system's performance as well as heuristics
+to help in vulnerability discovery.
+<br />
+Both project are FLOSS. S2E is a research project from EPFL, while
+Avatar is under development at Eurecom.
 </p>
+
+
 <p>
-The deadline for receiving submissions is December 1st, 2013.  Speakers
-will be notified of acceptance or rejection by the 15th of December.
-Proposals that are not sufficiently detailed (talks lacking a
-comprehensive abstract for example) are likely to be rejected.
+<b><a id="talk4">The LLVMLinux project</a></b><br />
+<i>Jan-Simon Möller</i><br />
+The talk will introduce the LLVMLinux project, its goals and milestones achieved and the future usage of the project in Distributions.
 </p>
+
 <p>
-Please <a href="https://penta.fosdem.org/user/new_account">create an account</a> on the FOSDEM interface and <a href="https://penta.fosdem.org/submission/FOSDEM14/event/new">submit your proposal</a>.  Please make sure you select "LLVM devroom" as the "Track".
+<b><a id="talk5">How to contribute to LLVM</a></b><br />
+<i>Sylvestre Ledru</i><br />
+The talk will present how to write your first patch into LLVM, how to get +w permissions, the various workflow, etc.
+</p>
+
+<p>
+<b><a id="talk6">Two uses cases for the clang C++ parser:  Online Code Browser and Qt moc Replacement.
+</a></b><br />
+<i>Olivier Goffart</i><br />
+In this talk we will see how one can use the clang libraries to build two practical tools.
+The first tool is an online C/C++ online code browser that uses clang to parse the AST in order to provide information about each token and build a cross reference database. [http://code.woboq.org]
+The second tool is a replacement for Qt's moc (meta-object compiler) which is used by Qt to provide introspection and enable signals and slots and the QML language, both as a stand alone executable or as a clang plugin. <a href="http://https://github.com/woboq/moc-ng">http://https://github.com/woboq/moc-ng</a><br />
+The talk goes over implementation details and challenges encountered while developing.
 
 </p>
 
+<p>
+<b><a id="talk7">Statically compiling Ruby with LLVM - ... or how RubyMotion works internally</a></b><br />
+<i>LRZ</i><br />
+</p>
+
+<p>
+<b><a id="talk8">LDC - the LLVM-based D compiler
+</a></b><br />
+<i>Kai Nacke</i><br />
+D is a language with C-like syntax and static typing. It
+pragmatically combines efficiency, control, and modeling power, with safety and
+programmer productivity. Because of its features major companies start to adopt
+D.
+<br />
+LDC is a fully open source, portable D compiler. It uses the frontend from the
+reference compiler combined with LLVM as backend to produce efficient native
+code. LDC targets x86/x86_64 systems like Linux, OS X and Windows and also
+Linux/PPC64. Ports to other architectures like ARM are underway. Currently, LDC
+can be built with LLVM 3.1 and all later LLVM releases.
+<br />
+In my talk, I introduce the overall architecture of LDC first. Using the
+frontend AST as starting point I show how types, statements and expression are
+mapped to LLVM IR and which LLVM features are required. Experiences with LLVM in
+general, porting to other LLVM backends than x86 and integrating features like
+the AddressSanitizer are highlighted. At last, areas of improvement for LLVM are
+shown from the perspective of a D compiler (ABI, vararg, exception handling).
+<br />
+Author bio:<br />
+Kai Nacke works as an IT architect for one of the largest IT companies in the
+world. In 1998 he received a master of computer science. He has a strong
+interest in compiler construction and became a member of the LDC team in 2012.
+He is a semi-regular contributor to LLVM (tls for windows, passing of anonymous
+structs on PPC64, seh on windows). Since October 2013 he is the maintainer of
+the LDC compiler.
+</p>
+
+<p>
+<b><a id="talk10">Case study/tutorial on using LLVM in REPL systems
+</a></b><br />
+<i>David Tweed</i><br />
+LLVM is a modular system of compiler components with backends for most
+popular architectures. It is primarily designed as a compiler construction framework, but also provides facilities for Just-In-Time (JIT) compilation of code. Although a lot of interest has focused on the implementation of LLVM-based compilers for `compiled ahead-of-time' (AOT) languages (eg, clang for C), one of the most exciting uses is to generate code on-the-fly, taking advantage of situation
+specific knowledge to perform btter on the particular computation at hand.
+<br />
+This proposal is a short talk that falls somewhere between a case study and a tutorial, tackling various LLVM mechanisms which can be used to boosting performance in interactive exploratory programs that run in a read-evaluate-print loop (REPL).<br />
+It will be cover these aspects at an intermediate level, not discussing all the low-level API details but showing how the various mechanisms of LLVM IR and passes within LLVM can be easily be used.<br />
+This talk will focus on 7 simple techniques for improving performance of a REPL
+based-system with LLVM.<br />
+<ol>
+<li>Standard LLVM compiler transformations.</li>
+<li>Inlining.</li>
+<li>Vectorization.</li>
+<li>Special instructions.</li>
+<li>Inline compression.</li>
+<li>Language specific passes.</li>
+<li>Function specialisation.</li>
+</ol>
+<br />
+These are all relatively simple to implement with the help of LLVM, and by
+following a running example utilising the BEST dataset, we will see how they
+can improve the performance of interactive computation.
+
+</p>
+
+<p>
+<b><a id="talk11">High Level Loop Optimizations in LLVM
+</a></b><br />
+<i>Tobias Grosser</i><br />
+For several important program classes (image processing, scientific computing, ...) High Level Loop Optimizations are essential to reach top performance. With Polly, we present a high-level loop optimization framework for LLVM, that provides a flexible infrastructure to develop and describe such high-level loop optimizations. We present Polly as a classical optimizer for a C compiler, but focus on its use as an infrastructure to develop optimizations for domain specific languages and specialized hardware such as GPUs. This talks gives an overview of the overall structure of Polly itself and also insights into the components and tools essential when working with Polly (isl, ppcg, islpy, islplot).
+</p>
+<p>
+<b><a id="talk9">An approach for energy consumption analysis of programs using LLVM
+</a></b><br />
+<i>Kyriakos Georgiou</i><br />
+Energy models can be constructed by characterizing the energy consumed by
+executing each instruction in a processor's instruction set. This can be used to
+determine how much energy is required to execute a sequence of assembly
+instructions. However, statically analysing low level program structures is
+hard, and the gap between the high-level program structure and the low-level
+energy models needs to be bridged. We have developed a tool for
+performing a static analysis on the intermediate compiler representations of a
+program. Specifically, we target LLVM IR, a representation used by most modern
+compilers including Clang.
+<br />
+One of the challenges in doing so is that of determining an energy cost of
+executing LLVM IR program segments, for which we have developed a mapping
+tool. This tool associates LLVM IR program segments with assembly program
+segments, producing a mapping. Mapping information is useful when performing an
+analysis at one layer using energy models defined at a lower layer.
+Essentially, this propagates the energy model defined at the instruction set
+level up to the LLVM IR level, at which the analysis is performed. When this is
+used with our analysis tool, we are able to infer energy formulae that
+characterize the energy consumption for a particular program. This approach can
+be applied to any languages targeting the LLVM toolchain or architectures
+supported by LLVM.
+<br />
+Static energy estimation has applications in program optimization, and enables
+energy-aware software development.
+</p>
 <div class="www_sectiontitle" id="logistics">Logistics</div>
 <p>
 
@@ -74,7 +259,6 @@ The mailing list <a href="mailo:llvm-devroom@lists.fosdem.org">llvm-devroom@list
 FOSDEM does not require any registration and is free of charge. However,
 we advise to arrive early in the devroom in case of important crowd.
 </p>
-
 
 <!-- *********************************************************************** -->
 <hr>
