@@ -61,7 +61,7 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
   <tr><td><a href="slides/DebugBOFNotes.html">Notes</a></td><td><a href="#bof3"><b>BOF: Debug Info</b></a><br>Eric Christopher, <i>Google</i></td></tr>
 
 <tr><td><a href="slides/Robinson-PS4Toolchain.pdf">Slides</a><br><a href="videos/Robinson-PS4Toolchain-720.mov">Video</a> (Computer)<br><a href="videos/Robinson-PS4Toolchain-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk8">Developer Toolchain for the PlayStation®4</a></b><br>Paul T. Robinson, <i>Sony Computer Entertainment America</i></td></tr>
-  <tr><td>Slides<br><a href="videos/Tzannes-ASaP-720.mov">Video</a> (Computer)<br><a href="videos/Tzannes-ASaP-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk9">Annotations for Safe Parallelism in Clang</a></b><br>Alexandros Tzannes, <i>University of Illinois, Urbana-Champaign</i></td></tr>
+  <tr><td><a href="slides/Tzannes-ASaP.pdf">Slides</a><br><a href="videos/Tzannes-ASaP-720.mov">Video</a> (Computer)<br><a href="videos/Tzannes-ASaP-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk9">Annotations for Safe Parallelism in Clang</a></b><br>Alexandros Tzannes, <i>University of Illinois, Urbana-Champaign</i></td></tr>
   <tr><td></td><td><a href="#bof4"><b>BOF: Extending the Sanitizer tools and porting them to other platforms</b></a><br>Kostya Serebryany, <i>Google</i><br>Alexey Samsonov, <i>Google</i><br>Evgeniy Stepanov, <i>Google</i></td></tr>
 
 <tr><td><a href="slides/Rotem-Vectorization.pdf">Slides</a><br><a href="videos/Rotem-Vectorization-720.mov">Video</a> (Computer)<br><a href="videos/Rotem-Vectorization-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk10">Vectorization in LLVM</a></b><br>Nadav Rotem, <i>Apple</i><br> Arnold Schwaighofer, <i>Apple</i></td></td></tr>
@@ -188,6 +188,7 @@ The PlayStation®4 has a developer toolchain centered on Clang as the CPU compil
 <b><a id="talk9">Annotations for Safe Parallelism in Clang</a></b><br>
 <i>Alexandros Tzannes -
 University of Illinois, Urbana-Champaign</i><br>
+<a href="slides/Tzannes-ASaP.pdf">Slides</a><br>
 <a href="videos/Tzannes-ASaP-720.mov">Video</a> (Computer) <a href="videos/Tzannes-ASaP-360.mov">Video</a> (Mobile)<br>
 The Annotations for Safe Parallelism (ASaP) project at UIUC is implementing a static checker in Clang to allow writing provably safe parallel code. ASaP is inspired by DPJ (Deterministic Parallel Java) but unlike it, it does not extend the base language. Instead, we rely on the rich C++11 attribute system to enrich C++ types and to pass information to our ASaP checker. The ASaP checker gives strong guarantees such as race-freedom, *strong* atomicity, and deadlock freedom for commonly used parallelism patterns, and it is at the prototyping stage where we can prove the parallel safety of simple TBB programs. We are evolving ASaP in collaboration with our Autodesk partners who help guide its design in order to solve incrementally complex problems faced by real software teams in industry. In this presentation, I will present an overview of how the checker works, what is currently supported, what we have "in the works", and some discussion about incorporating some of the ideas of the thread safety annotation to assist our analysis.
 </p>
