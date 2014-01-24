@@ -76,7 +76,14 @@
     provides highly tuned implementations of the low-level code generator
     support routines like "<tt>__fixunsdfdi</tt>" and other calls generated when
     a target doesn't have a short sequence of native instructions to implement
-    a core IR operation.</p></li>
+    a core IR operation. It also provides implementations of run-time libraries
+    for dynamic testing tools such as
+    <a href="http://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a>,
+    <a href="http://clang.llvm.org/docs/ThreadSanitizer.html">ThreadSanitizer</a>,
+    <a href="http://clang.llvm.org/docs/MemorySanitizer.html">MemorySanitizer</a>,
+    and
+    <a href="http://clang.llvm.org/docs/DataFlowSanitizer.html">DataFlowSanitizer</a>.
+    </p></li>
 
 <li><p>The <b><a href="http://openmp.llvm.org">OpenMP</a></b> subproject
     provides an <a href="http://openmp.org">OpenMP</a> runtime for use with the
