@@ -145,7 +145,17 @@ The talk goes over implementation details and challenges encountered while devel
 
 <p>
 <b><a id="talk7">Statically compiling Ruby with LLVM - ... or how RubyMotion works internally</a></b><br />
-<i>LRZ</i><br />
+<i>Laurent Sansonetti</i><br />
+
+
+RubyMotion is a commercial implementation of the Ruby language for iOS and OS X development. RubyMotion makes intensive use of LLVM in order to statically compile Ruby. In this session we will focus on how RubyMotion uses LLVM also a bit of history with the MacRuby project (which uses LLVM as a JIT).
+<br />
+RubyMotion is a commercial implementation of the Ruby language for iOS and OS X development. The RubyMotion toolchain lets Ruby developers write full-fledged native applications for iPhone, iPad and the Mac. RubyMotion apps are statically compiled into optimized machine code.
+<br />
+RubyMotion makes intensive use of LLVM in order to statically compile Ruby and target various architectures. In this session we will focus on how RubyMotion uses LLVM, the challenges that we had to solve in order to compile Ruby, some of the various codegen optimizations we implemented and how we integrate with profiling/debugging tools. We will also cover the mistakes we learned from the MacRuby project, which uses LLVM a bit differently.
+<br />
+(This presentation will only focus on the internals of RubyMotion. We will not cover Ruby, RubyMotion or iOS/OS X development.)
+
 </p>
 
 <p>
