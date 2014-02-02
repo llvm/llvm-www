@@ -49,7 +49,7 @@ We also invite you to sign up for the <a href="http://lists.cs.uiuc.edu/mailman/
   <tr><td><a href="#talk6"><b>Two uses cases for the clang C++ parser: Online Code Browser and Qt moc Replacement.</b></a><br />Olivier Goffart</td><td></td></tr>
   <tr><td><a href="#talk7"><b>Statically compiling Ruby with LLVM</b></a><br />Laurent Sansonetti</td><td></td></tr>
   <tr><td><a href="#talk8"><b>LDC - the LLVM-based D compiler</b></a><br />Kai Nacke</td><td></td></tr>
-  <tr><td><a href="#talk9"><b>Case study/tutorial on using LLVM in REPL systems</b></a><br />David Tweed</td><td></td></tr>
+  <tr><td><a href="#talk9"><b>Introduction on KLEE</b></a><br />Daniel Liew</td><td></td></tr>
   <tr><td><a href="#talk10"><b>An approach for energy consumption analysis of programs using LLVM</b></a><br />Neville Grech</td><td></td></tr>
   <tr><td><a href="#talk11"><b>High Level Loop Optimizations in LLVM</b></a><br />Tobias Grosser</td><td></td></tr>
 </table>
@@ -182,30 +182,9 @@ shown from the perspective of a D compiler (ABI, vararg, exception handling).
 </p>
 
 <p>
-<b><a id="talk9">Case study/tutorial on using LLVM in REPL systems
+<b><a id="talk9">Introduction on Klee
 </a></b><br />
-<i>David Tweed</i><br />
-LLVM is a modular system of compiler components with backends for most
-popular architectures. It is primarily designed as a compiler construction framework, but also provides facilities for Just-In-Time (JIT) compilation of code. Although a lot of interest has focused on the implementation of LLVM-based compilers for `compiled ahead-of-time' (AOT) languages (eg, clang for C), one of the most exciting uses is to generate code on-the-fly, taking advantage of situation
-specific knowledge to perform btter on the particular computation at hand.
-<br />
-This proposal is a short talk that falls somewhere between a case study and a tutorial, tackling various LLVM mechanisms which can be used to boosting performance in interactive exploratory programs that run in a read-evaluate-print loop (REPL).<br />
-It will be cover these aspects at an intermediate level, not discussing all the low-level API details but showing how the various mechanisms of LLVM IR and passes within LLVM can be easily be used.<br />
-This talk will focus on 7 simple techniques for improving performance of a REPL
-based-system with LLVM.<br />
-<ol>
-<li>Standard LLVM compiler transformations.</li>
-<li>Inlining.</li>
-<li>Vectorization.</li>
-<li>Special instructions.</li>
-<li>Inline compression.</li>
-<li>Language specific passes.</li>
-<li>Function specialisation.</li>
-</ol>
-<br />
-These are all relatively simple to implement with the help of LLVM, and by
-following a running example utilising the BEST dataset, we will see how they
-can improve the performance of interactive computation.
+<i>Daniel Liew</i><br />
 
 </p>
 <p>
