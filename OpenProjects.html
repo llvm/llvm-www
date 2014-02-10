@@ -7,6 +7,7 @@
   <li><a href="#subprojects">LLVM Subprojects: Clang and VMKit</a></li>
   <li><a href="#improving">Improving the current system</a>
   <ol>
+    <li><a href="#target-desc">Factor out target descriptions</a></li>
     <li><a href="#code-cleanups">Implementing Code Cleanup bugs</a></li>
     <li><a href="#programs">Compile programs with the LLVM Compiler</a></li>
     <li><a href="#llvmtest">Add programs to the llvm-test suite</a></li>
@@ -94,6 +95,58 @@ LLVM bug tracker</a>. See the <a href="http://llvm.org/bugs/buglist.cgi?keywords
 <p>Improvements to the current infrastructure are always very welcome and tend
 to be fairly straight-forward to implement.  Here are some of the key areas that
 can use improvement...</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="target-desc">Factor out target descriptions</a>
+</div>
+
+<div class="www_text">
+
+<p>Currently, both Clang and LLVM have a separate target description infrastructure,
+with some features duplicated, others "shared" (in the sense that Clang has to create
+a full LLVM target description to query specific information).</p>
+
+<p>This separation has grown in parallel, since in the beginning they were quite
+different and served disparate purposes. But as the compiler evolved, more and
+more features had to be shared between the two so that the compiler would behave
+properly. An example is when targets have default features on speficic configurations
+that don't have flags for. If the back-end has a different "default" behaviour
+than the front-end and the latter has no way of enforcing behaviour, it simply
+won't work.</p>
+
+<p>Of course, an alternative would be to create flags for all little quirks, but
+first, Clang is not the only front-end or tool that uses LLVM's middle/back ends,
+and second, that's what "default behaviour" is there for, so we'd be missing the
+point.</p>
+
+<p>Several ideas have been floating around to fix the Clang driver WRT recognizing
+architectures, features and so on (table-gen it, user-specific configuration files,
+etc) but none of them touch the critical issue: sharing that information with the
+back-end.</p>
+
+<p>Recently, the idea to factor out the target description infrastructure from
+both Clang and LLVM into its own library that both use, has been floating around.
+This would make sure that all defaults, flags and behaviour are shared, but would
+also reduce the complexity (and thus the cost of maintenance) a lot. That would
+also allow all tools (lli, llc, lld, lldb, etc) to have the same behaviour
+across the board.</p>
+
+<p>The main challenges are:</p>
+
+<ul>
+  <li>To make sure the transition doesn't destroy the delicate balance on any
+  target, as some defaults are implicit and, some times, unknown.</li>
+  <li>To be able to migrate one target at a time, one tool at a time and still
+  keep the old infrastructure intact.</li>
+  <li>To make it easy for detecting target's features for both front-end and
+  back-end features, and to merge both into a coherent set of properties.</li>
+  <li>To provide a bridge to the new system for tools that haven't migrated,
+  especially the off-the-tree ones, that will need some time (one release,
+  at least) to migrate..</li>
+</ul>
 
 </div>
 
