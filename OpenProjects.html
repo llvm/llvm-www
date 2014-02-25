@@ -4,6 +4,7 @@
 
 <ul>
   <li><a href="#what">What is this?</a></li>
+  <li><a href="#gsoc2014">Google Summer of Code 2014</a></li>
   <li><a href="#subprojects">LLVM Subprojects: Clang and VMKit</a></li>
   <li><a href="#improving">Improving the current system</a>
   <ol>
@@ -58,6 +59,43 @@ or to suggest other projects to add to this page.
 <p>The projects in this page are open-ended. More specific projects are
 filed as unassigned enhancements in the <a href="http://llvm.org/bugs/">
 LLVM bug tracker</a>. See the <a href="http://llvm.org/bugs/buglist.cgi?keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_severity=enhancement&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=unassigned">list of currently outstanding issues</a> if you wish to help improve LLVM.</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc2014">Google Summer of Code 2014 projects</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="target-desc">Scan-build tracking platform</a>
+</div>
+
+<div class="www_text">
+<p> <b>Description of the project</b>: The idea of this project is to extend scan-build to make it more reliable for projects. Currently, scan-build results pages do not allow the tracking of a defect or the possibility to tag false positive defects.<br />
+Moreover, scan-build only shows the status of the project on specific time. An evolution of number of defects (per category or not) over time would be a great advantages for developers.</p>
+
+<p>
+The project will focus on:
+<ul>
+<li>Create a unique ID for each defect</li>
+<li>Create a database (SQLite for example) to keep track of the evolutions</li>
+<li>Make scan-build URL permanent</li>
+<li>Tagging of false positive</li>
+<li>Evolution of number of defect (per category or not)</li>
+</ul>
+</p>
+<p><b>Confirmed Mentor:</b> Sylvestre Ledru, Jean-Daniel Dupas</p>
+
+<p><b>How to contact the mentor:</b> sylvestre@debian.org & jddupas@yahoo.fr</p>
+
+<p><b>Deliverables of the project:</b> New version of scan-build</p>
+
+<p><b>Desirable skills:</b> C++, Database, scan-build</p>
+
+<p><b>What the student will learn:</b> Static analyzer, Clang, etc</p>
+</p>
 
 </div>
 
