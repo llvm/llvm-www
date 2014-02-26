@@ -92,6 +92,7 @@
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
   <a href="http://llvm.org/perf">LNT</a>
   <a href="http://buildd-clang.debian.net/coverage/">Coverage</a>
+  <a href="http://buildd-clang.debian.net/scan-build/">Scan-build</a>
 </div>
 
 <br>
