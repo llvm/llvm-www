@@ -79,7 +79,7 @@ Moreover, scan-build only shows the status of the project on specific time. An e
 <p>
 The project will focus on:
 <ul>
-<li>Create a unique ID for each defect</li>
+<li>Improve clang static-analyzer to provide a unique ID for each defect</li>
 <li>Create a database to keep track of the evolutions</li>
 <li>Make scan-build URL permanent</li>
 <li>Tagging of false positive</li>
@@ -87,7 +87,7 @@ The project will focus on:
 </ul>
 </p>
 
-<p>During this GSoC, the student will have to keep in mind that scan-build must remain generic. Different databases can be used, results should be available for IDE (Xcode, Eclipse, etc), etc.</p>
+<p>During this GSoC, the student will have to keep in mind the tracking platform should not be tied to scan-build and should be usable by other clang analyzer clients (Xcode, Eclipse, etc) with different needs (different database, etc.).</p>
 
 <p>Note that the creation of a Unique Defect ID can be an hard problem.</p>
 
