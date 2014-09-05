@@ -100,7 +100,8 @@ TABLE.www      { text-align: left; border: 2px solid black;
                  border-collapse: collapse; margin-top: 1em; margin-left: 1em; 
                  margin-right: 1em; margin-bottom: 1em; }
 
-/* Dev Meeting Agenda */
+/* Dev Meeting */
+.tab { margin-left: 40px; }
 #devmtg
 {
 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
