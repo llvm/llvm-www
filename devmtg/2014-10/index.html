@@ -6,7 +6,12 @@
         <li><a href="#about">About</a></li>
         <li><a href="#sponsor">Sponsors Needed!</a></li>
         <li><a href="#registration">Registration</a></li>
-        <li><a href="#call">Call for Papers, Tutorials, BoFs, and More</a></li>
+        <li><a href="#agenda1">October 28 - Meeting Agenda</a></li>
+         <li><a href="#agenda2">October 29 - Meeting Agenda</a></li>
+        <li><a href="#abstracts">Talk Abstracts</a></li>
+        <li><a href="#tutorials">Tutorial Abstracts</a></li>
+        <li><a href="#poster">Poster Abstracts</a></li>
+        <li><a href="#bof">BoF Abstracts</a></li>
         <li><a href="#logistics">Logistics</a></li>
 </ol>
 </td><td>
@@ -82,32 +87,93 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting">http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting</a>
 </p>
 
-<div class="www_sectiontitle" id="call">Call for Papers, Tutorials, BoFs, and More!</div>
-
+<div class="www_sectiontitle" id="agenda1">October 28 - Meeting Agenda</div>
 <p>
-All developers and users of LLVM and related sub-projects are invited to present at this year’s developer meeting.
-</p><p>
-We are looking for the following proposals:
-<ul>
-<li>Technical Talks on LLVM Infrastructure (~30 minutes)</li>
-<li>Technicals Talks on related sub-projects (Clang, etc)</li>
-<li>Talks of uses of LLVM in academia or industry</li>
-<li>Talks on new projects using Clang or LLVM</li>
-<li>Lightning Talks (5 minutes)</li>
-<li>In depth Tutorials about LLVM (30-60 minutes)</li>
-<li>Posters</li>
-<li>Birds of a Feather</li>
-</ul>
+<table id="devmtg">
+  <tr><th>Time</th><th>Talk</th><th>Location</th></tr>
 
-<b>The submission deadline is September 1, 2014.</b>
+  <tr><td>8:00 - 9:00</td><td>Breakfast</td><td>Oak Fir - Foyer</td></tr>
+  <tr class="alt"><td>9:00 - 9:15</td><td><b>Welcome</b><br>Tanya Lattner, <i>LLVM Foundation</i></td><td>Oak Fir</td></tr>
+
+  <tr><td>9:15 - 10:00</td><td><b><a href="#talk1">OpenMP Support in Clang/LLVM: Status Update and Future Directions</a></b><br>Alexey Bataev, <i>Intel</i><br>Zinovy Nis, <i>Intel</i></td><td>Oak Fir</td></tr>
+
+<tr class="alt"><td rowspan=3>10:00 - 10:45</td><td><b><a href="#talk2">Alive: Provably Correct InstCombine Optimizations
+</a></b><br>David Menendez, <i>Rutgers University</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk3">LLVM Stable Releases</a></b><br>Tom Stellard, <i>Advanced Micro Devices</i></td><td>Pine</td></tr>
+  <tr class="alt"><td><a href="#bof1"><b>BOF: JIT Support in LLVM</b></a><br>Lang Hames, <i>Apple</i></td><td>Cedar</td></tr>
+
+<tr><td rowspan=3>10:45 - 11:30</td><td><b><a href="#talk4">Supporting Precise Relocating Garbage Collection in LLVM</a></b><br>Philip Reames, <i>Azul Systems</i></td><td>Oak Fir</td></tr>
+  <tr><td><b><a href="#talk5">Source Code Analysis for Security through LLVM</a></b><br>Lu Zhao, <i>HP Fortify</i></td><td>Pine</td></tr>
+  <tr><td><a href="#bof2"><b>BOF: Performance tracking & benchmarking infrastructure</b></a><br>Kristof Beyls, <i>ARM</i><br>Chad Rosier, <i>QuIC</i><br>Chris Matthew, <i>Apple</i><br>Tobias Grosser, <i>ETH</i><br>Renato Golin, <i>Linaro</i></td><td>Cedar</td></tr>
+
+<tr class="alt"><td rowspan=2>11:30 - 12:15</td><td><b><a href="#talk6">FTL: WebKit’s LLVM based JIT</a></b><br>Andrew Trick, <i>Apple</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk7">Virtual Ghost: Using LLVM to Protect Applications from a Compromised Operating System</a></b><br>John Criswell, <i>University of Rochester</i></td><td>Pine</td></tr>
+
+  <tr><td>12:15 - 1:45</td><td>Lunch</td><td>TBD</td></tr>
+
+<tr class="alt"><td rowspan=2>1:45 - 2:45</td><td><b><a href="#hacker">Hacker's Lab</a></b></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#tutorial1">Building an LLVM Backend</a></b><br>Fraser Cormack, <i>Codeplay Software</i><br>Pierre-André Saulais, <i>Codeplay Software</i></td><td>Pine</td></tr>
+
+
+<tr><td rowspan=2>2:45 - 3:45</td>
+<td><b><a href="#hacker">Hacker's Lab</a></b></td><td>Oak Fir</td></tr>
+<tr><td><b><a href="#tutorial2">Adding and Optimizing a Subtarget for MIScheduler</a></b><br>Dave Estes, <i>QuIC</i></td><td>Pine</td></tr>
+
+<tr class="alt"><td rowspan=2>3:45 - 4:45</td><td><b><a href="#hacker">Hacker's Lab</a></b></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#tutorial3">Debug Info Tutorial</a></b><br>Eric Christopher, <i>Google</i><br>David Blaikie, <i>Google</i></td><td>Pine</td></tr>
+  <tr><td>4:45 - 5:30</td><td><a href="#hacker"><b>Hacker's Lab</a></b></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td>6:00 - 8:00</td><td>Evening Social</td><td></td></tr>
+</table>
 </p>
+
+<div class="www_sectiontitle" id="agenda2">October 29 - Meeting Agenda</div>
 <p>
-Please submit your proposal by email to Tanya Lattner (tonic 'at' nondot.org). You must submit at least the following information:
-<ol>
-<li>Name, Company/University</li>
-<li>Abstract (1 page maximum)</li>
-</ol>
+<table id="devmtg">
+  <tr><th>Time</th><th>Talk</th><th>Location</th></tr>
+
+  <tr><td>8:00 - 9:00</td><td>Breakfast</td><td>Oak Fir Foyer</td></tr>
+  <tr class="alt"><td>9:00 - 9:45</td><td><b><a href="#talk8">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization</a></b><br>John McCall, <i>Apple</i><br>Joe Groff, <i>Apple</i></td><td>Oak Fir</td></tr>
+
+<tr><td rowspan=3>9:45 - 10:15</td><td><b><a href="#talk9">What does it take to get LLVM as performant as GCC</a></b><br>James Molloy, <i>ARM</i></td><td>Oak Fir</td></tr>
+<tr><td><b><a href="#talk10">Blowing up the Atomic Barrier</a></b><br>Robin Morisset, <i>Google</i></td><td>Pine</td></tr>
+  <tr><td><a href="#bof3"><b>BOF: Debug Info</b></a><br>Eric Christopher, <i>Google</i></td><td>Cedar</td></tr>
+
+
+<tr class="alt"><td rowspan=3>10:15 - 10:45</td><td><b><a href="#talk11">The LLVM Pass Manager, Part 2
+</a></b><br>Chandler Carruth, <i>Google</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk12">Supporting Vector Programming on a Bi-Endian Processor Architecture</a></b><br>Bill Schmidt, <i>IBM</i></td><td>Pine</td></tr>
+  <tr class="alt"><td><a href="#bof4"><b>BOF: Improving LLVM for remote test execution</b></a><br>Brian Rzycki, <i>Samsung Austin R&D Center</i></td><td>Cedar</td></tr>
+
+  <tr><td>10:45 - 11:15</td><td>Break</td><td>Oak Fir Foyer</td></tr>
+
+ <tr class="alt"><td rowspan=3>11:15 - 12:00</td><td><b><a href="#talk13">Intrinsics, Metadata and Attributes: Now, more than ever!
+</a></b><br>Hal Finkel, <i>Argonne National Laboratory</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk14">Implementing Data Layout Optimizations in LLVM Framework</a></b><br>Prashantha NR, <i>Compiler Tree Technologies</i></td><td>Pine</td></tr>
+  <tr class="alt"><td><a href="#bof5"><b>BOF: Future directions and features for LLDB</b></a><br>Deepak Mathews Panickal,<i>Codeplay Software</i></td><td>Cedar</td></tr>
+
+<tr><td rowspan=3>12:00 - 12:45</td><td><b><a href="#talk15">Fuzzing Clang to Find ABI Bugs</a></b><br>David Majnemer, <i>Google</i></td><td>Oak Fir</td></tr>
+  <tr><td><b><a href="#talk16">A closer look at ARM code quality</a></b><br>Tilmann Scheller, <i>Samsung Electronics</i></td><td>Pine</td></tr>
+<tr><td><a href="#bof8"><b>BOF: GPU Implementers</b></a><br>Tom Stellard, <i>AMD</i><br>Owen Anderson, <i>Apple</i></td><td>Cedar</td></tr>
+  <tr class="alt"><td>12:45 - 2:00</td><td>Lunch</td><td>TBD</td></tr>
+
+<tr><td rowspan=3>2:00 - 2:45</td><td><b><a href="#talk17">Implementation of global instruction scheduling in LLVM infrastructure</a></b><br>Sergei Larin, <i>QuIC</i><br>Aditya Kumar, <i>QuIC</i></td><td>Oak Fir</td></tr>
+  <tr><td><b><a href="#talk18">Skip the FFI: Embedding Clang for C Interoperability</a></b><br>Jordan Rose, <i>Apple</i><br>John McCall, <i>Apple</i></td><td>Pine</td></tr>
+<tr><td><a href="#bof6"><b>BOF: LLVM Inliner Improvements</a></b><br>Yin Ma, <i>QuIC</i><br>Ana Pazos, <i>QuIC</i><br>Jiangling Liu, <i>ARM</i></td><td>Cedar</td></tr>
+
+<tr class="alt"><td rowspan=2>2:45 - 3:30</td><td><b><a href="#light">Lightning Talks</a></b></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk19">Custom Hardware State-Machines and Datapaths: Using LLVM to Generate FPGA</a></b><br>Alan Baker, <i>Altera Corporation</i></td><td>Pine</td></tr>
+
+<tr><td>3:30 - 4:30</td><td><b><a href="#poster">Posters</a></b></td><td>Oak Fir Foyer</td></tr>
+
+<tr class="alt"><td rowspan=3>4:30 - 5:15</td><td><b><a href="#talk20">Controlling Virtual Register Pressure in LLVM Middle-End</a></b><br>Ivan Baev, <i>QuIC</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td><b><a href="#talk21">Indexing Large, Mixed-Language Codebases</a></b><br>Luke Zarko, <i>Google</i></td><td>Pine</td></tr>
+  <tr class="alt"><td><a href="#bof7"><b>BOF: Lld</b></a><br>Shankar Easwaran, <i>QuIC</i><br>Daniel Stewart, <i>QuIC</i></td><td>Cedar</td></tr>
+
+<tr><td rowspan=3>5:15 - 6:00</td><td><a href="#talk22"><b>Architecture Specific Code Generation and Function Multiversioning</a></b><br>Eric Christopher, <i>Google</i></td><td>Oak Fir</td></tr>
+  <tr><td><b><a href="#talk23">Frappé: Using Clang to Query and Visualize Large Codebases</a></b><br>Nathan Hawes, <i>Oracle</i><br>Ben Barham, <i>Oracle</i></td><td>Pine</td></tr>
+</table>
 </p>
+
 
 <div class="www_sectiontitle" id="logistics">Logistics</div>
 <p>
