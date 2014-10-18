@@ -377,6 +377,115 @@ Ben Barham (Speaker) - Oracle</i><br>
 Frappé is a new tool to support developers with a range of code comprehension queries in multi-million line codebases, from "Does function X or something it calls write to global variable Y?" to "How much code could be affected if I change this macro?".  Results are overlaid on a visualisation of the code based on a cartographic map, where the continent/country/state hierarchy corresponds to the code equivalent: high-level architectural components down to individual files and functions. This allows users to visually filter results based on their location and more immediately guage their number and locality.
 </p>
 
+<div class="www_sectiontitle" id="tutorials">Tutorial Abstracts</div>
+
+<p>
+<b><a id="tutorial1">Building an LLVM Backend
+</a></b><br>
+<i>Fraser Cormack (Speaker) - Codeplay Software, Pierre-André Saulais (Speaker) - Codeplay Software</i><br>
+This talk explains how to get started with building a LLVM backend for a new architecture. It shows how LLVM transforms programs through the back-end compilation pipeline and what needs implementing for a new target. Practical debugging tips, as well as solutions to common issues are given. No LLVM backend experience is needed, but experience with LLVM IR is recommended.
+</p>
+
+<p>
+<b><a id="tutorial2">Adding and Optimizing a Subtarget for MIScheduler
+</a></b><br>
+<i>Dave Estes (Tutorial) - QuIC</i><br>
+Tutorial for adding a subtarget to an existing backend for use with the MIScheduler. Will cover TableGen basics insofar as understanding the records used for the MachineSchedModel. Will provide strategies on how to best model some basic machine architectures.
+</p>
+
+<p>
+<b><a id="tutorial3">Debug Info Tutorial
+</a></b><br>
+<i>Eric Christopher (Speaker) - Google,
+David Blaikie (Speaker) - Google</i><br>
+Take a walk through the DWARF debug information format and the llvm
+APIs that serve as an interface to emitting debug information for your
+language.
+</p>
+
+<div class="www_sectiontitle" id="bof">BoF Abstracts</div>
+
+<p>
+<b><a id="bof1">JIT Support in LLVM
+</a></b><br>
+<i>Lang Hames - Apple</i><br>
+A forum for clients and developers of LLVM's JIT infrastructure to discuss APIs, features, and intrinsic support (the stackmap and patchpoint intrinsics).
+</p>
+
+<p>
+<b><a id="bof2">Performance tracking & benchmarking infrastructure
+</a></b><br>
+<i>Kristof Beyls - ARM, Chad Rosier - QuIC, Chris Matthew - Apple, Tobias Grosser - ETH, Renato Golin - Linaro
+</i><br>
+Having at least some public performance tracking that the majority of the community cares about would make it easier to collaborate for all developers improving the quality of LLVM-generated code. During last year’s BoF, we identified some key shortcomings in LNT to be able to produce low-noise performance numbers on the test-suite and most of them have been fixed recently. In this BoF, we wish to mainly talk about what is needed and missing for the produced compile and execution time numbers to be quickly and easily interpreted and acted upon.
+</p>
+
+<p>
+<b><a id="bof3">Debug Info BOF
+</a></b><br>
+<i>Eric Christopher, Google</i><br>
+There's been quite a bit of interest in a Debug Info BOF following the one we had last year at the 2013 Developer Conference. This BOF will cover everything from scaling our current handling of debug information, to ongoing work on debug information correctness, and future proposals for DWARF standardization.
+</p>
+
+<p>
+<b><a id="bof4">Improving LLVM for remote test execution
+</a></b><br>
+<i>Brian Rzycki - Samsung Austin R&D Center</i><br>
+Today's LLVM testing frameworks focus on testing native compilers on the same host where the test is compiled. The goal of this BoF is to examine the components necessary for change and to discuss potential solutions that allow for running tests on remote hosts in a way that best benefits the overall community.
+</p>
+
+<p>
+<b><a id="bof5">Future directions and features for LLDB
+</a></b><br>
+<i>Deepak Mathews Panickal - Codeplay Software</i><br>
+I propose to organize a BoF to discuss mainly the following topics:
+<ul>
+<li> As a variety of new targets are being added that form parts of widely used heterogeneous devices, LLDB should develop a system to allow for Simultaneous Multiple Target Debugging. This would allow for the definition of behaviours for how heterogeneous systems are debugged in a single instance.
+</li>
+<li>Future advances of LLDB tools such as the MI interface and lldb-gdbserver, NativeProcess, NativeThread etc.
+</li></ul>
+</p>
+
+<p>
+<b><a id="bof6">GPU Implementers BoF
+</a></b><br>
+<i>Tom Stellard - AMD,
+Owen Anderson - Apple</i><br>
+LLVM is rapidly gaining popularity as a compilation framework for graphics processors.  This Birds of a Feather session will focus on issues of interest to implementers of GPU targets in LLVM.  Topics of discussion may include:
+<ul>
+<li>Techniques for overcoming common challenges in adapting LLVM to GPU targets</li>
+<li>Future directions in LLVM to benefit GPU targets</li>
+<li>Opportunities for different GPU targets to share infrastructure and/or optimizations</li>
+</ul>
+Audience participation is encouraged.  Bring your own questions and ideas!
+</p>
+
+<p>
+<b><a id="bof7">LLVM Inliner Improvements
+</a></b><br>
+<i>Yin Ma - QuIC,
+Ana Pazos - QuIC,
+Jiangling Liu - ARM</i><br>
+Discuss the opportunities to extend the LLVM inliner and our work greedy inliner.
+</p>
+
+<p>
+<b><a id="bof8">LTO
+</a></b><br>
+<i>Tony Linthicum - QuIC,
+Dan Palermo - QuIC</i><br>
+Discuss LTO’s current state and potential future improvements.  Potential topics include, but are not limited to, the following:   passing command line arguments to LTO,  profile driven LTO optimizations,  compile time improvements and  performance improvements.
+</p>
+
+
+<p>
+<b><a id="bof9">Lld
+</a></b><br>
+<i>Shankar Easwaran - QuIC,
+Daniel Stewart - QuIC</i><br>
+The lld linker is a solid foundation for a general-purpose linker, as well as a set of libraries for creating linker-like tools. We will talk about the current status of lld, what the shortcomings are for a production linker, and what major areas need to be implemented, such as LTO support, diagnostics, extensibility. We will also discuss the feasibility of targeting an initial set of features so that lld can be made the default linker for linking the LLVM tools
+</p>
+
 
 <div class="www_sectiontitle" id="logistics">Logistics</div>
 <p>
