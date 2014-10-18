@@ -8,9 +8,10 @@
         <li><a href="#agenda1">October 28 - Meeting Agenda</a></li>
          <li><a href="#agenda2">October 29 - Meeting Agenda</a></li>
         <li><a href="#abstracts">Talk Abstracts</a></li>
+        <li><a href="#light">Lightning Talk Abstracts</a></li>
         <li><a href="#tutorials">Tutorial Abstracts</a></li>
-        <li><a href="#poster">Poster Abstracts</a></li>
         <li><a href="#bof">BoF Abstracts</a></li>
+        <li><a href="#poster">Poster Abstracts</a></li>
         <li><a href="#logistics">Logistics</a></li>
 </ol>
 </td><td>
@@ -486,6 +487,82 @@ Daniel Stewart - QuIC</i><br>
 The lld linker is a solid foundation for a general-purpose linker, as well as a set of libraries for creating linker-like tools. We will talk about the current status of lld, what the shortcomings are for a production linker, and what major areas need to be implemented, such as LTO support, diagnostics, extensibility. We will also discuss the feasibility of targeting an initial set of features so that lld can be made the default linker for linking the LLVM tools
 </p>
 
+<div class="www_sectiontitle" id="poster">Poster Abstracts</div>
+
+<p>
+<b>LLVM for Interactive Modeling and High Performance Simulation
+</b><br>
+<i>Peng Cheng, Nathan Brewton, Dale Martin - The MathWorks, Inc.</i><br>
+To enable inter-module optimization during interactive modeling for high
+performance simulation of Simulink models, LLVM based JIT compilers have been
+developed at MathWorks.  These JIT compilers support multiple threads on major
+platforms, including win32, win64, glnax64, and maci64, and achieve superior
+running time performance compared with previous shared library based compilers.
+This talk will present why and
+</p>
+
+<p>
+<b>ISPC: clang-based front-end
+</b><br>
+<i>Dmitry Babokin - Intel Corporation
+James Brodman - Intel Corporation</i><br>
+ISPC is a C-based language based on the SPMD (single program, multiple data) programming model that generates efficient SIMD code for modern processors without the need for complex analysis and autovectorization. The project uses the LLVM infrastructure for optimization and code generation but originally used a custom front-end. The poster describes our experience with building a clang-based front-end and the engineering problems we have encountered introducing the concept of “varying” types to clang.
+</p>
+
+<p>
+<b>Design of an ABI Test-Suite
+</b><br>
+<i>Sunil Srivastava - Sony Computer Entertainment</i><br>
+This poster describes the design of an Itanium C++ ABI Test Suite that verifies a compiler’s compliance against the ABI specification to ensure link compatibility.
+</p>
+
+<p>
+<b>Software Visualizer (SWViz): A tool for visually exploring Linux kernel
+with Clang
+</b><br>
+<i>Harsh Vardhan Dwivedi - QuIC</i><br>
+What is SWviz and why should I care about it anyway?
+SWViz is a tool to explore the call graph of a program. It’s chief advantage being able to leverage the linker and compiler (Clang) to generate accurate call-graphs. Through use of Swviz one can quickly gain an understanding of how a program is working. This leads to a massive cutdown in number of hours spent understanding the call-flow of any mature codebase. We’ll demonstrate use of SWViz with Linux Kernel.
+</p>
+
+<p>
+<b>Machine Guided Compilation and Compiling to Minimize Energy Usage
+</b><br>
+<i>Simon Cook - Embecosm, Ed Jones - Embecosm</i><br>
+Today we need compilers to optimize for energy rather than just size or speed. In this poster we present the results of integrating machine learning with LLVM, so the compiler can be trained on which optimizations minimize energy. As a side effect of energy optimization we also see significant performance benefits - nearly doubling performance compared to -O3 in some cases.
+</p>
+
+<p>
+<b>Translating Java into LLVM IR to Detect Security Vulnerabilities
+</b><br>
+<i>Cristina Cifuentes - Oracle Labs Australia, Oracle, Nathan Keynes - Parfait, Oracle, John Gough - Oracle Labs Australia, Oracle, Diane Corney - Oracle Labs Australia, Oracle, Lin Gao - Parfait, Oracle, Manuel Valdiviezo - Parfait, Oracle, Andrew Gross - Java Security, Oracle
+</i><br>
+This poster describes one of several new Java security vulnerabilities and how we reused and extended LLVM’s IR in order to detect such vulnerability.  One year later, full support for Java 7 and 8 are in place, along with various analyses that detect Java platform vulnerabilities.
+</p>
+
+<p>
+<b>Intel® AVX-512 architecture evolution and support in Clang/LLVM
+</b><br>
+<i>Zinovy Nis - Intel Corporation</i><br>
+Intel® AVX-512 vector ISA continues to evolve. It has recently been enriched with new groups of instructions operating on different vector lengths and different vector element sizes. We’ll present the current status of new AVX-512 features enabling in CLANG/LLVM  and show how these features can be exploited for performance improvements particularly by vectorizer.
+</p>
+
+<p>
+<b>mcsema
+</b><br>
+<i>Artem Dinaburg - Trail of Bits, Inc.
+Andrew Ruef - Trail of Bits, Inc.
+Jay Little - Trail of Bits, Inc.</i><br>
+mcsema is a framework for analyzing and transforming machine-code programs to LLVM bitcode. It supports translation of x86 machine code, including integer, floating point, and SSE instructions.
+</p>
+
+<p>
+<b>Carte++: A LLVM-Based Compiler Targeting FPGAs
+</b><br>
+<i>Jeffrey Hammes, Lisa Krause , Matthew O’Connor, Jon Steidel - SRC Computers, LLC
+</i><br>
+SRC Computers, LLC is presenting a poster on its upcoming Carte++ compiler release showing how the Clang/LLVM infrastructure has provided full language support and a rich set of compiler optimizations upon which to build the Carte++ code generator. The poster will illustrate specific optimizations and compiler challenges unique to SRC's FPGA-based hardware.
+</p>
 
 <div class="www_sectiontitle" id="logistics">Logistics</div>
 <p>
