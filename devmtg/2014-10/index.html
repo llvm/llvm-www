@@ -181,14 +181,14 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 <p>
 <b><a id="talk1">OpenMP Support in Clang/LLVM: Status Update and Future Directions
 </a></b><br>
-<i>Alexey Bataev - Intel,  Zinovy Nis - Intel</i><br>
+<i>Alexey Bataev (Speaker) - Intel,  Zinovy Nis (Speaker) - Intel</i><br>
 OpenMP is a well-known and widely used API for shared-memory parallelism. Support for OpenMP in Clang/LLVM compiler is currently under development. In this talk, we will present current status of OpenMP support, what is done and what remains to be done, technical details behind OpenMP implementation. Also, we will elaborate on accelerators and pragma-assisted SIMD vectorization, introduced in the latest 4.0 edition of the OpenMP standard.
 </p>
 
 <p>
 <b><a id="talk2">Alive: Provably Correct InstCombine Optimizations
 </a></b><br>
-<i>Nuno Lopes - Microsoft Research, David Menendez - Rutgers University (Speaker), Santosh Nagarakatte - Rutgers University
+<i>Nuno Lopes - Microsoft Research, David Menendez (Speaker) - Rutgers University, Santosh Nagarakatte - Rutgers University
 John Regehr - University of Utah
 </i><br>
 Optimizations are hard to get right. Even seemingly innocuous transformations in InstCombine can miss important corner cases. With Alive, you can specify peephole optimizations in a friendly, LLVM-like language, automatically determine their correctness, and generate the corresponding C++ code. 
@@ -205,7 +205,7 @@ and how we can make them better.
 <p>
 <b><a id="talk4">Supporting Precise Relocating Garbage Collection in LLVM
 </a></b><br>
-<i>Philip Reames, Azul Systems (Speaker), Sanjoy Das - Azul Systems</i><br>
+<i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems</i><br>
 Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a set of intrinsics which can be used to represent interactions with the garbage collector without requiring core change to LLVM, and a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector.  We'll cover the motivation, high level design, and show off some running examples.
 </p>
 
@@ -219,7 +219,7 @@ We added a new debug mode for the Clang compiler which emits extra metadata in t
 <p>
 <b><a id="talk6">FTL: WebKit’s LLVM based JIT
 </a></b><br>
-<i>Andrew Trick - Apple, Juergen Ributzka - Apple</i><br>
+<i>Andrew Trick (Speaker) - Apple, Juergen Ributzka (Speaker) - Apple</i><br>
 FTL is the fourth-tier LLVM JIT that powers JavaScript in WebKit. We will talk about our experiences using LLVM to build this high-performance JIT. We will explain the motivation for new LLVM features, including patchpoints and a new form of stack maps, and will share our vision on future work and the direction we would like LLVM move to become a better platform for JIT clients.
 </p>
 
@@ -234,17 +234,17 @@ This talk presents an LLVM-based system named Virtual Ghost that protects applic
 <p>
 <b><a id="talk8">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization
 </a></b><br>
-<i>Chris Lattner - Apple, 
-Joe Groff - Apple</i><br>
+<i>Chris Lattner (Speaker) - Apple, 
+Joe Groff (Speaker) - Apple</i><br>
 The Swift programming language is built on LLVM and uses LLVM IR and the LLVM backend for code generation, but it also contains a new high-level IR called SIL to model the semantics of the language (and perform optimizations) at a higher level.   In this talk, we discuss the motivations and applications of SIL, including high-level semantic analyses and transformations such as flow-dependent diagnostics, devirtualization, specialization, reference counting optimization, and TBAA, and we compare SIL's design with that of LLVM IR.
 </p>
 
 <p>
 <b><a id="talk9">What does it take to make LLVM as performant as GCC
 </a></b><br>
-<i>James Molloy - ARM (Speaker), 
-Ana Pass - QuIC (Speaker), 
-Yin Ma, QuIC
+<i>James Molloy (Speaker) - ARM, 
+Ana Pass (Speaker) - QuIC, 
+Yin Ma - QuIC
 </i><br>
 For the past 7 months Qualcomm and ARM have jointly been analyzing and improving performance for the AArch64 architecture in LLVM, based on a differential analysis against GCC. This talk aims to provide information on the areas that we're currently lacking compared to GCC, along with the progress that we've made so far.
 </p>
@@ -252,7 +252,7 @@ For the past 7 months Qualcomm and ARM have jointly been analyzing and improving
 <p>
 <b><a id="talk10">Blowing up the Atomic Barrier
 </a></b><br>
-<i>Robin Morisset - Google (Speaker), 
+<i>Robin Morisset (Speaker) - Google, 
 JF Bastien -  Google</i><br>
 Atomics in C11 and C++11 let the programmer express the guarantees needed for racy accesses in lock-free code, in theory bringing a zero-cost abstraction for parallelism to the language. This talk will showcase how you can use atomics today and where the abstraction breaks down. We’ll focus on LLVM’s recent improvements for atomics that provide significant performance gains on ARMv7, Power and x86. Finally we’ll discuss some extremely non-intuitive behaviors of atomics, how atomics in C++ may evolve, and how it may impact LLVM.
 </p>
@@ -269,7 +269,7 @@ Finally, I will show a specific new call-graph analysis used by the new pass man
 <p>
 <b><a id="talk12">Supporting Vector Programming on a Bi-Endian Processor Architecture
 </a></b><br>
-<i>Bill Schmidt - IBM (Speaker),
+<i>Bill Schmidt (Speaker) - IBM,
 Michael Gschwind - IBM</i><br>
 The POWER instruction set architecture is designed to support both
 big-endian and little-endian memory models.  However, many of the
@@ -292,7 +292,7 @@ Over the past year, LLVM has grown several new ways to communicate important inf
 <p>
 <b><a id="talk14">Implementing Data Layout Optimizations in LLVM Framework
 </a></b><br>
-<i>Prashantha NR, Compiler Tree Technologies (Speaker), Vikram TV - Compiler Tree Technologies,
+<i>Prashantha NR (Speaker) - Compiler Tree Technologies, Vikram TV - Compiler Tree Technologies,
 		   Vaivaswatha N - Compiler Tree Technologies</i><br>
 Modern server workloads are limited by memory bandwidth. For regular accesses like loops, people change the loop iterations to change the access pattern; thereby gaining locality. Another way to alleviate the memory bottleneck is to change the data layout organization for better locality. In this talk we will speak about memory layout optimizations like Structure Splitting, Instance Interleaving, Struct Array copy, Array Remapping in LLVM compiler framework.
 </p>
@@ -324,15 +324,15 @@ code generation opportunities for LLVM.
 <p>
 <b><a id="talk17">Implementation of global instruction scheduling in LLVM infrastructure
 </a></b><br>
-<i>Sergei Larin - QuIC (Speaker),  Aditya Kumar - QuIC (Speaker)</i><br>
+<i>Sergei Larin (Speaker) - QuIC,  Aditya Kumar (Speaker) - QuIC</i><br>
 Discuss perspectives and tradeoffs in implementation of global instruction scheduling and support for it in the LLVM infrastructure. Present and discuss relative QuIC experience.
 </p>
 
 <p>
 <b><a id="talk18">Skip the FFI: Embedding Clang for C Interoperability
 </a></b><br>
-<i>Jordan Rose - Apple (Speaker)
-John McCall - Apple (Speaker)</i><br>
+<i>Jordan Rose (Speaker) - Apple,
+John McCall (Speaker) - Apple</i><br>
 Most languages that aren't a superset of C provide a Foreign Function Interface (FFI) that allows one to interface with existing C libraries. FFIs are often an afterthought, requiring manual or source-to-source translation from C header files to a subset of the target language, resulting in complicated build processes, frequent manual tweaking, and numerous implementation challenges. 
 <br>
 This talk will discuss an alternative approach that embeds Clang into an LLVM-based compiler front end to provide C compatibility without the traditional FFI. Embedding Clang provides seamless access to C APIs, moving the translation of APIs from external tools into the compiler itself. Moreover, one can leverage Clang's deep knowledge of C record layout and calling conventions to simplify the C interface and make both bring up and porting of a new compiler front end simpler.
@@ -356,7 +356,7 @@ Enabling new compiler optimizations or compiling at higher optimization levels d
 <b><a id="talk21">Indexing Large, Mixed-Language Codebases
 </a></b><br>
 <i>James Dennett - Google,
-Luke Zarko - Google (Speaker)</i><br>
+Luke Zarko (Speaker) - Google</i><br>
 The Kythe project aims to establish open data formats and protocols for
 interoperable developer tools. In this talk, we will introduce the Kythe
 model as it applies to C++14, concentrating on features required for generating
@@ -377,8 +377,8 @@ enable it, and function multiversioning as the next step.
 <p>
 <b><a id="talk23">Frappé: Using Clang to Query and Visualize Large Codebases
 </a></b><br>
-<i>Nathan Hawes - Oracle (Speaker), 
-Ben Barham - Oracle (Speaker)</i><br>
+<i>Nathan Hawes (Speaker) - Oracle, 
+Ben Barham (Speaker) - Oracle</i><br>
 Frappé is a new tool to support developers with a range of code comprehension queries in multi-million line codebases, from "Does function X or something it calls write to global variable Y?" to "How much code could be affected if I change this macro?".  Results are overlaid on a visualisation of the code based on a cartographic map, where the continent/country/state hierarchy corresponds to the code equivalent: high-level architectural components down to individual files and functions. This allows users to visually filter results based on their location and more immediately guage their number and locality.
 </p>
 
