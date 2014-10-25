@@ -202,7 +202,7 @@ and how we can make them better.
 <b><a id="talk4">Supporting Precise Relocating Garbage Collection in LLVM
 </a></b><br>
 <i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems</i><br>
-Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a set of intrinsics which can be used to represent interactions with the garbage collector without requiring core change to LLVM, and a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector.  We'll cover the motivation, high level design, and show off some running examples.
+Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector, and a set of intrinsics which enable work towards efficient lowering of safepoints.  We'll cover the motivation, high level design, and show off some examples. 
 </p>
 
 <p>
