@@ -102,7 +102,7 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
   <tr class="alt"><td><b><a href="#talk3">LLVM Stable Releases</a></b><br>Tom Stellard, <i>Advanced Micro Devices</i></td><td>Pine</td></tr>
   <tr class="alt"><td><a href="#bof1"><b>BOF: JIT Support in LLVM</b></a><br>Lang Hames, <i>Apple</i></td><td>Cedar</td></tr>
 
-<tr><td rowspan=3>10:45 - 11:30</td><td><b><a href="#talk4">Supporting Precise Relocating Garbage Collection in LLVM</a></b><br>Philip Reames, <i>Azul Systems</i></td><td>Oak Fir</td></tr>
+<tr><td rowspan=3>10:45 - 11:30</td><td><b><a href="#talk4">Supporting Precise Relocating Garbage Collection in LLVM</a></b><br>Philip Reames, <i>Azul Systems</i><br>Sanjoy Das, <i>Azul Systems</i></td><td>Oak Fir</td></tr>
   <tr><td><b><a href="#talk5">Source Code Analysis for Security through LLVM</a></b><br>Lu Zhao, <i>HP Fortify</i></td><td>Pine</td></tr>
   <tr><td><a href="#bof2"><b>BOF: Performance tracking & benchmarking infrastructure</b></a><br>Kristof Beyls, <i>ARM</i><br>Chad Rosier, <i>QuIC</i><br>Chris Matthew, <i>Apple</i><br>Tobias Grosser, <i>ETH</i><br>Renato Golin, <i>Linaro</i></td><td>Cedar</td></tr>
 
@@ -205,7 +205,7 @@ and how we can make them better.
 <p>
 <b><a id="talk4">Supporting Precise Relocating Garbage Collection in LLVM
 </a></b><br>
-<i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems</i><br>
+<i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems (Speaker) </i><br>
 Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector, and a set of intrinsics which enable work towards efficient lowering of safepoints.  We'll cover the motivation, high level design, and show off some examples. 
 </p>
 
