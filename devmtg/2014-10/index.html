@@ -132,7 +132,7 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
   <tr><th>Time</th><th>Talk</th><th>Location</th></tr>
 
   <tr><td>8:00 - 9:00</td><td>Breakfast</td><td>Oak Fir Foyer</td></tr>
-  <tr class="alt"><td>9:00 - 9:45</td><td><b><a href="#talk8">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization</a></b><br>Chris Lattner, <i>Apple</i><br>Joe Groff, <i>Apple</i></td><td>Oak Fir</td></tr>
+  <tr class="alt"><td>9:00 - 9:45</td><td><b><a href="#talk11">The LLVM Pass Manager, Part 2</a></b><br>Chandler Carruth, <i>Google</i></td><td>Oak Fir</td></tr>
 
 <tr><td rowspan=3>9:45 - 10:30</td><td><b><a href="#talk9">What does it take to get LLVM as performant as GCC</a></b><br>James Molloy, <i>ARM</i><br>Ana Pazos, <i>QuIC</i></td><td>Oak Fir</td></tr>
 <tr><td><b><a href="#talk10">Blowing up the Atomic Barrier</a></b><br>Robin Morisset, <i>Google</i></td><td>Pine</td></tr>
@@ -140,8 +140,8 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 
 <tr class="alt"><td>10:30 - 11:00</td><td>Break</td><td>Oak Fir Foyer</td></tr>
 
-<tr><td rowspan=3>11:00 - 11:45</td><td><b><a href="#talk11">The LLVM Pass Manager, Part 2
-</a></b><br>Chandler Carruth, <i>Google</i></td><td>Oak Fir</td></tr>
+<tr><td rowspan=3>11:00 - 11:45</td><td><b><a href="#talk18">
+Skip the FFI: Embedding Clang for C Interoperability</a></b><br>Jordan Rose, <i>Apple</i><br>John McCall, <i>Apple</i></td><td>Oak Fir</td></tr>
   <tr><td><b><a href="#talk12">Supporting Vector Programming on a Bi-Endian Processor Architecture</a></b><br>Bill Schmidt, <i>IBM</i></td><td>Pine</td></tr>
   <tr><td><a href="#bof4"><b>BOF: Improving LLVM for remote test execution</b></a><br>Brian Rzycki, <i>Samsung Austin R&D Center</i></td><td>Cedar</td></tr>
 
@@ -157,8 +157,7 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 
 <tr class="alt"><td>1:15 - 2:30</td><td>Lunch</td><td>TBD</td></tr>
 
-<tr><td rowspan=3>2:30 - 3:15</td><td><b><a href="#talk17">Implementation of global instruction scheduling in LLVM infrastructure</a></b><br>Sergei Larin, <i>QuIC</i><br>Aditya Kumar, <i>QuIC</i></td><td>Oak Fir</td></tr>
-  <tr><td><b><a href="#talk18">Skip the FFI: Embedding Clang for C Interoperability</a></b><br>Jordan Rose, <i>Apple</i><br>John McCall, <i>Apple</i></td><td>Pine</td></tr>
+<tr><td rowspan=2>2:30 - 3:15</td><td><b><a href="#talk17">Implementation of global instruction scheduling in LLVM infrastructure</a></b><br>Sergei Larin, <i>QuIC</i><br>Aditya Kumar, <i>QuIC</i></td><td>Oak Fir</td></tr>
 <tr><td><a href="#bof7"><b>BOF: LLVM Inliner Improvements</a></b><br>Yin Ma, <i>QuIC</i><br>Ana Pazos, <i>QuIC</i><br>Jiangling Liu, <i>ARM</i></td><td>Cedar</td></tr>
 
 <tr class="alt"><td rowspan=3>3:15 - 4:00</td><td><b><a href="#light">Lightning Talks</a></b></td><td>Oak Fir</td></tr>
@@ -229,14 +228,6 @@ FTL is the fourth-tier LLVM JIT that powers JavaScript in WebKit. We will talk a
 </a></b><br>
 <i>John Criswell - University of Rochester</i><br>
 This talk presents an LLVM-based system named Virtual Ghost that protects applications from a compromised operating system kernel.  Virtual Ghost uses compiler instrumentation to protect application data from spying and corruption from the operating system kernel.  It also uses an extended version of the LLVM instruction set to restrict how the operating system kernel can interact with the hardware, preventing the operating system kernel from using hardware configuration to corrupt application control-flow or to bypass the application data protection guarantees.
-</p>
-
-<p>
-<b><a id="talk8">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization
-</a></b><br>
-<i>Chris Lattner (Speaker) - Apple, 
-Joe Groff (Speaker) - Apple</i><br>
-The Swift programming language is built on LLVM and uses LLVM IR and the LLVM backend for code generation, but it also contains a new high-level IR called SIL to model the semantics of the language (and perform optimizations) at a higher level.   In this talk, we discuss the motivations and applications of SIL, including high-level semantic analyses and transformations such as flow-dependent diagnostics, devirtualization, specialization, reference counting optimization, and TBAA, and we compare SIL's design with that of LLVM IR.
 </p>
 
 <p>
