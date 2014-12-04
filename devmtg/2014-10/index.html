@@ -109,7 +109,7 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 <tr><td><a href="Slides/Trick-FTL.pdf">Slides</a><br>Video (Computer)<br>Video (Mobile)</td><td><b><a href="#talk6">FTL: WebKit’s LLVM based JIT</a></b><br>Andrew Trick, <i>Apple</i></td></tr>
   <tr><td><a href="Slides/Criswell-VirtualGhost.pdf">Slides</a><br><a href="Videos/Virtual Ghost-720.mov">Video</a> (Computer)<br><a href="Videos/Virtual Ghost-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk7">Virtual Ghost: Using LLVM to Protect Applications from a Compromised Operating System</a></b><br>John Criswell, <i>University of Rochester</i></td></tr>
 
-  <tr><td><a href="Slides/Cormack-BuildingAnLLVMBackend.pdf">Slides</a><br><a href="Videos/Building an LLVM backend-720.mov">Video</a> (Computer)<br><a href="Building an LLVM backend-360.mov">Video</a> (Mobile)</td><td><b><a href="#tutorial1">Building an LLVM Backend</a></b><br>Fraser Cormack, <i>Codeplay Software</i><br>Pierre-André Saulais, <i>Codeplay Software</i></td></tr>
+  <tr><td><a href="Slides/Cormack-BuildingAnLLVMBackend.pdf">Slides</a><br><a href="Videos/Building an LLVM backend-720.mov">Video</a> (Computer)<br><a href="Videos/Building an LLVM backend-360.mov">Video</a> (Mobile)</td><td><b><a href="#tutorial1">Building an LLVM Backend</a></b><br>Fraser Cormack, <i>Codeplay Software</i><br>Pierre-André Saulais, <i>Codeplay Software</i></td></tr>
 
 <tr><td><a href="Slides/Estes-MISchedulerTutorial.pdf">Slides</a><br><a href="Videos/Adding and Optimizing a Subtarget for MIScheduler-720.mov">Video</a> (Computer)<br><a href="Videos/Adding and Optimizing a Subtarget for MIScheduler-360.mov">Video</a> (Mobile)</td><td><b><a href="#tutorial2">Adding and Optimizing a Subtarget for MIScheduler</a></b><br>Dave Estes, <i>QuIC</i></td></tr>
 
@@ -163,6 +163,9 @@ Skip the FFI: Embedding Clang for C Interoperability</a></b><br>Jordan Rose, <i>
 <b><a id="talk1">OpenMP Support in Clang/LLVM: Status Update and Future Directions
 </a></b><br>
 <i>Alexey Bataev (Speaker) - Intel,  Zinovy Nis (Speaker) - Intel</i><br>
+<a href="Slides/Bataev-OpenMP.pdf">Slides</a><br>
+<a href="Videos/OpenMP Support in Clang and LLVM-720.mov">Video</a> (Computer) <a href="Videos/OpenMP Support in Clang and LLVM-360.mov">Video</a> (Mobile)
+<br>
 OpenMP is a well-known and widely used API for shared-memory parallelism. Support for OpenMP in Clang/LLVM compiler is currently under development. In this talk, we will present current status of OpenMP support, what is done and what remains to be done, technical details behind OpenMP implementation. Also, we will elaborate on accelerators and pragma-assisted SIMD vectorization, introduced in the latest 4.0 edition of the OpenMP standard.
 </p>
 
@@ -172,6 +175,9 @@ OpenMP is a well-known and widely used API for shared-memory parallelism. Suppor
 <i>Nuno Lopes - Microsoft Research, David Menendez (Speaker) - Rutgers University, Santosh Nagarakatte - Rutgers University
 John Regehr - University of Utah
 </i><br>
+<a href="Slides/Menendez-Alive.pdf">Slides</a><br>
+<a href="Videos/Alive_InstCombine Optimization-720.mov">Video</a> (Computer) <a href="Videos/Alive_InstCombine Optimization-360.mov">Video</a> (Mobile)
+<br>
 Optimizations are hard to get right. Even seemingly innocuous transformations in InstCombine can miss important corner cases. With Alive, you can specify peephole optimizations in a friendly, LLVM-like language, automatically determine their correctness, and generate the corresponding C++ code. 
 </p>
 
@@ -179,6 +185,10 @@ Optimizations are hard to get right. Even seemingly innocuous transformations in
 <b><a id="talk3">LLVM Stable Releases
 </a></b><br>
 <i>Tom Stellard - Advanced Micro Devices</i><br>
+Slides<br>
+<a href="Videos/Alive_InstCombine Optimization-720.mov">Video</a> (Computer) 
+<a href="Videos/LLVM Stable Releases-360.mov">Video</a> (Mobile)
+<br>
 This talk will cover LLVM stable releases, how they work, who uses them,
 and how we can make them better.
 </p>
@@ -187,6 +197,10 @@ and how we can make them better.
 <b><a id="talk4">Supporting Precise Relocating Garbage Collection in LLVM
 </a></b><br>
 <i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems (Speaker) </i><br>
+<a href="Slides/Reames-GarbageCollection.pdf">Slides</a><br>
+<a href="Videos/Source Code Analysis For Security-720.mov">Video</a> (Computer)<br> 
+<a href="Videos/Practically Fully Relocating Garbage Collection in LLVM-360.mov">Video</a> (Mobile)
+<br>
 Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector, and a set of intrinsics which enable work towards efficient lowering of safepoints.  We'll cover the motivation, high level design, and show off some examples. 
 </p>
 
@@ -194,6 +208,10 @@ Generating efficient code that is compatible with common high performance garbag
 <b><a id="talk5">Source Code Analysis for Security through LLVM
 </a></b><br>
 <i>Lu Zhao - HP Fortify</i><br>
+<a href="Slides/Zhao-SourceCodeAnalysisforSecurity.pdf">Slides</a><br>
+<a href="Videos/Source Code Analysis For Security-720.mov">Video</a> (Computer) 
+<a href="Videos/Source Code Analysis For Security-360.mov">Video</a> (Mobile)
+<br>
 We added a new debug mode for the Clang compiler which emits extra metadata in the LLVM bitcode. The metadata has turned the bitcode into a useful vehicle from which an intermediate representation for secure source code analysis can be derived. We have used this approach to find security vulnerabilities in the Objective-C source code.
 </p>
 
@@ -201,6 +219,8 @@ We added a new debug mode for the Clang compiler which emits extra metadata in t
 <b><a id="talk6">FTL: WebKit’s LLVM based JIT
 </a></b><br>
 <i>Andrew Trick (Speaker) - Apple, Juergen Ributzka (Speaker) - Apple</i><br>
+<a href="Slides/Trick-FTL.pdf">Slides</a><br>
+<br>
 FTL is the fourth-tier LLVM JIT that powers JavaScript in WebKit. We will talk about our experiences using LLVM to build this high-performance JIT. We will explain the motivation for new LLVM features, including patchpoints and a new form of stack maps, and will share our vision on future work and the direction we would like LLVM move to become a better platform for JIT clients.
 </p>
 
@@ -209,6 +229,10 @@ FTL is the fourth-tier LLVM JIT that powers JavaScript in WebKit. We will talk a
 <b><a id="talk7">Virtual Ghost: Using LLVM to Protect Applications from a Compromised Operating System
 </a></b><br>
 <i>John Criswell - University of Rochester</i><br>
+<a href="Slides/Criswell-VirtualGhost.pdf">Slides</a><br>
+<a href="Videos/Virtual Ghost-720.mov">Video</a> (Computer) 
+<a href="Videos/Virtual Ghost-360.mov">Video</a> (Mobile)
+<br>
 This talk presents an LLVM-based system named Virtual Ghost that protects applications from a compromised operating system kernel.  Virtual Ghost uses compiler instrumentation to protect application data from spying and corruption from the operating system kernel.  It also uses an extended version of the LLVM instruction set to restrict how the operating system kernel can interact with the hardware, preventing the operating system kernel from using hardware configuration to corrupt application control-flow or to bypass the application data protection guarantees.
 </p>
 
@@ -219,6 +243,10 @@ This talk presents an LLVM-based system named Virtual Ghost that protects applic
 Ana Pazos (Speaker) - QuIC, 
 Yin Ma - QuIC
 </i><br>
+<a href="Slides/Molloy-LLVM-Performant-As-GCC-llvm-dev-2014.pdf">Slides</a><br>
+<a href="Videos/What Does It take to Get LLVM as Performant as GCC-720.mov">Video</a> (Computer) 
+<a href="Videos/What Does It take to Get LLVM as Performant as GCC-360.mov">Video</a> (Mobile)
+<br>
 For the past 7 months Qualcomm and ARM have jointly been analyzing and improving performance for the AArch64 architecture in LLVM, based on a differential analysis against GCC. This talk aims to provide information on the areas that we're currently lacking compared to GCC, along with the progress that we've made so far.
 </p>
 
@@ -227,6 +255,10 @@ For the past 7 months Qualcomm and ARM have jointly been analyzing and improving
 </a></b><br>
 <i>Robin Morisset (Speaker) - Google, 
 JF Bastien -  Google</i><br>
+<a href="Slides/Morisset-AtomicsPresentation.pdf">Slides</a><br>
+<a href="Videos/Blowing up the Atomic Barrier-720.mov">Video</a> (Computer) 
+<a href="Videos/Blowing up the Atomic Barrier-360.mov">Video</a> (Mobile)
+<br>
 Atomics in C11 and C++11 let the programmer express the guarantees needed for racy accesses in lock-free code, in theory bringing a zero-cost abstraction for parallelism to the language. This talk will showcase how you can use atomics today and where the abstraction breaks down. We’ll focus on LLVM’s recent improvements for atomics that provide significant performance gains on ARMv7, Power and x86. Finally we’ll discuss some extremely non-intuitive behaviors of atomics, how atomics in C++ may evolve, and how it may impact LLVM.
 </p>
 
@@ -234,6 +266,10 @@ Atomics in C11 and C++11 let the programmer express the guarantees needed for ra
 <b><a id="talk11">The LLVM Pass Manager, Part 2
 </a></b><br>
 <i>Chandler Carruth - Google</i><br>
+<a href="Slides/Carruth-TheLLVMPassManagerPart2.pdf">Slides</a><br>
+<a href="Videos/The LLVM Pass Manager Part 2-720.mov">Video</a> (Computer) 
+<a href="Videos/The LLVM Pass Manager Part 2-360.mov">Video</a> (Mobile)
+<br>
 I will present a new design and implementation of the LLVM pass manager that is currently being developed in the tree. I will cover how it differs from the previous implementation and how those differences allow it to solve many of the long-standing limitations of the current implementation. I will discuss in depth how the new system supports richer analysis dependencies, flexible composition of function-level analyses and module- or call-graph-level transformations. The new pass manager also introduces a caching-based scheduling model which is substantially different from the prior ones and critical to understanding the impact of transitioning. And as I go through these topics I will introduce how to write a pass suitable for the new infrastructure and how to port an existing pass to live happily in both.
 <br>
 Finally, I will show a specific new call-graph analysis used by the new pass manager and discuss how these two components can be used to parallelize the entire LLVM compilation pipeline. I will mention some of the basic correctness and efficiency challenges faced when running in parallel and detail the specific challenges and constraints pursuing this path would impose on analysis and optimization passes.
@@ -244,6 +280,10 @@ Finally, I will show a specific new call-graph analysis used by the new pass man
 </a></b><br>
 <i>Bill Schmidt (Speaker) - IBM,
 Michael Gschwind - IBM</i><br>
+<a href="Slides/Schmidt-SupportingVectorProgramming.pdf">Slides</a><br>
+<a href="Videos/Supporting Vector Programming on a Bi-Endian Processor Architecture-720.mov">Video</a> (Computer) 
+<a href="Videos/Supporting Vector Programming on a Bi-Endian Processor Architecture-360.mov">Video</a> (Mobile)
+<br>
 The POWER instruction set architecture is designed to support both
 big-endian and little-endian memory models.  However, many of the
 instructions designed for vector support assume that vector elements in
@@ -259,6 +299,10 @@ status of implementation in the GCC and Clang/LLVM compilers.
 <b><a id="talk13">Intrinsics, Metadata and Attributes: Now, more than ever!
 </a></b><br>
 <i>Hal Finkel - Argonne National Laboratory</i><br>
+<a href="Slides/Finkel-IntrinsicsMetadataAttributes.pdf">Slides</a><br>
+<a href="Videos/Intrinsics, Metadata, and Attributes-720.mov">Video</a> (Computer) 
+<a href="Videos/Intrinsics, Metadata, and Attributes-360.mov">Video</a> (Mobile)
+<br>
 Over the past year, LLVM has grown several new ways to communicate important information to the optimizer: An @llvm.assume intrinsic function to provided additional truths, scoped-noalias metadata to provided explicit pointer aliasing sets, and parameter attributes that specify pointer alignment, dereferenceability, and more. I'll explain the semantics of many of these new features, their intended uses, and a few ways they shouldn't be used. Finally, I'll discuss how Clang exposes and leverages these new features to encourage the generation of higher-performance code.
 </p>
 
@@ -267,6 +311,10 @@ Over the past year, LLVM has grown several new ways to communicate important inf
 </a></b><br>
 <i>Prashantha NR (Speaker) - Compiler Tree Technologies, Vikram TV - Compiler Tree Technologies,
 		   Vaivaswatha N - Compiler Tree Technologies</i><br>
+Slides<br>
+<a href="Videos/Implementing Data Layout Optimizations in LLVM Framework-720.mov">Video</a> (Computer) 
+<a href="Videos/Implementing Data Layout Optimizations in LLVM Framework-360.mov">Video</a> (Mobile)
+<br>
 Modern server workloads are limited by memory bandwidth. For regular accesses like loops, people change the loop iterations to change the access pattern; thereby gaining locality. Another way to alleviate the memory bottleneck is to change the data layout organization for better locality. In this talk we will speak about memory layout optimizations like Structure Splitting, Instance Interleaving, Struct Array copy, Array Remapping in LLVM compiler framework.
 </p>
 
@@ -274,6 +322,10 @@ Modern server workloads are limited by memory bandwidth. For regular accesses li
 <b><a id="talk15">Fuzzing Clang to Find ABI Bugs
 </a></b><br>
 <i>David Majnemer - Google</i><br>
+Slides<br>
+<a href="Videos/Fuzzing Clang to Find ABI Bugs-720.mov">Video</a> (Computer) 
+<a href="Videos/Fuzzing Clang to Find ABI Bugs-360.mov">Video</a> (Mobile)
+<br>
 Correctly implementing C++ is very hard, bugs can arise from incredibly subtle interactions of different language features.
 In this talk, we will discuss how we used fuzzing to dramatically increase the reliability of Clang's ABI-specific code.
 </p>
@@ -283,6 +335,10 @@ In this talk, we will discuss how we used fuzzing to dramatically increase the r
 <b><a id="talk16">A closer look at ARM code quality
 </a></b><br>
 <i>Tilmann Scheller - Samsung Electronics</i><br>
+<a href="Slides/Scheller-ARMCodeQuality.pdf">Slides</a><br>
+<a href="Videos/A Closer Look at ARM code Quality-720.mov">Video</a> (Computer) 
+<a href="Videos/A Closer Look at ARM code Quality-360.mov">Video</a> (Mobile)
+<br>
 This talk presents current performance numbers for the SPEC CPU benchmark
 suites on ARM, comparing the performance of LLVM and GCC, with the main
 focus on the SPEC CPU integer benchmarks.
@@ -298,6 +354,10 @@ code generation opportunities for LLVM.
 <b><a id="talk17">Implementation of global instruction scheduling in LLVM infrastructure
 </a></b><br>
 <i>Sergei Larin (Speaker) - QuIC,  Aditya Kumar (Speaker) - QuIC</i><br>
+<a href="Slides/Larin-GlobalInstructionScheduling.pdf">Slides</a><br>
+<a href="Videos/Global Instruction Scheduling-720.mov">Video</a> (Computer) 
+<a href="Videos/Global Instruction Scheduling-360.mov">Video</a> (Mobile)
+<br>
 Discuss perspectives and tradeoffs in implementation of global instruction scheduling and support for it in the LLVM infrastructure. Present and discuss relative QuIC experience.
 </p>
 
@@ -315,6 +375,10 @@ This talk will discuss an alternative approach that embeds Clang into an LLVM-ba
 <b><a id="talk19">Custom Hardware State-Machines and Datapaths: Using LLVM to Generate FPGA Accelerators
 </a></b><br>
 <i>Alan Baker - Altera Corporation</i><br>
+<a href="Slides/Baker-CustomHardwareStateMachines.pdf">Slides</a><br>
+<a href="Videos/Custom Hardware State-Machines and Datapaths-720.mov">Video</a> (Computer) 
+<a href="Videos/Custom Hardware State-Machines and Datapaths-360.mov">Video</a> (Mobile)
+<br>
 Altera Corporation’s OpenCL compiler uses LLVM to generate FPGA accelerators. In order to generate efficient hardware, many transformations were implemented. The key transformations will be discussed, emphasizing the FPGA vs CPU architectural differences that motivate them.
 </p>
 
@@ -322,6 +386,10 @@ Altera Corporation’s OpenCL compiler uses LLVM to generate FPGA accelerators. 
 <b><a id="talk20">Controlling Virtual Register Pressure in LLVM Middle-End
 </a></b><br>
 <i>Ivan Baev - QuIC</i><br>
+<a href="Slides/Baev-Controlling_VRP.pdf">Slides</a><br>
+<a href="Videos/Controlling Virtual Register Pressure-720.mov">Video</a> (Computer) 
+<a href="Videos/Controlling Virtual Register Pressure-360.mov">Video</a> (Mobile)
+<br>
 Enabling new compiler optimizations or compiling at higher optimization levels do not necessarily improve performance. One common reason is the increased register pressure that results in an increased amount of spill code. We analyze several LLVM target-independent optimizations with respect to register pressure. We then describe algorithms for controlling register pressure in LICM and GVN and report their positive impact on run-time performance. A discussion on how to control register pressure in the inliner concludes the talk.
 </p>
 
@@ -330,6 +398,10 @@ Enabling new compiler optimizations or compiling at higher optimization levels d
 </a></b><br>
 <i>James Dennett - Google,
 Luke Zarko (Speaker) - Google</i><br>
+<a href="Slides/Zarko-IndexingLargeMixedLang.pdf">Slides</a><br>
+<a href="Videos/Indexing Large, Mixed-Languages Codebases-720.mov">Video</a> (Computer) 
+<a href="Videos/Indexing Large, Mixed-Languages Codebases-360.mov">Video</a> (Mobile)
+<br>
 The Kythe project aims to establish open data formats and protocols for
 interoperable developer tools. In this talk, we will introduce the Kythe
 model as it applies to C++14, concentrating on features required for generating
@@ -342,6 +414,9 @@ describing C++ source code.
 <b><a id="talk22">Architecture Specific Code Generation and Function Multiversioning
 </a></b><br>
 <i>Eric Christopher - Google</i><br>
+<a href="Videos/Architecture Specific Code Generation-720.mov">Video</a> (Computer) 
+<a href="Videos/Architecture Specific Code Generation-360.mov">Video</a> (Mobile)
+<br>
 A talk on microarchitecture dependent optimization and code generation
 for individual functions, the changes that have been necessary to
 enable it, and function multiversioning as the next step.
@@ -352,6 +427,10 @@ enable it, and function multiversioning as the next step.
 </a></b><br>
 <i>Nathan Hawes (Speaker) - Oracle, 
 Ben Barham (Speaker) - Oracle</i><br>
+<a href="Slides/Hawes-Frappe.pdf">Slides</a><br>
+<a href="Videos/Using Clang to Query Codebases-720.mov">Video</a> (Computer) 
+<a href="Videos/Using Clang to Query Codebases-360.mov">Video</a> (Mobile)
+<br>
 Frappé is a new tool to support developers with a range of code comprehension queries in multi-million line codebases, from "Does function X or something it calls write to global variable Y?" to "How much code could be affected if I change this macro?".  Results are overlaid on a visualisation of the code based on a cartographic map, where the continent/country/state hierarchy corresponds to the code equivalent: high-level architectural components down to individual files and functions. This allows users to visually filter results based on their location and more immediately guage their number and locality.
 </p>
 
