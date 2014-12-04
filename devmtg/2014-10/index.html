@@ -198,7 +198,7 @@ and how we can make them better.
 </a></b><br>
 <i>Philip Reames (Speaker) - Azul Systems, Sanjoy Das - Azul Systems (Speaker) </i><br>
 <a href="Slides/Reames-GarbageCollection.pdf">Slides</a><br>
-<a href="Videos/Source Code Analysis For Security-720.mov">Video</a> (Computer)<br> 
+<a href="Videos/Source Code Analysis For Security-720.mov">Video</a> (Computer) 
 <a href="Videos/Practically Fully Relocating Garbage Collection in LLVM-360.mov">Video</a> (Mobile)
 <br>
 Generating efficient code that is compatible with common high performance garbage collector implementations will strengthen LLVM's ability to support languages with managed runtime environments. To support this common use case, we have built and are in the process of contributing a safepoint insertion pass which can rewrite optimized IR into a form which respects the invariants required by a fully relocating garbage collector, and a set of intrinsics which enable work towards efficient lowering of safepoints.  We'll cover the motivation, high level design, and show off some examples. 
@@ -440,6 +440,8 @@ Frappé is a new tool to support developers with a range of code comprehension q
 <b>Automatic Loop Diagonalization with LLVM
 </a></b><br>
 <i>Vedant Kumar - UC Berkeley</i><br>
+<a href="Slides/Kumar-LoopDiagonalization.pdf">Slides</a>
+<br>
 The effects of some loops can be captured by matrices. This talk shows how to take advantage of this fact to optimize away entire loops.
 </p>
 
@@ -448,6 +450,8 @@ The effects of some loops can be captured by matrices. This talk shows how to ta
 </a></b><br>
 <i>Arnaud de Grandmaison - ARM,
  Lang Hames - Apple</i><br>
+<a href="Slides/PBQP-update-and-in-the-wild.pdf">Slides</a>
+<br>
 The PBQP register allocator has been part of the LLVM source code for a long time. This talk will present a high level overview of the PBQP allocator principles, as well as its status and future work.
 </p>
 
@@ -456,6 +460,8 @@ The PBQP register allocator has been part of the LLVM source code for a long tim
 </a></b><br>
 <i>Arnaud de Grandmaison - ARM,
  Lang Hames - Apple</i><br>
+<a href="Slides/PBQP-update-and-in-the-wild.pdf">Slides</a>
+<br>
 This talk will present how the PBQP is used with 2 real world processors and report some performance numbers.
 </p>
 
@@ -463,6 +469,8 @@ This talk will present how the PBQP is used with 2 real world processors and rep
 <b>Link-Time Optimization on PlayStation(R)4
 </a></b><br>
 <i>Yunzhong Gao - Sony Computer Entertainment America</i><br>
+<a href="Slides/Gao-LTO-lightning-talk.pdf">Slides</a>
+<br>
 As a follow-up to last year's presentation, this is a talk on our experience implementing LTO on
 PlayStation(R)4’s proprietary linker, including some of the challenges and results we see in the games.
 </p>
@@ -472,6 +480,8 @@ PlayStation(R)4’s proprietary linker, including some of the challenges and res
 with Clang
 </a></b><br>
 <i>Harsh Vardhan Dwivedi - QuIC</i><br>
+<a href="Slides/Dwivedi-SWViz.pdf">Slides</a>
+<br>
 What is SWviz and why should I care about it anyway?
 SWViz is a tool to explore the call graph of a program. It’s chief advantage being able to leverage the linker and compiler (Clang) to generate accurate call-graphs. Through use of Swviz one can quickly gain an understanding of how a program is working. This leads to a massive cutdown in number of hours spent understanding the call-flow of any mature codebase. We’ll demonstrate use of SWViz with Linux Kernel.
 </p>
@@ -480,6 +490,8 @@ SWViz is a tool to explore the call graph of a program. It’s chief advantage b
 <b>LLVM for Interactive Modeling and High Performance Simulation
 </a></b><br>
 <i>Peng Cheng - The MathWorks, Inc.</i><br>
+<a href="Slides/Cheng-InteractiveModeling.pdf">Slides</a>
+<br>
 At MathWorks, LLVM has been used to create multi-thread JIT engines for
 interactive modeling and high performance simulation.  This talk will present
 why and how LLVM is used to implement the JIT engines as well as some
