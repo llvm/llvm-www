@@ -366,6 +366,7 @@ Discuss perspectives and tradeoffs in implementation of global instruction sched
 </a></b><br>
 <i>Jordan Rose (Speaker) - Apple,
 John McCall (Speaker) - Apple</i><br>
+<a href="Slides/Skip the FFI.pdf">Slides</a><br>
 Most languages that aren't a superset of C provide a Foreign Function Interface (FFI) that allows one to interface with existing C libraries. FFIs are often an afterthought, requiring manual or source-to-source translation from C header files to a subset of the target language, resulting in complicated build processes, frequent manual tweaking, and numerous implementation challenges. 
 <br>
 This talk will discuss an alternative approach that embeds Clang into an LLVM-based compiler front end to provide C compatibility without the traditional FFI. Embedding Clang provides seamless access to C APIs, moving the translation of APIs from external tools into the compiler itself. Moreover, one can leverage Clang's deep knowledge of C record layout and calling conventions to simplify the C interface and make both bring up and porting of a new compiler front end simpler.
@@ -622,6 +623,7 @@ The lld linker is a solid foundation for a general-purpose linker, as well as a 
 <b>LLVM for Interactive Modeling and High Performance Simulation
 </b><br>
 <i>Peng Cheng, Nathan Brewton, Dale Martin - The MathWorks, Inc.</i><br>
+<a href="Slides/Cheng-InteractiveModelingPoster.pdf">Poster</a><br>
 To enable inter-module optimization during interactive modeling for high
 performance simulation of Simulink models, LLVM based JIT compilers have been
 developed at MathWorks.  These JIT compilers support multiple threads on major
@@ -636,6 +638,7 @@ as well as some challenges.
 </b><br>
 <i>Dmitry Babokin - Intel Corporation
 James Brodman - Intel Corporation</i><br>
+<a href="Slides/Babokin-ISPC_clang.pdf">Poster</a><br>
 ISPC is a C-based language based on the SPMD (single program, multiple data) programming model that generates efficient SIMD code for modern processors without the need for complex analysis and autovectorization. The project uses the LLVM infrastructure for optimization and code generation but originally used a custom front-end. The poster describes our experience with building a clang-based front-end and the engineering problems we have encountered introducing the concept of “varying” types to clang.
 </p>
 
@@ -643,6 +646,7 @@ ISPC is a C-based language based on the SPMD (single program, multiple data) pro
 <b>A C++ ABI Test Suite
 </b><br>
 <i>Sunil Srivastava - Sony Computer Entertainment</i><br>
+<a href="Slides/Srivastava-ABI-testsuite_poster.pdf">Poster</a><br>
 This poster describes the design of an Itanium C++ ABI Test Suite that verifies a compiler’s compliance against the ABI specification to ensure link compatibility.
 </p>
 
@@ -651,6 +655,7 @@ This poster describes the design of an Itanium C++ ABI Test Suite that verifies 
 with Clang
 </b><br>
 <i>Harsh Vardhan Dwivedi - QuIC</i><br>
+<a href="Slides/Dwivdei-SWVizPoster.pdf">Poster</a><br>
 What is SWviz and why should I care about it anyway?
 SWViz is a tool to explore the call graph of a program. It’s chief advantage being able to leverage the linker and compiler (Clang) to generate accurate call-graphs. Through use of Swviz one can quickly gain an understanding of how a program is working. This leads to a massive cutdown in number of hours spent understanding the call-flow of any mature codebase. We’ll demonstrate use of SWViz with Linux Kernel.
 </p>
@@ -659,6 +664,7 @@ SWViz is a tool to explore the call graph of a program. It’s chief advantage b
 <b>Machine Guided Compilation and Compiling to Minimize Energy Usage
 </b><br>
 <i>Simon Cook - Embecosm, Ed Jones - Embecosm</i><br>
+Poster<br>
 Today we need compilers to optimize for energy rather than just size or speed. In this poster we present the results of integrating machine learning with LLVM, so the compiler can be trained on which optimizations minimize energy. As a side effect of energy optimization we also see significant performance benefits - nearly doubling performance compared to -O3 in some cases.
 </p>
 
@@ -667,6 +673,7 @@ Today we need compilers to optimize for energy rather than just size or speed. I
 </b><br>
 <i>Cristina Cifuentes - Oracle Labs Australia, Oracle, Nathan Keynes - Parfait, Oracle, John Gough - Oracle Labs Australia, Oracle, Diane Corney - Oracle Labs Australia, Oracle, Lin Gao - Parfait, Oracle, Manuel Valdiviezo - Parfait, Oracle, Andrew Gross - Java Security, Oracle
 </i><br>
+<a href="Slides/Cifuentes-TranslatingJava.pdf">Poster</a><br>
 This poster describes one of several new Java security vulnerabilities and how we reused and extended LLVM’s IR in order to detect such vulnerability.  One year later, full support for Java 7 and 8 are in place, along with various analyses that detect Java platform vulnerabilities.
 </p>
 
@@ -674,6 +681,7 @@ This poster describes one of several new Java security vulnerabilities and how w
 <b>Intel® AVX-512 architecture evolution and support in Clang/LLVM
 </b><br>
 <i>Zinovy Nis - Intel Corporation, Robert Khasanov - Intel Corporation</i><br>
+<a href="Slides/Nis-AVX-512ArchPoster.pdf">Poster</a>
 Intel® AVX-512 vector ISA continues to evolve. It has recently been enriched with new groups of instructions operating on different vector lengths and different vector element sizes. We’ll present the current status of new AVX-512 features enabling in CLANG/LLVM  and show how these features can be exploited for performance improvements particularly by vectorizer.
 </p>
 
@@ -691,6 +699,7 @@ mcsema is a framework for analyzing and transforming machine-code programs to LL
 </b><br>
 <i>Jeffrey Hammes, Lisa Krause , Matthew O’Connor, Jon Steidel - SRC Computers, LLC
 </i><br>
+<a href="Slides/Krause-CartePoster.pdf">Poster</a><br>
 SRC Computers, LLC is presenting a poster on its upcoming Carte++ compiler release showing how the Clang/LLVM infrastructure has provided full language support and a rich set of compiler optimizations upon which to build the Carte++ code generator. The poster will illustrate specific optimizations and compiler challenges unique to SRC's FPGA-based hardware.
 </p>
 
