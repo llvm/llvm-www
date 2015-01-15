@@ -78,7 +78,7 @@ and interesting ways.</li>
 <table id="devmtg">
   <tr><th>Media</th><th>Talk</th></tr>
 
-  <tr><td>Slides<br><a href="Videos/Welcome-720.mov">Video</a> (Computer)<br><a href="Videos/Welcome-360.mov">Video</a> (Mobile)</td><td><b>Welcome</b><br>Tanya Lattner, <i>LLVM Foundation</i></td></tr>
+  <tr><td><a href="Slides/2014WelcomeTalk.pdf">Slides</a><br><a href="Videos/Welcome-720.mov">Video</a> (Computer)<br><a href="Videos/Welcome-360.mov">Video</a> (Mobile)</td><td><b>Welcome</b><br>Tanya Lattner, <i>LLVM Foundation</i></td></tr>
 
 <tr><td><a href="Slides/Bataev-OpenMP.pdf">Slides</a><br><a href="Videos/OpenMP Support in Clang and LLVM-720.mov">Video</a> (Computer)<br><a href="Videos/OpenMP Support in Clang and LLVM-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk1">OpenMP Support in Clang/LLVM: Status Update and Future Directions</a></b><br>Alexey Bataev, <i>Intel</i></td></tr>
 
@@ -92,7 +92,7 @@ and interesting ways.</li>
  
 <tr><td><a href="Slides/Zhao-SourceCodeAnalysisforSecurity.pdf">Slides</a><br><a href="Videos/Source Code Analysis For Security-720.mov">Video</a> (Computer)<br><a href="Videos/Source Code Analysis For Security-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk5">Source Code Analysis for Security through LLVM</a></b><br>Lu Zhao, <i>HP Fortify</i></td></tr>
   
-<tr><td><a href="Slides/Trick-FTL.pdf">Slides</a><br>Video (Computer)<br>Video (Mobile)</td><td><b><a href="#talk6">FTL: WebKit’s LLVM based JIT</a></b><br>Andrew Trick, <i>Apple</i><br>Juergen Ributzka, <i>Apple</i></td></tr>
+<tr><td><a href="Slides/Trick-FTL.pdf">Slides</a><br><a href="FTL - WebKit LLVM based JIT-720.mov">Video</a> (Computer)<br><a href="FTL - WebKit LLVM based JIT-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk6">FTL: WebKit’s LLVM based JIT</a></b><br>Andrew Trick, <i>Apple</i><br>Juergen Ributzka, <i>Apple</i></td></tr>
   <tr><td><a href="Slides/Criswell-VirtualGhost.pdf">Slides</a><br><a href="Videos/Virtual Ghost-720.mov">Video</a> (Computer)<br><a href="Videos/Virtual Ghost-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk7">Virtual Ghost: Using LLVM to Protect Applications from a Compromised Operating System</a></b><br>John Criswell, <i>University of Rochester</i></td></tr>
 
   <tr><td><a href="Slides/Cormack-BuildingAnLLVMBackend.pdf">Slides</a><br><a href="Videos/Building an LLVM backend-720.mov">Video</a> (Computer)<br><a href="Videos/Building an LLVM backend-360.mov">Video</a> (Mobile)</td><td><b><a href="#tutorial1">Building an LLVM Backend</a></b><br>Fraser Cormack, <i>Codeplay Software</i><br>Pierre-André Saulais, <i>Codeplay Software</i></td></tr>
@@ -114,7 +114,7 @@ and interesting ways.</li>
 <tr><td><a href="Slides/Morisset-AtomicsPresentation.pdf">Slides</a><br><a href="Videos/Blowing up the Atomic Barrier-720.mov">Video</a> (Computer)<br><a href="Videos/Blowing up the Atomic Barrier-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk10">Blowing up the Atomic Barrier</a></b><br>Robin Morisset, <i>Google</i></td></tr>
 
 
-<tr><td><a href="Slides/Skip the FFI.pdf">Slides</a><br>Video (Computer)<br>Video (Mobile)</td><td><b><a href="#talk18">
+<tr><td><a href="Slides/Skip the FFI.pdf">Slides</a><br><a href="Videos/Skip The FFI! Embedding Clang for C-720.mov">Video</a> (Computer)<br><a href="Videos/Skip The FFI! Embedding Clang for C-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk18">
 Skip the FFI: Embedding Clang for C Interoperability</a></b><br>Jordan Rose, <i>Apple</i><br>John McCall, <i>Apple</i></td></tr>
 
 <tr><td><a href="Slides/Schmidt-SupportingVectorProgramming.pdf">Slides</a><br><a href="Videos/Supporting Vector Programming on a Bi-Endian Processor Architecture-720.mov">Video</a> (Computer)<br><a href="Videos/Supporting Vector Programming on a Bi-Endian Processor Architecture-360.mov">Video</a> (Mobile)</td><td><b><a href="#talk12">Supporting Vector Programming on a Bi-Endian Processor Architecture</a></b><br>Bill Schmidt, <i>IBM</i></td></tr>
@@ -206,6 +206,8 @@ We added a new debug mode for the Clang compiler which emits extra metadata in t
 </a></b><br>
 <i>Andrew Trick (Speaker) - Apple, Juergen Ributzka (Speaker) - Apple</i><br>
 <a href="Slides/Trick-FTL.pdf">Slides</a><br>
+<a href="Videos/FTL - WebKit LLVM based JIT-720.mov">Video</a> (Computer)
+<a href="Videos/FTL - WebKit LLVM based JIT-360.mov">Video</a> (Mobile)
 <br>
 FTL is the fourth-tier LLVM JIT that powers JavaScript in WebKit. We will talk about our experiences using LLVM to build this high-performance JIT. We will explain the motivation for new LLVM features, including patchpoints and a new form of stack maps, and will share our vision on future work and the direction we would like LLVM move to become a better platform for JIT clients.
 </p>
@@ -353,6 +355,9 @@ Discuss perspectives and tradeoffs in implementation of global instruction sched
 <i>Jordan Rose (Speaker) - Apple,
 John McCall (Speaker) - Apple</i><br>
 <a href="Slides/Skip the FFI.pdf">Slides</a><br>
+<a href="Videos/Skip The FFI! Embedding Clang for C-720.mov">Video</a> (Computer)
+<a href="Videos/Skip The FFI! Embedding Clang for C-360.mov">Video</a> (Mobile)
+<br>
 Most languages that aren't a superset of C provide a Foreign Function Interface (FFI) that allows one to interface with existing C libraries. FFIs are often an afterthought, requiring manual or source-to-source translation from C header files to a subset of the target language, resulting in complicated build processes, frequent manual tweaking, and numerous implementation challenges. 
 <br>
 This talk will discuss an alternative approach that embeds Clang into an LLVM-based compiler front end to provide C compatibility without the traditional FFI. Embedding Clang provides seamless access to C APIs, moving the translation of APIs from external tools into the compiler itself. Moreover, one can leverage Clang's deep knowledge of C record layout and calling conventions to simplify the C interface and make both bring up and porting of a new compiler front end simpler.
