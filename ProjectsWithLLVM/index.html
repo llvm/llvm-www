@@ -41,6 +41,7 @@
 <li><a href="#crack">The Crack Programming Language</a></li>
 <li><a href="#rubinius">Rubinius: a Ruby implementation</a></li>
 <li><a href="#macruby">MacRuby</a></li>
+<li><a href="#pocl">pocl: Portable Computing Language</a></li>
 <li><a href="#tta-tce">TTA-based Codesign Environment (TCE)</a></li>
 <li><a href="#icedtea">The IcedTea Version of Sun's OpenJDK</a></li>
 <li><a href="#pure">The Pure Programming Language Compiler</a></li>
@@ -177,26 +178,55 @@ By the <a href="http://www.macruby.org/project.html">MacRuby Project Team</a>
 
 <!--=========================================================================-->
 <div class="www_subsection">
+<a name="pocl">pocl: Portable Computing Language</a>
+</div>
+
+<div class="www_subsubsection">
+By various contributors.
+</div>
+
+<div class="www_text">
+
+<p>In addition to producing an easily portable open source OpenCL
+implementation, another major goal of <a href="http://portablecl.org">pocl</a>
+is improving performance portability of OpenCL programs with
+compiler optimizations, reducing the need for target-dependent manual
+optimizations.</p> 
+
+<p>An important part of pocl is a set of LLVM passes used to
+statically parallelize multiple work-items with the kernel compiler, even in
+the presence of work-group barriers. This enables static parallelization of
+the fine-grained static concurrency in the work groups in multiple ways.</p>
+
+</div>
+
+
+<!--=========================================================================-->
+<div class="www_subsection">
 <a name="tta-tce">TTA-based Codesign Environment (TCE)</a>
 </div>
 
 <div class="www_subsubsection">
-By the Flexible Design Methodologies for Application Specific Processors (FlexASP) Team
+By <a href="http://cpc.cs.tut.fi">Customized Parallel Computing</a> group of Tampere University of Technology
 </div>
 
 <div class="www_text">
-<p><a href="http://tce.cs.tut.fi">TCE</a> is a toolset for designing
-   application-specific processors (ASP) based on the Transport triggered
-   architecture (TTA). The toolset provides a complete co-design flow from C
-   programs down to synthesizable VHDL and parallel program binaries. Processor
-   customization points include the register files, function units, supported
-   operations, and the interconnection network.</p>
+<p><a href="http://tce.cs.tut.fi">TCE</a> 
+is a toolset for designing customized
+exposed datapath processors based on the Transport triggered 
+architecture (TTA). </p>
 
-<p>TCE uses llvm-gcc and LLVM for C language support, target independent
-   optimizations and also for parts of code generation. TCE generates new
-   LLVM-based code generators "on the fly" for the designed TTA processors and
-   loads them in to the compiler backend as runtime libraries to avoid
-   per-target recompilation of larger parts of the compiler chain.</p>
+<p>The toolset provides a complete co-design flow from C/C++
+programs down to synthesizable VHDL/Verilog and parallel program binaries.
+Processor customization points include the register files, function units,
+supported operations, and the interconnection network.</p>
+
+<p>TCE uses Clang and LLVM for C/C++/OpenCL C language support, target independent 
+optimizations and also for parts of code generation. It generates
+new LLVM-based code generators "on the fly" for the designed processors and
+loads them in to the compiler backend as runtime libraries to avoid
+per-target recompilation of larger parts of the compiler chain.</p>
+
 </div>
 
 <!--=========================================================================-->
