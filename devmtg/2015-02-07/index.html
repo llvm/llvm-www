@@ -17,12 +17,37 @@
 <p>
 A LLVM Workshop will be held at CGO 2015. If you are interested in attending the workshop, please register at the <a href="http://cgo.org/cgo2015/">CGO website</a>.
 </p>
-
+<p>
+Topic Overview
+<ul>
+<li>High-level overview of LLVM & Clang</li>
+<ul>
+<li>Will include how to get started coding on LLVM & Clang</li>
+<li>Overview of core design elements, data structures, APIs, and patterns used in the codebase</li>
+<li>High-level testing strategy for LLVM & Clang using tools like Clang’s ‘-verify’, opt, llc, FileCheck, and GoogleTest</li>
+<li>Process of submitting a patch, code review, and community interactions</li>
+</ul>
+<li>How to add an optimization pass to LLVM</li>
+<ul>
+<li>Tutorial on the LLVM IR both in the abstract and at the level of internal APIs</li>
+<li>Basic APIs and data structures needed to implement, test, and wire a new pass into the compiler.</li>
+<li>Overview of the relationship between transform and analysis passes.</li>
+<li>Overview of the different kinds of transformation passes, how they interact, and what they can and can’t do</li>
+<li>Actually add a transformation pass and an analysis pass to the compiler that depend on each other and exercise this machinery.</li>
+<li>Includes authoring relevant tests for each component</li>
+</ul>
+<li>High-level overview of the architecture of an LLVM backend, with an emphasis on modifying or enhancing existing backends rather than adding a new one</li>
+<ul>
+<li>Detailed review of where things are: from SelectionDAG to FastISel to the register allocator</li>
+<li>Detailed review of exactly how a backend’s tablegen works, and how to make changes there and debug things</li>
+</ul>
+</ul>
+</p>
 <p>
 
 <table id="devmtg">
 <tr><th>Time</th><th>Topic</th></tr>
-<tr><td>8:30</td><td>ntroduction to the LLVM Project</td></tr> 
+<tr><td>8:30</td><td>Introduction to the LLVM Project</td></tr> 
 <tr><td>9:00</td><td>Getting started hacking on LLVM and Clang</td></tr>
 <tr><td>10:00</td><td>BREAK</td></tr>
 <tr><td>10:30</td><td> Overview of core middle-end concepts in LLVM: inlining, GVN, combining & canonicalization, etc.</td></tr>
