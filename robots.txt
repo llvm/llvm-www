@@ -4,6 +4,7 @@ Disallow: /cvsweb
 Disallow: /devmtg/2008-08/*.3gp$
 Disallow: /devmtg/2008-08/*.m4v$
 Disallow: /doxygen
+Disallow: /klaus
 Disallow: /nightlytest
 Disallow: /nightlytest2
 Disallow: /perf
