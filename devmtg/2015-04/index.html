@@ -355,7 +355,11 @@ soon.
 .s0{text-align:left;font-weight:bold;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
 3px 2px 3px;}.ritz .waffle                                                       
 .s1{text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
-3px 2px 3px;}.ritz .waffle .s2{border-right:                                     
+3px 2px 3px;}
+.abstract{text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;direction:ltr;padding:2px
+3px 2px 3px;}
+
+.ritz .waffle .s2{border-right:                                     
 none;text-align:left;color:#000000;background-color:#ffffff;font-size:11pt;vertical-align:bottom;white-space:nowrap;direction:ltr; padding:2px
 3px 2px 3px;font-weight:bold}.ritz .waffle                                                       
 .s3{text-align:left;color:#ff0000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px;font-weight: bold
@@ -376,11 +380,74 @@ none;text-align:left;color:#000000;background-color:#ffffff;font-size:11pt;verti
             </td>
          </tr>
          <tr style='height:21px;'>
+            <td class="abstract" dir="ltr" colspan="2">
+<br>
+<div style="width: 80em">
+The C and C++ languages were originally designed without
+concurrency support.  The recent revision of the C and C++
+standards introduced an intricate but precise semantics for
+threads; today’s C and C++ compilers, whose optimisers were
+initially developed in absence of any well-defined concurrency
+memory model, are being extended to support this new
+concurrency standard.<br/>
+In this talk, after recalling the C and C++ memory models, we
+will explore the correctness of compiler optimisations and
+present simple necessary  conditions that can be used as a
+reference by compiler implementers.  As an application, we
+will show how this theory enables building an automatic
+compiler tester that hunts “concurrency compiler bugs”: subtle
+wrong code generation bugs which are observable only when the
+miscompiled functions interact with concurrent contexts.<br/>
+Perhaps surprisingly, we will also show that by leveraging the
+semantics of low-level relaxed atomic accesses (which allows
+programmers to take full advantage of weakly-ordered memory
+operations), it is possible to build counterexamples to
+several common source-to-source program transformations (such
+as expression linearisation and “roach motel” reorderings)
+that modern compilers perform and that are deemed to be
+correct.  This implies that this memory model cannot be used
+to give semantics to compiler intermediate languages, as the
+LLVM IR documentation suggests.  We will evaluate a number of
+possible local fixes, some strengthening and some weakening
+the model, and discuss their implications for compiler
+writers.
+<br>
+<br>
+</div>
+</td>
+         </tr>
+         <tr style='height:21px;'>
             <td class="s1" dir="ltr">Ivan Godard</td>
             <td class="s2 softmerge">
                <div class="softmerge-inner"> LLVM meets the truly alien:
         the Mill CPU architecture in a multi-target tool chain</div>
             </td>
+         </tr>
+         <tr style='height:21px;'>
+            <td class="abstract" dir="ltr" colspan="2">
+<br>
+<div style="width: 80em">
+<br>
+The Mill is a new commercial CPU family reflecting a ground-up rethink of single-thread architecture
+
+<ul>
+<li>Mill has no general registers</li>
+<li>Mill is SSA - in hardware</li>
+<li>Mill code has two instruction streams and two program counters, one of which runs backwards</li>
+<li>Mill instructions look (kinda) like six VLIWs, side-by-side</li>
+<li>Mill operations are polymorphic, both for scalar width and vector length</li>
+<li>x = a < 0x12345678901234567 ? F(G(b+c), e-f) : g + h;  is (less than) one instruction</li>
+<li>and much more</li>
+</ul>
+
+    As a result, the Mill tool chain is - different. Except that it is LLVM. The retarget is not yet done, and has been - interesting. In the Chinese sense of interesting.
+
+    The talk will explain how the Mill tool chain works, and why it is done that way, and where LLVM fits into it.
+
+    Or doesn't. Ranting and raving will ensue.
+<br>
+</div>
+</td>
          </tr>
          <tr style='height:21px;'>
             <td></td>
