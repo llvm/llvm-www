@@ -94,7 +94,7 @@ none;text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;verti
 .s21{text-align:left;color:#ff0000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
 3px 2px 3px;}.ritz .waffle .s19{border-left: none;border-right:
 none;text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
-3px 2px 3px;}.ritz .waffle .s11{border-right:1px SOLID #000000;}.ritz .waffle
+3px 2px 3px;}.ritz .waffle .s11{border-right:1px SOLID #000000; vertical-align:top}.ritz .waffle
 .s12{border-bottom:1px SOLID #000000;border-right:1px SOLID
 #000000;text-align:center;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:top;white-space:nowrap;direction:ltr;padding:2px
 3px 2px 3px;}.ritz .waffle .s10{border-bottom:1px SOLID
@@ -110,8 +110,8 @@ SOLID #000000;}.ritz .waffle
 3px 2px 3px;}.ritz .waffle
 .s16{text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
 3px 2px 3px;}.ritz .waffle .s2{border-left: none;}.ritz .waffle
-.s8{border-bottom:1px SOLID #000000;border-right:1px SOLID
-#000000;text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
+.s8{border-bottom:1px SOLID #000000; vertical-align: text-top; border-right:1px SOLID
+#000000;text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:top;white-space:nowrap;direction:ltr;padding:2px
 3px 2px 3px;}
 .s99{border-bottom:1px SOLID #000000;border-right:1px SOLID
 #000000;text-align:left;color:#000000;background-color:#ffffff;font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px
@@ -182,17 +182,17 @@ SOLID #000000;}.ritz .waffle
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
-            <td class="s8" dir="ltr">13:30-14.30</td>
-            <td class="s99" dir="ltr" colspan="2">Francesco Zappa Nardelli --  C Concurrency: Still Tricky</td>
+            <td class="s8" dir="ltr">13:30-14:30</td>
+            <td class="s8" dir="ltr" colspan="2"><b>C Concurrency: Still Tricky </b><br />Francesco Zappa Nardelli </td>
             <td class="s8">&nbsp;</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
-            <td class="s8" dir="ltr">14;30-15:10</td>
-            <td class="s8" dir="ltr">Technical presentation (P1)</td>
-            <td class="s8" dir="ltr">Technical presentation (P2)</td>
-            <td class="s8" dir="ltr">Debug Info BoF (BoF1)</td>
+            <td class="s8" dir="ltr">14:30-15:10</td>
+            <td class="s8" dir="ltr"><b>Vectorization Of Control Flow Using New Masked Vector Intrinsics</b><br />Elena Demikhovsky </td>
+            <td class="s8" dir="ltr"><b>LLPE: High accurate partial evaluation for LLVM IR</b><br />Christopher Smowton</td>
+            <td class="s8" dir="ltr"><b>Debug Info BoF</b><br />Eric Christopher</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
@@ -205,17 +205,17 @@ SOLID #000000;}.ritz .waffle
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">15:40-16:20</td>
-            <td class="s8" dir="ltr">Technical presentation (P3)</td>
-            <td class="s8" dir="ltr">Technical presentation (P4)</td>
-            <td class="s8" dir="ltr">LTO BoF (BoF2)</td>
+            <td class="s8" dir="ltr"><b>Templight: A Clang Extension for Debugging and Profiling C++ Template Metaprograms</b><br />Zoltan Porkolab </td>
+            <td class="s8" dir="ltr"><b>ThinLTO: A Fine Grained Demand Driven IPO Infrastructure</b><br />Teresa Johnson and Xinliang David Li</td>
+            <td class="s8" dir="ltr"><b>LTO BoF</b><br />Eric Christopher</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">16:20-17:00</td>
-            <td class="s8" dir="ltr">Technical presentation (P5)</td>
-            <td class="s8" dir="ltr">Technical presentation (P6)</td>
-            <td class="s8" dir="ltr">Tutorial (T3)</td>
+            <td class="s8" dir="ltr"><b>Supporting the new IBM z13 mainframe and its SIMD vector unit</b><br />Ulrich Weigand</td>
+            <td class="s8" dir="ltr"><b>T-EMU 2: The next Generation LLVM Based Micro-Processor Emulator</b><br />Mattias Holm</td>
+            <td class="s8" dir="ltr"><b>Debug Info Tutorial</b><br />Eric Christopher and David Blaikie</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
@@ -264,18 +264,18 @@ SOLID #000000;}.ritz .waffle
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">09:00-10:00</td>
-            <td class="s99" dir="ltr" colspan="2">Ivan Godard --
-    LLVM meets the truly alien:
-        the Mill CPU architecture in a multi-target tool chain</td>
+            <td class="s8" dir="ltr" colspan="2">
+    <b>LLVM meets the truly alien:
+        the Mill CPU architecture in a multi-target tool chain</b><br/>Ivan Godard</td>
             <td class="s8">&nbsp;</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s14" dir="ltr">&nbsp;</td>
             <td class="s8" dir="ltr">10:00-10:40</td>
-            <td class="s8" dir="ltr">Technical presentation (P7)</td>
-            <td class="s8" dir="ltr">Technical presentation (P8)</td>
-            <td class="s8" dir="ltr">Tutorial (T4)</td>
+            <td class="s8" dir="ltr"><b>A high-level implementation of software pipelining in LLVM</b><br/>Roel Jordans and David Moloney</td>
+            <td class="s8" dir="ltr"><b>PSLP: Padded SLP Automatic Vectorization</b><br />Vasileios Porpodas, Alberto Magni and Timothy Jones</td>
+            <td class="s8" dir="ltr"><b>A journey through code generator generation<br/> and optimizations in LLVM-TURBO</b><br/>Liam Fitzpatrick and Marco Roodzant</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
@@ -288,23 +288,23 @@ SOLID #000000;}.ritz .waffle
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s10" dir="ltr">12:00-13:00</td>
-            <td class="s13" dir="ltr" colspan="2">Posters &amp;<br>Lunch</td>
+            <td class="s13" dir="ltr" colspan="2">Posters &amp; Lunch</td>
             <td class="s8">&nbsp;</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">13:00-13:40</td>
-            <td class="s8" dir="ltr">Technical presentation (P9)</td>
-            <td class="s8" dir="ltr">Technical presentation (P10)</td>
+            <td class="s8" dir="ltr"><b>Loop fusion amid complex control flow</b><br/>Ramshankar Ramanarayanan and Dibyendu Das</td>
+            <td class="s8" dir="ltr"><b>Why should I use LLDB?</b><br/>Deepak Panickal and Ewan Crawford</td>
             <td class="s8" dir="ltr">Khronos</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">13:40-14:20</td>
-            <td class="s8" dir="ltr">Technical presentation (P11)</td>
-            <td class="s8" dir="ltr">Technical presentation (P12)</td>
+            <td class="s8" dir="ltr"><b>CoreCLR GC Support in LLVM-MSILC</b><br/>Andrew Ayers</td>
+            <td class="s8" dir="ltr"><b>Industrial Experiences with the Clang Static Analysis Toolset</b><br/>Daniel Krupp, Gyorgy Orban, Gabor Horvath and Bence Babati</td>
             <td class="s8" dir="ltr">Khronos</td>
             <td class="s8">&nbsp;</td>
          </tr>
@@ -318,16 +318,16 @@ SOLID #000000;}.ritz .waffle
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">14:40-15:20</td>
-            <td class="s8" dir="ltr">Technical presentation (P13)</td>
-            <td class="s8" dir="ltr">Technical presentation (P14)</td>
+            <td class="s8" dir="ltr"><b>C++ on the web: ponies for developers without pwn&#39;ing users</b><br />Jf Bastien</td>
+            <td class="s8" dir="ltr"><b>Challenges of mixed-width vector code generation and static scheduling in LLVM<br/> (for VLIW Architectures)</b><br />Erkan Diken, Pierre-Andre Saulais, Martin J. O&#39;Riordan and David Moloney</td>
             <td class="s8" dir="ltr">Khronos</td>
             <td class="s8">&nbsp;</td>
          </tr>
          <tr style='height:21px;'>
             <td class="s11">&nbsp;</td>
             <td class="s8" dir="ltr">15:20-16:20</td>
-            <td class="s8" dir="ltr">Tutorial (T1)</td>
-            <td class="s8" dir="ltr">Tutorial (T2)</td>
+            <td class="s8" dir="ltr"><b>An LLDB Developer Tutorial</b><br/>Siva Chandra Reddy</td>
+            <td class="s8" dir="ltr"><b>Fortran Front-End for LLVM</b><br/>Carlo Bertolli, Hal Finkel, John Leidel and Kevin O'Brien</td>
             <td class="s8" dir="ltr">Khronos</td>
             <td class="s8">&nbsp;</td>
          </tr>
@@ -496,7 +496,7 @@ The Mill is a new commercial CPU family reflecting a ground-up rethink of single
          <tr style='height:21px;'>
             <td class="s1" dir="ltr">Andrew Ayers</td>
             <td class="s2 softmerge">
-               <div class="softmerge-inner">CoreCLR GC Suppoer in LLVM-MSILC</div>
+               <div class="softmerge-inner">CoreCLR GC Support in LLVM-MSILC</div>
             </td>
          </tr>
          <tr style='height:21px;'>
