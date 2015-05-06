@@ -426,6 +426,33 @@ to one particular group.</p>
 
 <!-- ======================================================================= -->
 <div class="www_subsubsection">
+  <a name="statistics">Improving Coverage Reports</a>
+</div>
+
+<div class="www_text">
+
+<p>The <a href='http://llvm.org/reports/coverage/'>
+LLVM Coverage Report</a> has a nice interface to show what source lines are
+covered by the tests, but it doesn't mentions which tests, which revision and
+what architecture is covered.</p>
+
+<p>A project to renovate LCOV would involve:
+<ul>
+ <li>Making it run on a buildbot, so that we know what commits / architectures
+     are covered</li>
+ <li>Update the web page to show that information</li>
+ <li>Develop a system that would report every buildbot build into the web page
+     in a searchable database, like LNT</li>
+</ul>
+
+<p>Another idea is to enable the test suite to run all built backends, not just
+   the host architecture, so that coverage report can be built in a fast machine
+   and have one report per commit without needing to update the buildbots.</p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
   <a name="misc_imp">Miscellaneous Improvements</a>
 </div>
 
