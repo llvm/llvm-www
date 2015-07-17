@@ -42,14 +42,14 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="/releases/download.html#3.6.1"><b>LLVM&nbsp;3.6.1</b></a><br>
+<a href="/releases/download.html#3.6.2"><b>LLVM&nbsp;3.6.2</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="/apt/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/3.6.1/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/3.6.2/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
@@ -100,6 +100,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  3.6.2: <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2015-July/000061.html">Jul 2015</a><br>
   3.6.1: <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2015-May/000059.html">May 2015</a><br>
   3.5.2: <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2015-April/000058.html">Apr 2015</a><br>
   3.6: <a href="http://lists.cs.uiuc.edu/pipermail/llvm-announce/2015-February/000057.html">Feb 2015</a><br>
