@@ -76,7 +76,7 @@ function processForm() {
 
   $sql = "INSERT into attendees (lastName, firstName, organization, email, location, attendBefore, fridayDinner, mealVeg, comments) VALUES('$_POST[last]', '$_POST[first]', '$_POST[org]', '$_POST[email]', '$_POST[location]','$attend', '$friday', '$meal', '$_POST[comments]')";
   mysql_query($sql) or die(mysql_error());
-print 'Congratulations! You are now registered for the 2009 LLVM Developers\' Meeting.<p>Please sign up for the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p>';
+print 'Congratulations! You are now registered for the 2009 LLVM Developers\' Meeting.<p>Please sign up for the <a href="http://lists.llvm.org/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p>';
  notify(); 
 }
 

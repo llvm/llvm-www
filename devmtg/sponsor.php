@@ -59,7 +59,7 @@ function processForm() {
   array_walk($_POST, 'my_escape_string');
   $sql = "INSERT into students (lastName, firstName, school, email, level, location, airfare, lodging, other, type, comments) VALUES('$_POST[last]', '$_POST[first]', '$_POST[school]', '$_POST[email]', '$_POST[level]', '$_POST[location]','$_POST[airfare]', '$_POST[lodging]', '$_POST[other]', '$_POST[type]', '$_POST[comments]')";
   mysql_query($sql) or die(mysql_error());
-print 'Your request for funding to attend the LLVM Developers\' Meeting has been submitted. We will contact you once funds have been allocated. <p>Please sign up for the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p>';
+print 'Your request for funding to attend the LLVM Developers\' Meeting has been submitted. We will contact you once funds have been allocated. <p>Please sign up for the <a href="http://lists.llvm.org/mailman/listinfo/llvm-devmeeting">LLVM Developers\' Meeting mailing list</a> to receive announcements about the event.</p>';
  notify();
 }
 

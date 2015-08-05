@@ -52,7 +52,7 @@ research projects in their own right.  In any case, we welcome all
 contributions.</p>
 
 <p>If you are thinking about tackling one of these projects, please send a mail
-to the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVM
+to the <a href="http://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM
 Developer's</a> mailing list, so that we know the project is being worked on.
 Additionally this is a good way to get more information about a specific project
 or to suggest other projects to add to this page.
@@ -355,7 +355,7 @@ potential candidates.
 <p>We are always looking for new testcases and benchmarks for use with LLVM.  In
 particular, it is useful to try compiling your favorite C source code with LLVM.
 If it doesn't compile, try to figure out why or report it to the <a
-href="http://lists.cs.uiuc.edu/pipermail/llvmbugs/">llvm-bugs</a> list.  If you
+href="http://lists.llvm.org/pipermail/llvm-bugs/">llvm-bugs</a> list.  If you
 get the program to compile, it would be extremely useful to convert the build
 system to be compatible with the LLVM Programs testsuite so that we can check it
 into SVN and the automated tester can use it to track progress of the
@@ -677,7 +677,7 @@ link-time optimizations for code size optimization.
     every (modified) callee save reg in the prolog and restores it in the
     epilog.  However, some paths through a function (e.g. an early exit) may
     not use all regs.  Sinking the save down the CFG avoids useless work on
-    these paths. Work has started on this, please inquire on llvmdev.</li>
+    these paths. Work has started on this, please inquire on llvm-dev.</li>
 <li>Implement interprocedural register allocation. The CallGraphSCCPass can be
     used to implement a bottom-up analysis that will determine the *actual*
     registers clobbered by a function. Use the pass to fine tune register usage

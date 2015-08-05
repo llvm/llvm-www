@@ -18,7 +18,7 @@ if ( !-d $ROOT ) { mkdir( $ROOT, 0777 ); }
 my $LOGFILE         = "$ROOT/log.txt";
 my $FORM_URL        = 'index.cgi';
 my $MAILADDR        = 'sabre@nondot.org';
-my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev">LLVMdev mailing list</a>.';
+my $CONTACT_ADDRESS = 'Questions or comments?  Email the <a href="http://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM-dev mailing list</a>.';
 my $LOGO_IMAGE_URL  = '../img/DragonSmall.png';
 my $TIMEOUTAMOUNT   = 20;
 
