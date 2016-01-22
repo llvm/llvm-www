@@ -4,8 +4,14 @@
 <table>
         <tr><td valign="top">
 <ol>
-        <li><a href="#registration">Registration</a></li>
-	<li><a href="#schedule">Schedule</a></li>
+	<li><a href="#about">About</a></li>
+        <li><a href="#agenda1">October 29 - Meeting Agenda</a></li>
+        <li><a href="#agenda2">October 30 - Meeting Agenda</a></li>
+        <li><a href="#abstracts">Talk Abstracts</a></li>
+        <li><a href="#light">Lightning Talk Abstracts</a></li>
+        <li><a href="#tutorials">Tutorial Abstracts</a></li>
+        <li><a href="#bof">BoF Abstracts</a></li>
+        <li><a href="#poster">Poster Abstracts</a></li>
         <li><a href="#hotel">Hotel</a></li>
 	<li><a href="#reception">Reception</a></li>
 </ol>
@@ -75,24 +81,469 @@ Please sign up for the LLVM Developers' Meeting list for future announcements an
 You may also contact the organizer: <a href="mailto:tanyalattner@llvm.org">Tanya Lattner</a>
 </p>
 
-<div class="www_sectiontitle" id="registration">Registration and Mailing Lists</div>
-
-<p>
-Registration is full. You may sign up for our waitlist in the event tickets become available.
-</p>
-Register <a href="https://www.eventbrite.com/e/2015-llvm-developers-meeting-tickets-17756357744">here!</a>
-</p><p>
-Registration fees are $250 for the event, and $50 for the reception. </p>
-
-<p>If you are a student, please contact the <a href="mailto:tanyalattner@llvm.org">organizer</a> for a student rate ($50/event, $25/reception). You must send us your student ID.
-</p>
-
-<p>We would like this event to be accessible to all LLVM developers. If attending the meeting is cost prohibitive for any reason (ie. you do not have an employer who refunds tickets fees, financial hardship, etc), please contact the <a href="mailto:tanyalattner@llvm.org">organizer</a> to discuss a discounted ticket.</p>
-
-<div class="www_sectiontitle" id="schedule">Schedule</div>
+<div class="www_sectiontitle" id="agenda1">October 29 - Meeting Agenda</div>
 <p>
 The schedule may be viewed here: <a href="http://devmtg15.llvm.org">http://devmtg15.llvm.org</a>.
 </p>
+<p>
+<table id="devmtg">
+  <tr><th>Media</th><th>Talk</th></tr>
+<tr><td>Slides<br></td><td><b>Welcome</b><br>Tanya Lattner, <i>LLVM Foundation</i></td></tr>
+
+<tr><td><a href="slides/BastienGohman-WebAssembly-HereBeDragons.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=5W7NkofUtAw&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21&index=1">Video</a></td><td><b><a href="#talk1">WebAssembly: Here Be Dragons</a></b><br>Jf Bastien, <i>Google</i><br>Dan Gohman, <i>Mozilla</i></td></tr>
+
+<tr><td><a href="slides/Colombet-GlobalInstructionSelection.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=F6GGbYtae3g&index=2&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk">A Proposal for Global Instruction Selection</a></b><br>Quentin Colombet, <i>Apple</i></td></tr>
+
+<tr><td><a href="slides/Doerfert-InputSpaceSplittingForOpenCL.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=py3pUnvQ7cY&index=3&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk2">Input Space Splitting for OpenCL</a></b><br>Johannes Doerfert, <i>Saarland University</i></td></tr>
+
+<tr><td><a href="slides/Baev-IndirectCallPromotion.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=ZeuEMLG3gVI&index=5&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk3">Profile-based Indirect Call Promotion</a></b><br>Ivan Baev, <i>QuIC</i></td></tr>
+
+<tr><td><a href="slides/SerebryanyCollingbourne-BeyondSanitizers.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=5K_uIda0tZU&index=4&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk4">Beyond Sanitizers: guided fuzzing and security hardening</a></b><br>Kostya Serebryany, <i>Google</i></td></tr>
+
+<tr><td><a href="slides/Beyls-AutomatedPerformanceTrackingOfLlvmGeneratedCode.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=9UliHoRYjZI&index=6&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk5">Automated performance-tracking of LLVM-generated code</a></b><br>Kristof Beyls, <i>ARM</i></td></tr>
+
+<tr><td><a href="slides/Margiolas-HeterogeneousExecutionEngineForLLVM.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=utpD3Kv7h88&index=7&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk6">A Heterogeneous Execution Engine for LLVM</a></b><br>Christos Margiolas, <i>University of Edinburgh</i></td></tr>
+
+<tr><td><a href="slides/GueltonGuinet-BuildingTestingDebuggingASimpleOutOfTreePass.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=BnlG-owSVTk&index=8&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial1">Tutorial: Building, Testing and Debugging a Simple out-of-tree LLVM Pass</a></b><br><i>Serge Guelton, <i>Quarkslab</i><br>
+    Adrien Guinet, <i>Quarkslab</i><br></td></tr>
+
+<tr><td><a href="slides/Rogers-IntegerVectorOptimizationsAndUACs.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=ePu6c4FLc9I&index=9&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial2">Tutorial: Creating an SPMD Vectorizer for OpenCL with LLVM</a></b><br>Pierre-Andre Saulais, <i>Codeplay Software</i></td></tr>
+
+<tr><td><a href="slides/DoerfertGrosser-OptimisticAssumptionsInPolly.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=mIBUY20d8c8&index=10&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial3">Tutorial: Polly - Optimistic Loop Nest Optimizations with Schedule Trees</a></b><br>Tobias Grosser, <i>ETH Zurich</i><br>
+    Johannes Doerfert, <i>Saarland University</i></td></tr>
+
+<tr><td><a href="slides/RobinsonEdwards-LivingDownstreamWithoutDrowning.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=INCi9gOVMug&index=11&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial4">Tutorial/BoF: Living Downstream Without Drowning</a></b><br>Paul Robinson, <i>Sony Computer Entertainment</i><br>
+    Michael Edwards, <i>Sony Computer Entertainment</i></td></tr>
+
+</table>
+
+<div class="www_sectiontitle" id="agenda1">October 30 - Meeting Agenda</div>
+<p>
+The schedule may be viewed here: <a href="http://devmtg15.llvm.org">http://devmtg15.llvm.org</a>.
+</p>
+<p>
+<table id="devmtg">
+    <tr><th>Media</th><th>Talk</th></tr>
+
+<tr><td><a href="slides/GroffLattner-SILHighLevelIR.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=Ntj8ab-5cvE&index=12&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk7">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization</a></b><br>Joseph Groff, <i>Apple Inc.</i><br>
+    Chris Lattner, <i>Apple Inc.</i></td></tr>
+
+<tr><td><a href="slides/Blaikie-OpaquePointerTypes.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=OWgWDx_gB1I&index=13&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk8">Typeless Pointers in LLVM IR</a></b><br>David Blaikie, <i>Google Inc.</i></td></tr>
+
+<tr><td><a href="slides/Gerolf-PerformanceImprovementsAndHeadroom.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=mLhDzqKdUCQ&index=14&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk9">LLVM Performance Improvements and Headroom</a></b><br>Gerolf Hoflehner, <i>Apple</i></td></tr>
+
+<tr><td><a href="slides/Wu-OptimizingLLVMforGPGPU.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=9TlR9hNZbck&index=15&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk10">Optimizing LLVM for GPGPU</a></b><br>Jingyue Wu, <i>Google Inc.</i></td></tr>
+
+<tr><td><a href="slides/KlecknerMajnemer-ExceptionHandling.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=JHfb8z-iSYk&index=16&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk11">Exception handling in LLVM, from Itanium to MSVC</a></b><br>Reid Kleckner, <i>Google</i><br>
+    David Majnemer, <i>Google</i></td></tr>
+
+<tr><td><a href="slides/WongBataev-OpenMPGPUAcceleratorsComingOfAgeInClang.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=1S2A0VWGOws&index=17&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk12">OpenMP GPU/Accelerator support Coming of Age in Clang</a></b><br>Michael Wong, <i>IBM</i><br>
+    Alexey Bataev, <i>Intel</i></td></tr>
+
+<tr><td><a href="slides/JasperKlimek-UpdateOnClangBasedTooling.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=dCdOaL3asx8&index=18&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk13">An update on Clang-based C++ Tooling</a></b><br>Daniel Jasper, <i>Google</i><br>
+    Manuel Klimek, <i>Google</i></td></tr>
+
+<tr><td><a href="slides/DasReames-LLVMForAManagedLanguage.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=3G2Rg6GBXqA&index=19&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk14">LLVM for a managed language: what we've learned</a></b><br>Sanjoy Das, <i>Azul Systems</i><br>
+    Philip Reames, <i>Azul Systems</i></td></tr>
+
+<tr><td><a href="slides/Porpodas-ThrottlingAutomaticVectorization.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=xxtA2XPmIug&index=20&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk15">Throttling Automatic Vectorization: When Less Is More</a></b><br>Vasileios Porpodas, <i>University of Cambridge</i></td></tr>
+
+<tr><td><a href="slides/SimmersPanchenko-LLVMBackendForHHVM.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=VZ7A7t5LcR8&index=21&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk16">LLVM back end for HHVM/PHP</a></b><br>Brett Simmers, <i>Facebook, Inc.</i><br>
+    Maksim Panchenko, <i>Facebook, Inc.</i></td></tr>
+
+<tr><td><a href="slides/Nema-LoopVersioningLICM.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=VxRjJmkFsgM&index=22&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk17">LoopVersioning LICM</a></b><br>Ashutosh Nema, <i>AMD</i></td></tr>
+
+<tr><td><a href="slides/Stepanov-LargeScalelibCPlusPlusDeployment.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=rXi065XC6zY&index=23&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk18">Compiling large, real-world codebases with clang on Windows</a></b><br>Hans Wennborg, <i>Google Inc.</i><br>
+    Nico Weber, <i>Google Inc.</i></td></tr>
+
+<tr><td><a href="slides/Prantl-ExonSmith-DebugInfoMetadataToModules.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=EgkZ8PTNSHQ&index=24&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk19">Debug Info: From Metadata to Modules</a></b><br>Duncan Exon Smith, <i>Apple</i><br>
+    Adrian Prantl, <i>Apple</i></td></tr>
+
+<tr><td><a href="slides/NemetZolotukhin-AdvancesInLoopAnalysisFrameworksAndOptimizations.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=XvkLHIASlp8&index=25&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#talk20">Advances in Loop Analysis Frameworks and Optimizations</a></b><br>Adam Nemet - Apple Inc.</i><br>
+    Michael Zolotukhin, <i>Apple Inc.</i></td></tr>
+
+</table>
+
+<div class="www_sectiontitle" id="abstracts">Talk Abstracts</div>
+
+<p>
+<b><a id="talk1">WebAssembly: Here Be Dragons
+</a></b><br>
+<i>Jf Bastien - Google</i><br>
+ <i>Dan Gohman - Mozilla</i><br>
+<a href="slides/BastienGohman-WebAssembly-HereBeDragons.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=5W7NkofUtAw&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21&index=1">Video</a><br>
+WebAssembly is a tale of four browser vendors, seeking new languages and capabilities while staying fast, secure and portable. The old JavaScript wizard still has many spells under its belt, but it seeks a companion on its quest to reach VM utopia. WebAssembly is that companion.
+<br>
+In this quest, mad alchemist Dan and jester JF will detail their exploration of LLVM-land. You’ll get to witness firsthand their exploration of ISel and MI, hear of their wondrous encounter with MC, and gasp at the Spell of Restructuring wherein SSA+CFG is transmuted into regs+AST. Will our adventurers conquer the Target and capture the virtual ISA?
+<br>
+Join us in this exciting tale to which *you* are the hero!
+</p>
+
+<p>
+<b><a id="talk">A Proposal for Global Instruction Selection
+</a></b><br>
+<i>Quentin Colombet - Apple</i><br>
+<a href="slides/Colombet-GlobalInstructionSelection.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=F6GGbYtae3g&index=2&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+Our existing instruction selection framework, SelectionDAGISel (SDISel), has some fundamental limitations, including, but not limited to, slow compile time, basic block only scope, and monolithic approach. Over the years, we spent a lot of effort to workaround these limitations with more target hooks and more optimizations passes (e.g., CodeGenPrepare, ConstantHoisting) with their own problems (inaccurate heuristic, have to predict what the instruction selector will do, etc.) and limitations.
+We believe that it is time to come up with a new instruction selection framework, global-isel, that will solve these problems while offering new opportunities to improve our code generation. In this talk, we will present our plan to bring global-isel to LLVM.
+</p>
+
+<p>
+<b><a id="talk2">Input Space Splitting for OpenCL
+</a></b><br>
+<i>Johannes Doerfert - Saarland University</i><br>
+<a href="slides/Doerfert-InputSpaceSplittingForOpenCL.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=py3pUnvQ7cY&index=3&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+OpenCL programs are prone to memory and control flow divergence. When
+ implementing OpenCL for machines with explicit SIMD instructions,
+ compilers can usually generate more efficient code if they can prove
+ non-divergence of memory and branch instructions. To this end, they
+ leverage a so-called divergence analysis. However, in practice
+ divergence is often input-dependent and exhibited for some, but not
+ all inputs. Hence, static analyses fail to prove non-divergence. To
+ obtain good performance, developers can manually split the input
+ space, however this is a tedious and error prone task.
+<br>
+ In this talk we present a new OpenCL to CPU compiler pipeline that
+ addresses this problem by automatically ensuring divergence free
+ control flow through program specialization.  To this end we represent
+ the full kernel as well as the implicit work item dimensions in the
+ polyhedral model. For data dependent control flow and non-affine
+ expression overapproximation is used. From the polyhedral iteration
+ domains and memory access functions we can then derive conditions for
+ the absence of memory as well as control divergence.  Based one these
+ conditions the input space is split in order to generate specialized
+ kernel versions with beneficial divergence characteristics.  Commonly
+ large parts of the input exhibit regular access and control patterns
+ and only a fixed size boundary of the input space does not. In such
+ cases we can achieve speedups almost as high as the used vectorization
+ with. However, also for non-diverging kernels our technique can
+ improve the performance due to simplifications in the polyhedral
+ model.
+</p>
+
+<p>
+<b><a id="talk3">Profile-based Indirect Call Promotion
+</a></b><br>
+<i>Ivan Baev - QuIC</i><br>
+<a href="slides/Baev-IndirectCallPromotion.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=ZeuEMLG3gVI&index=5&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Indirect call promotion (ICP) is the second most profitable profile-based optimization according to a recent study. This talk will present LLVM ICP pass that iterates over all indirect call sites in the module and selectively transforms them. We will discuss how subsequent optimizations in the compiler pipeline may benefit from ICP.
+</p>
+
+<p>
+<b><a id="talk4">Beyond Sanitizers: guided fuzzing and security hardening
+</a></b><br>
+<i>Kostya Serebryany - Google</i><br>
+<a href="slides/SerebryanyCollingbourne-BeyondSanitizers.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=5K_uIda0tZU&index=4&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+The Sanitizers (AddressSanitizer and friends) allow you to find many stability and security bugs in C++ code, but they are only as good as your tests are. In this talk we will show how to improve your test coverage with guided fuzzing (libFuzzer) and how to protect your applications in production even if some bugs are still there (Control Flow Integrity and SafeStack).
+</p>
+
+<p>
+<b><a id="talk5">Automated performance-tracking of LLVM-generated code
+</a></b><br>
+<i>Kristof Beyls - ARM</i><br>
+<a href="slides/Beyls-AutomatedPerformanceTrackingOfLlvmGeneratedCode.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=9UliHoRYjZI&index=6&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Ensuring that top-of-trunk consistently generates high-quality code remains harder than it should be. Continuous integration (CI) setups that track correctness of top-of-trunk work pretty well today since they automatically report correctness regressions with low false positive rate to committers. In comparison, the output generated by CI setups that track performance require far more human effort to interpret.<br>
+In this talk, I’ll describe why I think effective performance tracking is hard and what problems need solving, with a focus on our real world experiences and observations.<br>
+As part of the bring-up of one of the public performance tracking bots, I’ve done an in-depth analysis of its performance and noise characteristics. The insights gained from this analysis drove a number of improvements to LNT and the test-suite in the past year. I hope that sharing these insights will help others in setting up low-noise performance-tracking bots.<br>
+I’ll conclude by summarizing what seem to be the most important missing pieces of CI functionality to make the performance-tracking infrastructure as effective as the correctness-tracking infrastructure.
+</p>
+
+<p>
+<b><a id="talk6">A Heterogeneous Execution Engine for LLVM
+
+</a></b><br>
+<i>Christos Margiolas - University of Edinburgh
+</i><br>
+<a href="slides/Margiolas-HeterogeneousExecutionEngineForLLVM.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=utpD3Kv7h88&index=7&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Hexe, which stands for Heterogeneous Execution Engine, is an new compiler component that integrates with the LLVM infrastructure. It targets efficient computation on heterogeneous platforms by allowing the automatic offloading of workloads on computational accelerators, such as Graphics Processing Units (GPUs) or Digital Signal Processors(DSPs).
+<br>
+The workloads we consider for offloading are either explicitly annotated by the programmer or automatically detected by static compiler analysis and runtime checks. Our infrastructure operates at the level of LLVM intermediate representation and effectively supports multiple source languages.
+<br>
+Hexe consists of a set of compiler passes and a runtime environment. The compiler passes perform the required code analysis and transformations to enable workload offloading. The runtime environment manages data transfers and synchronization operations, and performs dynamic workload scheduling.
+<br>
+We consider a diverse set of heterogeneous systems ranging from mobile devices equipped with arm based multi-core CPUs, embedded GPUs and DSPs to data center nodes consisting of x86 multi-cores and high-end GPUs. Hexe has a modular design where new accelerator types and programming environments can be supported via a plugin interface. We also consider interoperability between Hexe and modern JIT technologies, such as LLVM MCJIT.
+</p>
+
+
+<p>
+<b><a id="talk7">Swift's High-Level IR: A Case Study of Complementing LLVM IR with Language-Specific Optimization
+</a></b><br>
+<i>Joseph Groff - Apple Inc.</i><br>
+<i>Chris Lattner - Apple Inc.</i><br>
+<a href="slides/GroffLattner-SILHighLevelIR.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=Ntj8ab-5cvE&index=12&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+The Swift programming language is built on LLVM and uses LLVM IR and the LLVM backend for code generation, but it also contains a new high-level IR called SIL to model the semantics of the language (and perform optimizations) at a higher level. In this talk, we discuss the motivations and applications of SIL, including high-level semantic analyses and transformations such as flow-dependent diagnostics, devirtualization, specialization, reference counting optimization, and TBAA, and we compare SIL's design with that of LLVM IR.
+</p>
+
+<p>
+<b><a id="talk8">Typeless Pointers in LLVM IR
+</a></b><br>
+<i>David Blaikie - Google Inc.</i><br>
+<a href="Blaikie-OpaquePointerTypes.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=OWgWDx_gB1I&index=13&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+In an effort to simplify and canonicalize LLVM IR surrounding pointer expressions, the type information from pointers is being removed. Hear about the current changes, utilities for updating your test cases, as well as current open questions and future work.
+</p>
+
+<p>
+<b><a id="talk9">LLVM Performance Improvements and Headroom
+</a></b><br>
+<i>Gerolf Hoflehner - Apple</i><br>
+<a href="slides/Gerolf-PerformanceImprovementsAndHeadroom.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=mLhDzqKdUCQ&index=14&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+While LLVM is known for very fast compile-time, many developers in the community also push for improving run-time performance of generated code. This talk highlights this year’s performance gains on AArch64 in key benchmarks like SPEC2006, Kernels and also the llvm test suite. While progress has been impressive more work needs to be done. Therefore we will discuss future performance headroom which involves both expanding existing and architecting new optimizations.
+</p>
+
+<p>
+<b><a id="talk10">Optimizing LLVM for GPGPU
+</a></b><br>
+<i>Jingyue Wu - Google Inc.</i><br>
+<a href="">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=JHfb8z-iSYk&index=16&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+This talk presents Google’s effort of optimizing LLVM for CUDA. When we started this effort, LLVM was well-tuned for CPUs but there had been little public work on improving its GPU performance. We developed, tuned, and augmented several general and CUDA-specific optimization passes. As a result, our LLVM-based compiler generates better code than nvcc on key end-to-end internal benchmarks and is on par with nvcc on a variety of open-source benchmarks.
+</p>
+
+<p>
+<b><a id="talk11">Exception handling in LLVM, from Itanium to MSVC
+
+</a></b><br>
+<i>Reid Kleckner - Google</i><br>
+<i>David Majnemer - Google</i><br>
+<a href="slides/KlecknerMajnemer-ExceptionHandling.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=9TlR9hNZbck&index=15&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+This talk covers the design and implementation of MSVC-compatible exception handling in Clang and LLVM. Unlike the Itanium C++ exception handling model, the Windows exception handling model is not designed around successive unwinding. As a result, the existing LLVM landingpad instruction is insufficient for expressing how Windows exceptions should be handled. To support Windows exceptions, we added the new token type and a family of new EH pad instructions to LLVM. This talk describes the final design of the new representation and the tradeoffs we made along the way.
+</p>
+
+<p>
+<b><a id="talk12">OpenMP GPU/Accelerator support Coming of Age in Clang
+</a></b><br>
+<i>Michael Wong - IBM</i><br>
+<i>Alexey Bataev - Intel</i><br>
+<a href="slides/WongBataev-OpenMPGPUAcceleratorsComingOfAgeInClang.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=dCdOaL3asx8&index=18&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+GPU/Accelerator computing will be the basis for the future of Exacale computing through the DOE's CORAL project. It is also the basis for future features for C++ Std's SG14's Games Development/Low Latency/Real Time/Graphics Study Group. However, llvm currently lacks a unified platform-neutral infrastructure for offloading to GPUs/Accelerators, which severely limits clang/llvm usage in these hugely important application domains.
+<br>
+For the past several years, a number of contributors from AMD, Argonne National Lab., IBM, Intel, Texas Instruments, University of Houston and many others have come together to deliver OpenMP support to clang. OpenMP 3.1 is now officially in clang 3.7 and work continues to completion of OpenMP 4 aiming for clang 3.8. One of the most important features of OpenMP 4 standard is a vendor- and platform-neutral support for Accelerators.
+<br>
+The main presenters will be the OpenMP CEO and Chair of ISO C++'s SG5/SG14 along with the main developer who has been delivering OpenMP implementation in clang (with the help of many others). This talk will describe how GPU and Accelerators will be supported in clang. It offers an overview of the OpenMP 4 syntax, and a description of the upstreaming progress in both clang and llvm through this continued collaboration, as well as the offloading interface design that will describe target independent support across many hardware targets including Nvidia, Xeon Phi, ARM, and AMD devices.
+</p>
+
+<p>
+<b><a id="talk13">An update on Clang-based C++ Tooling
+</a></b><br>
+<i>Daniel Jasper - Google</i><br>
+<i>Manuel Klimek - Googl</i><br>
+<a href="slides/JasperKlimek-UpdateOnClangBasedTooling.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=1S2A0VWGOws&index=17&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+This talk is going to give an update of the C++ tooling we are building on top of clang. Among others, it will focus on clang-tidy, a tool to statically analyze source code to diagnose and fix typical programming errors like style violations, interface misuse, or bugs. We'll give an update on the direction this project is taking, new checks that are being integrated and challenges we are facing.
+In a live demo, we'll show how we can fix specific problems throughout LLVM's own codebase. We'll also show how a new check can be added in a matter of minutes and how other Clang-based tools can help with its development.
+</p>
+
+<p>
+<b><a id="talk14">LLVM for a managed language: what we've learned
+</a></b><br>
+<i>Sanjoy Das - Azul Systems</i><br>
+<i>Philip Reames - Azul Systems</i><br>
+<a href="slides/DasReames-LLVMForAManagedLanguage.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=3G2Rg6GBXqA&index=19&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+For a little over a year we have been working towards a production quality, state of the art LLVM based JIT compiler for Java. This talk focuses on what we've learned about LLVM's strengths and weaknesses as an optimization framework for Java-like languages. We will discuss interesting challenges in efficiently implementing Java's semantics within LLVM IR, and how we've been growing LLVM towards being a more effective compiler for managed languages.
+</p>
+
+<p>
+<b><a id="talk15">Throttling Automatic Vectorization: When Less Is More
+</a></b><br>
+<i>Vasileios Porpodas - University of Cambridge</i><br>
+<a href="slides/Porpodas-ThrottlingAutomaticVectorization.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=xxtA2XPmIug&index=20&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+SIMD vectors are widely adopted in modern general purpose processors as they can boost performance and energy efficiency for certain applications.<br>
+Compiler-based automatic vectorization is one approach for generating code that makes efficient use of the SIMD units, and has the benefit of avoiding hand development and platform-specific optimizations.<br>
+The Superword-Level Parallelism (SLP) vectorization algorithm is the most well-known implementation of automatic vectorization when starting from straight-line scalar code, and is implemented in several major compilers.
+<br>
+The existing SLP algorithm greedily packs scalar instructions into vectors starting from stores and traversing the data dependence graph upwards until it reaches loads or non-vectorizable instructions.<br>
+Choosing whether to vectorize is a one-off decision for the whole graph that has been generated.<br>
+This, however, is suboptimal because the graph may contain code that is harmful to vectorization due to the need to move data from scalar registers into vectors.
+The decision does not consider the potential benefits of throttling the graph by removing this harmful code.<br>
+In this work we propose a solution to overcome this limitation by introducing Throttled SLP (TSLP), a novel vectorization algorithm that finds the optimal graph to vectorize, forcing vectorization to stop earlier whenever this is beneficial.<br>
+Our experiments show that TSLP improves performance across a number of kernels extracted from widely-used benchmark suites, decreasing execution time compared to SLP by 9% on average and up to 14% in the best case.
+
+</p>
+
+<p>
+<b><a id="talk16">LLVM back end for HHVM/PHP
+</a></b><br>
+<i>Brett Simmers - Facebook, Inc.</i><br>
+<i>Maksim Panchenko - Facebook, Inc.</i><br>
+<a href="slides/SimmersPanchenko-LLVMBackendForHHVM.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=VZ7A7t5LcR8&index=21&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+The Hip-Hop Virtual Machine (HHVM) is a JIT compiler for executing PHP programs. It is used by some of the world’s largest websites such as facebook.com and wikipedia.org, among many others. At Facebook we have frequently been asked why we don't use LLVM as a back end for HHVM. Inspired by the success of Apple’s FTL we implemented an alternative back end using LLVM.<br>
+In this talk we will share what it took to hook LLVM in to HHVM from conception to running limited production traffic. We will cover changes to our internal IR and modifications we had to make to LLVM. We will discuss performance challenges we faced, peculiar bugs, and finally will discuss why we are not yet at the point of enabling the LLVM back end for production Facebook traffic.
+</p>
+
+<p>
+<b><a id="talk17">LoopVersioning LICM
+</a></b><br>
+<i>Ashutosh Nema - AMD</i><br>
+<a href="slides/Nema-LoopVersioningLICM.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=VxRjJmkFsgM&index=22&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Loop invariant code motion is an important compiler optimization and it moves invariant instructions out of a loop without affecting the semantics of a program.
+For safety it ensures the alias dependencies before moving invariant out of loop.
+In some cases memory aliasing may make this optimization ineffective. This results in possible missed opportunities in speeding up applications.
+<br>
+LoopVersioning LICM is a step to exploit those missed opportunities where memory aliasing may make LICM optimization ineffective.
+
+</p>
+
+<p>
+<b><a id="talk18">Compiling large, real-world codebases with clang on Windows
+</a></b><br>
+<i>Hans Wennborg - Google Inc.</i><br>
+<i>Nico Weber - Google Inc.</i><br>
+<a href="slides/Stepanov-LargeScalelibCPlusPlusDeployment.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=rXi065XC6zY&index=23&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+llvm 3.7 is the first release that can build large projects such as Chromium on Windows without having to fall back to Visual Studio's compiler for a single translation unit. This talk gives an overview of the work done to get to this state: It covers language extensions clang needed to learn to parse Microsoft's headers and dark corners of the Microsoft ABI, with a focus on work done in the last year. Much of the Windows support was developed in tight collaboration between the Chromium and LLVM projects. The talk also touches on how this collaboration works and why it’s successful. Finally, the talk also gives an overview of how to get projects building with clang that build with Visual Studio.
+</p>
+
+<p>
+<b><a id="talk19">Debug Info: From Metadata to Modules
+</a></b><br>
+<i>Duncan Exon Smith - Apple</i><br>
+<i>Adrian Prantl - Apple</i><br>
+<a href="slides/Prantl-ExonSmith-DebugInfoMetadataToModules.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=EgkZ8PTNSHQ&index=24&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+The efficiency of debug info in LLVM and Clang improved dramatically this year.  This talk is about what it took to get here and what work remains.
+<br>
+We'll talk about how Metadata was redesigned to make the debug info IR memory-efficient (with a human-readable assembly syntax).  We'll go into the implications for other Metadata graphs, and what a more expressive Metadata future could look like.  We'll also include an overview of what's left to scale debug info for LTO.
+<br>
+We'll also talk about Clang's new module debugging feature, which reduces the size of debug info on disk, improves compile time, and makes full type information available to debuggers.  We'll highlight how Clang-based debuggers like LLDB can use module debug information to enhance expression evaluation.
+</p>
+
+<p>
+<b><a id="talk20">Advances in Loop Analysis Frameworks and Optimizations
+</a></b><br>
+<i>Adam Nemet - Apple Inc.</i><br>
+<i>Michael Zolotukhin - Apple Inc.</i><br>
+<a href="slides/NemetZolotukhin-AdvancesInLoopAnalysisFrameworksAndOptimizations.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=Y0c8rPf9ihU&index=33&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+The talk will survey recent advances in loop analysis frameworks to support optimizations like unrolling, distribution, loop-aware load-elimination and multi-versioning. A significant part of our contribution was to rethink and re-design existing analysis frameworks to make them both more powerful and more widely accessible. The major part of this talk will focus on introducing these analysis frameworks and how they are used by optimizations. We will also discuss how they integrate with other analysis passes and outline ideas for their future evolution.
+</p>
+
+
+<div class="www_sectiontitle" id="tutorials">Tutorial Abstracts</div>
+
+<p>
+<b><a id="tutorial1">Tutorial: Building, Testing and Debugging a Simple out-of-tree LLVM Pass
+</a></b><br>
+<i>Serge Guelton - Quarkslab</i><br>
+<i>Adrien Guinet - Quarkslab</i><br>
+<a href="slides/GueltonGuinet-BuildingTestingDebuggingASimpleOutOfTreePass.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=BnlG-owSVTk&index=8&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+This tutorial aims at providing solid ground to develop out-of-tree LLVM passes. It presents all the required building blocks, starting from scratch: cmake integration, llvm pass management, opt / clang integration. It presents the core IR concepts through two simple obfuscating passes: the SSA form, the CFG, PHI nodes, IRBuilder etc. We also take a quick tour on analysis integration through dominators. Finally, it showcases how to use cl and lit to parametrize and test the toy passes developed in the tutorial.
+</p>
+
+
+<p>
+<b><a id="tutorial2">Tutorial: Creating an SPMD Vectorizer for OpenCL with LLVM
+</a></b><br>
+<i>Pierre-Andre Saulais - Codeplay Software</i><br>
+<a href="slides/Rogers-IntegerVectorOptimizationsAndUACs.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=ePu6c4FLc9I&index=9&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Processors such as CPUs or DSPs often feature SIMD instructions, but are not designed to efficiently support Single Program Multiple Data (SPMD) execution models such as OpenCL. The design of a compiler for such a target therefore needs some form of vectorization to generate the most optimal code for this kind of data-parallel execution model. This is because SPMD programs are most often written in scalar form with the implicit assumption that many instances of the program are executed in parallel. On CPU-like architectures, SIMD vector units can be leveraged for parallelism, such that each SIMD lane is loosely mapped to a program instance.
+<br>
+This tutorial looks at how to create an SPMD vectorizer that targets CPU-like architectures for use with heterogeneous compute frameworks. OpenCL is used as an example but the concepts should translate to other frameworks such as CUDA, RenderScript or Vulkan Compute. While there are other possible approaches, we have chosen to present one that works at the LLVM IR level and that is essentially an IR pass that creates vectorized functions from the original scalar SPMD function. This allows targetting multiple architectures with very little architecture-specific code.
+<br>
+We will start by briefly introducing the SPMD execution model, describing how it is used in OpenCL and giving an overview of what a SPMD vectorizer should do and how it differs from other kinds such as LLVM's loop vectorizer and SLP vectorizer. Then we will look at a possible vectorizer design, including the different vectorization stages (analysis, control-flow to data-flow, scalarization, packetization/instantiation and optimization/cleanup). Finally, we will look at some possible optimizations as well as other aspects that do not fit the 'stage-by-stage' presentation (e.g. vectorizing and scalarizing calls to builtin functions, SIMD width detection, interleaved memory access optimizations, SoA to AoS conversions, etc).
+
+</p>
+
+<p>
+<b><a id="tutorial3">Tutorial: Polly - Optimistic Loop Nest Optimizations with Schedule Trees
+</a></b><br>
+<i>Tobias Grosser - ETH Zurich</i><br>
+<i>Johannes Doerfert - Saarland University</i><br>
+<a href="slides/DoerfertGrosser-OptimisticAssumptionsInPolly.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=mIBUY20d8c8&index=10&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Polly is an advanced LLVM loop nest optimizer that provides precise
+memory access analyses and implements on top of them advanced loop optimizations based on a memory-access focused program model.
+<br>
+In the first part of this tutorial we introduce the audience to  integer set based schedule trees as a way to model loop programs. We explain how we statically model program behavior on the granularity of individual dynamic computations and discuss different program
+analyses (memory accesses, data-dependences, computational complexity).<br>
+We then learn how to perform complex loop transformations using simple per-node operations on an abstract program schedule tree. Such transformations include most classical loop transformations, but also full/partial tile separation, outer-loop vectorization and other more complex transformations. At the end of the first part of this tutorial,
+the audience understands the general concepts used in Polly.
+<br>
+The second part of this tutorial is focused on Polly's new optimistic optimization infrastructure that enables non-statically provable transformations to be performed optimistically. Discussing optimization blocking issues such as exception handling code, infinite loops, integer wrapping or out-of-bound memory accesses we introduce the concept of optimistic assumptions. We then discuss how such assumptions can be described in general, how Polly can collect assumptions, how redundant assumptions are eliminated and how a (close to) minimal run-time check to verifying them are generated. At the end of the second
+part of this tutorial the audience will be able to create optimistic loop optimizations even for cases that lack sufficient static information.
+</p>
+
+<p>
+<b><a id="tutorial4">Tutorial/BoF: Living Downstream Without Drowning
+</a></b><br>
+<i>Paul Robinson - Sony Computer Entertainment</i><br>
+<i>Michael Edwards - Sony Computer Entertainment</i><br>
+<a href="slides/RobinsonEdwards-LivingDownstreamWithoutDrowning.pdf">Slides</a><br>
+<a href="https://www.youtube.com/watch?v=INCi9gOVMug&index=11&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
+<br>
+Have you made changes to your copy of an llvm.org project? Not
+planning to contribute them back to the open-source project right away?
+Then you are LIVING DOWNSTREAM.
+<br>
+Have you noticed that there are actually quite a lot of changes made
+to the upstream projects? Clang + LLVM together see an average of 50
+commits every day. This is a FLOOD.
+<br>
+Are you seeing lots of conflicts or test failures when you merge
+from upstream? Spending too much time patching things back together
+before you can make any progress on your project? Then you are DROWNING!
+<br>
+On a project with lots of local changes, managing the flood can be
+a half-time job all by itself. It's not _exactly_ unproductive time, but
+it's time you do not spend on your unique project and customizations.
+<br>
+At Sony Computer Entertainment, we were drowning... but we've learned
+to swim with the current, and we are building a lifeboat.
+In this combined tech-talk/BOF session, Paul and Mike will talk
+about SCE's practices and plans for reducing our merge overhead, including
+source-patch practices and merge/build/test automation.
+Then, it becomes a BOF where everyone can share their ideas,
+suggestions and practices for Living Downstream Without Drowning!
+</p>
+
+
+<div class="www_sectiontitle" id="light">Lightning Talk Abstracts</div>
+
+<div class="www_sectiontitle" id="bof">BoF Abstracts</div>
+
+
+<div class="www_sectiontitle" id="poster">Poster Abstracts</div>
+
+
 
 <div class="www_sectiontitle" id="reception">Reception</div>
 <p>
