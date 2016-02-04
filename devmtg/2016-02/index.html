@@ -42,6 +42,20 @@ pages (linked below).
 <div class="www_subsection">Project Planning and Tracking</div>
 <p>The event is using a Trello board to track projects and the teams that are working on them. The board can be found
 <a href="https://trello.com/b/zF3DqT7G/clang-llvm-sprint-weekend-feb-6-7-2016">here</a>.</p>
+<div class="www_subsection">Getting Started Quickly with a Virtual Machine</div>
+<p>A virtual machine image is available, based on Ubuntu Linux 14.04, that you can use to get your laptop ready for the event quickly. You'll need a virtualization
+package (hypervisor); the image was created using VirtualBox 5, but has been tested with VMware and other hypervisors. Since it is a generic image, when you import
+it you'll need to ensure that you supply the VM with adequate CPU and memory resources; while you can build LLVM with only one CPU and 4GB of memory, it will be slow
+enough to be inconvenient.</p>
+
+<p>New York event attendees should download the image <a href="https://s3.amazonaws.com/bbg-misc-us/llvm_1.ova" target="_blank">here</a>.</p>
+<p>London event attendees should download the image <a href="https://s3-eu-west-1.amazonaws.com/bbg-misc-eu/llvm_1.ova" target="_blank">here</a>.</p>
+
+<p>When you boot the image into a machine, you can log in with user 'llvm', password 'llvm'. As is typical with Ubuntu systems, this user has sudo privileges, so you
+can install additional software or make configuration changes.</p>
+
+<p>Note: if you use VMware to load this image, you may receive a warning about the image being non-compliant with the Open Virtualization specification; allow the
+import to proceed anyway, and you'll have a working VM.</p>
 
 <div class="www_sectiontitle" id="logistics-newyork">Logistics (New York)</div>
 <ul>
