@@ -218,6 +218,60 @@ noon, and will end on March 18th, in the late afternoon around 17:30.
 
 <div class="www_sectiontitle" id="PresentationsAbstracts">Presentation Abstracts</div>
 <div class="www_sectiontitle" id="TutorialsAbstracts">Tutorial Abstracts</div>
+<p>
+<b><a id="tuto1">Adding your Architecture to LLDB</a></b><br>
+<i>Deepak Panickal - Codeplay</i><br>
+<i>Andrzej Warzynski - Codeplay</i><br>
+This tutorial explains how to get started with adding a new architecture to
+LLDB. It walks through all the major steps required and how LLDB's various
+plugins work together in making this a maintainable and easily approachable
+task. It will cover: basic definition of the architecture, implementing
+register read/write through adding a RegisterContext, manipulating breakpoints,
+single-stepping, adding an ABI for stack walking, adding support for
+disassembly of the architecture, memory read/write through modifying Process
+plugins, and everything else that is needed in order to provide a usable
+debugging experience. The required steps will be demonstrated for a RISC
+architecture not yet supported in LLDB, but simple enough so that no expert
+knowledge of the underlying target is required. Practical debugging tips, as
+well as solutions to common issues, will be given.
+</p>
+
+<p>
+<b><a id="tuto2">Analyzing and Optimizing your Loops with Polly</a></b><br>
+<i>Tobias Grosser - ETH</i><br>
+<i>Johannes Doerfert - Saarland University</i><br>
+<i>Zino Benaissa - Quic Inc.</i><br>
+The Polly Loop Optimizer is a framework for the analysis and optimization of
+(possibly imperfectly) nested loops. It provides various transformations such
+as loop fusion, loop distribution, loop tiling as well as outer loop
+vectorization. In this tutorial we introduce the audience to the Polly loop
+optimizer and show how Polly can be used to analyze and improve the performance
+of their code. We start off with basic questions such as "Did Polly understand
+my loops?", "What information did Polly gather?", "How does the optimized loop
+nest look like?", "Can I provide more information to enable better
+optimizations?", and "How can I utilize Polly's analysis for other purposes?".
+Starting from these foundations we continue with a deeper look in more advanced
+uses of Polly: This includes the analysis and optimization of some larger
+benchmarks, the programming interfaces to Polly as well as the connection
+between Polly and other LLVM-IR passes. At the end of this tutorial we expect
+the audience to not only be able to optimize their codes with Polly, but also
+to have a first understanding of how to use it as a framework to implement
+their own loop transformations.
+</p>
+
+<p>
+<b><a id="tuto3">Building, Testing and Debugging a Simple out-of-tree LLVM Pass</a></b><br>
+<i>Serge Guelton - Quarkslab</i><br>
+<i>Adrien Guinet - Quarkslab</i><br>
+This tutorial aims at providing solid ground to develop out-of-tree LLVM passes.
+It presents all the required building blocks, starting from scratch: cmake
+integration, llvm pass management, opt / clang integration. It presents the core
+IR concepts through two simple obfuscating passes: the SSA form, the CFG, PHI
+nodes, IRBuilder etc. We also take a quick tour on analysis integration through
+dominators. Finally, it showcases how to use cl and lit to parametrize and test
+the toy passes developed in the tutorial.
+</p>
+
 <div class="www_sectiontitle" id="LightningTalksAbstracts">Lightning talks Abstracts</div>
 <div class="www_sectiontitle" id="PostersAbstracts">Posters Abstracts</div>
 <div class="www_sectiontitle" id="BoFsAbstracts">BoFs Abstracts</div>
