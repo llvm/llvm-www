@@ -278,6 +278,156 @@ audience, especially when considering we are collocated with CGO and CC.
 
 <div class="www_sectiontitle" id="LightningTalksAbstracts">Lightning talks abstracts</div>
 <div class="www_sectiontitle" id="PostersAbstracts">Posters abstracts</div>
+<p>
+<b><a id="poster1">ARCHER: Effectively Spotting Data Races in Large OpenMP Applications</a></b><br>
+<i>Simone Atzeni - University of Utah</i><br>
+<i>Ganesh Gopalakrishnan - University of Utah</i><br>
+<i>Zvonimir Rakamaric - University of Utah</i><br>
+<i>Dong H. Ahn - Lawrence Livermore National Laboratory</i><br>
+<i>Ignacio Laguna - Lawrence Livermore National Laboratory</i><br>
+<i>Martin Schulz - Lawrence Livermore National Laboratory</i><br>
+<i>Gregory L. Lee - Lawrence Livermore National Laboratory</i><br>
+Although the importance OpenMP as a parallel programming model and its adoption
+in Clang/LLVM is increasing (OpenMP 3.1 is now fully supported by Clang/LLVM
+3.7), existing data-race checkers for OpenMP have high overheads and generate
+many false positives. In this work, we propose the first OpenMP data race
+checker, ARCHER, that achieves high accuracy and low overheads on large OpenMP
+applications. Built on top of LLVM/Clang and the ThreadSanitizer (TSan) dynamic
+race checker, ARCHER incorporates scalable happens-before tracking, and
+exploits structured parallelism via combined static and dynamic analysis, and
+modularly interfaces with OpenMP runtimes. ARCHER significantly outperforms
+TSan and Intel Inspector XE, while providing the same or better precision. It
+has helped detect critical data races in the Hypre library that is central to
+many projects at the Lawrence Livermore National Laboratory (LLNL) and
+elsewhere.
+</p>
+
+<p>
+<b><a id="poster2">Design-space exploration of LLVM pass order with simulated annealing</a></b><br>
+<i>Nicholas Timmons - Cambridge University</i><br>
+<i>David Chisnall - Cambridge University</i><br>
+We undertook an automated design space exploration of the optimisation pass
+order and inliner thresholds in Clang using simulated annealing. It was
+performed separately on multiple input programs so that the results could be
+validated against each other. Superior configurations to the preset
+optimisation levels were found, such as those which produce similar run times
+to the presets whilst reducing build times, and those which offer improved
+run-time performance than the '-O3' optimisation level. Contrary to our
+expectation, we also found that the preset optimisation levels did not provide
+a uniform distribution in the tradeoff space between run and build-time
+performance.
+</p>
+
+<p>
+<b><a id="poster3">ConSerner: Compiler Driven Context Switches between Accelerators and CPUs</a></b><br>
+<i>Ramy Gad - Johannes Gutenberg University</i><br>
+<i>Tim Suess - University of Mainz</i><br>
+<i>Andre Brinkmann - Johannes Gutenberg-Universit&auml;t Mainz</i><br>
+Computer systems provide different heterogeneous resources (e.g., GPUs, DSPs
+and FPGAs) that accelerate applications and that can reduce the energy
+consumption by using them. Usually, these resources have an isolated memory and
+a require target specific code to be written. There exist tools that can
+automatically generate target specific codes for program parts, so-called
+kernels. The data objects required for a target kernel execution need to be
+moved to the target resource memory. It is the programmers' responsibility to
+serialize these data objects used in the kernel and to copy them to or from the
+resource's memory. Typically, the programmer writes his own serializing
+function or uses existing serialization libraries. Unfortunately, both
+approaches require code modifications, and the programmer needs knowledge of
+the used data structure format. There is a need for a tool that is able to
+automatically extract the original kernel data objects, serialize them, and
+migrate them to a target resource without requiring intervention from the
+programmer.
+</p><p>
+In this work, we present a tool collection ConSerner that automatically
+identifies, gathers, and serializes the context of a kernel and migrates it to
+a target resource's memory where a target specific kernel is executed with this
+data. This is all done transparently to the programmer. Complex data structures
+can be used without making a modification of the program code by a programmer
+necessary. Predefined data structures in external libraries (e.g., the STL's
+vector) can also be used as long as the source code of these libraries is
+available.
+</p>
+
+<p>
+<b><a id="poster4">Evaluation of State-of-the-art Static Checkers for Detecting Objective-C Bugs in iOS Applications</a></b><br>
+<i>Thai San Phan - University of New South Wales</i><br>
+<i>Yulei Sui - University of New South Wales</i><br>
+The pervasive usage of mobile phone applications is now changing the way
+people use traditional software. Smartphone apps generated an impressive USD
+35 billion in full-year 2014, and in total 138 billion apps were
+downloaded in the year. The last few years have seen an unprecedented number
+of people rushing to develop mobile apps. Apple iOS has always played a major
+role in the smart-devices industry ever since the evolution of it. On average,
+around 45,000 newly developed apps are submitted for release to the iTunes
+App Store in 2014. Similar as desktop software, any mobile applications are
+prone to bugs and it is difficult to completely make them bug-free. As a
+fundamental tool to help programmers effectively locate program defects during
+compile time, static analysis approximates the runtime behaviour of a program
+without actually executing it. It is extremely helpful to catch bugs earlier during
+software development cycle before the produced is shipped in order to avoid
+high maintenance cost. This poster is hence to evaluate the state-of-the-art static
+checkers for detecting Objective-C bugs to systematically investigate the
+advantages and disadvantages of using different checkers on a wide variety bug
+patterns in iOS applications.
+</p><p>
+Objective-C, as the primary language for iOS application, is an object-oriented
+superset of C such that it inherits syntax, primitive types and flow control
+statements of C. Though it has many new features that distinguish it from C
+such as message passing (equivalent to C or Java's method calling), interface
+and implementation for objects (equivalent to "class" in C++), garbage collector
+or now ARC (C does not have this feature), and most importantly, it is a
+runtime-driven language where decisions such as memory allocations, object
+creation, reflection API are decided at runtime as oppose to be determined
+during compilation. All these features significantly complicated scalable and
+precise static analysis.
+</p>
+
+<p>
+<b><a id="poster5">Stack Size Estimation on Machine-Independent Intermediate Code for OpenCL Kernels</a></b><br>
+<i>Stefano Cherubin - Politecnico di Milano</i><br>
+<i>Michele Scandale - Politecnico di Milano</i><br>
+<i>Giovanni Agosta - Politecnico di Milano</i><br>
+Stack size is an important factor in the mapping decision when dealing with
+embedded heterogeneous architectures, where fast memory is a scarce resource.
+Trying to map a kernel onto a device with insufficient memory may lead to
+reduced performance or even failure to run the kernel. OpenCL kernels are
+often compiled just-in-time, starting from the source code or an intermediate
+machine-independent representation. Precise stack size information, however,
+is only available in machine-dependent code. We provide a method for computing
+the stack size with sufficient accuracy on machine-independent code, given
+knowledge of the target ABI and register file architecture. This method can be
+applied to make mapping decisions early, thus avoiding to compile multiple
+times the code for each possible accelerator in a complex embedded
+heterogeneous system. 
+</p>
+
+<p>
+<b><a id="poster6">AAP: The Compiler Writer's Architecture from hell</a></b><br>
+<i>Simon Cook - Embecosm</i><br>
+<i>Edward Jones - Embecosm</i><br>
+<i>Jeremy Bennett - Embecosm</i><br>
+Contending with the blistering pace of LLVM advancement is a challenge for out
+of tree targets. Many out of tree targets, often for widely used embedded
+processors, have hardware features which are not well represented by the
+mainstream LLVM project.
+</p><p>
+We introduced An Altruistic Processor (AAP) at EuroLLVM 2015. AAP's
+architecture encapsulates as many of these features as possible. AAP is a
+RISC, Harvard architecture with up to 64kB of byte addressed data, up to 16MW of
+word addressed code, and a configurable register bank of between 4 and 64
+registers.
+</p><p>
+In this poster we will present an update on the AAP architecture. We'll look
+at some of the most challenging features, and how we have extended LLVM to
+support them. This includes :
+</p>
+<ul>
+  <li>different sizes of code and address pointers,</li>
+  <li>how to handle code pointers that do not fit in the default address space,</li>
+  <li>operations where stack access is cheaper than register access,</li>
+  <li>how to relax call/return when you have multiple return address sizes.</li>
+</ul>
 
 <div class="www_sectiontitle" id="BoFsAbstracts">BoFs abstracts</div>
 <p>
