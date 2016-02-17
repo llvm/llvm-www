@@ -9,11 +9,11 @@
         <li><a href="#registration">Registration</a></li>
         <li><a href="#accomodation<">Accomodation</a></li>
         <li><a href="#schedule">Schedule</a></li>
-        <li><a href="#PresentationsAbstracts">Presentations abstracts</div>
-        <li><a href="#TutorialsAbstracts">Tutorials abstracts</div>
-        <li><a href="#LightningTalksAbstracts">Lightning talks abstracts</div>
-        <li><a href="#PostersAbstracts">Posters abstracts</div>
-        <li><a href="#BoFsAbstracts">BoFs abstracts</div>
+        <li><a href="#PresentationsAbstracts">Presentations abstracts</a></li>
+        <li><a href="#TutorialsAbstracts">Tutorials abstracts</a></li>
+        <li><a href="#LightningTalksAbstracts">Lightning talks abstracts</a></li>
+        <li><a href="#PostersAbstracts">Posters abstracts</a></li>
+        <li><a href="#BoFsAbstracts">BoFs abstracts</a></li>
 </ol>
 </td><td>
 <ul>
@@ -217,6 +217,374 @@ noon, and will end on March 18th, in the late afternoon around 17:30.
 </p>
 
 <div class="www_sectiontitle" id="PresentationsAbstracts">Presentations abstracts</div>
+<p>
+<b><a id="presentation1">Clang, libc++ and the C++ standard</a></b><br>
+<i>Marshall Clow - Qualcomm</i><br>
+<i>Richard Smith - Google</i><br>
+The C++ standard is evolving at a fairly rapid pace. After almost 15 years of
+little change (1998-2010), we've had major changes in 2011, 2014, and soon
+(probably) 2017. There are many parallel efforts to add new functionality to
+the language and the standard library.
+</p><p>
+In this talk, we will discuss upcoming changes to the language and the standard
+library, how they will affect existing code, and their implementation status in
+LLVM. 
+</p>
+
+<p>
+<b><a id="presentation2">Codelet Extractor and REplayer</a></b><br>
+<i>Chadi Akel - Exascale Computing Research</i><br>
+<i>Pablo De Oliveira Castro - University of Versailles</i><br>
+<i>Michel Popov - University of Versailles</i><br>
+<i>Eric Petit - University of Versailles</i><br>
+<i>William Jalby - University of Versailles</i><br>
+Codelet Extractor and REplayer (CERE) is an LLVM-based framework that finds and
+extracts hotspots from an application as isolated fragments of code. Codelets
+can be modified, compiled, run, and measured independently from the original
+application. Through performance signature clustering, CERE extracts a minimal
+but representative codelet set from applications, which can significantly
+reduce the cost of benchmarking and iterative optimization. Codelets have
+proved successful in auto-tuning target architecture, compiler optimization or
+amount of parallelism. To do so, CERE goes trough multiple llvm passes. It
+first outlines at IR level the loop to capture into a function using
+CodeExtractor pass. Then, depending on the mode, CERE inserts the necessary
+instructions to either capture or replay the loop. Probes can also be inserted
+at IR level around loops to enable instrumentation through externals libraries.
+Finally CERE also provides a python interface to easily use the tool.
+</p>
+
+<p>
+<b><a id="presentation3">New LLD linker for ELF</a></b><br>
+<i>Rui Ueyama - Google</i><br>
+Since last year, we have been working to rewrite the ELF support in LLD, the
+LLVM linker, to create a high-performance linker that works as a drop-in
+replacement for the GNU linker. It is now able to bootstrap LLVM, Clang, and
+itself and pass all tests on x86-64 Linux and FreeBSD. The new ELF linker is
+small and fast; it is currently fewer than 10k lines of code and about 2x
+faster than GNU gold linker.
+</p><p>
+In order to achieve this performance, we made a few important decisions in the
+design. This talk will present the design and the performance of the new ELF LLD.
+</p>
+
+<p>
+<b><a id="presentation4">Improving LLVM Generated Code Size for X86 Processors</a></b><br>
+<i>David Kreitzer - Intel</i><br>
+<i>Zia Ansari - Intel</i><br>
+<i>Andrey Turetskiy - Intel</i><br>
+<i>Anton Nadolsky - Intel</i><br>
+Minimizing the size of compiler generated code often takes a back seat to other
+optimization objectives such as maximizing the runtime performance. For some
+applications, however, code size is of paramount importance, and this is an
+area where LLVM has lagged gcc when targeting x86 processors. Code size is of
+particular concern in the microcontroller segment where programs are often
+constrained by a relatively small and fixed amount of memory. In this
+presentation, we will detail the work we did to improve the generated code size
+for the SPEC CPU2000 C/C++ benchmarks by 10%, bringing clang/LLVM to within 2%
+of gcc. While the quoted numbers were measured targeting Intel&reg; Quark&trade;
+microcontroller D2000, most of the individual improvements apply to all X86
+targets. The code size improvement was achieved via new optimizations, tuning
+of existing optimizations, and fixing existing inefficiencies. We will describe
+our analysis methodology, explain the impact and LLVM compiler fix for each
+improvement opportunity, and describe some opportunities for future code size
+improvements with an eye toward pushing LLVM ahead of gcc on code size.
+</p>
+
+<p>
+<b><a id="presentation5">Towards ameliorating measurement bias in evaluating performance of generate code</a></b><br>
+<i>Kristof Beyls - ARM</i><br>
+To make sure LLVM continues to optimize code well, we use both post-commit
+performance tracking and pre-commit evaluation of new optimization patches. As
+compiler writers, we wish that the performance of code generated could be
+characterized by a single number, making it straightforward to decide from an
+experiment whether code generation is better or worse. Unfortunately,
+performance of generated code needs to be characterized as a distribution,
+since effects not completely under control of the compiler, such as heap, stack
+and code layout or initial state in the processors prediction tables, have a
+potentially large influence on performance. For example, it's not uncommon when
+benchmarking a new optimization pass that clearly makes code better, the
+performance results do show some regressions. But are these regressions due to
+a problem with the patch, or due to noise effects not under the control of the
+compiler?  Often, the noise levels in performance results are much larger than
+the expected improvement a patch will make. How can we properly conclude what
+the true effect of a patch is when the noise is larger than the signal we're
+looking for?
+</p><p>
+When we see an experiment that shows a regression while we know that on
+theoretical grounds the generated code is better, we see a symptom of only
+measuring a single sample out of the theoretical space of all
+not-under-the-compiler's-control factors, e.g. code and data layout variation.
+</p><p>
+In this presentation I'll explain this problem in a bit more detail; I'll
+summarize suggestions for solving this problem from academic literature; I'll
+indicate what features in LNT we already have to try and tackle this problem;
+and I'll show the results of my own experiments on randomizing code layout to
+try and avoid measurement bias.
+</p>
+
+<p>
+<b><a id="presentation6">A journey of OpenCL 2.0 development in Clang</a></b><br>
+<i>Anastasia Stulova - ARM</i><br>
+In this talk we would like to highlight some of the recent collaborative work
+among several institutions (namely ARM, Intel, Tampere University of
+Technology, and others) for supporting OpenCL 2.0 compilation in Clang. This
+work is represented by several patches to Clang upstream that enable
+compilation of the new standard. While the majority of this work is already
+committed, some parts are still a work in progress that should be finished in
+the upcoming months. 
+</p><p>
+OpenCL is a C99 based language, standardized and developed by the Khronos Group
+(<a href="http://www.khronos.org">www.khronos.org</a>), intended to describe
+data-parallel general purpose computations. OpenCL 2.0 provides several new
+features that require compiler support, i.e. generic address space, atomics,
+program scope variables, pipes, and device side enqueue. In this talk we will
+give a quick overview of each of these features and the compiler support that
+had/has to be added. We will focus on the benefits of reusing existing C/OpenCL
+compiler features as well as difficulties not foreseen with the previous
+design. At the end of this session we would like to invite people to
+participate in discussions on improvements and future work, and get an opinion
+of what they think could be useful for them.
+</p>
+
+<p>
+<b><a id="presentation7">Building a binary optimizer with LLVM</a></b><br>
+<i>Maksim Panchenko - Facebook</i><br>
+Large-scale applications in data centers are built with the highest level of
+compiler optimizations and typically use a carefully tuned set of compiler
+options as every single percent of performance could result in vast savings of
+power and CPU time. However, code and code-layout optimizations don't stop at
+compiler level, as further improvements are possible at link-time and beyond
+that.
+</p><p>
+At Facebook we use a linker script for an optimal placement of functions in
+HHVM binary to eliminate instruction-cache misses. Recently, we've developed a
+binary optimization technology that allows us to further cut instruction cache
+misses and branch mis-predictions resulting in even greater performance wins.
+</p><p>
+In this talk we would like to share technical details of how we've used LLVM's
+MC infrastructure and ORC layered approach to code generation to build in a
+short time a system that is being deployed to one of the world's biggest data
+centers.  The static binary optimization technology we've developed, uses
+profile data generated in multi-threaded production environment, and is
+applicable to any binary compiled from well-formed C/C++ and even assembly. At
+the moment we use it on a 140MB of X86 binary code compiled from C/C++. The
+input binary has to be un-stripped and does not have any special requirements
+for compiler or compiler options.  In our current implementation we were able
+to improve I-cache misses by 7% on top of a linker script for HHVM binary.
+Branch mis-predictions were improved by 5%.
+</p><p>
+As with many projects at Facebook, our plan is to open source our binary
+optimizer. 
+</p>
+
+<p>
+<b><a id="presentation8">SVF: Static Value-Flow Analysis in LLVM</a></b><br>
+<i>Yulei Sui - University of New South Wales</i><br>
+<i>Peng Di - University of New South Wales</i><br>
+<i>Ding Ye - University of New South Wales</i><br>
+<i>Hua Yan - University of New South Wales</i><br>
+<i>Jingling Xue - University of New South Wales</i><br>
+This talk presents SVF, a research tool that enables scalable and precise
+interprocedural Static Value-Flow analysis for sequential and multithreaded C
+programs by leveraging recent advances in sparse analysis. SVF, which is fully
+implemented in LLVM (version 3.7.0) with over 50 KLOC core C++ code, allows
+value-flow construction and pointer analysis to be performed in an iterative
+manner, thereby providing increasingly improved precision for both. SVF accepts
+points-to information generated by any pointer analysis (e.g., Andersen's
+analysis) and constructs an interprocedural memory SSA form, in which the
+def-use chains of both top-level and address-taken variables are captured. Such
+value-flows can be subsequently exploited to support various forms of program
+analysis or enable more precise pointer analysis (e.g., flow-sensitive
+analysis) to be performed sparsely. SVF provides an extensible interface for
+users to write their own analysis easily. SVF is publicly available at
+<a href="http://unsw-corg.github.io/SVF">http://unsw-corg.github.io/SVF</a>.
+</p><p>
+We first describe the design and internal workings of SVF, based on a
+years-long effort in developing the state-of-the-art algorithms of precise
+pointer analysis, memory SSA construction and value-flow analysis for C
+programs. Then, we describe the implementation details with code examples in
+the form of LLVM IR. Next, we discuss some usage scenarios and our previous
+experiences in using SVF in several client applications including detecting
+software bugs (e.g., memory leaks, data races), and accelerating dynamic
+program analyses (e.g., MSAN, TSAN). Finally, our future work and some open
+discussions.
+</p><p>
+Note: this presentation will be shared with CC.
+</p>
+
+<p>
+<b><a id="presentation9">Run-time type checking with clang, using libcrunch</a></b><br>
+<i>Chris Diamand - University of Cambridge</i><br>
+<i>Stephen Kell - Computer Laboratory, University of Cambridge</i><br>
+<i>David Chisnall - Computer Laboratory, University of Cambridge</i><br>
+Existing sanitizers ASan and MSan add run-time checking for memory
+errors, both spatial and temporal. However, currently there is no
+analogous way to check for type errors. This talk describes a system for
+adding run-time type checks, largely checking pointer casts, at the
+Clang AST level.
+</p><p>
+Run-time type checking is important for three reasons. Firstly, type
+bugs such as bad pointer casts can lead to type-incorrect accesses that
+are spatially valid (in bounds) and temporally valid (accessing live
+memory), so are missed by MSan or ASan. Secondly, type-incorrect
+accesses which do trigger memory errors often do so only many
+instructions later, meaning that spatial or temporal violation warnings
+fail to pinpoint the root problem, making debugging difficult. Finally,
+given an awareness of type, it becomes possible to perform more precise
+spatial and temporal checking -- for example, recalculating pointer
+bounds after a cast, or perhaps even mark-and-sweep garbage collection.
+</p><p>
+Although still a research prototype, libcrunch can cope well with real C
+codebases, and supports a good complement of awkward language features.
+Experience shows that libcrunch reliably finds questionable pointer use,
+and often uncovers minor other bugs. It also naturally detects certain
+format string exploits. However, its main value is in debugging fresh,
+not-yet-committed code ("why is this segfaulting?"). Beside the warnings
+generated by failing checks, the runtime API is also available from the
+debugger, so can interactively answer questions like "what type is this really
+pointing to?". 
+</p>
+
+<p>
+<b><a id="presentation10">Molly: Parallelizing for Distributed Memory using LLVM</a></b><br>
+<i>Michael Kruse - INRIA/ENS</i><br>
+Motivated by modern day physics which in addition to experiments also tries to
+verify and deduce laws of nature by simulating the state-of-the-art physical
+models using large computers, we explore means of accelerating such simulations
+by improving the simulation programs they run. The primary focus is Lattice
+Quantum Chromodynamics (QCD), a branch of quantum field theory, running on IBM
+newest supercomputer, the Blue Gene/Q.
+</p><p>
+Molly is an LLVM compiler extension, complementary to Polly, which optimizes
+the distribution of data and work between the nodes of a cluster machine such
+as Blue Gene/Q. Molly represents arrays using integer polyhedra and uses
+another already existing compiler extension Polly which represents statements
+and loops using polyhedra. When Molly knows how data is distributed among the
+nodes and where statements are executed, it adds code that manages the data
+flow between the nodes. Molly can also permute the order of data in memory.
+</p><p>
+Molly's main task is to cluster data into sets that are sent to the same target
+into the same buffer because single transfers involve a massive overhead. We
+present an algorithm that minimizes the number of transfers for unparametrized
+loops using anti-chains of data flows. In addition, we implement a heuristic
+that takes into account how the programmer wrote the code. Asynchronous
+communication primitives are inserted right after the data is available
+respectively just before it is used. A runtime library implements these
+primitives using MPI. Molly manages to distribute any code that is
+representable in the polyhedral model, but does so best for stencils codes such
+as Lattice QCD. Compiled using Molly, the Lattice QCD stencil reaches 2.5% of
+the theoretical peak performance. The performance gap is mostly because all the
+other optimizations are missing, such as vectorization. Future versions of
+Molly may also effectively handle non-stencil codes and use make use of all the
+optimizations that make the manually optimized Lattice QCD stencil fast.
+</p>
+
+<p>
+<b><a id="presentation11">How Polyhedral Modeling enables compilation to Heterogeneous Hardware</a></b><br>
+<i>Tobias Grosser - ETH</i><br>
+Polly, as a polyhedral loop optimizer for LLVM, is not only a sophisticated
+tool for data locality optimizations, but also has precise information about
+loop behavior that can be used to automatically generate accelerator code.
+</p><p>
+In this presentation we present a set of new Polly features that have been
+introduced throughout the last two years (and as part of two GSoC projects)
+that enable the use of Polly in the context of compilation for heterogeneous
+systems. As part of this presentation we discuss how we use Polly to derive the
+precise memory footprints of compute regions for both flat arrays as well as
+multi-dimensional arrays of parametric size. We then present a new, high-level
+interface that allows for the automatic remapping of memory access functions to
+new locations or data-layouts and show how this functionality can be used to
+target software managed caches. Finally, we present our latest results in terms
+of automatic PTX/CUDA code generation using Polly as a core component. 
+</p>
+
+<p>
+<b><a id="presentation12">Bringing RenderScript to LLDB</a></b><br>
+<i>Luke Drummond - Codeplay</i><br>
+<i>Ewan Crawford - Codeplay</i><br>
+RenderScript is Android's compute framework for parallel computation via
+heterogeneous acceleration. It supports multiple target architectures and uses
+a two-stage compilation process, with both off-line and on-line stages, using
+LLVM bitcode as its intermediate representation. This split allows code to be
+written and compiled once, before execution on multiple architectures
+transparently from the perspective of the programmer.
+</p><p>
+In this talk, we give a technical tour of our upstream RenderScript LLDB
+plugin, and how it interacts with Android applications executing RenderScript
+code. We provide a brief overview of RenderScript, before delving into the LLDB
+specifics. We will discuss some of the challenges that we encountered in
+connecting to the runtime, and present some of the specific implementation
+techniques we used to hook into it and inspect its state. In addition, we will
+describe how we tweaked LLDB's JIT compiler for expression evaluation, and how
+we added commands specific to RenderScript data objects. This talk will cover
+topics such as the plug-in architecture of LLDB, the debugger's powerful hook
+mechanism, remote debugging, and generating debug information with LLVM.
+</p>
+
+<p>
+<b><a id="presentation13">C++ on Accelerators: Supporting Single-Source SYCL and HSA Programming Models Using Clang</a></b><br>
+<i>Victor Lomuller - Codeplay</i><br>
+<i>Ralph Potter - Codeplay</i><br>
+<i>Uwe Dolinsky - Codeplay</i><br>
+Heterogeneous systems have been massively adopted across a wide range of
+devices. Multiple initiatives, such as OpenCL and HSA, have appeared to
+efficiently program these types of devices.
+</p><p>
+Recent initiatives attempt to bring modern C++ applications to heterogeneous
+devices. The Khronos Group published SYCL in mid-2015. SYCL offers a
+single-source C++ programming environment built on top of OpenCL. Codeplay and
+the University of Bath are currently collaborating on a C++ front-end for HSAIL
+(HSA Intermediate Language) from the HSA Foundation. Both models use a similar
+single-source C++ approach, in which the host and device kernel C++ code is
+interleaved. A kernel always starts using specific function calls, which take a
+functor object. To support the compilation of these two high-level programming
+models, Codeplay's compilers rely on a common engine based on Clang and LLVM to
+extract and manipulate those kernels.
+</p><p>
+In this presentation we will briefly present both programming models and then
+focus on Codeplay's usage of Clang to manage both models.
+</p>
+
+<p>
+<b><a id="presentation14">A closer look at ARM code size</a></b><br>
+<i>Tilmann Scheller - Samsung Electronics</i><br>
+The ARM LLVM backend has been around for many years and generates high quality
+code which executes very efficiently. However, LLVM is also increasingly used
+for resource-constrained embedded systems where code size is more of an issue.
+Historically, very few code size optimizations have been implemented in LLVM.
+When optimizing for code size, GCC typically outperforms LLVM significantly.
+</p><p>
+The goal of this talk is to get a better understanding of why the GCC-generated
+code is more compact and also about finding out what we need to do on the LLVM
+side to address those code size deficiencies. As a case study we will have a
+detailed look at the generated code of an application running on a
+resource-constrained microcontroller.
+</p>
+
+<p>
+<b><a id="presentation15">Scalarization across threads</a></b><br>
+<i>Alexander Timofeev - Luxoft</i><br>
+<i>Boris Ivanovsky - Luxoft</i><br>
+Some of the modern highly parallel architectures include separate vector
+arithmetic units to achieve better performance on parallel algorithms. On the
+other hand, real world applications never operate on vector data only. In most
+cases whole data flow is intended to be processed by vector units. In fact,
+vector operations on some platforms (for instance, with massive data
+parallelism) may be expensive, especially for parallel memory operations.
+Sometimes instructions operating on vectors of identical values could be
+transformed into corresponding scalar form.
+</p><p>
+The goal of this presentation is to outline a technique which allows to split
+program data flow to separate vector and scalar parts so that they can be
+executed on vector and scalar arithmetic units separately.
+</p><p>
+The analysis has been implemented in the HSA compiler as an iterative solver
+over SSA form. The result of the analysis is a set of memory operations
+legitimate to be transformed into a scalar form. The subsequent transformations
+resulted in a small performance increase across the board, and gain up to 10%
+increase in a few benchmarks, one of them being HEVC decoder. 
+</p>
+
 <div class="www_sectiontitle" id="TutorialsAbstracts">Tutorials abstracts</div>
 <p>
 <b><a id="tuto1">Adding your Architecture to LLDB</a></b><br>
