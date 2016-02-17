@@ -274,7 +274,115 @@ the toy passes developed in the tutorial.
 
 <div class="www_sectiontitle" id="LightningTalksAbstracts">Lightning talks Abstracts</div>
 <div class="www_sectiontitle" id="PostersAbstracts">Posters Abstracts</div>
+
 <div class="www_sectiontitle" id="BoFsAbstracts">BoFs Abstracts</div>
+<p>
+<b><a id="bof1">LLVM Foundation</a></b><br>
+<i>LLVM Foundation members</i><br>
+This BoF will give the EuroLLVM attendees a chance to talk with some of the
+board members of the LLVM Foundation. We will discuss the Code of Conduct and
+Apache2 license proposal and answer any questions about the LLVM Foundation.
+</p>
+
+<p>
+<b><a id="bof2">Compilers in Education</a></b><br>
+<i>Roel Jordans - Eindhoven University of Technology</i><br>
+<i>Henk Corporaal - Eindhoven University of Technology</i><br>
+While computer architecture and hardware optimization is generally well covered
+in education, compilers are still often a poorly represented subject. Classical
+compiler lecture series seem to mostly cover the front-end parts of the
+compiler but usually lack an in-depth discussion of newer optimization and code
+generation techniques. Important aspects such as auto-vectorization, complex
+instruction support for DSP architectures, and instruction scheduling for
+highly parallel for VLIW architectures are often touched only lightly. However,
+creating new processor designs requires a properly optimizing compiler in order
+for it to be usable by your customers. As such, there is a good market for
+well-trained compiler engineers which does not match with the classical style
+of teaching compilers in education.
+</p><p>
+At Eindhoven University of Technology, we are currently starting a new compiler
+course that should provide such an improved lecture series to our
+students and we plan to make this available to the wider community. The
+focus of this lecture series is on tool-flow organization of modern
+parallelizing compilers, their internal techniques, and the advantages
+and limitations of these techniques. We try to train the students so that
+they can understand how the compiler works internally, but also apply
+this new knowledge in writing C program code that allows the compiler to
+utilize its advanced optimizations to generate better and portable code.
+As a result, we hope to provide better qualified compiler engineers, but
+also train them to write better high-performance code at a high-level by
+applying their compiler knowledge in guiding the compiler to an efficient
+implementation of the program.
+</p><p>
+As part this process we would like to get in contact with institutes and
+companies that will be taking advantage of our newly educated students
+and discuss with them the contents of our lecture series. What do you
+guys think are important topics that new engineers should know about to
+be useful in your organization and what would make this course
+interesting for yourself? 
+</p>
+
+<p>
+<b><a id="bof3">Surviving Downstream</a></b><br>
+<i>Paul Robinson - Sony Computer Entertainment America</i><br>
+We presented "Living Downstream Without Drowning" as a tutorial/BOF
+session at the US LLVM meeting in October. After the session, Paul
+had people coming to talk to him for most of the evening social event
+and half of the next day (and so missed several other talks!).
+Clearly a lot of people are in this situation and there are many
+good ideas to share.
+</p><p>
+Come to this follow-up BOF and share your practices, problems and
+solutions for surviving the "flood" of changes from the upstream
+LLVM projects.
+</p>
+
+<p>
+<b><a id="bof4">Polly - Loop Optimization Infrastructure</a></b><br>
+<i>Tobias Grosser - ETH</i><br>
+<i>Johannes Doerfert - Saarland University</i><br>
+<i>Zino Benaissa - Quic Inc.</i><br>
+The Polly Loop Optimization infrastructure has seen active development
+throughout 2015 with contributions from a larger group of developers located at
+various places around the globe. With three successful Polly sessions at the US
+developers meeting and larger interest at the recent HiPEAC conference in Prag,
+we expect various Polly developers to be able to attend EuroLLVM. To facilitate
+in-persona collaboration between the core developers and to reach out to the
+wider loop optimization community, we propose a BoF session on Polly and the
+LLVM loop optimization infrastructure. Current hot topics are the
+usability of Polly in an '-O3' compiler pass sequence, profile driven
+optimizations as well as the definition of future development milestones.
+The Polly developers community will present ideas on these topics, but
+very much invites input from interested attendees.
+</p>
+
+<p>
+<b><a id="bof5">LLVM on PowerPC and SystemZ</a></b><br>
+<i>Ulrich Weigand - IBM</i><br>
+This Birds of a Feather session is intended to bring together
+developers and users interested in LLVM on the two IBM platforms
+PowerPC and SystemZ.
+</p><p>
+Topics for discussion include:
+</p>
+<ul>
+  <li> Status of platform support in the two LLVM back ends: feature
+       completeness, architecture support, performance, ...</li>
+  <li> Platform support in other parts of the overall LLVM portfolio: LLD, LLDB, sanitizers, ...</li>
+  <li> Support for new languages and other emerging use cases: Swift, Rust, Impala, ...</li>
+  <li> Any other features currently in development for the platform(s)</li>
+  <li> User experiences on the platform(s), additional requirements</li>
+</ul>
+
+<!--
+<p>
+<b><a id="bof6">How to make LLVM more friendly to out-of-tree consumers ?</a></b><br>
+<i>David Chisnall - Computer Laboratory, University of Cambridge</i><br>
+This BoF, targeted to all out-of-tree consumers of LLVM (i.e. people using LLVM
+as a library), to discuss how the LLVM / Clang infrastructure could be
+improved to make life easier for therm : API stability, ...
+</p>
+-->
 
 <!-- *********************************************************************** -->
 <hr>
