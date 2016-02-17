@@ -923,6 +923,38 @@ support them. This includes :
   <li>how to relax call/return when you have multiple return address sizes.</li>
 </ul>
 
+<p>
+<b><a id="poster7">Automatic Identification of Accelerators for Hybrid HW-SW Execution</a></b><br>
+<i>Georgios Zacharopoulos - University of Lugano</i><br>
+<i>Giovanni Ansaloni - University of Lugano</i><br>
+<i>Laura Pozzi - University of Lugano</i><br>
+While the number of transistors that can be put on a chip significantly
+increases, as suggested by Moore's law, the dark silicon problem rises. This is
+due to the power consumption not dropping at a corresponding rate, which
+generates overheating issues. Accelerator-enhanced architectures can provide an
+efficient solution to this and lead us to a hybrid HW-SW execution, where
+computationally intensive parts can be performed by custom hardware. An
+automation of this process is needed, so that applications in high-level
+languages can be mapped to hardware and software directly. The process needs,
+first, an automatic technique for identifying the parts of the computation that
+should be accelerated, and secondly, an automated way of synthesising these
+parts onto hardware. Under the scope of this paper, we are focusing on the
+first part of this process, and we present the automatic identification of the
+most computationally demanding parts, also known as custom instructions. The
+state-of-the-art identification approaches have certain limitations, as custom
+instruction selection is mostly performed within the scope of single Basic
+Blocks. We introduce a novel selection strategy, implemented within the LLVM
+framework, that carries out identification beyond the scope of a single Basic
+Block and identifies Regions within the Control Flow Graph, as subgraphs of it.
+Specific I/O constraints and area occupation metrics are taken into
+consideration, in order to obtain Regions that would provide maximum speedup,
+under architectural constraints, when transferred to hardware. For our final
+experimentation and evaluation phase, kernels from the signal and image
+processing domain are evaluated, and promising initial results show that the
+identification technique proposed is often capable of mimicking manual designer
+decisions.
+</p>
+
 <div class="www_sectiontitle" id="BoFsAbstracts">BoFs abstracts</div>
 <p>
 <b><a id="bof1">LLVM Foundation</a></b><br>
