@@ -955,6 +955,48 @@ identification technique proposed is often capable of mimicking manual designer
 decisions.
 </p>
 
+<p>
+<b><a id="poster8">Towards Multi-GPU execution of Single-GPU applications</a></b><br>
+<i>Alexander Matz - Ruprecht-Karls University of Heidelberg</i><br>
+<i>Christoph Klein - Ruprecht-Karls University of Heidelberg</i><br>
+<i>Mark Hummel - NVIDIA</i><br>
+<i>Holger Fr&ouml;ning - Ruprecht-Karls University of Heidelberg</i><br>
+GPUs have established themselves in the computing landscape, convincing users
+and designers by their excellent performance and energy efficiency. They differ
+in many aspects from general-purpose CPUs, for instance their highly parallel
+architecture, their thread-collective bulk-synchronous execution model, and
+their programming model. Their use has been pushed by the introduction of
+data-parallel languages like CUDA or OpenCL.
+</p><p>
+The inherent domain decomposition principle for these languages ensures a fine
+granularity when partitioning the code, typically resulting in a mapping of one
+single output element to one thread and reducing the need for work
+agglomeration.
+</p><p>
+The BSP programming paradigm and its associated slackness regarding the ratio
+of virtual to physical processors allows effective latency hiding techniques
+that make large caching structures obsolete. At the same time, a typical BSP
+code exhibits substantial amounts of locality, as the rather flat memory
+hierarchy of thread-parallel processors has to rely on large amounts of data
+reuse to keep their vast amount of processing units busy.
+</p><p>
+While these languages are rather easy to learn and use for single GPUs,
+programming multiple GPUs has to be done in an explicit and manual fashion that
+dramatically increases the complexity. The user has to manually orchestrate
+data movements and kernel launches on the different processors. Even though
+there exist concepts that span up global addresses like shared-virtual memory,
+the significant bandwidth disparity between on-device (GDDR) and off-device
+(PCIe) accesses usually results in no performance gains.
+</p><p>
+We leverage these observations for deriving a methodology to scale out
+single-device programs to an execution on multiple devices, aggregating compute
+and memory resources. Our approach comprises three steps: 1. collect
+information about data dependency and memory access patterns using static code
+analysis 2. merge information in order to choose an appropriate partitioning
+strategy 3. apply code transformations to implement the chosen partitioning and
+insert calls to a dynamic runtime library.
+</p>
+
 <div class="www_sectiontitle" id="BoFsAbstracts">BoFs abstracts</div>
 <p>
 <b><a id="bof1">LLVM Foundation</a></b><br>
