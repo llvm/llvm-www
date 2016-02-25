@@ -667,6 +667,15 @@ link-time optimizations for code size optimization.
 <div class="www_text">
 
 <ol>
+<li>Generalize target-specific backend passes that could be target-independent,
+    by adding necessary target hooks and making sure all IR/MI features (such as
+    register masks and predicated instructions) are properly handled. Enable these
+    for other targets where doing so is demonstrably beneficial.
+    For example:
+      <ol><li>lib/Target/Hexagon/RDF*</li>
+          <li>lib/Target/AArch64/AArch64AddressTypePromotion.cpp</li>
+     </ol>
+    </li>
 <li>Merge the delay slot filling logic that is duplicated into (at least)
     the Sparc and Mips backends into a single target independent pass.
      Likewise, the branch shortening logic in several targets should be merged
