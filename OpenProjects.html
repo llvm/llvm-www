@@ -5,7 +5,7 @@
 <ul>
   <li><a href="#gsoc16">Google Summer of Code 2016</a></li>
   <li><a href="#what">What is this?</a></li>
-  <li><a href="#subprojects">LLVM Subprojects: Clang and VMKit</a></li>
+  <li><a href="#subprojects">LLVM Subprojects: Clang</a></li>
   <li><a href="#improving">Improving the current system</a>
   <ol>
     <li><a href="#target-desc">Factor out target descriptions</a></li>
@@ -81,20 +81,18 @@ LLVM bug tracker</a>. See the <a href="http://llvm.org/bugs/buglist.cgi?keywords
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
-  <a name="subprojects">LLVM Subprojects: Clang and VMKit</a>
+  <a name="subprojects">LLVM Subprojects: Clang and More</a>
 </div>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
 
 <p>In addition to hacking on the main LLVM project, LLVM has several subprojects,
-   including Clang and VMKit.  If you are interested in working on these, please
+   including Clang and others.  If you are interested in working on these, please
    see their "Open projects" page:</p>
 
 <ul>
 <li>The <a href="http://clang.llvm.org/OpenProjects.html">Clang Open
-    Projects</a> list.</li>
-<li>The <a href="http://vmkit.llvm.org/OpenProjects.html">VMKit Open
     Projects</a> list.</li>
 <li>The <a href="http://sva.cs.illinois.edu/projects.html">SAFECode Open
     Projects</a> list.</li>
@@ -124,7 +122,7 @@ can use improvement...</p>
 <div class="www_text">
 
 <p>Currently, both Clang and LLVM have a separate target description infrastructure,
-with some features duplicated, others "shared" (in the sense that Clang has to create
+with some features duplicated, othersothers "shared" (in the sense that Clang has to create
 a full LLVM target description to query specific information).</p>
 
 <p>This separation has grown in parallel, since in the beginning they were quite
