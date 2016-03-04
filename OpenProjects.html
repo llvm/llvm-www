@@ -28,6 +28,13 @@
     <li><a href="#codegen">Code Generator Improvements</a></li>
     <li><a href="#misc_new">Miscellaneous Additions</a></li>
   </ol></li>
+
+  <li><a href="#using">Project using LLVM</a>
+  <ol>
+    <li><a href="#machinemodulepass">Add a MachineModulePass</a></li>
+    <li><a href="#encodeanalysis">Encode Analysis Results in MachineInstr IR</a></li>
+  </ol></li>
+
 </ul>
 
 <div class="doc_author">
@@ -631,6 +638,66 @@ dependency graph.</li>
 </ol>
 
 </div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="using">Projects using LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+
+  <p>
+  In addition to projects that enhance the existing LLVM infrastructure, there
+  are projects that improve software that uses, but is not included with, the
+  LLVM compiler infrastructure.  These projects include open-source software
+  projects and research projects that use LLVM.  Like projects that enhance the
+  core LLVM infrastructure, these projects are often challenging and rewarding.
+  </p>
+
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="machinemodulepass">Add a MachineModulePass</a>
+</div>
+
+<div class="www_text">
+  <p>
+  Several projects reuse LLVM's code generator infrastructure to analyze
+  and optimize the machine code that the compiler generates.  However, LLVM's
+  code generator infrastructure does not provide a pass which
+  allows inter-procedural analysis and optimization of the native code that
+  the LLVM compiler generates.  What is needed is an equivalent of the LLVM IR
+  ModulePass (i.e., a <i>MachineModulePass</i>) that permits inter-procedural
+  analysis and optimiztion of machine instructions (MachineIntr's).
+  </p>
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="encodeanalysis">Encode Analysis Results in MachineInstr IR</a>
+</div>
+
+<div class="www_text">
+  <p>
+  At least one project (and probably more) needs to use analysis information
+  (such as call graph analysis) from within a MachineFunctionPass.  However,
+  most analysis passes operate at the LLVM IR level.  In some cases, a value
+  (e.g., a function pointer) cannot be mapped from the MachineInstr level back
+  to the LLVM IR level reliably, making the use of existing LLVM analysis
+  passes from within a MachineFunctionPass impossible (or at least brittle).
+  </p>
+
+  <p>
+  This project is to encode analysis information from the LLVM IR level into
+  the MachineInstr IR when it is generated so that it is available to a
+  MachineFunctionPass.  The exemplar is call graph analysis (useful for
+  control-flow integrity instrumentation, analysis of code reuse defenses, and
+  gadget compilers); however, other LLVM analyses may be useful.
+  </p>
+</div>
+
 
 <!-- *********************************************************************** -->
 
