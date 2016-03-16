@@ -33,8 +33,9 @@
   <ol>
     <li><a href="#machinemodulepass">Add a MachineModulePass</a></li>
     <li><a href="#encodeanalysis">Encode Analysis Results in MachineInstr IR</a></li>
+    <li><a href="#codelayoutjit">Code Layout in the LLVM JIT</a></li>
+    <li><a href="#fieldlayout">Improved Structure Splitting and Field Reordering</a></li>
   </ol></li>
-
 </ul>
 
 <div class="doc_author">
@@ -698,6 +699,37 @@ dependency graph.</li>
   </p>
 </div>
 
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="codelayoutjit">Code Layout in the LLVM JIT</a>
+</div>
+
+<div class="www_text">
+  <p>
+  Implement an on-demand function relocator in the LLVM JIT. This can help
+  improve code locality using runtime profiling information. The idea is to use
+  a relocation table for every function.  The relocation entries need to be
+  updated upon every function relocation (take a look at
+  <a href="https://people.cs.umass.edu/~emery/pubs/stabilizer-asplos13.pdf">
+  this article</a>).
+  A (per-function) basic block reordering would be a useful extension.
+  </p>
+</div>
+
+<!-- ======================================================================= -->
+<div class="www_subsubsection">
+  <a name="fieldlayout">Improved Structure Splitting and Field Reordering</a>
+</div>
+
+<div class="www_text">
+  <p>
+  The goal of this project is to implement better data layout optimizations
+  using the model of reference affinity.  This
+  <a href="http://www.cs.rochester.edu/~cding/Documents/Publications/pldi04.pdf">
+  paper</a>
+  provides some background information.
+  </p>
+</div>
 
 <!-- *********************************************************************** -->
 
