@@ -6,7 +6,7 @@
 
 <div class="www_text">
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
+.tg  {border-collapse:collapse;border-spacing:0;margin-bottom:1em}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg .tg-9hbo{font-weight:bold;vertical-align:top}
@@ -44,23 +44,12 @@
     <td class="tg-yw4l">Tobias Grosser<br></td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="#ipra">Interprocedural Register Allocation in LLVM</a><br>
-      <a href="https://docs.google.com/document/d/1DrsaFJdtxV73Zpns2bEgjATLFcWuaYMPHuvt5THLeLk/edit?usp=sharing" target="_blank">Draft proposal 
-      </a><br/>
-      Reporting Interval : weekly </br>
-      Personal website/blog : <a href="http://vivekvpandya.github.io/" target="_blank">vivekvpandya.github.io 
-      </a><br/>
-    </td>
+    <td class="tg-yw4l"><a href="#ipra">Interprocedural Register Allocation in LLVM</a><br></td>
     <td class="tg-yw4l">Vivek Pandya<br></td>
     <td class="tg-yw4l">Mehdi Amini, Hal Finkel<br></td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="#paap">Polly as an Analysis Pass in LLVM<br>
-      <a href="https://docs.google.com/document/d/1QyUzL3OOwJSI91lDqr7VsvqUsFyTY9FlpAwbGSipUtw/edit?pref=2&pli=1" target="_blank">Proposal
-      </a><br/>
-      Reporting Interval : Weekly </br>
-      Personal website/blog : <a href="https://utpalbora.github.io/" target="_blank">Utpal Bora
-    </td>
+    <td class="tg-yw4l"><a href="#paap">Polly as an Analysis Pass in LLVM<br></td>
     <td class="tg-yw4l">Utpal Bora<br></td>
     <td class="tg-yw4l">Johannes Doerfert<br></td>
   </tr>
@@ -75,53 +64,42 @@
     <td class="tg-yw4l">Tobias Grosser, Tim Holy, Jameson<br></td>
   </tr>
 </table>
-
 </div>
 <div>
-  <h3>Projects Details</h3>
-  <div id="baad">
-  <h4>Better Alias Analysis By Default</h4>
+  <div class="www_sectiontitle">Project Details</div>
+  <h3 id="baad">Better Alias Analysis By Default</h3>
   <p>The cfl-aa pass implemented by Gerorge Burgess IV back in GSoC 2014 is a fast, precise and interprocedural analyses that overcomes many deficiencies in the alias analyses currently used in LLVM. It is also easily extensible to add support for field-, flow-, and context- sensitivity. However, the pass is not enabled in today&#39;s LLVM build due to (1) various self-hosting miscompilation bugs, and (2) not sufficiently tuned for existing optimization passes that uses it. The goal of this GSoC project is to bring cfl-aa to a usable state and make it a good complement, if not a replacement, of the existing alias analysis pipeline.</p>
-  </div>
-  <div id="cti">
-  <h4>Capture Tracking Improvements</h4>
+  <h3 id="cti">Capture Tracking Improvements</h3>
   <p>The capture tracking analysis is currently inefficient and inaccurate in cases. It could be improved in a number of ways, as mentioned by Philip Reames on the mailing list. I would like to use this opportunity to take my previous experience within LLVM and apply it to other areas of LLVM.</p>
-  </div>
-  <div id="shmb">
-  <h4>Enabling llvm&#39;s self-hosted modules builds using libstdc++</h4>
+  <h3 id="shmb">Enabling llvm&#39;s self-hosted modules builds using libstdc++</h3>
   <p>A Module System for C++ is on its way to the C++ standard.
 
 The current state of the Module System, although fairly stable, it has a few bugs for C++ support. The most common reason for the bugs is the semantic merging of C++ entities. Currently, the method for ensuring no regressions is a buildbot for libc++, which builds llvm in modules self-hosted mode. Its main purpose is to find bugs in clang&#39;s implementation and ensure no regression for the ongoing development.
 
-Since the Module Systems is meant to be generic, the project aims to improve the stability and coverage of the Module System by finding as many issues as possible. One approach is to add a buildbot for libstdc++, because this would change the merging model for the modules, and in this way, it will point out different issues which would not be observed by using libc++. The choice for libstdc++ is motivated by its wider use in Unix and, more importantly, the benefits it will bring to supporting modules for third party projects that rely on libstdc++.
-</p>
-  </div>
-  <div id="acpc">
-  <h4>Finding and analysing copy-pasted code with clang</h4>
+Since the Module Systems is meant to be generic, the project aims to improve the stability and coverage of the Module System by finding as many issues as possible. One approach is to add a buildbot for libstdc++, because this would change the merging model for the modules, and in this way, it will point out different issues which would not be observed by using libc++. The choice for libstdc++ is motivated by its wider use in Unix and, more importantly, the benefits it will bring to supporting modules for third party projects that rely on libstdc++.</p>
+  <h3 id="acpc">Finding and analysing copy-pasted code with clang</h3>
   <p>Copy-pasted code is dangerous because it introduced bugs and makes projects harder to maintain. This proposal is about creating tools for finding copy-pasted code and report bugs that are caused by this practice. These tools include a checker for clang&#39;s static analyzer that analyses a single translation unit and a standalone tool that performs a project-wide analysis.</p>
-  </div>
-  <div id="ivpp">
-  <h4>Improvement of vectorization process in Polly</h4>
+  <h3 id="ivpp">Improvement of vectorization process in Polly</h3>
   <p>Polly can perform classical loop transformations, exploit OpenMP level parallelism, expose SIMDization opportunities. However, due to the lack of a machine-specific performance model and missing optimizations, these transformations sometimes lead to compile and execution time regressions, and the generated code is at least one order of magnitude off in comparison to the corresponding vendor implementations. The goal of the project is to reduce such influence through implementation of optimizations aimed to produce code compatible with the best implementations of BLAS and an attempt to avoid vectorization of loops, when it is not profitable for the target architecture. It could be a step in transformation of Polly into an optimization pass used in standard -O3 optimizations.</p>
-  </div>
-  <div id="ipra">
-  <h4>Interprocedural Register Allocation in LLVM</h4>
+  <h3 id="ipra">Interprocedural Register Allocation in LLVM</h3>
   <p>The objective of this project is to implement a simple interprocedural register allocation that attempts to minimize register spill code by propagating register usage information through the program call graph. By examining the register usage information at each call site, the intraprocedural register allocator can avoid assigning registers already used in the called routines and minimizing spill code. <br/>Stretch goal for this project would be a link time register allocator, in that register allocation is deferred till linking of the code to optimize the allocation across module boundaries.</p>
-  </div>
-  <div id="paap">
-  <h4>Polly as an Analysis Pass in LLVM</h4>
+  <p><a href="https://docs.google.com/document/d/1DrsaFJdtxV73Zpns2bEgjATLFcWuaYMPHuvt5THLeLk/edit?usp=sharing" target="_blank">Draft proposal</a></p>
+  <p>Reporting interval: weekly</p>
+  <p>Personal website/blog: <a href="http://vivekvpandya.github.io/" target="_blank">vivekvpandya.github.io</a></p>
+  <h3 id="paap">Polly as an Analysis Pass in LLVM</h3>
   <p>The Polyhedral framework provides an exact dependence analysis, which is more powerful than conventional dependence testing algorithms. Currently, LLVM mainline lacks a powerful dependence analysis framework, and at the same time, Polly&#39;s (a high level data locality optimizer based on polyhedral framework) dependence analysis is suitable for many transformation passes in LLVM like Loop Vectorization, Loop Versioning, Modulo Scheduling, Loop Nest Optimizations, etc. I want to provide an API to Polly such that its precise dependence analysis can be used as an Analysis pass within LLVM&#39;s transformation passes.</p>
-  </div>
-  <div id="scmph">
-  <h4>SAFECode&#39;s Memory Policy Hardening</h4>
+  <p><a href="https://docs.google.com/document/d/1QyUzL3OOwJSI91lDqr7VsvqUsFyTY9FlpAwbGSipUtw/edit?pref=2&pli=1" target="_blank">Proposal</a></p>
+  <p>Reporting interval: Weekly</p>
+  <p>Personal website/blog: <a href="https://utpalbora.github.io/" target="_blank">Utpal Bora</a></p>
+  <h3 id="scmph">SAFECode&#39;s Memory Policy Hardening</h3>
   <p>Monolithic kernels, like linux, did not provide a hardening mechanism on the kernel modules&#39; memory access. Modules in Linux could do almost everything. Arbitary write and read may cause system crash, information leak, and even rootkit injection. There is a great need to implement a memory hardening mechanism to limit the behavior of a kernel module.
 
 This projects will enhance the &#39;Baggy Bounds with Accurate Checking&#39; (BBAC). By adding information to the memory object&#39;s padding area, we can perform various safety checks with limited overhead. I will mainly focus on providing runtime access policy hardening. This work will prevent most of illegal memory accesses efficiently.</p>
-  </div>
-  <div id="phoj">
-  <h4>Enabling Polyhedral Optimizations in Julia</h4>
+  <h3 id="phoj">Enabling Polyhedral Optimizations in Julia</h3>
   <p>Julia is a dynamic programming language that, over the past few years, gained interest in the open-source community, especially in the field of scientific computing. Julia programs are executed by a virtual machine that translates the source code, during run-time, to machine code based on the LLVM compiler framework. LLVM provides a variety of analyses and transformation capabilities that are leveraged to optimize programs and facilitate efficient execution. More recently, LLVM was enhanced by a new optimization framework, namely Polly, that supports automatic parallelization and data-locality optimizations based on the polyhedral model. Polly is able to speed up compute kernels significantly, especially in the context of dense linear algebra and iterative stencil computations. In the course of this project I plan to integrate Polly into Julia to enable polyhedral optimizations for Julia programs.</p>
-  </div>
+  <p><a href="https://docs.google.com/document/d/1s5mmSW965qmOEbHiM3O4XFz-Vd7cy9TxX9RQaTK_SQo/edit?usp=sharing" target="_blank">Proposal</a></p>
+  <p>Reporting Interval: Weekly</p>
+  <p>Personal website/blog: <a href="http://www.mreisinger.com" target="_blank">www.mreisinger.com</a></p>
 </div>
 <hr>
 <address>
