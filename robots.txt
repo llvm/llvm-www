@@ -12,3 +12,5 @@ Disallow: /stats
 Disallow: /svn
 Disallow: /testresults/X86
 Disallow: /viewvc
+Disallow: /viewvc/*
+Disallow: /viewvc/
