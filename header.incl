@@ -45,7 +45,7 @@
 <span style="font-size:smaller">Download now:</span>
 <a href="/releases/download.html#3.8.0"><b>LLVM&nbsp;3.8.0</b></a><br>
 <a href="/releases/">All Releases</a><br>
-<a href="/apt/">APT Packages</a><br>
+<a href="http://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
 <br>
 
