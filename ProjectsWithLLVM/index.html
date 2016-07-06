@@ -36,6 +36,7 @@
 <div class="www_text">
 
 <ul>
+<li><a href="#terralang">Terra Lang</a></li>
 <li><a href="#codasip">Codasip Studio</a></li>
 <li><a href="#pony">Pony Programming Language</a></li>
 <li><a href="#smack">SMACK Software Verifier</a></li>
@@ -75,6 +76,41 @@
 <li><a href="#vuo">Vuo: A modern visual programming language for multimedia artists</a></li>
 </ul>
 
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="terralang">Terra: A low-level counterpart to Lua</a>
+</div>
+
+<div class="www_subsubsection">
+  By <a href="http://cs.stanford.edu/~zdevito">Zach DeVito</a>
+</div>
+
+<div class="www_text">
+  <p>
+  <a href="http://terralang.org/">Terra</a> is a system programming language that is
+  embedded in and meta-programmed by Lua, which handles details like
+  conditional compilation, type systems, namespaces, and
+  templating/function specialization that are normally special
+  constructs in other languages. Terra code shares Lua's syntax and
+  control-flow constructs, and it can easily call Lua functions and vice
+  versa. Since the JIT compiler is available at runtime, libraries and
+  embedded domain specific languages can use it to dynamically generate
+  or auto-tune arbitrary high performance code with custom
+  optimizations.
+  </p>
+
+  <p>
+  Terra is backwards compatible with (and embeddable in) existing C code
+  and is likewise a small, monomorphic, statically-typed, compiled
+  language with manual memory management. There is also built-in support
+  for SIMD operations and other low-level features like non-temporal
+  writes and prefetches. Terra can optionally run independently from
+  LuaJIT and LLVM. In fact, if your final program doesn’t need Lua, you
+  can save Terra code into an object file, shared library, or
+  executable.
+  </p>
 </div>
 
 <!--=========================================================================-->
