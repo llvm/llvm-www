@@ -1,0 +1,48 @@
+LLVM Foundation Board Meeting Minutes
+
+Date: 5/10/2016
+Time: 10AM pacific time
+Location: Video conferencing, multiple locations
+
+Attendees:
+Present: Vikram Adve, Chandler Carruth, Doug Gregor, David Kipping,
+         Anton Korobeynikov, Chris Lattner, Tanya Lattner, Alex Rosenberg.
+David left early.
+
+Minutes
+- VOTE: Unanimously approved the March 4, 2016 board meeting minutes.
+
+Treasurer report
+- Not much activity recently.  Everything in good standing.
+
+Tax return
+- Accountant was too busy filing returns for individuals to get to our books,
+  we need to file an extension.
+
+Trademark lawyer update
+- Recap: previous trademark lawyer (Hanna) took another position.
+- New lawyer, Robert took over response from the trademark office.
+- We received a request for clarification from the trademark office, that has
+  been submitted.
+
+Licensing lawyer update
+- Heather Meeker will represent the foundation for the relicensing effort.
+- She got it approved to do the job as pro-bono.
+
+Relicensing update
+- Not much progress has been made, as people have been traveling.
+- Have seemingly agreed to go with the "second runtime exception" approach,
+  still iterating on specific wording.
+
+Google summer of code
+- Great coverage of projects selected.
+- Making a big effort to communicate with the students and make the community
+  aware of their contributions.
+
+Code of conduct
+- Conversation is converging, only a couple of people are significantly unhappy.
+- Major question is how to select the advisory committee.
+
+Sponsorship FAQ
+- Reviewed Tanya's sponsorship FAQ.  Besides a few wording changes, everyone
+  seems happy with it.
