@@ -40,3 +40,7 @@ llvm.org server / APT
 - The current plan is to move the APT server to AWS as soon as possible.
 - Tanya will purchase a new smaller instance than the big one we already have.
 
+
+Respectfully submitted,
+
+Chris Lattner, Secretary

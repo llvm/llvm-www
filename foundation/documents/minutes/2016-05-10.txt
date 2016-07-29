@@ -46,3 +46,8 @@ Code of conduct
 Sponsorship FAQ
 - Reviewed Tanya's sponsorship FAQ.  Besides a few wording changes, everyone
   seems happy with it.
+
+
+Respectfully submitted,
+
+Chris Lattner, Secretary
