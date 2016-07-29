@@ -17,7 +17,7 @@ Relicense discussion
   things are moving glacially.
 
 Code of Conduct
-- The draft has mostly settled, still haven’t established who will be on the
+- The draft has mostly settled, still haven't established who will be on the
   advisory board.
 - Concern that we need the CoC set up before the registration for the devmtg
   opens, but that seems achievable.
@@ -25,7 +25,7 @@ Code of Conduct
 Board Elections
 - The term of the current board members are coming up, so the next board needs
   to be selected by then.
-- Due to the nonprofit’s legal structure, the current board selects the next
+- Due to the nonprofit's legal structure, the current board selects the next
   board.
 - We want to have some turnover in the board to bring in new faces and get
   better representation of people.
