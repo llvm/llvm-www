@@ -1,0 +1,42 @@
+LLVM Foundation Board Meeting Minutes
+
+Date: 6/3/2016
+Time: 10AM pacific time
+Location: Video conferencing, multiple locations
+
+Attendees:
+Present: Vikram Adve, Chandler Carruth, Doug Gregor, Chris Lattner,
+         Tanya Lattner, and Alex Rosenberg
+Not present: David Kipping and Anton Korobeynikov
+
+Minutes
+- Unanimously approved the May 10, 2016 board meeting minutes.
+
+Relicense discussion
+- Had one meeting since last board meeting, three proposals are now in flight,
+  things are moving glacially.
+
+Code of Conduct
+- The draft has mostly settled, still haven’t established who will be on the
+  advisory board.
+- Concern that we need the CoC set up before the registration for the devmtg
+  opens, but that seems achievable.
+
+Board Elections
+- The term of the current board members are coming up, so the next board needs
+  to be selected by then.
+- Due to the nonprofit’s legal structure, the current board selects the next
+  board.
+- We want to have some turnover in the board to bring in new faces and get
+  better representation of people.
+- We want the community to be able to participate, even though the board is
+  required to do the selection.
+- Suggestion is to have an application process, and allow anyone to apply.
+  Chris and Tanya will produce a first draft and send it to the board in the
+  next few weeks.
+- Target the middle of July for application due date.
+
+llvm.org server / APT
+- The current plan is to move the APT server to AWS as soon as possible.
+- Tanya will purchase a new smaller instance than the big one we already have.
+
