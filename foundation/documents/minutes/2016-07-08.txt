@@ -1,0 +1,66 @@
+LLVM Foundation Board Meeting Minutes
+
+Date: 7/8/2016
+Time: 10AM pacific time
+Location: Video conferencing, multiple locations
+
+Attendees:
+- Present: Vikram Adve, Chandler Carruth, Doug Gregor, Chris Lattner,
+  Tanya Lattner, Alex Rosenberg, David Kipping and Anton Korobeynikov
+- Vikram dropped out of the call for part of the board reelection and
+  developer meeting sections, but we caught him up when he rejoined.
+
+Minutes
+- VOTE: Unanimously approved the June 3, 2016 board meeting minutes.
+
+Treasurer Report
+- Not much to say: In a good position, not much activity this month. No one had
+  any questions.
+
+Board Re-election: Application, seats, timeline
+- Current board elections expire on August 12.  We should re-elect the new board
+  before then.
+- Legally, if the board doesn’t get it done by then, then the existing board
+  carries over until whenever the new one is voted in.
+- The aim is to elect them in our August 8 meeting with an effective date of
+  August 12.
+- Discussion about the actual application form and what is important to capture,
+  to increase transparency, more discussion will move to email.
+- Goal is to send out application on July 13, provide a two week application
+  period and make time to review applicants.
+
+Developer meeting
+- 88 applications so far.
+- Tanya wants to change some things up in the format to improve it.
+- Biggest complaints last year was the usefulness of the hackers lab, Tanya is
+  brainstorming ways to improve it by adding more structure, and getting people
+  to sign up to lead discussions ahead of time.
+- Discussing adding a “research track” of talks, or a research BOF, to increase
+  student participation and academic discussion.
+- 10 year anniversary of the developer meeting, thinking about doing some sort
+  of video that is fun to commemorate it during the reception, looking for ideas
+  on what to do.  Maybe some sort of Razzie awards?
+
+Code of conduct
+- It landed.
+- Chandler is going to have some discussions with people about how to form the
+  advisory committee.
+- At this point, the process isn’t decided, and the next steps aren’t clear.
+  The goal is for this to get worked out by next month.
+- It is critical to figure this out before the developer meeting.
+
+LLVM Licensing
+- No progress at all since last board meeting.  Next meeting to discuss this is
+  Thursday July 14.
+
+Infrastructure
+- Hosting APT on AWS is live, on track for being about 3TB a month.
+- Concerned about it being abusive, Tanya and Anton will reach out to the Travis
+  people to see if they are using the right caching, etc.
+- Anton talking to CDN providers that have discounts for open source projects.
+- Anton and Tanya are evaluating different options and will continue discussing this.
+
+
+Respectfully submitted,
+
+Chris Lattner, Secretary
