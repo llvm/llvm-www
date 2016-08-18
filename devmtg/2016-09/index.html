@@ -101,7 +101,12 @@ Here are some important dates to keep on your calendar:
 
 <div class="www_sectiontitle" id="schedule">Schedule</div>
 <p>
-Stay tuned for more talks to be announced. We're thrilled that <a 
+Full event timings will be published shortly. The keynote will start at 10am
+and the talks schedule will close with lightning talks finishing at 4.45pm.
+We'll then have a joint social event with the GNU Tools Cauldron from
+6pm-8.30pm.</p>
+<p>
+We're thrilled that <a 
 href="http://wingolog.org/about/">Andy Wingo</a> will be presenting the 
 keynote on compilation with persistent data structures.
 </p>
@@ -128,6 +133,138 @@ keynote on compilation with persistent data structures.
   compilers paper is still "Lambda, the ultimate GOTO".</li>
 </ul>
 
+<p>Our main track talks consist of:</p>
+
+<p>
+<b>Scheduler for in-order processors - what's present and what's missing
+in LLVM?</b><br>
+<i>Javed Absar - ARM Ltd</i><br>
+ This talk will focus on developing instruction-scheduling
+machine-models in LLVM for deeply-pipelined, in-order, multiple-issue
+processors. While LLVM provides a neat Tablegen based interface for describing
+the pipeline behavior of both in-order and out-of-order processors, during the
+modelling phases we discovered that some hardware aspects of target processors
+were much harder to model. The talk will first cover the features that were
+relatively easy to capture such as issue-width, latency, forwarding and
+resource-cycles. Then we will delve into aspects that turned out  to be much
+harder or contrived to model, such as -  constraints on instructions issue;
+in-stage forwarding, variadic instructions. The talk will then focus on
+potential solutions to those problems.
+</p>
+
+<p>
+<b>An Altruistic Processor (AAP)</b><br>
+<i>Simon Cook and Ed Jones - Embecosm</i><br>
+An Altruistic Processor (AAP) is an open hardware 16-bit architecture for
+deeply embedded applications running on small FPGA devices. It is somewhat
+configurable, with a minimum of 4 16-bit general registers, at least one
+word-addressed code space of up to 16Mword and at least one byte addressed data
+space of up to 64kbyte.
+
+The primary role of AAP is as a testbench and vehicle for improvement for LLVM.
+It encapsulates features found in a wide range of popular embedded processors
+which traditionally cause difficulties for compiler writers.
+
+In this talk we will discuss the motivation behind this project, our experience
+implementing and testing LLVM for this architecture, the architectural features
+unique to our processor and how these interact with LLVM. We will the on to
+explaining our experiences with implementing AAPSim, an instruction set
+simulator based on LLVM MC and how we have used this for compiler regression
+testing.
+</p>
+
+<p>
+<b>LLV8: Adding LLVM as an extra JIT tier to V8 JavaScript engine</b><br>
+<i>Dmitry Melnik - ISP RAS</i><br>
+
+We'll present our work on adding LLVM MCJIT to V8 JavaScript engine as the
+third tier JIT compiler. The main idea is to lower V8's IR into LLVM bitcode,
+and then use LLVM for optimization and code generation — the idea is similar to
+FTL JIT in WebKit's JavaScriptCore. The right place to do such translation in
+V8 is 2nd level JIT, because it’s a speculative JIT, and it’s IR is already
+"static enough" to allow to do such transformation effectively.
+
+We'll discuss the challenges of using LLVM JIT for compiling dynamic language.
+Much effort was spent on making LLVM-generated code properly interact with V8
+JavaScript runtime, e.g. supporting interactions with V8's garbage collector
+(relocations, safepoints, stack layout), supporting on-stack-replacement
+(implementation of OSR entry and deoptimization). Also we’ll discuss
+interaction of V8 and LLVM optimizations.
+
+This project is still work in progress. Now it supports a substantial subset of
+JavaScript, with pretty good coverage for asm.js and SunSpider benchmarks. On
+selected tests we achieve up to 2x speedup, but most tests suffer from
+increased compilation time overhead. On average, the performance is almost on
+par with original V8, if measured after "warmup".
+
+The project is open source, and is available at <a
+href="https://github.com/ispras/llv8">https://github.com/ispras/llv8</a>.
+</p>
+
+<p>
+<b>Using LLVM and Sulong for Language C Extensions</b><br>
+<i>Chris Seaton - Oracle Labs</i><br>
+
+Many languages such as Ruby, Python and JavaScript support extension modules
+written in C, either for speed or to create interfaces to native libraries.
+Ironically, these extensions can hold back performance of the languages
+themselves because the native interfaces expose implementation details about
+how the language was first implemented, such as the layout of data structures.
+
+In JRuby+Truffle, an implementation of Ruby, we are using the Sulong LLVM
+bitcode interpreter to run C extensions on the JVM. By combining LLVM's static
+optimizations with dynamic compilation, Sulong is fast, but Sulong also gives
+us a powerful new tool - it allows us to abstract from normal C semantics and
+to appear to provide the same native API while actually mapping it to our own
+alternative data structures and implementation.
+
+We'll demonstrate <a href="https://github.com/graalvm/sulong">Sulong</a> and
+how we're using it to implement Ruby C extensions.
+</p>
+
+<p>
+<b>Syntax macros - a case study in extending Clang</b><br>
+<i>Norman Rink - TU Dresden</i><br>
+Besides being an incredibly successful production compiler, LLVM/Clang has also
+enabled an enormous number of academic research projects that are centred on
+adding language extensions to C/C++. However, since Clang is not primarily
+designed as a research platform, adding language extensions is a tedious task
+and work often has to be repeated for new projects. In this talk I will discuss
+an implementation of generic syntax macros and the challenges encountered in
+extending Clang. Special emphasis will be put on the generality of these
+challenges. This talk will be of interest to anyone who (a) would like to know
+more about the structure of Clang or (b) has already thought about extending
+Clang.
+</p>
+
+<p>
+<b>Accelerating Python code with Numba and LLVM</b><br>
+<i>Graham Markall - Embecosm</i><br>
+Numba is an LLVM-based JIT Compiler for Python that is focused on numerical
+computing and delivers execution speed on a par with languages more
+traditionally used in scientific computing, such as Fortran and C++. This talk
+discusses the implementation of Numba, in particular how to go from an
+interpreted, dynamically-typed language to a compiled, statically-typed
+implementation. There will be some discussion of the CUDA and HSA backends and
+how the differences between LLVM versions in these backends are managed.
+</p>
+
+<p>
+<b>How to add a new target to LLD</b><br>
+<i>Peter Smith - Linaro</i><br>
+
+Using recent experience of adding ARM support to LLD,
+we'll look at what are the steps involved in adding a new target to
+LLD. Starting with a brief introduction to LLD's functionality and design, we
+will go through the customisation points where target specific logic can be
+added, and will touch on how to add functionality where your target
+needs individual attention.
+
+This will be of general interest to people wanting to know a bit more about
+LLD's current status and capabilities, and especially interesting for those
+wanting to know how a linker is implemented.
+</p>
+
 <div class="www_sectiontitle" id="register">Registration</div>
 
 <p>
@@ -138,28 +275,9 @@ href="http://goo.gl/forms/IqKzBtIYJIgEZf3G2">registration form</a>.
 
 <div class="www_sectiontitle" id="cfp">Call for Papers</div>
 <p>
-We welcome proposals for:
-</p>
-<ul>
-  <li>technical presentations (25 minutes)</li>
-  <li>lightning talks (5 minutes)</li>
-  <li>birds of a feather sessions (~30 minutes)</li>
-  <li>tutorials (60 minutes)</li>
-</ul>
-
-<p>
-Material will be chosen to cover a broad spectrum of themes and topics from 
-across the LLVM/Clang projects at various depths, some technical deep-diving, 
-some surface-scratching. We particularly welcome novel downstream 
-modifications or uses. Presentations on work-in-progress are encouraged, and 
-there is no requirement that the work hasn't been published elsewhere.
-</p>
-
-<p>
-Please submit your proposals <a href="http://goo.gl/forms/iFEPwjjLhNHeFeru2">here</a>.
-The submissions deadline is the 8th August 2016, though we encourage early submission and expect to 
-confirm a number of proposals prior to that date.
-</p>
+Submissions have closed for full-length (25 minute) technical presentations,
+but we still welcome proposals for birds of a feather sessions (~30 minutes+) and lightning
+talks (5 minutes). Please submit your proposals <a href="http://goo.gl/forms/iFEPwjjLhNHeFeru2">here</a>.</p>
 
 <div class="www_sectiontitle" id="logistics">Location, Accommodation, Travel</div>
 
