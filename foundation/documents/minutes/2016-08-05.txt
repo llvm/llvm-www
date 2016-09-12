@@ -1,0 +1,45 @@
+LLVM Foundation Board Meeting Minutes
+
+Date: August 5, 2016
+Time: 10AM pacific time
+Location: Video conferencing, multiple locations
+
+Attendees:
+- Present: Vikram Adve, Chandler Carruth, Doug Gregor, Chris Lattner,
+           Tanya Lattner, Alex Rosenberg, David Kipping and Anton Korobeynikov.
+
+Minutes
+- VOTE: Unanimously approved the July 8, 2016 board meeting minutes.
+
+Board Elections
+- The board discussed all 18 of the submitted applications, which included
+  applications from most of the existing board members.
+- Goal was to get a balance between representatives of academic, corporate, and
+  infrastructure contributors.
+- The board proposed this list of people for the new board:
+
+    Anton Korobeynikov
+    Arnaud de Grandmaison
+    Chandler Carruth
+    Chris Lattner
+    David Kipping
+    Hal Finkel
+    John Regehr
+    Tanya Lattner
+
+- VOTE: Should this be the new board going forward?
+- RESULT: Unanimous approval.
+- New board goes into place August 12.
+
+
+Travel Grant Program Approval
+- Discussing the draft of the travel grant program.
+- Goal is to help support students spread the word about LLVM as well as support
+  their efforts to use and extend LLVM.
+- Want to encourage diversity and provide support for under-represented groups,
+  e.g. the women in compilers effort.
+
+
+Respectfully submitted,
+
+Chris Lattner, Secretary
