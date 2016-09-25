@@ -6,10 +6,7 @@
         <tr><td valign="top">
 <ol>
         <li><a href="#about">About</a></li>
-        <li><a href="#dates">Important Dates</a></li>
         <li><a href="#schedule">Schedule</a></li>
-        <li><a href="#register">Registration</a></li>
-        <li><a href="#cfp">Call For Papers</a></li>
 </ol>
 </td><td>
 <ul>
@@ -88,45 +85,70 @@ The LLVM Cauldron is organised by:
 Please contact asb@asbradbury.org if you have any issues or questions.
 </p>
 
-
-<div class="www_sectiontitle" id="dates">Important Dates</div>
-<p>
-Here are some important dates to keep on your calendar:
-<ul>
-<li>July 4: Registration Opens</li>
-<li>July 4: Call for Papers/talks</li>
-<li>August 15th: Talk submission deadline (extended from August 8th)</li>
-</ul>
-</p>
-
 <div class="www_sectiontitle" id="schedule">Schedule</div>
+<p><b>Talks</b></p>
 <table id="devmtg">
-<tr><th>Time</th><th>Topic</th></tr>
-<tr><td>09:30</td><td><i>Registration and refreshments</i></td></tr> 
-<tr><td>10:00</td><td>Introduction (Alex Bradbury) followed by Keynote: Optimizing 
-    with persistent data structures (Andy Wingo)</td></tr>
-<tr><td>11:00</td><td>LLV8: Adding LLVM as an extra JIT tier to V8 JavaScript 
+<tr><th>Media</th><th>Topic</th></tr>
+<tr><td>
+  <a href="slides/Wingo-PersisentDataStructures.pdf">Slides</a><br>
+  <a href="https://youtu.be/KYoDyM6l_5s">Video</a>
+</td><td>Keynote: Optimizing with persistent data structures (Andy Wingo)</td></tr>
+<tr><td>
+  <a href="slides/Melnik-LLV8.pdf">Slides</a><br>
+  <a href="https://youtu.be/0YobtXN6oQI">Video</a>
+</td><td>LLV8: Adding LLVM as an extra JIT tier to V8 JavaScript 
     engine (Dmitry Melnik)</td></tr>
-<tr><td>11:30</td><td>Using LLVM and Sulong for Language C Extensions (Chris Seaton)</td></tr>
-<tr><td>12:00</td><td><i>LUNCH</i></td></tr>
-<tr><td>13:00</td><td>Scheduler for in-order processors - what's present and 
+<tr><td>
+  <a href="slides/Seaton-Sulong.pdf">Slides</a><br>
+  <a href="https://youtu.be/bJzMfYX6n9A">Video</a>
+</td><td>Using LLVM and Sulong for Language C Extensions (Chris Seaton)</td></tr>
+<tr><td>
+  <a href="slides/Absar-SchedulingInOrder.pdf">Slides</a><br>
+  <a href="https://youtu.be/J0AtVzvPp_Y">Video</a>
+</td><td>Scheduler for in-order processors - what's present and 
     what's missing in LLVM? (Javed Absar)</td></tr>
-<tr><td>13:30</td><td>An Altruistic Processor - AAP (Simon Cook and Ed Jones)</td></tr>
-<tr><td>14:00</td><td>Syntax macros - a case study in extending Clang (Norman Rink)</td></tr>
-<tr><td>14:30</td><td><i>BREAK AND REFRESHMENTS</i></td></tr>
-<tr><td>15:15</td><td>Accelerating Python code with Numba and LLVM (Graham 
+<tr><td>
+  <a href="slides/Jones-AAP.pdf">Slides</a><br>
+  <a href="https://youtu.be/Ad-zuxedEZQ">Video</a>
+</td><td>An Altruistic Processor - AAP (Simon Cook and Ed Jones)</td></tr>
+<tr><td>
+  <a href="slides/Rink-SyntaxMacros.pdf">Slides</a><br>
+  <a href="https://youtu.be/kG6kpQ-Deak">Video</a>
+</td><td>Syntax macros - a case study in extending Clang (Norman Rink)</td></tr>
+<tr><td>
+  <a href="http://gmarkall.github.io/tutorials/llvm-cauldron-2016/">Slides</a><br>
+  <a href="https://youtu.be/d8LnP4vU2CA">Video</a>
+</td><td>Accelerating Python code with Numba and LLVM (Graham 
     Markall)</td></tr>
-<tr><td>15:45</td><td> How to add a new target to LLD (Peter Smith)</td></tr>
-<tr><td>16:15</td><td>Lightning talks</td></tr>
-<tr><td>16:45</td><td>End of talks schedule</td></tr>
-<tr><td>18:00</td><td>LLVM/GNU evening social event begins</td></tr>
-<tr><td>20:30</td><td>LLVM/GNU evening social event ends</td></tr>
+<tr><td>
+  <a href="slides/Smith-NewLLDTarget.pdf">Slides</a><br>
+  <a href="https://youtu.be/FIXaeRU31Ww">Video</a>
+</td><td> How to add a new target to LLD (Peter Smith)</td></tr>
 </table>
-<p>
-Full event timings will be published shortly. The keynote will start at 10am
-and the talks schedule will close with lightning talks finishing at 4.45pm.
-We'll then have a joint social event with the GNU Tools Cauldron from
-6pm-8.30pm.</p>
+<p><b>Lightning talks</b></p>
+<table id="devmtg">
+<tr><th>Media</th><th>Topic</th></tr>
+<tr><td>
+  <a href="slides/Melnik-PostgreSQLLLVM.pdf">Slides</a><br>
+  <a href="https://youtu.be/NzOpNh_msng">Video</a>
+</td><td>Speeding up query execution in PostgreSQL using LLVM JIT (Dmitry Melnik)</td></tr>
+<tr><td>
+  <a href="slides/Boak-MyStorm.pdf">Slides</a><br>
+  <a href="https://youtu.be/J1saqOhbRmA">Video</a>
+</td><td>MyStorm (Ken Boak)</td></tr>
+<tr><td>
+  <a href="slides/Bradbury-ContributorExperience.pdf">Slides</a><br>
+  <a href="https://youtu.be/32fmbEI9WrM">Video</a>
+</td><td>Can we improve the experience of first-time LLVM contributors? (Alex Bradbury)</td></tr>
+<tr><td>
+  <a href="slides/Cook-AAPSim.pdf">Slides</a><br>
+  <a href="https://youtu.be/YdyZDZYBd-s">Video</a>
+</td><td>AAPSim - Building a simulator using LLVM MV (Simon Cook)</td></tr>
+<tr><td>
+  <a href="https://github.com/jbcoe/C_API_generation/blob/master/demos/LLVM-Cauldron.ipynb">Slides</a><br>
+  (No video)
+</td><td>Generating Python &amp; Ruby bindings from C++ (Jonathan B Coe)</td></tr>
+</table>
 <p>
 We're thrilled that <a 
 href="http://wingolog.org/about/">Andy Wingo</a> will be presenting the 
@@ -285,38 +307,6 @@ needs individual attention.
 This will be of general interest to people wanting to know a bit more about
 LLD's current status and capabilities, and especially interesting for those
 wanting to know how a linker is implemented.
-</p>
-
-<div class="www_sectiontitle" id="register">Registration</div>
-
-<p>
-Registration is free, and is now open. Please fill out the <a 
-href="http://goo.gl/forms/IqKzBtIYJIgEZf3G2">registration form</a>.
-</p>
-
-
-<div class="www_sectiontitle" id="cfp">Call for Papers</div>
-<p>
-Submissions have closed for full-length (25 minute) technical presentations,
-but we still welcome proposals for birds of a feather sessions (~30 minutes+) and lightning
-talks (5 minutes). Please submit your proposals <a href="http://goo.gl/forms/iFEPwjjLhNHeFeru2">here</a>.</p>
-
-<div class="www_sectiontitle" id="logistics">Location, Accommodation, Travel</div>
-
-<p>
-See the <a href="https://gcc.gnu.org/wiki/cauldron2016#Travel">GNU Tools 
-Cauldron page</a> for information about hotels and public transport.
-</p>
-
-<p>
-If you require an visa invitation letter please contact asb@asbradbury.org
-</p>
-
-
-<p>
-This event will use the <a 
-href="http://llvm.org/docs/CodeOfConduct.html">draft LLVM community code of 
-conduct</a>.
 </p>
 
 
