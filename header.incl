@@ -94,6 +94,7 @@
   <a href="http://llvm.org/perf">LNT</a>
   <a href="http://llvm.org/reports/coverage/">Coverage</a>
   <a href="http://llvm.org/reports/scan-build/">Scan-build</a>
+  <a href="http://lab.llvm.org:8080/coverage/coverage-reports/index.html">llvm-cov</a>
 </div>
 
 <br>
