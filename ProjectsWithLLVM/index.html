@@ -36,6 +36,7 @@
 <div class="www_text">
 
 <ul>
+<li><a href="#dawncc">DawnCC</a></li>
 <li><a href="#terralang">Terra Lang</a></li>
 <li><a href="#codasip">Codasip Studio</a></li>
 <li><a href="#pony">Pony Programming Language</a></li>
@@ -76,6 +77,40 @@
 <li><a href="#vuo">Vuo: A modern visual programming language for multimedia artists</a></li>
 </ul>
 
+</div>
+
+<!--=========================================================================-->
+<div class="www_subsection">
+  <a name="dawncc">Automatic Insertion of Copy Annotation in Data-Parallel 
+	  Programs</a>
+</div>
+
+<div class="www_subsubsection">
+  By Gleison Mendonca, Breno Campos Ferreira Guimaraes, P&eacute;ricles Alves, 
+  Marcio Machado Pereira, Guido Ara&eacute;ujo, and Fernando Magno Quintao 
+  Pereira.<br/>
+  See Dawn project <a href="http://cuda.dcc.ufmg.br/dawn/">webpage</a>.
+</div>
+
+<div class="www_text">
+  <p>
+  Directive-based programming models, such as OpenACC and OpenMP arise today as
+  promising techniques to support the development of parallel applications.
+  These systems allow developers to convert a sequential program into a parallel
+  one with minimum human intervention. However, inserting pragmas into
+  production code is a difficult and error-prone task, often requiring
+  familiarity with the target program. This difficulty restricts the ability of
+  developers to annotate code that they have not written themselves. This paper
+  provides one fundamental component in the solution of this problem. We
+  introduce a static program analysis that infers the bounds of memory regions
+  referenced in source code. Such bounds allow us to automatically insert
+  data-transfer primitives, which are needed when the parallelized code is meant
+  to be executed in an accelerator device, such as a GPU. To validate our ideas,
+  we have applied them onto Polybench, using two different architectures: Nvidia
+  and Qualcomm-based. We have successfully analyzed 98% of all the memory
+  accesses in Polybench. This result has enabled us to insert automatic
+  annotations into those benchmarks leading to speedups of over 100x.
+  </p>
 </div>
 
 <!--=========================================================================-->
