@@ -19,17 +19,335 @@
 <p>
   The following presentations have been accepted for the LLVM Performance Workshop:
   <ul>
-    <li> Krzysztof Parzyszek: Register Data Flow framework
-    <li> Tao Schardl and William Moses: The Tapir Extension to LLVM's Intermediate Representation for Fork-Join Parallelism
-    <li> Aditya Kumar, Sebastian Pop and Laxman Sole: Performance analysis of libcxx
-    <li> Hal Finkel: Modeling restrict-qualified pointers in LLVM
-    <li> Mehdi Amini: LTO/ThinLTO Bof
-    <li> Johannes Doerfert: Polyhedral "Driven" Optimizations on Real Codes
-    <li> Tobias Grosser: Polly-ACC - Accelerator support with Polly-ACC
-    <li> Brian Railing: Improving LLVM Instrumentation Overheads
-    <li> Evandro Menezes, Sebastian Pop and Aditya Kumar: Efficient clustering of case statements for indirect branch predictors
-    <li> Pranav Bhandarkar, Anshuman Dasgupta, Ron Lieberman, Dan Palermo, Dillon Sharlet and Andrew Adams: Halide for Hexagon™ DSP with Hexagon Vector eXtensions (HVX) using LLVM
-    <li> Sergei Larin and Harsha Jagasia: Impact of the current LLVM inlining strategy on complex embedded application memory utilization and performance
+    <li> <b>Krzysztof Parzyszek</b>: Register Data Flow framework </li>
+    <li> <b>Tao Schardl and William Moses</b>: The Tapir Extension to LLVM's Intermediate Representation for Fork-Join Parallelism</li>
+    <li> <b>Aditya Kumar, Sebastian Pop and Laxman Sole</b>: Performance analysis of libcxx</li>
+    <li> <b>Hal Finkel</b>: Modeling restrict-qualified pointers in LLVM</li>
+    <li> <b>Mehdi Amini</b>: LTO/ThinLTO Bof</li>
+    <li> <b>Johannes Doerfert</b>: Polyhedral "Driven" Optimizations on Real Codes</li>
+    <li> <b>Tobias Grosser</b>: Polly-ACC - Accelerator support with Polly-ACC</li>
+    <li> <b>Brian Railing</b>: Improving LLVM Instrumentation Overheads</li>
+    <li> <b>Evandro Menezes, Sebastian Pop and Aditya Kumar</b>: Efficient clustering of case statements for indirect branch predictors</li>
+    <li> <b>Pranav Bhandarkar, Anshuman Dasgupta, Ron Lieberman, Dan Palermo, Dillon Sharlet and Andrew Adams</b>: Halide for Hexagon™ DSP with Hexagon Vector eXtensions (HVX) using LLVM</li>
+    <li> <b>Sergei Larin and Harsha Jagasia</b>: Impact of the current LLVM inlining strategy on complex embedded application memory utilization and performance</li>
+  </ul>
+</p>
+
+<div class="www_sectiontitle">Abstracts</div>
+<p>
+  <ul>
+    <li> <b>Krzysztof Parzyszek</b>: Register Data Flow framework
+      <p>
+        Register Data Flow is a framework implemented in LLVM that enables
+        data-flow optimizations on machine IR after register allocation. While
+        most of the data-flow optimizations on machine IR take place during the
+        SSA phase, when virtual registers obey the static single assignment
+        form, passes like pseudo-instruction expansion or frame index
+        replacement may expose opportunities for further optimizations. At the
+        same time, data-flow analysis is much more complicated after register
+        allocation, and implementing compiler passes that require it may not
+        seem like a worthwhile investment. The intent of RDF is to abstract this
+        analysis and provide access to it through a familiar and convenient
+        interface.
+      </p>
+      <p>
+        The central concept in RDF is a data-flow graph, which emulates SSA. In
+        contrast to the SSA-based optimization phase where SSA is a part of the
+        program representation, the RDF data-flow graph is a separate, auxiliary
+        structure. It can be built on demand and it does not require any
+        modifications to the program. Traversal of the graph can provide
+        information about reaching definitions of any given register access, as
+        well as reached definitions and reached uses for register
+        definitions. The graph provides connections for easily locating the
+        corresponding elements of the machine IR. A utility class that
+        recalculates basic block live-in information is implemented to make
+        writing whole-function optimizations easier. In this talk, I will give
+        an overview of RDF and its use in the Hexagon backend.
+      </p>
+    </li>
+    <li> <b>Tao Schardl and William Moses</b>: The Tapir Extension to LLVM's Intermediate Representation for Fork-Join Parallelism
+      <p>
+        This talk explores how fork-join parallelism, as supported by
+        dynamic-multithreading concurrency platforms such as Cilk and
+        OpenMP, can be embedded into a compiler's intermediate
+        representation (IR). Mainstream compilers typically treat parallel
+        linguistic constructs as syntactic sugar for function calls into a
+        parallel runtime. These calls prevent the compiler from performing
+        optimizations across parallel control flow. Remedying this
+        situation, however, is generally thought to require an extensive
+        reworking of compiler analyses and code transformations to handle
+        parallel semantics.
+      </p>
+      <p>
+        Tapir is a compiler IR that represents logically parallel tasks
+        asymmetrically in the program's control flow graph. Tapir allows
+        the compiler to optimize across parallel control flow with only
+        minor changes to its existing analyses and code transformations. To
+        prototype Tapir in the LLVM compiler, for example, we added or
+        modified approximately 5000 lines of LLVM's approximately
+        3-million-line codebase. Tapir enables many traditional compiler
+        optimizations for serial code, including loop-invariant-code motion,
+        common-subexpression elimination, and tail-recursion elimination, to
+        optimize across parallel control flow, as well as purely parallel
+        optimizations.
+      </p>
+      <p>
+        This work was conducted in collaboration with Charles E. Leiserson.
+        The proposal is a preliminary copy of our paper on Tapir, which will
+        appear at PPoPP 2017. This talk will focus on the technical details
+        of implementing Tapir in LLVM.
+      </p>
+    </li>
+    <li> <b>Aditya Kumar, Sebastian Pop and Laxman Sole</b>: Performance analysis of libcxx
+      <p>
+        We will discuss the improvements and future work on libcxx. This
+        includes the improvements on standard library algorithms like
+        string::find and basic_streambuf::xsgetn. These algorithms were
+        suboptimal and we got huge improvements after optimizing
+        them. Similarly, we enabled the inlining of constructor and destructor
+        of std::string. We will present a systematic analysis of function
+        attributes in libc++ and the places where we added missing
+        attributes. We will present a comparative analysis of clang-libc++
+        vs. gcc-libstdc++ on representative benchmarks. Finally we will talk
+        about our contributions to google-benchmark, which comes with libc++, to
+        help keep track of performance regressions.
+      </p>      
+    </li>
+    <li> <b>Hal Finkel</b>: Modeling restrict-qualified pointers in LLVM
+      <p>
+        It is not always possible for a compiler to statically determine enough
+        about the pointer-aliasing properties of a program, especially for
+        functions which need to be considered in isolation, to generate the
+        highest-performance code possible. Multiversioning can be employed but
+        its effectiveness is limited by the combinatorially-large number of
+        potential configurations. To address these practical problems, the C
+        standard introduced the restrict keyword which can adorn pointer
+        variables. The restrict keyword can be used by the programmer to convey
+        pointer-aliasing information to the optimizer. Often, this is
+        information that is difficult or impossible for the optimizer to deduce
+        on its own.
+      </p>
+      <p>
+        The semantics of restrict, however, are subtle and rely on source-level
+        constructs that are not generally represented within LLVM's
+        IR. Maximally maintaining the aliasing information correctly in the face
+        of function inlining and other code-motion transformations, without
+        interfering with those transformations, is not trivial. While LLVM has
+        long used strict-qualified pointers that are function arguments, and an
+        initial phase of this work provided a way to preserve this information
+        in the face of function inlining, I'll describe a new scheme in LLVM
+        that allows the representation of aliasing information from block-local
+        restrict-qualified pointers as well. This more-general class of
+        restrict-qualified pointers is widely used in scientific code.
+      </p>
+      <p>
+        In this talk, I'll cover the use cases for restrict-qualified pointers,
+        the difficulties in representing their semantics at the IR level, why
+        the existing aliasing metadata cannot represent restrict-qualified
+        pointers effectively, how the proposed representation allows the
+        preservation of these semantics with minimal impact to the optimizer,
+        and how the optimizer can use this information to generate
+        higher-performance code. I'll also discuss how this scheme relates to
+        others related to pointer variables (e.g. TBAA and alignment
+        assumptions).
+      </p>
+    </li>
+    <li> <b>Mehdi Amini</b>: LTO/ThinLTO Bof
+      <p>
+        LTO is an important techniques for getting the maximum performance from
+        the compiler. We presented the ThinLTO model and implementation in LLVM
+        at the last LLVM Dev Meeting. This provided the audience with a good
+        overview of the high-level flow of ThinLTO and the 3-phases split
+        involved.
+      </p>
+      <p>
+        The proposal for this BoF is to gather and discuss the existing
+        user-experience, the current limitations and what features folks are
+        expecting the most out of ThinLTO. We can go over the current
+        optimizations currently in development upstream.
+      </p>
+    </li>
+    <li> <b>Johannes Doerfert</b>: Polyhedral "Driven" Optimizations on Real Codes
+      <p>In this talk I will present polyhedral "driven" optimizations on real
+        codes.  The term polyhedral "driven" is used as there are two flavors of
+        optimization I want to discuss (depending on my progress and the
+        duration of the talk).
+      </p>
+      <p>
+        The first follows the classical approach applied by LLVM/Polly but with
+        special consideration of general benchmarks like SPEC. I will show how
+        LLVM/Polly can be used to perform beneficial optimizations in (at least)
+        libquantum, hmmer, lbm and bzip2. I will also discuss what I think is
+        needed to identify such optimization opportunities automatically.
+      </p>
+      <p>
+        The second polyhedral driven optimization I want to present is a
+        conceptual follow-up of the "Polyhedral Info" GSoC project. This project
+        was the first try to augment LLVM analysis and transformation passes
+        with polyhedral information.  While the project was build on top of
+        LLVM/Polly, I will present an alternative approach. First I will
+        introduce a modular, demand driven and caching polyhedral program
+        analysis that natively integrates into the existing LLVM pipeline. Then
+        I will show how to utilize this analysis in existing LLVM optimizations
+        to improve performance. Finally, I will use the polyhedral analysis to
+        derive new, complex control flow optimizations that are not, or only in
+        a simpler form, present in LLVM.
+      </p>
+    </li>
+    <li> <b>Tobias Grosser</b>: Polly-ACC - Accelerator support with Polly-ACC
+      <p>
+        Programming today's increasingly complex heterogeneous hardware is
+        difficult, as it commonly requires the use of data-parallel languages,
+        pragma annotations, specialized libraries, or DSL compilers. Adding
+        explicit accelerator support into a larger code base is not only costly,
+        but also introduces additional complexity that hinders long-term
+        maintenance. We propose a new heterogeneous compiler that brings us
+        closer to the dream of automatic accelerator mapping. Starting from a
+        sequential compiler IR, we automatically generate a hybrid executable
+        that - in combination with a new data management system - transparently
+        offloads suitable code regions. Our approach is almost regression free
+        for a wide range of applications while improving a range of compute
+        kernels as well as two full SPEC CPU applications. We expect our work to
+        reduce the initial cost of accelerator usage and to free developer time
+        to investigate algorithmic changes.
+      </p>
+    </li>
+    <li> <b>Brian Railing</b>: Improving LLVM Instrumentation Overheads
+      <p>
+        The behavior and structure of a shared-memory parallel program can be
+        characterized by a task graph that encodes the instructions, memory
+        accesses, and dependencies of each piece of parallel work. The task
+        graph representation can encode the actions of any threading library and
+        is agnostic to the target architecture. Contech [1] is an LLVM-based
+        tool that generates a task graph representation, by instrumenting the
+        program when it is compiled such that it ultimately outputs a task graph
+        when executed. This paper describes several approaches to improving the
+        overhead of Contech's instrumentation by augmenting the static compiler
+        analysis.
+      </p>
+      <p>
+        The additional analyses are able to first determine similar memory
+        address calculations in the LLVM intermediate representation and elide
+        them from the instrumentation to reduce the data recorded, an approach
+        only previously attempted with dynamic binary instrumentation based on
+        common registers [2] [3]. Second, this analysis is supplemented by
+        performing tail duplication which increases the memory operations in a
+        single basic block and therefore may provide further opportunities to
+        elide instrumentation, without compromising the accuracy or detail of
+        the data recorded. These optimizations reduce the data recorded by 22%,
+        which has a proportionate decrease in overhead from 3.7x to 3.3x for
+        PARSEC benchmarks.
+      </p>
+      <p>
+        [1] B. P. Railing, E. R. Hein, and T. M. Conte. "Contech: Efficiently
+        Generating Dynamic Task Graphs for Arbitrary Parallel Programs". In: ACM
+        Trans. Archit. Code Optim. 12.2 (July 2015), 25:1-25:24.
+      </p>
+      <p>
+        [2] Q. Zhao, I. Cutcutache, and W.-F. Wong. "Pipa: Pipelined Profiling
+        and Analysis on Multi-core Systems". In: Proceedings of the 6th Annual
+        IEEE/ACM International Symposium on Code Generation and
+        Optimization. CGO '08. Boston, MA, USA: ACM, 2008, pp. 185-194.
+      </p>
+      <p>
+        [3] K. Jee et al. "ShadowReplica: Efficient Parallelization of Dynamic
+        Data Flow Tracking". In: Proceedings of the 2013 ACM SIGSAC Conference
+        on Computer &#38; Communications Security. CCS '13. Berlin, Germany:
+        ACM, 2013, pp. 235-246.
+      </p>
+    </li>
+    <li> <b>Evandro Menezes, Sebastian Pop and Aditya Kumar</b>: Efficient clustering of case statements for indirect branch predictors
+      <p>
+        We present an O(nlogn) algorithm as implemented in LLVM to compile a
+        switch statement into jump tables. To generate jump tables that can be
+        efficiently predicted by current hardware branch predictors, we added an
+        upper bound on the number of entries in each generated jump table. This
+        modification of the previously best known algorithm reduces the
+        complexity from O(n^2) to O(nlogn).  We illustrate the performance
+        achieved by the improved algorithm on the Samsung Exynos-M1 processor
+        running several benchmarks.
+      </p>
+    </li>
+    <li> <b>Pranav Bhandarkar, Anshuman Dasgupta, Ron Lieberman, Dan Palermo, Dillon Sharlet and Andrew Adams</b>: Halide for Hexagon™ DSP with Hexagon Vector eXtensions (HVX) using LLVM
+      <p>
+        Halide is a domain specific language that endeavors to make it easier to
+        construct large and composite image processing applications. Halide is
+        unique in its design approach to decoupling the algorithm from the
+        organization (schedule) of the computation. Algorithms once written and
+        tested for correctness can then be continually tuned for performance as
+        Halide allows for easily changing the schedule - tiling, parallelizing,
+        prefetching or vectorizing different dimensions of the loop nest that
+        form the structure of the algorithm.
+      </p>
+      <p>
+        Halide programs are transformed into the Halide Intermediate
+        Representation (IR) by the Halide compiler. This IR is analyzed and
+        optimized before generating LLVM bitcode for the target
+        requested. Halide links with the LLVM optimizer and codegen libraries
+        for supported targets, and uses these to generate object code.
+      </p>
+      <p>
+        In this workshop, we will present our work on retargeting Halide to the
+        Hexagon™ DSP with focus on the Hexagon™ Vector eXtensions (HVX).
+      </p>
+      <p>
+        Our workshop will present the halide constructs used in a simple blur
+        5x5, the corresponding Halide IR, and a few of the important LLVM
+        Hexagon passes which generate HVX vector instructions.
+      </p>
+      <p>
+        We will demonstrate compilation using LLVM.org and Halide.org tools, and
+        execution of the blur 5x5 pipeline on a Snapdragon 820 development board
+        using the Halide Hexagon offloader. In particular we will demonstrate
+        the various improvements which can be realized with scheduling changes.
+      </p>
+    </li>
+    <li> <b>Sergei Larin and Harsha Jagasia</b>: Impact of the current LLVM inlining strategy on complex embedded application memory utilization and performance
+      <p>
+        Sophisticated embedded applications with extensive and fine degree of
+        memory management are presenting a unique challenge to contemporary tool
+        chains. Like many open source projects LLVM optimizes its core
+        optimization tradeoffs for common cases and a set of common
+        architectures. Even with back end specific hooks, it is not always
+        possible to exert appropriate degree of control over some key
+        optimizations. We propose a case study on "in-depth" analysis of LLVM
+        PGO assisted inlining in a complex embedded application.
+      </p>
+      <p>
+        The program in question is a large scale embedded networking application
+        designed to be custom tuned for a variety of actual embedded platforms
+        with a range of memory and performance constrains. It makes a high use
+        of linker scripts to configure and fine tune memory assignment to
+        ultimately guarantee optimal performance in constrained memory
+        environment while being extremely power conscious.
+      </p>
+      <p>
+        The moment a tool chain is addressing a non-uniform memory model, "one
+        size fits all" approach to optimizations like inlining stops being
+        optimal. For instance, based on section assignment, completely unknown
+        to the compiler, inlining takes place in areas that are facing different
+        cost/benefit tradeoffs. The content of L1 and L2 Icache should not be
+        "enlarged" even if performance can theoretically improve. Inlining
+        across such section boundaries are also ill-advisable, since control
+        flow exchange (jump) between sections destined to different levels of
+        memory hierarchy can produce unexpected performance
+        implications. Finally, tightly budgeted low-level and high-performance
+        memories might swell beyond their physical limits.
+      </p>
+      <p>
+        The current state of LLVM inline is somewhat transitional in
+        anticipation of structural updates to the pass manager, and as such it
+        still strongly relies on heuristic + PGO based inline cost
+        computation. In such situation the introduction of back-end hooks might
+        allow targets to fine-tune inlining decisions to some degree but they
+        still fall far short to the degree of control needed by the
+        above-described systems. Additional challenge is posed by high degree of
+        complexity to capture actual system run-time behavior, and even
+        collecting appropriate traces to generate meaningful PGO data. Battery
+        powered embedded chips rarely have sophisticated tracing capabilities,
+        yet present extremely complex run time environments.
+      </p>
+    </li>
   </ul>
 </p>
 
