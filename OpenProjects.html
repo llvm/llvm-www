@@ -4,13 +4,18 @@
 
 <ul>
   <li><a href="#gsoc17">Google Summer of Code 2017</a>
-    <ul> Clang
+    <ul><a href="http://clang.llvm.org/">Clang</a>
       <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
           provide information for the type as written in template
           instantiations</a>
       </li>
     </ul>
-    <ul> LLDB
+    <ul><a href="http://compiler-rt.llvm.org/">Compiler-rt</a>
+      <li><a href="#compiler-rt-port-to-other-platforms">Port compiler-rt
+          components to other platforms</a>
+      </li>
+    </ul>
+    <ul><a href="http://lldb.llvm.org/">LLDB</a>
       <li><a href="#lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the
           LLDB public API</a>
       </li>
@@ -71,17 +76,19 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 
 <p>The LLVM project has participated in Google Summer of Code for several years and has had some very successful projects. We hope that this year is no different and look forward to hearing your proposals. For information on how to submit a proposal, please visit the Google Summer of Code main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
-<div class="www_subsubsection"> 	 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
   <a name="clang-template-instantiation-sugar">Extend clang AST to provide
     information for the type as written in template instantiations.</a>
 </div>
+<!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     When instantiating a template, the template arguments are canonicalized
     before being substituted into the template pattern. Clang does not preserve
     type sugar when subsequently accessing members of the instantiation.
-    <br /> <br />
+
     <pre>
     std::vector<std::string> vs;
     int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string<char>' [...]
@@ -89,7 +96,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     template<typename T> struct Id { typedef T type; };
     Id<size_t>::type // just 'unsigned long', 'size_t' sugar has been lost
     </pre>
-    <br /> <br />
+
     Clang should "re-sugar" the type when performing member access on a class
     template specialization, based on the type sugar of the accessed
     specialization. The type of vs.front() should be std::string, not
@@ -123,10 +130,29 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
   </p>
 </div>
 
-<div class="www_subsubsection"> 	 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="compiler-rt-port-to-other-platforms">Port compiler-rt components to
+    other platforms.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    Many of the projects in compiler-rt are only supported on Linux.
+    <br />
+    Here are some examples: CFI, DFSan, XSan, LSan, XRay. Porting any of them
+    to other platforms, for example, Mac OS, would be great!
+  </p>
+  <p><b>Confirmed Mentor:</b>Kuba Mracek, Anna Zaks</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
   <a name="lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the LLDB
     public API.</a>
 </div>
+<!-- *********************************************************************** -->
 
 <div class="www_text"> 	 
   <p><b>Description of the project: </b>
@@ -134,15 +160,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     IDEs. The current support is very incomplete and isn't using the right
     abstraction layer. Instead of scraping LLDB's textual output, it should be
     using the data structures provided by the public API.
-    <br /> <br />
   </p>
-  <p><b>Expected results: </b>
-    Diagnostics preserve type sugar even when accessing members of a template
-    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
-    same type and the same template instantiation, but
-    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
-    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
-
   <p><b>Confirmed Mentor:</b>Adrian Prantl, Greg Clayton</p>
 
   <p><b>Desirable skills:</b>
