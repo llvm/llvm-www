@@ -3,7 +3,19 @@
 <div class="www_sectiontitle">Open LLVM Projects</div>
 
 <ul>
-  <li><a href="#gsoc16">Google Summer of Code 2016</a></li>
+  <li><a href="#gsoc17">Google Summer of Code 2017</a>
+    <ul> Clang
+      <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
+          provide information for the type as written in template
+          instantiations</a>
+      </li>
+    </ul>
+    <ul> LLDB
+      <li><a href="#lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the
+          LLDB public API</a>
+      </li>
+    </ul>
+  </li>
   <li><a href="#what">What is this?</a></li>
   <li><a href="#subprojects">LLVM Subprojects: Clang and more</a></li>
   <li><a href="#improving">Improving the current system</a>
@@ -45,14 +57,14 @@
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
-  <a name="gsoc16">Google Summer of Code 2016</a>
+  <a name="gsoc17">Google Summer of Code 2017</a>
 </div>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
 
 <p>
-Welcome prospective Google Summer of Code 2016 Students! This document is your starting point to finding interesting and important projects for LLVM, Clang, and other related sub-projects. This list of projects is not just developed for Google Summer of Code, but open projects that really need developers to work on and are very beneficial for the LLVM community. </p>
+Welcome prospective Google Summer of Code 2017 Students! This document is your starting point to finding interesting and important projects for LLVM, Clang, and other related sub-projects. This list of projects is not just developed for Google Summer of Code, but open projects that really need developers to work on and are very beneficial for the LLVM community. </p>
 
 <p>We encourage you to look through this list and see which projects excite you and match well with your skill set. We also invite proposals not on this list. However, you must propose your idea to the LLVM community through our developers' mailing list (llvm-dev@lists.llvm.org or specific subproject mailing list). Feedback from the community is a requirement for your proposal to be considered and hopefully accepted.
 </p>
@@ -64,6 +76,85 @@ Welcome prospective Google Summer of Code 2016 Students! This document is your s
   <a name="what">What is this?</a>
 </div>
 <!-- *********************************************************************** -->
+
+<div class="www_subsubsection"> 	 
+  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
+    information for the type as written in template instantiations.</a>
+</div>
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    When instantiating a template, the template arguments are canonicalized
+    before being substituted into the template pattern. Clang does not preserve
+    type sugar when subsequently accessing members of the instantiation.
+    <br /> <br />
+    <pre>
+    std::vector<std::string> vs;
+    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string<char>' [...]
+
+    template<typename T> struct Id { typedef T type; };
+    Id<size_t>::type // just 'unsigned long', 'size_t' sugar has been lost
+    </pre>
+    <br /> <br />
+    Clang should "re-sugar" the type when performing member access on a class
+    template specialization, based on the type sugar of the accessed
+    specialization. The type of vs.front() should be std::string, not
+    std::basic_string<char, [...]>.
+    <br /> <br />
+    Suggested design approach: add a new type node to represent template
+    argument sugar, and implicitly create an instance of this node whenever a
+    member of a class template specialization is accessed. When performing a
+    single-step desugar of this node, lazily create the desugared representation
+    by propagating the sugared template arguments onto inner type nodes (and in
+    particular, replacing Subst*Parm nodes with the corresponding sugar). When
+    printing the type for diagnostic purposes, use the annotated type sugar to
+    print the type as originally written.
+    <br /> <br />
+    For good results, template argument deduction will also need to be able to
+    deduce type sugar (and reconcile cases where the same type is deduced twice
+    with different sugar).
+  </p>
+
+  <p><b>Expected results: </b>
+    Diagnostics preserve type sugar even when accessing members of a template
+    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
+    same type and the same template instantiation, but
+    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
+    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
+
+  <p><b>Confirmed Mentor:</b>Vassil Vassilev, Richard Smith</p>
+
+  <p><b>Desirable skills:</b>
+    Good knowledge of clang API, clang’s AST, intermediate knowledge of C++.
+  </p>
+</div>
+
+<div class="www_subsubsection"> 	 
+  <a name="lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the LLDB
+    public API.</a>
+</div>
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    lldb-mi implements a machine-readable interface that is supported by many
+    IDEs. The current support is very incomplete and isn't using the right
+    abstraction layer. Instead of scraping LLDB's textual output, it should be
+    using the data structures provided by the public API.
+    <br /> <br />
+  </p>
+  <p><b>Expected results: </b>
+    Diagnostics preserve type sugar even when accessing members of a template
+    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
+    same type and the same template instantiation, but
+    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
+    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
+
+  <p><b>Confirmed Mentor:</b>Adrian Prantl, Greg Clayton</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
 
 <div class="www_text">
 
