@@ -108,17 +108,17 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     type sugar when subsequently accessing members of the instantiation.
 
     <pre>
-    std::vector<std::string> vs;
-    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string<char>' [...]
+    std::vector&lt;std::string&gt; vs;
+    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
 
-    template<typename T> struct Id { typedef T type; };
-    Id<size_t>::type // just 'unsigned long', 'size_t' sugar has been lost
+    template&lt;typename T&gt; struct Id { typedef T type; };
+    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
     </pre>
 
     Clang should "re-sugar" the type when performing member access on a class
     template specialization, based on the type sugar of the accessed
     specialization. The type of vs.front() should be std::string, not
-    std::basic_string<char, [...]>.
+    std::basic_string&lt;char, [...]&gt;.
     <br /> <br />
     Suggested design approach: add a new type node to represent template
     argument sugar, and implicitly create an instance of this node whenever a
