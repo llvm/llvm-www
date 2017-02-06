@@ -10,6 +10,17 @@
           instantiations</a>
       </li>
     </ul>
+    <ul><a href="http://clang-analyzer.llvm.org/">Clang Static Analyzer</a>
+      <li><a href="#clang-sa-virt-calls">Warn if virtual calls are made from
+          constructors or destructors</a>
+      </li>
+      <li><a href="#clang-sa-atomics">Model C++11 and C11 atomics in the
+          analyzer</a>
+      </li>
+      <li><a href="#clang-sa-escape-analysis">Implement fast escape analysis for
+          clang AST</a>
+      </li>
+    </ul>
     <ul><a href="http://compiler-rt.llvm.org/">Compiler-rt</a>
       <li><a href="#compiler-rt-port-to-other-platforms">Port compiler-rt
           components to other platforms</a>
@@ -129,6 +140,73 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     Good knowledge of clang API, clang’s AST, intermediate knowledge of C++.
   </p>
 </div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-sa-virt-calls">Warn if virtual calls are made from constructors
+    or destructors.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    Implement a path-sensitive checker that warns if virtual calls are made from
+    constructors and destructors, which is not valid in case of pure virtual
+    calls and could be a sign of user error in <a href="https://isocpp.org/wiki/faq/strange-inheritance#calling-virtuals-from-ctors">non-pure calls</a>.
+    <br />
+    The current virtual calls checker, implemented in VirtualCallChecker.cpp,
+    needs to be re-implemented in a path-sensitive way.  The lack of
+    path-sensitive reasoning may result in false positives in the
+    inter-procedural mode, which is disabled now for that reason.
+    The false positives could happen when a called function uses a member
+    variable flag to track whether initialization is complete and relies on the
+    flag to ensure that the virtual member function is not called during
+    initialization. Further, the path diagnostic should be used to highlight
+    both the virtual call and the path from the constructor. Last, we will need
+    to evaluate if the warning should be issued for both calls to pure virtual
+    functions (which is always an error) and non-pure virtual functions (which
+    is more of a code smell and may be a false positive). 
+  </p>
+  <p><b>Confirmed Mentor:</b>Anna Zaks</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-sa-atomics">Model C++11 and C11 atomics in the analyzer.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    Enhance the clang static analyzer by adding models of C++11 and C11 atomic
+    operations, such as std::atomic_compare_exchange_*. Currently, these
+    operations are being treated opaquely, which results in loss of precision
+    when analyzing the code that uses these instructions. To address the
+    problem, one would need to programmatically construct AST that simulates
+    these APIs to the BodyFarm of the analyzer. BodyFarm is the API used for
+    modeling system APIs. Finally, the work would also include writing tests
+    for the various APIs and checking that the analyzer correctly models
+    atomics. 
+  </p>
+  <p><b>Confirmed Mentor:</b>Anna Zaks</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-sa-escape-analysis">Implement fast escape analysis for
+    clang AST.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text"> 	 
+  <p><b>Description of the project: </b>
+    The static analyzer and the compiler that operate on top of clang AST could
+    use the results of a fast pointer analysis such as "Points-to analysis in
+    almost linear time" by Bjarne Steensgaard. 
+  </p>
+  <p><b>Confirmed Mentor:</b>Devin Coughlin</p>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
