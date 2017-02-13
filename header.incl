@@ -89,7 +89,7 @@
   <a href="/doxygen/">doxygen</a>
   <a href="/viewvc/llvm-project/">ViewVC</a><br>
   <a href="http://blog.llvm.org/">Blog</a>
-  <a href="/bugs/">Bugzilla</a><br>
+  <a href="http://bugs.llvm.org/">Bugzilla</a><br>
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
   <a href="http://llvm.org/perf">LNT</a>
   <a href="http://llvm.org/reports/coverage/">Coverage</a>
