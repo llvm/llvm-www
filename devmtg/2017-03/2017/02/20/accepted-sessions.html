@@ -724,6 +724,12 @@ This talk presents Unison - a simple, flexible and potentially optimal tool that
      <p class="affiliation">
       ARM
      </p>
+     <p class="author">
+      Jakub Kuderski
+     </p>
+     <p class="affiliation">
+      
+     </p>
 
      <p class="kind">
       Full Talk
@@ -732,10 +738,10 @@ This talk presents Unison - a simple, flexible and potentially optimal tool that
      <td>
      <p class="title">
        <a name="17"></a>
-       SPIR-V and its place in the LLVM ecosystem
+       SPIR-V - TBA
      </p>
      <p class="abstract">
-A deep dive into future directions of SPIR-V and its place in the LLVM ecosystem.<br /><br />LLVM-IR is designed to be a cross platform IR for multiple source languages, mapping to different types of hardware platform, CPU, GPU, FPGA etc.<br />SPIR-V is designed to act as a common IR for high level programming languages standardised by the Khronos Group (khronos.org), to accurately represent the semantics of the source language.<br /><br />SPIR-V is designed with different programming models in mind, SPMD, single program, multiple data, SIMD, single instruction multiple data, etc. and is organized into a set of capabilities allowing different behaviours depending on which source language is used.<br /><br />This talk aims to answer, or at least open discussions around, a questions regarding the differences and similarities of LLVM-IR and SPIR-V.<br /><br />Firstly, why did Khronos defined a proprietary intermediate language? There were a number of reasons why there became a need for a new intermediate language; Khronos wanted the freedom to continue innovating languages without being required to submit IR changes to a third party, which it did not have control over. Also, Khronos wanted to define an intermediate language that accurately captures the semantics of high level languages and programming models (e.g. single program, multiple data) without the need to jump through additional hoops to map it to an IR that was not designed to fully represent it.<br /><br />Secondly, what are the main differences between LLVM-IR and SPIR-V. The main structure of SPIR-V will be presented and explained as well as how SPIR-V make use of capabilities to modify some instruction semantics and add extra instructions and capabilities for different dialects.<br /><br />Thirdly, how do SPIR-V and LLVM-IR compare for targetting GPGPU languages (e.g. OpenCL). Tools have been developed to allow bi-directional translation from SPIR-V to LLVM-IR for a subset of the compute capabilities. How well do these two "languages" match? What features from one could be utilized in the other? On the whole, LLVM-IR can be used to represent the semantics of OpenCL due to its similarity to C and its general purpose nature. Due to the absense of specific semantic constructs to match the OpenCL programming model workarounds are required, for example, convergent attribute, identifying kernels by metadata, absence of explicit barriers.<br /><br />Finally, how do SPIR-V and LLVM-IR compare for targetting graphics languages (Vulkan, GLES). Graphics languages evolved to expose some of the architectural features of GPUs, allowing graphics shaders to access the maximum performance from hardware, with less of a focus on generality. The Vulkan API has been explicitly designed to expose a lot of hardware features, allowing a developer to maximize performance across a range of different devices. This does not then naturally lend itself to some of the semantics of LLVM. As an example, Vulkan exposes multiple different structure packing policies resulting in memory being laid out differently based on the policy chosen. While this is good for graphics, to allow data to be in a well defined state for sharing between host and device, it isn't something that LLVM natively support, and so extra semantic information has to be tagged on via metadata or some other mechanism. As part of this, I intend to present ideas and options for how LLVM-IR could be modified to represent similar semantics natively in the IR itself. This will be in the form of policies governing how address spaces could be used, as well as changes to instructions and additional features.<br /><br />In conclusion, SPIR-V is an interesting development for an intermediate language for a large and growing domain of programs. This talk discusses what lessons we could learn from this development and how LLVM could be modified to enable this emerging class of device and program.<br />
+tbd.
      </p>
      </td>
     </tr>
