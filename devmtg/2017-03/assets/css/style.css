@@ -68,6 +68,27 @@
 		margin: 0 0 1em 0;
 	}
 
+  p.title {
+		font-weight: 600;
+		margin: 0 0 1em 0;
+  }
+
+  p.kind {
+    font-style: italic;
+		border-top: solid 1px #e0e0e0;
+  }
+
+  p.author {
+		font-weight: 600;
+    font-style: italic;
+		margin: 0 0 -0.5em 0;
+  }
+
+  p.affiliation {
+		font-size: 0.8em;
+		margin: 0 0 1em 0;
+  }
+
 	h1, h2, h3, h4, h5, h6 {
 		color: inherit;
 		font-weight: 600;
@@ -433,14 +454,56 @@
 	}
 
 		table.default {
+      margin-top: 2em;
 			width: 100%;
 		}
+
+			table.default thead tr {
+        font-weight: 600;
+				border-bottom: solid 1px #e0e0e0;
+			}
+
+			table.default thead th.caption {
+        text-align: center;
+        font-weight: 600;
+        font-size: 1em;
+			}
+
+			table.default thead th.title {
+        text-align: left;
+        width: 26%;
+			}
+
+			table.default thead th.abstract {
+        width: 74%;
+			}
 
 			table.default tbody tr {
 				border-bottom: solid 1px #e0e0e0;
 			}
 
+      table.default tbody tr.separator {
+			border-bottom: solid 0px #e0e0e0;
+      height: 25px;
+      }
+
+			table.default tbody td {
+				padding: 0.5em 1em 0.5em 1em;
+			}
+
+			table.default tbody p.abstract {
+       line-height: 1.5;
+     }
+
+			table.default tbody td.title {
+        text-align: left;
+        font-size: 0.8em;
+        line-height: 1.5;
+        width: 50%;
+			}
+
 			table.default td {
+        font-size: 0.8em;
 				padding: 0.5em 1em 0.5em 1em;
 			}
 
