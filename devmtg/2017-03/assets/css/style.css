@@ -80,12 +80,14 @@
 
   p.author {
 		font-weight: 600;
+		line-height: 1.25em;
     font-style: italic;
-		margin: 0 0 -0.5em 0;
+		margin: 0 0 -0.05em 0;
   }
 
   p.affiliation {
 		font-size: 0.8em;
+		line-height: 1.25em;
 		margin: 0 0 1em 0;
   }
 
