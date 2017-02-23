@@ -341,9 +341,40 @@ Last year, we've done considerable ARM code size optimisations in LLVM as that's
 an area that LLVM was lacking, see also e.g. Samsung's and Intel's EuroLLVM
 talks. In this presentation, we want to present lessons learned and insights
 gained from our work, leading to about 200 commits. The areas that we identified
-that are most important for code size are:<br />I) turn off specific optimisations
-when optimising for size,<br />II) tuning optimisations,<br />III) constants,
-and<br />IV) bit twiddling.  </p>
+that are most important for code size are: I) turn off specific optimisations
+when optimising for size, II) tuning optimisations, III) constants, and IV) bit
+twiddling.<br /><br />Samsung's work compared LLVM's code size against GCC for the
+JerryScript engine, whereas we focused on set of (customer) codes targeting the
+micro-controller market. We can confirm some of their found inefficiencies but
+also identified other areas where code size was significantly worse and we will
+discuss our contributions, implementations and our future work and next steps.
+Intel's code size work was also interesting as some of their identified
+bottlenecks, such as loop rotation and inlining, were still problematic for ARM
+but other differences seem mostly related to architecture differences. We will
+focus mostly on our upstream LLVM contributions in these 4 areas:<br />I) Disable
+some optimisations when optimising for size: many optimisations just try to be
+as aggressive as possible, i.e. they are mostly optimising for performance and
+expanding instructions into more optimal code sequences and we had to teach
+optimisers not to do that, such as not expanding some library calls.<br />II)
+Tuning optimisations: identifying common instructions and sinking them to a
+common block, which we e.g. had to teach SimplyCFG (lift restrictions and allow
+more cases).<br />III) Constants: efficient (re)materalisation is really
+important as many (benchmark) code and instructions deal with constants.
+However, there are many restrictions on immediate operand values in instructions
+(size, whether they can be positive/negative, etc.), so it is crucial to take
+this into account in e.g. constant hoisting and target hooks querying properties
+of immediate values.<br />IV) Bit twiddling: rewrites of bit twiddling
+instructions, or instructions setting or reading the processor status flag
+register, are small changes but because there are typically many, they
+accumulate to significant reductions.<br /><br />As future works, we want to look
+into these 3 areas: machine block placement (MBP), register allocations, and
+constant hoisting. For MBP, we noticed that many wide branches (BEQ.W) could be
+turned into smaller encoded branches (BEQ) if only the branch target block would
+have layed out differently. Another observation, related to register allocation
+and constant hoisting, is that we see spilling of small constants that can
+easily be rematerialized. Constant hoisting is really aggressive as it hoist all
+constants it can hoist not taking into account any register pressure at all.
+</p>
      </td>
     </tr>
     <tr class="separator" />
