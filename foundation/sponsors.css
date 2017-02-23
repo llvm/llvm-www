@@ -1,0 +1,29 @@
+td {
+  padding: 30px;
+  text-align: center;
+}
+
+img {
+    align: middle;
+}
+
+#diamond img {
+    width: 220px;
+}
+
+#platinum img {
+    width: 200px;
+}
+
+#gold img {
+    width: 180px;
+}
+
+#silver img {
+    width: 160px;
+}
+
+#bronze img {
+    width: 150px;
+}
+
