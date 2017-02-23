@@ -30,7 +30,7 @@
 				<!-- Logo -->
           <h2><a href="http://llvm.org" id="logo1">The <strong>LLVM</strong> Compiler Infrastructure</a></h2>
 					<h1><a href="http://llvm.org/devmtg/2017-03/index.html" id="logo2">2017 European LLVM Developers Meeting</a></h1>
-          <h3 class="tight">27-28 March 2017</h3>
+          <h3 class="tight">March 27-28, 2017</h3>
           <h3><a href="http://sic.saarland" target="_blank">Saarland Informatics Campus</a>, Saarbrücken, Germany</h3>
 				<!-- Nav -->
 					<nav id="nav">
@@ -830,21 +830,21 @@ include introducing a Planning step into the Loop Vectorizer which follows its
 Legality step. The refactored Loop Vectorizer records in VPlans all
 vectorization decisions taken inside a candidate vectorized loop body, and uses
 the best VPlan to carry them out. These decisions specify which instructions are
-to  + be vectorized naturally, or  + be part of an interleave group, or  + be
-scalarized, and  + be packed or unpacked - at the definition rather than at its
-uses - to  provide both scalarized and vectorized forms.<br /><br />VPlan also
-explicitly represents all control-flow within the loop body of the vectorized
-code. The Planner can optionally sink to-be scalarized instructions into
-predicated basic blocks in VPlan, thereby converting a current
-post-vectorization optimization of the Loop Vectorizer into the Planning step.
-Once the Planning step concludes a best VPlan is selected; this VPlan drives the
-vectorization transformation itself, including both the generation of
-basic-blocks and the generation of new instructions filling them, reusing
-existing Loop Vectorizer routines.<br /><br />The VPlan model implemented strives
-to be compact, addressing compile-time concerns. We conclude the talk by
+to<br />  + be vectorized naturally, or<br />  + be part of an interleave group,
+or<br />  + be scalarized, and<br />  + be packed or unpacked - at the definition
+rather than at its uses - to  provide both scalarized and vectorized
+forms.<br /><br />VPlan also explicitly represents all control-flow within the
+loop body of the vectorized code. The Planner can optionally sink to-be
+scalarized instructions into predicated basic blocks in VPlan, thereby
+converting a current post-vectorization optimization of the Loop Vectorizer into
+the Planning step. Once the Planning step concludes a best VPlan is selected;
+this VPlan drives the vectorization transformation itself, including both the
+generation of basic-blocks and the generation of new instructions filling them,
+reusing existing Loop Vectorizer routines.<br /><br />The VPlan model implemented
+strives to be compact, addressing compile-time concerns. We conclude the talk by
 presenting ongoing and planned future steps for incremental refactoring of the
 Loop Vectorizer following our proposed patch[3] and the roadmap outlined in the
-LLVM-US presentation[2].<br /><br />Joint work with the Intel vectorization
+LLVM-US presentation[2].<br /><br />Joint work of the Intel vectorization
 team.<br /><br />[1] [llvm-dev] RFC: Extending LV to vectorize outerloops,
 http://lists.llvm.org/pipermail/llvm-dev/2016-September/105057.htm.<br />[2]
 Extending LoopVectorizer towards supporting OpenMP4.5 SIMD and outer loop
