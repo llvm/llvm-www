@@ -72,62 +72,8 @@ described in more detail on the
   <!-- http://lists.llvm.org/pipermail/llvm-dev/2008-March/012978.html -->
   <tr>
     <td><a name="Apple">Apple Inc.</a></td>
-    <td>
-        Xcode 4.2: "LLVM Compiler 3.0" (aka Clang) now supports many
-        C++'11 features and <a href="http://libcxx.llvm.org">libc++</a> is
-        supported as a modern C++ runtime library.  <a
-       href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html">ARC</a>
-        is a major new Objective-C feature introduced in this release,
-        introducing automated memory management to iOS programming.  Xcode 4.2
-        no longer includes GCC 4.2, only the LLVM backend is supported (in the
-        Clang and llvm-gcc compilers).<p>
-
-        Mac OS X 10.7 Lion and iOS5: Virtually all of the code in these
-        operating systems were built with Clang and llvm-gcc.<p>
-          
-        Xcode 4.1: LLDB supports debugging iOS devices.<p>
-      
-        Xcode 4.0: The <a href="http://clang.llvm.org">Clang</a>
-        parser for C, C++, and Objective-C are now deeply integrated into the Xcode
-        IDE for code completion, syntax highlighting, indexing, "Edit All In
-        Scope", and other source code sensitive features.  The Clang command line
-        compiler (known as "LLVM Compiler" in Xcode) also now fully supports C++.
-        This was the first Apple release of the <a 
-          href="http://lldb.llvm.org">LLDB Debugger</a>.<p>
-        
-        Xcode 3.2: Clang is
-        now included as a production quality C and Objective-C compiler that is
-        available for use in Xcode or from the command line.  It supports X86-32/X86-64
-        and builds code 2-3x faster than GCC in "-O0 -g" mode.  Many "developer tools"
-        GUI apps were shipped built with Clang, including Xcode, Interface Builder,
-        Automator, and several others.<p>
-
-        Xcode 3.2: The <a
-          href="http://developer.apple.com/mac/library/featuredarticles/StaticAnalysis/index.html">Xcode
-          Static Analyzer</a> is built on the Clang static
-        analyzer, and allows Xcode users easy access to the Clang Static Analyzer as
-        well as a first class user interface to dig through and visualize results.<p>
-        
-        Mac OS X 10.6: The <a
-          href="http://en.wikipedia.org/wiki/OpenCL">OpenCL</a> GPGPU implementation is <a
-            href="http://developer.apple.com/mac/library/documentation/Performance/Conceptual/OpenCL_MacProgGuide/OpenCLontheMacPlatform/OpenCLontheMacPlatform.html">built on Clang and LLVM compiler technology</a>.  This
-        requires parsing an extended dialect of C at runtime and JIT compiling it to run
-        on the CPU, GPU, or both at the same time.  In addition, several performance
-        sensitive pieces of Mac OS X 10.6 were built with llvm-gcc such as OpenSSL
-        and Hotspot.  Finally, the <a href="http://compiler-rt.llvm.org/">compiler_rt</a>
-        library has replaced libgcc and is now a part of libsystem.dylib.<p>
-        
-        Xcode 3.1: <a
-href="http://lists.llvm.org/pipermail/llvm-dev/2008-March/012978.html">llvm-gcc 4.2
-        compiler</a> is now available for use in Xcode or from the command line.  It
-        supports PPC32/X86-32/X86-64 and includes transparent LTO integration.<p>
-
-      Mac OS X 10.4: Uses the LLVM JIT for <a
-        href="http://lists.llvm.org/pipermail/llvm-dev/2006-August/006492.html">optimizing
-        many parts of the OpenGL pipeline</a>, including emulating vertex/pixel shaders
-      when hardware support is missing, performing texture format
-      conversion before uploading to the GPU, efficiently packing GPU buffers
-      for vertex submission, and many others.<p>
+    <td><p>
+    All of Apple’s operating systems, iOS, macOS, tvOS and watchOS, are built with LLVM technologies.  And Xcode, Apple’s integrated development environment, supports development in Swift, C, C++, and Objective-C, all of which use and are built with LLVM technologies.  Apple’s implementations of OpenCL and OpenGL, the Metal Shading Language, Core Image, and macOS graphics drivers also use LLVM technologies.</p>
     </td>
   </tr>
 
