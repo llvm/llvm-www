@@ -1037,23 +1037,6 @@ dependency graph.</li>
 
 <!-- ======================================================================= -->
 <div class="www_subsubsection">
-  <a name="machinemodulepass">Add a MachineModulePass</a>
-</div>
-
-<div class="www_text">
-  <p>
-  Several projects reuse LLVM's code generator infrastructure to analyze
-  and optimize the machine code that the compiler generates.  However, LLVM's
-  code generator infrastructure does not provide a pass which
-  allows inter-procedural analysis and optimization of the native code that
-  the LLVM compiler generates.  What is needed is an equivalent of the LLVM IR
-  ModulePass (i.e., a <i>MachineModulePass</i>) that permits inter-procedural
-  analysis and optimiztion of machine instructions (MachineIntr's).
-  </p>
-</div>
-
-<!-- ======================================================================= -->
-<div class="www_subsubsection">
   <a name="encodeanalysis">Encode Analysis Results in MachineInstr IR</a>
 </div>
 
