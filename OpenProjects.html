@@ -13,6 +13,7 @@
 	  <li><a href="#hashmap_codegen_mismatch">Changing hashmap iteration order should not change the generated code</a></li>
 	  <li><a href="#opt_remarks">We need better optimization remarks!</a></li>
 	  <li><a href="#llvmir_dump">Smarter way of dumping LLVM IR with -emit-after-all</a></li>
+	  <li><a href="#codegen_testing">Improve code generation testing</a></li>
     </ul>
     <ul><a href="http://clang.llvm.org/">Clang</a>
       <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
@@ -199,6 +200,53 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
   <p><b>Description of the project:</b>
 	  Smarter way of dumping LLVM ir with -emit-after-all - dump only if it
 	  differs from last pass. Maybe small color the IR?
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="codegen_testing">Improve code generation testing</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  After instruction selection LLVM uses the MI (Machine Instruction)
+	  representation for programs. We recently added support for reading and
+	  writing this representation to disk
+	  (http://llvm.org/docs/MIRLangRef.html). Usage of this format for writing
+	  tests is growing and so is the desire to improve the format, tools and
+	  workflow. Improvements would be welcome:
+
+	  <ul><li>Create a single consistent format instead of the current mix of
+		  YAML + IR + MIR</ul></li>
+	  <ul><li>Do not print unnecessary information (we often print default
+		  values where the reader could deduce them)</ul></li>
+	  <ul><li>The format of things like MachineInstr/MachineBasicBlock::dump()
+		  should be the same or very close to the .mir format => change the dump
+		  functions.</ul></li>
+	  <ul><li>Allow the representation to deduce successors of a basic block in
+		  common cases</ul></li>
+	  <ul><li>Allow symbolic names instead of just numbers for virtual
+		  registers</ul></li>
+	  <ul><li>Helper passes: Strip IR information, rename blocks and values, 
+		  debug information, ...</ul></li>
+	  <ul><li>Create a bugpoint mode (or a new tool) to reduce .mir test cases</ul></li>
+	  <ul><li>Write recommendations and guides for .mir based tests</ul></li>
+  </p>
+  
+   <p><b>Contact Person:</b>Matthias Braun</p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name=""></a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
   </p>
 </div>
 
