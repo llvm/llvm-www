@@ -4,6 +4,16 @@
 
 <ul>
   <li><a href="#gsoc17">Google Summer of Code 2017</a>
+	  
+    <ul><a href="http://clang.llvm.org/">LLVM Core</a>
+	  <li><a href="#bitcode_fuzzing">Fuzzing the Bitcode reader</a></li>
+	  <li><a href="#debuginfo_overhead">Improve optimizer overhead with debug info</a></li>
+	  <li><a href="#thinlto_global">ThinLTO: propagating more global informations</a></li>
+	  <li><a href="#debuginfo_codegen_mismatch">Adding Debug Info shouldn't change the generated code</a></li>
+	  <li><a href="#hashmap_codegen_mismatch">Changing hashmap iteration order should not change the generated code</a></li>
+	  <li><a href="#opt_remarks">We need better optimization remarks!</a></li>
+	  <li><a href="#llvmir_dump">Smarter way of dumping LLVM IR with -emit-after-all</a></li>
+    </ul>
     <ul><a href="http://clang.llvm.org/">Clang</a>
       <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
           provide information for the type as written in template
@@ -88,6 +98,110 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 <p>The LLVM project has participated in Google Summer of Code for several years and has had some very successful projects. We hope that this year is no different and look forward to hearing your proposals. For information on how to submit a proposal, please visit the Google Summer of Code main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
 
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="bitcode_fuzzing">Fuzzing the Bitcode reader</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="debuginfo_overhead">Improve optimizer overhead with debug info</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  The optimizer is 25-30% slower when debug info are enabled, it'd be nice
+	  to track all the places where we don't do a good job about ignoring them!
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="thinlto_global">ThinLTO: propagating more global informations across 
+	  the program for more powerful optimizations!</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  ThinLTO is a cool new technology to perform Link-Time Optimization (see
+	  http://llvm.org/devmtg/2016-11/#talk12 for more info). It is fairly new
+	  and there are multiple improvements about cross-module optimizations that
+	  can be made there.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="debuginfo_codegen_mismatch"></a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  Adding Debug Info (compiling with `clang -g`) shouldn't change the
+	  generated code at all. Unfortunately we have bugs… These are usually not
+	  too hard to fix and a good way to discover new part of the codebase! A
+	  starting point could be the test-suite. We suggest building object files
+	  both ways and disassembling the text sections, which will give cleaner
+	  diffs than comparing .s files.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="hashmap_codegen_mismatch">Changing the iteration order of unordered
+	  datastructures should not change the generated code.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="opt_remarks">We need better optimization remarks!</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  See http://llvm.org/devmtg/2016-11/#talk15 for a starting point. There are
+	  many areas in the compiler that need work to integrate there (ThinLTO for
+	  example). 
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvmir_dump">Smarter way of dumping LLVM IR with -emit-after-all</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  Smarter way of dumping LLVM ir with -emit-after-all - dump only if it
+	  differs from last pass. Maybe small color the IR?
+  </p>
+</div>
+
 <!-- *********************************************************************** -->
 <div class="www_subsection">
   <a>Clang</a>
@@ -144,7 +258,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
   <p><b>Confirmed Mentor:</b>Vassil Vassilev, Richard Smith</p>
 
   <p><b>Desirable skills:</b>
-    Good knowledge of clang API, clang’s AST, intermediate knowledge of C++.
+    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
   </p>
 </div>
 
