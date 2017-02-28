@@ -1392,7 +1392,7 @@ Global ISel is catching up, with stride progress being made on AArch64, ARM, x86
        LLVM Foundation
      </p>
      <p class="abstract">
-TBA
+This BoF provides an opportunity to the EuroLLVM attendees to discuss with some of the board members of the LLVM Foundation.
      </p>
      </td>
     </tr>
@@ -1403,6 +1403,30 @@ Posters
      </th>
     <tr class="separator" />
     </tr>
+    <tr class="entry">
+     <td>
+     <p class="author">
+      Alexandru Susu
+     </p>
+     <p class="affiliation">
+      Politehnica University of Bucharest
+     </p>
+
+     <p class="kind">
+      Poster
+     </p>
+     </td>
+     <td>
+     <p class="title">
+       <a name="38"></a>
+       A Source-to-Source Vectorizer for the Connex SIMD Accelerator
+     </p>
+     <p class="abstract">
+TBA
+     </p>
+     </td>
+    </tr>
+    <tr class="separator" />
     <tr class="entry">
      <td>
      <p class="author">
@@ -1424,7 +1448,7 @@ Posters
      </td>
      <td>
      <p class="title">
-       <a name="38"></a>
+       <a name="39"></a>
        AnyDSL: A Compiler-Framework for Domain-Specific Libraries (DSLs)
      </p>
      <p class="abstract">
@@ -1448,7 +1472,7 @@ AnyDSL is a framework for the rapid development of domain-specific libraries (DS
      </td>
      <td>
      <p class="title">
-       <a name="39"></a>
+       <a name="40"></a>
        Binary Instrumentation of ELF Objects on ARM
      </p>
      <p class="abstract">
@@ -1490,7 +1514,7 @@ Often application source code is not available to compiler engineers, which can 
      </td>
      <td>
      <p class="title">
-       <a name="40"></a>
+       <a name="41"></a>
        CodeCompass: An Open Software Comprehension Framework
      </p>
      <p class="abstract">
@@ -1520,7 +1544,7 @@ Bugfixing or new feature development requires a confident understanding of all d
      </td>
      <td>
      <p class="title">
-       <a name="41"></a>
+       <a name="42"></a>
        Hydra LLVM: Instruction Selection with Threads
      </p>
      <p class="abstract">
@@ -1556,11 +1580,47 @@ By the rise of program complexity and some specific usages like JIT(Just-In-Time
      </td>
      <td>
      <p class="title">
-       <a name="42"></a>
+       <a name="43"></a>
        Intelligent selection of compiler options to optimize compile time and performance
      </p>
      <p class="abstract">
 The efficiency of the optimization process during the compilation is crucial for the later execution behavior of the code. The achieved performance depends on the hardware architecture and the compiler's capabilities to extract this performance.<br /><br />Code optimization can be a CPU- and memory-intensive process which -- for large codes -- can lead to high compilation times during development. Optimization also influences the debuggability of the resulting binary; for example, by storing data in registers. During development, it would be interesting to compile files individually with appropriate flags that enable debugging and provide high (near-production) performance during the testing but with moderate compile times. We are exploring to create a tool to identify code regions that are candidates for higher optimization levels. We follow two different approaches to identify the most efficient code optimization:<br />1) compiling different files with different options by brute force; 2) using profilers to identify the relevant code regions that should be optimized.<br /><br />Since big projects comprise hundreds of files, brute force is not efficient. The problem in, e.g., climate applications is that codes have too many files to test them individually.<br />Improving this strategy using a profiler, we can identify the time consuming regions (and files) and then repeatedly refine our selection. Then, the relevant files are evaluated with different compiler flags to determine a good compromise of the flags. Once the appropriate flags are determined, this information could be retained across builds and shared between users.<br /><br /><br />In our poster, we motivate and demonstrate this strategy on a stencil code derived from climate applications. The experiments done throughout this work are carried out on a recent Intel Skylake (i7-6700 CPU @ 3.40GHz) machine. We compare performance of the compilers clang (version 3.9.1) and gcc (version 6.3.0) for various optimization flags and using profile guided optimization (PGO) with the traditional compile with instrumentation/run/compile phase and when using the perf tool for dynamic instrumentation. The results show that more time (2x) is spent for compiling code using higher optimization levels in general, though gcc takes a little less time in general than clang. Yet the performance of the application were comparable after compiling the whole code with O3 to that of applying O3 optimization to the right subset of files. Thus, the approach proves to be effective for repositories where compilation is analyzed to guide subsequent compilations.<br /><br />Based on these results, we are building a prototype tool that can be embedded into building systems that realizes the aforementioned strategies of brute-force testing and profile guided analysis of relevant compilation flags.
+     </p>
+     </td>
+    </tr>
+    <tr class="separator" />
+    <tr class="entry">
+     <td>
+     <p class="author">
+      Rabab Bouziane
+     </p>
+     <p class="affiliation">
+      Inria
+     </p>
+     <p class="author">
+      Erven Rohou
+     </p>
+     <p class="affiliation">
+      Inria
+     </p>
+     <p class="author">
+      Abdoulaye Gamatie
+     </p>
+     <p class="affiliation">
+      Lirmm
+     </p>
+
+     <p class="kind">
+      Poster
+     </p>
+     </td>
+     <td>
+     <p class="title">
+       <a name="44"></a>
+       LLVM-based silent stores optimization to reduce energy consumption on STT-RAM cache memory
+     </p>
+     <p class="abstract">
+TBA
      </p>
      </td>
     </tr>
@@ -1598,7 +1658,7 @@ The efficiency of the optimization process during the compilation is crucial for
      </td>
      <td>
      <p class="title">
-       <a name="43"></a>
+       <a name="45"></a>
        Modeling Universal Instruction Selection
      </p>
      <p class="abstract">
@@ -1622,7 +1682,7 @@ Instruction selection implements a program under compilation by selecting proces
      </td>
      <td>
      <p class="title">
-       <a name="44"></a>
+       <a name="46"></a>
        Preparing LLVM for the Future of Supercomputing
      </p>
      <p class="abstract">
