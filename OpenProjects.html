@@ -4,7 +4,6 @@
 
 <ul>
   <li><a href="#gsoc17">Google Summer of Code 2017</a>
-	  
     <ul><a href="http://clang.llvm.org/">LLVM Core</a>
 	  <li><a href="#bitcode_fuzzing">Fuzzing the Bitcode reader</a></li>
 	  <li><a href="#debuginfo_overhead">Improve optimizer overhead with debug info</a></li>
@@ -54,7 +53,11 @@
       <li><a href="#lld_layout">Improve Code Layout</a>
       </li>
     </ul>
-	
+    <ul>Others
+      <li><a href="#apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
+      </li>
+    </ul>
+
   </li>
   <li><a href="#what">What is this?</a></li>
   <li><a href="#subprojects">LLVM Subprojects: Clang and more</a></li>
@@ -146,7 +149,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
-  <a name="thinlto_global">ThinLTO: propagating more global informations across 
+  <a name="thinlto_global">ThinLTO: propagating more global informations across
 	  the program for more powerful optimizations!</a>
 </div>
 <!-- *********************************************************************** -->
@@ -199,7 +202,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
   <p><b>Description of the project:</b>
 	  See http://llvm.org/devmtg/2016-11/#talk15 for a starting point. There are
 	  many areas in the compiler that need work to integrate there (ThinLTO for
-	  example). 
+	  example).
   </p>
 </div>
 
@@ -242,12 +245,12 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 		  common cases</ul></li>
 	  <ul><li>Allow symbolic names instead of just numbers for virtual
 		  registers</ul></li>
-	  <ul><li>Helper passes: Strip IR information, rename blocks and values, 
+	  <ul><li>Helper passes: Strip IR information, rename blocks and values,
 		  debug information, ...</ul></li>
 	  <ul><li>Create a bugpoint mode (or a new tool) to reduce .mir test cases</ul></li>
 	  <ul><li>Write recommendations and guides for .mir based tests</ul></li>
   </p>
-  
+
    <p><b>Contact Person:</b>Matthias Braun</p>
 </div>
 
@@ -362,7 +365,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
         possible completions should be displayed with the relevant description
         from the "--help" output beside it (<a href="https://www.pablumfication.co.uk/wp-content/uploads/2010/02/fish-lsAutocompleteArguments.jpg">
           example of this in fish with the command "ls"</a>).
-      </li>      
+      </li>
     </ul>
   </p>
 
@@ -424,7 +427,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     Analyzer, specially because that we don't care about inlining (as long as it
     doesn't modify pointer). More details in the
     <a href="https://llvm.org/bugs/show_bug.cgi?id=30232">Bugzilla feature
-      request</a> 
+      request</a>
   </p>
   <p><b>Confirmed Mentor:</b>Alexander Kornienko, Piotr Padlewski</p>
 </div>
@@ -443,7 +446,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     Implement a path-sensitive checker that warns if virtual calls are made from
     constructors and destructors, which is not valid in case of pure virtual
@@ -460,7 +463,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     both the virtual call and the path from the constructor. Last, we will need
     to evaluate if the warning should be issued for both calls to pure virtual
     functions (which is always an error) and non-pure virtual functions (which
-    is more of a code smell and may be a false positive). 
+    is more of a code smell and may be a false positive).
   </p>
   <p><b>Confirmed Mentor:</b>Anna Zaks</p>
 </div>
@@ -471,7 +474,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     Enhance the clang static analyzer by adding models of C++11 and C11 atomic
     operations, such as std::atomic_compare_exchange_*. Currently, these
@@ -481,7 +484,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     these APIs to the BodyFarm of the analyzer. BodyFarm is the API used for
     modeling system APIs. Finally, the work would also include writing tests
     for the various APIs and checking that the analyzer correctly models
-    atomics. 
+    atomics.
   </p>
   <p><b>Confirmed Mentor:</b>Anna Zaks</p>
 </div>
@@ -493,11 +496,11 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     The static analyzer and the compiler that operate on top of clang AST could
     use the results of a fast pointer analysis such as "Points-to analysis in
-    almost linear time" by Bjarne Steensgaard. 
+    almost linear time" by Bjarne Steensgaard.
   </p>
   <p><b>Confirmed Mentor:</b>Devin Coughlin</p>
 </div>
@@ -516,7 +519,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     Many of the projects in compiler-rt are only supported on Linux.
     <br />
@@ -540,7 +543,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
     lldb-mi implements a machine-readable interface that is supported by many
     IDEs. The current support is very incomplete and isn't using the right
@@ -566,7 +569,7 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 <!-- *********************************************************************** -->
 
-<div class="www_text"> 	 
+<div class="www_text">
   <p><b>Description of the project: </b>
 	The goal for the project is trying to improve the layout/performances of the
 	generated executable. The primary object format considered for the project
@@ -596,11 +599,36 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 	this is feasible easily, see David's comment in [3]).
   </p>
   <p><b>Contact Person:</b>Davide Italiano</p>
-  
+
   <ul>
     <li>[1] http://sourceware.org/ml/binutils/2011-03/msg00043.html</li>
     <li>[2] http://dl.acm.org/citation.cfm?id=93550</li>
     <li>[3] http://lists.llvm.org/pipermail/llvm-dev/2017-January/109114.html</li>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+  <a href="http://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
+  These packages are also shipped as part of Debian and Ubuntu without any changes.<br />
+  Debian and Ubuntu have separate packages for <a href="https://packages.qa.debian.org/libc/libc++.html">libc++</a> and <a href="https://packages.qa.debian.org/o/openmprtl.html">OpenMP</a>.<br />
+  The goal of this project is to merge libc++ and OpenMP packages as part of the llvm-toolchain packages.<br />
+  The difficulty of this project is to make different versions of these libraries co-installable while remaining usable for developers. This project will also aim to limit the impact on existing usage of these libraries.
+  </p>
+
+  <p><b>Expectation:</b> The student must have demonstrated some experience with Debian/Ubuntu packaging. Debian maintains a list of <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?tag=newcomer">good first bugs</a>. Please mention any packaging related contribution in the GSoC application.</p>
+
+  <p><b>Contact Person:</b><a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a></p>
+
+  <ul>
+    <li>More about libc++: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673</a>
+    <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
   </ul>
 </div>
 
