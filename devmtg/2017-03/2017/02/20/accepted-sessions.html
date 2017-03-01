@@ -1422,7 +1422,7 @@ Posters
        A Source-to-Source Vectorizer for the Connex SIMD Accelerator
      </p>
      <p class="abstract">
-TBA
+<br />In this paper we present the implementation of a CPU portable automatic vectorization technique using the LLVM compiler, for the Connex SIMD processor. We achieve host-independent vectorization by using Opincaa, a runtime C++ assembler library for Connex. Source-to-source transformation is achieved by recovering from LLVM IR back to C++ and replacing in the source program the vectorized loops with the compiled Opincaa Connex kernel code. Opincaa allows also assembling at runtime immediate operands from symbolic expressions, allowing to run more expressive programs on the accelerator.<br /><br />Our modified LLVM compiler supports vectorization for wide Connex architectures of up to 1024 lanes. We present a few benchmarks we are able to vectorize for such a wide SIMD machine, which result in speedups up to a factor of 15x when running on Connex as opposed to running on one ARM core clocked at a frequency 5 times bigger.
      </p>
      </td>
     </tr>
@@ -1620,7 +1620,7 @@ The efficiency of the optimization process during the compilation is crucial for
        LLVM-based silent stores optimization to reduce energy consumption on STT-RAM cache memory
      </p>
      <p class="abstract">
-TBA
+For the last few decades, energy consumption has become a significant metric to take into account by designers while developing high-performance systems and embedded systems. In on-chip architectures, the memory system including processor caches, is an important contributor in energy consumption due to traditional memory technologies. New non volatile memories are emerging with notable features and appear as an interesting memory technology for onchip cache memory. However, they suffer from high write latency and energy consumption. This makes them less favorable for first level caches such as L1 cache, compared to usual SRAM memory. In this paper, we propose a compiler approach to attenuate the cost of write operations in an architecture that integrates magnetic memory such as the Spin Transfer Torque Random Access Memory (STT-RAM) technology for L1 cache. We present an LLVM optimization to reduce the number of silent stores in memory, therefore mitigating the number of write transactions on STT-RAM memory. The results show the promising impact of our optimization on the total energy consumption of a cache.
      </p>
      </td>
     </tr>
