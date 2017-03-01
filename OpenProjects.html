@@ -397,6 +397,41 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 
 <!-- *********************************************************************** -->
 <div class="www_subsection">
+  <a>Clang-tidy</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-tidy-pointer-deref">Find dereference of pointers.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    Find dereference of pointer before checking for nullptr, like:
+    <pre>
+      Int * p = foo();
+      *p = 42;
+      If (p != nullptr) { // p != nullptr is considered as always true
+      }
+      If (!p) { // !p is considered as always false
+      }
+    </pre>
+
+    <br /><br />
+    This check should be easier to write in clang-tidy than in Clang Static
+    Analyzer, specially because that we don't care about inlining (as long as it
+    doesn't modify pointer). More details in the
+    <a href="https://llvm.org/bugs/show_bug.cgi?id=30232">Bugzilla feature
+      request</a> 
+  </p>
+  <p><b>Confirmed Mentor:</b>Alexander Kornienko, Piotr Padlewski</p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
   <a>Clang Static Analyzer</a>
 </div>
 <!-- *********************************************************************** -->
