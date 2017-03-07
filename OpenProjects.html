@@ -4,7 +4,7 @@
 
 <ul>
   <li><a href="#gsoc17">Google Summer of Code 2017</a>
-    <ul><a href="http://clang.llvm.org/">LLVM Core</a>
+    <ul>LLVM Core
 	  <li><a href="#bitcode_fuzzing">Fuzzing the Bitcode reader</a></li>
 	  <li><a href="#debuginfo_overhead">Improve optimizer overhead with debug info</a></li>
 	  <li><a href="#thinlto_global">ThinLTO: propagating more global informations</a></li>
@@ -333,10 +333,11 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     by any common shell.
 
     <br /> <br />
-    Suggested design approach: The main goal is to support variety of terminals.
-    It would be preferable to keep each shell plugin minimal, enabling easy
-    addition of new plugins. The implementation ought to extend the clang driver
-    switches with a flag to request auto-completion of a partial shell command.
+    Suggested design approach: The main goal is to support a variety of
+    terminals. It would be preferable to keep each shell plugin minimal,
+    enabling easy addition of new plugins. The implementation ought to extend
+    the clang driver switches with a flag to request auto-completion of a
+    partial shell command.
     <br /> <br />
 
     The final auto-completion support should contain features such as:
