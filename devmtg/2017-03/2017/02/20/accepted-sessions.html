@@ -426,7 +426,7 @@ Bugfixing or new feature development requires a confident understanding of all d
        Cross Translational Unit Analysis in Clang Static Analyzer: Prototype and Measurements
      </p>
      <p class="abstract">
-Today Clang Static Analyzer [4] can perform (context-sensitive) interprocedural analysis for C,C++ and Objective C les by inlining the called function into the callers' context. This means that that the full calling context (assumptions about the values of function parameters, global variables) is passed when analyzing the called function and then the assumptions about the returned value is passed back to the caller. This works well for function calls within a translation unit (TU), but when the symbolic execution reaches a function that is implemented in another TU, the analyzer engine skips the analysis of the called function definition. In particular, assumptions about references and pointers passed as function parameters get invalidated, and the return value of the function will be unknown. Losing information this way may lead to false positive and false negative ndings. The cross translation unit (CTU) feature allows the analysis of called functions even if the definition of the function is external to the currently analyzed TU. This would allow detection of bugs in library functions stemming from incorrect usage (e.g. a library assumes that the user will free a memory block allocated by the library), and allows for more precise analysis of the caller in general if a TU external function is invoked (by not losing assumptions). We implemented (based on the prototype by A. Sidorin, et al. [2]) the Cross Translation Unit analysis feature for Clang SA (4.0) and evaluated its performance on various open source projects. In our presentation, we show that by using the CTU feature we found many new true positive reports and eliminated some false positives in real open source projects. We show that while the total analysis time increases by 2-3 times compared to the non-CTU analysis time, the execution remains scalable in the number of CPUs. We also point out how the analysis coverage changes that may lead to the loss of reports compared to the non-CTU baseline version.
+Today Clang Static Analyzer [4] can perform (context-sensitive) interprocedural analysis for C,C++ and Objective C files by inlining the called function into the callers' context. This means that that the full calling context (assumptions about the values of function parameters, global variables) is passed when analyzing the called function and then the assumptions about the returned value is passed back to the caller. This works well for function calls within a translation unit (TU), but when the symbolic execution reaches a function that is implemented in another TU, the analyzer engine skips the analysis of the called function definition. In particular, assumptions about references and pointers passed as function parameters get invalidated, and the return value of the function will be unknown. Losing information this way may lead to false positive and false negative findings. The cross translation unit (CTU) feature allows the analysis of called functions even if the definition of the function is external to the currently analyzed TU. This would allow detection of bugs in library functions stemming from incorrect usage (e.g. a library assumes that the user will free a memory block allocated by the library), and allows for more precise analysis of the caller in general if a TU external function is invoked (by not losing assumptions). We implemented (based on the prototype by A. Sidorin, et al. [2]) the Cross Translation Unit analysis feature for Clang SA (4.0) and evaluated its performance on various open source projects. In our presentation, we show that by using the CTU feature we found many new true positive reports and eliminated some false positives in real open source projects. We show that while the total analysis time increases by 2-3 times compared to the non-CTU analysis time, the execution remains scalable in the number of CPUs. We also point out how the analysis coverage changes that may lead to the loss of reports compared to the non-CTU baseline version.
      </p>
      </td>
     </tr>
@@ -461,7 +461,7 @@ Users of the PlayStation(R)4 toolchain have a number of expectations from their 
       Roland Leißa
      </p>
      <p class="affiliation">
-      Saarland University
+      Saarland Informatics Campus
      </p>
      <p class="author">
       Klaas Boesche
@@ -471,6 +471,24 @@ Users of the PlayStation(R)4 toolchain have a number of expectations from their 
      </p>
      <p class="author">
       Sebastian Hack
+     </p>
+     <p class="affiliation">
+      Saarland Informatics Campus
+     </p>
+     <p class="author">
+      Richard Membarth
+     </p>
+     <p class="affiliation">
+      Saarland Informatics Campus
+     </p>
+     <p class="author">
+      Arsène Pérard-Gayot
+     </p>
+     <p class="affiliation">
+      Saarland Informatics Campus
+     </p>
+     <p class="author">
+      Philipp Slusallek
      </p>
      <p class="affiliation">
       Saarland Informatics Campus
@@ -895,6 +913,24 @@ Student Research Competition (SRC)
      <p class="affiliation">
       CEA
      </p>
+     <p class="author">
+      Damien Couroussé
+     </p>
+     <p class="affiliation">
+      CEA
+     </p>
+     <p class="author">
+      Bruno Robisson
+     </p>
+     <p class="affiliation">
+      CEA
+     </p>
+     <p class="author">
+      Karine Heydemann
+     </p>
+     <p class="affiliation">
+      LIP6 - Université Paris VI
+     </p>
 
      <p class="kind">
       Student Research Competition (SRC)
@@ -1157,7 +1193,7 @@ In this lightning talk, Phillip will present DIVA (Debug Information Visual Anal
       Sean Eveson
      </p>
      <p class="affiliation">
-      Sony
+      Sony Interactive Entertainment (SIE)
      </p>
 
      <p class="kind">
@@ -1409,13 +1445,13 @@ Posters
       Richard Membarth
      </p>
      <p class="affiliation">
-      DFKI &amp; Saarland University
+      Saarland Informatics Campus
      </p>
      <p class="author">
       Roland Leißa
      </p>
      <p class="affiliation">
-      Saarland University
+      Saarland Informatics Campus
      </p>
 
      <p class="kind">
