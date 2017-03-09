@@ -1,0 +1,38 @@
+Board Meeting Minutes
+
+Date: September 9, 2016
+Time: 9AM pacific time
+Location: Video conferencing, multiple locations
+
+Attendees:
+ - Present: Hal Finkel, John Regehr, Chris Lattner, David Kipping, Arnaud de Grandmaison, Tanya Lattner, Chandler Carruth, Anton Korobeynikov.
+
+Minutes
+ - VOTE: Unanimously approved the August 5, 2016 board meeting minutes.
+
+Elect Board Officers
+ - Positions:
+     President: Tanya Lattner
+     Secretary: John Regehr
+     Treasurer: David Kipping
+ - VOTE: Unanimously approved these officer appointments.
+
+Relicensing:
+ - Plan to send out email for round #2 of discussion early next week.
+
+Travel Grant Program Approval
+ - First round of applications have come in, approximately 20 of them.
+ - Several board members will review this proposals together to select those that fit into our budget.
+
+LLVM Trademark
+ - We need a trademark policy.
+ - Will look at what Apache and Mozilla have done here, possibly borrow some ideas.
+ - We want to keep this as simple as possible.
+
+Code of Conduct
+ - Plan to build an advisory committee comprised of members of the community, not primarily members of the board.
+
+LLVM Dev Meeting in November
+ - Nearly all of the 400 tickets have been sold.
+ - We can accommodate up to 500 people.
+ - Decision taken to sell 50 additional tickets
