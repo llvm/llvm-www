@@ -555,6 +555,10 @@
 				color: #fff;
 			}
 
+      table.sponsors h1 {
+			  font-size: 2em;
+      }
+
       table.sponsors td {
         padding: 30px;
         text-align: center;
