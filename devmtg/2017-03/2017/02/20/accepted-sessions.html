@@ -1333,7 +1333,7 @@ BoFs
        Alternative Backend Design
      </p>
      <p class="abstract">
-While LLVM has a modern mostly graph-based intermediate language in SSA form, its backend infrastructure relies upon a more classic imperative approach.<br />In this session, I want to present and discuss a design for backends which heavily uses a single graph-based representation in SSA form.<br />In this approach, code generation is seen as the process of adding more invariants to this graph, e.g. an instruction schedule and a register assignment, until it is suitable for assembly emission. During the entire process, this representation is invariantly kept in SSA form.<br />I take a close look at the advantages this property has for the steps in code generation. For example it allows to decouple spilling from register allocation, which mitigates the phase ordering problem of these two steps.<br />I also examine some typical challenges during code generation, both caused by the chosen program representation and the target machine. This includes SSA reconstruction during spilling as well as live-range splitting and copy coalescing to tackle instructions with constraints on registers.
+<a href="https://etherpad.net/p/Alternative_Backend_Design">Etherpad</a><br /><br />While LLVM has a modern mostly graph-based intermediate language in SSA form, its backend infrastructure relies upon a more classic imperative approach.<br />In this session, I want to present and discuss a design for backends which heavily uses a single graph-based representation in SSA form.<br />In this approach, code generation is seen as the process of adding more invariants to this graph, e.g. an instruction schedule and a register assignment, until it is suitable for assembly emission. During the entire process, this representation is invariantly kept in SSA form.<br />I take a close look at the advantages this property has for the steps in code generation. For example it allows to decouple spilling from register allocation, which mitigates the phase ordering problem of these two steps.<br />I also examine some typical challenges during code generation, both caused by the chosen program representation and the target machine. This includes SSA reconstruction during spilling as well as live-range splitting and copy coalescing to tackle instructions with constraints on registers.
      </p>
      </td>
     </tr>
@@ -1357,7 +1357,7 @@ While LLVM has a modern mostly graph-based intermediate language in SSA form, it
        Clangd: A new Language Server Protocol implementation leveraging Clang
      </p>
      <p class="abstract">
-Clangd is a new tool developed as part of clang-tools-extra. It aims at implementing the Language Server Protocol, a protocol that provides<br />IDEs and code editors all the language "smartness". Work in this area is only just beginning however there is already a large interest surrounding it. This BoF session will be a nice opportunity for the attendees to get to know each other as well as discuss several topics that will help make this tool a success.<br /><br />Possible agenda/topics:<br />- Introductions<br />- Goals and scope of Clangd<br />- Existing language server implementations. Comparisons, advantages/disadvantages, etc.<br />- Challenges<br />- Proposed architecture<br />- Collaborations and planning
+<a href="https://etherpad.net/p/Clangd">Etherpad</a><br /><br />Clangd is a new tool developed as part of clang-tools-extra. It aims at implementing the Language Server Protocol, a protocol that provides<br />IDEs and code editors all the language "smartness". Work in this area is only just beginning however there is already a large interest surrounding it. This BoF session will be a nice opportunity for the attendees to get to know each other as well as discuss several topics that will help make this tool a success.<br /><br />Possible agenda/topics:<br />- Introductions<br />- Goals and scope of Clangd<br />- Existing language server implementations. Comparisons, advantages/disadvantages, etc.<br />- Challenges<br />- Proposed architecture<br />- Collaborations and planning
      </p>
      </td>
     </tr>
@@ -1393,7 +1393,7 @@ Clangd is a new tool developed as part of clang-tools-extra. It aims at implemen
        GlobalISel
      </p>
      <p class="abstract">
-Global ISel is catching up, with stride progress being made on AArch64, ARM, x86 and AMDGPU back-ends, and we need to decide what the next steps are.<br /><br />* Do we start building it by default? How do we validate it across buildbots and Jenkins builders?<br />* When do we turn it on by default?<br />* Is self-hosting + test-suite enough?<br />* How do we validate Chromium, BSD, and Linux distros?
+<a href="https://etherpad.net/p/GlobalISel">Etherpad</a><br /><br />Global ISel is catching up, with stride progress being made on AArch64, ARM, x86 and AMDGPU back-ends, and we need to decide what the next steps are.<br /><br />* Do we start building it by default? How do we validate it across buildbots and Jenkins builders?<br />* When do we turn it on by default?<br />* Is self-hosting + test-suite enough?<br />* How do we validate Chromium, BSD, and Linux distros?
      </p>
      </td>
     </tr>
@@ -1417,7 +1417,7 @@ Global ISel is catching up, with stride progress being made on AArch64, ARM, x86
        LLVM Foundation
      </p>
      <p class="abstract">
-This BoF provides an opportunity to the EuroLLVM attendees to discuss with some of the board members of the LLVM Foundation.
+<a href="https://etherpad.net/p/LLVM_Foundation">Etherpad</a><br /><br />This BoF provides an opportunity to the EuroLLVM attendees to discuss with some of the board members of the LLVM Foundation.
      </p>
      </td>
     </tr>
