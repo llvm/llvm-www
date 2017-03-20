@@ -53,6 +53,12 @@
       <li><a href="#lld_layout">Improve Code Layout</a>
       </li>
     </ul>
+    <ul>Polly
+      <li>
+  <a href="#pollypgo">Profile Guided Optimization in Polly</a>
+  <a href="#pollypassmanager">Move Polly to the new LLVM pass manager</a>
+      </li>
+    </ul>
     <ul>Others
       <li><a href="#apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
       </li>
@@ -609,6 +615,82 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
 </div>
 
 <!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Polly</a>
+</div>
+<!-- *********************************************************************** -->
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="pollypgo">Profile Guided Optimization in Polly</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+  Even though Polly's compile time is today not a lot higher than other non-trial
+  IR passes, the need to version code in many situations and the lack of static
+  knowledge about loop iteration counts, hotness of functions, and parameter
+  requires Polly to be significantly more conservative than it would need to
+  be. The goal of this project is to connect Polly with the LLVM profiling
+  infrastructure to exploit profiling information to decide: 1) when to
+  run Polly, 2) how aggressive to version the code, 3) which code version
+  to emit, and 4) which assumptions to take. As a result, Polly should can
+  in profile guided builds become more aggressive, while still having a lower
+  compile time and code size impact.
+  </p>
+
+  <p><b>Confirmed Mentor:</b> <a href="mailto:tobias@grosser.es">Tobias Grosser</a></p>
+
+  <ul>
+    <li>PGO in LLVM: <a href="http://llvm.org/devmtg/2013-11/">2013 developer's meeting presentation</a>
+  </ul>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="pollypassmanager">Move Polly to the new LLVM pass manager</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+<p>Over the last years Chandler Carruth and others introduced a new pass manager
+to LLVM which uses a new caching based architecture to allow analysis results
+to be computed on demand. Besides resolving many engineering problems, the new
+pass manager has three interesting properties: 1) analysis results for multiple
+objects (e.g., functions) can be made available at the same time, 2) it is
+possible to access the analysis result from one function in another function or
+the analysis results from a function pass in a call-graph pass. 3) new pass
+managers can be instantiated easily.
+  </p>
+<p>
+The goal of this project is to port Polly to the new pass manager and use this
+opportunity to improve the overall pass design of Polly. The first step will
+be to make Polly future proof by providing the same functionality Polly already
+has with the old pass manager, in the context of the new pass manager. Next,
+facilities of the new pass manger can be exploited to remove Polly's dependence
+on the RegionPass infrastructure, and replace it with a Polly specific
+scop-pass manager, that executes scop-model only passes without the need to
+piggy-pack on some IR level analysis. Finally, the student thinks about how
+analysis results can be made available across functions.
+</p>
+
+<p>If the project is completed early, the student might look into exploiting
+the availability of analysis results from multiple functions to perform GPU
+code generation across functions</p>
+
+<p><b>Confirmed Mentor:</b> <a href="mailto:tobias@grosser.es">Tobias Grosser</a></p>
+
+<ul>
+  <li>More about the LLVM Pass manager: <a href="http://llvm.org/devmtg/2014-10/">Chandlers Presentation on 2014 Developer's Meeeting</a>
+</ul>
+</div>
+
+
+<!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a name="apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
 </div>
@@ -634,7 +716,6 @@ Welcome prospective Google Summer of Code 2017 Students! This document is your s
     <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
   </ul>
 </div>
-
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
