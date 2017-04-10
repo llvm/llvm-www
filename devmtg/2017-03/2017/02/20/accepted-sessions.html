@@ -39,13 +39,8 @@
 							<li >
                 <a href="http://llvm.org/devmtg/2017-03/index.html">About</a>
 								<ul>
-									<li><a href="http://llvm.org/devmtg/2017-03/index.html#dates">Important Dates</a></li>
 									<li><a href="http://llvm.org/devmtg/2017-03/index.html#program">Program</a></li>
-									<li><a href="https://eurollvm2017.sched.com/">Schedule</a></li>
-									<li><a href="http://llvm.org/devmtg/2017-03/index.html#grants">Student Travel Grants</a></li>
 									<li><a href="http://llvm.org/devmtg/2017-03/index.html#sponsors">Sponsors</a></li>
-									<li><a href="http://llvm.org/devmtg/2017-03/index.html#pc">Program Committee</a></li>
-									<li><a href="http://llvm.org/devmtg/2017-03/index.html#submit">Submit Contribution</a></li>
                 </ul>
               </li>
 							<li ><a href="http://llvm.org/devmtg/2017-03/blog">News</a></li>
@@ -202,7 +197,8 @@ Keynotes
      <td>
      <p class="title">
        <a name="0"></a>
-       LLVM for the future of Supercomputing
+       LLVM for the future of Supercomputing -
+       <a href="http://llvm.org/devmtg/2017-03//assets/slides/llvm_for_the_future_of_supercomputing.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 LLVM is solidifying its foothold in high-performance computing, and as we look forward toward the exascale computing era, LLVM promises to be a cornerstone of our programming environments. In this talk, I'll discuss several of the ways in which we're working to improve LLVM in support of this vision. Ongoing work includes better handling of restrict-qualified pointers [2], optimization of OpenMP constructs [3], and extending LLVM's IR to support an explicit representation of parallelism [4]. We're exploring several ways in which LLVM can be better integrated with autotuning technologies, how we can improve optimization reporting and profiling, and a myriad of other ways we can help move LLVM forward. Much of this effort is now a part of the US Department of Energy's Exascale Computing Project [1]. This talk will start by presenting the big picture, in part discussing goals of performance portability and how those maps into technical requirements, and then discuss details of current and planned development.<br /><br />[1] https://exascaleproject.org/2016/11/10/ecp-awards-34m-for-software-development/<br />[2] https://reviews.llvm.org/D9375 (and dependent patches)<br />[3] https://reviews.llvm.org/D28870 (a first step in this direction)<br />[4] http://lists.llvm.org/pipermail/llvm-dev/2017-January/108906.html 
@@ -226,7 +222,8 @@ LLVM is solidifying its foothold in high-performance computing, and as we look f
      <td>
      <p class="title">
        <a name="1"></a>
-       Weak Memory Concurrency in C/C++11 and LLVM
+       Weak Memory Concurrency in C/C++11 and LLVM -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/weak_memory_concurrency_in_c_cxx11_and_llvm.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Which compiler optimizations are correct in a concurrent setting? How should C/C++11 atomics be compiled on architecture X? The answers to these questions are not unique, but depend very much on the concurrency model of the programming language and/or compiler. While such a model can act the golden standard and used to answer these questions, it is very challenging to define an appropriate concurrency model for almost any programming language. In this talk, I will focus on the C/C++11 concurrency model and the closely related LLVM model. I will discuss some of the serious flaws that we found in these models, ways of correcting them, and some remaining open problems.
@@ -256,7 +253,8 @@ Technical Talks
      <td>
      <p class="title">
        <a name="2"></a>
-       Adventures in Fuzzing Instruction Selection
+       Adventures in Fuzzing Instruction Selection -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/adventures_in_fuzzing_instruction_selection.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Recently there has been a lot of work on GlobalISel, which aims to entirely replace the existing instruction selectors for LLVM. In order to approach such a transition, we need an effective way to test instruction selection and evaluate the new selector compared to the older ones.<br /><br />This talk will focus on our experiments and results in using fuzzing and input generation to test instruction selection. We'll discuss the tradeoffs in how to find valuable test inputs as well as the approach to validating the generated code. This will essentially consist of three parts:<br /><br />- Generating useful inputs to test instruction selection<br />- Evaluating the output of instruction selection effectively<br />- Results and lessons learned<br /><br />Generating Inputs<br />-----------------<br /><br />We will discuss the tradeoffs between types of input generation and look at the options in terms of the level of abstraction of those inputs. Here we talk about how we improved on the input generation of the llvm-stress tool by leveraging libfuzzer and embracing coverage guided testing and input mutation. We also go into the relative effectiveness of generating LLVM IR versus generating machine-level IR directly in terms of finding valuable test cases.<br /><br />Evaluating Outputs<br />------------------<br /><br />Given that we're feeding instruction selection arbitrary inputs, we need to come up with ways to evaluate whether the results are sane. Here we'll discuss the kinds of bugs that were found simply by looking for crashes and error paths versus those found by comparing against the older instruction selectors. We also explain the complexity of trying to compare instruction selectors and evaluate whether or not differences are functionally relevant.<br /><br />Results<br />-------<br /><br />Finally, we'll talk about the effectiveness of these experiments and the adaptibility of these methods to other problem spaces.
@@ -298,7 +296,8 @@ Recently there has been a lot of work on GlobalISel, which aims to entirely repl
      <td>
      <p class="title">
        <a name="3"></a>
-       ARM Code Size Optimisations
+       ARM Code Size Optimisations -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/arm_code_size_optimisations.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Last year, we've done considerable ARM code size optimisations in LLVM as that's an area that LLVM was lacking, see also e.g. Samsung's and Intel's EuroLLVM talks. In this presentation, we want to present lessons learned and insights gained from our work, leading to about 200 commits. The areas that we identified that are most important for code size are: I) turn off specific optimisations when optimising for size, II) tuning optimisations, III) constants, and IV) bit twiddling.<br /><br />Samsung's work compared LLVM's code size against GCC for the JerryScript engine, whereas we focused on set of (customer) codes targeting the micro-controller market. We can confirm some of their found inefficiencies but also identified other areas where code size was significantly worse and we will discuss our contributions, implementations and our future work and next steps. Intel's code size work was also interesting as some of their identified bottlenecks, such as loop rotation and inlining, were still problematic for ARM but other differences seem mostly related to architecture differences. We will focus mostly on our upstream LLVM contributions in these 4 areas:<br />I) Disable some optimisations when optimising for size: many optimisations just try to be as aggressive as possible, i.e. they are mostly optimising for performance and expanding instructions into more optimal code sequences and we had to teach optimisers not to do that, such as not expanding some library calls.<br />II) Tuning optimisations: identifying common instructions and sinking them to a common block, which we e.g. had to teach SimplyCFG (lift restrictions and allow more cases).<br />III) Constants: efficient (re)materalisation is really important as many (benchmark) code and instructions deal with constants. However, there are many restrictions on immediate operand values in instructions (size, whether they can be positive/negative, etc.), so it is crucial to take this into account in e.g. constant hoisting and target hooks querying properties of immediate values.<br />IV) Bit twiddling: rewrites of bit twiddling instructions, or instructions setting or reading the processor status flag register, are small changes but because there are typically many, they accumulate to significant reductions.<br /><br />As future works, we want to look into these 3 areas: machine block placement (MBP), register allocations, and constant hoisting. For MBP, we noticed that many wide branches (BEQ.W) could be turned into smaller encoded branches (BEQ) if only the branch target block would have layed out differently. Another observation, related to register allocation and constant hoisting, is that we see spilling of small constants that can easily be rematerialized. Constant hoisting is really aggressive as it hoist all constants it can hoist not taking into account any register pressure at all.
@@ -322,7 +321,8 @@ Last year, we've done considerable ARM code size optimisations in LLVM as that's
      <td>
      <p class="title">
        <a name="4"></a>
-       AVX-512 Mask Registers Code Generation Challenges in LLVM
+       AVX-512 Mask Registers Code Generation Challenges in LLVM -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/avx512_mask_registers_code_generation_challenges_in_llvm.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 In the past years LLVM has been extended to support Intel AVX512 [1] [2] instructions. One of the features introduced by the AVX-512 architecture is the concept of masked operations. In the Euro LLVM 2015 developer meeting Intel presented the new masked vector intrinsics, which assist LLVM IR optimizations (e.g. Loop Vectorizer) in selecting vector masked operations [3].<br /><br />In this talk, we are going to cover some of the key problems encountered when extending the LLVM code generator to support the AVX-512 mask registers.<br /><br />The current implementation of mask lowering, favors assigning LLVM IR conditions (i1 data type) to mask registers over General Purpose Registers (GPR). The decision leads to sub-optimal code generation when compiling for AVX-512 targets. This exposes a fundamental limitation of the existing instruction selection framework when a type can be lowered to different register classes. In addition, we will show that achieving optimal mask register selection requires a global analysis [5]. We will overview the various issues caused by the current approach, followed by a solution that achieves better results by favoring GPRs over mask registers [4]. In addition, we will overview a suggested optimization that mitigates artifacts created by the instruction selection phase.<br /><br />Additionally, AVX-512 mask registers create a dilemma with the memory representation of LLVM IR vectors of i1 - Is a mask a bit or a byte in memory? AVX2 and older vector instruction sets can efficiently support masks in bytes. AVX-512 favors representation by bits, thus achieving a smaller memory footprint. However, this creates a possible cross-generation interoperability conflict which needs to be addressed. We will overview the issue and explore the alternatives.<br /><br />[1] https://software.intel.com/sites/default/files/managed/c5/15/architecture-instruction-set-extensions-programming-reference.pdf<br />[2] http://llvm.org/devmtg/2013-11/slides/Demikhovsky-Poster.pdf<br />[3] http://llvm.org/devmtg/2015-04/slides/MaskedIntrinsics.pdf<br />[4] https://groups.google.com/forum/#!topic/llvm-dev/-OmfyIY3SaU<br />[5] http://llvm.org/devmtg/2016-11/Slides/Colombet-GlobalISel.pdf 
@@ -352,7 +352,8 @@ In the past years LLVM has been extended to support Intel AVX512 [1] [2] instruc
      <td>
      <p class="title">
        <a name="5"></a>
-       Clank: Java-port of C/C++ compiler frontend
+       Clank: Java-port of C/C++ compiler frontend -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/clank_java_port_of_c_cxx_compiler_frontend.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Clang was written in a way that allows to use it inside IDEs as a provider for various things - from navigation and code completion to refactorings. But is it possible to use it with the modern IDE written in pure Java? Our team spent some time porting Clang into Java and got "Clank - the Java equivalent of native Clang". We will tell you why we failed to use native Clang, how porting to Java was done, what difficulties we faced and what outcome we have at this point.<br /><br />Extended Abstract:<br />We will present the project Clank (with last K) - the Java port of native Clang. The goal was to get the Java code as close to the original C++ code of Clang as possible:<br />preserving structure, names, comments and formatting of original code, but built once to run everywhere.<br />In this talk we will describe which tooling (also based on Clang) we created to automate conversion of C++ LLVM/Clang codebase into Clank Java codebase. The tooling for upgrade Clank code base when new version of Clang is released will be described as well. We will present our experience with evaluating native Clang/libClang technology as the provider for Open Source NetBeans IDE project for C++ language support. We will describe why we failed to use native Clang in the IDE written in pure Java and why created the Java-port named Clank. Will consider C++ constructions used in Clank codebase without direct equivalent in Java and how we resolved the challenges to keep code as close to the original as possible. Also we will mention how Clank was finally used in the production of Open Source NetBeans project.
@@ -394,7 +395,8 @@ Clang was written in a way that allows to use it inside IDEs as a provider for v
      <td>
      <p class="title">
        <a name="6"></a>
-       CodeCompass: An Open Software Comprehension Framework
+       CodeCompass: An Open Software Comprehension Framework -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/code_compass_an_open_software_comprehension_framework.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Bugfixing or new feature development requires a confident understanding of all details and consequences of the planned changes. For long existing large telecom systems, where the code base have been developed and maintained for decades by fluctuating teams, original intentions are lost, the documentation is untrustworthy or missing, the only reliable information is the code itself. Code comprehension of such large software systems is an essential, but usually very challenging task. As the method of comprehension is fundamentally different from writing new code, development tools are not performing well. During the years, different programs have been developed with various complexity and feature set for code comprehension but none of them fulfilled all requirements.<br /><br />CodeCompass is an open source LLVM/Clang based tool developed by Ericsson Ltd. and the Eötvös Loránd University, Budapest to help understanding large legacy software systems. Based on the LLVM/Clang compiler infrastructure, CodeCompass gives exact information on complex C/C++ language elements like overloading, inheritance, the (read or write) usage of variables, possible call. on function pointers and the virtual functions -- features that various existing tools support only partially. The wide range of interactive visualizations extends further than the usual class and function call diagrams; architectural, component and interface diagrams are a few of the implemented graphs.<br /><br />To make comprehension more extensive, CodeCompass is not restricted to the source code. It also utilizes build information to explore the system architecture as well as version control information when available: git commit history and blame view are also visualized. Clang based static analysis results are also integrated to CodeCompass. Although the tool focuses mainly on C and C++, it also supports Java and Python languages. Having a web-based, pluginable, extensible architecture, the CodeCompass framework can be an open platform to further code comprehension, static analysis and software metrics efforts.<br /><br />Lecture outline:<br />- First we show why current development tools are not satisfactory for code comprehension<br />- Then we specify the requirements for such a tool<br />- Introduce codecompass architecture.<br />- Revail some challenges we have met and how we solve them<br />- Show a live demo<br />- Describe the open architecture and<br />- Talk about future plans and how the community can extend the feature set
@@ -436,7 +438,8 @@ Bugfixing or new feature development requires a confident understanding of all d
      <td>
      <p class="title">
        <a name="7"></a>
-       Cross Translational Unit Analysis in Clang Static Analyzer: Prototype and Measurements
+       Cross Translational Unit Analysis in Clang Static Analyzer: Prototype and Measurements -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/cross_translation_unit_analysis_in_clang_static_analyzer.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Today Clang Static Analyzer [4] can perform (context-sensitive) interprocedural analysis for C,C++ and Objective C files by inlining the called function into the callers' context. This means that that the full calling context (assumptions about the values of function parameters, global variables) is passed when analyzing the called function and then the assumptions about the returned value is passed back to the caller. This works well for function calls within a translation unit (TU), but when the symbolic execution reaches a function that is implemented in another TU, the analyzer engine skips the analysis of the called function definition. In particular, assumptions about references and pointers passed as function parameters get invalidated, and the return value of the function will be unknown. Losing information this way may lead to false positive and false negative findings. The cross translation unit (CTU) feature allows the analysis of called functions even if the definition of the function is external to the currently analyzed TU. This would allow detection of bugs in library functions stemming from incorrect usage (e.g. a library assumes that the user will free a memory block allocated by the library), and allows for more precise analysis of the caller in general if a TU external function is invoked (by not losing assumptions). We implemented (based on the prototype by A. Sidorin, et al. [2]) the Cross Translation Unit analysis feature for Clang SA (4.0) and evaluated its performance on various open source projects. In our presentation, we show that by using the CTU feature we found many new true positive reports and eliminated some false positives in real open source projects. We show that while the total analysis time increases by 2-3 times compared to the non-CTU analysis time, the execution remains scalable in the number of CPUs. We also point out how the analysis coverage changes that may lead to the loss of reports compared to the non-CTU baseline version.
@@ -526,7 +529,8 @@ Users of the PlayStation(R)4 toolchain have a number of expectations from their 
      <td>
      <p class="title">
        <a name="9"></a>
-       Effective Compilation of Higher-Order Programs
+       Effective Compilation of Higher-Order Programs -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/effective_compilation_of_higher_order_programs.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Many modern programming languages support both imperative and functional idioms. However, state-of-the-art SSA-based intermediate representations like LLVM cannot natively represent crucial functional concepts like higher-order functions. On the other hand, functional intermediate representations like GHC's Core employ an explicit scope nesting, which is cumbersome to maintain across certain transformations.<br />In this talk we present the functional, higher-order intermediate representation Thorin. Thorin is based upon continuation-passing style and abandons explicit scope nesting in favor of a dependency graph. Based on Thorin, we discuss an aggressive closure elimination phase and how we lower this higher-order intermediate representation to LLVM. 
@@ -550,7 +554,8 @@ Many modern programming languages support both imperative and functional idioms.
      <td>
      <p class="title">
        <a name="10"></a>
-       Expressing high level optimizations within LLVM
+       Expressing high level optimizations within LLVM -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/expressing_high_level_optimizations_within_llvm.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 At Azul we are building a production quality, state of the art LLVM based JIT compiler for Java. Originally targeted for C and C++, the LLVM IR is a rather low-level representation, which makes it challenging to represent and utilize high level Java semantics in the optimizer. One of the approaches is to perform all the high-level transformations over another IR before lowering the code to the LLVM IR, like it is done in the Swift compiler. However, this involves building a new IR and related infrastructure. In our compiler we have opted to express all the information we need in the LLVM IR instead. In this talk we will outline the embedded high level IR which enables us to perform high level Java specific optimizations over the LLVM IR. We will show the optimizations based on top of it and discuss some pros and cons of the approach we chose.<br /><br />The java type framework is the core of the system we built. It allows us to express the information about java types of the objects referenced by pointer values. One of the sources of this information is the bytecode. Our frontend uses metadata and attributes to annotate the IR with the types known from the bytecode. On the optimizer side we have a type inference analysis which computes the type for any given value using frontend generated facts and other information, like type checks in the code. This analysis is used by Java-specific optimizations, like devirtualization and simplification of type checks. We also taught some of the existing LLVM analyses and passes to take Java type information into account. For example, we use the java type of the pointer to infer the dereferenceability and aliasing properties of the pointer. We made inline cost analysis more accurate in the presence of java type based optimizations. We will discuss the optimizations we built on top of the java type framework and will show how the existing optimizations interact with it. Some parts of the system we built can be useful for others, so we would like to start the discussion about upstreaming some of the parts.
@@ -580,7 +585,8 @@ At Azul we are building a production quality, state of the art LLVM based JIT co
      <td>
      <p class="title">
        <a name="11"></a>
-       Formalizing the Concurrency Semantics of an LLVM Fragment
+       Formalizing the Concurrency Semantics of an LLVM Fragment -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/formalizing_the_concurrency_semantics_of_an_llvm_fragment.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 The LLVM compiler follows closely the concurrency model of C/C++ 2011, but with a crucial difference. While in C/C++ a data race between a non-atomic read and a write is declared to be undefined behavior, in LLVM such a race has defined behavior: the read returns the special `undef' value. This subtle difference in the semantics of racy programs has profound consequences on the set of allowed program transformations, but it has been not formally been studied before.<br /><br />This work closes this gap by providing a formal memory model for a substantial fragment of LLVM and showing that it is correct as a concurrency model for a compiler intermediate language:<br />(1) it is stronger than the C/C++ model. (2) weaker than the known hardware models, an. (3) supports the expected program transformations.<br />In order to support LLVM's semantics for racy accesses, our formal model does not work on the level of single executions as the hardware and the C/C++ models do, but rather uses more elaborate structures called event structures.
@@ -610,7 +616,8 @@ The LLVM compiler follows closely the concurrency model of C/C++ 2011, but with 
      <td>
      <p class="title">
        <a name="12"></a>
-       Introducing VPlan to the Loop Vectorizer
+       Introducing VPlan to the Loop Vectorizer -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/introducing_vplan_to_the_loop_vectorizer.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 This talk describes our efforts to refactor LLVM’s Loop Vectorizer following the RFC posted on llvm-dev mailing list[1] and the presentation delivered at LLVM-US 2016[2]. We describe the design and initial implementation of VPlan which models the vectorized code and drives its transformation.<br /><br />In this talk we cover the main aspects implemented in our first proposed major patch[3]. These include introducing a Planning step into the Loop Vectorizer which follows its Legality step. The refactored Loop Vectorizer records in VPlans all vectorization decisions taken inside a candidate vectorized loop body, and uses the best VPlan to carry them out. These decisions specify which instructions are to<br />  + be vectorized naturally, or<br />  + be part of an interleave group, or<br />  + be scalarized, and<br />  + be packed or unpacked - at the definition rather than at its uses - to  provide both scalarized and vectorized forms.<br /><br />VPlan also explicitly represents all control-flow within the loop body of the vectorized code. The Planner can optionally sink to-be scalarized instructions into predicated basic blocks in VPlan, thereby converting a current post-vectorization optimization of the Loop Vectorizer into the Planning step. Once the Planning step concludes a best VPlan is selected; this VPlan drives the vectorization transformation itself, including both the generation of basic-blocks and the generation of new instructions filling them, reusing existing Loop Vectorizer routines.<br /><br />The VPlan model implemented strives to be compact, addressing compile-time concerns. We conclude the talk by presenting ongoing and planned future steps for incremental refactoring of the Loop Vectorizer following our proposed patch[3] and the roadmap outlined in the LLVM-US presentation[2].<br /><br />Joint work of the Intel vectorization team.<br /><br />[1] [llvm-dev] RFC: Extending LV to vectorize outerloops, http://lists.llvm.org/pipermail/llvm-dev/2016-September/105057.htm.<br />[2] Extending LoopVectorizer towards supporting OpenMP4.5 SIMD and outer loop auto-vectorization, 2016 LLVM Developers' Meeting, https://www.youtube.com/watch?v=XXAvdUwO7k.<br />[3] [LV] Introducing VPlan to model the vectorized code and drive its transformation, https://reviews.llvm.org/D28975
@@ -634,7 +641,8 @@ This talk describes our efforts to refactor LLVM’s Loop Vectorizer following t
      <td>
      <p class="title">
        <a name="13"></a>
-       LLVM performance optimization for z Systems
+       LLVM performance optimization for z Systems -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/llvm_performance_optimization_for_z_systems.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Since we initially added support for the IBM z Systems line of mainframe processors back in 2013, one of the main goals of ongoing LLVM back-end development work has been to improve the performance of generated code.<br /><br />Now, we have for the first time reached parity with GCC: the latest benchmark results of LLVM 4.0 match those measured with current GCC.<br /><br />In this talk I'll report on the most important changes we had to make to the back-end to achieve this goal. On the one hand, this includes changes to fully exploit all relevant instruction-set architecture features to make best possible use of z/Architecture instructions, e.g. including support for condition code values, the register high-word facility, and conditional execution.<br /><br />On the other hand, I'll talk about some of the changes necessary to tune generated code for the micro-architecture of selected z Systems processors, in particular z13. This includes considerations like instruction scheduling, but also tuning loop unrolling, vectorization, and other instruction selection choices.<br /><br />Finally, I'll show some opportunities for even further performance optimization, with focus on those where we are currently unable to fully exploit some hardware capabilities due to limitations in common-code parts of LLVM's code generator. 
@@ -700,7 +708,8 @@ We present LLVMTuner, an autotuning framework targeting whole program autotuning
      <td>
      <p class="title">
        <a name="15"></a>
-       Path Invariance Based Partial Loop Un-switching
+       Path Invariance Based Partial Loop Un-switching -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/path_invariance_based_partial_loop_unswitching.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Loop un-switching is a well-known compiler optimization technique, it moves a conditional inside a loop outside by duplicating the loop's body and placing a version of it inside each of the if and else clauses of the conditional. Efficient Loop un-switching is inhibited in cases where a condition inside a loop is not loop-invariant or invariant in any of the conditional-paths inside the loop but not invariant in all the paths. We propose here a novel, efficient technique to identify partial invariant cases and optimize them by using partial loop un-switching. 
@@ -742,7 +751,8 @@ Loop un-switching is a well-known compiler optimization technique, it moves a co
      <td>
      <p class="title">
        <a name="16"></a>
-       Register Allocation and Instruction Scheduling in Unison
+       Register Allocation and Instruction Scheduling in Unison -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/register_allocation_and_instruction_scheduling_in_unison.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 This talk presents Unison - a simple, flexible and potentially optimal tool that solves register allocation and instruction scheduling simultaneously. Unison is integrated with LLVM's code generator and can be used as a complement to the existing heuristic algorithms.<br /><br />The ability to deliver optimal code makes Unison a powerful tool for LLVM users and developers: LLVM users can trade compilation time for code quality beyond the usual -O{0,1,2,3,..} optimization levels; LLVM developers can identify improvement opportunities in the existing heuristic algorithms. The talk discusses some of the improvement opportunities identified so far with the help of Unison.
@@ -772,7 +782,8 @@ This talk presents Unison - a simple, flexible and potentially optimal tool that
      <td>
      <p class="title">
        <a name="17"></a>
-       SPIR-V infrastructure and its place in the LLVM ecosystem
+       SPIR-V infrastructure and its place in the LLVM ecosystem -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/spirv_infrastructure_and_its_place_in_the_llvm_ecosystem.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 SPIR-V is a new portable intermediate representation for parallel computing designed by the Khronos Group. Although its predecessor, SPIR, was based on the LLVM IR, there are many differences between the formats and the communities behind them.<br /><br />SPIR-V is designed to act as a common IR for high level programming languages standardised by the Khronos Group, to accurately represent the semantics of the source language. It has different programming models in mind, SPMD, single program, multiple data, SIMD, single instruction multiple data, etc. and is organized into a set of capabilities allowing different behaviours depending on which source language is used.<br /><br />This talk aims to answer, or at least open discussions around, a questions regarding the differences and similarities of LLVM IR and SPIR-V. It also tries to familiarize the audience with the SPIR-V/Vulkan ecosystem, and to evaluate the current state of the tooling.<br /><br />Additionally, this talk will investigate how LLVM-IR could be extended to more closely match the semantics needed by SPIR-V, in particular for graphics applications, but also to more closely express the execution models needed in GPGPU languages.
@@ -826,7 +837,8 @@ Would you step into a car if you knew that the software for the brakes was compi
      <td>
      <p class="title">
        <a name="19"></a>
-       Using LLVM in a scalable, high-available, in-memory database server
+       Using LLVM in a scalable, high-available, in-memory database server -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/using_llvm_in_a_scalable_high_available_in_memory_database_server.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 In this presentation we would like to show you how we at SAP are using LLVM within our HANA database. We will show the benefits we have from using LLVM as well as the specific challenges of working in an in-memory database server. Thereby we will explain the changes we have to do in the LLVM source and why we have a significant delay until we can move to the latest LLVM version.<br /><br />A key differentiator of a compiler integrated into a server compared to a standalone compiler is that within the server you may not crash whatever input you get. Even in out-of-memory situation you have to stop and cleanup your current work and return back to your starting state. This is doable but requires to immediately assign all resource allocations to an owner and to take special care when working at the edge of C++ memory handling e.g. when overloading operator new. About two thirds of the changes to LLVM we are doing on our version of the LLVM source are related to out-of-memory situations.<br /><br />Within the HANA database we use LLVM to compile stored procedures and query plans. For stored procedures several domain specific languages are available which are translated to LLVM IR via an intermediate language. The domain specific languages have powerful features and through the layered code generation the resulting LLVM IR code can become rather large. Furthermore, within our domain specific languages all code is often put into one function which results in having one large function in the LLVM IR. Since the runtime of many optimizer passes and of the register allocator increases non-linear with the size of the functions our compile times exploded up to many hours. To reduce the compile time we are now trying to split large functions automatically into smaller pieces.<br /><br />In contrast when compiling query plans to machine code the resulting functions typically have small to medium size. The overall response time of the query is determined by the compile time of the query plan plus the execution time of the resulting machine code. So in this scenario the compile time for small and medium sized functions becomes important, sometimes it exceeds the actual execution time. If the time to execute a query without compilation is X microseconds per data row and the time to compile the execution plan of the query is Y microseconds then you need to process Y/X data rows to amortize the cost of compilation. We made several tries to speed up the compilation by reducing the number of optimization passes but are currently stuck at the actual machine code generation. Currently our break-even point between interpreted execution and compiled execution is at about 10.000 data rows.<br /><br />The key factor why we are happy to use LLVM is the excellent quality we experienced. We use LLVM for 6 years and we had less than a handful issues which were caused by bugs in LLVM. Also when upgrading from one LLVM version to another we did not experience new bugs (besides handling of out-of-memory situations). Further we like the available traces and supportability features to track down problems that occur, the easy to consume APIs and we are very pleased that it is possible to generate debug info for the compiled code so debugging with GDB and profiling is possible even when we have a mixture of C++ and LLVM stack frames.
@@ -958,7 +970,8 @@ Student Research Competition (SRC)
      <td>
      <p class="title">
        <a name="21"></a>
-       Automated Combination of Tolerance and Control Flow Integrity Countermeasures against Multiple Fault Attacks
+       Automated Combination of Tolerance and Control Flow Integrity Countermeasures against Multiple Fault Attacks -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/automated_combination_of_tolerance_and_control_flow_integrity_countermeasures_against_multiple_fault_attacks.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Fault injection attacks are considered as one of the most fearsome threats against secure embedded systems. Existing software countermeasures are either applied at the source code level where cautions must be taking to prevent the compiler from altering the countermeasure during compilation, or at the assembly code level where the code lacks semantic information, which as a result, limits the possibilities of code transformation and leads to significant overheads. Moreover, to protect against various fault models, countermeasures are usually applied incrementally without taking into account the impact one can have on another.<br /><br />This paper presents an automated application of several countermeasures against fault attacks,  that combines fault tolerance and control flow integrity. The fault tolerance schemes are parameterizable over the width of the fault injection, and the number of fault injections that the secured code must be protected against. The countermeasures are applied by a modified compiler based on clang/LLVM. As a result, the produced code is both optimized and secure by design. Performance and security evaluations on different benchmarks show reduced performance overheads compared to existing solutions, with the expected security level.
@@ -1000,7 +1013,8 @@ Fault injection attacks are considered as one of the most fearsome threats again
      <td>
      <p class="title">
        <a name="22"></a>
-       Bringing Next Generation C++ to GPUs: The LLVM-based PACXX Approach
+       Bringing Next Generation C++ to GPUs: The LLVM-based PACXX Approach -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/bringing_next_generation_cxx_to_gpus_the_llvm_based_pacxx_approach.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 In this paper, we describe PACXX -- our approach for programming Graphics Processing Unit (GPU) in C++. PACXX is based on Clang and LLVM and allows to compile arbitrary C++ code for GPU execution. PACXX enables developers to use all the convenient features of modern C++14: type deduction, lambda expressions, and algorithms from the Standard Template Library (STL). Using PACXX, a GPU program is written as a single C++ program, rather than two distinct host and kernel programs as in CUDA or OpenCL. Using LLVM's just-in-time compilation capabilities, PACXX generates efficient GPU code at runtime.<br /><br />We demonstrate how PACXX supports a composable GPU programming approach: developers compose their applications from simple and reusable patterns. We extend the range-v3 library which is currently developed as the next generation of the C++ Standard Template Library (STL) to allow for GPU programming using ranges.<br /><br />We describe how PACXX enables developers to use multi-staging in C++ to optimize their GPU programs at runtime. PACXX provides an easy-to-use and type-safe API  avoiding the pitfalls of string manipulation for multi-staging known from other GPU programming models (e.g., OpenCL).<br /><br />Our evaluation shows that using PACXX achieves competitive performance to CUDA, and our extended range-v3 programming approach can outperform Nvidia's highly-tuned Thrust library.<br /><br />---<br /><br />This submission is a compilation of:<br />Multi-Stage Programming for GPUs in Modern C++ using PACXX published in the proceedings of the 9th GPGPU Workshop @ PPoPP 2016 - http://dl.acm.org/citation.cfm?id=2884049 Towards Composable GPU Programming: Programming GPUs with Eager Actions and Lazy Views published in the proceedings of the 8th PMAM Workshop @ PPoPP 2017 (to appear) https://github.com/michel-steuwer/publications/raw/master/2017/PMAM-2017.pdf
@@ -1108,7 +1122,8 @@ Control-Flow Integrity (CFI) techniques make the deployment of malicious exploit
      <td>
      <p class="title">
        <a name="25"></a>
-       LifeJacket: Verifying Precise Floating-Point Optimizations in LLVM
+       LifeJacket: Verifying Precise Floating-Point Optimizations in LLVM -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/lifejacket_verifying_precise_floating_point_optimizations_in_llvm.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Users depend on correct compiler optimizations but floating-point arithmetic is difficult to optimize transparently. Manually reasoning about all of floating-point arithmetic’s esoteric properties is error-prone and increases the cost of adding new optimizations. We present an approach to automate reasoning about precise floating-point optimizations using satisfiability modulo theories (SMT) solvers. We implement the approach in LifeJacket, a system for automatically verifying precise floating-point optimizations for the LLVM assembly language. We have used LifeJacket to verify 43 LLVM optimizations and to discover eight incorrect ones, including three previously unreported problems. LifeJacket is an open source extension of the Alive system for optimization verification.
@@ -1138,7 +1153,8 @@ Users depend on correct compiler optimizations but floating-point arithmetic is 
      <td>
      <p class="title">
        <a name="26"></a>
-       Software Prefetching for Indirect Memory Accesses
+       Software Prefetching for Indirect Memory Accesses -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/software_prefetching_for_indirect_memory_accesses.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Many modern data processing and HPC workloads are heavily memory-latency bound. A tempting proposition to solve this is software prefetching, where special non-blocking loads are used to bring data into the cache hierarchy just before being required. However, these are difficult to insert to effectively improve performance, and techniques for automatic insertion are currently limited.<br /><br />This paper develops a novel compiler pass to automatically generate software prefetches for indirect memory accesses, a special class of irregular accesses often seen in high-performance workloads. We evaluate this across a wide set of systems, all of which gain benefit from the technique. Across a set of memory-bound benchmarks, our automated pass achieves average speedups of 1.3x and 1.1x for an Intel Haswell processor and an ARM Cortex-A57, both out-of-order cores, and improvements of 2.1x and 3.7x for the in-order ARM Cortex-A53 and Intel Xeon Phi.
@@ -1198,7 +1214,8 @@ Recent LLVM distributions have been offering the option to print the Control Flo
      <td>
      <p class="title">
        <a name="28"></a>
-       DIVA (Debug Information Visual Analyzer)
+       DIVA (Debug Information Visual Analyzer) -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/diva_debug_information_visual_analyzer.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 In this lightning talk, Phillip will present DIVA (Debug Information Visual Analyzer). DIVA is a new command line tool that processes DWARF debug information contained within ELF files and prints the semantics of that debug information. The DIVA output is designed with an aim to be understandable by software programmers without any low-level compiler or DWARF knowledge; as such, it can be used to report debug information bugs to the compiler provider. DIVA's output can also be used as the input to DWARF tests, to compare the debug information generated from multiple compilers, from different versions of the same compiler, from different compiler switches and from the use of different DWARF specifications (i.e. DWARF 3, 4 and 5).  DIVA will be open sourced in 2017 to be used in the LLVM project to test and validate the output of clang to help improve the quality of the debug experience.
@@ -1246,7 +1263,8 @@ I present three modified API checkers, that use external metadata, to warn on im
      <td>
      <p class="title">
        <a name="30"></a>
-       LibreOffice loves LLVM
+       LibreOffice loves LLVM -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/libreoffice_loves_llvm.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 LibreOffice (with its StarOffice/OpenOffice.org ancestry) is one of the behemoths in the open source C++ project zoo.  On the one hand, we are always looking for tools that help us in keeping its code in shape and maintainable.  On the other hand, the sheer size of the code base and its diversity are a welcome test bed for any tool to run against.  Whatever clever static analysis feat you come up with, you'll be sure to find at least one hit in the LibreOffice code base.<br /><br />This talk gives a short overview of how we use Clang-based tooling in LibreOffice development.
@@ -1360,7 +1378,8 @@ BoFs
      <td>
      <p class="title">
        <a name="34"></a>
-       Clangd: A new Language Server Protocol implementation leveraging Clang
+       Clangd: A new Language Server Protocol implementation leveraging Clang -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/clangd_bof.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 <a href="https://etherpad.net/p/Clangd">Etherpad</a><br /><br />Clangd is a new tool developed as part of clang-tools-extra. It aims at implementing the Language Server Protocol, a protocol that provides<br />IDEs and code editors all the language "smartness". Work in this area is only just beginning however there is already a large interest surrounding it. This BoF session will be a nice opportunity for the attendees to get to know each other as well as discuss several topics that will help make this tool a success.<br /><br />Possible agenda/topics:<br />- Introductions<br />- Goals and scope of Clangd<br />- Existing language server implementations. Comparisons, advantages/disadvantages, etc.<br />- Challenges<br />- Proposed architecture<br />- Collaborations and planning
@@ -1534,7 +1553,8 @@ Posters
      <td>
      <p class="title">
        <a name="38"></a>
-       AnyDSL: A Compiler-Framework for Domain-Specific Libraries (DSLs)
+       AnyDSL: A Compiler-Framework for Domain-Specific Libraries (DSLs) -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/anydsl_a_compiler-framework_for_domain_specific_libraries.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 AnyDSL is a framework for the rapid development of domain-specific libraries (DSLs). AnyDSL's main ingredient is AnyDSL's intermediate representation Thorin. In contrast to other intermediate representations, Thorin features certain abstractions which allow to maintain domain-specific types and control-flow. On these grounds, a DSL compiler gains two major advantages:<br />- The domain expert can focus on the semantics of the DSL. The DSL's code generator can leave low-level details like exact iteration order of looping constructs or detailed memory layout of data types open. Nevertheless, the code generator can emit Thorin code which acts as interchange format.<br />- The expert of a certain target machine just has to specify the required details once. These details are linked like a library to the abstract Thorin code. Thorin's analyses and transformations will then optimize the resulting Thorin code in a way such that the resulting Thorin code appears to be written by an expert of that target machine.
@@ -1630,7 +1650,8 @@ Bugfixing or new feature development requires a confident understanding of all d
      <td>
      <p class="title">
        <a name="41"></a>
-       Hydra LLVM: Instruction Selection with Threads
+       Hydra LLVM: Instruction Selection with Threads -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/hydra_llvm_instruction_selection_with_threads.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 By the rise of program complexity and some specific usages like JIT(Just-In-Time) compilation, compilation speed becomes more and more important in recent years.<br />Instruction selection in LLVM, on the other hand, is the most time-consuming part among all the LLVM components, which can take nearly 50% of total compilation time. We believe that by reducing time consumption of instruction selection, the total compilation speed can get a significant increase. Thus, we propose a (work-in-progress) prototype design that use multi-thread programming to parallelize the instruction selector in order to reach the goal mentioned above. The original instruction selector is implemented as a bytecode interpreter, which executes the operation codes generated by TableGen files that models the machine instructions, and transform IR selection graph into machine-dependent selection graph at the end. The selector, to our surprised, shows some great properties which we can benefit from in creating multi-thread version of that. For example, an opcode scope that save the current context before executing the following opcodes sequence, and restore the context after finishing them. While preserving the original algorithm of the selector, we also try hard to reduce the concurrency overhead by replacing unnecessary mutex lock with better one like read/write lock and atomic variables. Though the experiments didn’t show promising result, we are still looking forward to the potential of reducing the consuming time of instruction selection in order to increase the overall compilation speed. In the future, we will try different compilation regions to parallelize for the sake of finding the optimal one that causes less overhead. At the same time, we are also going to combine this project with existing JIT framework in LLVM in order to reduce the execution latency caused by runtime compilation.
@@ -1666,7 +1687,8 @@ By the rise of program complexity and some specific usages like JIT(Just-In-Time
      <td>
      <p class="title">
        <a name="42"></a>
-       Intelligent selection of compiler options to optimize compile time and performance
+       Intelligent selection of compiler options to optimize compile time and performance -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/intelligent_selection_of_compiler_options_to_optimize_compile_time_and_performance.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 The efficiency of the optimization process during the compilation is crucial for the later execution behavior of the code. The achieved performance depends on the hardware architecture and the compiler's capabilities to extract this performance.<br /><br />Code optimization can be a CPU- and memory-intensive process which -- for large codes -- can lead to high compilation times during development. Optimization also influences the debuggability of the resulting binary; for example, by storing data in registers. During development, it would be interesting to compile files individually with appropriate flags that enable debugging and provide high (near-production) performance during the testing but with moderate compile times. We are exploring to create a tool to identify code regions that are candidates for higher optimization levels. We follow two different approaches to identify the most efficient code optimization:<br />1) compiling different files with different options by brute force; 2) using profilers to identify the relevant code regions that should be optimized.<br /><br />Since big projects comprise hundreds of files, brute force is not efficient. The problem in, e.g., climate applications is that codes have too many files to test them individually.<br />Improving this strategy using a profiler, we can identify the time consuming regions (and files) and then repeatedly refine our selection. Then, the relevant files are evaluated with different compiler flags to determine a good compromise of the flags. Once the appropriate flags are determined, this information could be retained across builds and shared between users.<br /><br /><br />In our poster, we motivate and demonstrate this strategy on a stencil code derived from climate applications. The experiments done throughout this work are carried out on a recent Intel Skylake (i7-6700 CPU @ 3.40GHz) machine. We compare performance of the compilers clang (version 3.9.1) and gcc (version 6.3.0) for various optimization flags and using profile guided optimization (PGO) with the traditional compile with instrumentation/run/compile phase and when using the perf tool for dynamic instrumentation. The results show that more time (2x) is spent for compiling code using higher optimization levels in general, though gcc takes a little less time in general than clang. Yet the performance of the application were comparable after compiling the whole code with O3 to that of applying O3 optimization to the right subset of files. Thus, the approach proves to be effective for repositories where compilation is analyzed to guide subsequent compilations.<br /><br />Based on these results, we are building a prototype tool that can be embedded into building systems that realizes the aforementioned strategies of brute-force testing and profile guided analysis of relevant compilation flags.
