@@ -475,7 +475,8 @@ Today Clang Static Analyzer [4] can perform (context-sensitive) interprocedural 
      <td>
      <p class="title">
        <a name="8"></a>
-       Delivering Sample-based PGO for PlayStation(R)4 (and the impact on optimized debugging)
+       Delivering Sample-based PGO for PlayStation(R)4 (and the impact on optimized debugging) -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/delivering_sample_based_pgo_for_playstation_r_4.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 Users of the PlayStation(R)4 toolchain have a number of expectations from their development tools: good runtime performance is vitally important, as is the ability to debug fully optimized code.  The team at Sony Interactive Entertainment have been working on delivering a Profile Guided Optimization solution to our users to allow them to maximize their runtime performance.  First we provided instrumentation-based PGO which has been successfully used by a number of our users.  More recently we followed this up by also providing a Sample-based PGO approach, built upon the work of and working together with the LLVM community, and integrated with the PS4 SDK's profiling tools for a simple and seamless workflow.<br /><br />In this talk, we'll present real-world case-studies showing how the Sample-based approach compares with Instrumented PGO in terms of user workflow, runtime intrusion while profiling, and final runtime performance improvement.  We'll show with the aid of real code examples how the performance results of Sample-based PGO are heavily impacted by the accuracy of the compiler's line table debugging information and how by improving the propagation of debug data in some transformations both the Sample-based PGO runtime performance results and the overall user experience of debugging optimized code have been improved, so that anyone implementing new transformations can take this into account, especially as debug information is increasingly being used by consumers other than traditional debuggers that rely on its accuracy.
@@ -1050,7 +1051,8 @@ In this paper, we describe PACXX -- our approach for programming Graphics Proces
      <td>
      <p class="title">
        <a name="23"></a>
-       Data Reuse Analysis for Automated Synthesis of Custom Instructions in Sliding Window Applications
+       Data Reuse Analysis for Automated Synthesis of Custom Instructions in Sliding Window Applications -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/data_reuse_analysis_for_automated_synthesis_of_custom_instructions_in_sliding_window_applications.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 The efficiency of accelerators supporting complex instructions is often limited by their input/output bandwidth requirements. To overcome this bottleneck, we herein introduce a novel methodology that, following a static code analysis approach, harnesses data reuse in-between multiple iteration of loop bodies to reduce the amount of data transfers. Our methodology, building upon the features offered by the LLVM-Polly framework, enables the automated design of fully synthesisable and highly-efficient accelerators. Our approach is targeted towards sliding window kernels, which are employed in many applications in the signal and image processing domain.<br /><br />NOTE: This paper has been published in IMPACT 2017 Seventh International Workshop on Polyhedral Compilation Techniques Jan 23, 2017, Stockholm, Sweden<br />In conjunction with HiPEAC 2017. http://impact.gforge.inria.fr/impact2017
@@ -1190,7 +1192,9 @@ Lightning Talks
      <td>
      <p class="title">
        <a name="27"></a>
-       ClrFreqPrinter: A Tool for Frequency Annotated Control Flow Graphs Generation
+       ClrFreqPrinter: A Tool for Frequency Annotated Control Flow Graphs Generation -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/ClrFreqPrinter_a_tool_for_frequency_annotated_control_flow_graphs_generation.pdf">[pdf]</a>
+                    <a href="http://www.inf.usi.ch/phd/zacharopoulos/software.htm">[web]</a>
      </p>
      <p class="abstract">
 Recent LLVM distributions have been offering the option to print the Control Flow Graph (CFG) of functions in the Intermediate Representation (IR) level. This feature is fairly useful as it enables the visualization of the CFG of a function, thus providing a better overview of the control flow among the Basic Blocks (BBs). In many occasions, though, more information than that is needed in order to obtain quickly an adequate high level view of the execution of a function. One such desired attribute, that could lead to a better understanding, is the execution frequency of each Basic Block. We have developed our own LLVM analysis pass which makes use of the BB Frequency Info Analysis pass methods, as well as the profiling information gathered by the use of the llvm-profdata tool. Our analysis pass gathers the execution frequency of each BB in every function of an application. Subsequently, the other part of our toolchain, exploiting the default LLVM CFG printer, makes use of this data and assigns a specific colour to each BB in a CFG of a function. The colour scheme followed was inspired by a typical weather map, as it can bee seen in Figure 1. An example of the generated colour annotated CFG of a jpeg function can be seen in Figure 2. Our tool, ClrFreqPrinter, can be applied in any benchmark and can be used to provide instant intuition regarding the execution frequency of BBs inside a function. A feature that can be useful for any developer or researcher working with the LLVM framework.
@@ -1239,7 +1243,8 @@ In this lightning talk, Phillip will present DIVA (Debug Information Visual Anal
      <td>
      <p class="title">
        <a name="29"></a>
-       Generalized API checkers for the Clang Static Analyzer
+       Generalized API checkers for the Clang Static Analyzer -
+                    <a href="http://llvm.org/devmtg/2017-03//assets/slides/generalized_api_checkers_for_the_clang_static_analyzer.pdf">[pdf]</a>
      </p>
      <p class="abstract">
 I present three modified API checkers, that use external metadata, to warn on improper function calls. We aim to upstream these checkers to replace existing hard-coded data and duplicated code. The goal is to allow anyone to check any API, using the Static Analyzer as a black box.
