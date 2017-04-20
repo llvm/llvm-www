@@ -133,3 +133,40 @@ color:#ffffff;
 color:#000000;
 background-color:#81BEF7;
 }
+
+/* Sponsors */
+.sponsors_diamond,
+.sponsors_platinum,
+.sponsors_gold,
+.sponsors_silver,
+.sponsors_bronze
+td {
+  padding: 30px;
+  text-align: center;
+}
+
+.sponsors_diamond img {
+    align: middle;
+    width: 220px;
+}
+
+.sponsors_platinum img {
+    align: middle;
+    width: 200px;
+}
+
+.sponsors_gold img {
+    align: middle;
+    width: 180px;
+}
+
+.sponsors_silver img {
+    align: middle;
+    width: 160px;
+}
+
+.sponsors_bronze img {
+    align: middle;
+    width: 150px;
+}
+
