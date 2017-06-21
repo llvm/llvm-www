@@ -1,0 +1,125 @@
+<!--#include virtual="../../header.incl" -->
+
+<div class="www_sectiontitle">HPC summer school 2017</div>
+
+<ul>
+  <li><b>What</b>: Analysis and transformations of HPC codes using Clang/LLVM</li>
+  <li><b>When</b>: June 12-16, 2017</li>
+  <li><b>Where</b>: Paris, France</li>
+  <li><b><a href="http://www-hpc.cea.fr/SummerSchools/SummerSchools2017-CS.htm">Web site</a></b></li>
+</ul>
+
+<div class="www_sectiontitle">Lectures</div>
+<p>
+  <ul>
+    <li><b>Introduction to LLVM - David Chisnall (Cambridge University)</b>
+      <p>
+        This course will cover the design decisions involved in designing a modern
+        compiler intermediate representation, with a specific focus on the design
+        decisions made by LLVM IR and the affects that these have on the design of a
+        compiler. We will explore the structure of the LLVM optimization pipeline, the
+        relationship between analysis and transformation to produce optimization.
+      </p>
+      <p>
+        The course will investigate the tradeoffs between ahead-of-time (AoT) and
+        just-in-time (JIT) compilation, in particular with regard to feedback-driven
+        optimization. We will use a simple language incorporating an interpreter and
+        LLVM-based compiler as a case study, with exercises to extend this language and
+        explore the different execution modes.
+      </p>
+      <p>
+        The course has the following aims for students:<ul> 
+          <li> To understand modern compiler intermediate representations, including SSA form</li>
+          <li> To understand the structure of a modern compiler pipeline</li>
+          <li> To gain practical experience generating and transforming LLVM IR</li>
+        </ul>
+      </p>
+      <p>
+        [<a href="http://www.cl.cam.ac.uk/~dc552/L25.html">Background reading</a>]
+        [<a href="1-Davis-Chisnall-LLVM-2017.pdf">Slides</a>]
+        [<a href="http://compilerteaching.org/paris2017/">Exercises</a>]
+      </p>
+    </li>
+
+    <li><b>Code Transformation and Analysis Using Clang and LLVM - Hal Finkel (Argonne National Laboratory)</b>
+      <p>
+        This series of lectures will cover code transformation and analysis
+        using components of the LLVM compiler infrastructure. LLVM's C/C++
+        frontend, Clang, supports not only compiling source code for execution
+        (i.e. transforming it into LLVM's intermediate representation (IR)),
+        but also features a powerful source-level static analysis framework.
+        This can be coupled with Clang's rewriting and tooling functionalities
+        to create sophisticated source -to-source transformation tools.
+      </p>
+      <p>
+        For some use cases, runtime checking must supplement static reasoning.
+        In some cases, for example, Clang's undefined-behavior sanitizer, these
+        checks much be inserted very early in the code-generation process. In
+        other cases, such as the address and thread sanitizers, the checks can
+        be inserted after the code undergoes optimizing transformations.
+        Runtime checks are associated with corresponding runtime-library
+        functionality in LLVM's compiler-rt project.
+      </p>
+      <p>
+        At the conclusion of the lecture series, students will understand Clang's
+        static-analysis, rewriting, and tooling infrastructures well enough to create
+        novel analyses for the stand-alone analyzer, analysis-based warnings for
+        regular compilation, and source-to-source rewriting tools. Students will
+        understand how Clang's undefined-behavior sanitizer works and how Clang's
+        code-generation can be extended to create runtime checks. Finally, students
+        will understand how the address and thread sanitizers work, both the IR-level
+        transformations and the runtime-library components. Students will be able to
+        create their own tools based on this model. 
+      </p>
+      <p>
+        [<a href="2-Hal-Finkel-LLVM-2017.pdf">Slides</a>]
+        [<a href="https://github.com/hfinkel/llvm-ss-2017">Exercises</a>]
+      </p>
+    </li>
+
+    <li><b>Generation of Optimization of Parallel Code in LLVM - Tobias Gosser (ETH Zurich)</b>
+      <p>
+      The generation of parallel code is important for the fast execution of
+      classical high-performance applications such as weather prediction, but
+      also modern applications such as image processing, machine learning, and
+      biology simulations. The LLVM compiler infrastructure enables the
+      automatic introduction and generation of parallel code through
+      SIMDization, automatic parallelization, as well as automatic GPU code,
+      generation. In this course, we learn about the fundamental building
+      blocks that enable the generation and optimization of parallel program
+      code. Starting off from learning about the SIMD instruction set
+      extensions of LLVM we learn how to write our own SIMD accelerated vector
+      code generator that can generate fast vector code for all LLVM supported
+      architectures. We then look into different approaches to model
+      parallelism at the source language level, at the compiler IR level, and
+      -- using Polly -- how to model parallelism with an abstract geometric
+      representation based on integer polyhedra. Using these representations we
+      discuss how parallelism information can be derived, how transformations
+      to expose parallelism can be applied, and finally how fast parallel code
+      can be generated. In the last part of this course, we discuss GPU code
+      generation and learn how LLVM can be used to generate GPU accelerated
+      code for AMD and NVIDIA systems, discuss the available CUDA and OpenCL
+      extensions, and learn how Polly ACC can fully automatically perform GPU
+      offloading. We conclude with an overview how these techniques allow for
+      the automatic optimization of high-level languages such as Julia. 
+      </p>
+      <p>
+        [<a href="3-Tobias-Grosser-2017-day1.pdf">Slides - day 1</a>]
+        [<a href="3-Tobias-Grosser-2017-day2.pdf">Slides - day 2</a>]
+        [<a href="https://github.com/tobig/llvm-summer-school-2017">Exercises</a>]
+      </p>
+    </li>
+  </ul>
+</p>
+
+<!-- *********************************************************************** -->
+<hr>
+<address>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+  src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a>
+  <a href="http://validator.w3.org/check/referer"><img
+  src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"></a>
+<br>
+</address>
+
+<!--#include virtual="../../footer.incl" -->
