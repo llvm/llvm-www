@@ -58,7 +58,7 @@
 <b>Search&nbsp;this&nbsp;Site</b>
 
 <div class="www_sidebar">
-  <form action="http://www.google.com/search" method="get">
+  <form action="https://www.google.com/search" method="get">
     <div>
       <input type="hidden" name="sitesearch" value="llvm.org">
       <input type=text name=q size=11><br>
