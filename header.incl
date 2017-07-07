@@ -43,7 +43,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="/releases/download.html#4.0.0"><b>LLVM&nbsp;4.0.0</b></a><br>
+<a href="/releases/download.html#4.0.1"><b>LLVM&nbsp;4.0.1</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="http://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
@@ -102,6 +102,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  4.0.1: <a href="http://lists.llvm.org/pipermail/llvm-announce/2017-July/000074.html">Jul 2017</a><br>
   4.0.0: <a href="http://lists.llvm.org/pipermail/llvm-announce/2017-March/000073.html">Mar 2017</a><br>
   3.9.1: <a href="http://lists.llvm.org/pipermail/llvm-announce/2016-December/000072.html">Dec 2016</a><br>
   3.9.0: <a href="http://lists.llvm.org/pipermail/llvm-announce/2016-September/000070.html">Sep 2016</a><br>
