@@ -337,7 +337,7 @@ Student Research Competition:<br>
 </a></b> - <i>William Moses</i><br>
 
 <b><a href="#src5">Exploiting and improving LLVM's data flow analysis using superoptimizer
-</a></b> - <i>Jubi Taneja</i><br>
+</a></b> - <i>Jubi Taneja, John Regehr</i><br>
 
 </p>
 <p>
@@ -995,7 +995,7 @@ The work was conducted in collaboration with Tao B. Schardl and Charles E. Leise
 <p>
 <b><a id="src5">Exploiting and improving LLVM's data flow analysis using superoptimizer
 </a></b><br>
-<i>Jubi Taneja</i><br>
+<i>Jubi Taneja, John Regehr</i><br>
 [Slides] [Video] (Available after dev mtg)<br>
 This proposal is about increasing the reach of a superoptimizer to find missing optimizations and make LLVM’s data flow analysis more precise. Superoptimizer usually performs optimizations based only on local information, i.e. it operates on a small set of instructions. To enhance its knowledge for farther program points, we build an interaction between a superoptimizer and LLVM’s data flow analysis. With the global information derived from a compiler’s data flow analysis, the superoptimizer can find more interesting optimizations as it knows much more than just the instruction sequence. 
 Our goal is not limited to exploiting the data flow facts imported from LLVM to help our superoptimizer: "Souper". We also improve the LLVM’s data flow analysis by finding imprecision and making suggestions. It is harder to implement optimizations with path conditions in LLVM compiler. To avoid writing fragile optimization without any additional information, we automatically scan the Souper’s optimizations for path conditions that map into data flow facts already known to LLVM and suggest corresponding optimizations. The interesting set of optimizations found by Souper also resulted in form of patches to improve LLVM’s data flow analysis and some of them are already accepted.
