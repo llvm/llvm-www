@@ -91,6 +91,7 @@
   <a href="http://blog.llvm.org/">Blog</a>
   <a href="http://bugs.llvm.org/">Bugzilla</a><br>
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
+  <a href="http://green.lab.llvm.org/green/">Green Dragon</a>
   <a href="http://lnt.llvm.org/">LNT</a>
   <a href="http://llvm.org/reports/coverage/">Coverage</a>
   <a href="http://llvm.org/reports/scan-build/">Scan-build</a>
