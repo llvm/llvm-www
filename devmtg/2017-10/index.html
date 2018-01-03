@@ -283,7 +283,7 @@ The adoption of LLVM to develop GPU compilers has been increasing substantially 
 <b><a id="talk2">Bringing link-time optimization to the embedded world: (Thin)LTO with Linker Scripts
 </a></b><br>
 <i>Tobias Edler von Koch, Sergei Larin, Shankar Easwaran and Hemant Kulkarni</i><br>
-[Slides] [<a href="https://youtu.be/hhaPAKUt35E">Video</a>] <br>
+[<a href="slides/LTOLinkerScriptsEdlerVonKoch.pdf">Slides</a>] [<a href="https://youtu.be/hhaPAKUt35E">Video</a>] <br>
 Custom linker scripts are used pervasively in the embedded world to control the memory layout of the linker's output file. In particular, they allow the user to describe how sections in the input files should be mapped into the output file. This mapping is expressed using wildcard patterns that are matched to section names and input paths. The linker scripts for complex embedded software projects often contain thousands of such path-based rules to enable features like tightly-coupled memories (TCM), compression, and RAM/ROM assignment. 
 Unfortunately, the current implementation of (Thin)LTO in LLVM is incompatible with linker scripts for two reasons: Firstly, regular LTO operates by merging all input modules into one and compiling the merged module into a single output file. This prevents the path-based rules from matching, since all input sections now appear to originate from the same file. Secondly, the lack of awareness about linker script directives may lead to (Thin)LTO applying optimizations that violate user assumptions, for instance by merging constants across output section boundaries. 
 
