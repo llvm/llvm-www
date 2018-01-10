@@ -18,6 +18,163 @@
   <a href="http://cgo.org/cgo2018/workshops.html">CGO website.</a>
 </p>
 
+<div class="www_sectiontitle">Abstracts</div>
+<p>
+  <ul>
+    <li> <a id="jh"><b>Julian Hammer, Johannes Doerfert, Georg Hager, Gerhard
+          Wellein and Sebastian Hack</b>: Cache-aware Scheduling and
+        Performance Modeling with LLVM-Polly and Kerncraft </a>
+      <p>
+
+      LLVM/Polly is the polyhedral optimizer of the LLVM project. While there
+      currently is a serious integration effort going on, Polly still lacks
+      basic support for essential optimizations. In this work we replace the
+      fixed tile-sizes policy employed by Polly with an access- and hardware-
+      dependent one. In contrast to Polly's scheduling, our tile-size selection
+      targets spatial instead of temporal locality. The proposed tile-size
+      selection is based on analytic performance modeling using the Layer
+      Conditions model, and extended to cope with non-affine accesses and
+      non-perfectly nested loops, which are found in many real-world codes.
+      Nevertheless, it is best suited for linear-sequential accesses as found
+      in stencil computations.
+
+      </p>
+    </li>
+
+    <li> <a id="mk"><b>Maha Kooli, Henri-Pierre Charles, Jean-Philippe Noel and
+          Bastien Giraud</b>: How to Evaluate "In-Memory Computing"
+        Performances without Hardware Measurements? </a>
+      <p>
+
+      This paper presents a software platform to evaluate the performance of
+      In-Memory Computing architecture based on emerging memory that embeds
+      computing abilities. The platform includes emulation tools that are based
+      on the Low Level Virtual Machine (LLVM). It permits to early experiment
+      applications when the hardware system is not fully designed, and generate
+      execution traces. These execution traces are then analyzed to evaluate
+      the system performances.
+
+      </p>
+    </li>
+
+    <li> <a id="apg"><b>	Arsène Pérard-Gayot, Richard Membarth, Philipp
+          Slusallek, Simon Moll, Roland Leißa and Sebastian Hack</b>: A Data
+        Layout Transformation for Vectorizing Compilers</a>
+
+      <p>
+
+      Modern processors are often equipped with vector instruction sets.  Such
+      instructions operate on multiple elements of data at once, and greatly
+      improve performance for specific applications.  A programmer has two
+      options to take advantage of these instructions: writing manually
+      vectorized code, or using an auto-vectorizing compiler.  In the latter
+      case, he only has to place annotations to instruct the auto-vectorizing
+      compiler to vectorize a particular piece of code.  Thanks to
+      auto-vectorization, the source program remains portable, and the
+      programmer can focus on the task at hand instead of the low-level details
+      of intrinsics programming.  However, the performance of the vectorized
+      program strongly depends on the precision of the analyses performed by
+      the vectorizing compiler.  In this paper, we improve the precision of
+      these analyses by selectively splitting stack-allocated variables of a
+      structure or aggregate type.  Without this optimization, automatic
+      vectorization slows the execution down compared to the scalar,
+      non-vectorized code.  When this optimization is enabled, we show that the
+      vectorized code can be as fast as hand-optimized, manually vectorized
+      implementations.
+
+      </p>
+    </li>
+
+    <li> <a id="sss"><b>Siddharth Shankar Swain</b>: Efficient use of memory by
+        reducing size of AST dumps in cross file analysis by clang static
+        analyzer</a>
+
+      <p>
+        Clang SA works well with function call within a translation unit. When
+        execution reaches a function implemented in another TU, analyzer skips
+        analysis of called function definition. For handling cross file bugs, the
+        CTU analysis feature was developed. The CTU model consists of two passes.
+        The first pass dumps AST for all translation unit, creates a function map
+        to corresponding AST. In the second pass when TU external function is
+        reached during the analysis, the location of the definition of that
+        function is looked up in the function definition index and the definition
+        is imported from the containing AST binary into the caller's context
+        using the ASTImporter class. During the analysis, we need to store the
+        dumped ASTs temporarily. For a large code base this can be a problem and
+        we have seen it practically where the code analysis stops due to memory
+        shortage. Not only in CTU analysis but also in general case clang SA
+        analysis reducing size of ASTs can also lead to scaling of clang SA to
+        larger code bases. We are basically using two methods:
+      </p>
+
+      <p>
+          1) Using Outlining method on the source code to find out AST that
+          share common factors or sub trees. We throw away those ASTs that
+          won't match any other AST, thereby reducing number of ASTs dumped in
+          memory.
+      </p>
+
+      <p>
+          2) Tree prunning technique to keep only those parts of tree necessary
+          for cross translation unit analysis and eliminating the rest to
+          decrease the size of tree. Finding necessary part of tree can be done
+          by finding the dependency path from the exploded graph where
+          instructions dependent on the function call/execution will be
+          present. A thing to note here is that prunning of only those branches
+          whose no child is a function call should be done.
+      </p>
+    </li>
+
+    <li> <a id="am"><b>Alexander Matz and Holger Fröning</b>: Enabling
+        Automatic Partitioning of Data-Parallel Kernels with Polyhedral
+        Compilation</a>
+      <p>
+
+          Data-parallel accelerators are pervasive in today's computing
+          landscape due to their high energy-efficiency and performance. GPUs,
+          in particular, are very successful and utilize the
+          Bulk-Synchronous-Parallel programming model to expose the available
+          parallelism in an application core to the hardware. Programming a
+          single GPU using the BSP programming model (in the form of OpenCL and
+          CUDA) adds moderate complexity and is usually manageable.
+
+      </p>
+      <p>
+
+          If more than a single GPU is to be used, however, all data transfers
+          and kernel executions have to be orchestrated manually in order to
+          achieve good performance. This is tedious and error prone. Given the
+          regular nature of many GPUs kernels, this orchestration and the
+          distribution of work should be possible automatically.
+
+      </p>
+      <p>
+
+          In this talk, we present an approach to automatically partition
+          single-GPU CUDA applications for execution on multiple GPUs and a
+          preliminary performance analysis. We use polyhedral compilation for
+          the extraction of the memory access patterns of GPU kernels and a
+          light-weight runtime-system to synchronize device buffers and
+          orchestrate kernel execution. The runtime-system utilizes code
+          generated by polyhedral compilation to keep track of the state of
+          device buffers before and after each kernel execution and issues
+          minimal data movements if required. Partitioned kernels need to be
+          extended to only compute a subset of the original execution grid. Our
+          preliminary performance analysis achieves speedups of up to 12x for
+          three model applications taken from the Berkeley Dwarves.
+
+      </p>
+      <p>
+
+          Although we focus on NVIDIA CUDA applications in this talk we see no
+          conceptual differences of this approach in regards to alternative
+          implementations of the BSP programming model (e.g. OpenCL).
+
+      </p>
+    </li>
+  </ul>
+</p>
+
 <div class="www_sectiontitle">Call for Speakers</div>
 
 <p>
