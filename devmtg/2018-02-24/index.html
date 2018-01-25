@@ -58,29 +58,25 @@
     </li>
 
     <li> <a id="apg"><b>	Arsène Pérard-Gayot, Richard Membarth, Philipp
-          Slusallek, Simon Moll, Roland Leißa and Sebastian Hack</b>: A Data
-        Layout Transformation for Vectorizing Compilers</a>
+          Slusallek, Simon Moll, Roland Leißa and Sebastian Hack</b>:
+        Optimizing LLVM IR for Guided Vectorization</a>
 
       <p>
 
-      Modern processors are often equipped with vector instruction sets.  Such
-      instructions operate on multiple elements of data at once, and greatly
-      improve performance for specific applications.  A programmer has two
-      options to take advantage of these instructions: writing manually
-      vectorized code, or using an auto-vectorizing compiler.  In the latter
-      case, he only has to place annotations to instruct the auto-vectorizing
-      compiler to vectorize a particular piece of code.  Thanks to
-      auto-vectorization, the source program remains portable, and the
-      programmer can focus on the task at hand instead of the low-level details
-      of intrinsics programming.  However, the performance of the vectorized
-      program strongly depends on the precision of the analyses performed by
-      the vectorizing compiler.  In this paper, we improve the precision of
-      these analyses by selectively splitting stack-allocated variables of a
-      structure or aggregate type.  Without this optimization, automatic
-      vectorization slows the execution down compared to the scalar,
-      non-vectorized code.  When this optimization is enabled, we show that the
-      vectorized code can be as fast as hand-optimized, manually vectorized
-      implementations.
+        Guided vectorization takes a scalar program (operating on a single
+        element of data) and transforms it into a vectorized program (operating
+        on multiple elements at once).  The performance of the vectorized
+        program strongly depends on the precision of the analyses performed by
+        the vectorizing compiler, and the quality of the target code generator.
+        In particular, these analyses must determine whether an expression is
+        the same for all lanes (uniform) or not.  Since divergent control flow
+        is expensive, the compiler should ensure that it remains uniform
+        whenever possible.  In this presentation, we present data layout
+        transformations and optimizations on LLVM IR that improve both the
+        analyses and the generated code quality of RV, a state-of-the-art
+        vectorizing framework.  We show that, using RV combined with our
+        optimizations, auto-vectorized ray-tracing kernels perform within 10%
+        of manually-vectorized implementations by experts.
 
       </p>
     </li>
