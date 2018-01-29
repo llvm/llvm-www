@@ -6,6 +6,12 @@
   <li><a href="#gsoc18">Google Summer of Code 2018</a>
     <ul>
     <li>
+      <b>LLVM Core</b>
+      <ul>
+  	    <li><a href="#codegen_testing2018">Improve code generation testing</a></li>
+      </ul>
+    </li>
+    <li>
     <a href="http://lldb.llvm.org/"><b>LLDB</b></a><ul>
       <li><a href="#lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the
           LLDB public API</a>
@@ -252,6 +258,33 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   </p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="codegen_testing2018">Improve code generation testing</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>
+    <b>Description of the project:</b>
+    After instruction selection LLVM uses the MI (Machine Instruction)
+    representation for programs. We recently added support for reading and
+    writing this representation to disk
+    (<a href="http://llvm.org/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
+    tests is growing and so is the desire to improve the format, tools and
+    workflow. Possible projects:
+  </p>
+
+  <ul>
+    <li>Create a single consistent format instead of the current mix of YAML + IR + MIR</li>
+    <li>Helper passes: Strip IR information, rename blocks and values, debug information, extract functions or blocks...</li>
+    <li>Create a bugpoint mode (or a new tool) to reduce .mir test cases</li>
+    <li>Create tool to remove unnecessary information from existing tests</li>
+  </ul>
+
+  <p><b>Confirmed Mentor:</b> Matthias Braun</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
