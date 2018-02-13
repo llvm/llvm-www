@@ -35,9 +35,11 @@
     </ul>
     </li>
     <li>
-        <b>Others</b>
+        <b>Packaging</b>
         <ul>
             <li><a href="#apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
+            </li>
+            <li><a href="#apt-obs">Move the apt.llvm.org CI to OBS</a>
             </li>
         </ul>
    </li>
@@ -357,7 +359,7 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
 <div class="www_text">
   <p><b>Description of the project: </b>
-  <a href="http://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
+  <a href="https://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
   These packages are also shipped as part of Debian and Ubuntu without any changes.<br />
   Debian and Ubuntu have separate packages for <a href="https://packages.qa.debian.org/libc/libc++.html">libc++</a> and <a href="https://packages.qa.debian.org/o/openmprtl.html">OpenMP</a>.<br />
   The goal of this project is to merge libc++ and OpenMP packages as part of the llvm-toolchain packages.<br />
@@ -365,6 +367,31 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   </p>
 
   <p>If the project is completed early, the student will also work on the full bootstrap of the llvm-toolchain (ie building it with a newly built clang binary).</p>
+
+  <p><b>Expectation:</b> The student must have demonstrated some experience with Debian/Ubuntu packaging. Debian maintains a list of <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?tag=newcomer">good first bugs</a>. Please mention any packaging related contribution in the GSoC application.</p>
+
+  <p><b>Confirmed Mentor:</b> <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a></p>
+
+  <ul>
+    <li>More about libc++: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673</a>
+    <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="apt-obs">Move the apt.llvm.org CI to OBS</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+  <a href="https://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
+  Currently, the packages are build using a <a href="http://llvm-jenkins.debian.net/">Jenkins instance</a> and <a href="https://github.com/mika/jenkins-debian-glue/">Jenkins-Debian-Glue</a>.<br />
+  The goal of this project is to deploy an instance of <a href="http://openbuildservice.org/">Open Build Service (OBS)</a> and port the <a href="https://github.com/sylvestre/llvm-jenkins.debian.net">various scripts</a> and packages to this platform.
+  </p>
+
+  <p>In theory, apt.llvm.org should not have any change from the user perspective.</p>
 
   <p><b>Expectation:</b> The student must have demonstrated some experience with Debian/Ubuntu packaging. Debian maintains a list of <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?tag=newcomer">good first bugs</a>. Please mention any packaging related contribution in the GSoC application.</p>
 
