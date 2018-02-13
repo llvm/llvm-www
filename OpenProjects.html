@@ -344,6 +344,39 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
 
 <!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Others</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+  <a href="http://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
+  These packages are also shipped as part of Debian and Ubuntu without any changes.<br />
+  Debian and Ubuntu have separate packages for <a href="https://packages.qa.debian.org/libc/libc++.html">libc++</a> and <a href="https://packages.qa.debian.org/o/openmprtl.html">OpenMP</a>.<br />
+  The goal of this project is to merge libc++ and OpenMP packages as part of the llvm-toolchain packages.<br />
+  The difficulty of this project is to make different versions of these libraries co-installable while remaining usable for developers. This project will also aim to limit the impact on existing usage of these libraries.
+  </p>
+
+  <p>If the project is completed early, the student will also work on the full bootstrap of the llvm-toolchain (ie building it with a newly built clang binary).</p>
+
+  <p><b>Expectation:</b> The student must have demonstrated some experience with Debian/Ubuntu packaging. Debian maintains a list of <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?tag=newcomer">good first bugs</a>. Please mention any packaging related contribution in the GSoC application.</p>
+
+  <p><b>Confirmed Mentor:</b> <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a></p>
+
+  <ul>
+    <li>More about libc++: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673</a>
+    <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
+  </ul>
+</div>
+
+<!-- *********************************************************************** -->
 <div class="www_sectiontitle">
   <a name="gsoc17">Google Summer of Code 2017</a>
 </div>
@@ -882,39 +915,6 @@ code generation across functions</p>
 <ul>
   <li>More about the LLVM Pass manager: <a href="http://llvm.org/devmtg/2014-10/">Chandlers Presentation on 2014 Developer's Meeeting</a>
 </ul>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Others</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="apt">Integrate libc++ and OpenMP in apt.llvm.org</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-  <a href="http://apt.llvm.org">apt.llvm.org</a> provides Debian and Ubuntu repositories for every maintained version of these distributions. LLVM, Clang, clang extra tools, compiler-rt, polly, LLDB and LLD packages are generated for the stable, stabilization and development branches.<br />
-  These packages are also shipped as part of Debian and Ubuntu without any changes.<br />
-  Debian and Ubuntu have separate packages for <a href="https://packages.qa.debian.org/libc/libc++.html">libc++</a> and <a href="https://packages.qa.debian.org/o/openmprtl.html">OpenMP</a>.<br />
-  The goal of this project is to merge libc++ and OpenMP packages as part of the llvm-toolchain packages.<br />
-  The difficulty of this project is to make different versions of these libraries co-installable while remaining usable for developers. This project will also aim to limit the impact on existing usage of these libraries.
-  </p>
-
-  <p>If the project is completed early, the student will also work on the full bootstrap of the llvm-toolchain (ie building it with a newly built clang binary).</p>
-
-  <p><b>Expectation:</b> The student must have demonstrated some experience with Debian/Ubuntu packaging. Debian maintains a list of <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?tag=newcomer">good first bugs</a>. Please mention any packaging related contribution in the GSoC application.</p>
-
-  <p><b>Confirmed Mentor:</b> <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a></p>
-
-  <ul>
-    <li>More about libc++: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813673</a>
-    <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
-  </ul>
 </div>
 
 <!-- *********************************************************************** -->
