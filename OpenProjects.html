@@ -43,6 +43,15 @@
             </li>
         </ul>
    </li>
+   <li>
+        <b>Clang Static Analyzer</b>
+        <ul>
+            <li><a href="#analyzer-std-string-checker">Create a checker for dangling string pointers in C++</a>
+            </li>
+            <li><a href="#analyzer-z3-smt">Integrate with Z3 SMT solver to reduce false positives</a>
+            </li>
+        </ul>
+   </li>
    </ul>
   </li>
   <li><a href="#gsoc17">Google Summer of Code 2017</a>
@@ -402,6 +411,45 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
     <li>More about OpenMP: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=813672</A>
   </ul>
 </div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Clang Static Analyzer</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="analyzer-std-string-checker">Create a checker for dangling string pointers in C++.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    The C++ std::string class provides a c_str() method that returns a raw pointer to a string's inner character buffer. When a std::string is destroyed, the character buffer is deallocated. A common bug is to access a dangling raw pointer to the buffer after string deallocation. These "use after free" bugs can cause crashes or other unexpected behavior. 
+    <br />
+    This project will add a new checker to the static analyzer to find when a dangling inner string pointer is used. This will help find bugs not only with std::string and c_str() but also with LLVM's StringRef class and the new C++17 std::string_view.
+  </p>
+  <p><b>Confirmed Mentor:</b> Artem Dergachev</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="analyzer-z3-smt">Integrate with Z3 SMT solver to reduce false positives.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    The static analyzer finds bugs by exploring many possible paths through a program. To reduce false positives, it uses a very fast but imprecise custom constraint manager to rule out infeasible paths that cannot actually be executed at run time.
+    <br />    
+    This project will extend the analyzer to use the <a href="https://github.com/Z3Prover/z3/wiki">Z3 SMT solver</a> to rule out additional infeasible paths by postprocessing bug reports. This will help the analyzer reduce false positives when the path involves complicated branches that the built-in constraint manager cannot reason about.
+  </p>
+  <p><b>Confirmed Mentor:</b> George Karpenkov</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++ and basic familiarity with the capabilities SMT solvers</p>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
