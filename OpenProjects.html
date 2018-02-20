@@ -16,6 +16,9 @@
       <ul>
 	<li><a href="#replace_binary_utilities">Command line replacements for GNU Binutils</a></li>
       </ul>
+      <ul>
+        <li><a href="#llvm_domtree_updater">Implement a single updater class for Dominators</a></li>
+      </ul>
     </li>
     <li>
     <a href="http://lldb.llvm.org/"><b>LLDB</b></a><ul>
@@ -353,6 +356,26 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_domtree_updater">Implement a single updater class for Dominators</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b> Dominance relation is used widely in many compiler analyses and optimizations. LLVM provides an implementation of the (Semi-NCA) Depth Based Search algorithm to incrementally update Dominator and PostDominator Trees. It it possible to use it directly or through a lazy updater object -- DeferredDominance. The current API is fragmented and different analyzes, transforms, and utilities (e.g. Local.cpp, LoopUnroll.cpp) have to decide how to perform incremental updates.
+  </p>
+  <p>The fix would be to design and implement a new class for abstracting away how tree updates are performed (eagerly or lazily) and which trees are actually being updated (none, only DomTree, only PostDomTree, both). With this, performing faster incremental updates will become possible by first updating DomTree, and then using the result to prune unnecessary updates to PostDomTree.</p>
+
+  <p>Expected Results:
+    <ul><li>Create a new class that will store Dominator Trees to update and allow to specify update policy.</li></ul>
+    <ul><li>Convert existing API to use the new updater object instead of working directly with DomTree/DeferredDominance.</li></ul>
+    <ul><li>Design and implement a new algorithm to prune unnecessary PostDomTree updates based on updated DomTree.</li></ul>
+    <ul><li>(Optional) Explore more strategies for performing lazy updates (e.g. by exposing .dominates() and performing updates when called).</li></ul>
+  </p>
+  <p><b>Confirmed Mentor:</b> Jakub Kuderski, Tobias Grosser (?)</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++. Familiarity with basic tree/graph algorithms and data structures.</p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_subsection">
