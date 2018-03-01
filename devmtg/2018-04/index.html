@@ -10,11 +10,8 @@
         <li><a href="#about">About</a></li>
         <li><a href="#register">Registration</a></li>
         <li><a href="#accommodation">Accommodation</a></li>
-<!--    <li><a href="#reception">Reception</a></li>  -->
-        <li><a href="#cfp">Call For Papers</a></li>
+        <li><a href="#talks">Talk Abstracts</a></li>
         <li><a href="#faq">FAQ</a></li>
-<!--    <li><a href="#program">Program</a></li>
-        <li><a href="#talks">Talk Abstracts</a></li>  -->
         <li><a href="#grant">Travel Grants for Students</a></li>
         <li><a href="#contact">Contact</a></li>
 </ol>
@@ -25,8 +22,7 @@
    <li><b>Location</b>: 
     <a href="http://www.marriott.com/hotels/travel/brsdt-bristol-marriott-hotel-city-centre/">
     Bristol Marriott Hotel City Centre</a>, Bristol UK</li>
-   <li><b>Submit your proposal</b>: <a href="https://hotcrp.llvm.org/eurollvm2018/">
-    https://hotcrp.llvm.org/eurollvm2018/</a><br><br><br></li>
+   <li><b><a href="https://www.eventbrite.com/e/2018-european-llvm-developers-meeting-bristol-tickets-42283244322">Registation</a></b><br><br><br></li>
     <li><b>For your attention</b>, the <a href="https://conference.accu.org">
       2018 ACCU conference</a> is being held April 11-14 at the same venue in 
       Bristol. ACCU is about programming in whatever language, from C/C++ to D,
@@ -74,49 +70,13 @@ LLVM Developers' Meeting list</a> for future announcements and to ask questions.
 </ul>
 
 <div class="www_sectiontitle" id="register">Registration</div>
-<p><a href="https://www.eventbrite.com/e/2018-european-llvm-developers-meeting-bristol-tickets-42283244322">Registration</a> is now open!</p>
+<p><a href="https://www.eventbrite.com/e/2018-european-llvm-developers-meeting-bristol-tickets-42283244322">Registration</a></p>
 
 <p>Registration fees are $300 for the 2-day event and reception (April 16). A conference only registration is $250. Tickets will be capped at 300 attendees and the last day to register is April 6th.</p>
 <p>If you are a full-time student, please contact the <a href="mailto:tanyalattner@llvm.org">EventBrite organizer</a> for a student rate ($50/event, $25/reception). You must send us your student ID or other proof of student status. Student travel sponsorship details will be announced when available.</p> 
 
 <p>We would like this event to be accessible to all LLVM developers. If attending the meeting is cost prohibitive for any reason (i.e.. you do not have an employer who refunds tickets fees, financial hardship, etc), please contact the <a href="mailto:board@llvm.org">LLVM Foundation</a> to discuss a discounted ticket.
 </p>
-<div class="www_sectiontitle" id="cfp">Call for Talks, Tutorials, 
-BoFs, Panels.</div>
-<p>The call for papers is now open, all developers and users of LLVM 
-and related sub-projects are invited to submit. The submission 
-deadline is February 9, 2018 at 23:59 (PDT). Please submit your 
-proposal here: <a href="https://hotcrp.llvm.org/eurollvm2018/">
-https://hotcrp.llvm.org/eurollvm2018/</a></p>
-
-<p>We are looking for proposals on the following:</p>
-<ul>
-<li>Technical Talks on LLVM Infrastructure (~30 minutes)</li>
-<li>Technicals Talks on related sub-projects (Clang, etc)</li>
-<li>Talks of uses of LLVM in academia or industry</li>
-<li>Talks on new projects using Clang or LLVM</li>
-<li>Lightning Talks (5 minutes, no questions, no discussions)</li>
-<li>In depth Tutorials (60 minutes)</li>
-<li>Posters (1 hour poster session)</li>
-<li>Birds of a Feather (~30 minutes)</li>
-<li>Panels related to LLVM or sub-projects</li>
-</ul>
-
-<p><b>Student Research Competition (SRC):</b> The Student Research 
-Competition offers students doing LLVM related research a non-
-academic platform to announce and advertise their work as well as to 
-discuss it with other researchers, developers and users of LLVM. 
-Students are asked to submit a proposal for a 20 minute technical 
-talk. There will be a prize for the best SRC talk.</p>
-
-<p><b>What to submit:</b> For each proposal, please submit a
-title and short abstract (to be used on the website) and attach/upload either
-an extended abstract (1 page maximum) or slides. We ask that you do not submit
-a full length paper as your only attachment as reviewer time is limited. For
-SRC proposals, we are asking for a paper summarising your research in SIGPLAN
-format and no extended abstract. For the submission, you will need to note who
-the speaker is. If there is more than one speaker, please mention it in the
-abstract.</p>
 
 <div class="www_sectiontitle" id="faq">FAQ</div>
 <ul>
@@ -195,12 +155,132 @@ For additional hotel options in the Bristol area, please click
 <a href="https://aws.passkey.com/event/49559279/owner/9745514/landing">here</a>.
 </p>
 
-<!--
-<div class="www_sectiontitle" id="program">Program</div>
-<p></p>
 <div class="www_sectiontitle" id="talks">Talk Abstracts</div>
-<p></p>
--->
+
+<b>Tutorials</b>
+<ul>
+<li><a href="talks.html#Tutorial_1">Pointers, Alias & ModRef Analyses</a>
+  <i>A. Sbirlea, N. Lopes</i></li>
+<li><a href="talks.html#Tutorial_2">Scalar Evolution - Demystified</a>
+  <i>J. Absar</i></li>
+</ul>
+
+<b>BoFs</b> (Birds of a Feather)
+<ul>
+<li><a href="talks.html#BoF_1">Towards implementing #pragma STDC FENV_ACCESS</a>
+  <i>D. Weigand</i></li>
+<li><a href="talks.html#BoF_2">Build system integration for interactive tools</a>
+  <i>I. Biryukov, H. Wu, E. Liu, S. McCall</i></li>
+<li><a href="talks.html#BoF_3">Clang Static Analyzer BoF</a>
+  <i>G. Horváth</i></li>
+</ul>
+
+<b>Talks</b>
+<ul>
+<li><a href="talks.html#Talk_1">A Parallel IR in Real Life: Optimizing OpenMP</a>
+  <i>H. Finkel, J. Doerfert, X. Tian, G. Stelle </i></li>
+<li><a href="talks.html#Talk_2">An Introduction to AMD Optimizing C/C++ Compiler</a>
+  <i>A. Team</i></li>
+<li><a href="talks.html#Talk_3">Analysis of Executable Size Reduction by LLVM passes</a>
+  <i>V. Sinha, P. Kumar, S. Jain, U. Bora, S. Purini, R. Upadrasta</i></li>
+<li><a href="talks.html#Talk_4">Developing Kotlin/Native infrastructure with LLVM/Clang, travel notes.</a>
+  <i>N. Igotti</i></li>
+<li><a href="talks.html#Talk_5">Extending LoopVectorize to Support Outer Loop Vectorization Using VPlan</a>
+  <i>D. Caballero, S. Guggilla</i></li>
+<li><a href="talks.html#Talk_6">Finding Iterator-related Errors with Clang Static Analyzer</a>
+  <i>Á. Balogh </i></li>
+<li><a href="talks.html#Talk_7">Finding Missed Optimizations in LLVM (and other compilers)</a>
+  <i>G. Barany</i></li>
+<li><a href="talks.html#Talk_8">Global code completion and architecture of clangd</a>   
+  <i>E. Liu, H. Wu, I. Biryukov, S. McCall </i></li>
+<li><a href="talks.html#Talk_9">Hardening the Standard Library</a>
+  <i>M. Clow</i></li>
+<li><a href="talks.html#Talk_10">Implementing an LLVM based Dynamic Binary Instrumentation framework</a>
+  <i>C. Hubain, C. Tessier</i></li>
+<li><a href="talks.html#Talk_11">LLVM Greedy Register Allocator – Improving Region Split Decisions</a>
+  <i>M. Yatsina</i></li>
+<li><a href="talks.html#Talk_12">MIR-Canon: Improving Code Diff Through Canonical Transformation.</a>
+  <i>P. Lotfi</i></li>
+<li><a href="talks.html#Talk_13">New PM: taming a custom pipeline of Falcon JIT</a>
+  <i>F. Sergeev</i></li>
+<li><a href="talks.html#Talk_14">Organising benchmarking LLVM-based compiler: Arm experience</a>
+  <i>E. Astigeevich</i></li>
+<li><a href="talks.html#Talk_15">Performance Analysis of Clang on DOE Proxy Apps</a>
+  <i>H. Finkel, B. Homerding</i></li>
+<li><a href="talks.html#Talk_16">Point-Free Templates</a>
+  <i>A. Gozillon, P. Keir</i></li>
+<li><a href="talks.html#Talk_17">Protecting the code: Control Flow Enforcement Technology</a>
+  <i>O. Simhon</i></li>
+</ul>
+
+<b>Lightning talk</b>
+<ul>
+<li><a href="talks.html#Lightning_1">C++ Parallel Standard Template LIbrary support in LLVM</a>
+  <i>M. Dvorskiy, J. Cownie, A. Kukanov</i></li>
+<li><a href="talks.html#Lightning_2">Can reviews become less of a bottleneck?</a>
+  <i>K. Beyls</i></li>
+<li><a href="talks.html#Lightning_3">Clacc: OpenACC Support for Clang and LLVM</a>
+  <i>J. Denny, S. Lee, J. Vetter </i></li>
+<li><a href="talks.html#Lightning_4">DragonFFI: Foreign Function Interface and JIT using Clang/LLVM</a>
+  <i>A. Guinet</i></li>
+<li><a href="talks.html#Lightning_5">Easy::Jit: Compiler-assisted library to enable Just-In-Time compilation for C++ codes</a>
+  <i>J. Fernandez, S. Guelton</i></li>
+<li><a href="talks.html#Lightning_6">Efficient use of memory by reducing size of AST dumps in cross file analysis by clang static analyzer</a>
+  <i>S. Swain</i></li>
+<li><a href="talks.html#Lightning_7">Flang -- Project Update</a>
+  <i>S. Scalpone</i></li>
+<li><a href="talks.html#Lightning_8">ISL Memory Management Using Clang Static Analyzer</a>
+  <i>M. Thakkar, D. Coughlin, S. Verdoolaege, A. Isoard, R. Upadrasta </i></li>
+<li><a href="talks.html#Lightning_9">Look-Ahead SLP: Auto-vectorization in the Presence of Commutative Operations</a>
+  <i>V. Porpodas, R. Rocha, L. Góes</i></li>
+<li><a href="talks.html#Lightning_10">Low Cost Commercial Deployment of LLVM</a>
+  <i>J. Bennett</i></li>
+<li><a href="talks.html#Lightning_11">Measuring the User Debugging Experience</a>
+  <i>G. Bedwell</i></li>
+<li><a href="talks.html#Lightning_12">Measuring x86 instruction latencies with LLVM</a>
+  <i>G. Chatelet, C. Courbet, B. De Backer, O. Sykora</i></li>
+<li><a href="talks.html#Lightning_13">OpenMP Accelerator Offloading with OpenCL using SPIR-V</a>
+  <i>D. Schürmann, J. Lucas, B. Juurlink</i></li>
+<li><a href="talks.html#Lightning_14">Parallware, LLVM and supercomputing</a>
+  <i>M. Arenaz</i></li>
+<li><a href="talks.html#Lightning_15">Returning data-flow to asynchronous programming through static analysis</a>
+  <i>M. Gilbert</i></li>
+<li><a href="talks.html#Lightning_16">RFC: A new divergence analysis for LLVM</a>
+  <i>S. Moll, T. Klössner, S. Hack</i></li>
+<li><a href="talks.html#Lightning_17">Static Performance Analysis with LLVM</a>
+  <i>C. Courbet, O. Sykora, G. Chatelet, B. De Backer</i></li>
+<li><a href="talks.html#Lightning_18">Supporting the RISC-V Vector Extensions in LLVM</a>
+  <i>R. Kruppe, J. Oppermann, A. Koch</i></li>
+<li><a href="talks.html#Lightning_19">Using Clang Static Analyzer to detect Critical Control Flow</a>
+  <i>S. Cook</i></li>
+</ul>
+
+<b>Posters</b>
+<ul>
+<li><a href="talks.html#Poster_1">Automatic Profiling for Climate Modeling</a>
+  <i>A. Gerbes, N. Jumah, J. Kunkel</i></li>
+<li><a href="talks.html#Poster_2">Cross Translation Unit Analysis in Clang Static Analyzer: Qualitative Evaluation on C/C++ projects</a>
+  <i>G. Horvath, P. Szecsi, Z. Gera, D. Krupp</i></li>
+<li><a href="talks.html#Poster_3">Effortless Differential Analysis of Clang Static Analyzer Changes</a>
+  <i>G. Horváth, R. Kovács, P. Szécsi </i></li>
+<li><a href="talks.html#Poster_4">Offloading OpenMP Target Regions to FPGA Accelerators Using LLVM</a>
+  <i>L. Sommer, J. Oppermann, J. Korinth, A. Koch</i></li>
+<li><a href="talks.html#Poster_5">Using clang as a Frontend on a Formal Verification Tool</a>
+  <i>M. Gadelha, J. Morse, L. Cordeiro, D. Nicole</i></li>
+</ul>
+
+<b>Student research competition</b>
+<ul>
+<li><a href="talks.html#SRC_1">CASE: Compiler-Assisted Security Enhancement</a>
+  <i>P. Savini</i></li>
+<li><a href="talks.html#SRC_2">Compile-Time Function Call Interception to Mock Functions in C/C++</a>
+  <i>G. Márton, Z. Porkoláb</i></li>
+<li><a href="talks.html#SRC_3">Improved Loop Execution Modeling in the Clang Static Analyzer</a>
+  <i>P. Szécsi </i></li>
+<li><a href="talks.html#SRC_4">Using LLVM in a Model Checking Workflow</a>
+  <i>G. Sallai</i></li>
+</ul>
+
 <div class="www_sectiontitle" id="grant">Travel Grants for Students</div>
 <p>The LLVM Foundation sponsors student travel to attend the LLVM Developers' 
 Meeting. Travel grants cover some or all of travel related expenses. This 
