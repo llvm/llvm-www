@@ -19,6 +19,7 @@ ideas about LLVM and its (potential) applications. <p>
 
 <p>The conference includes:</p>
 <ul>
+<li><a href="#Keynotes">Keynotes</a></li>
 <li><a href="#Tutorials">Tutorials</a></li>
 <li><a href="#Talks">Technical talks</a></li>
 <li><a href="#Lightning_Talks">Lightning talks</a></li>
@@ -29,6 +30,36 @@ ideas about LLVM and its (potential) applications. <p>
 </ul>
 
 
+<div class="www_sectiontitle" id="Keynotes">Keynotes</div>
+
+<table cellpadding="10"><tr><td valign="top" id="Keynote_1">
+<b>The Cerberus Memory Object Semantics for ISO and De Facto C</b><br>
+<i>P. Sewell</i>
+<p>The semantics of pointers and memory objects in C has been a vexed question
+for many years.  C values cannot be treated as simple abstract or concrete
+entities: the language exposes their representations, but compiler
+optimisations rely on analyses that reason about provenance and initialisation
+status, not just runtime representations. The ISO standard leaves much of this
+unclear, and in some aspects differs with de facto standard usage - which
+itself is difficult to investigate.</p>
+<p>This talk will describe our candidate source-language semantics for memory
+objects and pointers in C, as it is used and implemented in practice.
+Focussing on provenance and uninitialised values, we propose a coherent set of
+choices for a host of design questions, based on discussion with the ISO WG14 C
+standards committee and previous surveys of C experts.  This should also inform
+design of the LLVM internal language semantics, and it seems that our
+source-language proposal and the LLVM proposal by Lopes, Hur, et al. can be
+made compatible.</p>
+<p>Our semantics is integrated with the Cerberus semantics for much of the rest
+of C, with a clean translation of C into a Core intermediate language.
+Together, the two make C undefined behaviours explicit.  Cerberus has a
+web-interface GUI in which one can explore all the allowed behaviours of small
+test programs, and which also identifies the clauses of the C standard relevant
+to typechecking and translating each test. Work-in-progress URL:
+<a href="http://svr-pes20-cerberus.cl.cam.ac.uk/">http://svr-pes20-cerberus.cl.cam.ac.uk/</a></p>
+<p>We also describe detailed proposals to WG14, showing how the semantics can
+be incorporated into the ISO standard.</p>
+</td></tr></table>
 
 <div class="www_sectiontitle" id="Tutorials">Tutorials</div>
 
