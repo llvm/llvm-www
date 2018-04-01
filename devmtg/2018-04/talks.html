@@ -582,23 +582,6 @@ abstraction and does not need to rely on specific compiler knowledge.</p>
 <i>S. Scalpone</i>
 <p>Lightning talk with current status of Flang, a Fortran front-end for LLVM.
 Cover current status of community, software, and short-term roadmap.</p>
-<hr>
-</td></tr><tr><td valign="top" id="Lightning_8">
-<b>ISL Memory Management Using Clang Static Analyzer </b><br>
-<i>M. Thakkar, R. Upadrasta </i>
-<p>Maintaining consistency while manual reference counting is very difficult.
-Languages like Java, C#, Go and other scripting languages employ garbage
-collection which automatically performs memory management. On the other hand,
-there are certain libraries like ISL (Integer Set Library) which use memory
-annotations in function declarations to declare what happens to an object’s
-ownership, thereby specifying the responsibility of releasing it as well.
-However, improper memory management in ISL leads to invocations of runtime
-errors. Hence, we have added support to Clang Static Analyzer for performing
-reference counting of ISL objects (although it can be used for any type of
-C/C++ object) thereby enabling the static analyzer to raise warnings in case
-there is a possibility of a memory leak, double free, etc.</p>
-<hr>
-</td></tr><tr><td valign="top" id="Lightning_9">
 <b>Look-Ahead SLP: Auto-vectorization in the Presence of Commutative Operations </b><br>
 <i>V. Porpodas, R. Rocha, L. Góes</i>
 <p>Auto-vectorizing compilers automatically generate vector (SIMD) instructions
