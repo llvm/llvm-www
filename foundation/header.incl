@@ -51,7 +51,9 @@
 
 <b>Useful&nbsp;Links</b>
 <div class="www_sidebar">
-  <a href="http://llvm.org/">LLVM.org</a>
+  <a href="http://llvm.org/">LLVM.org</a><br>
+  <a href="http://llvm.org/foundation/">LLVM&nbsp;Foundation&nbsp;Home</a><br>
+  <a href="http://llvm.org/foundation/relicensing/">Relicensing&nbsp;Effort</a>
 </div>
 
 <br>
