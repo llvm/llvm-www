@@ -761,7 +761,7 @@ targets to demonstrate typical machine constraints and how to model with them.
 <b><a id="lightning1">Porting OpenVMS using LLVM
 </a></b><br>
 <i>John Reagan</i><br>
-[Slides] [<a href="https://youtu.be/xTaBkCBYskA">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Reagan-Porting%20OpenVMS%20Using%20LLVM.pdf">Slides</a>] [<a href="https://youtu.be/xTaBkCBYskA">Video</a>] <br>
 The OpenVMS operating system is being ported to x86-64 using LLVM and clang as the basis for our entire compiler suite. This lightning talk will give a brief overview of our approach, current status, and interesting obstacles encountered by using LLVM on OpenVMS itself to create the three cross-compilers to build the base OS.
 </p>
 
@@ -770,7 +770,7 @@ The OpenVMS operating system is being ported to x86-64 using LLVM and clang as t
 <b><a id="lightning2">Porting LeakSanitizer: A Beginner's Guide
 </a></b><br>
 <i>Francis Ricci</i><br>
-[Slides] [<a href="https://youtu.be/JH5_c2qMVY8">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Ricci-LeakSanitizer.pdf">Slides</a>] [<a href="https://youtu.be/JH5_c2qMVY8">Video</a>] <br>
 LeakSanitizer was originally designed as a replacement tool for Heap Checker from gperftools, but currently supports far fewer platforms. Porting LeakSanitizer to new platforms improves feature parity with Heap Checker and will allow a larger set of users to take advantage of LeakSanitizer's performance and ease-of-use. In addition, this allows LeakSanitizer to fully replace Heap Checker in the long run.
 
 This talk will use details from my experience porting LeakSanitizer to Darwin to describe the necessary steps to port LeakSanitizer to new platforms. For example: handling of thread local storage, platform-specific interceptors, suspending threads, obtaining register information, and generating a process memory map.
@@ -781,7 +781,7 @@ This talk will use details from my experience porting LeakSanitizer to Darwin to
 <b><a id="lightning3">Introsort based sorting function for libc++
 </a></b><br>
 <i>Divya Shanmughan and Aditya Kumar</i><br>
-[Slides] [<a href="https://youtu.be/Lcz0ZHewkHs">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Kumar-libc++-performance.pdf">Slides</a>] [<a href="https://youtu.be/Lcz0ZHewkHs">Video</a>] <br>
 The sorting algorithm currently employed in libc++ library uses quicksort with tail recursion elimination, as a result of which the worst case complexity turns out to be O(N^2), and the recursion stack space to be O(LogN). 
 This talk will present the work done to reduce the worst case time complexity, by employing Introsort, and by replacing the memory intensive recursion calls in the quicksort with stacks . Introsort is a sorting technique, which begins with quicksort and when the recursion depth (or depth limit) goes beyond a threshold value, then it switches to Heapsort . 
 </p>
@@ -790,7 +790,7 @@ This talk will present the work done to reduce the worst case time complexity, b
 <b><a id="lightning4">Code Size Optimization: Interprocedural Outlining at the IR Level
 </a></b><br>
 <i>River Riddle</i><br>
-[Slides] [<a href="https://youtu.be/SS1rJzggBu0">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Riddle-Interprocedural%20IR%20Outlining%20For%20Code%20Size.pdf">Slides</a>] [<a href="https://youtu.be/SS1rJzggBu0">Video</a>] <br>
 Outlining finds common code sequences and extracts them to separate functions, 
 in order to reduce code size. This talk introduces a new generic outliner interface and the IR level interprocedural outliner built on top of it. We show how outlining, with the use of relaxed equivalency, can lead to noticeable code size savings across all platforms. We discuss pros and cons, as well as how the new framework, and extensions to it, can capture many complex cases.
 
@@ -800,7 +800,7 @@ in order to reduce code size. This talk introduces a new generic outliner interf
 <b><a id="lightning5">ThreadSanitizer APIs for external libraries
 </a></b><br>
 <i>Kuba Mracek</i><br>
-[Slides] [<a href="https://youtu.be/-J9bMpqfc7A">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Mracek-TSan%20APIs%20for%20External%20Libraries.pdf">Slides</a>] [<a href="https://youtu.be/-J9bMpqfc7A">Video</a>] <br>
 Besides finding data races on direct memory accesses from instrumented code, ThreadSanitizer can now be used to find races on higher-level objects. In this lightning talk, we’ll show how libraries can adopt the new ThreadSanitizer APIs to detect when their users violate threading requirements. These APIs have been recently added to upstream LLVM and are already being used by Apple system frameworks to find races against collection objects, e.g. NSMutableArray and NSMutableDictionary.
 </p>
 
@@ -809,7 +809,7 @@ Besides finding data races on direct memory accesses from instrumented code, Thr
 <b><a id="lightning6">A better shell command-line autocompletion for clang
 </a></b><br>
 <i>Yuka Takahashi</i><br>
-[Slides] [<a href="https://youtu.be/zLPwPdZBpSY">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Takahasi-Bash%20autocompletion.pdf">Slides</a>] [<a href="https://youtu.be/zLPwPdZBpSY">Video</a>] <br>
 This talk introduces clang’s new autocompletion feature that allows better integration of third-party programs such as UNIX shells or IDEs with clang’s command line interface. 
 
 We added a new command line interface with the `--autocomplete` flag to which a shell or an IDE can pass an incomplete clang invocation. Clang then returns a list of possible flag completions and their descriptions. To improve these completions, we also extended clang’s data structures with information about the values of each flag. For example, when asking bash to autocomplete the invocation `clang -fno-sanitize-coverage=`, bash is now able to list all values that sanitize coverage accepts. Since LLVM 5.0 release, you can always get an accurate list of flags and their values, any time on any further clang version behind a highly portable interface. 
@@ -822,7 +822,7 @@ As a first shell implementation, we built a bash-completion plugin that uses thi
 <b><a id="lightning7">A CMake toolkit for migrating C++ projects to clang’s module system.
 </a></b><br>
 <i>Raphael Isemann</i><br>
-[Slides] [<a href="https://youtu.be/7UxBYK2AuJQ">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Isemann-A%20CMake%20toolkit.pdf">Slides</a>] [<a href="https://youtu.be/7UxBYK2AuJQ">Video</a>] <br>
 Clang’s module feature not only reduces compilation times, but also brings entirely new challenges to build system maintainers. They face the task to modularize the project itself and a variety of used system libraries, which often requires in-depth knowledge of operating systems, library distributions, and the compiler. 
 
 To solve this problem we present our work on a CMake toolkit for modularizing C++ projects: it ships with a large variety of module maps that are automatically mounted when the corresponding system library is used by the project. It also assists with modularizing the project’s own headers and performs checks that the current module setup does not cause the build process itself to fail. And last but not least: it requires only trivial changes to integrate into real-world build systems, allowing the migration of larger projects to clang’s module system in a matter of hours. 
@@ -833,7 +833,7 @@ To solve this problem we present our work on a CMake toolkit for modularizing C+
 <b><a id="lightning8">Debugging of optimized code: Extending the lifetime of local variables
 </a></b><br>
 <i>Wolfgang Pieb</i><br>
-[Slides] [<a href="https://youtu.be/jf4WR_r2Wok">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Pieb-Debugging%20of%20optimized%20code.pdf">Slides] [<a href="https://youtu.be/jf4WR_r2Wok">Video</a>] <br>
 Local variables and function parameters are often optimized away by the backend. 
 As a result, they are either not visible during debugging at all, or only throughout parts of their lexical parent scope. In the PS4 compiler we have introduced an option that forces the various optimization passes to keep local variables and parameters 
 around until the end of their parent scope. The talk addresses implementation, effectiveness, and performance impact of this feature.
@@ -843,7 +843,7 @@ around until the end of their parent scope. The talk addresses implementation, e
 <b><a id="lightning9">Enabling Polyhedral optimizations in TensorFlow through Polly
 </a></b><br>
 <i>Annanay Agarwal, Michael Kruse, Brian Retford, Tobias Grosser and Ramakrishna Upadrasta</i><br>
-[Slides] [<a href="https://youtu.be/uq67__tfdtQ">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Agarwal-Enabling%20Polyhedral%20optimizations%20in%20TensorFlow%20through%20Polly.pdf">Slides</a>] [<a href="https://youtu.be/uq67__tfdtQ">Video</a>] <br>
 TensorFlow, a deep learning library by Google, has been widely adopted in industry and academia: with cutting edge research and numerous practical applications. Since these programs have come to be run on devices ranging from large scale clusters to hand-held mobile phones, improving efficiency for these computationally intensive programs has become of prime importance. This talk explains how polyhedral compilation, one of the most powerful transformation techniques for deeply nested loop programs, can be leveraged to speed-up deep learning kernels. Through an introduction to Polly’s transformation techniques, we will study their effect on deep learning kernels like Convolutional Neural Networks (CNNs).
 </p>
 
@@ -851,7 +851,7 @@ TensorFlow, a deep learning library by Google, has been widely adopted in indust
 <b><a id="lightning10">An LLVM based Loop Profiler
 </a></b><br>
 <i>Shalini Jain, Kamlesh Kumar, Suresh Purini, Dibyendu Das and Ramakrishna Upadrasta</i><br>
-[Slides] [<a href="https://youtu.be/MKhXpRNekaM">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Jain-LLVM%20based%20Loop%20Profiler.pdf">Slides</a>] [<a href="https://youtu.be/MKhXpRNekaM">Video</a>] <br>
 It is well understood that programs spend most of their time in loops. The application writer may want to know the measure of time-taken for each loop in large programs, so that (s)he can then focus on these loops for applying optimizations. Loop profiling is a way to calculate loop-based run-time information such as execution-time, cache-miss equations and other runtime metrics, which help us to analyze code to fix performance related issues in the code base. This is achieved by instrumenting/annotating the existing input program. There already exist loop-profilers for conventional languages like C++, Java etc., both in open-source and commercial domain. However, as far as we know, there is no such loop-profiler available for LLVM-IR; such a tool would help LLVM users analyze loops in LLVM-IR. Our work mainly focuses around developing such a generic loop profiler for LLVM-IR. It can thus be used for any language(s) which have a LLVM IR.
 <br>
 Our current work proposes an LLVM based loop-profiler which works on the IR level and gives execution times, and total number of clocks for each loop. Currently, we focus on the inner-most loop(s) as well as each individual loop(s) for collecting run-time profiling data. Our profiler works on LLVM IR and inserts the instrumented code into the entry and exit blocks of each loop. It also returns the number of clock(s) ticks and execution time(s) for each loop of the input program. It also append(s) some instrumented code into the exit block of outer-most loop for calculating total and average number of clocks for each loop. We are currently working to capture other runtime metrics like number of cache misses, number of registers required.
@@ -863,7 +863,7 @@ We have results from SPEC CPU 2006 which demonstrate that for all benchmarks in 
 <b><a id="lightning11">Compiling cross-toolchains with CMake and runtimes build
 </a></b><br>
 <i>Petr Hosek</i><br>
-[Slides] [<a href="https://youtu.be/OCQGpUzXDsY">Video</a>] <br>
+[<a href="http://llvm.org/devmtg/2017-10/slides/Hosek-Compiling%20cross-toolchains%20with%20CMake%20and%20runtimes%20build.pdf">Slides</a>] [<a href="https://youtu.be/OCQGpUzXDsY">Video</a>] <br>
 While building a LLVM toolchain is simple and straightforward process, building a cross-toolchain (i.e. a toolchain capable of targeting different targets) is often a complicated, multi-stage endeavor. This process has recently became much simpler due to improvements in the runtimes build, which enables cross-compiling runtimes for multiple targets as part of a single build. In this lightning talk, I will show to build a complete cross-toolchain using a single CMake invocation.
 </p>
 
