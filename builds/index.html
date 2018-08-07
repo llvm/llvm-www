@@ -17,7 +17,7 @@
 
 <div class="rel_boxtext">
 
-<p><a href="http://llvm.org/">LLVM</a> is distributed under the <a href="http://llvm.org/releases/3.3/LICENSE.TXT">University of Illinois Open Source License</a>, an <a href="http://www.opensource.org/licenses/UoI-NCSA.php">OSI-approved</a>
+<p><a href="https://llvm.org/">LLVM</a> is distributed under the <a href="https://llvm.org/releases/6.0.0/LICENSE.TXT">University of Illinois Open Source License</a>, an <a href="https://www.opensource.org/licenses/UoI-NCSA.php">OSI-approved</a>
 license.</p>
 
 </div>
@@ -34,46 +34,44 @@ license.</p>
 <div class="rel_section">Windows snapshot builds</div>
 
 <div class="rel_boxtext">
+  <p>We provide a periodically updated installer for Windows:</p>
 
-  <p>We provide a periodically updated installer for Windows.  The current
-  installer integrates with MSVC 2010, 2012, 2013 and 2015.</p>
+  <p><a href="http://prereleases.llvm.org/win-snapshots/LLVM-8.0.0-r339039-win32.exe">Windows installer</a>,
+  based on SVN r339039 (7 August 2018).</p>
 
-  <p><a href="http://prereleases.llvm.org/win-snapshots/LLVM-7.0.0-r336178-win32.exe">Windows installer</a>,
-  based on SVN r336178 (3 July 2018).</p>
-
-  <p>To use the LLVM toolchain from Visual Studio, select a project in Solution
-  Explorer, open its Property Page (Alt+F7 by default), and in the "General"
-  section of "Configuration Properties" change "Platform Toolset" to
-  "LLVM-vs2012", "LLVM-vs2013", etc.
-
-  <p>Alternatively, invoke MSBuild with <code>/p:PlatformToolset=LLVM-vs2013</code>
-  to try out the toolchain without modifying the project files.</p>
-
-  <p>Currently, the package only includes
-    <a href="http://clang.llvm.org">clang</a>,
-    <a href="http://clang.llvm.org/docs/ClangFormat.html">clang-format</a>,
-    <a href="http://lld.llvm.org">lld</a>, and the
-    <a href="https://code.google.com/p/address-sanitizer/wiki/AddressSanitizer">AddressSanitizer</a>
-    runtime from <a href="http://compiler-rt.llvm.org">compiler-rt</a>, but
-    eventually it should grow to encompass other Clang tools,
+  <p>Currently, the package includes
+    <a href="https://clang.llvm.org">clang</a>,
+    <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>,
+    <a href="https://lld.llvm.org">lld</a>, and the
+    <a href="https://github.com/google/sanitizers/wiki/AddressSanitizer">AddressSanitizer</a>
+    runtime from <a href="https://compiler-rt.llvm.org">compiler-rt</a>.
+    Eventually it should grow to encompass other Clang tools,
     and possibly other LLVM projects
-    such as <a href="http://libcxx.llvm.org">libc++</a>.</p>
+    such as <a href="https://libcxx.llvm.org">libc++</a>.</p>
 
-  <p>A <a href="http://prereleases.llvm.org/win-snapshots/LLVM-7.0.0-r336178-win64.exe">64-bit version</a>
-    is also available, but it doesn't integrate as well with Visual Studio.</p>
+  <p>To use the LLVM toolchain from Visual Studio after running the installer
+  above, install the <a href="https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain">LLVM
+  Compiler Toolchain Visual Studio extension</a> (supports Visual Studio 2015 and
+  2017), select a project in Solution Explorer, open its Property Page (Alt+F7 by
+  default), and in the "General" section of "Configuration Properties" change
+  "Platform Toolset" to "llvm". Alternatively, invoke MSBuild with
+  <code>/p:PlatformToolset=llvm</code> to try out the toolchain without
+  modifying the project files.</p>
+
+  <p>A <a href="http://prereleases.llvm.org/win-snapshots/LLVM-8.0.0-r339039-win64.exe">64-bit version</a>
+    of the installer is also available.</p>
 
 </div>
 
 <div class="rel_section">clang-format plugin for Visual Studio</div>
 
 <div class="rel_boxtext">
-
   <p>We also provide a standalone Visual Studio plugin for clang-format.  It
   requires Visual Studio 2012 Professional or later.  Notably, the Express
   editions do not support plugins.</p>
 
-  <p><a href="http://prereleases.llvm.org/win-snapshots/ClangFormat-r336178.vsix">Visual Studio plugin installer</a>,
-  based on SVN r336178. Also available <a href="https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat">at the Visual Studio Marketplace</a>. A separate build of the clang-format binary is available as <a href="http://prereleases.llvm.org/win-snapshots/clang-format-r336178.exe">clang-format-r336178.exe</a>.</p>
+  <p><a href="http://prereleases.llvm.org/win-snapshots/ClangFormat-r339039.vsix">Visual Studio plugin installer</a>,
+  based on SVN r339039. Also available <a href="https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat">at the Visual Studio Marketplace</a>. A separate build of the clang-format binary is available as <a href="http://prereleases.llvm.org/win-snapshots/clang-format-r339039.exe">clang-format-r339039.exe</a>.</p>
 
 </div>
 
