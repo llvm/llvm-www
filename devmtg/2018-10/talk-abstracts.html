@@ -635,21 +635,6 @@ The NEC SX-Aurora Vector Engine is a vector-length parametric wide-SIMD architec
 </p>
 </li>
 
-    <li><a id="poster6">Guaranteeing the Correctness of LLVM RISC-V Machine Code with Fuzzing</a>
-<br><i>Jocelyn Wei, Ana Pazos, Mandeep Singh Grang</i>
-<p>
-The Clang Static Analyzer provides the ability to perform path-sensitive analysis using symbolic execution, enabling comprehensive and input-independent analysis for detecting vulnerabilities early in the development flow and improving code quality. However, the Clang Static Analyzer doesn’t enable Cross Translation Unit (CTU) analysis and this results in the loss of data when functions are spread across multiple files, resulting in a large number of False Negatives.
-</p><p>
-This technical talk will present details of the methodology used in the extending the Clang Static Analyzer to enable CTU analysis by leveraging the ASTImporter class in Clang. The Proof of Concept (PoC) is a Clang Frontend tool that merges Abstract Syntax Trees (ASTs) from individual Translation Units (TU) into an aggregated AST containing all AST nodes spread across multiple TUs. Analysis is then performed on the aggregated AST enabling complete analysis without loss of information that is inherent in Clang Static Analyzer. The PoC is evaluated against Clang Static Analyzer on the NIST Test Suite, which was specifically designed to evaluate Static Analysis tools. The technical talk will present the significant improvements in terms of True Positives returned by the PoC, along with discussions on possible techniques to mitigate the increase in False Positives. Lastly, the reason for which the presented methodology is more efficient compared to a similar talk presented by a different author in EuroLLVM 2017 will also be discussed.
-</p>
-</li>
-
-<li><a id="poster7">NEC SX-Aurora - A Scalable Vector Architecture</a>
-<br><i>Kazuhisa Ishizaka, Kazushi Marukawa, Erich Focht, Simon Moll, Matthias Kurtenacker, Sebastian Hack</i>
-<p>
-</p>
-</li>
-
 <li><a id="poster8">Extending Clang Static Analyzer to enable Cross Translation Unit Analysis</a>
 <br><i>Varun Subramanian</i>
 <p>
