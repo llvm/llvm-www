@@ -113,7 +113,7 @@
 </ul>
 
 <div class="doc_author">
-  <p>Written by the <a href="http://llvm.org/">LLVM Team</a></p>
+  <p>Written by the <a href="/">LLVM Team</a></p>
 </div>
 
 <!-- *********************************************************************** -->
@@ -164,7 +164,7 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
     After instruction selection LLVM uses the MI (Machine Instruction)
     representation for programs. We recently added support for reading and
     writing this representation to disk
-    (<a href="http://llvm.org/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
+    (<a href="/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
     tests is growing and so is the desire to improve the format, tools and
     workflow. Possible projects:
   </p>
@@ -238,7 +238,7 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
-  <p><b>Description of the project:</b> LLVM functions can be tagged with several <a href="http://llvm.org/docs/LangRef.html#function-attributes">attributes</a> such as the function only reads memory, or the function cannot throw exceptions. These attributes are used by many optimizations when deciding if a particular transformation is valid or not. Functions attributes can be either given by the frontend or be inferred by LLVM.<br>
+  <p><b>Description of the project:</b> LLVM functions can be tagged with several <a href="/docs/LangRef.html#function-attributes">attributes</a> such as the function only reads memory, or the function cannot throw exceptions. These attributes are used by many optimizations when deciding if a particular transformation is valid or not. Functions attributes can be either given by the frontend or be inferred by LLVM.<br>
   The goal of this project is to improve current function attributes inference algorithms, and to infer attributes that are not inferred right now. This will be accomplished via intra- and/or inter-procedural analyses. See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this email</a> for a list of oportunities for improvement.</p>
   <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++. Optional familiarity with static analysis/abstract interpretation.</p>
@@ -548,7 +548,7 @@ accepted and completed projects, please take a look into Google Summer of Code
 <div class="www_text">
   <p><b>Description of the project:</b>
 	  ThinLTO is a cool new technology to perform Link-Time Optimization (see
-	  <a href="http://llvm.org/devmtg/2016-11/#talk12">this talk</a> for more info). It is fairly new
+	  <a href="/devmtg/2016-11/#talk12">this talk</a> for more info). It is fairly new
 	  and there are multiple improvements about cross-module optimizations that
 	  can be made there.
   </p>
@@ -591,7 +591,7 @@ accepted and completed projects, please take a look into Google Summer of Code
 
 <div class="www_text">
   <p><b>Description of the project:</b>
-	  See <a href="http://llvm.org/devmtg/2016-11/#talk15">this talk</a>
+	  See <a href="/devmtg/2016-11/#talk15">this talk</a>
 	  for a starting point.  Please take a look at the list of
 	  enhancements and bugs in <a href=
 	  "https://bugs.llvm.org/buglist.cgi?component=opt-viewer&list_id=125824&product=tools&query_format=advanced&resolution=---">
@@ -623,7 +623,7 @@ accepted and completed projects, please take a look into Google Summer of Code
 	  After instruction selection LLVM uses the MI (Machine Instruction)
 	  representation for programs. We recently added support for reading and
 	  writing this representation to disk
-	  (<a href="http://llvm.org/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
+	  (<a href="/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
 	  tests is growing and so is the desire to improve the format, tools and
 	  workflow. Improvements would be welcome:
 
@@ -820,7 +820,7 @@ accepted and completed projects, please take a look into Google Summer of Code
     This check should be easier to write in clang-tidy than in Clang Static
     Analyzer, specially because that we don't care about inlining (as long as it
     doesn't modify pointer). More details in the
-    <a href="https://llvm.org/bugs/show_bug.cgi?id=30232">Bugzilla feature
+    <a href="/bugs/show_bug.cgi?id=30232">Bugzilla feature
       request</a>
   </p>
   <p><b>Confirmed Mentor:</b> Alexander Kornienko, Piotr Padlewski</p>
@@ -989,7 +989,7 @@ accepted and completed projects, please take a look into Google Summer of Code
   <p><b>Confirmed Mentor:</b> <a href="mailto:tobias@grosser.es">Tobias Grosser</a></p>
 
   <ul>
-    <li>PGO in LLVM: <a href="http://llvm.org/devmtg/2013-11/">2013 developer's meeting presentation</a>
+    <li>PGO in LLVM: <a href="/devmtg/2013-11/">2013 developer's meeting presentation</a>
   </ul>
 </div>
 
@@ -1030,7 +1030,7 @@ code generation across functions</p>
 <p><b>Confirmed Mentor:</b> <a href="mailto:tobias@grosser.es">Tobias Grosser</a></p>
 
 <ul>
-  <li>More about the LLVM Pass manager: <a href="http://llvm.org/devmtg/2014-10/">Chandlers Presentation on 2014 Developer's Meeeting</a>
+  <li>More about the LLVM Pass manager: <a href="/devmtg/2014-10/">Chandlers Presentation on 2014 Developer's Meeeting</a>
 </ul>
 </div>
 
@@ -1172,9 +1172,9 @@ of things in the optimizer.
 Some specific ones that would be great to have:
 
 <ul>
-<li><a href="http://llvm.org/PR10367">Fix the design of GlobalAlias to not require dest type to match source type</a></li>
-<li><a href="http://llvm.org/PR10368">Redesign ConstantExpr's</a></li>
-<li><a href="http://llvm.org/PR11944">Static constructors should be purged from LLVM</a></li>
+<li><a href="/PR10367">Fix the design of GlobalAlias to not require dest type to match source type</a></li>
+<li><a href="/PR10368">Redesign ConstantExpr's</a></li>
+<li><a href="/PR11944">Static constructors should be purged from LLVM</a></li>
 </ul>
 </p>
 
@@ -1243,7 +1243,7 @@ all the back-ends: CBE, llc, and lli.</p>
 <div class="www_text">
 
 <p>Find benchmarks either using our <a
-href="http://llvm.org/nightlytest/">test results</a> or on your own,
+href="/nightlytest/">test results</a> or on your own,
 where LLVM code generators do not produce optimal code or where another
 compiler produces better code.  Try to minimize the test case that demonstrates
 the issue.  Then, either <a href="http://bugs.llvm.org/">submit a
@@ -1373,7 +1373,7 @@ improvements to LLVM core</a> are awaiting design and implementation.</p>
 <ol>
 <li><a href="http://nondot.org/sabre/LLVMNotes/DebugInfoImprovements.txt">Improvements
 for Debug Information Generation</a></li>
-<li><a href="http://llvm.org/PR1269">EH support for non-call exceptions</a></li>
+<li><a href="/PR1269">EH support for non-call exceptions</a></li>
 <li>Many ideas for feature requests are stored in LLVM bugzilla.  Search<a
   href="http://bugs.llvm.org/buglist.cgi?short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=new-feature&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;namedcmd=All+PRs&amp;newqueryname=&amp;order=Bug+Number&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">for bugs with a "new-feature" keyword</a>.</li>
 </ol>
@@ -1400,7 +1400,7 @@ themselves.  We want to take advantage of this:</p>
 
 <li>The alias analysis API supports the getModRefBehavior method, which allows
   the implementation to give details analysis of the functions. For example, we
-  could implement <a href="http://llvm.org/PR1604">full knowledge of
+  could implement <a href="/PR1604">full knowledge of
     printf/scanf</a> side effects, which would be useful.  This feature is in
   place but not being used for anything right now.</li>
 
@@ -1431,7 +1431,7 @@ it seems.  Maybe the solution is to have a __builtin_errno_addr() or
 something and change sys headers to use it.</p>
 
 <li>There are lots of ways to optimize out and <a
-href="http://llvm.org/PR452">improve handling of
+href="/PR452">improve handling of
 memcpy/memset</a>.</li>
 
 </ol>
@@ -1516,7 +1516,7 @@ link-time optimizations for code size optimization.
   </li>
   <li>Type inference (aka. devirtualization)</li>
   <li><a href="http://nondot.org/sabre/LLVMNotes/BuiltinUnreachable.txt">Value
-      assertions</a> (also <a href="http://llvm.org/PR810">PR810</a>).</li>
+      assertions</a> (also <a href="/PR810">PR810</a>).</li>
 </ol>
 
 </div>

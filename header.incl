@@ -93,8 +93,8 @@
   <a href="http://lab.llvm.org:8011/">Buildbot</a>
   <a href="http://green.lab.llvm.org/green/">Green Dragon</a>
   <a href="http://lnt.llvm.org/">LNT</a>
-  <a href="http://llvm.org/reports/coverage/">Coverage</a>
-  <a href="http://llvm.org/reports/scan-build/">Scan-build</a>
+  <a href="/reports/coverage/">Coverage</a>
+  <a href="/reports/scan-build/">Scan-build</a>
   <a href="http://lab.llvm.org:8080/coverage/coverage-reports/index.html">llvm-cov</a>
 </div>
 
