@@ -376,7 +376,24 @@ This BoF will provide an opportunity for developers and users of the Clang Stati
 </p>
 </li>
 	
-    <li><a id="bof7">LLVM Foundation BoF</a>
+<li><a id="bof7">Should we go beyond `#pragma omp declare simd`?</a>
+	<br><i>Francesco Petrogalli</i>
+<p>
+BoF for the people involved in the development of the interface between the compiler and the vector routines provided by a library (including C99 math functions), or via user code. The discussion is ongoing in the ML [1] http://lists.llvm.org/pipermail/llvm-dev/2018-July/124520.html
+</p><p>
+Problem statement: "How should the compiler know about which vector functions are available in a library or in a module when auto-vectorizing scalar calls, when standards like OpenMP and Vector Function ABIs cannot provide a 1:1 mapping from the scalar functions to the vector one?".
+</p><p>
+Practical example of the problem:
+</p><p>
+1. library L provides vector `sin` for target T operating on four lanes, but in two versions: a _slow_ vector `sin` that guarantee high precision, and a _fast_ version with lazy requirement on precision. How should the compiler allow the user to choose between the two? 2. A user can write serial code and rely on the auto-vectorization capabilities of the compiler to generate vector functions using the `#pragma omp declare simd` directive of OpenMP. Sometimes the compiler doesn't do a good job in vectorizing such functions, because not all the micro-architectural capabilities of a vector extension can be exposed in the vectorizer pass. This situation often forces a user to write target specific vector loops that invoke a target specific implementation of the vector function, mostly via pre-processor directive that reduce the maintainability and portability of the code. How can we help clang users to avoid such situation? Could they rely on the compiler in picking up the correct version of the vector function without modifying the original code other than adding the source of the hand optimized version of the vector function?
+</p><p>
+Proposed schedule:
+</p><p>
+1. Enunciate the problem that we are trying to solve. 2. List the proposed solutions. 3. Discuss pros and cons of each of them. 4. Come up with a common plan that we can implement in clang/LLVM.
+</p>
+</li>
+
+    <li><a id="bof8">LLVM Foundation BoF</a>
 	 <br><i>LLVM Foundation Board of Directors</i><br>
 	<p>
 	Ask the LLVM Foundation Board of Directors anything, get program updates, and meet the new board members
