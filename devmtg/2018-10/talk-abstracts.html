@@ -7,6 +7,47 @@
 
 <div class="www_sectiontitle" id="program">Program with Talk Abstracts</div>
 <p>
+    <b>Keynote Talks</b>
+<ul>
+    <li><a id="keynote1">Glow: LLVM-based machine learning compiler</a>
+	<br><i>Nadav Rotem, Jakob Olesen</i>
+	<p>
+Glow is an LLVM-based machine learning compiler for heterogeneous hardware that's developed as part of the PyTorch project. It is a pragmatic approach to compilation that enables the generation of highly optimized code for CPUs, GPUs and accelerators. Glow lowers the traditional neural network data-flow graph into a two-phase strongly-typed intermediate representation (inspired by SIL). Finally Glow emits LLVM-IR and uses the LLVM code generator to generate highly-optimized code. In this talk we'll describe the structure of machine learning programs and how Glow is designed to compile these graphs into multiple targets. We'll explain how we use the LLVM infrastructure and go over some of the techniques that we use to generate high-performance code using LLVM.
+	</p>
+	</li>
+
+
+    <li><a id="keynote2">The Future Direction of C++ and the Four Horsemen of Heterogeneous Computing</a>
+	<br><i>Michael Wong</i>
+	<p>The C++ Direction Group has set a future direction for C++ and includes recommendation for C++ in the short and medium term. It will have immediate impact on what will enter C++20, and beyond. First half of this talk will devote to the Directions Groups description of where future C++ is heading as a member of the DG.
+<p>
+It also includes a guidance towards Heterogeneous C++.
+</p>
+<p>
+The introduction of the executors TS means for the first time in C++ there will be a standard platform for writing applications which can execute across a wide range of architectures including multi-core and many-core CPUs, GPUs, DSPs, and FPGAs.
+The SYCL standard from the Khronos Group is a strong candidate to implement this upcoming C++ standard as are many other C++ frameworks from DOE, and HPX for the distributed case. One of the core ideas of this standard is that everything must be standard C++, the only exception being that some feature of C++ cannot be used in places that can be executed on an OpenCL device, often due to hardware limitation.
+</p>
+<p>
+Implementing Heterogeneous C++ is like battling the four Horsemen of the Apocalypse. These are:
+<ul>
+<li>- Data movement;</li>
+<li>- Data Locality;</li>
+<li>- Data Layout;</li>
+<li>- Data Affinity.</li>
+</ul>
+</p>
+<p>
+The rest of this talk presents some of the challenges and solutions to implement a Heterogeneous C++ standard in Clang based on our implementation of Khronos' SYCL language with Codeplay's ComputeCpp compiler, with the fast growth of C++ and Clang being a platform of choice to prototype many of the new C++ features.
+</p>
+<p>
+We describe the major issues with ABI for separate compilation tool chain that comes from non-standard layout type of lambdas, as well as the issues of data addressing that comes from non-flat and possibly non-coherent address spaces.
+</p>
+<p>
+We also describe various papers which are being proposed to ISO C++ to move towards standardizing heterogeneous and distributed computing in C++. The introduction of a unified interface for execution across a wide range of different hardware, extensions to this to support concurrent exception handling and affinity queries, and an approach to improve the capability of the parallel algorithms through composability. All of this adds up to a future C++ which is much more aware of heterogeneity and capable of taking advantage of it to improve parallelism and performance.
+</p>
+	</p>
+	</li>
+</ul>
     <b>Technical Talks</b>
 <ul>
     <li><a id="#talk1">Lessons Learned Implementing Common Lisp with LLVM over Six Years</a>
@@ -163,12 +204,7 @@ Coroutines can serve as the basis for implementing many powerful language featur
 	</li>
 
 
-    <li><a id="talk14">Glow: LLVM-based machine learning compiler</a>
-	<br><i>Nadav Rotem, Jakob Olesen</i>
-	<p>
-Glow is an LLVM-based machine learning compiler for heterogeneous hardware that's developed as part of the PyTorch project. It is a pragmatic approach to compilation that enables the generation of highly optimized code for CPUs, GPUs and accelerators. Glow lowers the traditional neural network data-flow graph into a two-phase strongly-typed intermediate representation (inspired by SIL). Finally Glow emits LLVM-IR and uses the LLVM code generator to generate highly-optimized code. In this talk we'll describe the structure of machine learning programs and how Glow is designed to compile these graphs into multiple targets. We'll explain how we use the LLVM infrastructure and go over some of the techniques that we use to generate high-performance code using LLVM.
-	</p>
-	</li>
+
 
 
     <li><a id="talk15">Graph Program Extraction and Device Partitioning in Swift for TensorFlow</a>
