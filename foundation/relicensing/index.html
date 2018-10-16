@@ -44,17 +44,20 @@ We also have worked with our legal counsel to build several more boring pieces:
 
 <ul>
 <li>A new top-of-file header block that is minimal and includes the relevant and important information about the new license.
+<li>An individual agreement to relicense and a form to collect information necessary for completing the relicensing.
 <li>A corporate agreement to relicense that is available for companies to sign and has begun to be distributed to some of the known and/or large contributors.
 </ul>
 </p>
 
 <p>
-That said, we still need to:
+We currently plan to install the new developer policy and add the new license in January 2019 after the LLVM 8.0 release has branched.
+</p>
+
+<p>
+Once that is done, we will still need need to:
 
 <ul>
-<li>Finalize the process and forms used for individuals to relicense past contributions under the new license structure. We believe that the individual contributor agreement will be a click-through web form.</li>
-<li>Decide a date upon which all new contributions will be under both the new and old license agreements.</li>
-<li>Decide upon and enact a process for getting 100% of existing code relicensed under the new agreement (using the aforementioned forms) or rewrite/remove the code.</li>
+<li>Enact a process for getting 100% of existing code relicensed with the above agreements or rewrite/remove the code.</li>
 <li>Drop the old license when the entire codebase is covered under the new license.</li>
 </ul>
 </p>
@@ -83,17 +86,40 @@ Some notable aspects of the new header:
 </ul>
 </p>
 
-<div class="www_sectiontitle" id="corporate_agreement">Corporate Relicensing Agreement</div>
+<div class="www_sectiontitle" id="corporate_agreement">Individual Relicensing Agreement</div>
 
 <p>
-Corporations may sign an agreement to relicense their contributions to LLVM under the new license <a href="https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=5a2bb38c-41c4-4ce0-a26e-52a7eb8ae51c">with Docusign</a>. This is our preferred mechanism for collecting signatures. However, if your company requires it, you can print out <a href="https://drive.google.com/open?id=1FiHyH__qqr6Ki2RXDEAcP7SEYFhsawNo">this PDF of the agreement</a>, sign it, scan it, and send the signed version as a PDF attachment to the <a href="mailto:board@llvm.org">LLVM Foundation Board</a>. Further, if your company has a specific concern or issue with the agreement, please reach out to the <a href="mailto:board@llvm.org">the board</a> and we'll try to help.
+Individuals need to complete <a href="https://goo.gl/forms/X4HiyYRcRHOnTSvC3">a web form</a> that we will use to drive the relicensing process. Part of that form will prompt them with a DocuSign agreement that they can sign online to cover anything they personally contributed. It will also collect any companies or academic institutions that may own right to some of their contributions so that we can cover them with the corporate agreement below.
 </p>
 
 <p>
-Several corporations have already signed this agreement to relicense. A non-exhaustive list of companies already having signed:
+We do ask that individuals generally sign the individual agreement even if they think their contributions are probably covered by a corporate agreement. It will be fairly expensive for us to validate each case where an individual has not signed that *all* of their contributions are covered by a corporate agreement. The individual agreements let us not spend time and money on this by covering things either way. We think this is likely simpler and definitely less expensive. Still, we are leaving all of the options open.
+</p>
+
+<p>
+Feel free to send questions concerns about this to the <a href="mailto:llvm-foundation@lists.llvm.org">Foundation mailing list</a>.
+</p>
+
+<div class="www_sectiontitle" id="corporate_agreement">Corporate Relicensing Agreement</div>
+
+<p>
+Corporations may sign an agreement to relicense their contributions to LLVM under the new license <a href="https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=5a2bb38c-41c4-4ce0-a26e-52a7eb8ae51c">with DocuSign</a>. This is our preferred mechanism for collecting signatures. However, if your company requires it, you can print out <a href="https://drive.google.com/open?id=1FiHyH__qqr6Ki2RXDEAcP7SEYFhsawNo">this PDF of the agreement</a>, sign it, scan it, and send the signed version as a PDF attachment to the <a href="mailto:board@llvm.org">LLVM Foundation Board</a>. Further, if your company has a specific concern or issue with the agreement, please reach out to the <a href="mailto:board@llvm.org">the board</a> and we'll try to help.
+</p>
+
+<p>
+A non-exhaustive list of companies that have been contacted about relicensing or have already signed the agreement:
 <ul>
-<li>Argonne National Laboratory</li>
-<li>Google</li>
+<li>ARM: contacted</li>
+<li>Apple: contacted</li>
+<li>Argonne National Laboratory: signed</li>
+<li>Google: signed</li>
+<li>IBM: contacted</li>
+<li>Intel: contacted</li>
+<li>Linaro: contacted</li>
+<li>Nvidia: contacted</li>
+<li>Qualcomm: contacted</li>
+<li>Sony: contacted</li>
+<li>UIUC: contacted</li>
 </ul>
 </p>
 
@@ -104,7 +130,6 @@ Several corporations have already signed this agreement to relicense. A non-exha
 Our goal is to openly and transparently communicate our process, including the expected next steps and a timeframe that can be used for planning.  That said, we are dealing with a lot of unknowns, so while we believe the following schedule is achievable, this is not a guarantee:
 
 <ul>
-<li>~October 2018: We aim to have the individual license agreement approved, and have it posted prior to the US developer's meeting.  We will add details about that to this web page, release notes, and will solicit individual contributors to relicense their prior contributions (e.g. on llvm-dev).</li>
 <li>~January 2019: Coincident with the final release branch date for LLVM 8.0, we will install the new developer policy.  To ensure that all contributors have agreed to the terms of the new developer policy, we will recind commit access from all contributors who are not covered by a corporate or individual agreement at that point.  We will develop a policy for affected contributors to regain commit access.</li>
 </ul>
 
