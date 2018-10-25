@@ -53,14 +53,14 @@ We also describe various papers which are being proposed to ISO C++ to move towa
     <li><a id="#talk1">Lessons Learned Implementing Common Lisp with LLVM over Six Years</a>
         <br><i>Christian Schafmeister</i>
         <p>
-            I will present the lessons learned while using LLVM to efficiently implement a complex memory managed, 
-            dynamic programming language within which everything can be redefined on the fly. I will present Clasp, a 
-            new Common Lisp compiler and programming environment that uses LLVM as its back-end and that interoperates 
-            smoothly with C++/C. Clasp is written in both C++ and Common Lisp. The Clasp compiler is written in Common Lisp 
-            and makes extensive use of the LLVM C++ API and the ORC JIT to generate native code both ahead of time and just in time. 
-            Among its unique features, Clasp uses a compacting garbage collector to manage memory, incorporates multithreading, uses 
-            C++ compatible exception handling to achieve stack unwinding and an incorporates an advanced compiler written in Common 
-            Lisp to achieve performance that approaches that of C++. Clasp is being developed as a high-performance scientific and 
+            I will present the lessons learned while using LLVM to efficiently implement a complex memory managed,
+            dynamic programming language within which everything can be redefined on the fly. I will present Clasp, a
+            new Common Lisp compiler and programming environment that uses LLVM as its back-end and that interoperates
+            smoothly with C++/C. Clasp is written in both C++ and Common Lisp. The Clasp compiler is written in Common Lisp
+            and makes extensive use of the LLVM C++ API and the ORC JIT to generate native code both ahead of time and just in time.
+            Among its unique features, Clasp uses a compacting garbage collector to manage memory, incorporates multithreading, uses
+            C++ compatible exception handling to achieve stack unwinding and an incorporates an advanced compiler written in Common
+            Lisp to achieve performance that approaches that of C++. Clasp is being developed as a high-performance scientific and
             general purpose programming language that makes use of available C++ libraries.
         </p>
     </li>
@@ -69,14 +69,14 @@ We also describe various papers which are being proposed to ISO C++ to move towa
 	<li><a id="talk2">Porting Function merging pass to thinlto</a>
         <br><i>Aditya Kumar</i>
 		<p>
-        In this talk I'll discuss the process of porting the Merge function pass to thinlto infrastructure. Funcion merging (FM) 
-            is an interprocedural pass useful for code-size optimization. It deduplicates common parts of similar functions and 
-            outlines them to a separate function thus reducing the code size. This is particularly useful for code bases making 
+        In this talk I'll discuss the process of porting the Merge function pass to thinlto infrastructure. Funcion merging (FM)
+            is an interprocedural pass useful for code-size optimization. It deduplicates common parts of similar functions and
+            outlines them to a separate function thus reducing the code size. This is particularly useful for code bases making
             heavy use of templates which gets instantiated in multiple translation units.
 
-			Porting FM to thinlto offers leveraging its functionality to dedupe functions across entire program. 
-            I'll discuss the engineering effort required to port FM to thinlto. Specifically, functionality to uniquely 
-            identify similar functions, augmenting function summary with a hash code, populating module summary index, 
+			Porting FM to thinlto offers leveraging its functionality to dedupe functions across entire program.
+            I'll discuss the engineering effort required to port FM to thinlto. Specifically, functionality to uniquely
+            identify similar functions, augmenting function summary with a hash code, populating module summary index,
             modifying bitcode reader+writer, and codesize numbers on open source benchmarks.
 		</p>
 	</li>
@@ -84,14 +84,14 @@ We also describe various papers which are being proposed to ISO C++ to move towa
 <li><a id="talk3">Build Impact of Explicit and C++ Standard Modules</a>
     <br><i>David Blaikie</i>
 	<p>Somewhat a continuation of my 2017 LLVM Developers' Meeting talk: The Further Benefits of Explicit Modularization.
-	Examine and discuss the build infrastructure impact of explicit modules working from the easiest places and rolling in 
+	Examine and discuss the build infrastructure impact of explicit modules working from the easiest places and rolling in
         the further complications to see where we can end up.</p>
 	<ul>
         <li>Explicit modules with no modularized dependencies</li>
-        <li>Updating a build system (like CMake) to allow the developer to describe 
+        <li>Updating a build system (like CMake) to allow the developer to describe
         modular groupings and use that information to build modules and modular objects and link those modular objects in the final link </li>
         <li>Updating a build system to cope with proposed C++ standardized modules</li>
-        <li>How C++ standardized modules (& Clang modules before them) 
+        <li>How C++ standardized modules (& Clang modules before them)
         differ from other language modularized systems - non-portable binary format and the challenges that presents for build systems </li>
         <li>Possible solutions</li>
         <li>implicit modules</li>
@@ -101,17 +101,17 @@ We also describe various papers which are being proposed to ISO C++ to move towa
         <li>callback from the compiler</li>
 </ul>
 <p>
-There's a lot of unknowns in this space - the goal of this talk is to at the very least discuss those uncertainties and why they are 
+There's a lot of unknowns in this space - the goal of this talk is to at the very least discuss those uncertainties and why they are
 there, and/or discuss any conclusions from myself and the C++ standardization work (Richard Smith, Nathan Sidwell, and others) that is ongoing.
 	</p>
 	</li>
-    
+
 <li><a id="talk4">Profile Guided Function Layout in LLVM and LLD</a>
         <br><i>Michael Spencer</i>
 	<p>
-        The layout of code in memory can have a large impact on the performance of an application. 
-        This talk will cover the reasons for this along with the design, implementation, and performance results of 
-        LLVM and LLD's new profile guided function layout pipeline. 
+        The layout of code in memory can have a large impact on the performance of an application.
+        This talk will cover the reasons for this along with the design, implementation, and performance results of
+        LLVM and LLD's new profile guided function layout pipeline.
         This pipeline leverages LLVM's profile guided optimization infrastructure and is based on the Call-Chain Clustering heuristic.
 	</p>
         </li>
@@ -119,12 +119,12 @@ there, and/or discuss any conclusions from myself and the C++ standardization wo
 <li><a id="talk5">Developer Toolchain for the Nintendo Switch</a>
         <br><i>Bob Campbell, Jeff Sirois</i>
     <p>
-        Nintendo Switch was developed using Clang/LLVM for the developer tools and C++ libraries. We describe how we 
-        converted from using almost exclusively proprietary tools and libraries to open tools and libraries. We’ll 
+        Nintendo Switch was developed using Clang/LLVM for the developer tools and C++ libraries. We describe how we
+        converted from using almost exclusively proprietary tools and libraries to open tools and libraries. We’ll
         also describe our process for maintaining our out-of-tree toolchain and what we’d like to improve.
     </p><p>
-We started with Clang, binutils, and LLVM C++ libraries (libc++, libc++abi) and other open libraries. We will also 
-    describe our progress in transitioning to LLD and other LLVM binutils equivalents. Additionally, we will share 
+We started with Clang, binutils, and LLVM C++ libraries (libc++, libc++abi) and other open libraries. We will also
+    describe our progress in transitioning to LLD and other LLVM binutils equivalents. Additionally, we will share
     some of our performance results using LLD and LTO.
     </p>
     <p>Finally, we’ll discuss some of the areas that are important to our developers moving forward.</p>
@@ -136,7 +136,7 @@ We started with Clang, binutils, and LLVM C++ libraries (libc++, libc++abi) and 
 	The SSA-based LLVM IR provides elegant representation for compiler analyses and transformations. However, it presents challenges to the OpenMP code generation in the LLVM backend, especially when the input program is compiled under different optimization levels. This paper presents a practical and effective framework on how to perform the OpenMP code generation based on the LLVM IR. In this presentation, we propose a canonical OpenMP loop representation under different optimization levels to preserve the OpenMP loop structure without being affected by compiler optimizations. A code-motion guard intrinsic is proposed to prevent code motion across OpenMP regions. In addition, a utility based on the LLVM SSA updater is presented to perform the SSA update during the transformation. Lastly, the scope alias information is used to preserve the alias relationship for backend-outlined functions. This framework has been implemented in Intel’s LLVM compiler.
 </p>
      </li>
-    
+
       <li><a id="talk7">Understanding the performance of code using LLVM's Machine Code Analyzer (llvm-mca)</a>
 	<br><i>Andrea Di Biagio, Matt Davis</i>
 	<p>
@@ -160,11 +160,11 @@ This talk will look at the proprietary LLVM IR modifications made in translators
 [1] - https://www.khronos.org/registry/vulkan/ [2] - https://github.com/KhronosGroup/SPIRV-LLVM-Translator [3] - https://github.com/Microsoft/DirectXShaderCompiler/blob/master/docs/DXIL.rst [4] - https://github.com/GPUOpen-Drivers/AMDVLK [5] - https://www.khronos.org/registry/SPIR/specs/spir_spec-2.0.pdf [6] - https://docs.nvidia.com/cuda/pdf/NVVM_IR_Specification.pdf
 	</p>
 	</li>
-    
+
 	<li><a id="talk9">Implementing an OpenCL compiler for CPU in LLVM</a>
 	<br><i>Evgeniy Tyurin</i>
 	<p>
-	Compiling a heterogeneous language for a CPU in an optimal way is a challenge, OpenCL C/SPIR-V specifics require additions and modifications of the old-fashioned driver approach and compilation flow. Coupled together with aggressive just-in-time code optimizations, interfacing with OpenCL runtime, standard OpenCL C functions library, etc. implementation of OpenCL for CPU comprises a complex structure. We’ll cover Intel’s approach in hope of revealing common patterns and design solutions, discover possible opportunities to share and collaborate with other OpenCL CPU vendors under LLVM umbrella!   This talk will describe the compilation of OpenCL C source code down to machine instructions and interacting with OpenCL runtime, illustrate different paths that compilation may take for different modes (classic online/OpenCL 2.1 SPIR-V path vs. OpenCL 1.2/2.0 with device-side enqueue and generic address space), put particular emphasis on the resolution of CPU-unfriendly OpenCL aspects (barrier, address spaces, images) in the optimization flow, explain why OpenCL compiler frontend can easily handle various target devices (GPU/CPU/FGPA/DSP etc.) and how it all neatly revolves around LLVM/clang & tools. 
+	Compiling a heterogeneous language for a CPU in an optimal way is a challenge, OpenCL C/SPIR-V specifics require additions and modifications of the old-fashioned driver approach and compilation flow. Coupled together with aggressive just-in-time code optimizations, interfacing with OpenCL runtime, standard OpenCL C functions library, etc. implementation of OpenCL for CPU comprises a complex structure. We’ll cover Intel’s approach in hope of revealing common patterns and design solutions, discover possible opportunities to share and collaborate with other OpenCL CPU vendors under LLVM umbrella!   This talk will describe the compilation of OpenCL C source code down to machine instructions and interacting with OpenCL runtime, illustrate different paths that compilation may take for different modes (classic online/OpenCL 2.1 SPIR-V path vs. OpenCL 1.2/2.0 with device-side enqueue and generic address space), put particular emphasis on the resolution of CPU-unfriendly OpenCL aspects (barrier, address spaces, images) in the optimization flow, explain why OpenCL compiler frontend can easily handle various target devices (GPU/CPU/FGPA/DSP etc.) and how it all neatly revolves around LLVM/clang & tools.
 	</p>
 	</li>
 
@@ -175,7 +175,7 @@ This talk will look at the proprietary LLVM IR modifications made in translators
 </p><p>
 This talk will focus on how to make standalone builds of sub-projects like clang, lld, compiler-rt, lldb, and libcxx work and how this method can be used to help reduce build times for both developers and CI systems. In addition, we will look at the cmake helpers provided by LLVM and how they are used during the standalone builds and also how you can use them to build your own LLVM-based project in a standalone fashion.
 	</p>
-	
+
 
 	</li>
 
@@ -237,7 +237,7 @@ If you know what AddressSanitizer (ASAN) is, think of Memory Tagging as of "Low-
 This talk is partially based on the paper “Memory Tagging and how it improves C/C++ memory safety” (https://arxiv.org/pdf/1802.09517.pdf)
 	</p>
 	</li>
-    
+
 	<li><a id="talk17">Improving code reuse in clang tools with clangmetatool</a>
 	<br><i>Daniel Ruoso</i></li>
    <p>
@@ -248,7 +248,7 @@ When we first started writing Clang tools, we realized that there is a lot of li
 We also learned that, when writing a tool, it is beneficial if the code is split into two phases -- a data collection phase and, later, a post-processing phase which actually performs the bulk of the logic of the tool.
 </p><p>
 More details at https://bloomberg.github.io/clangmetatool/
-</p> 
+</p>
 
 
 <li><a id="talk18">Sound Devirtualization in LLVM</a>
@@ -286,7 +286,7 @@ Note that the goal of this talk is not necessarily to provide final answers to t
 </p>
 </li>
 
-    <li><a id="talk20">Optimizing Indirections, using abstractions without remorse.</a>
+    <li><a id="talk20">Optimizing Indirections, using abstractions without remorse. [ <a href="https://llvm.org/devmtg/2018-10/slides/Doerfert-Johannes-Optimizing-Indirections-Slides-LLVM-2018.pdf">Slides</a> ]</a>
 	<br><i>Johannes Doerfert, Hal Finkel</i><br>
 <p>
 Indirections, either through memory, library interfaces, or function pointers, can easily induce major performance penalties as the current optimization pipeline is not able to look through them. The available inter-procedural-optimizations (IPO) are generally not well suited to deal with these issues as they require all code to be available and analyzable through techniques based on tracking value dependencies. Importantly, the use of class/struct objects and (parallel) runtime libraries commonly introduce indirections that prohibit basically all optimizations. In this talk, we introduce these problems with real-world examples and show how new analyses can mitigate them. We especially focus on:
@@ -319,7 +319,7 @@ We end this talk with a discussion of the next steps in the VPlan roadmap. In pa
 Vectorization in LLVM has long been restricted to explicit vector instructions, SLP vectorization or the automatic vectorization of inner-most loops. As the VPlan infrastructure is maturing it becomes apparent that the support API provided by the LLVM ecosystem needs to evolve with it. Apart from short SIMD, new ISAs such as ARM SVE, the RISC-V V extension and NEC SX-Aurora pose new requirements and challenges to vectorization in LLVM. To this end, the Region Vectorzer is a great experimentation ground for dealing with issues that sooner or later will need to be resolved for the LLVM vectorization infrastructure. These include the design of a flexible replacment for the VECLIB mechanism in TLI, inter-procecural vectorization and the development of a LLVM-SVE backend for NEC SX-Aurora. The idea of the talk is to provide data points to inform vectorization-related design decisions in LLVM based on our experience with the Region Vectorizer.
 </p>
 </li>
- 
+
    <li><a id="talk23">Faster, Stronger C++ Analysis with the Clang Static Analyzer</a>
 <br><i>George Karpenkov, Artem Dergachev</i>
 <p>
@@ -355,14 +355,14 @@ As Moore's law comes to an end, chipmakers are increasingly relying on both hete
 In this talk, we discuss how to use Tapir, a parallel extension to LLVM, to optimize parallel programs. We will show how one can use Tapir/LLVM to represent programs in attendees’ favorite parallel framework by extending clang, how to perform various optimizations on parallel code, and how to to connect attendees’ parallel language to a variety of parallel backends for execution (PTX, OpenMP Runtime, Cilk Runtime).
 	</p>
 </li>
-    
+
  	<li><a id="tutorial4">LLVM backend development by example (RISC-V)</a>
 	<br>Alex Bradbury</i>
 	<p>
 	This tutorial steps through how to develop an LLVM backend for a modern RISC target (RISC-V). It will be of interest to anyone who hopes to implement a new backend, modify an existing backend, or simply better understand this part of the LLVM infrastructure. It provides a high level introduction to the MC layer, instruction selection, as well as small selection of represenative implementation challenges. No experience with LLVM backends is required, but a basic level of familiarity with LLVM IR would be useful.
 	</p>
 	</li>
-	
+
 </ul>
 <b>Birds of a Feather</b>
 <ul>
@@ -381,7 +381,7 @@ To get the conversation going, we will present data showing improvements in sour
 The goal of the BoF is to improve the (currently non-existing) definition and documentation of the lifecycle of LLVM bug tickets. Not having a documented lifecycle results in a number of issues, of which few have come up recently on the mailing list, including: -- When bugs get closed, what is the right amount of info that should be required so that the bug report is as meaningful as possible without putting unreasonable demands on the person closing the bug? -- When bugs get reported, what level of triaging, and to what timeline, should we aim for to keep bug reporters engaged? -- What should we aim to achieve during triaging?
 </p>
 </li>
-   
+
  <li><a id="bof2">GlobalISel Design and Development</a>
 <br><i>Amara Emerson</i>
 <p>
@@ -397,7 +397,7 @@ GlobalISel is the planned successor to the SelectionDAG instruction selection fr
 C++11 was a huge step forward for C++. C++14 is a much smaller step, yet still brings plenty of great features. C++17 will be equally small but nice. The LLVM community should discuss how we want to handle migration to newer versions of C++: how do we handle compiler requirements, notify developers early enough, manage ABI changes in toolchains, and do the actual migration itself. Let’s get together and hash this out!
 </p>
 </li>
- 
+
    <li><a id="bof4">Ideal versus Reality: Optimal Parallelism and Offloading Support in LLVM</a>
 	<br><i>Xinmin Tian, Hal Finkel, TB Schardl, Johannes Doerfert, Vikram Adve</i>
 <p>
@@ -408,7 +408,7 @@ Explicit parallelism and offloading support is an important and growing part of 
 The purpose of this BoF is to bring together all parties interested in optimizing parallelism and offloading support in LLVM, as well as the experts in parts of the compiler that will need to be modified. Our goal is to discuss the gap between ideal and reality and identify the pieces that are still missing. In the best case we expect interested parties to agree on the next steps towards better parallelism support Clang and LLVM.
 </p>
 </li>
-    
+
 
 <li><a id="bof5">Implementing the parallel STL in libc++</a>
 	<br><i>Louis Dionne</i>
@@ -423,7 +423,7 @@ LLVM 7.0 almost has complete support for C++17, but libc++ is missing a major co
 This BoF will provide an opportunity for developers and users of the Clang Static Analyzer to discuss the present and future of the analyzer. We will start with a brief overview of analyzer features added by the community over the last year, including our Google Summer of Code projects on theorem prover integration and detection of deallocated inner C++ pointers. We will discuss possible focus areas for the next year, including laying the foundations for analysis that crosses the boundaries of translation units. We would also like to brainstorm and gather community feedback on potential dataflow-based checks, ask for community help to improve analyzer C++17 support, and discuss the challenges and opportunities of C++20 support, including contracts.
 </p>
 </li>
-	
+
 <li><a id="bof7">Should we go beyond `#pragma omp declare simd`?</a>
 	<br><i>Francesco Petrogalli</i>
 <p>
@@ -561,7 +561,7 @@ I will also present an evaluation of the crosscheck when analyzing eleven C/C++ 
 RF is the primary debugging-information format for non-Windows platforms. Version 5 of the standard was released in February 2017, and work is actively ongoing to support it in LLVM. But what makes it better than previous DWARF versions? This lightning talk covers how DWARF v5 reduces the number of linker relocations and improves string sharing in the debug info, which should speed up link times for builds with debug info. It will also describe the new lookup tables, which improve debugger performance on startup and potentially save memory (no need to build an index on the fly).
 </p>
 </li>
-    
+
 <li><a id="lt11">Using TAPI to Understand APIs and Speed Up Builds</a>
 <br><i>Steven Wu, Juergen Ributzka</i>
 <p>
@@ -624,7 +624,7 @@ Maintaining consistency while manual reference counting is very difficult. Langu
 Maintaining consistency while manual reference counting is very difficult. Languages like Java, C#, Go and other scripting languages employ garbage collection which automatically performs memory management. On the other hand, there are certain libraries like ISL (Integer Set Library) which use memory annotations in function declarations to declare what happens to an objects ownership, thereby specifying the responsibility of releasing it as well. However, improper memory management in ISL leads to invocations of runtime errors. Hence, we have added support to Clang Static Analyzer for performing reference counting of ISL objects (although with the current implementation, it can be used for any type of C/C++ object) thereby enabling the static analyzer to raise warnings in case there is a possibility of a memory leak, bad release, etc.
 </p>
 </li>
-    
+
 	<li><a id="lt20">Error Handling in Libraries: A Case Study</a>
 <br><i>James Henderson</i>
 <p>
