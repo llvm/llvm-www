@@ -50,7 +50,7 @@ We also describe various papers which are being proposed to ISO C++ to move towa
 </ul>
     <b>Technical Talks</b>
 <ul>
-    <li><a id="#talk1">Lessons Learned Implementing Common Lisp with LLVM over Six Years</a>
+    <li><a id="#talk1">Lessons Learned Implementing Common Lisp with LLVM over Six Years</a> [ <a href="https://youtu.be/mbdXeRBbgDM"> Video</a> ] [ Slides ]
         <br><i>Christian Schafmeister</i>
         <p>
             I will present the lessons learned while using LLVM to efficiently implement a complex memory managed,
@@ -66,7 +66,7 @@ We also describe various papers which are being proposed to ISO C++ to move towa
     </li>
 
 
-	<li><a id="talk2">Porting Function merging pass to thinlto</a>
+	<li><a id="talk2">Porting Function merging pass to thinlto</a> [ <a href="https://youtu.be/GxQmcvYpKYU">Video</a> ] [ <a href="https://llvm.org/devmtg/2018-10/slides/Kumar-FunctionMergingPortThinLTO.pdf">Slides</a> ] 
         <br><i>Aditya Kumar</i>
 		<p>
         In this talk I'll discuss the process of porting the Merge function pass to thinlto infrastructure. Funcion merging (FM)
@@ -106,7 +106,7 @@ there, and/or discuss any conclusions from myself and the C++ standardization wo
 	</p>
 	</li>
 
-<li><a id="talk4">Profile Guided Function Layout in LLVM and LLD</a>
+<li><a id="talk4">Profile Guided Function Layout in LLVM and LLD</a> [ <a href="https://youtu.be/F-lbgspxv1c">Video</a> ] [ <a href="slides/Spencer-Profile Guided Function Layout in LLVM and LLD.pdf">Slides</a> ] 
         <br><i>Michael Spencer</i>
 	<p>
         The layout of code in memory can have a large impact on the performance of an application.
@@ -130,30 +130,30 @@ We started with Clang, binutils, and LLVM C++ libraries (libc++, libc++abi) and 
     <p>Finally, we’ll discuss some of the areas that are important to our developers moving forward.</p>
     </li>
 
-    <li><a id="talk6">Methods for Maintaining OpenMP Semantics without Being Overly Conservative</a>
-	<br><i>Jin Lin, Ernesto  Su, Xinmin Tian</i>
-	<p>
-	The SSA-based LLVM IR provides elegant representation for compiler analyses and transformations. However, it presents challenges to the OpenMP code generation in the LLVM backend, especially when the input program is compiled under different optimization levels. This paper presents a practical and effective framework on how to perform the OpenMP code generation based on the LLVM IR. In this presentation, we propose a canonical OpenMP loop representation under different optimization levels to preserve the OpenMP loop structure without being affected by compiler optimizations. A code-motion guard intrinsic is proposed to prevent code motion across OpenMP regions. In addition, a utility based on the LLVM SSA updater is presented to perform the SSA update during the transformation. Lastly, the scope alias information is used to preserve the alias relationship for backend-outlined functions. This framework has been implemented in Intel’s LLVM compiler.
-</p>
-     </li>
-
-      <li><a id="talk7">Understanding the performance of code using LLVM's Machine Code Analyzer (llvm-mca)</a>
-	<br><i>Andrea Di Biagio, Matt Davis</i>
-	<p>
-	llvm-mca is a LLVM based tool that uses information available in LLVM’s scheduling models to statically measure the performance of machine code in a specific CPU. The goal of this tool is not just to predict the performance of the code when run on the target, but also to help with diagnosing potential performance issues. In this talk we, will discuss how llvm-mca works and walk the audience through example uses of this tool.
+	    <li><a id="talk6">Methods for Maintaining OpenMP Semantics without Being Overly Conservative</a> [ <a href="https://youtu.be/9BxDNv4YmVw">Video</a> ] [ <a href="slides/Jin-OpenMPSemantics.pdf">Slides</a> ]
+		<br><i>Jin Lin, Ernesto  Su, Xinmin Tian</i>
+		<p>
+		The SSA-based LLVM IR provides elegant representation for compiler analyses and transformations. However, it presents challenges to the OpenMP code generation in the LLVM backend, especially when the input program is compiled under different optimization levels. This paper presents a practical and effective framework on how to perform the OpenMP code generation based on the LLVM IR. In this presentation, we propose a canonical OpenMP loop representation under different optimization levels to preserve the OpenMP loop structure without being affected by compiler optimizations. A code-motion guard intrinsic is proposed to prevent code motion across OpenMP regions. In addition, a utility based on the LLVM SSA updater is presented to perform the SSA update during the transformation. Lastly, the scope alias information is used to preserve the alias relationship for backend-outlined functions. This framework has been implemented in Intel’s LLVM compiler.
 	</p>
-	</li>
+	     </li>
 
-    <li><a id="talk8">Art Class for Dragons: Supporting GPU compilation without metadata hacks!</a>
-	<br><i>Neil Hickey</i>
-	<p>
-	Modern programming languages targeting GPUs include features that are not commonly found in conventional programming languages, such as C and C++, and are, therefore, not natively representable in LLVM IR.
-</p><p>
-This limits the applicability of LLVM to target GPU hardware for both graphics and massively parallel compute applications. Moreover, the lack of a unified way to represent GPU-related features has led to different and mutually incompatible solutions across different vendors, thereby limiting interoperability of LLVM-based GPU transformation passes and tools.
-</p><p>
-Many features within the Vulkan graphics API and language [1] highlight the diversity of GPU hardware. For example, Vulkan allows different attributes on structures that specify different memory padding rules. Such semantic information is currently not natively representable in LLVM IR. Graphics programming models also make extensive use of special memory regions that are mapped as address spaces in LLVM. However, no semantic information is attributed to address spaces at the LLVM IR level and the correct behaviour and transformation rules have to be inferred from the address space within the compilation passes.
-</p><p>
-As some of these features have no direct representation in LLVM, various translators, e.g SPIR-V->LLVM translator [2], Microsoft DXIL compiler [3], AMD's OpenSource compiler for Vulkan [4], make use of side features of LLVM IR, such as metadata and intrinsics, to represent the semantic information that cannot be easily captured. This creates an extra burden on compilation passes targeting GPU hardware as the semantic information has to be recreated from the metadata. Additionally, some translators such as the Microsoft DXIL compiler have forked the Clang and LLVM repositories and made proprietary changes to the IR in order to more easily support the required features natively. A more general approach would be to look at how upstream LLVM can be augmented to represent some, if not all, of the semantic information required for massively parallel SIMD, SPMD, and in general, graphics applications.
+	      <li><a id="talk7">Understanding the performance of code using LLVM's Machine Code Analyzer (llvm-mca)</a>
+		<br><i>Andrea Di Biagio, Matt Davis</i>
+		<p>
+		llvm-mca is a LLVM based tool that uses information available in LLVM’s scheduling models to statically measure the performance of machine code in a specific CPU. The goal of this tool is not just to predict the performance of the code when run on the target, but also to help with diagnosing potential performance issues. In this talk we, will discuss how llvm-mca works and walk the audience through example uses of this tool.
+		</p>
+		</li>
+
+	    <li><a id="talk8">Art Class for Dragons: Supporting GPU compilation without metadata hacks!</a>
+		<br><i>Neil Hickey</i>
+		<p>
+		Modern programming languages targeting GPUs include features that are not commonly found in conventional programming languages, such as C and C++, and are, therefore, not natively representable in LLVM IR.
+	</p><p>
+	This limits the applicability of LLVM to target GPU hardware for both graphics and massively parallel compute applications. Moreover, the lack of a unified way to represent GPU-related features has led to different and mutually incompatible solutions across different vendors, thereby limiting interoperability of LLVM-based GPU transformation passes and tools.
+	</p><p>
+	Many features within the Vulkan graphics API and language [1] highlight the diversity of GPU hardware. For example, Vulkan allows different attributes on structures that specify different memory padding rules. Such semantic information is currently not natively representable in LLVM IR. Graphics programming models also make extensive use of special memory regions that are mapped as address spaces in LLVM. However, no semantic information is attributed to address spaces at the LLVM IR level and the correct behaviour and transformation rules have to be inferred from the address space within the compilation passes.
+	</p><p>
+	As some of these features have no direct representation in LLVM, various translators, e.g SPIR-V->LLVM translator [2], Microsoft DXIL compiler [3], AMD's OpenSource compiler for Vulkan [4], make use of side features of LLVM IR, such as metadata and intrinsics, to represent the semantic information that cannot be easily captured. This creates an extra burden on compilation passes targeting GPU hardware as the semantic information has to be recreated from the metadata. Additionally, some translators such as the Microsoft DXIL compiler have forked the Clang and LLVM repositories and made proprietary changes to the IR in order to more easily support the required features natively. A more general approach would be to look at how upstream LLVM can be augmented to represent some, if not all, of the semantic information required for massively parallel SIMD, SPMD, and in general, graphics applications.
 </p><p>
 This talk will look at the proprietary LLVM IR modifications made in translators such as the Khronos SPIRV-LLVM translator, AMDs open source driver for Vulkan SPIRV, the original Khronos SPIR specification [5], Microsoft's DXIL compiler and Nvidia's NVVM specification [6]. The aim is to extract a common set of features present in modern graphics and compute languages for GPUs, describe how translators are currently representing these features in LLVM and suggest ways of augmenting the LLVM IR to natively represent these features. The intention with this talk is to open up a dialogue among IR developers to look at how we can, if there is agreement, extend LLVM in a way that supports a more diverse set of hardware types.
 </p><p>
@@ -161,7 +161,7 @@ This talk will look at the proprietary LLVM IR modifications made in translators
 	</p>
 	</li>
 
-	<li><a id="talk9">Implementing an OpenCL compiler for CPU in LLVM</a>
+	<li><a id="talk9">Implementing an OpenCL compiler for CPU in LLVM</a> [ <a href="https://youtu.be/Mm5ATyqm7Rw">Video</a> ] [ <a href="slides/Tyurin-ImplementingOpenCLCompiler.pdf">Slides</a> ] 
 	<br><i>Evgeniy Tyurin</i>
 	<p>
 	Compiling a heterogeneous language for a CPU in an optimal way is a challenge, OpenCL C/SPIR-V specifics require additions and modifications of the old-fashioned driver approach and compilation flow. Coupled together with aggressive just-in-time code optimizations, interfacing with OpenCL runtime, standard OpenCL C functions library, etc. implementation of OpenCL for CPU comprises a complex structure. We’ll cover Intel’s approach in hope of revealing common patterns and design solutions, discover possible opportunities to share and collaborate with other OpenCL CPU vendors under LLVM umbrella!   This talk will describe the compilation of OpenCL C source code down to machine instructions and interacting with OpenCL runtime, illustrate different paths that compilation may take for different modes (classic online/OpenCL 2.1 SPIR-V path vs. OpenCL 1.2/2.0 with device-side enqueue and generic address space), put particular emphasis on the resolution of CPU-unfriendly OpenCL aspects (barrier, address spaces, images) in the optimization flow, explain why OpenCL compiler frontend can easily handle various target devices (GPU/CPU/FGPA/DSP etc.) and how it all neatly revolves around LLVM/clang & tools.
@@ -179,7 +179,7 @@ This talk will focus on how to make standalone builds of sub-projects like clang
 
 	</li>
 
-    <li><a id="talk11">Loop Transformations in LLVM: The Good, the Bad, and the Ugly</a>
+    <li><a id="talk11">Loop Transformations in LLVM: The Good, the Bad, and the Ugly</a> [ <a href="https://youtu.be/QpvZt9w-Jik">Video</a> ] [ <a href="https://llvm.org/devmtg/2018-10/slides/Kruse-LoopTransforms.pdf">Slides</a> ]
 	<br><i>Michael Kruse, Hal Finkel</i>
 	<p>
 	Should loop transformations be done by the compiler, a library (such as Kokkos, RAJA, Halide) or be subject of (domain specific) programming languages such as CUDA, LIFT, etc? Such optimizations can take place on more than one level and the decision for the compiler-level has already been made in LLVM: We already support a small zoo of transformations: Loop unrolling, unroll-and-jam, distribution, vectorization, interchange, unswitching, idiom recognition and polyhedral optimization using Polly. When clear that we want loop optimizations in the compiler, why not making them as good as possible?
@@ -207,7 +207,7 @@ Coroutines can serve as the basis for implementing many powerful language featur
 
 
 
-    <li><a id="talk15">Graph Program Extraction and Device Partitioning in Swift for TensorFlow</a>
+    <li><a id="talk15">Graph Program Extraction and Device Partitioning in Swift for TensorFlow</a> [ <a href="https://youtu.be/U8AB45gEu4g">Video</a> ] [ <a href=slides/Hong-Lattner-SwiftForTensorFlowGraphProgramExtraction.pdf">Slides</a> ]
 	<br><i>Mingsheng Hong, Chris Lattner</i>
         <p>
 Swift for Tensorflow (https://github.com/tensorflow/swift) is an Open Source project that provides a new way to develop machine learning models. It combines the usability/debuggability of imperative “define by run” programming models (like TensorFlow Eager and PyTorch) with the performance of TensorFlow session/XLA (graph compilation).
@@ -218,6 +218,7 @@ In this talk, we describe the design and implementation of deabstraction, Graph 
 
 	<li><a id="talk16">Memory Tagging, how it improves C++ memory safety, and what does it mean for compiler optimizations</a>
 	<br><i>Kostya Serebryany, Evgenii Stepanov, Vlad Tsyrklevich</i><br>
+[ < a href="https://youtu.be/iP_iHroclgM">Video</a> ] 
 [<a href="slides/Serebryany-Stepanov-Tsyrklevich-Memory-Tagging-Slides-LLVM-2018.pdf">Slides</a>,
  <a href="slides/Serebryany-Stepanov-Tsyrklevich-Memory-Tagging-Poster-LLVM-2018.pdf">Poster</a>]
 	<p>
@@ -238,7 +239,7 @@ This talk is partially based on the paper “Memory Tagging and how it improves 
 	</p>
 	</li>
 
-	<li><a id="talk17">Improving code reuse in clang tools with clangmetatool</a>
+	<li><a id="talk17">Improving code reuse in clang tools with clangmetatool</a> [ <a href="https://youtu.be/SjjURI5xP-g">Video</a> ] [ <a href="slides/Ruoso-clangmetatool.pdf">Slides</a> ] 
 	<br><i>Daniel Ruoso</i></li>
    <p>
 This talk will cover the lessons we learned from the process of writing tools with Clang's LibTooling. We will also introduce clangmetatool, the open source framework we use (and developed) to reuse code when writing Clang tools.
@@ -269,7 +270,7 @@ The SLP Vectorizer performs auto-vectorization of straight-line code. It works b
 </li>
 
 
-    <li><a id="talk19">Revisiting Loop Fusion, and its place in the loop transformation framework.</a>
+    <li><a id="talk19">Revisiting Loop Fusion, and its place in the loop transformation framework.</a> [ <a href="https://youtu.be/UVZPtBGV8kQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2018-10/slides/Barton-LoopFusion.pdf">Slides (PDF)</a>, <a href="https://llvm.org/devmtg/2018-10/slides/Barton-LoopFusion.pptx">Slides (PPT)</a>  ] 
 	<br><i>Johannes Doerfert, Kit Barton, Hal Finkel, Michael Kruse</i>
     <p>
 Despite several efforts [1-3], loop fusion is one of the classical loop optimizations still missing in LLVM. As we are currently working to remedy this situation, we want to share our experience in designing, implementing, and tuning a new loop transformation pass. While we want to explain how loop fusion can be implemented using the set of existing analyses, we also plan to talk about the current loop transformation framework and extensions thereof. We currently plan to include:
@@ -286,7 +287,7 @@ Note that the goal of this talk is not necessarily to provide final answers to t
 </p>
 </li>
 
-    <li><a id="talk20">Optimizing Indirections, using abstractions without remorse. [ <a href="https://llvm.org/devmtg/2018-10/slides/Doerfert-Johannes-Optimizing-Indirections-Slides-LLVM-2018.pdf">Slides</a> ]</a>
+    <li><a id="talk20">Optimizing Indirections, using abstractions without remorse. [<a href="https://youtu.be/zfiHaPaoQPc">Video</a>] [ <a href="https://llvm.org/devmtg/2018-10/slides/Doerfert-Johannes-Optimizing-Indirections-Slides-LLVM-2018.pdf">Slides</a> ]</a>
 	<br><i>Johannes Doerfert, Hal Finkel</i><br>
 <p>
 Indirections, either through memory, library interfaces, or function pointers, can easily induce major performance penalties as the current optimization pipeline is not able to look through them. The available inter-procedural-optimizations (IPO) are generally not well suited to deal with these issues as they require all code to be available and analyzable through techniques based on tracking value dependencies. Importantly, the use of class/struct objects and (parallel) runtime libraries commonly introduce indirections that prohibit basically all optimizations. In this talk, we introduce these problems with real-world examples and show how new analyses can mitigate them. We especially focus on:
@@ -347,7 +348,7 @@ The tutorial will give tips for debugging register allocator problems and unders
 </p>
 </li>
 
-    <li><a id="tutorial3">How to use LLVM to optimize your parallel programs
+    <li><a id="tutorial3">How to use LLVM to optimize your parallel programs [ <a href="https://youtu.be/tmBThobaDBw">Video</a> ] [ <a href="https://llvm.org/devmtg/2018-10/slides/Moses-OptimizeYourParallelPrograms.pdf">Slides</a> ]
 	<br>William S. Moses</i></a>
 	<p>
 As Moore's law comes to an end, chipmakers are increasingly relying on both heterogeneous and parallel architectures for performance gains. This has led to a diverse set of software tools and paradigms such as CUDA, OpenMP, Cilk, and many others to best exploit a program’s parallelism for performance gain. Yet, while such tools provide us ways to express parallelism, they come at a large cost to the programmer, requiring in depth knowledge of what to parallelize, how to best map the parallelism to the hardware, and having to rework the code to match the programming model chosen by the software tool.
