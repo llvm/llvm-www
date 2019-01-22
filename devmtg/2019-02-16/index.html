@@ -18,53 +18,213 @@
   <a href="http://cgo.org/cgo2019/workshops.html">CGO website.</a>
 </p>
 
-<div class="www_sectiontitle">Call for Speakers</div>
-
+<div class="www_sectiontitle">Preliminary Schedule</div>
 <p>
-  We invite speakers from academia and industry to present their work on the
-  following list of topics (including and not limited to:)
+ <table width="100%">
+   <tr><td><b>Time</b></td> <td><b>Room</b></td> <td><b>Speaker</b></td> <td><b>Title</b></td> <td>&nbsp;</td></tr>
+  <tr>
+    <td>9:00</td>
+    <td>tba</td>
+    <td>Joel E. Denny</td>
+    <td>Clacc: Translating OpenACC to OpenMP in Clang</td>
+    <td><a href="#jed">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>9:40</td>
+    <td>tba</td>
+    <td>Ayal Zaks</td>
+    <td>Tiling Loops for Scratch-Pad Memories</td>
+    <td><a href="#az">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>10:20-10:40</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Break</td>
+  </tr>
+  <tr>
+    <td>10:40</td>
+    <td>tba</td>
+    <td>Brian Homerding</td>
+    <td>Enabling math function call optimization for DOE proxy applications</td>
+    <td><a href="#bh">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>11:20</td>
+    <td>tba</td>
+    <td>Alexandru Susu</td>
+    <td>Emulating Arithmetic Operations with LLVM's Instruction Selection Pass</td>
+    <td><a href="#as">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>12:00-13:30</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Lunch</td>
+  </tr>
+  <tr>
+    <td>13:40</td>
+    <td>tba</td>
+    <td>Simon Moll</td>
+    <td>Multi-dimensional Vectorization in LLVM</td>
+    <td><a href="#sm">[Abstract]</a>
+    </td>
+  </tr>
+  <tr>
+    <td>14:20</td>
+    <td>tba</td>
+    <td>Johannes Doerfert</td>
+    <td>Performance Gap Exploration with LLVM</td>
+    <td><a href="#jd">[Abstract]</a>
+    </td>
+  </tr>
+  <tr>
+    <td>15:00-15:20</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Break</td>
+  </tr>
+  <tr>
+    <td>15:20</td>
+    <td>tba</td>
+    <td>&nbsp;</td>
+    <td>LLVM Q&A Panel: <b>Questions Welcome</b></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>16:00</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Workshop ends.</td>
+  </tr>
+ </table>
 </p>
+
+
+<div class="www_sectiontitle">Abstracts</div>
+<p>
   <ul>
-    <li>Compilation and interpretation techniques benefitting from LLVM,</li>
-    <li>Classical performance and code-size optimizations using LLVM,</li>
-    <li>Improvements to runtime libraries developed under llvm-infrastructure
-      e.g., libc++, libc++-abi,</li>
-    <li>Improving the security of generated code using compilation
-      techniques,</li>
-    <li>Any tools developed with LLVM (or subprojects) for performance
-      analysis,</li>
-    <li>compiler flags, annotations and remarks to understand and improve
-      performance,</li>
-    <li>any other topic related to improving and maintaining the performance and
-      quality of LLVM generated code.</li>
+    <li> <a id="jed"><b>Joel E. Denny, Seyong Lee, and Jeffrey S. Vetter</b>: Clacc: Translating OpenACC to OpenMP in Clang</a>
+      <p>
+
+OpenACC was launched in 2010 as a portable programming model for heterogeneous
+accelerators. Although various implementations already exist, no extensible,
+open-source, production-quality compiler support is available to the community.
+This deficiency poses a serious risk for HPC application developers targeting
+GPUs and other accelerators, and it limits experimentation and progress for the
+OpenACC specification. To address this deficiency, Clacc is a recent effort
+funded by the US Exascale Computing Project to develop production OpenACC
+compiler support for Clang and LLVM. A key feature of the Clacc design is to
+translate OpenACC to OpenMP to build on Clang's existing OpenMP compiler and
+runtime support. In this talk, we describe the Clacc goals and design. We
+also describe the challenges that we have encountered so far in our prototyping
+efforts, and we present some early performance results.
+
+      </p>
+    </li>
+
+    <li> <a id="az"><b>Ayal Zaks, Michael Zuckerman, and Dorit Nuzman</b>: Tiling Loops for Scratch-Pad Memories</a>
+      <p>
+
+Tiling a loop is a well-known code transformation that helps optimize temporal
+locality. Tiling is important for systems that have caches in order to achieve
+high performance. For systems that are based on scratch-pad memories or
+software-managed caches, tiling is vital in order for code to be functional.
+Furthermore, due to the high overhead of transferring data between main memory
+and scratch-pad memory, it is desirable to tile several loops together. Lastly,
+if such data transfers can be executed asynchronously and in parallel to
+processing the data in the scratch-pad memories, careful scheduling of the
+transfers and double-buffering of the data are desired in order to hide data
+transfer overheads. In this work we show how multiple loops can be tiled
+together in order to execute them efficiently on systems with scratch-pad
+memories.
+
+      </p>
+    </li>
+
+    <li> <a id="bh"><b>Brian Homerding</b>: Enabling math function call optimization for DOE proxy applications</a>
+      <p>
+
+The US Department of Energy proxy applications are simplified applications that
+are representative of the important code for various scientific computing
+workloads. Our performance analysis work on these proxy applications have
+revealed some areas where Clang can improve when compared to GCC and vendor
+compilers. Among these is the limited ability to apply optimizations to math
+function calls when we care about errno. This talk will discuss modeling the
+memory behavior of math functions using function attributes in order to enable
+these optimizations. Along with a discussion of our subsequent work to extend
+the attributes’ coverage and use.
+
+      </p>
+    </li>
+
+    <li> <a id="as"><b>Alexandru Susu</b>: Emulating Arithmetic Operations with LLVM's Instruction Selection Pass</a>
+      <p>
+
+Compiling from sequential C programs using LLVM for the wide Connex vector
+accelerator, a competitive customizable architecture for embedded applications
+with 16-bit integer lanes, is challenging.
+
+Our compiler, is able to generate portable programs w.r.t. the vector width,
+again because of the JIT assembler. We provide code examples obtained with
+OpincaaLLVM, which should make these issues clear. We report speedup factors
+of up to 12 when running on a Connex machine with 128 lanes w.r.t. a dual-core
+Cortex A9 clocked at a frequency 6.67 times higher.
+
+      </p>
+    </li>
+
+    <li> <a id="sm"><b>Simon Moll, Shrey Sharma, Matthias Kurtenacker, and Sebastian Hack</b>: Multi-dimensional Vectorization in LLVM</a>
+      <p>
+
+Loop vectorization is a classic technique to exploit SIMD instructions in a
+productive way. In multi-dimensional vectorization, multiple loops of a loop
+nest are vectorized at once. This exposes opportunities for data reuse,
+register tiling and more efficient memory accesses. In this work, we present
+TensorRV, a multi-dimensional vectorization framework for LLVM IR. TensorRV is
+a generalization of the Region Vectorizer, a general purpose outer-loop and
+whole-function vectorizer, to the multi-dimensional setting. We evaluate
+TensorRV on a set of stencil codes and matrix transpose. We find that stencil
+codes benefit from the reduction of load instructions with a speedup of x1.45
+on NEC SX-Aurora TSUBASA. Multi-loop vectorized matrix transpose leverages
+efficient SIMD shuffle instructions on AVX512, for which we report a speedup of
+x3.27.
+
+      </p>
+    </li>
+
+    <li> <a id="jd"><b>Johannes Doerfert, Brian Homerding and Hal Finkel</b>: Performance Gap Exploration with LLVM</a>
+      <p>
+
+Compilers are limited by the static information directly or indirectly
+encoded in the program. Especially low-level languages, such as C and C++, are
+therefore considered problematic as their weak type system and relaxed memory
+semantic allows for various, sometimes non-obvious, behaviors. Since compilers
+have to preserve the program semantic for all program executions, the existence
+of exceptional behavior can prevent optimizations that the developer would
+consider valid and might even expect. Analyses to guarantee the absence of such
+disruptive and unlikely situations are consequently an indispensable part of an
+optimizing compiler. However, these analyses have to be approximative and
+limited in scope. Global and exact static analysis, under consideration of all
+potential inputs to the program, is simply an infeasible task for any
+non-trivial program.
+
+Even if a user knows the structure of all inputs ever passed to the program, it
+is not easy to encode such information. The conservatively correct compiler can
+consequently not match the expectations a developer with superior knowledge
+has.
+
+In this talk, we present a method to automatically measure the effect missing
+static information has on the optimizations applied to a given program. As a
+result, we generate an optimistically optimized program version which, compared
+to the original, defines a performance gap that can be closed by better
+analyses and programmer annotations.
+
+Our evaluation of six, already optimized, proxy kernels for high-performance
+applications exposed a compiler flaw that caused a ≈6x fold slowdown, as well
+as opportunities to achieve speedups of up to 20.6%. This clearly indicates
+that static uncertainty can result in poor performance, but also that compilers
+need to more effectively utilize available information.
+
+      </p>
+    </li>
   </ul>
-<p>
-  While the primary focus of the workshop is on these topics, we welcome any
-  submission related to the LLVM compiler infrastructure, its sub-projects
-  (clang, lldb, Polly, ...), as well as its use in industry and academia.
-</p>
-
-<p>
-  We are looking for:
-</p>
-<ul>
-  <li>keynote speakers,</li>
-  <li>technical presentations: 30 minutes plus questions and discussion,</li>
-  <li>tutorials,</li>
-  <li>BOFs.</li>
-</ul>
-
-<p>
-  Proposals should provide enough information for the review committee to be
-  able to judge the quality of the submission. Proposals can be submitted under
-  the form of an extended abstract, full paper, or slides.  Proposals should be
-  submitted to
-  <a href="https://easychair.org/conferences/?conf=llvmcgo2019">Easychair
-  LLVM-CGO 2019</a>.
-
-  The deadline for receiving submissions was <b>extended to January 9th</b>,
-  2019. Speakers will be notified of acceptance or rejection at the latest by
-  January 14th, 2019.
 </p>
 
 <p>
