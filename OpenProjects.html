@@ -38,10 +38,6 @@
       <li><a href="#lldb-data-formatters">Implement a DSL for LLDB data formatters</a>
       </li>
 
-      <li><a href="#lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the
-          LLDB public API</a>
-      </li>
-
       <li><a href="#lldb-reimplement-lldb-cmdline">Reimplement LLDB's
           command-line commands using the public SB API.</a>
       </li>
@@ -322,31 +318,6 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   </p>
 </div>
 
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lldb-reimplement-lldb-mi">Reimplement lldb-mi on top of the LLDB
-    public SB API.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b> <em>lldb-mi</em> implements a
-    machine-readable interface that is supported by many IDEs and text
-    editors. The current support is incomplete and does not implement
-    enough commands to work with most text editors. More importantly,
-    it isn't using the right abstraction layer: Instead of executing
-    textual commands via <em>handleCommand()</em> and scraping LLDB's
-    textual output, it should be using the methods and data structures
-    provided by the public SB API.
-  </p>
-  <p><b>Confirmed Mentor:</b> Adrian Prantl</p>
-
-  <p><b>Desirable skills:</b>
-    Intermediate knowledge of C++.
-  </p>
-</div>
-
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a name="lldb-batch-testing">Add support for batch-testing to the LLDB
@@ -449,7 +420,7 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
 <div class="www_text">
   <p><b>Description of the project: </b>
-    The C++ std::string class provides a c_str() method that returns a raw pointer to a string's inner character buffer. When a std::string is destroyed, the character buffer is deallocated. A common bug is to access a dangling raw pointer to the buffer after string deallocation. These "use after free" bugs can cause crashes or other unexpected behavior. 
+    The C++ std::string class provides a c_str() method that returns a raw pointer to a string's inner character buffer. When a std::string is destroyed, the character buffer is deallocated. A common bug is to access a dangling raw pointer to the buffer after string deallocation. These "use after free" bugs can cause crashes or other unexpected behavior.
     <br />
     This project will add a new checker to the static analyzer to find when a dangling inner string pointer is used. This will help find bugs not only with std::string and c_str() but also with LLVM's StringRef class and the new C++17 std::string_view.
   </p>
@@ -466,7 +437,7 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 <div class="www_text">
   <p><b>Description of the project: </b>
     The static analyzer finds bugs by exploring many possible paths through a program. To reduce false positives, it uses a very fast but imprecise custom constraint manager to rule out infeasible paths that cannot actually be executed at run time.
-    <br />    
+    <br />
     This project will extend the analyzer to use the <a href="https://github.com/Z3Prover/z3/wiki">Z3 SMT solver</a> to rule out additional infeasible paths by postprocessing bug reports. This will help the analyzer reduce false positives when the path involves complicated branches that the built-in constraint manager cannot reason about.
   </p>
   <p><b>Confirmed Mentor:</b> George Karpenkov</p>
