@@ -161,15 +161,11 @@ The Connex-S wide research vector processor has a simple design with 16-bit
 integer lanes since many embedded applications can make good use of narrow
 integer types.
 
-      </p><p>
-
 For completeness, however, our back end for Connex-S needs to lower code to
 emulate efficiently arithmetic operations for non-native types such as 32-bit
 integer and 16-bit floating point. To simplify the work of the compiler writer
 we conceive a method to code generate how we lower these operations inside
 LLVM's instruction selection pass.
-
-      </p><p>
 
 We also implement in the Connex-S processor simple lane gating techniques to
 minimize energy consumption for vector code with a high degree of control
@@ -213,22 +209,16 @@ limited in scope. Global and exact static analysis, under consideration of all
 potential inputs to the program, is simply an infeasible task for any
 non-trivial program.
 
-      </p><p>
-
 Even if a user knows the structure of all inputs ever passed to the program, it
 is not easy to encode such information. The conservatively correct compiler can
 consequently not match the expectations a developer with superior knowledge
 has.
-
-      </p><p>
 
 In this talk, we present a method to automatically measure the effect missing
 static information has on the optimizations applied to a given program. As a
 result, we generate an optimistically optimized program version which, compared
 to the original, defines a performance gap that can be closed by better
 analyses and programmer annotations.
-
-      </p><p>
 
 Our evaluation of six, already optimized, proxy kernels for high-performance
 applications exposed a compiler flaw that caused a ≈6x fold slowdown, as well
