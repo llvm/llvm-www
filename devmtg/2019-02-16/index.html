@@ -157,15 +157,19 @@ the attributes’ coverage and use.
     <li> <a id="as"><b>Alexandru Susu</b>: Emulating Arithmetic Operations with LLVM's Instruction Selection Pass</a>
       <p>
 
-Compiling from sequential C programs using LLVM for the wide Connex vector
-accelerator, a competitive customizable architecture for embedded applications
-with 16-bit integer lanes, is challenging.
+The Connex-S wide research vector processor has a simple design with 16-bit
+integer lanes since many embedded applications can make good use of narrow
+integer types.
 
-Our compiler, is able to generate portable programs w.r.t. the vector width,
-again because of the JIT assembler. We provide code examples obtained with
-OpincaaLLVM, which should make these issues clear. We report speedup factors
-of up to 12 when running on a Connex machine with 128 lanes w.r.t. a dual-core
-Cortex A9 clocked at a frequency 6.67 times higher.
+For completeness, however, our back end for Connex-S needs to lower code to
+emulate efficiently arithmetic operations for non-native types such as 32-bit
+integer and 16-bit floating point. To simplify the work of the compiler writer
+we conceive a method to code generate how we lower these operations inside
+LLVM's instruction selection pass.
+
+We also implement in the Connex-S processor simple lane gating techniques to
+minimize energy consumption for vector code with a high degree of control
+divergence, as it is the case for routines emulating floating point operations.
 
       </p>
     </li>
