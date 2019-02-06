@@ -7,13 +7,19 @@
     <ul>
     <li>
       <b>LLVM Core</b>
+      <ul>
+        <li><a href="#debuginfo_codegen_mismatch">Debug Info should have no
+            effect on codegen</a></li>           
+      </ul>
     </li>
-    <a href="http://clang.llvm.org/"><b>Clang</b></a><ul>
+    <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+    <ul>
       <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
           provide information for the type as written in template
           instantiations</a>
       </li>
     </ul>
+    </li>
     <li>
       <a href="http://lldb.llvm.org/"><b>LLDB</b></a>
     </li>
@@ -97,6 +103,30 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   <a>LLVM</a>
 </div>
 <!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="debuginfo_codegen_mismatch">Debug Info should have no
+          effect on codegen</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	  Adding Debug Info (compiling with `clang -g`) shouldn't change the
+	  generated code at all. Unfortunately we have bugs. These are usually not
+	  too hard to fix and a good way to discover new part of the codebase!
+	  We suggest building object files both ways and disassembling the
+          text sections, which will give cleaner diffs than comparing .s files.
+  </p>
+
+  <p><b>Expected results:</b> Reduced test cases, bug reports with analysis
+          (e.g., which pass is responsible), possibly patches.</p>
+
+  <p><b>Confirmed Mentor:</b> Paul Robinson</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++, some familiarity
+        with x86 or ARM instruction set.</p>
+</div>
 
 
 <!-- *********************************************************************** -->
