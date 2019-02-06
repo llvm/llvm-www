@@ -9,7 +9,9 @@
       <b>LLVM Core</b>
       <ul>
         <li><a href="#debuginfo_codegen_mismatch">Debug Info should have no
-            effect on codegen</a></li>           
+            effect on codegen</a></li>
+        <li><a href="#llvm_function_attributes">Improve function attribute
+            inference</a></li>
       </ul>
     </li>
     <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
@@ -126,6 +128,19 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   <p><b>Confirmed Mentor:</b> Paul Robinson</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++, some familiarity
         with x86 or ARM instruction set.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_function_attributes">Improve function attribute inference</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b> LLVM functions can be tagged with several <a href="/docs/LangRef.html#function-attributes">attributes</a> such as the function only reads memory, or the function cannot throw exceptions. These attributes are used by many optimizations when deciding if a particular transformation is valid or not. Functions attributes can be either given by the frontend or be inferred by LLVM.<br>
+  The goal of this project is to improve current function attributes inference algorithms, and to infer attributes that are not inferred right now. This will be accomplished via intra- and/or inter-procedural analyses. See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this email</a> for a list of oportunities for improvement.</p>
+  <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++ and familiarity with static analysis/abstract interpretation.</p>
 </div>
 
 
@@ -289,19 +304,6 @@ accepted and completed projects, please take a look into Google Summer of Code
   </p>
   <p><b>Confirmed Mentor:</b> Jakub Kuderski, Tobias Grosser (?)</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++. Familiarity with basic tree/graph algorithms and data structures.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_function_attributes">Improve function attribute inference</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b> LLVM functions can be tagged with several <a href="/docs/LangRef.html#function-attributes">attributes</a> such as the function only reads memory, or the function cannot throw exceptions. These attributes are used by many optimizations when deciding if a particular transformation is valid or not. Functions attributes can be either given by the frontend or be inferred by LLVM.<br>
-  The goal of this project is to improve current function attributes inference algorithms, and to infer attributes that are not inferred right now. This will be accomplished via intra- and/or inter-procedural analyses. See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this email</a> for a list of oportunities for improvement.</p>
-  <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++. Optional familiarity with static analysis/abstract interpretation.</p>
 </div>
 
 <!-- *********************************************************************** -->
