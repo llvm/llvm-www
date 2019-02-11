@@ -10,8 +10,8 @@
         <li><a href="#about">About</a></li>
 <!--        <li><a href="#wict">Women in Compilers and Tools</a></li> -->
         <li><a href="#dates">Important dates</a></li>
-<!--        <li><a href="#talks">Program</a></li> -->
-        <li><a href="#cfp">Call for papers</a></li>
+        <li><a href="#talks">Program</a></li>
+<!--        <li><a href="#cfp">Call for papers</a></li> -->
         <li><a href="#grant">Travel Grants for Students</a></li>
         <li><b><a href="#registration">Registration</a></b></li>
         <li><a href="#logistics">Logistics</a></li>
@@ -106,50 +106,353 @@ meet other LLVM developers and users.</p>
 
 <p>Here are some important dates:
 <ul>
-  <li>January 13th, 2019 : paper submission deadline</li>
-  <li>January 25th, 2019 : paper notification &amp; travel grant application deadline</li>
-  <li>February 8th, 2019 : travel grant notification</li>
   <li>February 26th, 2019 : late registration</li>
   <li>March 27th, 2019 : registration closes</li>
 </ul>
 </p>
 
-<div class="www_sectiontitle" id="cfp">Call for papers</div>
+<div class="www_sectiontitle" id="talks">Program</div>
 
-<p>All developers and users of LLVM and related sub-projects are invited to
-present at EuroLLVM'19.</p>
+<b>Keynote</b>
+<ul>
+<li><a href="talks.html#Keynote_1">
+  MLIR: Multi-Level Intermediate Representation for Compiler Infrastructure</a>
+  <i>Mehdi Amini (Google), Uday Bondhugula (Google), Andy Davis (Google), Chris Lattner (Google), Jacques Pienaar (Google), Tatiana Shpeisman (Google), Nicolas Vasilache (Google), Alex Zinenko (Google)</i>
+</li>
+</ul>
 
-<p>We are looking for the following proposals:
-<ol>
-  <li><b>Technical Talks (30 minutes including Q&A):</b> talks on LLVM core
-    libraries, Clang, Infrastructure and all related sub-projects, on uses of
-    LLVM in academia or industry, on new projects using Clang or LLVM.</li>
-  <li><b>Tutorials (60 minutes):</b> in depth talks on LLVM infrastructure or
-    other core libraries, with in depth examples and explanations.</li>
-  <li><b>Student Research Competition (25 minutes talk including Q&amp;A +
-      poster):</b> The SRC offers students doing LLVM related research a
-    non-academic platform to announce and advertise their work as well as to
-    discuss it with other researchers, developers and users of LLVM. Students
-    are strongly encouraged to present a poster as well, as this will enable
-    wider discussions with the audience. There will be a prize for the best SRC
-    talk.</li>
-  <li><b>Lightning Talks (5 minutes, no questions, no discussions)</b></li>
-  <li><b>Bird of a Feather (30 minutes)</b></li>
-  <li><b>Posters (1 hour poster session)</b></li>
-</ol>
-</p>
+<b>Technical talks</b>
+<ul>
+<li><a href="talks.html#Talk_1">
+  Switching a Linux distribution&#39;s main toolchains to LLVM/Clang</a>
+  <i>Bernhard Rosenkr&auml;nzer (Linaro, OpenMandriva, LinDev)</i>
+</li>
+<li><a href="talks.html#Talk_2">
+  Just compile it: High-level programming on the GPU with Julia</a>
+  <i>Tim Besard (Ghent University)</i>
+</li>
+<li><a href="talks.html#Talk_3">
+  The Future of AST Matcher-based Refactoring</a>
+  <i>Stephen Kelly</i>
+</li>
+<li><a href="talks.html#Talk_4">
+  A compiler approach to Cyber-Security</a>
+  <i>Fran&ccedil;ois de Ferri&egrave;re (STMicroelectronics)</i>
+</li>
+<li><a href="talks.html#Talk_5">
+  Compiler Optimizations for (OpenMP) Target Offloading to GPUs</a>
+  <i>Johannes Doerfert (Argonne National Laboratory), Hal Finkel (Argonne National Laboratory)</i>
+</li>
+<li><a href="talks.html#Talk_6">
+  Handling massive concurrency: Development of a programming model for GPU and CPU</a>
+  <i>Matthias Liedtke (SAP)</i>
+</li>
+<li><a href="talks.html#Talk_7">
+  Automated GPU Kernel Fusion with XLA</a>
+  <i>Thomas Joerg (Google)</i>
+</li>
+<li><a href="talks.html#Talk_8">
+  The Helium Haskell compiler and its new LLVM backend</a>
+  <i>Ivo Gabe de Wolff (University of Utrecht)</i>
+</li>
+<li><a href="talks.html#Talk_9">
+  Testing and Qualification of Optimizing Compilers for Functional Safety</a>
+  <i>Remi van Veen (Solid Sands)</i>
+</li>
+<li><a href="talks.html#Talk_10">
+  Improving Debug Information in LLVM to Recover Optimized-out Function Parameters</a>
+  <i>Nikola Prica (RT-RK), Djordje Todorovic (RT-RK), Ananthakrishna Sowda (CISCO), Ivan Baev (CISCO)</i>
+</li>
+<li><a href="talks.html#Talk_11">
+  LLVM IR in GraalVM: Multi-Level, Polyglot Debugging with Sulong</a>
+  <i>Jacob Kreindl (Johannes Kepler University Linz)</i>
+</li>
+<li><a href="talks.html#Talk_12">
+  LLDB Reproducers</a>
+  <i>Jonas Devlieghere (Apple)</i>
+</li>
+<li><a href="talks.html#Talk_13">
+  Sulong: An experience report of using the &quot;other end&quot; of LLVM in GraalVM.</a>
+  <i>Roland Schatz (Oracle Labs), Josef Eisl (Oracle Labs)</i>
+</li>
+<li><a href="talks.html#Talk_14">
+  SYCL compiler: zero-cost abstraction and type safety for heterogeneous computing</a>
+  <i>Andrew Savonichev (Intel)</i>
+</li>
+<li><a href="talks.html#Talk_15">
+  Handling all Facebook requests with JITed C++ code</a>
+  <i>Huapeng Zhou (Facebook), Yuhan Guo (Facebook)</i>
+</li>
+<li><a href="talks.html#Talk_16">
+  clang-scan-deps: Fast dependency scanning for explicit modules</a>
+  <i>Alex Lorenz (Apple), Michael Spencer (Apple)</i>
+</li>
+<li><a href="talks.html#Talk_17">
+  Clang tools for implementing cryptographic protocols like OTRv4</a>
+  <i>Sofia Celi (Centro de Autonomia Digital)</i>
+</li>
+<li><a href="talks.html#Talk_18">
+  Implementing the C++ Core Guidelines&#39;; Lifetime Safety Profile in Clang</a>
+  <i>Gabor Horvath (Eotvos Lorand University), Matthias Gehre (Silexica GmbH), Herb Sutter (Microsoft)</i>
+</li>
+<li><a href="talks.html#Talk_19">
+  Changes to the C++ standard library for C++20</a>
+  <i>Marshall Clow (CppAlliance)</i>
+</li>
+<li><a href="talks.html#Talk_20">
+  Adventures with RISC-V Vectors and LLVM</a>
+  <i>Robin Kruppe (TU Darmstadt), Roger Espasa (Esperanto Technologies)</i>
+</li>
+<li><a href="talks.html#Talk_21">
+  A Tale of Two ABIs: ILP32 on AArch64</a>
+  <i>Tim Northover (Apple)</i>
+</li>
+<li><a href="talks.html#Talk_22">
+  LLVM Numerics Improvements</a>
+  <i>Michael Berg (Apple), Jean-Luc Duprat (Apple)</i>
+</li>
+<li><a href="talks.html#Talk_23">
+  DOE Proxy Apps: Compiler Performance Analysis and Optimistic Annotation Exploration</a>
+  <i>Brian Homerding (Argonne National Laboratory), Johannes Doerfert (Argonne National Laboratory)</i>
+</li>
+<li><a href="talks.html#Talk_24">
+    Loop Fusion, Loop Distribution and their Place in the Loop Optimization Pipeline</a>
+  <i>Kit Barton (IBM), Johannes Doerfert (Argonne National Lab), Hal Finkel (Argonne National Lab), Michael Kruse (Argonne National Lab)</i>
+</li>
+</ul>
 
-<p><b>Submission deadline:</b></p>
-The submission deadline is January 13, 2019 AoE.
+<b>Tutorials</b>
+<ul>
+<li><a href="talks.html#Tutorial_1">
+  Tutorial: Building a Compiler with MLIR</a>
+  <i>Amini Mehdi (Google), Jacques Pienaar (Google), Nicolas Vasilache (Google)</i>
+</li>
+<li><a href="talks.html#Tutorial_2">
+  Building an LLVM-based tool: lessons learned</a>
+  <i>Alex Denisov</i>
+</li>
+<li><a href="talks.html#Tutorial_3">
+  LLVM IR Tutorial - Phis, GEPs and other things, oh my!</a>
+  <i>Vince Bridgers (Intel Corporation), Felipe de Azevedo Piovezan (Intel Corporation)</i>
+</li>
+</ul>
 
-<p><b>Please submit your proposal at</b>
-<a href="https://hotcrp.llvm.org/eurollvm2019">https://hotcrp.llvm.org/eurollvm2019</a></p>
+<b>Student Research Competition</b>
+<ul>
+<li><a href="talks.html#SRC_1">
+  Safely Optimizing Casts between Pointers and Integers</a>
+  <i>Juneyoung Lee (Seoul National University, Korea), Chung-Kil Hur (Seoul National University, Korea), Ralf Jung (MPI-SWS, Germany), Zhengyang Liu (University of Utah, USA), John Regehr (University of Utah, USA), Nuno P. Lopes (Microsoft Research, UK)</i>
+</li>
+<li><a href="talks.html#SRC_2">
+  An alternative OpenMP Backend for Polly</a>
+  <i>Michael Halkenh&auml;user (TU Darmstadt)</i>
+</li>
+<li><a href="talks.html#SRC_3">
+  Implementing SPMD control flow in LLVM using reconverging CFGs</a>
+  <i>Fabian Wahlster (Technische Universit&auml;t M&uuml;nchen), Nicolai
+  H&auml;hnle (Advanced Micro Devices)</i>
+</li>
+<li><a href="talks.html#SRC_4">
+  Function Merging by Sequence Alignment</a>
+  <i>Rodrigo Rocha (University of Edinburgh), Pavlos Petoumenos (University of Edinburgh), Zheng Wang (Lancaster University), Murray Cole (University of Edinburgh), Hugh Leather (University of Edinburgh)</i>
+</li>
+<li><a href="talks.html#SRC_5">
+  Compilation and optimization with security annotations</a>
+  <i>Son Tuan Vu (LIP6), Karine Heydemann (LIP6), Arnaud de Grandmaison (ARM), Albert Cohen (Google)</i>
+</li>
+<li><a href="talks.html#SRC_6">
+  Adding support for C++ contracts to Clang</a>
+  <i>Javier L&oacute;pez-G&oacute;mez (University Carlos III of Madrid), J.
+    Daniel Garc&iacute;a (University Carlos III of Madrid)</i>
+</li>
+</ul>
 
-<p>For each proposal, submit a title, short abstract (to be used on the
-website), note who the speakers are, and provide a more detailed description of
-the talk. You must consult and follow the <a href="cfp-guide.html#guide">guide</a>
-when submitting your proposal. Should you have any question, please check in
-the <a href="cfp-faq.html#faq">FAQ</a> if it has not already been answered.</p>
+<b>Lightning talks</b>
+<ul>
+<li><a href="talks.html#LightningTalk_1">
+  LLVM IR Timing Predictions: Fast Explorations via lli</a>
+  <i>Alessandro Cornaglia (FZI - Research Center for Information Technology)</i>
+</li>
+<li><a href="talks.html#LightningTalk_2">
+  Outer-Loop-Vectorization == LoopUnroll-And-Jam + SLP</a>
+  <i>Dibyendu Das (AMD)</i>
+</li>
+<li><a href="talks.html#LightningTalk_3">
+  Clacc 2019: An Update on OpenACC Support for Clang and LLVM</a>
+  <i>Joel E. Denny (Oak Ridge National Laboratory), Seyong Lee (Oak Ridge National Laboratory), Jeffrey S. Vetter (Oak Ridge National Laboratory)</i>
+</li>
+<li><a href="talks.html#LightningTalk_4">
+  Targeting a statically compiled program repository with LLVM</a>
+  <i>Phil Camp (SN Systems (Sony Interactive Entertainment)), Russell Gallop (SN Systems (Sony Interactive Entertainment))</i>
+</li>
+<li><a href="talks.html#LightningTalk_5">
+  Does the win32 clang compiler executable really need to be over 21MB in size?</a>
+  <i>Russell Gallop (SN Systems), Greg Bedwell (SN Systems)</i>
+</li>
+<li><a href="talks.html#LightningTalk_6">
+  Resolving the almost decade old checker dependency issue in the Clang Static Analyzer</a>
+  <i>Krist&oacute;f Umann (Ericsson Hungary, E&ouml;tv&ouml;s Lor&aacute;nd University)</i>
+</li>
+<li><a href="talks.html#LightningTalk_7">
+  Adopting LLVM Binary Utilities in Toolchains</a>
+  <i>Jordan Rupprecht (Google)</i>
+</li>
+<li><a href="talks.html#LightningTalk_8">
+  Multiplication and Division in the Range-Based Constraint Manager</a>
+  <i>&Aacute;d&aacute;m Balogh (Ericsson Hungary Ltd.)</i>
+</li>
+<li><a href="talks.html#LightningTalk_9">
+  Statistics Based Checkers in the Clang Static Analyzer</a>
+  <i>&Aacute;d&aacute;m Balogh (Ericsson Hungary Ltd.)</i>
+</li>
+<li><a href="talks.html#LightningTalk_10">
+  Flang Update</a>
+  <i>Steve Scalpone (NVIDA / PGI / Flang)</i>
+</li>
+<li><a href="talks.html#LightningTalk_11">
+  Swinging Modulo Scheduling together with Register Allocation</a>
+  <i>Lama Saba (Intel)</i>
+</li>
+<li><a href="talks.html#LightningTalk_12">
+  LLVM for the Apollo Guidance Computer</a>
+  <i>Lewis Revill (University of Bath)</i>
+</li>
+<li><a href="talks.html#LightningTalk_13">
+  Catch dangling inner pointers with the Clang Static Analyzer</a>
+  <i>R&eacuteka Kov&aacute;cs (E&ouml;tv&ouml;s Lor&auml;nd University)</i>
+</li>
+<li><a href="talks.html#LightningTalk_14">
+  Cross translation unit test case reduction</a>
+  <i>R&eacuteka Kov&aacute;cs (E&ouml;tv&ouml;s Lor&auml;nd University)</i>
+</li>
+<li><a href="talks.html#LightningTalk_15">
+  Utilizing performance benefits of 32-bit compiler into a 64-bit compiler.</a>
+  <i>Venkatesh (IBM)</i>
+</li>
+</ul>
+
+<b>BoFs</b>
+<ul>
+<li><a href="talks.html#BoF_1">
+  RFC: Towards Vector Predication in LLVM IR</a>
+  <i>Simon Moll (Saarland University), Sebastian Hack (Saarland University)</i>
+</li>
+<li><a href="talks.html#BoF_2">
+  IPO --- Where are we, where do we want to go?</a>
+  <i>Johannes Doerfert (Argonne National Laboratory), Kit Barton (IBM Toronto Lab)</i>
+</li>
+<li><a href="talks.html#BoF_3">
+  LLVM binutils</a>
+  <i>James Henderson (SN Systems (Sony Interactive Entertainment)), Jordan Rupprecht (Google)</i>
+</li>
+<li><a href="talks.html#BoF_4">  RFC: Reference OpenCL Runtime library for LLVM</a>
+  <i>Andrew Savonichev (Intel)</i>
+</li>
+<li><a href="talks.html#BoF_5">
+  LLVM Interface Stability Guarantees BoF</a>
+  <i>Stephen Kelly</i>
+</li>
+<li><a href="talks.html#BoF_6">
+  Clang Static Analyzer BoF</a>
+  <i>Devin Coughlin (Apple), Gabor Horvath (Eotvos Lorand University)</i>
+</li>
+<li><a href="talks.html#BoF_7">
+  LLVM Numerics Improvements</a>
+  <i>Michael Berg (Apple), Jean-Luc Duprat (Apple)</i>
+</li>
+</ul>
+
+<b>Posters</b>
+<ul>
+<li><a href="talks.html#Poster_1">
+  Clava: C/C++ source-to-source from CMake using LARA</a>
+  <i>Jo&atilde;o Bispo (FEUP/INESCTEC)</i>
+</li>
+<li><a href="talks.html#Poster_2">
+  Safely Optimizing Casts between Pointers and Integers</a>
+  <i>Juneyoung Lee (Seoul National University, Korea), Chung-Kil Hur (Seoul National University, Korea), Ralf Jung (MPI-SWS, Germany), Zhengyang Liu (University of Utah, USA), John Regehr (University of Utah, USA), Nuno P. Lopes (Microsoft Research, UK)</i>
+</li>
+<li><a href="talks.html#Poster_3">
+  Scalar Evolution Canon: Click! Canonicalize SCEV and validate it by Z3 SMT solver!</a>
+  <i>Lin-Ya Yu (Xilinx), Alexandre Isoard (Xilinx)</i>
+</li>
+<li><a href="talks.html#Poster_4">
+  Splendid GVN: Partial Redundancy Elimination for Algebraic Simplification</a>
+  <i>Li-An Her (National Tsing Hua University), Jenq-Kuen Lee (National Tsing Hua University)</i>
+</li>
+<li><a href="talks.html#Poster_5">
+  An alternative OpenMP Backend for Polly</a>
+  <i>Michael Halkenh&auml;user (TU Darmstadt)</i>
+</li>
+<li><a href="talks.html#Poster_6">
+  Does the win32 clang compiler executable really need to be over 21MB in size?</a>
+  <i>Russell Gallop (SN Systems), G Bedwell (SN Systems)</i>
+</li>
+<li><a href="talks.html#Poster_7">
+  Enabling Multi- and Cross-Language Verification with LLVM</a>
+  <i>Zvonimir Rakamaric (University of Utah)</i>
+</li>
+<li><a href="talks.html#Poster_8">
+  Instruction Tracing and dynamic codegen analysis to identify unique llvm performance issues.</a>
+  <i>Biplob (IBM)</i>
+</li>
+<li><a href="talks.html#Poster_9">
+  Handling all Facebook requests with JITed C++ code</a>
+  <i>Huapeng Zhou (Facebook), Yuhan Guo (Facebook)</i>
+</li>
+<li><a href="talks.html#Poster_10">
+  Implementing SPMD control flow in LLVM using reconverging CFGs</a>
+  <i>Fabian Wahlster (Technische Universit&auml;t M&uuml;nchen), Nicolai H&auml;hnle (Advanced Micro Devices)</i>
+</li>
+<li><a href="talks.html#Poster_11">
+  LLVM for the Apollo Guidance Computer</a>
+  <i>Lewis Revill (University of Bath)</i>
+</li>
+<li><a href="talks.html#Poster_12">
+  LLVM Miner: Text Analytics based Static Knowledge Extractor</a>
+  <i>Hameeza Ahmed (NED University of Engineering and Technology), Muhammad Ali Ismail (NED University of Engineering and Technology)</i>
+</li>
+<li><a href="talks.html#Poster_13">
+  Function Merging by Sequence Alignment</a>
+  <i>Rodrigo Rocha (University of Edinburgh), Pavlos Petoumenos (University of Edinburgh), Zheng Wang (Lancaster University), Murray Cole (University of Edinburgh), Hugh Leather (University of Edinburgh)</i>
+</li>
+<li><a href="talks.html#Poster_14">
+  Compilation and optimization with security annotations</a>
+  <i>Son Tuan Vu (LIP6), Karine Heydemann (LIP6), Arnaud de Grandmaison (ARM), Albert Cohen (Google)</i>
+</li>
+<li><a href="talks.html#Poster_15">
+  Cross translation unit test case reduction</a>
+  <i>R&eacuteka Kov&aacute;cs (E&ouml;tv&ouml;s Lor&auml;nd University)</i>
+</li>
+<li><a href="talks.html#Poster_16">
+  Leveraging Polyhedral Compilation in Chapel Compiler</a>
+  <i>Sahil Yerawar (IIT Hyderabad), Siddharth Bhat (IIIT Hyderabad), Michael Ferguson (Cray Inc.), Philip Pfaffe (Karlsruhe Institute of Technology), Ramakrishna Upadrasta (IIT Hyderabad)</i>
+</li>
+<li><a href="talks.html#Poster_17">
+  LLVM on AVR - textual IR as a powerful tool for making &quot;impossible&quot; compilers</a>
+  <i>Carl Peto (Swift for Arduino/Petosoft)</i>
+</li>
+<li><a href="talks.html#Poster_18">
+  Vectorizing Add/Sub Expressions with SLP</a>
+  <i>Vasileios Porpodas (Intel Corporation, USA), Rodrigo C. O. Rocha (University
+  of Edinburgh, UK), Evgueni Brevnov (Intel Corporation, USA), Lu&iacute;s F.
+  W. G&oacute;es (PUC Minas, Brazil), Timothy Mattson (Intel Corporation,
+USA)</i>
+</li>
+<li><a href="talks.html#Poster_19">
+  Adding support for C++ contracts to Clang</a>
+  <i>Javier L&oacute;pez-G&oacute;mez (University Carlos III of Madrid), J.
+  Daniel Garc&iacute;a (University Carlos III of Madrid)</i>
+</li>
+<li><a href="talks.html#Poster_20">
+  Optimizing Nondeterminacy: Exploiting Race Conditions in Parallel Programs</a>
+  <i>William S. Moses (MIT CSAIL)</i>
+</li>
+<li><a href="talks.html#Poster_21">
+  Utilizing performance benefits of 32-bit compiler into a 64-bit compiler.</a>
+  <i>Venkatesh (IBM)</i>
+</li>
+</ul>
 
 <div class="www_sectiontitle" id="registration">Registration</div>
 <p>Registration is now open ! Please use this
@@ -164,7 +467,7 @@ will be closed after March 27, 2019.</p>
 <p>The LLVM Foundation sponsors student travel to attend the LLVM developers'
 meeting. Travel grants cover some or all of travel related expenses. This
 program is open to full time undergraduate and graduate students.</p>
-<p>Please submit your application <a href="https://goo.gl/forms/NY9raDpSXwHf73n92">here</a>. The deadline for applications is January 25th.</p>
+<p>The deadline for applications was January 25th, so they are now closed.</p>
 
 <div class="www_sectiontitle" id="logistics">Logistics</div>
 <p>We have reserved a block of rooms at
