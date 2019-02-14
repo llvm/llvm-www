@@ -205,6 +205,63 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 </div>
 
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-astimporter-fuzzer">Implement an ASTImporter fuzzer</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    Clang contains an ASTImporter which allows moving declarations and
+    statements from one Clang AST to another. This is for example used for
+    static analysis across translation units and in LLDB's expression
+    evaluator.
+  </p>
+  <p>
+    The current ASTImporter works as intended when moving simple C code from
+    one AST to another. However, more complicated declarations such as C++'s
+    OOP features and templates are not fully implemented and can cause crashes
+    or invalid AST nodes. The bug reports related to these crashes are often
+    filed against LLDB's expression evaluator and are rarely submited with a
+    minimal reproducer. This makes improving ASTImporter a time-consuming and
+    tedious task.
+  </p>
+  <p>
+    This project is about writing a fuzzer to proactively discover these
+    ASTImporter bugs and provide minimal reproducers which make understanding
+    and fixing the underlying bug easier.
+  </p>
+  <p>
+    A possible implementation of such a fuzzer and driver could look like this:
+
+  <ul>
+    <li>Generate some source code that can be imported (either fully randomly
+        or based on existing source code from a user-given code corpus).</li>
+    <li>Import randomly a few declarations from this AST. The AST in which
+        they are imported to can already be populated with declarations.</li>
+    <li>Run Clang's code generator over our imported AST.</li>
+    <li>If we hit an assert during the import or CodeGen steps we probably
+        found an ASTImporter bug.</li>
+    <li>The fuzzer driver should now reduce the size of the source code
+        until it is as small as possible and still reproduces the crash (e.g.
+        by running Creduce with an automatically generated test script).</li>
+    <li>The reproducer should now be stored in a format so that it can just be
+        copied into Clang's regression test suite for the ASTImporter (see
+        the <a href="https://github.com/llvm/llvm-project/tree/master/clang/test/Import">clang/test/Import/</a> directory).
+        The reproducer must still reproduce the found bug when run as part
+        of the test suite.
+        </li>
+  </ul>
+  This is just one possible approach and students are welcome to submit their
+  own ideas on how the fuzzer should operate. Approaches that allow to
+  automatically verify more aspects of the imported AST (e.g. the source
+  locations of AST nodes, size of RecordDecls) are encouraged. The fuzzer and
+  driver should be implemented in C++ and/or Python.
+  </p>
+  <p><b>Confirmed Mentor:</b> Raphael Isemann, Shafik Yaghmour</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
