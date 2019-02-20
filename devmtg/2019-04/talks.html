@@ -997,26 +997,6 @@ be applied to multiple TUs in their original form.</p>
 make it possible to use C-Reduce for cross translation unit test case
 reduction.</p>
 </td></tr>
-
-<tr><td valign="top" id="LightningTalk_15">
-<b>Utilizing performance benefits of 32-bit compiler into a 64-bit compiler.</b><br>
-<i>Venkatesh (IBM)</i>
-<p>Some applications show better performance when executed on a 32-bit
-processor. Most of these applications are stack,  cache and pointer intensive
-in nature. When the same application is compiled and run on a 64-bit machine
-generally show certain performance degradation&#39;s. There are certain
-performance opportunities which can be learned and deployed in higher bit
-compilers.</p>
-<p>In this talk we analyze few applications compiled by a llvm compiler for a
-32-bit and a 64-bit processor, and analyze how certain performance gains in a
-32-bit compiled program be extracted and be used to train the llvm compiler to
-benefit a 64-bit scenario. For example a  SPEC CPU2017 INT benchmark namely
-523.xalanc_r, is a linked list based application which is high on cache misses.
-A 64-bit version of this benchmark has nearly 50% higher data cache misses as
-compared to a 32-bit one. Some of the cache misses in 64-bit compiled
-application can actually be reduced. We will discuss how this can be achieved
-and some other scenarios which will benefit a 64-bit compiler.</p>
-</td></tr>
 </table>
 
 <div class="www_sectiontitle" id="BoF">BoFs</div>
@@ -1302,7 +1282,7 @@ languages. We assess the quality of our extensions and the proposed methodology
 through several case studies, and we describe the lessons we learned in the
 process.</p>
 </td></tr>
-<!--
+
 <tr><td valign="top" id="Poster_8">
 <b>Instruction Tracing and dynamic codegen analysis to identify unique llvm performance issues.</b><br>
 <i>Biplob (IBM)</i>
@@ -1322,7 +1302,7 @@ will look at some of these code-gen issues which were better identified when a
 running application compiled by llvm and other compilers were traced for hot
 code sections on IBM Power9 processor.</p>
 </td></tr>
--->
+
 <tr><td valign="top" id="Poster_9">
 <b>Handling all Facebook requests with JITed C++ code</b><br>
 <i>Huapeng Zhou (Facebook), Yuhan Guo (Facebook)</i>
@@ -1576,26 +1556,6 @@ it believes it beneficial.</p>
 nondeterminacy through a number of example optimizations, taking a look at
 their theoretical implications as well as how they perform when implemented
 atop the Tapir extension to LLVM.</p>
-</td></tr>
-
-<tr><td valign="top" id="Poster_21">
-<b>Utilizing performance benefits of 32-bit compiler into a 64-bit compiler.</b><br>
-<i>Venkatesh (IBM)</i>
-<p>Some applications show better performance when executed on a 32-bit
-processor. Most of these applications are stack,  cache and pointer intensive
-in nature. When the same application is compiled and run on a 64-bit machine
-generally show certain performance degradation&#39;s. There are certain
-performance opportunities which can be learned and deployed in higher bit
-compilers.</p>
-<p>In this talk we analyze few applications compiled by a llvm compiler for a
-32-bit and a 64-bit processor, and analyze how certain performance gains in a
-32-bit compiled program be extracted and be used to train the llvm compiler to
-benefit a 64-bit scenario. For example a  SPEC CPU2017 INT benchmark namely
-523.xalanc_r, is a linked list based application which is high on cache misses.
-A 64-bit version of this benchmark has nearly 50% higher data cache misses as
-compared to a 32-bit one. Some of the cache misses in 64-bit compiled
-application can actually be reduced. We will discuss how this can be achieved
-and some other scenarios which will benefit a 64-bit compiler.</p>
 </td></tr>
 </table>
 
