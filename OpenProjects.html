@@ -26,6 +26,9 @@
       <li><a href="#improve-autocompletion">Improve shell autocompletion
           for Clang</a>
       </li>
+      <li><a href="#analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
+          Projects</a>
+      </li>
     </ul>
     </li>
     <li>
@@ -283,6 +286,43 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   </p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
+  Projects</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+	The idea is to improve the Clang Static Analyzer so that it becomes useful
+	for developers that work on Clang and LLVM themselves, as well as on other
+  LLVM-based projects, like Swift. LLVM makes use of C++ language features that
+  the Static Analyzer has not yet been taught to understand. The analyzer also
+  has false positives on some C++ idioms commonly used in the LLVM codebase.
+  </p>
+  <p>
+	The Static Analyzer is already useful for a variety of projects, but in order
+  to reach the "use your own tools" checkpoint, we'd have to classify, debug,
+  and, ideally, eliminate the most common sources of false positives
+  on our code. It would be the best to fix false positives by improving
+  the Static Analyzer itself, but it may also sometimes be feasible to add
+  a few suppressions (such as assertions) within the LLVM source code so that
+  it is easier for both humans and the Analyzer to understand what's going on.
+  And, of course, it's great to report and maybe even fix the true positives
+  that we manage to find!
+  </p>
+
+  <p><b>Expected results:</b>
+  Results produced by the Analyzer on LLVM itself should become more or
+  less correct: warnings are useful, false alarms are gone. This lets
+  more and more LLVM developers adopt the Static Analyzer in their daily lifes
+  or CI workflows.
+  </p>
+
+  <p><b>Confirmed Mentor:</b> Artem Dergachev, Ravi Kandhadai Madhavan</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
 
 
 <!-- *********************************************************************** -->
