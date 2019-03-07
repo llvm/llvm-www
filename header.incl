@@ -71,12 +71,12 @@
 <b>Useful&nbsp;Links</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">Mailing Lists:</span><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM-dev</a><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-bugs">LLVM-bugs</a><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
-  <a href="http://lists.llvm.org/mailman/listinfo/llvm-testresults">LLVM-testresults</a>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM-dev</a><br>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-bugs">LLVM-bugs</a><br>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
+  <a href="https://lists.llvm.org/mailman/listinfo/llvm-testresults">LLVM-testresults</a>
   <br><br>
 
   <span style="font-size:smaller">IRC Channel:</span><br>
