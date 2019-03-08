@@ -12,6 +12,8 @@
             effect on codegen</a></li>
         <li><a href="#llvm_function_attributes">Improve function attribute
             inference</a></li>
+        <li><a href="#improve_binary_utilities">Improve LLVM binary utilities
+            </a></li>
       </ul>
     </li>
     <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
@@ -145,6 +147,29 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
   The goal of this project is to improve current function attributes inference algorithms, and to infer attributes that are not inferred right now. This will be accomplished via intra- and/or inter-procedural analyses. See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this email</a> for a list of oportunities for improvement.</p>
   <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++ and familiarity with static analysis/abstract interpretation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="improve_binary_utilities">Improve LLVM binutils</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b> Binary utilities (aka binutils) are a
+    set of tools used to inspect and analyze generated binary files. We have
+    recently developed new versions of these in the LLVM project so we can
+    remove the need for their GNU equivalents. The base functionality is done,
+    but there are many missing features. In this project you will be
+    contributing to the LLVM binutils, adding these additional features, in
+    tools such as llvm-readobj, llvm-objdump and llvm-objcopy. This will require
+    you to become an expert in the specification details for various object file
+    formats, such as ELF and COFF.</p>
+  <p><b>Expected Results:</b> Patch contributions to the LLVM binary utilities
+    to improve the quality of existing features and to add missing
+    functionality.</p>
+  <p><b>Confirmed Mentor:</b> James Henderson, Jordan Rupprecht</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
 </div>
 
 
