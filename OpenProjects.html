@@ -31,6 +31,9 @@
       <li><a href="#analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
           Projects</a>
       </li>
+      <li><a href="#header-generation">Generate annotated sources based on
+          LLVM-IR analyses</a>
+      </li>
     </ul>
     </li>
     <li>
@@ -347,6 +350,48 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
   <p><b>Confirmed Mentor:</b> Artem Dergachev, Ravi Kandhadai Madhavan</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="header-generation">Generate annotated sources based on
+          LLVM-IR analyses</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Background and motivation:</b>
+  During the compilation of a piece of code, LLVM derives various facts that are
+  only used while the respective translation unit (TU), or LLVM module, is
+  processed. This holds for standard compilation but also
+  link-time-optimization (LTO) in which the module is (partially) merged with
+  others, that are part of the same project, at link time. In either scenario
+  there are drawbacks: In single TU compilation, the derived information is not
+  accessible to other TUs, which generally leads to performance loss in the
+  presence of cross TU accesses or calls. In LTO-mode, only the parts build
+  together in LTO-mode, or distributed in LTO-mode, will benefit from cross TU
+  optimizations. This means for example that pre-build (proprietary)
+  third-party libraries are precluded. Any LTO approach, including thin-LTO,
+  will additionally come with a non-trivial compile time investment.</p>
+
+  <p><b>Description of the project:</b>
+  In this project we propose to expose the LLVM derived facts to the outside
+  world by annotating the respective declarations in the source, mostly header,
+  files. These annotations can vary in their expressiveness and compatibility
+  with the existing base language annotations but they should always allow
+  subsequent compilations, which include the annotated source files, to produce
+  better code in the presence of cross TU accesses and calls.</p>
+
+  <p><b>Expected results:</b>
+  A prototype implementation that can generate annotated source code based on
+  LLVM-IR attributes. Additionally, a comparison of this optimization approach
+  to single TU, thin-LTO, and LTO compilation, with regards to compile time,
+  memory consumption, and execution time.
+  </p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert, Brian Homerding</p>
+  <p><b>Desirable skills:</b> Good knowledge of C and C++ semantics,
+                              C++ coding experience</p>
 </div>
 
 
