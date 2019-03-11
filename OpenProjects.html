@@ -10,7 +10,7 @@
       <ul>
         <li><a href="#debuginfo_codegen_mismatch">Debug Info should have no
             effect on codegen</a></li>
-        <li><a href="#llvm_function_attributes">Improve function attribute
+        <li><a href="#llvm_function_attributes">Improve (function) attribute
             inference</a></li>
         <li><a href="#improve_binary_utilities">Improve LLVM binary utilities
             </a></li>
@@ -141,14 +141,38 @@ main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
-  <a name="llvm_function_attributes">Improve function attribute inference</a>
+  <a name="llvm_function_attributes">Improve (function) attribute inference</a>
 </div>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
-  <p><b>Description of the project:</b> LLVM functions can be tagged with several <a href="/docs/LangRef.html#function-attributes">attributes</a> such as the function only reads memory, or the function cannot throw exceptions. These attributes are used by many optimizations when deciding if a particular transformation is valid or not. Functions attributes can be either given by the frontend or be inferred by LLVM.<br>
-  The goal of this project is to improve current function attributes inference algorithms, and to infer attributes that are not inferred right now. This will be accomplished via intra- and/or inter-procedural analyses. See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this email</a> for a list of oportunities for improvement.</p>
-  <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
+  <p><b>Description of the project:</b>
+  LLVM functions, as well as arguments and other entities, can be tagged with
+  several <a href="/docs/LangRef.html#function-attributes">attributes</a> such
+  as the function only reads memory, or the function cannot throw exceptions.
+  These attributes are used by many optimizations when deciding if a particular
+  transformation is valid or not. Functions attributes can be either given by
+  the frontend or be inferred by LLVM.
+  </p>
+
+  <p>
+  The goal of this project is to improve/replace the current function
+  attributes inference algorithms, and to infer attributes that are not
+  inferred right now. This will be accomplished via intra- and/or
+  inter-procedural analyses.
+  </p>
+
+  <p><b>Background and further reading</b>
+  See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this
+  email</a> for a list of opportunities for improvement, <a
+  href="https://lists.llvm.org/pipermail/llvm-dev/2018-August/125537.html">this
+email thread</a> for a description of the current implementation, its problems,
+and a alternative approach. Finally, find a (currently still rough) prototype
+of the proposed alternative, which would be the starting point for this project,
+<a href="https://reviews.llvm.org/D59202">here</a>.
+  </p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert, Nuno Lopes</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++ and familiarity with static analysis/abstract interpretation.</p>
 </div>
 
