@@ -34,14 +34,12 @@
       <br>Huawei</a><br>
 </div>
 
-<h2 align="center">Corporate Supporters"</h2>
+<h2 align="center">Corporate Supporters</h2>
 <div class="sponsors_silver">
-<ul>
-<li><a href="https://www.mathworks.com/">MathWorks</a></li>
-<li><a href="https://www.reservoir.com/">Reservoir Labs</a></li>
-<li><a href="https://www.cockroachlabs.com/">Cockroach Labs</a></li>
-<li><a href="https://www.uber.com">Uber</a></li>
-</ul>
+<a href="https://www.mathworks.com/">MathWorks</a>
+<a href="https://www.reservoir.com/">Reservoir Labs</a>
+<a href="https://www.cockroachlabs.com/">Cockroach Labs</a>
+<a href="https://www.uber.com">Uber</a>
 </div>
 
 
