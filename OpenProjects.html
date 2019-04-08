@@ -38,12 +38,6 @@
       </li>
     </ul>
     </li>
-    <li>
-      <a href="http://lldb.llvm.org/"><b>LLDB</b></a>
-    </li>
-    <li>
-        <a href="#connex_back_end"><b>Improve the Connex SIMD processor LLVM back end and middle-tier</b></a>
-    </li>
    </ul>
   </li>
   <li><a href="#what">What is this?</a></li>
@@ -445,40 +439,6 @@ of the proposed alternative, which would be the starting point for this project,
 
   <p><b>Desirable skills:</b> C++ coding experience</p>
 </div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="connex_back_end">Improve the Connex SIMD processor LLVM back end and middle-tier</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    The custom-width Connex SIMD processor has a mature LLVM compiler back end.
-    The source code is available <a href="https://gitlab.dcae.pub.ro/research/ConnexRelated/OpincaaLLVM">here</a> and we are working to push it in the main LLVM repository.
-    It is described in a WPMVP 2019 <a href="https://dl.acm.org/citation.cfm?id=3306166">paper</a>
-     and also in a detailed technical
-       <a href="https://sites.google.com/site/alexsusu/myfilecabinet/OpincaaLLVM_TR_UPB.pdf">report</a>.
-  </p>
-  <p>
-    There are a few interesting improvements to be performed on this back end,
-    especially for the inter-lane shift vector unit, which exposes instructions
-    similar to NVIDIA's shuffle instructions.
-    Other improvements can be:
-        i) strength-reduction optimizations for emulation routines for the i32 and f16 types;
-       ii) removing useless vector COPY instructions resulting after phi-elimination.
-    <br/>
-    Other improvements that need to be performed on the LLVM middle-tier are
-    related to tiling loops, for example by using the Polly polyhedral
-    compilation tool, to fit the data used by the loops in the scratchpad
-    memory of the Connex processor.
-  </p>
-  <p><b>Confirmed Mentor:</b> Alex Susu</p>
-  <p><b>Desirable skills:</b> Knowledge of C++ and LLVM API, some LLVM IR language (https://llvm.org/docs/LangRef.html).</p>
-</div>
-
-
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
