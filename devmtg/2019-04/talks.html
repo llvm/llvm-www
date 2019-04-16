@@ -1568,27 +1568,6 @@ annotations from the program source, propagating and emitting them in the
 binary, so that binary-level analysis tools can use them.</p>
 </td></tr>
 
-<tr><td valign="top" id="Poster_15">
-<b>Cross translation unit test case reduction</b>
- [ Poster ]<br>
-<i>R&eacute;ka Kov&aacute;cs (E&ouml;tv&ouml;s Lor&auml;nd University)</i>
-<p>C-Reduce, released by Regehr et al. in 2012, is an excellent tool designed
-to generate a minimal test case from a C/C++ file that has some specific
-property (e.g. triggers a bug). One of the most interesting parts of C-Reduce
-is Clang Delta, which is a set of compiler-like transformations implemented
-using Clang libraries. Clang Delta includes transformations like changing a
-function parameter to a global variable etc. </p>
-<p>With the introduction of the experimental cross translation unit analysis
-feature in the Clang Static Analyzer, there arose a need to investigate
-crashes, bugs, or false positive reports that spread across different
-translation units. Unfortunately, C-Reduce was designed to minimize one
-translation unit at a time, and some of the Clang Delta transformations cannot
-be applied to multiple TUs in their original form.</p>
-<p>This talk/poster is a status report about a work in progress that aims to
-make it possible to use C-Reduce for cross translation unit test case
-reduction.</p>
-</td></tr>
-
 <tr><td valign="top" id="Poster_16">
 <b>Leveraging Polyhedral Compilation in Chapel Compiler</b>
  [ Poster ]<br>
