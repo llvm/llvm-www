@@ -1,0 +1,107 @@
+<!--#include virtual="header.incl" -->
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc19">Google Season of Docs 2019</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+
+<p>
+The LLVM Project is hopeful to participate in the inaugural Google Season of Docs program. This program's goal is to foster collaboration between open source project's and technical writers.  This program has the potential to make a huge impact. In a <a href="https://opensourcesurvey.org/2017">2017 Survey of Open Source Projects</a>, it found that 93% of those surveyed said that “ incomplete or outdated documentation is a pervasive problem." However, despite this opinion, only 60% of those surveyed said they rarely or never had contributed documentation. This is a troubling discovery as documentation is vital to the long term health of an open source project.
+</p>
+
+<p>Documentation is essential for bringing in new contributors to a project. It help newcomers learn the basics of how to use a project, how to contribute back to a project, and the overall governance and licensing of an open source project. Quality documentation is key to keeping developers as projects continue to evolve over time.</p>
+
+<p>
+The LLVM Project is unfortunately not exempt from having incomplete, outdated, or poor documentation. Recently, the LLVM Foundation hosted a working workshop through its Women in Compilers and Tools initiative that focused on removing barriers for newcomers through improving LLVM project documentation.  During this workshop, many great ideas were discussed and rough outlines proposed for improving some of our key newcomer documentation. It is through this workshop and conversations with the LLVM community at large that a list of potential documentation projects has been created.
+</p>
+
+It is our hope that we will be paired with a technical writer on one or two of these documentation projects below and ultimately improve the experience for newcomers and experienced developers alike.
+</p>
+
+<p>
+If you have any questions, are interested in becoming a mentor, or project suggestions - please contact us via <a href=”mailto:docs@lists.llvm.org”>docs@lists.llvm.org</a>
+</p>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Documentation Projects</a>
+</div>
+<!-- *********************************************************************** -->
+
+
+<div class="www_subsubsection">
+  <a name"Revise LLVM Getting Started Guide"></a>
+</div>
+<div class="www_text">
+   <p><b>Mentors: Tanya Lattner, ...</b></p>
+   <p><b>Description of the project:</b>
+   The LLVM Getting Started Guide is in need of some serious revision. It is currently extremely lengthy, hard to read, and not very inviting for newcomers. During a recent working workshop focused on documentation improvements, a group of developers looked at the guide and made some suggestions for potential changes. One such idea was to break the guide up into varying levels of difficulty to address different audiences such as: beginner, intermediate and advanced. Other ideas are captured in the related material below.
+   </p>
+
+   <p><b>Related Material:</b>
+   <ul>
+   <li><a href="http://llvm.org/docs/GettingStarted.html">Getting Started Guide</a>: Current document on llvm.org</li>
+   <li><a href="https://docs.google.com/document/d/1Prx1PLLU7VB0w2gBsAv0uB5MwX2Z7g9UIMTIUKZumcg/edit">Ideas from the workshop</a></li>
+   <li><a href="https://docs.google.com/document/d/1sgnnwjU-ESvAQpQzeFY5l02OVllOlJbMm1E4YzylgC4/edit">Mockups and examples of new getting started guides</a></li>
+   <li>Various addendums to the main getting starting guide; <a href="http://llvm.org/docs/GettingStartedVS.html">Getting Started with the LLVM System using Microsoft Visual Studio</a>, <a href="http://llvm.org/docs/CMake.html”>Building LLVM with CMake</a>, and many notes listed <a href="http://llvm.org/docs/">here</a>.
+   </p>
+</div>
+
+<div class="www_subsubsection">
+  <a name"LLVM Overview System Documentation"></a>
+</div>
+<div class="www_text">
+   <p><b>Mentors: Tanya Lattner, ...</b></p>
+   <p><b>Description of the project:</b>
+   LLVM is a large and constantly changing software project. There are really only a few papers and a book chapter that describe the system as a whole and give a good overview. We should develop more current documentation using Sphinx to document and describe the LLVM infrastructure.
+   </p>
+   http://llvm.org/pubs/2002-12-LattnerMSThesis.html”Original
+   <p><b>Related Material:</b>
+   <ul>
+   <li>Most useful documentation - <a href=”http://www.aosabook.org/en/llvm.html”>a book chapter about LLVM</a></li>
+   <li><a href=”http://llvm.org/pubs/2008-10-04-ACAT-LLVM-Intro.html”>2008 presentation on LLVM</a></li>
+   <li><a href=”http://llvm.org/pubs/2004-01-30-CGO-LLVM.html”>2004 CGO Paper on LLVM</a></li>
+   <li><a href=”http://llvm.org/pubs/2002-12-LattnerMSThesis.html”>2002 Original thesis on LLVM</a></li>
+</ul>
+ </p>
+</div>
+
+<div class="www_subsubsection">
+  <a name"Restructure LLVM documentation index and documentation style guide"></a>
+</div>
+<div class="www_text">
+   <p><b>Mentors: Tanya Lattner, ...</b></p>
+   <p><b>Description of the project:</b>
+   Currently, all LLVM docs are listed on one page with poor organization and indexing/tagging. We would like the high level organization of the docs to be revised and edited to be more easily navigated. In addition, we would like have a updated sphinx style guide for developing new LLVM documentation and to improve the readability and accessibility of all current LLVM documentation.
+   </p>
+   
+   <p><b>Related Material:</b>
+  <ul>
+  <li><a href=”http://llvm.org/docs/”>Documentation Index</a></li>
+   <li><a href=”http://llvm.org/docs/SphinxQuickstartTemplate.html”>Sphinx Quickstart Guide</a></li>
+</ul>
+</p>
+</div>
+
+<div class="www_subsubsection">
+  <a name"Clang Newcomer Documentation"></a>
+</div>
+<div class="www_text">
+   <p><b>Mentors: Tanya Lattner, ...</b></p>
+   <p><b>Description of the project:</b>
+   The Clang project could use some revisions to its documentation directly related to newcomers. In particular, we should migrate the getting involved page to a more standard Contributing page and try to more directly integrate with the LLVM documentation on submitting patches and developer standards. These pages should also convert to Sphinx. The content of the main Clang webpage could also use an overhaul to better explain what Clang is. 
+   </p>
+
+   <p><b>Related Material:</b>
+   <ul>
+   <li><a href=”http://clang.llvm.org/index.html”>Clang main page</a></li>   
+   <li><a href=”http://clang.llvm.org/get_involved.html”>Getting Involved with Clang</a></li>
+</ul>
+</p>
+
+</div>
+<!--#include virtual="footer.incl" -->
+
