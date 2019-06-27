@@ -1,0 +1,88 @@
+<!--#include virtual="header.incl" -->
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+
+<div class="www_sectiontitle">GitHub Migration Status</div>
+
+<p>
+The LLVM project is migrating its source code from SVN to git.  This page tracks
+the current status of the migration.
+</p>
+
+<h2> We plan to complete the migration by the 2019 US Developers Meeting (Oct 21, 2019).<br>You should begin migrating your workflows from SVN to GitHub today. </h2>
+Migration Instructions For:
+<ul>
+  <li><b>CI or other automated workflows:</b> Start pulling code from https://github.com/llvm/llvm-project instead of SVN.</li>
+  <li><b>Developers:</b> Use the <a href="https://llvm.org/docs/GettingStarted.html#checkout-llvm-from-git">git-llvm script</a> for committing changes.</li>
+</ul>
+
+<h3>Blocking Tasks</h3>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Status</th> 
+    <th></th>
+  </tr>
+  <tr>
+    <td>Create GitHub Project</td>
+    <td style="background-color:green;">Done</td> 
+    <td><a href="https://github.com/llvm">GitHub</a></td>
+  </tr>
+  <tr>
+    <td>SVN to GitHub Synchronization</td>
+    <td style="background-color:green;">Done</td> 
+    <td><a href="https://llvm.org/PR39394">PR39394</a></td>
+  </tr>
+  <tr>
+    <td>Block Merge Commits</td>
+    <td style="background-color:yellow;">In Progress</td> 
+    <td><a href=https://llvm.org/PR42429>PR42429</a></td>
+  </tr>
+  <tr>
+    <td>Migrate Buildbots</td>
+    <td style="background-color:red;">Todo</td> 
+    <td><a href="https://llvm.org/PR40262">PR40262</a></td>
+  </tr>
+  <tr>
+    <td>Enable GitHub Commit Access</td>
+    <td style="background-color:red;">Todo</td> 
+    <td><a href="https://llvm.org/PR42428">PR42428</a></td>
+  </tr>
+  <tr>
+    <td>Check For Merges in git-llvm Script</td>
+    <td style="background-color:red;">Todo</td> 
+    <td><a href="https://llvm.org/PR42430">PR42430</td>
+  </tr>
+</table>
+
+<h3>Other Tasks</h3>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Status</th> 
+    <th></th>
+  </tr>
+  <tr>
+    <td>Make SVN to GitHub Syncronization More Robust</td>
+    <td style="background-color:green;">Done</td> 
+    <td><a href="https://llvm.org/PR39397">PR39397</a></td>
+  </tr>
+  <tr>
+    <td>Auto-Close Pull Requests</td>
+    <td style="background-color:green;">Done</td> 
+    <td><a href="https://github.com/llvm/llvm-project/pull/19">Example</a></td>
+  </tr>
+  <tr>
+    <td>Send Commit Notifications to *-commits Lists</td>
+    <td style="background-color:red;">Todo</td> 
+    <td><a href="https://llvm.org/PR40261">PR40261</a></td>
+  </tr>
+</table>
+
+<hr>
+
+<!--#include virtual="footer.incl" -->
