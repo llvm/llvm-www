@@ -1,0 +1,49 @@
+<div style="float: left; width:30%; padding-left: 20px;">
+<h2 align="center">Diamond Sponsors:</h2>
+<div class="sponsors_diamond">
+    <a href="http://www.apple.com">
+      <img src="logos/Apple_Logo.svg" width="50%" height="50%"><br>Apple</a><br>
+    <a href="http://www.quicinc.com/"><img src="logos/quic-stack-version.jpg">
+      <br>QuIC</a><br>
+</div>
+
+<h2 align="center">Platinum Sponsors:</h2>
+<div class="sponsors_platinum">
+    <a href="http://google.com"><img src="logos/Google-logo_420_color_2x.png">
+      <br>Google</a><br>
+</div>
+
+<h2 align="center">Gold Sponsors:</h2>
+<div class="sponsors_gold">
+    <a href="http://intel.com"><img src="logos/Intel-logo.png"><br>Intel</a><br><br>
+    <a href="http://www.hsafoundation.com"><img src="logos/HSAFoundation-FINAL.PNG">
+      <br>HSA Foundation</a><br><br>
+<a href="https://www.mentor.com"><img src="logos/Mentor-ASB-Logo-Black-Hires.png">
+      <br>Mentor</a><br><br><br>
+    <a href="https://www.synopsys.com"><img src="logos/synopsys_color.png">
+    <br>Synopsys</a><br><br><br>
+    <a href="https://microsoft.com"><img src="logos/Microsoft-logo_rgb_c-gray.png">
+    <br>Microsoft</a><br><br><br>
+    <a href="https://cisco.com"><img src="logos/Cisco.png">    
+    <br>Cisco</a><br><br><br>
+    <a href="http://facebook.com/"><img src="logos/FB-fLogo-Blue-broadcast-2.png">
+      <br>Facebook</a><br><br><br>
+      <a href="http://www.arm.com/"><img src="logos/Arm_logo_blue_150LG.png">
+      <br>Arm</a><br>
+     <a href="http://www.huawei.com/"><img src="logos/Huawei-Logo.jpg">
+      <br>Huawei</a><br>
+     <a href="https://www.playstation.com/en-us/corporate/about/"><img src="logos/psf_pos.jpg"><br>Sony Interactive Entertainment</a><br>
+</div>
+
+<h2 align="center">Corporate Supporters</h2>
+<div class="sponsors_silver">
+<a href="https://www.mathworks.com/">MathWorks</a>
+<br><a href="https://www.reservoir.com/">Reservoir Labs</a>
+<br><a href="https://www.cockroachlabs.com/">Cockroach Labs</a>
+<br><a href="https://www.uber.com">Uber</a>
+</div>
+
+
+<div align="right"><i>Thank you to our sponsors!</i></div>
+</div>
+
