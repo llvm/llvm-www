@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="/releases/download.html#8.0.0"><b>LLVM&nbsp;8.0.0</b></a><br>
+<a href="/releases/download.html#8.0.1"><b>LLVM&nbsp;8.0.1</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
@@ -102,6 +102,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  8.0.1: <a href="http://lists.llvm.org/pipermail/llvm-announce/2019-August/000084.html">Aug 2019</a><br>
   8.0.0: <a href="http://lists.llvm.org/pipermail/llvm-announce/2019-March/000082.html">Mar 2019</a><br>
   7.0.1: <a href="http://lists.llvm.org/pipermail/llvm-announce/2018-December/000081.html">Dec 2018</a><br>
   7.0.0: <a href="http://lists.llvm.org/pipermail/llvm-announce/2018-September/000080.html">Sep 2018</a><br>
