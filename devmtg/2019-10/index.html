@@ -122,44 +122,472 @@ This event aims to connect women in the field of compilers and tools and provide
 More details will be coming soon but <a href="https://www.eventbrite.com/e/2019-llvm-foundations-women-in-compilers-and-tools-workshop-tickets-64471042624">registration is open</a>.
 </p>
 
-<div class="www_sectiontitle" id="cfp">Call for Presentations</div>
+<div class="www_sectiontitle" id="program">Program</div>
+
+<p>An online schedule with dates/times will be posted closer to the conference.</p>
+
 <p>
-All developers and users of LLVM and related sub-projects are invited to present.
-</p>
-<p>
-We are looking for the following proposals:
+<b>Keynotes</b>
 <ul>
-<li>Technical Talks (25-30 minutes including Q&A):</li>
-<ul><li>On LLVM Infrastructure, Clang and all related sub-projects</li>
-<li>On uses of LLVM in academia or industry</li>
-<li>On new projects using Clang or LLVM</li>
+  <li>
+    <a href="talk-abstracts.html#keynote1">
+      Generating Optimized Code with GlobalISel
+    </a> - Volkan Keles, Daniel Sanders
+  </li>
+  <li>
+    <a href="talk-abstracts.html#keynote2">
+      Even Better C++ Performance and Productivity: Enhancing Clang to Support Just-in-Time Compilation of Templates
+    </a> - Hal Finkel
+  </li>
 </ul>
-<li>Tutorials (60 minutes)</li>
-<ul><li>In depth talks on LLVM infrastructure or other core libraries</li></ul>
-<li>Student Research Competition Technical Talks & Poster (20-25 minutes including Q&A)</li>
-<li>Lightning Talks (5 minutes, no questions, no discussions)</li>
-<li>Birds of a Feather (30 minutes)**</li>
-<li>Panels (30-60 minutes)**</li>
-<li>Posters (1 hour)</li>
+<b>Technical Talks</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#tech1">
+      Using LLVM's portable SIMD with Zig
+    </a> - Shawn Landden
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech2">
+      Code-Generation for the Arm M-profile Vector Extension
+    </a> - Sjoerd Meijer
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech3">
+      Alive2: Verifying Existing Optimizations
+    </a> - Nuno Lopes
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech4">
+      The clang constexpr interpreter
+    </a> - Nandor Licker
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech5">
+      Souper-Charging Peepholes with Target Machine Info
+    </a> - Min-Yih Hsu
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech6">
+      Transitioning the Networking Software Toolchain to Clang/LLVM
+    </a> - Ivan Baev, Jeremy Stenglein, Bharathi Seshadri
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech7">
+      Link Time Optimization For Swift
+    </a> - Jin Lin
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech8">
+      Hot Cold Splitting Optimization Pass In LLVM
+    </a> - Aditya Kumar
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech9">
+      Making UB hurt less: security mitigations through automatic variable initialization
+    </a> - JF Bastien
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech10">
+      Propeller: Profile Guided Large Scale Performance Enhancing Relinker
+    </a> - Sriraman Tallam
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech11">
+      From C++ for OpenCL to C++ for accelerator devices
+    </a> - Anastasia Stulova
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech12">
+      LLVM-Canon: Shooting for Clear Diffs
+    </a> - Michal Paszkowski
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech13">
+      Better C++ debugging using Clang Modules in LLDB
+    </a> - Raphael Isemann
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech14">
+      Ownership SSA and Semantic SIL
+    </a> - Michael Gottesman
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech15">
+      arm64e: An ABI for Pointer Authentication
+    </a> - Ahmed Bougacha, John McCall
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech16">
+      Porting by a 1000 Patches: Bringing Swift to Windows
+    </a> - Saleem Abdulrasool
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech17">
+      The Penultimate Challange: Constructing bug reports in the Clang Static Analyzer
+    </a> - Kristóf Umann
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech18">
+      Address Spaces in LLVM
+    </a> - Matt Arsenault
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech19">
+      An MLIR Dialect for High-Level Optimization of Fortran
+    </a> - Eric Schweitz
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech20">
+      Loop-transformation #pragmas in the front-end
+    </a> - Michael Kruse
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech21">
+      Optimizing builds on Windows: some practical considerations
+    </a> - Alexandre Ganea
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech22">
+      LLVM-Reduce for testcase reduction
+    </a> - Diego Treviño Ferrer
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech23">
+      Memoro: Scaling an LLVM-based Heap profiler
+    </a> - Thierry Treyer
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech24">
+      The Attributor: A Versatile Inter-procedural Fixpoint Iteration Framework
+    </a> - Johannes Doerfert
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech25">
+      LLVM Tutorials: How to write Beginner-Friendly, Inclusive Tutorials
+    </a> - Meike Baumgärtner
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tech26">
+      Maturing an LLVM backend: Lessons learned from the RISC-V target
+    </a> - Alex Bradbury
+  </li>
+</ul>
+<b>Tutorials</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#tut1">
+      Getting Started With LLVM: Basics
+    </a> - Jessica Paquette, Florian Hahn
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut2">
+      ASTImporter: Merging Clang ASTs
+    </a> - Gábor Márton
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut3">
+      Developing the Clang Static Analyzer
+    </a> - Artem Dergachev
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut4">
+      Writing an LLVM Pass: 101
+    </a> - Andrzej Warzynski
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut5">
+      Writing Loop Optimizations in LLVM
+    </a> - Kit Barton, Ettore Tiotto, Hal Finkel, Michael Kruse, Johannes Doerfert
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut6">
+      The Attributor: A Versatile Inter-procedural Fixpoint Iteration Framework
+    </a> - Johannes Doerfert
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut7">
+      Getting Started with the LLVM Testing Infrastructure
+    </a> - Brian Homerding, Michael Kruse
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut8">
+    An overview of Clang
+    </a> - Sven Van Haastregt, Anastasia Stulova
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut9">
+    An overview of LLVM
+    </a> - Eric Christopher, Sanjoy Das, Johannes Doerfert
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut10">
+    How to Contribute to LLVM
+    </a> - Chris Bieneman, Kit Barton
+  </li>
+  <li>
+    <a href="talk-abstracts.html#tut11">
+    My First Clang Warning
+    </a> - Dmitri Gribenko, Meike Baumgartner
+  </li>
+</ul>
+
+<b>Student Research Competition</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#src1">
+    Cross-Translation Unit Optimization via Annotated Headers
+    </a> - William S. Moses
+  </li>
+
+  <li>
+    <a href="talk-abstracts.html#src2">
+    Quantifying Dataflow Analysis with Gradients in LLVM
+    </a> - Abhishek Shah
+  </li>
+
+  <li>
+    <a href="talk-abstracts.html#src1">
+    Floating Point Consistency in the Wild: A practical evaluation of how compiler optimizations affect high performance floating point code
+    </a> - Jack J Garzella
+  </li>
+
+  <li>
+    <a href="talk-abstracts.html#src1">
+    Static Analysis of OpenMP Data Mapping for Target Offloading
+    </a> - Prithayan Barua
+  </li>
+</ul>
+
+<b>Panels</b>
+<ul>
+ <li>
+ <a href="talk-abstracts.html#pan1">
+ Panel: Inter-procedural Optimization (IPO)
+ </a> - Teresa Johnson, Philip Reames, Chandler Carruth, Johannes Doerfert
+ </li>
+ <li>
+ <a href="talk-abstracts.html#pan2">
+  The Loop Optimization Working Group
+ </a> - Kit Barton, Michael Kruse, TBD
+ </li>
+</ul>
+
+<b>Birds of a Feather</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#bof1">
+      LLDB
+    </a> - Jonas Devlieghere
+  </li>
+  <li>
+    <a href="talk-abstracts.html#bof2">
+      Towards Better Code Generator Design and Unification for a Stack Machine
+    </a> - Leonid Kholodov, Dmitry Borisenkov
+  </li>
+  <li>
+    <a href="talk-abstracts.html#bof3">
+      Debug Info
+    </a> - Adrian Prantl
+  </li>
+</ul>
+<b>Lightning Talks</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#lit1">
+      GWP-ASan: Zero-Cost Detection of MEmory Safety Bugs in Production
+    </a> - Matt Morehouse
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit2">
+      When 3 Memory Models Aren’t Enough – OpenVMS on x86
+    </a> - John Reagan
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit3">
+      FileCheck: learning arithmetic
+    </a> - Thomas Preud'homme
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit4">
+      -Wall Found Programming Errors and Engineering Effort to Enable Across a Large Codebase
+    </a> - Aditya Kumar
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit5">
+      Handling 1000s of OpenCL builtin functions in Clang
+    </a> - Sven van Haastregt
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit6">
+      NEC SX-Aurora as a Scalable Vector Playground
+    </a> - Kazuhisa Ishizaka
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit7">
+      Implementing Machine Code Optimizations for RISC-V
+    </a> - Lewis Revill
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit8">
+      Optimization Remarks Update
+    </a> - Francis Visoiu Mistrih
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit9">
+      Supporting Regular and Thin LTO with a Single LTO Bitcode Format
+    </a> - Matthew Voss
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit10">
+      Transitioning Apple’s Downstream llvm-project Repositories to the Monorepo
+    </a> - Alex Lorenz
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit11">
+      A Unified Debug Server For Deeply Embedded Systems and LLDB
+    </a> - Simon Cook
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit12">
+      State of LLDB and Deeply Embedded RISC-V
+    </a> - Simon Cook
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit13">
+      Supporting a Vendor ABI Variant in Clang
+    </a> - Paul Robinson
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit14">
+      Speculative Compilation in ORC JIT
+    </a> - Praveen Velliengiri
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit15">
+      Optimization Remarks for Human Beings
+    </a> - William Bundy
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit16">
+      Improving the Optimized Debugging Experience
+    </a> - Orlando Cazalet-Hyams
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit17">
+      Improving your TableGen Descriptions
+    </a> - Javed Absar
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit18">
+      Loom: Weaving Instrumentation for Program Analysis
+    </a> - Brian Kidney
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit19">
+      Clang Interface Stubs: Syntax Directed Stub Library Generation.
+    </a> - Puyan Lotfi
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit20">
+      Flang Update
+    </a> - Steve Scalpone
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit21">
+      Lowering tale: Supporting 64 bit pointers in RISCV 32 bit LLVM backend
+    </a> - Reshabh Sharma
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit22">
+      Virtual Function Elimination in LLVM
+    </a> - Oliver Stannard
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit23">
+      Making a Language Cross Platform: Libraries and Tooling
+    </a> - Gwen Mittertreiner
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit24">
+      Grafter - A use case to implement an embedded DSL in C++ and perform source to source traversal fusion transformation using Clang
+    </a> - Laith Sakka
+  </li>
+</ul>
+<b>Posters</b>
+<ul>
+  <li>
+    <a href="talk-abstracts.html#post1">
+      TON Labs Backend for TON Blockchain
+    </a> - Dmitry Borisenkov, Dmitry Shtukenberg, Leonid Kholodov
+  </li>
+  <li>
+    <a href="talk-abstracts.html#post2">
+      LLVM Build Times Using a Program Repository
+    </a> - Rusell Gallop, Phil Camp
+  </li>
+  <li>
+    <a href="talk-abstracts.html#post3">
+      RISC-V Bit Manipulation Support in the Clang/LLVM Toolchain
+    </a> - Scott Egerton, Paolo Savini
+  </li>
+  <li>
+    <a href="talk-abstracts.html#post4">
+      Attributor, a Framework for Interprocedural Information Deduction
+    </a> - Johannes Doerfert, Hideto Ueno, Stefan Stipanovic
+  </li>
+  <li>
+    <a href="talk-abstracts.html#post6">
+      Overflows Be Gone: Checked C for Memory Safety
+    </a> - Mandeep Singh Grang
+  </li>
+  <li>
+    <a href="talk-abstracts.html#src1">
+      Cross-Translation Unit Optimization via Annotated Headers
+    </a> - William S. Moses
+  </li>
+  <li>
+    <a href="talk-abstracts.html#src2">
+      Quantifying Dataflow Analysis with Gradients in LLVM
+    </a> - Abhishek Shah
+  </li>
+  <li>
+    <a href="talk-abstracts.html#src3">
+      Floating Point Consistency in the Wild: A practical evaluation of how compiler optimizations affect high performance floating point code
+    </a> - Jack J Garzella
+  </li>
+  <li>
+    <a href="talk-abstracts.html#src4">
+      Static Analysis of OpenMP Data Mapping for Target Offloading
+    </a> - Prithayan Barua
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit6">
+      NEC SX-Aurora as a Scalable Vector Playground
+    </a> - Kazuhisa Ishizaka
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit11">
+      A Unified Debug Server For Deeply Embedded Systems and LLDB
+    </a> - Simon Cook
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit14">
+      Speculative Compilation in ORC JIT
+    </a> - Praveen Velliengiri
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit18">
+      Loom: Weaving Instrumentation for Program Analysis
+    </a> - Brian Kidney
+  </li>
+  <li>
+    <a href="talk-abstracts.html#lit21">
+      Lowering tale: Supporting 64 bit pointers in RISCV 32 bit LLVM backend
+    </a> - Reshabh Sharma
+  </li>
 </ul>
 </p>
-<p>
-** As the LLVM Developers’ Meeting as grown in size, we are moving away from formal Birds of a Feather sessions in favor of smaller informal round table discussions. These round table topics can be proposed closer to the LLVM Developers’ Meeting and are designed for a smaller and more engaged group of developers. Therefore, we are encouraging and recommending that instead of a birds of a feather sessions, that developers consider proposing a panel discussion. This would mean that several experts on a topic (and a moderator) would get together and have an open discussion in front of an audience with prepared questions and also questions from the audience. The program committee will be looking for these proposals and giving favor to them over more traditional birds of a feather proposals that we have had in the past.
-</p>
-
-<p>Submission Requirements:<br>
-The submission deadline is August 12, 2019 at 11:59PM PDT.
-</p>
-
-<p><a href="https://hotcrp.llvm.org/usllvm2019/">Submit your proposal here</a>.</p>
-<p>
-For each proposal, please submit a title, short abstract, submission type, abstract for the website, include who the speakers or panel member/moderators are, and provide a more detailed description of the talk through an extended PDF abstract. We highly recommend you consult and follow this <a href="cfp-guide.html">guide</a> when submitting your proposal.
-</p>
-
-<p>Student Research Competition (SRC):
-<br>We will again have a Student Research Competition (SRC). The SRC offers students doing LLVM related research a non-academic platform to announce and advertise their work as well as to discuss it with other researchers, developers and users of LLVM. Students are asked to submit a proposal for a 20-25 minute technical talk. There will be a prize for the best SRC talk.
-</p>
-
 
 <div class="www_sectiontitle" id="grant">Travel Grants for Students</div>
 <p>The LLVM Foundation sponsors student travel to attend the LLVM Developers'
