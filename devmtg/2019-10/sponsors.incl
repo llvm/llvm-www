@@ -35,11 +35,14 @@
 
 <h2 align="center">Corporate Supporters</h2>
 <div class="sponsors_silver">
+<p>
 <a href="https://www.mathworks.com/">MathWorks</a>
-<br><a href="https://www.khronos.org"><img src="logos/Khronos_100px_June18.jpg"><br>Khronos Group</a>
-<br><a href="https://www.reservoir.com/">Reservoir Labs</a>
-<br><a href="https://www.cockroachlabs.com/">Cockroach Labs</a>
-
+</p>
+<p><a href="https://www.khronos.org"><img src="logos/Khronos_100px_June18.jpg"><br>Khronos Group</a>
+</p>
+<p><a href="https://www.reservoir.com/">Reservoir Labs</a>
+</p><p>><a href="https://www.cockroachlabs.com/">Cockroach Labs</a>
+</p>
 </div>
 
 
