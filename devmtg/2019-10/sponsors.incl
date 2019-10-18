@@ -16,10 +16,10 @@
 <h2 align="center">Gold Sponsors:</h2>
 <div class="sponsors_gold">
     <a href="http://intel.com"><img src="logos/Intel-logo.png"><br>Intel</a><br><br>
-    <a href="http://www.hsafoundation.com"><img src="logos/HSAFoundation-FINAL.PNG">
-      <br>HSA Foundation</a><br><br>
 <a href="https://www.mentor.com"><img src="logos/Mentor-ASB-Logo-Black-Hires.png">
       <br>Mentor</a><br><br><br>
+    <a href="https://accesssoftek.com/"><img src="logos/AccessSoftTek.png">
+    <br>Access Softek</a><br><br><br>
     <a href="https://www.synopsys.com"><img src="logos/synopsys_color.png">
     <br>Synopsys</a><br><br><br>
     <a href="https://microsoft.com"><img src="logos/Microsoft-logo_rgb_c-gray.png">
@@ -36,12 +36,15 @@
 <h2 align="center">Corporate Supporters</h2>
 <div class="sponsors_silver">
 <p>
-<a href="https://www.mathworks.com/">MathWorks</a>
+<a href="https://www.mathworks.com/"><img src="logos/MathWorksLogo.png"><br>MathWorks</a>
 </p>
 <p><a href="https://www.khronos.org"><img src="logos/Khronos_100px_June18.jpg"><br>Khronos Group</a>
 </p>
-<p><a href="https://www.reservoir.com/">Reservoir Labs</a>
-</p><p><a href="https://www.cockroachlabs.com/">Cockroach Labs</a>
+<p><a href="https://www.reservoir.com/"><img src="logos/Reservoir.png"><br>Reservoir Labs</a>
+</p><p><a href="https://www.cockroachlabs.com/"><img src="logos/CL_Logo_Horizontal-2.svg"><br>Cockroach Labs</a>
+</p><p><a href="http://www.ti.com"><img src="logos/TILogo.jpg">Texas Instruments</a>
+</p><p><a href="https://www.xilinx.com/"><img src="logos/xilinx-header-logo.svg"><br>Xilinx</a>
+</p><p><a href="https://www.mythic-ai.com"><img src="logos/Mythic.png"><br>Mythic</a>
 </p>
 </div>
 
