@@ -602,30 +602,59 @@ Round tables are informal get togethers where attendees talk about a specific su
 Tuesday, Oct 22, 10:20-11:30
 <ul>
 <li>MLIR meets LLVM: MLIR (Multi-Level IR) has been recently accepted as a sub-project in LLVM. Let's talk about what it means, what are the opportunities for LLVM users, and future evolution for the project.</li>
+<li>Well-defined C++ APIs for LLVM libraries: This Round Table is for users of the LLVM C++ APIs.  We will discuss next steps for formalizing the C++ APIs within LLVM, how to reduce the number of symbols exported by LLVM shared libraries, the feasibility of a stabilizing parts of the API and other related topics. </li>
 </ul>
 </p>
 <p>
 Tuesday, Oct 22, 11:30-12:40
 <ul>
 <li>Discuss llvm-libc: A good number of people have expressed interest in llvm-libc during the discussion on the RFC thread. We would like to get everyone interested in this new project to get together and discuss the direction in which we would like to take it forward.</li>
+<li>VPlan: Next Steps	There are a number of features people are working on and we need to make sure we don't duplicate efforts and have a common understanding of the overall design.</li>
+<li>sourcekit-lsp and clangd	Discuss topics related to implementing the language server protocol, code indexing, editor support, build system integration, etc. in clangd and sourcekit-lsp.	</li>
 </ul></p>
 <p>
 Tuesday, Oct 22 2:00-3:10
 <ul>
 <li>LLVM for Embedded Baremetal Targets: We will discuss how to build and test LLVM based toolchains that work for Baremetal targets.
-</li></ul>
+</li>
+<li>Flang: Discuss flang, old flang, and Fortran</li>
+</ul>
 </p>
+
 <p>
 Tuesday, Oct 22 3:10-4:20
 <ul>
 <li>Improving LLVM's buildbot instance: http://lab.llvm.org:8011/console is a mess. It has too many builders, yet is missing builders for some platforms. It's slow to load, many of the builders are perma-red, many take hours to cycle, the buildbot page itself is slow to load, etc. Can we improve this?</li>
 <li>OpenMP in LLVM: Opportunity to discuss anything OpenMP related that happens under the LLVM umbrella</li>
+<li>Challenges using LLVM for GPU compilation: Canonicalization vs. GPUs: Type mutation, Control flow mutation  (and that graphics shaders are more sensitive to this.), Divergence/reconvergence sensitivity, Address-space awareness</li>
+<li>End-to-end Testing	Discussion of end-to-end testing; what kinds of tests we want; logistics</li>
+<li>Security Hardening Features in clang: We will discuss the status  of security hardening features in clang, (e.g. -fstack-clash-protection, -D_FORTIFY_SOURCE, and others) look at how clang compares to gcc and talk about future work in this area.</li>
 </ul>
 </p>
+
+<p>Tuesday, Oct 22, 4:40-5:50
+<ul>
+<li>SYCL: Let's talk about SYCL -- the programming model, the open standard, the effort to add SYCL support to clang, etc.</li>
+<li>Upstreaming SYCL C++: SYCL is a single-source C++ standard from Khronos Group (OpenGL, Vulkan, OpenCL, SPIR...) for heterogeneous computing targeting various accelerators (CPU, GPU, DSP, FPGA...). There are several implementations available and one has even started to be upstreamed into Clang/LLVM: https://github.com/intel/llvm
+<br>
+This is a huge collaborative effort and a great opportunity to have wide & strong support for modern C++ on a wide range of accelerators from many vendors. Come to learn about SYCL, how to help reviewing the patches, how it interacts with existing off-loading support, OpenMP, OpenCL, CUDA, address spaces, SPIR-V...
+</li>
+<li>Loop Optimizations in LLVM: Discuss current problems, progress and future plans for optimizing loops, existing passes and new passes and analysis being worked on.</li>
+</ul>
+</p>
+
 <p>
 Wednesday, Oct 23 10:45-11:55
 <ul>
 <li>Complex Types in LLVM: A discussion on supporting native complex types in LLVM IR for performance and diagnostics.</li>
+<li>Development practices to help avoid security vulnerabilities in llvm: The goal for this round table is to explore what development practices the LLVM community could consider adopting to reduce the probability of security vulnerabilities in some or all of its components.Let's get together at this round table to discuss which development practices - and to which degree - could be good to adopt for which LLVM components. A few examples that could kick off the discussion are:
+	• Using static analyzers.
+	• Using code standard checkers (e.g. clang-tidy -checks=cert-*,bugprone-*,llvm-*).
+	• Using fuzzers more extensively (oss-fuzz does fuzzing on some LLVM components, but do bug reports get reacted on?).
+	• Requiring full code coverage by unit tests on code that is newly added.
+	• Making certain build options on by default (e.g. stack protection).
+Many of these techniques require buy-in from the whole community to get accepted - a round-table discussion is hopefully a first step towards understanding cost/benefit tradeoffs.</li>
+<li>CMake in LLVM: Discuss the current state of CMake and future areas for improvement.</li>
 </ul>
 </p>
 <p>
@@ -635,6 +664,8 @@ Wednesday, Oct 23 11:55-12:30
 <br>
 We would like to use the round table to discuss common requirements when interpreting C++. We would like to invite developers and users interested in interpreting C++. We would like to discuss a possible way forward for implementing JIT and REPL support infrastructure in Clang and LLVM."
 </li>
+<li>LLVM Releases:	Discuss the current release process and possible areas for improvement.	</li> 
+<li>Vector Predication: Support for predicated SIMD/vector in LLVM is lacking. At this table, we are discussing concrete steps to change that. </li>
 </ul>
 </p>
 <p>
@@ -657,6 +688,7 @@ Also is bugzilla still providing what we want to track issues? Should we conside
 Wednesday, Oct 23 5:00-5:35
 <ul>
 <li>GSoC: LLVM Google Summer of Code: organization, ideas, projects, etc.</li>
+<li>Scalable Vector Extension:	Discuss current progress and forward plans for both SVE and RiscV implementations, focusing on agreed IR representations more than looking at each back-end independently.</li>
 </ul>
 </p>
 
