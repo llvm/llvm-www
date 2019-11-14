@@ -1,0 +1,55 @@
+<div style="float: left; width:30%; padding-left: 20px;">
+<h2 align="center">Diamond Sponsors:</h2>
+<div class="sponsors_diamond">
+    <a href="http://www.apple.com">
+      <img src="logos/Apple_Logo.svg" width="30%" height="30%"><br>Apple</a><br>
+    <a href="http://www.quicinc.com/"><img src="logos/quic-stack-version.jpg">
+      <br>QuIC</a><br>
+</div>
+
+<h2 align="center">Platinum Sponsors:</h2>
+<div class="sponsors_platinum">
+    <a href="http://google.com"><img src="logos/Google-logo_420_color_2x.png">
+      <br>Google</a><br>
+</div>
+
+<h2 align="center">Gold Sponsors:</h2>
+<div class="sponsors_gold">
+    <a href="http://intel.com"><img src="logos/Intel-logo.png"><br>Intel</a><br><br>
+<a href="https://www.mentor.com"><img src="logos/Mentor-ASB-Logo-Black-Hires.png">
+      <br>Mentor</a><br><br><br>
+    <a href="https://accesssoftek.com/"><img src="logos/AccessSoftTek.png">
+    <br>Access Softek</a><br><br><br>
+    <a href="https://www.synopsys.com"><img src="logos/synopsys_color.png">
+    <br>Synopsys</a><br><br><br>
+    <a href="https://microsoft.com"><img src="logos/Microsoft-logo_rgb_c-gray.png">
+    <br>Microsoft</a><br><br><br>
+    <a href="http://facebook.com/"><img src="logos/FB-fLogo-Blue-broadcast-2.png">
+      <br>Facebook</a><br><br><br>
+      <a href="http://www.arm.com/"><img src="logos/Arm_logo_blue_150LG.png">
+      <br>Arm</a><br>
+     <a href="http://www.huawei.com/"><img src="logos/Huawei-logo.png">
+      <br>Huawei</a><br>
+     <a href="https://www.playstation.com/en-us/corporate/about/"><img src="logos/psf_pos.jpg"><br>Sony Interactive Entertainment</a><br>
+</div>
+
+<h2 align="center">Corporate Supporters</h2>
+<div class="sponsors_silver">
+<p>
+<a href="https://www.mathworks.com/"><img src="logos/MathWorksLogo.png"><br>MathWorks</a>
+</p>
+<p><a href="https://www.khronos.org"><img src="logos/Khronos_100px_June18.jpg"><br>Khronos Group</a>
+<br></p>
+<p><a href="https://www.reservoir.com/"><img src="logos/Reservoir.png"><br>Reservoir Labs</a><br>
+</p><p><a href="https://www.cockroachlabs.com/"><img src="logos/CL_Logo_Horizontal-2.svg"><br>Cockroach Labs</a><br>
+</p><p><a href="http://www.ti.com"><img src="logos/TILogo.jpg"><br>Texas Instruments</a><br>
+</p><p><a href="https://www.xilinx.com/"><img src="logos/xilinx-logo-red-black.png"><br>Xilinx</a>
+</p><p><a href="https://www.mythic-ai.com"><img src="logos/Mythic.png"><br>Mythic</a>
+</p><p><a href="https://www.amazon.jobs/en/landing_pages/annapurna%20labs"><img src="logos/AnnapurnaLabs.png"><br>Annapurna Labs</a>
+</p>
+</div>
+
+
+<div align="right"><i>Thank you to our sponsors!</i></div>
+</div>
+
