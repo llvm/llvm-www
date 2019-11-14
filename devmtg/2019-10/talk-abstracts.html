@@ -88,7 +88,7 @@
   <li>
     <a id="tech5">
       Souper-Charging Peepholes with Target Machine Info
-    </a>
+    </a> [ <a href="https://youtu.be/5eSOWM0upN8">Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Hsu-Souper-ChargingPeepholes.pdf"> Slides</a> ]
     <br />
     <i>Min-Yih Hsu</i>
     <p>
@@ -323,7 +323,7 @@
       LLVM Tutorials: How to write Beginner-Friendly, Inclusive Tutorials
     </a>
     <br />
-    <i>Meike Baumgärtner</i>
+    <i>Meike Baumg&auml;rtner, Dmitri Gribenko</i>
     <p>
       As a beginner with no connection to the LLVM community, getting into contributing to LLVM is hard. To keep the LLVM developer community healthy with a steady stream of new developers coming in, we need tutorials that explain how to accomplish basic tasks in the real LLVM code base. Examples include writing/improving a Clang warning, and adding/improving an optimization pass. Those tutorials are not only helpful for unaffiliated beginners, but can also help onboard new employees as well as provide insights for experienced LLVM developers into parts of the project we are not familiar with.
     </p>
@@ -378,11 +378,11 @@ This tutorial contains
    ASTImporter: Merging Clang ASTs
    </a>
    <br />
-   <i>Gábor Márton</i>
+   <i>G&aacute;bor M&aacute;rton</i>
    <p>
    ASTImporter is part of Clang's core library, the AST library. There are cases when we have to work with more than one AST contexts, but we would like to view the set of the ASTs as if they were one big AST resulting from the parsing of all files together. ASTImporter imports nodes of an AST context into another AST context.
 </p><p>
-Existing clients of the ASTImporter library are Cross Translation Unit (CTU) static analysis and the LLDB expression parser. CTU static analysis imports a definition of a function if its definition is found in another translation unit (TU). This way the analysis can breach out from the single TU limitation. LLDB’s "expr" command parses a user-defined expression, creates an ASTContext for that and then imports the missing definitions from the AST what we got from the debug information (DWARF, etc).
+Existing clients of the ASTImporter library are Cross Translation Unit (CTU) static analysis and the LLDB expression parser. CTU static analysis imports a definition of a function if its definition is found in another translation unit (TU). This way the analysis can breach out from the single TU limitation. LLDB&rsquo;s "expr" command parses a user-defined expression, creates an ASTContext for that and then imports the missing definitions from the AST what we got from the debug information (DWARF, etc).
    </p>
   </li>
 
@@ -465,7 +465,7 @@ A strong testing infrastructure is critical for compilers to maintain a high qua
   <li>
    <a id="tut9">
    An overview of LLVM
-   </a>
+   </a> [ <a href="https://youtu.be/J5xExRGaIIY">Video</a> ] [ Slides ]
    <br />
    <i>Eric Christopher, Sanjoy Das, Johannes Doerfert</i>
    <p>
@@ -489,7 +489,7 @@ A strong testing infrastructure is critical for compilers to maintain a high qua
    My First Clang Warning
    </a>
    <br />
-   <i>Dmitri Gribenko, Meike Baumgartner</i>
+   <i>Dmitri Gribenko, Meike Baumg&auml;rtner</i>
    <p>
    Details coming soon.
    </p>
