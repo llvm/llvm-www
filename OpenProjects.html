@@ -140,6 +140,34 @@
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
+  <a name="llvm_optimized_debugging">Improve debugging of optimized code</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>
+  <b>Description of the project:</b> Debugging optimized code can be
+  frustrating. Variables may appear as "&lt;value optimized out&gt;" in the
+  debugger, or may not appear at all. Line numbers in stack traces may disappear,
+  or worse, become inaccurate. To improve the situation, we have to teach more
+  LLVM optimization passes how to preserve debug info. The primary focus will be
+  on mid-level IR passes which fail to pass verification by the
+  <a href="https://reviews.llvm.org/D40512">Debugify utility</a>. This utility
+  can identify passes which drop debug info in a targeted way and can simplify
+  test case generation.
+  </p>
+  <p><b>Expected Results:</b>This project has two goals. Initially, the student
+  will gather metrics on debug info loss for individual llvm passes. This will
+  let us measure subsequent improvements. The second goal is to incrementally
+  fix as many debug info loss bugs as possible, with a focus on areas of the
+  compiler which are the hottest.</p>
+
+  <p><b>Confirmed Mentor:</b> Vedant Kumar and Davide Italiano</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
   <a name="llvm_ipo">Improve inter-procedural analyses and optimizations</a>
 </div>
 <!-- *********************************************************************** -->
