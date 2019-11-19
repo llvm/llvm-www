@@ -319,6 +319,92 @@ are opened to GSOC. Feel free to propose your own ideas as well on
 <a href="https://llvm.discourse.group/c/llvm-project/mlir">Discourse</a>.
 </p></div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLDB</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands
+  using the public SB API.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b> Just as LLVM is a library to
+    build compilers, LLDB is a library to build debuggers. LLDB vends
+    a stable, public SB API. Due to historic reasons the LLDB command
+    line interface is currently implemented on top of LLDB's private
+    API and it duplicates a lot of functionality that is already
+    implemented in the public API. Rewriting LLDB's command line
+    interface on top of the public API would simplify the
+    implementation, eliminate duplicate code, and most importantly
+    reduce the testing surface.
+  </p>
+  <p>
+    This work will also provide an opportunity to clean up the SB API
+    of commands that have accrued too many overloads over time and
+    convert them to make use of option classes to both gather up all
+    the variants and also future-proof the APIs.
+  </p>
+  <p><b>Confirmed Mentor:</b>Adrian Prantl and Jim Ingham</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb-data-formatters">Implement a DSL for LLDB data formatters</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b> LLDB's data formatters allow it to pretty-print objects such as std::vector (from the C++ standard library), or String (from the Swift standard library). These data formatters are implemented in C++ and reside within the debugger, but the data structures are defined in other projects. This means that when the data structures change, lldb's data formatters may not be updated in sync. This also means that it's difficult for projects to define and test custom data formatters for special kinds of objects.  </p>
+  <p><b>Expected results: </b> The goal of this project would be to define a DSL which makes it possible to implement lldb data formatters for standard C++ containers. These formatters would be moved into libc++ and tested there. </p>
+  <p><b>Confirmed Mentor:</b> Vedant Kumar and Davide Italiano</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb-batch-testing">Add support for batch-testing to the LLDB
+    testsuite.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>One of the tensions in the
+    testsuite is that spinning up a process and getting it to some
+    point is not a cheap operation, so you'd like to do a bunch of
+    tests when you get there.  But the current testsuite bails at the
+    first failure, so you don't want to do many tests since the
+    failure of one fails all the others. On the other hand, there are
+    some individual test assertions where the failure of the assertion
+    <em>should</em> cause the whole test to fail.  For example, if you
+    fail to stop at a breakpoint where you want to check some variable
+    values, then the whole test should fail.  But if your test then
+    wants to check the value of five independent locals, it should be
+    able to do all five, and then report how many of the five variable
+    assertions failed. We could do this by adding <em>Start</em>
+    and <em>End</em> markers for a batch of tests, do all the tests in
+    the batch without failing the whole test, and then report the
+    error and fail the whole test if appropriate. There might also be
+    a nice way to do this in Python using scoped objects for the test
+    sections.
+  </p>
+  <p><b>Confirmed Mentor:</b> Jim Ingham</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of Python.
+  </p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
