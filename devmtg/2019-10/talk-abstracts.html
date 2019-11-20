@@ -124,7 +124,7 @@
   <li>
     <a id="tech8">
       Hot Cold Splitting Optimization Pass In LLVM
-    </a>
+    </a> [ <a href="https://youtu.be/Q8rqGg6vHAE">Videos</a> ] [ Slides ]
     <br />
     <i>Aditya Kumar</i>
     <p>
@@ -147,7 +147,7 @@
   <li>
     <a id="tech10">
       Propeller: Profile Guided Large Scale Performance Enhancing Relinker
-    </a>
+    </a> [ <a href="https://youtu.be/DySuXFGmB40">Video</a> ] [ Slides ]
     <br />
     <i>Sriraman Tallam</i>
     <p>
@@ -173,7 +173,7 @@
   <li>
     <a id="tech12">
       LLVM-Canon: Shooting for Clear Diffs
-    </a> [<a href="https://youtu.be/c9WMijSOEUg"> Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Paszkowski-LLVMCanon.pdf">Slides</> ]
+    </a> [<a href="https://youtu.be/c9WMijSOEUg"> Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Paszkowski-LLVMCanon.pdf">Slides</a> ]
     <br />
     <i>Michal Paszkowski</i>
     <p>
@@ -193,7 +193,7 @@
     <br />
     <i>Raphael Isemann</i>
     <p>
-      Expression evaluators in the C++ debuggers we use today still struggle to consistently support many language features. In this talk we show by using Clang’s C++ Modules, LLDB can support most of the previously unsupported language features in its expression evaluator.
+      Expression evaluators in the C++ debuggers we use today still struggle to consistently support many language features. In this talk we show by using Clang&lsquo;s C++ Modules, LLDB can support most of the previously unsupported language features in its expression evaluator.
     </p>
   </li>
   <li>
@@ -242,7 +242,7 @@
   <li>
     <a id="tech18">
       Address Spaces in LLVM
-    </a>
+    </a> [ <a href="https://youtu.be/Oj1BNoL1jpM">Video</a> ] [ Slides ]
     <br />
     <i>Matt Arsenault</i>
     <p>
@@ -275,7 +275,7 @@
   <li>
     <a id="tech21">
       Optimizing builds on Windows: some practical considerations
-    </a>
+    </a> [ <a href="https://youtu.be/usPL_DROn4k">Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Ganea-OptimizingBuildesOnWindows.pdf">Slides</a> ]
     <br />
     <i>Alexandre Ganea</i>
     <p>
@@ -298,21 +298,21 @@
   <li>
     <a id="tech23">
       Memoro: Scaling an LLVM-based Heap profiler
-    </a>
+    </a> [ <a href="https://youtu.be/fm47XsATelI">Video</a> ] [ Slides ]
     <br />
     <i>Thierry Treyer</i>
     <p>
-      Memoro is a heap profiler built using the LLVM Sanitizer infrastructure. It instruments your program during the compilation and its visualiser helps you navigate the collected profile by highlighting bad patterns, such as frequent allocation and waste of memory. Collecting data proved to be a challenge: instrumented programs don’t meet our expectations and the run-time overhead makes Memoro impractical to use on larger services. This talk presents our work to overcome those constraints, understand the source of the overhead and reduce it, so Memoro can be applied more easily on Facebook services.
+      Memoro is a heap profiler built using the LLVM Sanitizer infrastructure. It instruments your program during the compilation and its visualiser helps you navigate the collected profile by highlighting bad patterns, such as frequent allocation and waste of memory. Collecting data proved to be a challenge: instrumented programs don&lsquo;t meet our expectations and the run-time overhead makes Memoro impractical to use on larger services. This talk presents our work to overcome those constraints, understand the source of the overhead and reduce it, so Memoro can be applied more easily on Facebook services.
     </p>
   </li>
   <li>
     <a id="tech24">
       The Attributor: A Versatile Inter-procedural Fixpoint Iteration Framework
-    </a>
+    </a> [ <a href="https://youtu.be/CzWkc_JcfS0">Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Doerfert-Attributor.pdf">Slides</a> ]
     <br />
     <i>Johannes Doerfert</i>
     <p>
-      The Attributor fixpoint iteration framework is a new addition to LLVM that, first and foremost, offers powerful inter-procedural attribute deduction. While it was initially designed as a replacement for the existing “function attribute deduction” pass, the Attributor framework is already more than that. The framework, as well as the deduced information which does not directly translate to LLVM-IR attributes, can be used for various other purposes where information about the code is required.
+      The Attributor fixpoint iteration framework is a new addition to LLVM that, first and foremost, offers powerful inter-procedural attribute deduction. While it was initially designed as a replacement for the existing &rsquo;function attribute deduction&ldquo;  pass, the Attributor framework is already more than that. The framework, as well as the deduced information which does not directly translate to LLVM-IR attributes, can be used for various other purposes where information about the code is required.
     </p>
     <p>
       In this talk we will give an overview about the design, showcase current and future use cases, discuss the interplay with other (inter-procedural) passes, highlight ongoing and future extensions, and finally present an evolution. Actual deduction (and use) of attributes will be described but also discussed in our lighting talk presentations and poster.
@@ -321,14 +321,14 @@
   <li>
     <a id="tech25">
       LLVM Tutorials: How to write Beginner-Friendly, Inclusive Tutorials
-    </a>
+    </a> [ <a href="https://youtu.be/F_q50Th1t3A">Videos</a> ] [ Slides ]
     <br />
     <i>Meike Baumg&auml;rtner, Dmitri Gribenko</i>
     <p>
       As a beginner with no connection to the LLVM community, getting into contributing to LLVM is hard. To keep the LLVM developer community healthy with a steady stream of new developers coming in, we need tutorials that explain how to accomplish basic tasks in the real LLVM code base. Examples include writing/improving a Clang warning, and adding/improving an optimization pass. Those tutorials are not only helpful for unaffiliated beginners, but can also help onboard new employees as well as provide insights for experienced LLVM developers into parts of the project we are not familiar with.
     </p>
     <p>
-      To start this effort, we wrote three new tutorials with supporting documentation: “My First Typo Fix” (explaining the end-to-end development workflow), “My First Clang Warning”, and “My First Clang/LLVM Tutorial” (showcasing the contents of this talk), with more tutorials to come. To scale this effort of creating new tutorials and cover most parts of the LLVM project, we need to engage more members of the LLVM community to join us.
+      To start this effort, we wrote three new tutorials with supporting documentation: &rsquo;My First Typo Fix&ldquo;  (explaining the end-to-end development workflow), &rsquo;My First Clang Warning&ldquo; , and &rsquo;My First Clang/LLVM Tutorial&ldquo; (showcasing the contents of this talk), with more tutorials to come. To scale this effort of creating new tutorials and cover most parts of the LLVM project, we need to engage more members of the LLVM community to join us.
     </p>
     <p>
       We will share our experience of writing and testing the tutorials we created and give recommendations on how to write beginner-friendly, inclusive tutorials for the LLVM project.
@@ -337,7 +337,7 @@
   <li>
     <a id="tech26">
       Maturing an LLVM backend: Lessons learned from the RISC-V target
-    </a>
+    </a> [<a href="https://youtu.be/hT_0HaXW_Io">Video</a> ] [ Slides ]
     <br />
     <i>Alex Bradbury</i>
     <p>
@@ -440,7 +440,7 @@ In this talk we will give an overview about the design, showcase current and fut
   <li>
    <a id="tut7">
    Getting Started with the LLVM Testing Infrastructure
-   </a>
+   </a> [ <a href="https://youtu.be/isVQ8kYqaSA">Video</a> ] [ <a href="https://llvm.org/devmtg/2019-10/slides/Homerding-Kruse-LLVMTestingInfrastructureTutorial.pdf">Slides</a> ]
    <br />
    <i>Brian Homerding, Michael Kruse</i>
    <p>
