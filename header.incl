@@ -97,6 +97,7 @@
   <span style="font-size:smaller">Dev. Resources:</span><br>
   <a href="/doxygen/">doxygen</a><br>
   <a href="https://github.com/llvm/llvm-project/">Sources (GitHub)</a><br>
+  <a href="https://reviews.llvm.org">Code Review</a><br>
   <a href="http://blog.llvm.org/">Blog</a><br>
   <a href="http://bugs.llvm.org/">Bugzilla</a><br>
   <a href="http://lab.llvm.org:8011/">Buildbot</a><br>
