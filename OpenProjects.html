@@ -3,43 +3,49 @@
 <div class="www_sectiontitle">Open LLVM Projects</div>
 
 <ul>
-  <li><a href="#gsoc19">Google Summer of Code 2019</a>
+  <li>Google Summer of Code Ideas & Projects
     <ul>
-    <li>
-      <b>LLVM Core</b>
+      <li><a href="#gsoc20">Google Summer of Code 2020</a></li>
+      <li><a href="#gsoc19">Google Summer of Code 2019</a>
       <ul>
-        <li><a href="#debuginfo_codegen_mismatch">Debug Info should have no
-            effect on codegen</a></li>
-        <li><a href="#llvm_function_attributes">Improve (function) attribute
-            inference</a></li>
-        <li><a href="#improve_binary_utilities">Improve LLVM binary utilities
+        <li>
+          <b>LLVM Core</b>
+          <ul>
+            <li><a href="#debuginfo_codegen_mismatch">Debug Info should have no
+              effect on codegen</a></li>
+            <li><a href="#llvm_function_attributes">Improve (function) attribute
+              inference</a></li>
+            <li><a href="#improve_binary_utilities">Improve LLVM binary utilities
             </a></li>
+          </ul>
+        </li>
+        <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+          <ul>
+            <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
+              provide information for the type as written in template
+              instantiations</a>
+            </li>
+            <li><a href="#clang-astimporter-fuzzer">Implement an ASTImporter
+              fuzzer</a>
+            </li>
+            <li><a href="#improve-autocompletion">Improve shell autocompletion
+              for Clang</a>
+            </li>
+            <li><a href="#analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
+              Projects</a>
+            </li>
+            <li><a href="#header-generation">Generate annotated sources based on
+              LLVM-IR analyses</a>
+            </li>
+            <li><a href="#header-clang-diagnostic">Improve Clang diagnostics</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
-    <ul>
-      <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
-          provide information for the type as written in template
-          instantiations</a>
-      </li>
-      <li><a href="#clang-astimporter-fuzzer">Implement an ASTImporter
-          fuzzer</a>
-      </li>
-      <li><a href="#improve-autocompletion">Improve shell autocompletion
-          for Clang</a>
-      </li>
-      <li><a href="#analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
-          Projects</a>
-      </li>
-      <li><a href="#header-generation">Generate annotated sources based on
-          LLVM-IR analyses</a>
-      </li>
-      <li><a href="#header-clang-diagnostic">Improve Clang diagnostics</a>
-      </li>
-    </ul>
-    </li>
-   </ul>
-  </li>
+      <li><a href="#gsoc18">Google Summer of Code 2018</a></li>
+      <li><a href="#gsoc17">Google Summer of Code 2017</a></li>
+    </ul></li>
   <li><a href="#what">What is this?</a></li>
   <li><a href="#subprojects">LLVM Subprojects: Clang and more</a></li>
   <li><a href="#improving">Improving the current system</a>
@@ -81,31 +87,44 @@
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
-  <a name="gsoc19">Google Summer of Code 2019</a>
+  <a name="gsoc20">Google Summer of Code 2020</a>
 </div>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
   <p>
-  Welcome prospective Google Summer of Code 2019 Students! This document is your
-  starting point to finding interesting and important projects for LLVM, Clang,
-  and other related sub-projects. This list of projects is not only developed for
-  Google Summer of Code, but open projects that really need developers to work on
-  and are very beneficial for the LLVM community. </p>
+    Welcome prospective Google Summer of Code 2020 Students! This document is your
+    starting point to finding interesting and important projects for LLVM, Clang,
+    and other related sub-projects. This list of projects is not only developed for
+    Google Summer of Code, but open projects that really need developers to work on
+    and are very beneficial for the LLVM community. </p>
 
   <p>We encourage you to look through this list and see which projects excite you
-  and match well with your skill set. We also invite proposals not on this
-  list. You must propose your idea to the LLVM community through our
-  developers' mailing list (llvm-dev@lists.llvm.org or specific subproject mailing
-  list). Feedback from the community is a requirement for your proposal to be
-  considered and hopefully accepted.
+    and match well with your skill set. We also invite proposals not on this
+    list. You must propose your idea to the LLVM community through our
+    developers' mailing list (llvm-dev@lists.llvm.org or specific subproject mailing
+    list). Feedback from the community is a requirement for your proposal to be
+    considered and hopefully accepted.
   </p>
 
   <p>The LLVM project has participated in Google Summer of Code for several years
-  and has had some very successful projects. We hope that this year is no
-  different and look forward to hearing your proposals. For information on how to
-  submit a proposal, please visit the Google Summer of Code
-  main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
+    and has had some very successful projects. We hope that this year is no
+    different and look forward to hearing your proposals. For information on how to
+    submit a proposal, please visit the Google Summer of Code
+    main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc19">Google Summer of Code 2019</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>Google Summer of Code 2019 contributed a lot to the LLVM project. For the list of
+    accepted and completed projects, please take a look into Google Summer of Code
+    <a href="https://summerofcode.withgoogle.com/archive/2019/organizations/5682474363912192/">website.
+    </a></p>
 </div>
 
 <!-- *********************************************************************** -->
@@ -136,66 +155,6 @@
   <p><b>Confirmed Mentor:</b> Paul Robinson</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++, some familiarity
         with x86 or ARM instruction set.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_function_attributes">Improve (function) attribute inference</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-  LLVM functions, as well as arguments and other entities, can be tagged with
-  several <a href="/docs/LangRef.html#function-attributes">attributes</a> such
-  as the function only reads memory, or the function cannot throw exceptions.
-  These attributes are used by many optimizations when deciding if a particular
-  transformation is valid or not. Functions attributes can be either given by
-  the frontend or be inferred by LLVM.
-  </p>
-
-  <p>
-  The goal of this project is to improve/replace the current function
-  attributes inference algorithms, and to infer attributes that are not
-  inferred right now. This will be accomplished via intra- and/or
-  inter-procedural analyses.
-  </p>
-
-  <p><b>Background and further reading</b>
-  See <a href="http://lists.llvm.org/pipermail/llvm-dev/2018-February/121269.html">this
-  email</a> for a list of opportunities for improvement, <a
-  href="https://lists.llvm.org/pipermail/llvm-dev/2018-August/125537.html">this
-email thread</a> for a description of the current implementation, its problems,
-and a alternative approach. Finally, find a (currently still rough) prototype
-of the proposed alternative, which would be the starting point for this project,
-<a href="https://reviews.llvm.org/D59202">here</a>.
-  </p>
-
-  <p><b>Confirmed Mentor:</b> Johannes Doerfert, Nuno Lopes</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++ and familiarity with static analysis/abstract interpretation.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="improve_binary_utilities">Improve LLVM binary utilities</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b> Binary utilities (aka binutils) are a
-    set of tools used to inspect and analyze generated binary files. We have
-    recently developed new versions of these in the LLVM project so we can
-    remove the need for their GNU equivalents. The base functionality is done,
-    but there are many missing features. In this project you will be
-    contributing to the LLVM binutils, adding these additional features, in
-    tools such as llvm-readobj, llvm-objdump and llvm-objcopy. This will require
-    you to become an expert in the specification details for various object file
-    formats, such as ELF and COFF.</p>
-  <p><b>Expected Results:</b> Patch contributions to the LLVM binary utilities
-    to improve the quality of existing features and to add missing
-    functionality.</p>
-  <p><b>Confirmed Mentor:</b> James Henderson, Jordan Rupprecht</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
 </div>
 
 
@@ -339,86 +298,6 @@ of the proposed alternative, which would be the starting point for this project,
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
-  <a name="analyze-llvm">Apply the Clang Static Analyzer to LLVM-based
-  Projects</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	The idea is to improve the Clang Static Analyzer so that it is useful
-	for developers who work on Clang and LLVM themselves, as well as on other
-  LLVM-based projects, like Swift. LLVM makes use of C++ language features that
-  the Static Analyzer has not yet been taught to understand. The analyzer also
-  has false positives on some C++ idioms commonly used in the LLVM codebase.
-  </p>
-  <p>
-	The Static Analyzer is already useful for a variety of projects, but in order
-  to reach the "use your own tools" checkpoint, we'll have to classify, debug,
-  and, ideally, eliminate the most common sources of false positives
-  on our code. It would be the best to fix false positives by improving
-  the Static Analyzer itself, but it may also sometimes be feasible to add
-  a few suppressions (such as assertions) within the LLVM source code so that
-  it is easier for both humans and the Analyzer to understand what's going on.
-  And, of course, it would be great to report and maybe even fix the true
-  positives that we manage to find!
-  </p>
-
-  <p><b>Expected results:</b>
-  Results produced by the Analyzer on LLVM itself should become more or
-  less correct: warnings are useful, false alarms are gone. This lets
-  more and more LLVM developers adopt the Static Analyzer in their daily lives
-  or CI workflows.
-  </p>
-
-  <p><b>Confirmed Mentor:</b> Artem Dergachev, Ravi Kandhadai Madhavan</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="header-generation">Generate annotated sources based on
-          LLVM-IR analyses</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Background and motivation:</b>
-  During the compilation of a piece of code, LLVM derives various facts that are
-  only used while the respective translation unit (TU), or LLVM module, is
-  processed. This holds for standard compilation but also
-  link-time-optimization (LTO) in which the module is (partially) merged with
-  others, that are part of the same project, at link time. In either scenario
-  there are drawbacks: In single TU compilation, the derived information is not
-  accessible to other TUs, which generally leads to performance loss in the
-  presence of cross TU accesses or calls. In LTO-mode, only the parts build
-  together in LTO-mode, or distributed in LTO-mode, will benefit from cross TU
-  optimizations. This means for example that pre-build (proprietary)
-  third-party libraries are precluded. Any LTO approach, including thin-LTO,
-  will additionally come with a non-trivial compile time investment.</p>
-
-  <p><b>Description of the project:</b>
-  In this project we propose to expose the LLVM derived facts to the outside
-  world by annotating the respective declarations in the source, mostly header,
-  files. These annotations can vary in their expressiveness and compatibility
-  with the existing base language annotations but they should always allow
-  subsequent compilations, which include the annotated source files, to produce
-  better code in the presence of cross TU accesses and calls.</p>
-
-  <p><b>Expected results:</b>
-  A prototype implementation that can generate annotated source code based on
-  LLVM-IR attributes. Additionally, a comparison of this optimization approach
-  to single TU, thin-LTO, and LTO compilation, with regards to compile time,
-  memory consumption, and execution time.
-  </p>
-
-  <p><b>Confirmed Mentor:</b> Johannes Doerfert, Brian Homerding</p>
-  <p><b>Desirable skills:</b> Good knowledge of C and C++ semantics,
-                              C++ coding experience</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
   <a name="header-clang-diagnostic">Improve Clang Diagnostics</a>
 </div>
 <!-- *********************************************************************** -->
@@ -447,210 +326,10 @@ of the proposed alternative, which would be the starting point for this project,
 <!-- *********************************************************************** -->
 
 <div class="www_text">
-  <p>Google Summer of Code 2018 contributed a lot to the LLVM project. Below is a
-  list of some projects that were offerred during GSoC 2018. For the list of
+  <p>Google Summer of Code 2018 contributed a lot to the LLVM project. For the list of
   accepted and completed projects, please take a look into Google Summer of Code
   <a href="https://summerofcode.withgoogle.com/archive/2018/organizations/5263452624912384/">website.
   </a></p>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>LLVM</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="codegen_testing2018">Improve code generation testing</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p>
-    <b>Description of the project:</b>
-    After instruction selection LLVM uses the MI (Machine Instruction)
-    representation for programs. We recently added support for reading and
-    writing this representation to disk
-    (<a href="/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
-    tests is growing and so is the desire to improve the format, tools and
-    workflow. Possible projects:
-  </p>
-
-  <ul>
-    <li>Create a single consistent format instead of the current mix of YAML + IR + MIR</li>
-    <li>Helper passes: Strip IR information, rename blocks and values, debug information, extract functions or blocks...</li>
-    <li>Create a bugpoint mode (or a new tool) to reduce .mir test cases</li>
-    <li>Create tool to remove unnecessary information from existing tests</li>
-  </ul>
-
-  <p><b>Confirmed Mentor:</b> Matthias Braun</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_optimized_debugging">Improve debugging of optimized code</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p>
-  <b>Description of the project:</b> Debugging optimized code can be frustrating. Variables may appear as "&lt;value optimized out&gt;" in the debugger, or may not appear at all. Line numbers in stack traces may disappear, or worse, become inaccurate. To improve the situation, we have to teach more LLVM optimization passes how to preserve debug info. The primary focus will be on mid-level IR passes which fail to pass verification by the <a href="https://reviews.llvm.org/D40512">Debugify utility</a>. This utility can identify passes which drop debug info in a targeted way and can simplify test case generation.
-  </p>
-  <p><b>Expected Results:</b>This project has two goals. Initially, the student will gather metrics on debug info loss for individual llvm passes. This will let us measure subsequent improvements. The second goal is to incrementally fix as many debug info loss bugs as possible, with a focus on areas of the compiler which are the hottest.</p>
-
-  <p><b>Confirmed Mentor:</b> Vedant Kumar and Davide Italiano</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="replace_binary_utilities">Command line replacements for GNU Binutils</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b> The llvm project has a lot of tools that can be used to inspect binaries, as any other toolchain project does. Many people are accustomed to existing tools and so having a command line compatible shell and we'd like to make that easy for them. Bonus points for producing similar output so that automated tools can continue to work reliably.
-  <p><b>Expected Results:</b>This project has one goal - produce binary tools that are drop in compatible with GNU binutils. The student will be expected to focus on a single tool at a time so that we can count each one as "done" as much as possible.
-
-  <p><b>Confirmed Mentor:</b> Eric Christopher and Sterling Augustine</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_domtree_updater">Implement a single updater class for Dominators</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b> Dominance relation is used widely in many compiler analyses and optimizations. LLVM provides an implementation of the (Semi-NCA) Depth Based Search algorithm to incrementally update Dominator and PostDominator Trees. It it possible to use it directly or through a lazy updater object -- DeferredDominance. The current API is fragmented and different analyzes, transforms, and utilities (e.g. Local.cpp, LoopUnroll.cpp) have to decide how to perform incremental updates.
-  </p>
-  <p>The fix would be to design and implement a new class for abstracting away how tree updates are performed (eagerly or lazily) and which trees are actually being updated (none, only DomTree, only PostDomTree, both). With this, performing faster incremental updates will become possible by first updating DomTree, and then using the result to prune unnecessary updates to PostDomTree.</p>
-
-  <p>Expected Results:
-    <ul><li>Create a new class that will store Dominator Trees to update and allow to specify update policy.</li></ul>
-    <ul><li>Convert existing API to use the new updater object instead of working directly with DomTree/DeferredDominance.</li></ul>
-    <ul><li>Design and implement a new algorithm to prune unnecessary PostDomTree updates based on updated DomTree.</li></ul>
-    <ul><li>(Optional) Explore more strategies for performing lazy updates (e.g. by exposing .dominates() and performing updates when called).</li></ul>
-  </p>
-  <p><b>Confirmed Mentor:</b> Jakub Kuderski, Tobias Grosser (?)</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++. Familiarity with basic tree/graph algorithms and data structures.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>LLDB</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands
-  using the public SB API.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b> Just as LLVM is a library to
-    build compilers, LLDB is a library to build debuggers. LLDB vends
-    a stable, public SB API. Due to historic reasons the LLDB command
-    line interface is currently implemented on top of LLDB's private
-    API and it duplicates a lot of functionality that is already
-    implemented in the public API. Rewriting LLDB's command line
-    interface on top of the public API would simplify the
-    implementation, eliminate duplicate code, and most importantly
-    reduce the testing surface.
-  </p>
-  <p>
-    This work will also provide an opportunity to clean up the SB API
-    of commands that have accrued too many overloads over time and
-    convert them to make use of option classes to both gather up all
-    the variants and also future-proof the APIs.
-  </p>
-  <p><b>Confirmed Mentor:</b>Adrian Prantl and Jim Ingham</p>
-
-  <p><b>Desirable skills:</b>
-    Intermediate knowledge of C++.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lldb-data-formatters">Implement a DSL for LLDB data formatters</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b> LLDB's data formatters allow it to pretty-print objects such as std::vector (from the C++ standard library), or String (from the Swift standard library). These data formatters are implemented in C++ and reside within the debugger, but the data structures are defined in other projects. This means that when the data structures change, lldb's data formatters may not be updated in sync. This also means that it's difficult for projects to define and test custom data formatters for special kinds of objects.  </p>
-  <p><b>Expected results: </b> The goal of this project would be to define a DSL which makes it possible to implement lldb data formatters for standard C++ containers. These formatters would be moved into libc++ and tested there. </p>
-  <p><b>Confirmed Mentor:</b> Vedant Kumar and Davide Italiano</p>
-
-  <p><b>Desirable skills:</b>
-    Intermediate knowledge of C++.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lldb-batch-testing">Add support for batch-testing to the LLDB
-    testsuite.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>One of the tensions in the
-    testsuite is that spinning up a process and getting it to some
-    point is not a cheap operation, so you'd like to do a bunch of
-    tests when you get there.  But the current testsuite bails at the
-    first failure, so you don't want to do many tests since the
-    failure of one fails all the others. On the other hand, there are
-    some individual test assertions where the failure of the assertion
-    <em>should</em> cause the whole test to fail.  For example, if you
-    fail to stop at a breakpoint where you want to check some variable
-    values, then the whole test should fail.  But if your test then
-    wants to check the value of five independent locals, it should be
-    able to do all five, and then report how many of the five variable
-    assertions failed. We could do this by adding <em>Start</em>
-    and <em>End</em> markers for a batch of tests, do all the tests in
-    the batch without failing the whole test, and then report the
-    error and fail the whole test if appropriate. There might also be
-    a nice way to do this in Python using scoped objects for the test
-    sections.
-  </p>
-  <p><b>Confirmed Mentor:</b> Jim Ingham</p>
-
-  <p><b>Desirable skills:</b>
-    Intermediate knowledge of Python.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang Tools Extra</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="doc-html-generator">Implement an HTML generator for clang-doc.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-   Clang-doc is a new tool for generating documentation for C/C++ code with a modular and extensible approach. It aims to simplify the overhead of generating documentation, leveraging the clang AST to produce results from existing comments and code. The main part of the tool produces an intermediate representation of the docs, which is consumed by a generator targeting a specific output format. Current and in-progress generators emit documentation in YAML and Markdown formats, but we’d like to have another one for HTML format.
-  </p>
-  <p><b>Confirmed Mentor:</b> Julie Hockett</p>
-  <p><b>Desirable skills:</b> Intermediate knowledge of C++.</p>
 </div>
 
 <!-- *********************************************************************** -->
@@ -660,432 +339,11 @@ of the proposed alternative, which would be the starting point for this project,
 <!-- *********************************************************************** -->
 
 <div class="www_text">
-  <p>Google Summer of Code 2017 contributed a lot to the LLVM project. Below is a
-  list of some projects that were offerred during GSoC 2017. For the list of
+  <p>Google Summer of Code 2017 contributed a lot to the LLVM project. For the list of
   accepted and completed projects, please take a look into Google Summer of Code
   <a href="https://summerofcode.withgoogle.com/archive/2017/organizations/6215410651234304/">website.
   </a></p>
 </div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>LLVM</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="bitcode_fuzzing">Fuzzing the Bitcode reader</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="debuginfo_overhead">Improve optimizer overhead with debug info</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  The optimizer is 25-30% slower when debug info are enabled, it'd be nice
-	  to track all the places where we don't do a good job about ignoring them!
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="thinlto_global">ThinLTO: propagating more global informations across
-	  the program for more powerful optimizations!</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  ThinLTO is a cool new technology to perform Link-Time Optimization (see
-	  <a href="/devmtg/2016-11/#talk12">this talk</a> for more info). It is fairly new
-	  and there are multiple improvements about cross-module optimizations that
-	  can be made there.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="debuginfo_codegen_mismatch"></a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  Adding Debug Info (compiling with `clang -g`) shouldn't change the
-	  generated code at all. Unfortunately we have bugs… These are usually not
-	  too hard to fix and a good way to discover new part of the codebase! A
-	  starting point could be the test-suite. We suggest building object files
-	  both ways and disassembling the text sections, which will give cleaner
-	  diffs than comparing .s files.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="hashmap_codegen_mismatch">Changing the iteration order of unordered
-	  datastructures should not change the generated code.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="opt_remarks">We need better optimization remarks!</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  See <a href="/devmtg/2016-11/#talk15">this talk</a>
-	  for a starting point.  Please take a look at the list of
-	  enhancements and bugs in <a href=
-	  "https://bugs.llvm.org/buglist.cgi?component=opt-viewer&list_id=125824&product=tools&query_format=advanced&resolution=---">
-	  bugzilla</a>.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvmir_dump">Smarter way of dumping LLVM IR with -emit-after-all</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  Smarter way of dumping LLVM ir with -emit-after-all - dump only if it
-	  differs from last pass. Maybe small color the IR?
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="codegen_testing">Improve code generation testing</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-	  After instruction selection LLVM uses the MI (Machine Instruction)
-	  representation for programs. We recently added support for reading and
-	  writing this representation to disk
-	  (<a href="/docs/MIRLangRef.html">http://llvm.org/docs/MIRLangRef.html</a>). Usage of this format for writing
-	  tests is growing and so is the desire to improve the format, tools and
-	  workflow. Improvements would be welcome:
-
-	  <ul><li>Create a single consistent format instead of the current mix of
-		  YAML + IR + MIR</li></ul>
-	  <ul><li>Do not print unnecessary information (we often print default
-		  values where the reader could deduce them)</li></ul>
-	  <ul><li>The format of things like MachineInstr/MachineBasicBlock::dump()
-		  should be the same or very close to the .mir format => change the dump
-		  functions.</li></ul>
-	  <ul><li>Allow the representation to deduce successors of a basic block in
-		  common cases</li></ul>
-	  <ul><li>Allow symbolic names instead of only numbers for virtual
-		  registers</li></ul>
-	  <ul><li>Helper passes: Strip IR information, rename blocks and values,
-		  debug information, ...</li></ul>
-	  <ul><li>Create a bugpoint mode (or a new tool) to reduce .mir test cases</li></ul>
-	  <ul><li>Write recommendations and guides for .mir based tests</li></ul>
-  </p>
-
-   <p><b>Confirmed Mentor:</b> Matthias Braun</p>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
-    information for the type as written in template instantiations.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    When instantiating a template, the template arguments are canonicalized
-    before being substituted into the template pattern. Clang does not preserve
-    type sugar when subsequently accessing members of the instantiation.
-
-    <pre>
-    std::vector&lt;std::string&gt; vs;
-    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
-
-    template&lt;typename T&gt; struct Id { typedef T type; };
-    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
-    </pre>
-
-    Clang should "re-sugar" the type when performing member access on a class
-    template specialization, based on the type sugar of the accessed
-    specialization. The type of vs.front() should be std::string, not
-    std::basic_string&lt;char, [...]&gt;.
-    <br /> <br />
-    Suggested design approach: add a new type node to represent template
-    argument sugar, and implicitly create an instance of this node whenever a
-    member of a class template specialization is accessed. When performing a
-    single-step desugar of this node, lazily create the desugared representation
-    by propagating the sugared template arguments onto inner type nodes (and in
-    particular, replacing Subst*Parm nodes with the corresponding sugar). When
-    printing the type for diagnostic purposes, use the annotated type sugar to
-    print the type as originally written.
-    <br /> <br />
-    For good results, template argument deduction will also need to be able to
-    deduce type sugar (and reconcile cases where the same type is deduced twice
-    with different sugar).
-  </p>
-
-  <p><b>Expected results: </b>
-    Diagnostics preserve type sugar even when accessing members of a template
-    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
-    same type and the same template instantiation, but
-    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
-    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
-
-  <p><b>Confirmed Mentor:</b> Vassil Vassilev, Richard Smith</p>
-
-  <p><b>Desirable skills:</b>
-    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-diff-tool">Clang-based C/C++ diff tool.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    Every developer has to interact with diff tools daily. The algorithms are
-    usually based on detecting "longest common subsequences", which is agnostic
-    to the file type content. A tool that would understand the structure of the
-    code may provide a better diff experience by being robust against, for
-    example, clang-format changes.
-  </p>
-  <p><b>Confirmed Mentor:</b> Mehdi Amini</p>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang-tidy</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-tidy-pointer-deref">Find dereference of pointers.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    Find dereference of pointer before checking for nullptr, like:
-    <pre>
-      Int * p = foo();
-      *p = 42;
-      If (p != nullptr) { // p != nullptr is considered as always true
-      }
-      If (!p) { // !p is considered as always false
-      }
-    </pre>
-
-    <br /><br />
-    This check should be easier to write in clang-tidy than in Clang Static
-    Analyzer, specially because that we don't care about inlining (as long as it
-    doesn't modify pointer). More details in the
-    <a href="/bugs/show_bug.cgi?id=30232">Bugzilla feature
-      request</a>
-  </p>
-  <p><b>Confirmed Mentor:</b> Alexander Kornienko, Piotr Padlewski</p>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang Static Analyzer</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-sa-virt-calls">Warn if virtual calls are made from constructors
-    or destructors.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    Implement a path-sensitive checker that warns if virtual calls are made from
-    constructors and destructors, which is not valid in case of pure virtual
-    calls and could be a sign of user error in <a href="https://isocpp.org/wiki/faq/strange-inheritance#calling-virtuals-from-ctors">non-pure calls</a>.
-    <br />
-    The current virtual calls checker, implemented in VirtualCallChecker.cpp,
-    needs to be re-implemented in a path-sensitive way.  The lack of
-    path-sensitive reasoning may result in false positives in the
-    inter-procedural mode, which is disabled now for that reason.
-    The false positives could happen when a called function uses a member
-    variable flag to track whether initialization is complete and relies on the
-    flag to ensure that the virtual member function is not called during
-    initialization. Further, the path diagnostic should be used to highlight
-    both the virtual call and the path from the constructor. Last, we will need
-    to evaluate if the warning should be issued for both calls to pure virtual
-    functions (which is always an error) and non-pure virtual functions (which
-    is more of a code smell and may be a false positive).
-  </p>
-  <p><b>Confirmed Mentor:</b> Anna Zaks</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-sa-atomics">Model C++11 and C11 atomics in the analyzer.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    Enhance the clang static analyzer by adding models of C++11 and C11 atomic
-    operations, such as std::atomic_compare_exchange_*. Currently, these
-    operations are being treated opaquely, which results in loss of precision
-    when analyzing the code that uses these instructions. To address the
-    problem, one would need to programmatically construct AST that simulates
-    these APIs to the BodyFarm of the analyzer. BodyFarm is the API used for
-    modeling system APIs. Finally, the work would also include writing tests
-    for the various APIs and checking that the analyzer correctly models
-    atomics.
-  </p>
-  <p><b>Confirmed Mentor:</b> Anna Zaks</p>
-</div>
-
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Compiler-rt</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="compiler-rt-port-to-other-platforms">Port compiler-rt components to
-    other platforms.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    Many of the projects in compiler-rt are only supported on Linux.
-    <br />
-    Here are some examples: CFI, DFSan, XSan, LSan, XRay. Porting any of them
-    to other platforms, for example, Mac OS, would be great!
-  </p>
-  <p><b>Confirmed Mentor:</b> Kuba Mracek, Anna Zaks</p>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>LLD</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lld_layout">Improve Code Layout</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-	The goal for the project is trying to improve the layout/performances of the
-	generated executable. The primary object format considered for the project
-	is ELF but this can be extended to other object formats. The project will
-	touch both LLVM and lld.
-	<ul>
-		<li>Warm-up: lld already provides an option to (--symbol-ordering file)
-			which takes a symbol ordering file (presumably collected from a
-			profiler) and builds a layout. This aims to reduce startup times. It
-			would be nice to provide scripts to profile the applications/process
-			various profilers output to produce an order file/evaluate the
-			impact of the feature (as it has been tested only on a small class
-			of applications). There's already some work in the area but nothing
-			has been integrated in the LLVM build system for ELF. Ideally a
-			motivated student would do the benchmarking/analysis before the GSoC
-			starts to familiarize with the problem.</li>
-		<li>The meat: Use/extend profile information generated by LLVM to help
-			the linker lay out functions. An example way (what gcc uses, [1])
-			is to pass values to the linker using special `.note` sections. The
-			linker then can reconstruct the call graph and apply an algorithm
-			like the one described in [2] (this is a starting point, other
-			alternatives can be explored).</li>
-	</ul>
-  </p>
-  <p>
-	Possible extension: Xray can be used to provide data (it's unclear whether
-	this is feasible easily, see David's comment in [3]).
-  </p>
-  <p><b>Confirmed Mentor:</b> Davide Italiano</p>
-
-  <ul>
-    <li>[1] <a href="http://sourceware.org/ml/binutils/2011-03/msg00043.html">http://sourceware.org/ml/binutils/2011-03/msg00043.html</a></li>
-    <li>[2] <a href="http://dl.acm.org/citation.cfm?id=93550">http://dl.acm.org/citation.cfm?id=93550</a></li>
-    <li>[3] <a href="http://lists.llvm.org/pipermail/llvm-dev/2017-January/109114.html">http://lists.llvm.org/pipermail/llvm-dev/2017-January/109114.html</a></li>
-  </ul>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Polly</a>
-</div>
-<!-- *********************************************************************** -->
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="pollypgo">Profile Guided Optimization in Polly</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-  Even though Polly's compile time is today not a lot higher than other non-trial
-  IR passes, the need to version code in many situations and the lack of static
-  knowledge about loop iteration counts, hotness of functions, and parameter
-  requires Polly to be significantly more conservative than it would need to
-  be. The goal of this project is to connect Polly with the LLVM profiling
-  infrastructure to exploit profiling information to decide: 1) when to
-  run Polly, 2) how aggressive to version the code, 3) which code version
-  to emit, and 4) which assumptions to take. As a result, Polly should can
-  in profile guided builds become more aggressive, while still having a lower
-  compile time and code size impact.
-  </p>
-
-  <p><b>Confirmed Mentor:</b> <a href="mailto:tobias@grosser.es">Tobias Grosser</a></p>
-
-  <ul>
-    <li>PGO in LLVM: <a href="/devmtg/2013-11/">2013 developer's meeting presentation</a>
-  </ul>
-</div>
-
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
