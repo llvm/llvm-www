@@ -5,7 +5,19 @@
 <ul>
   <li>Google Summer of Code Ideas & Projects
     <ul>
-      <li><a href="#gsoc20">Google Summer of Code 2020</a></li>
+      <li>
+        <a href="#gsoc20">Google Summer of Code 2020</a>
+      <ul>
+        <li>
+          <b>LLVM Core</b>
+          <ul>
+            <li><a href="#llvm_ipo">Improve inter-procedural analyses and optimizations</a></li>
+            <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      </li>
       <li><a href="#gsoc19">Google Summer of Code 2019</a>
       <ul>
         <li>
@@ -112,6 +124,85 @@
     different and look forward to hearing your proposals. For information on how to
     submit a proposal, please visit the Google Summer of Code
     main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_ipo">Improve inter-procedural analyses and optimizations</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on IRC)
+    if it sounds interesting.
+
+    During the GSoC'19 we build the Attributor framework to improve the
+    inter-procedural capabilities of LLVM. This is useful on its own but
+    especially in situations where inlining is impossible or undesirable.
+
+    In this GSoC project we will look at capabilities not yet available in the
+    Attributor and for the potential to connect the Attributor with existing
+    intra- and inter-procedural optimizations.
+
+    In this project there is a lot of freedom to determine the actual tasks but
+    we will provide a pool of smaller and medium sized tasks that can be chosen
+    from as well.
+  </p>
+
+  <p><b>Preparation resources:</b> The Attributor YouTube videos from the
+  LLVM Developers Meeting 2019 and the recording of the IPO panel from the same
+  meeting. The Attributor framework as well as other existing inter-procedural
+  analyses and optimizations in LLVM.</p>
+
+  <p><b>Expected results:</b> Measurable better IPO, especially visible in cases
+                              where inlining is not an option or undesirable.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_par">Improve parallelism-aware analyses and optimizations</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on IRC)
+    if it sounds interesting.
+
+    With the OpenMPOpt pass (<a href='https://reviews.llvm.org/D69930'>under
+      review</a>) we started to teach the LLVM optimization pipeline about
+    OpenMP parallelism encoded as OpenMP runtime calls.
+
+    In this GSoC project we will look at capabilities not yet available in the
+    OpenMPOpt pass and for the potential to connect existing intra- and
+    inter-procedural optimizations, e.g. the Attributor.
+
+    In this project there is a lot of freedom to determine the actual tasks but
+    we will provide a pool of smaller and medium sized tasks that can be chosen
+    from as well.
+  </p>
+
+  <p><b>Preparation resources:</b> The "Optimizing Indirections, using
+  abstractions without remorse" video on YouTube from the LLVM Developers
+  Meeting 2018. The paper "Compiler Optimizations for OpenMP" and "Compiler
+  Optimizations For Parallel Programs" both by J. Doerfert and H. Finkel (the
+  slides for these are potentially even more useful).</p>
+
+  <p><b>Expected results:</b> Measurable better performance or program analysis
+  results for parallel programs with a focus on OpenMP.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of C++, self motivation.</p>
 </div>
 
 <!-- *********************************************************************** -->
