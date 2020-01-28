@@ -9,9 +9,8 @@
 <ol>
         <li><a href="#about">About</a></li>
         <li><a href="#dates">Important Dates</a></li>
-        <li><a href="#cfp">Call for Presentations</a></li>
-        <li><a href="#register">Registration</a></li>
         <li><a href="#program">Program</a></li>
+        <li><a href="#register">Registration</a></li>
         <li><a href="#grant">Travel Grants for Students</a></li>
         <li><a href="#logistics">Logistics</a></li>
         <li><a href="#coc">Code of Conduct</a></li>
@@ -122,6 +121,569 @@ meet other LLVM developers and users.</p>
   <li>April 6-7, 2020 - LLVM Developers' Meeting</li>
 </ul>
 
+<div class="www_sectiontitle" id="program">Program</div>
+
+<b>TechTalk</b>
+<ul>
+<li><a href="talks.html#TechTalk_2">Modifying LLVM Without Forking</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_2">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_2.pdf">Slides</a> ]-->
+  &mdash; <i>Neil Henning (Unity)</i>
+</li>
+<li><a href="talks.html#TechTalk_3">A Cross Debugger for Multi-Architecture Binaries</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_3">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_3.pdf">Slides</a> ]-->
+  &mdash; <i>Jaewoo Shim (NSR),
+     Hyukmin Kwon (NSR),
+     Sangrok Lee (NSR)</i>
+</li>
+<li><a href="talks.html#TechTalk_8">TFRT: An MLIR Powered Low-Level Runtime for Heterogenous Accelerators</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_8">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_8.pdf">Slides</a> ]-->
+  &mdash; <i>Chris Lattner (Google),
+     Mingsheng Hong (Google)</i>
+</li>
+<li><a href="talks.html#TechTalk_11">Transitioning the Scientific Software Toolchain to Clang/LLVM</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_11">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_11.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_11.pdf">Slides</a> ]-->
+  &mdash; <i>Mike Pozulp (Lawrence Livermore National Laboratory and University of California, Davis),
+     Shawn Dawson (Lawrence Livermore National Laboratory),
+     Ryan Bleile (Lawrence Livermore National Laboratory and University of Oregon),
+     Patrick Brantley (Lawrence Livermore National Laboratory),
+     M. Scott McKinley (Lawrence Livermore National Laboratory),
+     Matt O&#x27;Brien (Lawrence Livermore National Laboratory),
+     Dave Richards (Lawrence Livermore National Laboratory)</i>
+</li>
+<li><a href="talks.html#TechTalk_12">Exhaustive Software Pipelining using an SMT-Solver</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_12">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_12.pdf">Slides</a> ]-->
+  &mdash; <i>Jan-Willem Roorda (Intel)</i>
+</li>
+<li><a href="talks.html#TechTalk_14">Testing the Debugger</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_14">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_14.pdf">Slides</a> ]-->
+  &mdash; <i>Jonas Devlieghere (Apple)</i>
+</li>
+<li><a href="talks.html#TechTalk_18">Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang's AST, and Quantum Computing</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_18">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_18.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_18.pdf">Slides</a> ]-->
+  &mdash; <i>Hal Finkel (Argonne National Laboratory),
+     Alex Mccaskey (Oak Ridge National Laboratory)</i>
+</li>
+<li><a href="talks.html#TechTalk_28">Loop Fission: Distributing loops based on conflicting heuristics</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_28">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_28.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_28.pdf">Slides</a> ]-->
+  &mdash; <i>Ettore Tiotto (IBM Canada),
+     Wai Hung (Whitney) Tsang (IBM Canada),
+     Bardia Mahjour (IBM Canada),
+     Kit Barton (IBM Canada)</i>
+</li>
+<li><a href="talks.html#TechTalk_30">Achieving compliance with automotive coding standards with Clang</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_30">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_30.pdf">Slides</a> ]-->
+  &mdash; <i>Milena Vujosevic Janicic (RT-RK)</i>
+</li>
+<li><a href="talks.html#TechTalk_32">Secure Delivery of Program Properties with LLVM</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_32">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_32.pdf">Slides</a> ]-->
+  &mdash; <i>Son Tuan Vu (LIP6),
+     Karine Heydemann (LIP6),
+     Arnaud de Grandmaison (Arm),
+     Albert Cohen (Google)</i>
+</li>
+<li><a href="talks.html#TechTalk_37">Verifying Memory Optimizations using Alive2</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_37">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_37.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_37.pdf">Slides</a> ]-->
+  &mdash; <i>Juneyoung Lee (Seoul National University, Korea),
+     Chung-Kil Hur (Seoul National University, Korea),
+     Nuno P. Lopes (Microsoft Research, UK)</i>
+</li>
+<li><a href="talks.html#TechTalk_38">From Tensors to Devices in one IR</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_38">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_38.pdf">Slides</a> ]-->
+  &mdash; <i>Oleksandr Zinenko (Google Inc.),
+     Stephan Herhut (Google Inc.),
+     Nicolas Vasilache (Google Inc.)</i>
+</li>
+<li><a href="talks.html#TechTalk_47">Convergence and control flow lowering in the AMDGPU backend</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_47">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_47.pdf">Slides</a> ]-->
+  &mdash; <i>Nicolai Hähnle (Advanced Micro Devices)</i>
+</li>
+<li><a href="talks.html#TechTalk_50">Preserving And Improving The Optimized Debugging Experience</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_50">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_50.pdf">Slides</a> ]-->
+  &mdash; <i>Tom Weaver (Sony, SN Systems)</i>
+</li>
+<li><a href="talks.html#TechTalk_54">ThinLtoJIT: Compiling ahead of time with ThinLTO summaries</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_54">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_54.pdf">Slides</a> ]-->
+  &mdash; <i>Stefan Gränitz (Independent / Freelance Developer)</i>
+</li>
+<li><a href="talks.html#TechTalk_58">Global Machine Outliner for ThinLTO</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_58">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_58.pdf">Slides</a> ]-->
+  &mdash; <i>Kyungwoo Lee (Facebook),
+     Nikolai Tillmann (Facebook)</i>
+</li>
+<li><a href="talks.html#TechTalk_62">Embracing SPIR-V in LLVM ecosystem via MLIR</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_62">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_62.pdf">Slides</a> ]-->
+  &mdash; <i>Lei Zhang (Google),
+     Mahesh Ravishankar (Google)</i>
+</li>
+<li><a href="talks.html#TechTalk_65">PGO: Demystified Internals</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_65">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_65.pdf">Slides</a> ]-->
+  &mdash; <i>Pavel Kosov (Huawei R&amp;D)</i>
+</li>
+<li><a href="talks.html#TechTalk_68">Control-flow sensitive escape analysis in Falcon JIT</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_68">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_68.pdf">Slides</a> ]-->
+  &mdash; <i>Artur Pilipenko (Azul Systems)</i>
+</li>
+<li><a href="talks.html#TechTalk_74">LLVM meets Code Property Graphs</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_74">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_74.pdf">Slides</a> ]-->
+  &mdash; <i>Alex Denisov (Shiftleft GmbH),
+     Fabian Yamaguchi (Shiftleft GmbH)</i>
+</li>
+<li><a href="talks.html#TechTalk_81">Proposal for A Framework for More Effective Loop Optimizations</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_81">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_81.pdf">Slides</a> ]-->
+  &mdash; <i>Michael Kruse (Argonne National Laboratory),
+     Hal Finkel (Argonne National Laboratory)</i>
+</li>
+</ul>
+
+<b>SRC</b>
+<ul>
+<li><a href="talks.html#SRC_87">Autotuning C++ function templates with ClangJIT</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_87">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_87.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_87.pdf">Slides</a> ]-->
+  &mdash; <i>Sebastian Kreutzer (TU Darmstadt),
+     Hal Finkel (Argonne National Laboratory)</i>
+</li>
+<li><a href="talks.html#SRC_90">The Bitcode Database</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_90">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_90.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_90.pdf">Slides</a> ]-->
+  &mdash; <i>Sean Bartell (University of Illinois at Urbana-Champaign),
+     Vikram Adve (University of Illinois at Urbana-Champaign)</i>
+</li>
+<li><a href="talks.html#SRC_96">RISE: A Functional Pattern-based Dialect in MLIR</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_96">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_96.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_96.pdf">Slides</a> ]-->
+  &mdash; <i>Martin Lücke (University of Edinburgh),
+     Michael Steuwer (University of Glasgow),
+     Aaron Smith (Microsoft)</i>
+</li>
+</ul>
+
+<b>Tutorial</b>
+<ul>
+<li><a href="talks.html#Tutorial_5">Implementing Common Compiler Optimizations From Scratch</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_5">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_5.pdf">Slides</a> ]-->
+  &mdash; <i>Mike Shah (Northeastern University)</i>
+</li>
+<li><a href="talks.html#Tutorial_22">LLVM in a Bare Metal Environment</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_22">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_22.pdf">Slides</a> ]-->
+  &mdash; <i>Hafiz Abid Qadeer (Mentor Graphics)</i>
+</li>
+<li><a href="talks.html#Tutorial_34">MLIR tutorial</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_34">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_34.pdf">Slides</a> ]-->
+  &mdash; <i>Oleksandr Zinenko (Google),
+     Mehdi Amini (Google)</i>
+</li>
+<li><a href="talks.html#Tutorial_60">How to Give and Receive Code Reviews</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_60">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_60.pdf">Slides</a> ]-->
+  &mdash; <i>Kit Barton (IBM Canada),
+     Hal Finkel (ANL)</i>
+</li>
+<li><a href="talks.html#Tutorial_73">From C to assembly: adding a custom intrinsic to Clang and LLVM</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_73">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_73.pdf">Slides</a> ]-->
+  &mdash; <i>Mateusz Belicki (Intel)</i>
+</li>
+</ul>
+
+<b>BoF</b>
+<ul>
+<li><a href="talks.html#BoF_33">Let the compiler do its job?</a>
+<!--[ <a href="slides/slides_BoF_33.pdf">Slides</a> ]-->
+  &mdash; <i>Sjoerd Meijer (ARM)</i>
+</li>
+<li><a href="talks.html#BoF_40">Debugging an bare-metal accelerator with LLDB</a>
+<!--[ <a href="slides/slides_BoF_40.pdf">Slides</a> ]-->
+  &mdash; <i>Romaric JODIN (UPMEM)</i>
+</li>
+<li><a href="talks.html#BoF_46">LLVM Binutils BoF</a>
+<!--[ <a href="slides/slides_BoF_46.pdf">Slides</a> ]-->
+  &mdash; <i>James Henderson (SN Systems (Sony Interactive Entertainment))</i>
+</li>
+<li><a href="talks.html#BoF_67">FunC++. Make functional C++ more efficient</a>
+<!--[ <a href="slides/slides_BoF_67.pdf">Slides</a> ]-->
+  &mdash; <i>Pavel Kosov (Huawei R&amp;D)</i>
+</li>
+<li><a href="talks.html#BoF_83">Loop Optimization BoF</a>
+<!--[ <a href="slides/slides_BoF_83.pdf">Slides</a> ]-->
+  &mdash; <i>Michael Kruse (Argonne National Laboratory),
+     Kit Barton (IBM)</i>
+</li>
+<li><a href="talks.html#BoF_86">Code Size Optimization</a>
+<!--[ <a href="slides/slides_BoF_86.pdf">Slides</a> ]-->
+  &mdash; <i>Sean Bartell (University of Illinois at Urbana-Champaign)</i>
+</li>
+</ul>
+
+<b>Panel</b>
+<ul>
+<li><a href="talks.html#Panel_44">Vector Predication</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Panel_44">Video</a> ]-->
+<!--[ <a href="slides/slides_Panel_44.pdf">Slides</a> ]-->
+  &mdash; <i>Andrew Kaylor (Intel),
+     Florian Hahn (Apple),
+     Roger Ferrer Ibáñez (Barcelona Supercomputing Center),
+     Simon Moll (NEC Deutschland)</i>
+</li>
+<li><a href="talks.html#Panel_82">OpenMP (Target Offloading) in LLVM [Panel/BoF]</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Panel_82">Video</a> ]-->
+<!--[ <a href="slides/slides_Panel_82.pdf">Slides</a> ]-->
+  &mdash; <i>Johannes Doerfert (ANL)</i>
+</li>
+</ul>
+
+<b>LightningTalk</b>
+<ul>
+<li><a href="talks.html#LightningTalk_4">Support for mini-debuginfo in LLDB - How to read the .gnu_debugdata section.</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_4">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_4.pdf">Slides</a> ]-->
+  &mdash; <i>Konrad Kleine (Red Hat)</i>
+</li>
+<li><a href="talks.html#LightningTalk_9">OpenACC MLIR dialect for Flang and maybe more</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_9">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_9.pdf">Slides</a> ]-->
+  &mdash; <i>Valentin Clement (Oak Ridge National Laboratory),
+     Jeffrey S. Vetter (Oak Ridge National Laboratory)</i>
+</li>
+<li><a href="talks.html#LightningTalk_10">LLVM pre-merge checks</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_10">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_10.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_10.pdf">Slides</a> ]-->
+  &mdash; <i>Mikhail Goncharov (Google),
+     Christian Kühnel (Google)</i>
+</li>
+<li><a href="talks.html#LightningTalk_15">LIT Testing For Out-Of-Tree Projects</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_15">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_15.pdf">Slides</a> ]-->
+  &mdash; <i>Andrzej Warzynski (Arm)</i>
+</li>
+<li><a href="talks.html#LightningTalk_21">Inter-Procedural Value Range Analysis with the Attributor</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_21">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_21.pdf">Slides</a> ]-->
+  &mdash; <i>Hideto Ueno (University of Tokyo),
+     Johannes Doerfert (ANL)</i>
+</li>
+<li><a href="talks.html#LightningTalk_23">Reproducers in LLVM - inspiration for clangd?</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_23">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_23.pdf">Slides</a> ]-->
+  &mdash; <i>Jan Korous (Apple)</i>
+</li>
+<li><a href="talks.html#LightningTalk_24">Matrix Support in Clang and LLVM</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_24">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_24.pdf">Slides</a> ]-->
+  &mdash; <i>Florian Hahn (Apple)</i>
+</li>
+<li><a href="talks.html#LightningTalk_25">Unified output format for Clang-Tidy and Static Analyzer</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_25">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_25.pdf">Slides</a> ]-->
+  &mdash; <i>Artem Dergachev (Apple)</i>
+</li>
+<li><a href="talks.html#LightningTalk_26">Extending ReachingDefAnalysis for Dataflow analysis</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_26">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_26.pdf">Slides</a> ]-->
+  &mdash; <i>Samuel Parker (Arm)</i>
+</li>
+<li><a href="talks.html#LightningTalk_35">Flang Update</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_35">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_35.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_35.pdf">Slides</a> ]-->
+  &mdash; <i>Steve Scalpone (NVIDIA / Flang)</i>
+</li>
+<li><a href="talks.html#LightningTalk_36">Extending Clang and LLVM for Interpreter Profiling Perf-ection</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_36">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_36.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_36.pdf">Slides</a> ]-->
+  &mdash; <i>Frej Drejhammar (RISE SICS)</i>
+</li>
+<li><a href="talks.html#LightningTalk_41">Data Parallel C++ compiler for accelerator programming</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_41">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_41.pdf">Slides</a> ]-->
+  &mdash; <i>Alexey Bader (Intel),
+     Oleg Maslov (Intel)</i>
+</li>
+<li><a href="talks.html#LightningTalk_42">CUDA2OpenCL - a tool to assist porting CUDA applications to OpenCL</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_42">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_42.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_42.pdf">Slides</a> ]-->
+  &mdash; <i>Anastasia Stulova (Arm),
+     Marco Antognini (Arm)</i>
+</li>
+<li><a href="talks.html#LightningTalk_43">Experiences using MLIR to implement a custom language</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_43">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_43.pdf">Slides</a> ]-->
+  &mdash; <i>Klas Segeljakt (KTH - Royal Institute of Technology)</i>
+</li>
+<li><a href="talks.html#LightningTalk_45">llvm-diva – Debug Information Visual Analyzer</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_45">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_45.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_45.pdf">Slides</a> ]-->
+  &mdash; <i>Carlos Enciso (Sony Interactive Entertainment)</i>
+</li>
+<li><a href="talks.html#LightningTalk_48">Optimization Pass Sandboxing in LLVM: Replacing Heuristics on Statically Scheduled Targets</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_48">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_48.pdf">Slides</a> ]-->
+  &mdash; <i>Pierre-Andre Saulais (Codeplay Software)</i>
+</li>
+<li><a href="talks.html#LightningTalk_51">Compile Faster with the Program Repository and ccache</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_51">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_51.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_51.pdf">Slides</a> ]-->
+  &mdash; <i>Ying Yi (SN Systems Limited),
+     Paul Bowen-Huggett (SN Systems Limited)</i>
+</li>
+<li><a href="talks.html#LightningTalk_56">Adventures using LLVM OpenMP Offloading for Embedded Heterogeneous Systems</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_56">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_56.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_56.pdf">Slides</a> ]-->
+  &mdash; <i>Lukas Sommer (TU Darmstadt)</i>
+</li>
+<li><a href="talks.html#LightningTalk_63">Improving Launch Time for iOS App without Sacrificing Binary Size</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_63">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_63.pdf">Slides</a> ]-->
+  &mdash; <i>Jin Lin (Uber Corp)</i>
+</li>
+<li><a href="talks.html#LightningTalk_69">Merging Vector Registers in Predicated Codes</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_69">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_69.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_69.pdf">Slides</a> ]-->
+  &mdash; <i>Matthias Kurtenacker (Compiler Design Lab, Saarland University),
+     Simon Moll (NEC Germany),
+     Sebastian Hack (Compiler Design Lab, Saarland University)</i>
+</li>
+<li><a href="talks.html#LightningTalk_80">OpenMP in LLVM --- What is changing and why</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_80">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_80.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_80.pdf">Slides</a> ]-->
+  &mdash; <i>Johannes Doerfert (ANL)</i>
+</li>
+<li><a href="talks.html#LightningTalk_88">A Multidimensional Array Indexing Intrinsics</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_88">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_88.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_88.pdf">Slides</a> ]-->
+  &mdash; <i>Prashanth NR (Compiler Tree Technologies),
+     Vinay Madhusudan (Compiler Tree Technologies),
+     Ranjith Kumar (Compiler Tree Technologies)</i>
+</li>
+<li><a href="talks.html#LightningTalk_95">Improving Code Density for RISC-V Target</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_95">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_95.pdf">Slides</a> ]-->
+  &mdash; <i>Wei Wei,
+     Chao Yu</i>
+</li>
+</ul>
+
+<b>Poster</b>
+<ul>
+<li><a href="talks.html#LightningTalk_10">LLVM pre-merge checks</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_10">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_10.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_10.pdf">Slides</a> ]-->
+  &mdash; <i>Mikhail Goncharov (Google),
+     Christian Kühnel (Google)</i>
+</li>
+<li><a href="talks.html#TechTalk_11">Transitioning the Scientific Software Toolchain to Clang/LLVM</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_11">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_11.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_11.pdf">Slides</a> ]-->
+  &mdash; <i>Mike Pozulp (Lawrence Livermore National Laboratory and University of California, Davis),
+     Shawn Dawson (Lawrence Livermore National Laboratory),
+     Ryan Bleile (Lawrence Livermore National Laboratory and University of Oregon),
+     Patrick Brantley (Lawrence Livermore National Laboratory),
+     M. Scott McKinley (Lawrence Livermore National Laboratory),
+     Matt O&#x27;Brien (Lawrence Livermore National Laboratory),
+     Dave Richards (Lawrence Livermore National Laboratory)</i>
+</li>
+<li><a href="talks.html#TechTalk_18">Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang's AST, and Quantum Computing</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_18">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_18.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_18.pdf">Slides</a> ]-->
+  &mdash; <i>Hal Finkel (Argonne National Laboratory),
+     Alex Mccaskey (Oak Ridge National Laboratory)</i>
+</li>
+<li><a href="talks.html#Poster_19">Automatic generation of LLVM based compiler toolchains from a high-level description</a>
+<!--[ <a href="slides/poster_Poster_19.pdf">Poster</a> ]-->
+  &mdash; <i>Pavel Snobl (Codasip)</i>
+</li>
+<li><a href="talks.html#TechTalk_28">Loop Fission: Distributing loops based on conflicting heuristics</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_28">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_28.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_28.pdf">Slides</a> ]-->
+  &mdash; <i>Ettore Tiotto (IBM Canada),
+     Wai Hung (Whitney) Tsang (IBM Canada),
+     Bardia Mahjour (IBM Canada),
+     Kit Barton (IBM Canada)</i>
+</li>
+<li><a href="talks.html#LightningTalk_35">Flang Update</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_35">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_35.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_35.pdf">Slides</a> ]-->
+  &mdash; <i>Steve Scalpone (NVIDIA / Flang)</i>
+</li>
+<li><a href="talks.html#LightningTalk_36">Extending Clang and LLVM for Interpreter Profiling Perf-ection</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_36">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_36.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_36.pdf">Slides</a> ]-->
+  &mdash; <i>Frej Drejhammar (RISE SICS)</i>
+</li>
+<li><a href="talks.html#TechTalk_37">Verifying Memory Optimizations using Alive2</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_37">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_37.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_37.pdf">Slides</a> ]-->
+  &mdash; <i>Juneyoung Lee (Seoul National University, Korea),
+     Chung-Kil Hur (Seoul National University, Korea),
+     Nuno P. Lopes (Microsoft Research, UK)</i>
+</li>
+<li><a href="talks.html#Poster_39">Using MLIR to implement a compiler for Arc, a language for Batch and Stream Programming</a>
+<!--[ <a href="slides/poster_Poster_39.pdf">Poster</a> ]-->
+  &mdash; <i>Klas Segeljakt (KTH - Royal Institute of Technology),
+     Frej Drejhammar (RISE SICS)</i>
+</li>
+<li><a href="talks.html#LightningTalk_42">CUDA2OpenCL - a tool to assist porting CUDA applications to OpenCL</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_42">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_42.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_42.pdf">Slides</a> ]-->
+  &mdash; <i>Anastasia Stulova (Arm),
+     Marco Antognini (Arm)</i>
+</li>
+<li><a href="talks.html#LightningTalk_45">llvm-diva – Debug Information Visual Analyzer</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_45">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_45.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_45.pdf">Slides</a> ]-->
+  &mdash; <i>Carlos Enciso (Sony Interactive Entertainment)</i>
+</li>
+<li><a href="talks.html#LightningTalk_51">Compile Faster with the Program Repository and ccache</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_51">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_51.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_51.pdf">Slides</a> ]-->
+  &mdash; <i>Ying Yi (SN Systems Limited),
+     Paul Bowen-Huggett (SN Systems Limited)</i>
+</li>
+<li><a href="talks.html#Poster_52">MultiLevel Tactics: Lifting loops in MLIR</a>
+<!--[ <a href="slides/poster_Poster_52.pdf">Poster</a> ]-->
+  &mdash; <i>lorenzo chelini (TU Eindhoven),
+     Andi Drebes (Inria and École Normale Supérieure),
+     Oleksandr Zinenko (Google),
+     Albert Cohen (Google),
+     Henk Corporaal (TU Eindhoven),
+     Tobias Grosser (ETH),
+     Nicolas Vasilache (Google)</i>
+</li>
+<li><a href="talks.html#LightningTalk_56">Adventures using LLVM OpenMP Offloading for Embedded Heterogeneous Systems</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_56">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_56.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_56.pdf">Slides</a> ]-->
+  &mdash; <i>Lukas Sommer (TU Darmstadt)</i>
+</li>
+<li><a href="talks.html#Poster_57">Interpreted Pattern Matching in MLIR with MLIR</a>
+<!--[ <a href="slides/poster_Poster_57.pdf">Poster</a> ]-->
+  &mdash; <i>Jeff Niu (Google),
+     Mehdi Amini (Google),
+     River Riddle (Google)</i>
+</li>
+<li><a href="talks.html#LightningTalk_69">Merging Vector Registers in Predicated Codes</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_69">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_69.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_69.pdf">Slides</a> ]-->
+  &mdash; <i>Matthias Kurtenacker (Compiler Design Lab, Saarland University),
+     Simon Moll (NEC Germany),
+     Sebastian Hack (Compiler Design Lab, Saarland University)</i>
+</li>
+<li><a href="talks.html#Poster_71">Case Study: LLVM Optimizations for AI Applications Using RISC-V V Extension</a>
+<!--[ <a href="slides/poster_Poster_71.pdf">Poster</a> ]-->
+  &mdash; <i>Chia-Hsuan Chang (National Tsing Hua University, Taiwan),
+     Pi-You Chen (National Tsing Hua University, Taiwan),
+     Chao-Lin Lee (National Tsing Hua University, Taiwan),
+     Jenq-Kuen Lee (National Tsing Hua University, Taiwan)</i>
+</li>
+<li><a href="talks.html#Poster_77">OpenMP codegen in Flang using MLIR</a>
+<!--[ <a href="slides/poster_Poster_77.pdf">Poster</a> ]-->
+  &mdash; <i>Kiran Chandramohan (Arm Ltd)</i>
+</li>
+<li><a href="talks.html#LightningTalk_80">OpenMP in LLVM --- What is changing and why</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_80">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_80.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_80.pdf">Slides</a> ]-->
+  &mdash; <i>Johannes Doerfert (ANL)</i>
+</li>
+<li><a href="talks.html#SRC_87">Autotuning C++ function templates with ClangJIT</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_87">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_87.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_87.pdf">Slides</a> ]-->
+  &mdash; <i>Sebastian Kreutzer (TU Darmstadt),
+     Hal Finkel (Argonne National Laboratory)</i>
+</li>
+<li><a href="talks.html#LightningTalk_88">A Multidimensional Array Indexing Intrinsics</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_88">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_88.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_88.pdf">Slides</a> ]-->
+  &mdash; <i>Prashanth NR (Compiler Tree Technologies),
+     Vinay Madhusudan (Compiler Tree Technologies),
+     Ranjith Kumar (Compiler Tree Technologies)</i>
+</li>
+<li><a href="talks.html#Poster_89">Some Improvements to the Branch Probability Information (BPI)</a>
+<!--[ <a href="slides/poster_Poster_89.pdf">Poster</a> ]-->
+  &mdash; <i>Akash Banerjee (IIT Hyderabad),
+     Venkata Keerthy S (IIT Hyderabad),
+     Rohit Aggarwal (IIT Hyderabad),
+     Ramakrishna Upadrasta (IIT Hyderabad)</i>
+</li>
+<li><a href="talks.html#SRC_90">The Bitcode Database</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_90">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_90.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_90.pdf">Slides</a> ]-->
+  &mdash; <i>Sean Bartell (University of Illinois at Urbana-Champaign),
+     Vikram Adve (University of Illinois at Urbana-Champaign)</i>
+</li>
+<li><a href="talks.html#Poster_92">Is Post Dominator tree spoiling your party?</a>
+<!--[ <a href="slides/poster_Poster_92.pdf">Poster</a> ]-->
+  &mdash; <i>Reshabh Kumar Sharma (AMD Inc)</i>
+</li>
+<li><a href="talks.html#Poster_94">DragonFFI: using Clang/LLVM for seamless C interoperability, and much more!</a>
+<!--[ <a href="slides/poster_Poster_94.pdf">Poster</a> ]-->
+  &mdash; <i>Adrien Guinet (Quarkslab)</i>
+</li>
+<li><a href="talks.html#SRC_96">RISE: A Functional Pattern-based Dialect in MLIR</a>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_96">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_96.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_96.pdf">Slides</a> ]-->
+  &mdash; <i>Martin Lücke (University of Edinburgh),
+     Michael Steuwer (University of Glasgow),
+     Aaron Smith (Microsoft)</i>
+</li>
+</ul>
+
+<!--
 <div class="www_sectiontitle" id="cfp">Call for Presentations</div>
 
 <p>All developers and users of LLVM and related sub-projects are invited to
@@ -180,6 +742,7 @@ member/moderators are. If you wish, you can provide a more detailed description
 of the talk through an extended PDF abstract. We highly recommend you consult
 and follow the <a href="cfp-faq.html">FAQ</a> and the <a href="cfp-guide.html">guide</a> when
 submitting your proposal.</p>
+-->
 
 <p>Our program committee chair is Kristof Beyls. The program committee is composed of active developers of the LLVM, Clang, and related sub-communities.
 The program commitee consists of the following:

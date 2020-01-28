@@ -1,0 +1,1782 @@
+<!--#include virtual="../../header.incl" -->
+
+<div class="www_sectiontitle" id="top">2020 European LLVM Developers Meeting</div>
+<div style="float:left; width:68%;">
+<div style="width:100%;">
+<ul>
+  <li><a href="index.html">Conference main page</a></li>
+  <li><b>Conference Dates</b>: April 6-7, 2020</li>
+  <li><b>Location</b>: <a href="https://www.marriott.com/hotels/travel/parst-paris-marriott-rive-gauche-hotel-and-conference-center/">Marriott Rive Gauche, Paris, France</a></li>
+</ul>
+</div>
+
+<div class="www_sectiontitle" id="about">About</div>
+<p>The meeting serves as a forum for LLVM, Clang, LLDB and other LLVM project
+developers and users to get acquainted, learn how LLVM is used, and exchange
+ideas about LLVM and its (potential) applications.<p>
+
+<p>The conference includes:
+<ul>
+<li><a href="#TechTalk">Technical talks</a></li>
+<li><a href="#SRC">Student Research Competition</a></li>
+<li><a href="#Tutorial">Tutorials</a></li>
+<li><a href="#BoF">BoFs</a></li>
+<li><a href="#Panel">Panels</a></li>
+<li><a href="#LightningTalk">Lightning talks</a></li>
+<li><a href="#Poster">Posters</a></li>
+</ul>
+</p>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle" id="TechTalk">Technical talks</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="TechTalk_2">
+<b>Modifying LLVM Without Forking</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_2">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_2.pdf">Slides</a> ]-->
+  &mdash; <i>Neil Henning (Unity)</i>
+<p>LLVM is a powerful technology used in a wide-range of applications.
+One key component of LLVM that is not broadcasted enough is that it is
+possible to widely modify some of the core parts of LLVM without
+forking the codebase to make these modifications. This talk will cover
+some key ways that users of the LLVM technology can drastically change
+the code being produced from the compiler, using practical examples
+from Unity&#x27;s HPC# Burst compiler codebase to show how we leverage
+the power of LLVM, without forking.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_3">
+<b>A Cross Debugger for Multi-Architecture Binaries</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_3">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_3.pdf">Slides</a> ]-->
+  &mdash; <i>Jaewoo Shim (NSR),
+     Hyukmin Kwon (NSR),
+     Sangrok Lee (NSR)</i>
+<p>In IoT, malicious binaries are executed on various CPU
+architectures. For example, Mirai and its variants spread over many
+CPUs(Intel, ARM, MIPS, PPC, etc.). It is very difficult to prepare
+devices to execute such malware. Furthermore, malware analysts need to
+understand every architecture and its assembly language to analyze
+multi-architecture malware. For these reasons, we developed a LLVM-
+based cross-debugger which can execute and inspect multi-architecture
+malware on a single host. The input of the cross-debugger is LLVM IR.
+LLVM IR is lifted from a malware binary through our lifter which is
+based on existing lifter. We changed the disassembly strategy from
+recursive traversal to linear sweep with an error correction method
+using our own local VSA(Value Set Analysis). Our lifter outperformed
+the existing lifter by speeding 4 times with the same accuracy. LLVM
+Interpreter(LLI) is used for executing lifted LLVM IR. Current LLI
+cannot run the “lifted” IR properly due to the two reasons – 1) Direct
+memory access 2) Uncommon type casting. In our presentation, we will
+show why these are problematic and how we solved them by modifying LLI
+source code. We implemented essential debugger features such as
+breakpoint, code view and hex dump in order to utilize LLI as a
+debugger. In addition, we added novel features: data flows based
+instruction tracing which is very helpful to analyze IoT binaries but
+gdb and IDA pro do not provide. In this talk, we want to discuss how
+LLVM IR can be used for dynamic binary analysis. First, we will show
+how to lift a binary to LLVM IR. And we will show lifted LLVM IR code
+examples which LLI cannot execute. Second, we will discuss that
+current limitations of the existing LLI and how we solved them. Third,
+we will explain what is required for cross-debugger and how we
+designed and implemented these features. Finally, a malware analysis
+demo with our tool.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_8">
+<b>TFRT: An MLIR Powered Low-Level Runtime for Heterogenous Accelerators</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_8">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_8.pdf">Slides</a> ]-->
+  &mdash; <i>Chris Lattner (Google),
+     Mingsheng Hong (Google)</i>
+<p>TFRT is a new effort to provide a common low level runtime for
+accelerators - enabling multiple heterogenous accelerators (each with
+domain specific APIs and device specific drivers) in a single system.
+This approach provides efficient use of the multithreaded host CPUs,
+supports fully asynchronous programming models, and is focused on low-
+level efficiency. TFRT is a new runtime that powers TensorFlow, but
+while our work is focused on the machine learning use-cases, the core
+runtime is application independent. TFRT is novel in three ways:<ol>
+<li>it directly builds on MLIR and LLVM infrastructure like the MLIR
+declarative graph lowering framework, FileCheck based unit tests, and
+common LLVM data types.</li>
+<li>it leverages MLIRs extensible type system to support arbitrary C++
+types in the runtime, not being limited to just tensors.</li>
+<li>it uses a modular library-based design that is optimized for
+subset-ability and embedding into applications spanning from mobile to
+server deployments, integration into a high performance game engine,
+etc.</li>
+</ol>
+</p>
+<p>This talk discusses the design points of TFRT - including a
+discussion about the use of MLIR dialects to represent accelerator
+runtimes, which is the key that enable efficient and highly integrated
+heterogenous computation in a common framework. Through the use of
+MLIR, TFRT is able to expose the full power of each accelerator,
+instead of providing a &quot;lowest common denominator&quot; approach.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_11">
+<b>Transitioning the Scientific Software Toolchain to Clang/LLVM</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_11">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_11.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_11.pdf">Slides</a> ]-->
+  &mdash; <i>Mike Pozulp (Lawrence Livermore National Laboratory and University of California, Davis),
+     Shawn Dawson (Lawrence Livermore National Laboratory),
+     Ryan Bleile (Lawrence Livermore National Laboratory and University of Oregon),
+     Patrick Brantley (Lawrence Livermore National Laboratory),
+     M. Scott McKinley (Lawrence Livermore National Laboratory),
+     Matt O&#x27;Brien (Lawrence Livermore National Laboratory),
+     Dave Richards (Lawrence Livermore National Laboratory)</i>
+<p>For the past 25 years, many of the largest scientific software
+applications at Lawrence Livermore National Laboratory (LLNL) have
+used the Intel C/C++ compiler (icc/icpc) to compile the executables
+provided to users on x86. This spring 2020, the Monte Carlo Transport
+Project will release our first executable compiled with clang, which
+builds 25% faster and runs 6.1% faster than icpc. The poster
+accompanying this paper will describe the challenges of switching
+toolchains and the resulting advantages of using a clang/LLVM
+toolchain for large scientific software applications at LLNL.
+Acknowledgement: The title was inspired by a technical talk from the
+2019 LLVM Developers&#x27; Meeting, &quot;Transitioning the Networking
+Software Toolchain to Clang/LLVM&quot;.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_12">
+<b>Exhaustive Software Pipelining using an SMT-Solver</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_12">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_12.pdf">Slides</a> ]-->
+  &mdash; <i>Jan-Willem Roorda (Intel)</i>
+<p>Software pipelining (SWP) is a classic and important loop-
+optimization technique for VLIW-processors. It improves instruction-
+level parallelism by overlapping multiple iterations of a loop and
+executing them in parallel. Typically, SWP is implemented using
+heuristics. But, also exhaustive approaches based on Integer
+Programming (IP) have been proposed. In this talk, we present an
+alternative approach implemented in LLVM: an exhaustive software
+pipeliner based on a Satisfiability Modulo Theories (SMT) Solver. We
+give experimental results in which we compare our approach with
+heuristic algorithms and hand-optimization. Furthermore, we show how
+the &quot;unsatisfiable core&quot; generation feature of modern SMT-
+solvers can be used by the compiler to give feedback to programmers
+and processor-designers. Finally, we compare our approach to
+LLVM&#x27;s implementation of Swing-Modulo-Scheduling (SMS).
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_14">
+<b>Testing the Debugger</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_14">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_14.pdf">Slides</a> ]-->
+  &mdash; <i>Jonas Devlieghere (Apple)</i>
+<p>Testing the debugger has unique challenges. Unlike the compiler
+where you have a fixed set of input and output files, the debugger is
+an interactive tool that deals with many variants, ranging from the
+compiler and debug info format to the platform being debugged.
+LLDB&#x27;s test suite has seen some significant changes over the past
+two years. Not only has the number of tests increased steadily, we
+also changed the way we test things. This talk will give an overview
+of those changes, the different testing strategies used by LLDB and
+how to decide which one to use when writing a new test case.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_18">
+<b>Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang's AST, and Quantum Computing</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_18">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_18.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_18.pdf">Slides</a> ]-->
+  &mdash; <i>Hal Finkel (Argonne National Laboratory),
+     Alex Mccaskey (Oak Ridge National Laboratory)</i>
+<p>Did you know that Clang has a powerful plugin API? Plugins can
+currently observe Clang&#x27;s AST during compilation, register new
+pragmas, and more. In this talk, I&#x27;ll review Clang&#x27;s current
+plugin infrastructure, explaining how to write and use Clang plugins,
+and then talk about how we&#x27;re working to enhance Clang&#x27;s
+plugin capabilities by allowing plugins to provide custom parsing
+within function bodies. This new capability has many potential use
+cases, from parser generators to database-query handling, and
+we&#x27;ll discuss how this new capability can potentially enhance a
+wide spectrum of tools. Finally, we&#x27;ll discuss one such use case
+in more detail: embedding a quantum programming language in C++ to
+create a state-of-the-art hybrid programming model for quantum
+computing.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_28">
+<b>Loop Fission: Distributing loops based on conflicting heuristics</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_28">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_28.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_28.pdf">Slides</a> ]-->
+  &mdash; <i>Ettore Tiotto (IBM Canada),
+     Wai Hung (Whitney) Tsang (IBM Canada),
+     Bardia Mahjour (IBM Canada),
+     Kit Barton (IBM Canada)</i>
+<p>This talk is about a new optimization pass implemented in LLVM opt
+- LoopFissionPass. Loop fission aims at distributing independent
+statements in a loop into separate loops. In our implementation we use
+an interference graph, induced from the Data Dependence Graph (DDG),
+to balance potentially conflicting heuristics and derive an optimal
+distribution plan. We consider data reuse between statements, memory
+streams, code size, etc., to decide how to distribute a loop nest.
+Additional heuristics can be easily incorporated into the model,
+making this approach a flexible alternative to the existing
+LoopDistributionPass in LLVM. We will share our experience on running
+Loop Fission on a real-world application, and we will provide results
+on industry benchmarks. This talk targets developers who have an
+interest in loop optimizations and want to learn about how to use the
+DDG infrastructure now available in LLVM to drive a transformation
+pass. The takeaways for this talk are:<ul>
+<li>How to balance conflicting heuristics using an interference
+graph</li>
+<li>How to use the data dependence graph</li>
+<li>The key differences between the existing LoopDistribution pass and
+our new LoopFission pass</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_30">
+<b>Achieving compliance with automotive coding standards with Clang</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_30">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_30.pdf">Slides</a> ]-->
+  &mdash; <i>Milena Vujosevic Janicic (RT-RK)</i>
+<p>Autosar guidelines for the use of the C++14 language in critical
+and safety-related systems propose rules that are tailored to improve
+security, safety and quality of software. In this talk, we will
+discuss main challenges in extending Clang with source code analyses
+that are necessary for checking compliance of software with Autosar
+automotive standard:<ul>
+<li>We will present Clang’s current support for checking compliance to
+different standards and its strengths and weakness in this area</li>
+<li>We will compare efficiency and possibilities based on implementing
+analyses via AST Visitors and AST Matchers.</li>
+<li>We will present our improvements of Clang&#x27;s diagnostics.</li>
+<li>We will discuss similarities and differences between our approach
+and the solution offered by Clang-Tidy project.</li>
+<li>We will present some impressions and results on using our
+extension of Clang (supporting checking compliance with more than 180
+Autosar rules) in automotive industry, including running it on parts
+of Automotive Grade Linux open source code.</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_32">
+<b>Secure Delivery of Program Properties with LLVM</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_32">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_32.pdf">Slides</a> ]-->
+  &mdash; <i>Son Tuan Vu (LIP6),
+     Karine Heydemann (LIP6),
+     Arnaud de Grandmaison (Arm),
+     Albert Cohen (Google)</i>
+<p>Program analysis and program transformation systems have long used
+annotations and assertions capturing program properties, to either
+specify test and verification goals, or to enhance their
+effectiveness. These may be functional properties of program control
+and data flow, or non-functional properties about side-channel or
+faults. Such annotations are typically inserted at the source level
+for establishing compliance with a specification, or guiding compiler
+optimizations, and are required at the binary level for the validation
+of secure code, for instance. In this talk, I will explain our
+approach to encode, translate and preserve the semantics of both
+functional and non-functional properties along the optimizing
+compilation of C to machine code. This involves<ul>
+<li>capturing and translating source-level properties through lowering
+passes and intermediate representations, such that data and control
+flow optimizations will preserve their consistency with the
+transformed program;</li>
+<li>carrying properties and their translation as debug information
+down to machine code.</li>
+</ul>
+</p>
+<p>I will also give details on how we modified Clang and LLVM to
+implement and validate the soundness and efficiency of the approach. I
+will show how our approach specifically addresses a fundamental open
+issue in security engineering, by considering some established
+security properties and applications hardened against side-channel and
+fault attacks. This talk will be a follow-on to &quot;Compilation and
+optimization with security annotations&quot;, presented at EuroLLVM
+2019. It is based on our research paper &quot;Secure Delivery of
+Program Properties Through Optimizing Compilation&quot;, submitted and
+accepted for the ACM SIGPLAN 2020 International Conference on Compiler
+Construction (CC20).
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_37">
+<b>Verifying Memory Optimizations using Alive2</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_37">Video</a> ]-->
+<!--[ <a href="slides/poster_TechTalk_37.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_37.pdf">Slides</a> ]-->
+  &mdash; <i>Juneyoung Lee (Seoul National University, Korea),
+     Chung-Kil Hur (Seoul National University, Korea),
+     Nuno P. Lopes (Microsoft Research, UK)</i>
+<p>Alive2 is a re-implementation of Alive to check existing
+optimizations without rewriting them in the Alive DSL. It takes a pair
+of functions as input, and encodes their equivalence(refinement) of
+condition into a mathematical formula, which is then verified by Z3.
+Alive2 can be run as a standalone tool as well as an opt plugin which
+enables running Alive2 on LLVM&#x27;s unit tests using the lit testing
+tool. In this talk, I will present a demo that shows how to use Alive2
+to prove correctness of optimizations on memory accessing instructions
+such as load, store, and alloca. It will include running examples of
+several optimizations that LLVM currently performs. Also, we&#x27;ll
+show how to interpret Alive2&#x27;s error message from incorrect
+transformations by using real miscompilation bugs that we&#x27;ve
+found from the LLVM unit tests.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_38">
+<b>From Tensors to Devices in one IR</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_38">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_38.pdf">Slides</a> ]-->
+  &mdash; <i>Oleksandr Zinenko (Google Inc.),
+     Stephan Herhut (Google Inc.),
+     Nicolas Vasilache (Google Inc.)</i>
+<p>MLIR is a new compiler infrastructure recently introduced to the
+LLVM project. Its main power lies in the openness of its instruction
+set and type system, allowing compiler engineers and researchers to
+define and combine different levels of abstractions within a single
+IR. In this talk, we will present an approach for code generation and
+optimization that significantly reduces implementation complexity by
+defining operations, types and attributes with strong semantics and
+structural properties that are preserved across compiler
+transformations. These semantics can be derived from the results of
+traditional compiler analyses, such as aliasing or affine loop
+analysis, or imposed by construction and preserved when lowering
+progressively from the front-end representation. We illustrate our
+approach to code generation by a retargetable flow from machine
+learning frameworks to GPU-like devices, traversing a series of mid-
+level control flow abstractions such as loops, all expressed as MLIR
+dialects. These dialects follow the “structured” design paradigm,
+making them easy to extend, combine and lower into each other
+progressively, only discarding high-level information when it is no
+longer necessary. We demonstrate that the structure embedded into
+operations and types ensures the legality of code transformations
+(such as buffer assignment, code motion, fusion and unrolling), and is
+preserved by them, making the set of operations closed under a set of
+well-defined transformations.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_47">
+<b>Convergence and control flow lowering in the AMDGPU backend</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_47">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_47.pdf">Slides</a> ]-->
+  &mdash; <i>Nicolai Hähnle (Advanced Micro Devices)</i>
+<p>GPUs execute many threads of a program in lock-step on SIMD
+hardware, in what is often called a SIMT or SPMD execution model. The
+AMDGPU compiler backend is responsible for translating a
+program&#x27;s original, thread-level control flow into a combination
+of predication and wave-level control flow. Some programs contain
+_convergent_ intrinsics which add further constraints to this
+transform. We give a brief update on recent developments in the AMDGPU
+backend and how we plan to model convergence constraints in LLVM IR in
+the future, with a corresponding take on what convergence should mean.
+Given enough time, we&#x27;ll go into some more detail on the
+convergence intrinsics we&#x27;re using, our preferred cycle analysis,
+and how choices in convergence behavior interact with divergence
+analysis.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_50">
+<b>Preserving And Improving The Optimized Debugging Experience</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_50">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_50.pdf">Slides</a> ]-->
+  &mdash; <i>Tom Weaver (Sony, SN Systems)</i>
+<p>The current optimized debugging experience is poor but recently
+there has been a concerted effort within the LLVM community to rectify
+this. The ongoing effort has been huge but there&#x27;s still lots of
+work to do in the optimized debugging space. A typical optimized
+debugging experience can be frustrating with variables going missing,
+holding incorrect values or appearing out of order. The LLVM
+optimization pipeline presents a large surface area for optimized
+debugging experience bugs to be introduced. But this doesn&#x27;t mean
+that fixing this issue has to be hard. The vast majority of the issues
+that arise within the optimized debugging experience problem space can
+be fixed using existing tools and utilities built into the LLVM
+codebase. This talk aims to inform the audience about the current
+optimized debugging experience, what we mean by &#x27;debugging
+experience&#x27;, why it&#x27;s bad and what we can do about it. The
+talk will explain in some detail how debugging information is
+represented within the LLVM IR, how it represents it and how these
+debugging information building blocks interact with one another.
+Finally, it will cover some entry level coding patterns that LLVM
+contributors can use to improve the debugging experience themselves
+when working within the LLVM codebase.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_54">
+<b>ThinLtoJIT: Compiling ahead of time with ThinLTO summaries</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_54">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_54.pdf">Slides</a> ]-->
+  &mdash; <i>Stefan Gränitz (Independent / Freelance Developer)</i>
+<p>ThinLtoJIT is a new LLVM example project, which makes use of global
+call-graph information from ThinLTO summaries for speculative
+compilation with ORCv2. It is an implementation of the concept I
+presented in my &quot;ThinLTO Summaries in JIT Compilation&quot; talk
+at the 2018 Developers&#x27; Meeting: <a
+href="http://llvm.org/devmtg/2018-10/talk-
+abstracts.html#lt8">http://llvm.org/devmtg/2018-10/talk-
+abstracts.html#lt8</a> Upfront the JIT only populates the global
+ThinLTO module index and compiles the main module. All functions are
+emitted with extra prologue instructions that fire a discovery flag
+once execution reaches them. In parallel, a discovery thread is busy-
+watching all these flags. Once it detects some fired, it queries the
+ThinLTO module index for functions reachable within a number of calls.
+The set of modules that define these functions is then loaded from
+disk and submitted to the compilation pipeline asynchronously while
+execution continues. Ideally the JIT can be tuned in a way, so that
+the code on the actual path of execution can always be compiled ahead
+of time. In case a missing function is reached, the JIT has a
+definition generator in place that loads modules synchronously. We
+will go through the lifetime of an example program running in
+ThinLtoJIT and discuss various aspects of the implementation:<ul>
+<li>Generate and inspect bitcode with ThinLTO summaries</li>
+<li>Populate and query the global module index</li>
+<li>Build compile pipelines with ORCv2</li>
+<li>Compiler interception stubs in ORCv2</li>
+<li>Binary instrumentation for JITed functions</li>
+<li>Look-free discovery flags</li>
+<li>Multithreaded dispatch for bitcode parsing and compilation</li>
+<li>Benchmarks against lli and static compilation</li>
+</ul>
+</p>
+<p>Most topics are beginner friendly in their domain. During the
+session participants will gain:<ul>
+<li>an advanced understanding of the ORCv2 libraries</li>
+<li>a basic and practical understanding of ThinLTO summaries, binary
+instrumentation, multi-threading and lock-free data structures</li>
+</ul>
+</p>
+<p>Bonus: So, should we build Clang stage-1 in memory?
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_58">
+<b>Global Machine Outliner for ThinLTO</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_58">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_58.pdf">Slides</a> ]-->
+  &mdash; <i>Kyungwoo Lee (Facebook),
+     Nikolai Tillmann (Facebook)</i>
+<p>The existing machine-outliner in LLVM already provides a lot of
+value to reduce code size but also has significant shortcomings: In
+the context of ThinLTO, the machine-outliner operates on only one
+module at a time, and doesn’t reap outlining opportunities that only
+pay off when considering all modules together. Furthermore, identical
+outlined functions in different modules do not get deduplicated
+because of misaligned names. We propose to address these shortcomings:
+We run machine-level codegen (but not the IR-level optimizations)
+twice: The first time, the purpose is purely to gather statistics on
+outlining opportunities. The second time, the gathered knowledge is
+applied during machine outlining to do more. The core idea is to track
+information about outlined instruction sequences via a new kind of
+stable machine instruction hashes that are meaningful and quite exact
+across modules. In this way, the machine-outliner may outline many
+identical functions in separate modules. Furthermore, we introduce
+unique names for outlined functions across modules, and then enable
+link-once ODR to let the linker deduplicate functions. We also
+observed that frame-layout code tends to not get outlined: the
+generated frame-layout code tends to be irregular as it is optimized
+for performance, using the return address register in unique ways
+which are not easily outlinable. We change the machine-specific layout
+code generation to be homogenous, and we synthesize outlined prologue
+and epilogue helper functions on-demand in way that can be fitted to
+actually occurring frequent patterns across all modules. Again, we can
+gather statistics in the first codegen, and apply them in the second
+one. Fortunately, it turns out that the time spent in codegen is not
+dominating the overall compilation, and our approach to run codegen
+twice represents an acceptable cost. Also, codegen tends to be very
+deterministic, and the information gathered during the first codegen
+is highly applicable to the second one. In any case, our optimizations
+are sound. In our experience, this often significantly increases the
+effectiveness of outlining with ThinLTO in terms of size and even
+performance of the generated code. We have observed an improvement in
+the code size reduction of outlining by a factor of two in some large
+applications.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_62">
+<b>Embracing SPIR-V in LLVM ecosystem via MLIR</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_62">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_62.pdf">Slides</a> ]-->
+  &mdash; <i>Lei Zhang (Google),
+     Mahesh Ravishankar (Google)</i>
+<p>SPIR-V is a standard binary intermediate language for representing
+graphics shaders and compute kernels. It is adopted by multiple open
+APIs, notably Vulkan and OpenCL. There are consistent interests over
+proper SPIR-V support in LLVM ecosystem and multiple efforts driving
+towards that goal. However, none of them are landed thus far due to
+SPIR-V’s abstraction level, which raises significant challenges to
+existing LLVM CodeGen infrastructure. MLIR enables a different
+approach to achieve the goal: SPIR-V can be modeled as a dialect with
+the native abstraction. Dialect conversion framework facilitates
+interaction with other dialects, allowing converting to the SPIR-V
+dialect. This effectively embraces SPIR-V into the LLVM ecosystem.
+Along this line, this talk discusses how SPIR-V is modeled in MLIR and
+shows how it is leveraged to build an end-to-end ML compiler (IREE) to
+target Vulkan compute. Further integration paths are open as well for
+supporting OpenCL, Vulkan graphics, and interacting with the LLVM
+dialect. This talk is intended for folks interested in SPIR-V and
+Vulkan/OpenCL. For folks generally interested in MLIR, this talk gives
+examples of how to define dialects and conversions in MLIR, together
+with with useful practices and pitfalls to avoid we found along the
+way.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_65">
+<b>PGO: Demystified Internals</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_65">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_65.pdf">Slides</a> ]-->
+  &mdash; <i>Pavel Kosov (Huawei R&amp;D)</i>
+<p>In this talk we will describe how PGO is implemented in LLVM.
+First, we will make general overview of PGO, talk about pipeline of
+instrumentation and sampling, compare two kinds of instrumentation
+(frontend and IR), overview kinds of counters, look deeper at
+instrumentation implementation (structures, algorithms). Then we will
+present some practical information: how counters are stored in
+executable file and on disk, describe profdata format, how it is
+loaded by llvm to profile metadata, and how this metadata is used in
+optimizations. Finally, we will make a comparison with talk about PGO
+which was presented 7 years ago on LLVM Dev Meeting 2013 (<a href="htt
+p://llvm.org/devmtg/2013-11/#talk14">http://llvm.org/devmtg/2013-11/#t
+alk14</a> ) – and we will see what was changed and how.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_68">
+<b>Control-flow sensitive escape analysis in Falcon JIT</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_68">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_68.pdf">Slides</a> ]-->
+  &mdash; <i>Artur Pilipenko (Azul Systems)</i>
+<p>This talk continues a series of technical talks about internals of
+Azul&#x27;s Falcon compiler. Falcon is a production quality, highly
+optimizing JIT compiler for Java based on LLVM. Java doesn&#x27;t have
+value types (yet), so all allocations are heap allocations by default.
+Because of that idiomatic Java code exposes a lot of opportunities for
+escape analysis. Over the last year Falcon gained fairly sophisticated
+control-flow sensitive escape analysis and transformations. At this
+point this work is mostly downstream, but might be of interest for
+others. In this session we will look at the cases which motivated this
+work, will overview the design and the use cases of the analysis we
+built. We will compare it with the existing capture tracking analysis,
+and discuss challenges of making existing LLVM transformations and
+analyses benefit from a smarter escape analysis.
+</p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_74">
+<b>LLVM meets Code Property Graphs</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_74">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_74.pdf">Slides</a> ]-->
+  &mdash; <i>Alex Denisov (Shiftleft GmbH),
+     Fabian Yamaguchi (Shiftleft GmbH)</i>
+<p>The security of computer systems fundamentally depends on the
+quality of its underlying software. Despite a long series of research
+in academia and industry, security vulnerabilities regularly manifest
+in program code. Consequently, they remain one of the primary causes
+of security breaches today. The discovery of software vulnerabilities
+is a classic yet challenging problem of the security domain. In the
+last decade, there appeared several production-graded solutions with a
+favorable outcome. Code Property Graph[1] (or CPG) is one such
+solution. CPG is a representation of a program that combines
+properties of abstract syntax trees, control flow graphs, and program
+dependence graphs in a joint data structure. There exist two
+counterparts[2][3] that allow traversals over code property graphs in
+order to find vulnerabilities and to extract any other interesting
+properties. In this talk, we want to cover the following topics:<ul>
+<li>an intro to the code property graphs</li>
+<li>how we built llvm2cpg, a tool that converts LLVM Bitcode to the
+CPG representation</li>
+<li>how we teach the tool to reason about properties of high-level
+languages (C/C++/ObjC) based on the low-level representation only</li>
+<li>interesting findings and some results</li>
+</ul>
+</p>
+<p>[1] <a href="https://ieeexplore.ieee.org/document/6956589">https://
+ieeexplore.ieee.org/document/6956589</a></p>
+<p>[2] <a href="https://github.com/ShiftLeftSecurity/codepropertygraph
+">https://github.com/ShiftLeftSecurity/codepropertygraph</a></p>
+<p>[3] <a
+href="https://ocular.shiftleft.io">https://ocular.shiftleft.io</a></p>
+</td></tr>
+<tr><td valign="top" id="TechTalk_81">
+<b>Proposal for A Framework for More Effective Loop Optimizations</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_TechTalk_81">Video</a> ]-->
+<!--[ <a href="slides/slides_TechTalk_81.pdf">Slides</a> ]-->
+  &mdash; <i>Michael Kruse (Argonne National Laboratory),
+     Hal Finkel (Argonne National Laboratory)</i>
+<p>The current LLVM data structures are intended for analysis and
+transformations on the instruction- and control-flow level, but are
+suboptimal for higher-level optimization. As a consequence, writing a
+loop optimization involves a lot of work including a correctness
+check, a custom profitability analysis, and handling many low-level
+issues. However, even when each individual loop optimization pass
+itself is has the best implementation possible, combined they are not
+optimal: their profitability models remain separate and, if loop
+versioning is necessary, each pass duplicates different aspects of the
+loop nest again and again. Also, phase ordering problems may inhibit
+optimizations that otherwise would be possible. This motivates an
+intermediate representation and framework that is centered around
+loops and can be integrated with LLVM’s optimization pipeline. The
+talk will present the approach already outlined in an RFC at the
+beginning of this year.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="SRC">Student Research Competition</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="SRC_87">
+<b>Autotuning C++ function templates with ClangJIT</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_87">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_87.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_87.pdf">Slides</a> ]-->
+  &mdash; <i>Sebastian Kreutzer (TU Darmstadt),
+     Hal Finkel (Argonne National Laboratory)</i>
+<p>ClangJIT is an extension of the Clang compiler that introduces
+just-in-time compilation of function templates in C++. This feature
+can be used to generate functions which are specialized for certain
+inputs. However, especially in computational kernels, the default
+optimization passes leave much of the potential performance gains on
+the table. In this work, we try to close this gap by introducing
+autotuning capabilities to ClangJIT. We employ Polly as a backend for
+polyhedral optimization and evaluate different code versions, in order
+to find chains of loop transformations that deliver performance
+improvements. Using a best-first tree search approach, we are able to
+demonstrate significant speedups on test kernels.
+</p>
+</td></tr>
+<tr><td valign="top" id="SRC_90">
+<b>The Bitcode Database</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_90">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_90.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_90.pdf">Slides</a> ]-->
+  &mdash; <i>Sean Bartell (University of Illinois at Urbana-Champaign),
+     Vikram Adve (University of Illinois at Urbana-Champaign)</i>
+<p>This talk will introduce the Bitcode Database (BCDB), a database
+that can efficiently store huge amounts of LLVM bitcode. The BCDB can
+store hundreds of large Linux packages in a single place, without
+adding significantly to the build time or requiring modifications to
+the packages. Each bitcode module is split into a separate part for
+each function, and identical functions are deduplicated, which means
+that many builds of a program can be kept in the BCDB with minimal
+overhead. When a program and all of its dynamic libraries are stored
+in the BCDB, it is possible to link the program and libraries together
+into a single module and optimize them together. This technique can
+reduce the size of the final binary by 25-50%, and significantly
+improve performance in some cases. The talk will conclude with a
+discussion of more potential uses for the BCDB, such as incremental
+compilation or efficiently sharing bitcode between different
+organizations.
+</p>
+</td></tr>
+<tr><td valign="top" id="SRC_96">
+<b>RISE: A Functional Pattern-based Dialect in MLIR</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_SRC_96">Video</a> ]-->
+<!--[ <a href="slides/poster_SRC_96.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_SRC_96.pdf">Slides</a> ]-->
+  &mdash; <i>Martin Lücke (University of Edinburgh),
+     Michael Steuwer (University of Glasgow),
+     Aaron Smith (Microsoft)</i>
+<p>Machine learning systems are stuck in a rut. Paul Barham and
+Michael Isard, two of the original authors of TensorFlow, come to this
+conclusion in their recent HotOS paper. They argue that while
+TensorFlow and similar frameworks have enabled great advances in
+machine learning, their current design and implementations focus on a
+fixed set of monolithic and inflexible kernels. We present our work on
+the MLIR dialect RISE, a compiler intermediate representation inspired
+by pattern-based program representations like Lift. A set of small
+generic patterns is provided, which can be composed to represent
+complex computations. We argue that this approach of using simple
+reusable patterns to break up large monolithic kernels will enable
+easier exploration of different novel optimizations for machine
+learning workloads. Rise is a spiritual successor to Lift and
+developed at the University of Edinburgh, University of Glasgow and
+University of Münster. Martin Lücke is a PhD student from Edinburgh
+and works on the MLIR implementation of RISE. This work is mainly
+focused on the representation of the high-level Rise patterns in MLIR,
+but we will also talk about the challenges of introducing low-level
+patterns and a rewriting system in the future.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="Tutorial">Tutorials</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="Tutorial_5">
+<b>Implementing Common Compiler Optimizations From Scratch</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_5">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_5.pdf">Slides</a> ]-->
+  &mdash; <i>Mike Shah (Northeastern University)</i>
+<p>In this tutorial I will present several common compiler
+optimizations performed in LLVM. Chances are you have learned them in
+your compilers course, but have you ever had the chance to implement
+them? The following optimizations will be explained and presented:
+dead code elimination, common subexpression elimination, code motion,
+and finally function inlining. Attendees will also learn how to
+generate a control flow graph and visualize it in this After leaving
+this tutorial, attendees should be able to implement more advanced
+program analysis using the LLVM framework. They will be given a set of
+exercises that they can then challenge themselves with given the
+knowledge they learn from this tutorial.
+</p>
+</td></tr>
+<tr><td valign="top" id="Tutorial_22">
+<b>LLVM in a Bare Metal Environment</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_22">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_22.pdf">Slides</a> ]-->
+  &mdash; <i>Hafiz Abid Qadeer (Mentor Graphics)</i>
+<p>This tutorial is about building and validating LLVM toolchain for
+Embedded Bare Metal Systems. Currently, most of the bare metal
+toolchains using LLVM depend on an existing GCC installation to
+provide some runtime bits. In this tutorial, I will go through the
+steps involved in building an LLVM toolchain that does not have this
+dependency. The tutorial will cover the following topics:<ul>
+<li>What are multilibs and how to specify them</li>
+<li>How to generate command line options for compiler, linker and
+other tools in the driver</li>
+<li>How building runtime libraries is different from building host
+tools and ways to build LLVM runtime libraries (compiler-rt,
+libunwind, libcxxabi, libcxx) for bare metal targets</li>
+<li>Overview of the LLVM testing and how to test runtime
+libraries</li>
+<li>Current testing infrastructure provides support to test runtime
+libraries on emulator like QEMU. How to extend it to real bare metal
+hardware</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="Tutorial_34">
+<b>MLIR tutorial</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_34">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_34.pdf">Slides</a> ]-->
+  &mdash; <i>Oleksandr Zinenko (Google),
+     Mehdi Amini (Google)</i>
+<p>MLIR is a flexible infrastructure for defining custom compiler
+abstractions and transformations, recently introduced to LLVM. It aims
+at generalizing the success of LLVM’s intermediate representation to
+new domains, ranging from device instruction sets, to loop
+abstractions, to graphs of operators used in machine learning. In this
+tutorial, we will explain how the few core concepts present in MLIR
+can be combined to represent and transform various IRs, including LLVM
+IR itself, by demonstrating the development of an optimizing compiler
+for a custom DSL step by step. The tutorial should be sufficient for
+the developers of compilers, IRs and similar tools to start using MLIR
+to implement custom operations with parsing and printing, define
+custom type systems and implement generic passes over the combination
+of those. We will provide an overview of MLIR ecosystem and related
+efforts, building the analogy with existing LLVM subsystems and
+frequently discussed LLVM extension proposals, e.g. loop optimizations
+or GPU-specific abstractions.
+</p>
+</td></tr>
+<tr><td valign="top" id="Tutorial_60">
+<b>How to Give and Receive Code Reviews</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_60">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_60.pdf">Slides</a> ]-->
+  &mdash; <i>Kit Barton (IBM Canada),
+     Hal Finkel (ANL)</i>
+<p>Code reviews are a critical component to the development process
+for the LLVM Community. Code maintainers rely on the code review
+process to ensure a high quality of code and to serve as an early
+detection and prevention mechanism for potential bugs. Developers also
+benefit greatly from code reviews through the insight and suggestions
+they receive from the reviewers. This tutorial will cover the code
+review process from both the developer and the reviewer&#x27;s point
+of view. As a developer, there are several guidelines to follow when
+preparing patches for review, as well as common etiquette to follow
+during the review process. As a reviewer, there many things to look
+for during the review (correctness, style, computational complexity,
+etc). This talk will discuss both these roles, in depth. It will use
+demonstrations with Phabricator to emphasize several aspects of the
+code review process. It will also highlight several features in
+Phabricator that can be used during code reviews. The focus will be to
+summarize the current best practices for code reviews that have been
+discussed on the llvm-dev mailing list and summarized on our website
+(<a href="https://llvm.org/docs/CodeReview.html">https://llvm.org/docs
+/CodeReview.html</a>). It is meant to be as interactive as possible,
+with questions during the presentation encouraged.
+</p>
+</td></tr>
+<tr><td valign="top" id="Tutorial_73">
+<b>From C to assembly: adding a custom intrinsic to Clang and LLVM</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Tutorial_73">Video</a> ]-->
+<!--[ <a href="slides/slides_Tutorial_73.pdf">Slides</a> ]-->
+  &mdash; <i>Mateusz Belicki (Intel)</i>
+<p>This tutorial will introduce you to all necessary steps to create a
+Clang intrinsic (builtin function) and extend LLVM to generate code
+for it. This tutorial aims to provide a complete manual for adding a
+custom target-specific intrinsic including exposition to the source
+language. After completing this tutorial you should be able to extend
+clang with custom intrinsic and know how to handle it in LLVM,
+including steps to test and debug your changes at different stages of
+development. Fluency in C++ and general programming concepts is
+expected. The tutorial will try to accommodate for listeners with no
+prior knowledge of LLVM or compiler-specific topics, but it&#x27;s
+recommended to complete general introduction tutorial to LLVM first.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="BoF">BoFs</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="BoF_33">
+<b>Let the compiler do its job?</b>
+<!--[ <a href="slides/slides_BoF_33.pdf">Slides</a> ]-->
+  &mdash; <i>Sjoerd Meijer (ARM)</i>
+<p>At the 2019 US LLVM developers&#x27; meeting we have presented
+Arm&#x27;s new M-profile Vector Extension (MVE), which is a vector
+extension for Arm&#x27;s microcontrollers to accelerate execution of
+DSP workloads. While it is still early days for this new architecture
+extension and its compiler support, we are now getting experience with
+vectorisation for this DSP-like architecture. I.e., after adding
+compiler support for the new architecture features such as
+vectorisation, predication, and hardware-loops, which is still ongoing
+work, we are now also confronted with the next challenge: adoption of
+the technology. The main question is: will LLVM&#x27;s auto-
+vectorisation and MVE code-generation good enough for DSP workloads so
+that people will give up writing intrinsics and even assembly, and can
+we thus just let the compiler do its job? Since DSP workloads are
+usually characterised by small, tight loops where every cycle counts,
+any compiler translation inefficiency means resorting to hand-tuned
+intrinsics/assembly code, which obviously comes at the expense of
+portability and maintainability of these codes. For this reason, and
+just for software ecosystem legacy reasons, the auto-vectoriser&#x27;s
+competition for DSP workloads is often still hand-tuned
+intrinsics/assembly code, but can we change that? In order to answer
+this question, we need to have a closer look at:<ul>
+<li>What exactly are these DSP workloads? Are there industry accepted
+benchmarks and workloads, and which DSP idioms are important to
+translate efficiently?</li>
+<li>How good is the auto-vectoriser performing against intrinsics, and
+how far off are we if there is a gap?</li>
+<li>Do we see obvious areas to improve the vectoriser?</li>
+<li>Besides performance, usability of the toolchain is crucial. That
+is, if performance goals are not met, how easy can users get insights
+in the compiler and auto-vectorisation decision making, and how can it
+influence and steer this to achieve better results?</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="BoF_40">
+<b>Debugging an bare-metal accelerator with LLDB</b>
+<!--[ <a href="slides/slides_BoF_40.pdf">Slides</a> ]-->
+  &mdash; <i>Romaric JODIN (UPMEM)</i>
+<p>UPMEM made an accelerator based on PiM (Processing in Memory). It
+is a standard DRAM-based DDR4 DIMM where each DRAM chip embeds several
+multi-threaded processors capable of computing a program on the data
+stored in the DRAM chip. In order to debug such a target, we have made
+some modifications to LLDB in order to interact with the accelerator.
+Especially, as no server or gdb stub can run on the accelerator, we
+added a lldb-server for our bare-metal target that runs on the host
+CPU (which can be viewed as a kind of a cross-compiled server) and we
+modified LLDB at different points to be able to have it working. We
+are using a single lldb client instance to debug both the application
+running on the host CPU and the multiple accelerator CPU it is using.
+The aim of the BoF is to present those modifications and discussed
+about how to make LLDB friendlier with such targets including re-using
+the lldb-server code for remote target without operating system.
+</p>
+</td></tr>
+<tr><td valign="top" id="BoF_46">
+<b>LLVM Binutils BoF</b>
+<!--[ <a href="slides/slides_BoF_46.pdf">Slides</a> ]-->
+  &mdash; <i>James Henderson (SN Systems (Sony Interactive Entertainment))</i>
+<p>LLVM has a suite of binary utilities that broadly mirror the GNU
+binutils suite, with tools such as llvm-readelf, llvm-nm, and llvm-
+objcopy. These tools are already widely used in testing the rest of
+LLVM, and have also been adopted as full replacements for the GNU
+tools in some production environments. This discussion will be a
+chance for people to present how their migration efforts are going,
+and to highlight what is impeding their adoption of the tools. It will
+also provide the opportunity for participants to discuss potential new
+features and the future direction of new tools.
+</p>
+</td></tr>
+<tr><td valign="top" id="BoF_67">
+<b>FunC++. Make functional C++ more efficient</b>
+<!--[ <a href="slides/slides_BoF_67.pdf">Slides</a> ]-->
+  &mdash; <i>Pavel Kosov (Huawei R&amp;D)</i>
+<p>In nowadays functional programming (FP) in C++ is not as efficient
+as it may be. Mainly because of weak optimization of such features as
+std::variant, std::visit, std::function etc. I will present list of
+cases of possible improvements and after this I will propose several
+solutions. Let’s discuss them and maybe we will be able to find others
+ways to make functional programming in C++ more usable. It is worth to
+mention that benefit of this work will spread to all C++ programmers,
+not only FP fans (because std::variant, std::function etc. are used in
+a lot of different applications)
+</p>
+</td></tr>
+<tr><td valign="top" id="BoF_83">
+<b>Loop Optimization BoF</b>
+<!--[ <a href="slides/slides_BoF_83.pdf">Slides</a> ]-->
+  &mdash; <i>Michael Kruse (Argonne National Laboratory),
+     Kit Barton (IBM)</i>
+<p>In this Bird-of-a-Feathers we will discuss the current and future
+development around loop optimizations in LLVM, summarizing and
+building on topics discussed during the bi-weekly Loop Optimization
+Working Group conference call. The topics that we intend to discuss
+include:<ul>
+<li>Loop pass infrastructure such as the pass managers</li>
+<li>Specific loop passes (LoopVectorize, LoopUnroll, LoopUnrollAndJam,
+LoopDistribute, LoopFuse, LoopInterchange)</li>
+<li>Polly and other polyhedral analysis capabilities (e.g., in
+MLIR)</li>
+<li>Analyses (LoopInfo, ScalarEvolution, LoopNestAnalysis,
+LoopCacheAnalysis, etc.)</li>
+<li>Dependence analysis, in particular progress on the
+DataDependenceGraph and PragmaDependencyGraph</li>
+<li>Canonical loop forms (such as rotated, simplified, LCSSA, max-
+fused or max-distributed, etc)</li>
+<li>User-directed transformations</li>
+<li>Alternative intermediate representations (MLIR, VPlan, Loop
+Hierarchy)</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="BoF_86">
+<b>Code Size Optimization</b>
+<!--[ <a href="slides/slides_BoF_86.pdf">Slides</a> ]-->
+  &mdash; <i>Sean Bartell (University of Illinois at Urbana-Champaign)</i>
+<p>Code size is often overlooked as a target of optimization, but is
+still important in situations ranging from space-constrained embedded
+devices to improving cache coherency on supercomputers. This will be
+an open-ended BoF for anyone interested in optimizing code size.
+Potential topics of discussion include benefits of reducing code size,
+size optimization techniques, and related improvements that could be
+made to LLVM.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="Panel">Panels</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="Panel_44">
+<b>Vector Predication</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Panel_44">Video</a> ]-->
+<!--[ <a href="slides/slides_Panel_44.pdf">Slides</a> ]-->
+  &mdash; <i>Andrew Kaylor (Intel),
+     Florian Hahn (Apple),
+     Roger Ferrer Ibáñez (Barcelona Supercomputing Center),
+     Simon Moll (NEC Deutschland)</i>
+<p>LLVM lacks support for predicated vector instructions. Predicated
+vector operations in LLVM IR are required to properly target
+SIMD/Vector ISAs such as Intel AVX512, ARM MVE/SVE, RISC V V-Extension
+and NEC SX-Aurora TSUBASA. This panel discusses various design ideas
+and requirements to bring native vector predication to LLVM with the
+goal of opening up on-going efforts to the scrutiny of the wider LLVM
+community. This panel follows up on various round tables and the BoF
+at EuroLLVM 2019. We are planning to address the following aspects:<ul>
+<li>Design alternatives &amp; choices - limits of the
+instruction+select pattern.</li>
+<li>Generating vector-predicated code (ie making predicated ops
+available for VPlan/LV/RV).</li>
+<li>Making existing optimizations work for vector-predicated
+code.</li>
+<li>The LLVM-VP (D57504) prototype and roadmap.</li>
+</ul>
+</p>
+<p>The panelists have a diverse background in X86, RISC-V V extension
+and NEC SX-Aurora code generation as well as experience with
+SLP/LV/VPlan vectorizers and the out-of-tree Region Vectorizer,
+constrained fp and the current RFCs to bring predicated vector
+operations to LLVM.
+</p>
+</td></tr>
+<tr><td valign="top" id="Panel_82">
+<b>OpenMP (Target Offloading) in LLVM [Panel/BoF]</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_Panel_82">Video</a> ]-->
+<!--[ <a href="slides/slides_Panel_82.pdf">Slides</a> ]-->
+  &mdash; <i>Johannes Doerfert (ANL)</i>
+<p>Offloading, thus moving computation to accelerators, has (to)
+become reality in various fields, including but not exclusively HPC.
+OpenMP is a promising language for many people as it integrates well
+into existing code bases written in C/C++ or Fortran. In this Panel
+(or BoF) we want to give people an overview of the current support,
+what is being worked on, and how researchers can impact this important
+topic. While we hope for questions from the audience, we will present
+various topics to start the conversation, including:<ul>
+<li>the redesign of the OpenMP device runtime library to support more
+targets</li>
+<li>the OpenMP optimization pass and scalar optimizations</li>
+<li>OpenMP 5.0 and 5.1 support</li>
+<li>OpenMP in Flang</li>
+</ul>
+</p>
+<p>The panelists are from companies and institutions involved in these
+efforts. We are in contact with: Jon Chesterfield (AMD) Simon Moll
+(NEC) Xinmin Tian (Intel) Alexey Bataev (IBM) as well as
+representatives from national labs and other hardware vendors. Note
+that depending on the format we will need to list more people as
+authors.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="LightningTalk">Lightning talks</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="LightningTalk_4">
+<b>Support for mini-debuginfo in LLDB - How to read the .gnu_debugdata section.</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_4">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_4.pdf">Slides</a> ]-->
+  &mdash; <i>Konrad Kleine (Red Hat)</i>
+<p>The &quot;official&quot; mini-debuginfo man-page describes the
+topic best: &gt; Some systems ship pre-built executables and libraries
+that have a &gt; special &quot;.gnu_debugdata&quot; section. This
+feature is called MiniDebugInfo. &gt; This section holds an LZMA-
+compressed object and is used to supply extra &gt; symbols for
+backtraces. &gt; &gt; The intent of this section is to provide extra
+minimal debugging information &gt; for use in simple backtraces. It is
+not intended to be a replacement for &gt; full separate debugging
+information (see Separate Debug Files). In this talk I&#x27;ll explain
+what it took to interpret support for mini-debuginfo in LLDB, how
+we&#x27;ve tested it, and what to think about when implementing this
+support (e.g. merging .symtab and .gnu_debugdata sections).
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_9">
+<b>OpenACC MLIR dialect for Flang and maybe more</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_9">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_9.pdf">Slides</a> ]-->
+  &mdash; <i>Valentin Clement (Oak Ridge National Laboratory),
+     Jeffrey S. Vetter (Oak Ridge National Laboratory)</i>
+<p>OpenACC [1] is a directive-based programming model to target
+heterogenous architectures with minimized change in original code. The
+standard is available for Fortran, C and C++. It is used in variety of
+scientific applications to exploit the compute power of the biggest
+supercomputers in the world. While there is a wide range of approaches
+in C and C++ to target accelerators, Fortran is stuck with directive
+based programming models like OpenMP and OpenACC. In this lightning
+talk we are presenting our idea to introduce an OpenACC dialect in
+MLIR and implement the standard in Flang/LLVM. This project might
+benefit other efforts like the Clacc [2] project doing this in
+clang/LLVM.
+</p>
+<p>[1] OpenACC standard: <a
+href="https://www.openacc.org/">https://www.openacc.org/</a></p>
+<p>[2] Clacc: Translating OpenACC to OpenMP in Clang. Joel E. Denny,
+Seyong Lee, and Jeffrey S. Vetter. 2018 IEEE/ACM 5th Workshop on the
+LLVM Compiler Infrastructure in HPC (LLVM-HPC), Dallas, TX, USA,
+(2018).</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_10">
+<b>LLVM pre-merge checks</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_10">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_10.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_10.pdf">Slides</a> ]-->
+  &mdash; <i>Mikhail Goncharov (Google),
+     Christian Kühnel (Google)</i>
+<p>I would like to give a short presentation about <a
+href="https://github.com/google/llvm-premerge-
+checks">https://github.com/google/llvm-premerge-checks</a> to
+advertise pre-merge checks, why do we have them and how it works.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_15">
+<b>LIT Testing For Out-Of-Tree Projects</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_15">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_15.pdf">Slides</a> ]-->
+  &mdash; <i>Andrzej Warzynski (Arm)</i>
+<p>Have you ever wondered how to configure LLVM&#x27;s Integrated
+Tester (LIT) for your out-of-tree LLVM projects? Would you like to
+know how to use hosted CI services to run your LIT tests
+automatically? As most of these services are free for open source
+projects, it is really worthwhile to be familiar with the available
+options. In this lightning talk I will present how to:<ul>
+<li>configure LIT for an out-of-tree project</li>
+<li>satisfy a dependency on LLVM in a hosted CI system.</li>
+</ul>
+</p>
+<p>As a reference example I will use the set-up that I have been using
+for a hobby GitHub project.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_21">
+<b>Inter-Procedural Value Range Analysis with the Attributor</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_21">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_21.pdf">Slides</a> ]-->
+  &mdash; <i>Hideto Ueno (University of Tokyo),
+     Johannes Doerfert (ANL)</i>
+<p>In the talk, I’ll explain how inter-procedural propagation in the
+Attributor framework works, focusing on the new range analysis and
+illustrative code examples.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_23">
+<b>Reproducers in LLVM - inspiration for clangd?</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_23">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_23.pdf">Slides</a> ]-->
+  &mdash; <i>Jan Korous (Apple)</i>
+<p>Supporting wide-scale deployment of clangd is going to create a
+need to have a way of reporting bugs that is both convenient for users
+and actionable for maintainers. The idea of reproducers was
+successfully implemented in other projects under the LLVM umbrella—
+for example, clang and lldb. Here&#x27;s an overview of how these work
+and what ideas could be used in clangd.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_24">
+<b>Matrix Support in Clang and LLVM</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_24">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_24.pdf">Slides</a> ]-->
+  &mdash; <i>Florian Hahn (Apple)</i>
+<p>Fast matrix operations are the key to the performance of numerical
+linear algebra algorithms, which serve as engines of machine learning
+networks and AR applications. We added support for key matrix
+operations to Clang and LLVM. We show examples of the C++ language
+level, will discuss LLVM intrinsics for matrix operations that require
+information about the shape/layout of the underlying matrix, and
+compare the performance to vanilla vector based implementations.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_25">
+<b>Unified output format for Clang-Tidy and Static Analyzer</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_25">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_25.pdf">Slides</a> ]-->
+  &mdash; <i>Artem Dergachev (Apple)</i>
+<p>Warnings emitted by the Clang Static Analyzer are more
+sophisticated than normal compiler warnings and are hard to comprehend
+without a good graphical interface. For that reason the Analyzer uses
+a custom diagnostic engine that supports multiple output formats, such
+as the human-readable HTML output format and the machine-readable
+Plist format used for IDE integration. These output formats are now
+available for other tools to use. In particular, Clang-Tidy is ported
+over to the Static Analyzer&#x27;s diagnostic engine, allowing easy
+integration of Clang-Tidy into any environment that already provides
+Static Analyzer integration.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_26">
+<b>Extending ReachingDefAnalysis for Dataflow analysis</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_26">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_26.pdf">Slides</a> ]-->
+  &mdash; <i>Samuel Parker (Arm)</i>
+<p>ReachingDefAnalysis was originally introduced to enable the
+breaking false dependencies in the backend. It has now been extended
+to enable post-RA dataflow queries that can enable the movement,
+insertion or removal of machine instructions. This lightening talk
+will highlight the changes and aim to show the audience how this is
+useful for code generation.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_35">
+<b>Flang Update</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_35">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_35.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_35.pdf">Slides</a> ]-->
+  &mdash; <i>Steve Scalpone (NVIDIA / Flang)</i>
+<p>Provide an update about flang with an overview of changes since the
+last developer&#x27;s meeting and the changes planned for the near
+future. Topics will cover migration to the monorepo, integration with
+MLIR, current in-flight projects, etc.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_36">
+<b>Extending Clang and LLVM for Interpreter Profiling Perf-ection</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_36">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_36.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_36.pdf">Slides</a> ]-->
+  &mdash; <i>Frej Drejhammar (RISE SICS)</i>
+<p>When profiling a highly optimized interpreter, such as the Erlang
+virtual machine, a profiler does not really give you the information
+you need. This talk will show how surprisingly easy it is to extend
+Clang and LLVM to solve an one-off profiling task using the Perf tool.
+The Erlang virtual machine (BEAM) is a classic threaded interpreter,
+using first class labels and gotos, contained in a single function.
+For profiling purposes this is bad, as the profiler will attribute
+execution time to the main interpreter function when you as a
+developer really want execution time attributed to individual BEAM
+opcodes. By adding custom attributes to Clang and an analysis late in
+the LLVM back-end, we can easily traverse the CFG of the interpreter
+and figure out which basic blocks are executed by each BEAM opcode.
+With a small patch to Perf&#x27;s JIT interface, we can make this
+basic block information override the debug information for the main
+interpreter function, thus allowing Perf to assign execution time to
+individual BEAM opcodes.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_41">
+<b>Data Parallel C++ compiler for accelerator programming</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_41">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_41.pdf">Slides</a> ]-->
+  &mdash; <i>Alexey Bader (Intel),
+     Oleg Maslov (Intel)</i>
+<p>This talk introduces the clang-based SYCL compiler with focus on
+the front-end and the driver enhancements enabling offloading of C++
+code to wide range of accelerators. We will cover &quot;SYCL device
+compiler&quot; design and demonstrate how we leverage existing LLVM
+project infrastructure for offload code outlining, separate
+diagnostics for offload code and driver offload mode. We also review
+how third-party open source tools from the Khronos working group used
+to make our solution portable across different types of accelerators
+supporting OpenCL. We discuss ABI between host and device parts of the
+application and how to integrate SYCL offloading compiler with
+arbitrary C++11 compiler in addition to clang. We will update on the
+current status of SYCL support in Clang and plans for future
+development.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_42">
+<b>CUDA2OpenCL - a tool to assist porting CUDA applications to OpenCL</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_42">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_42.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_42.pdf">Slides</a> ]-->
+  &mdash; <i>Anastasia Stulova (Arm),
+     Marco Antognini (Arm)</i>
+<p>Conceptually, CUDA and OpenCL are similar programming models.
+Therefore it is feasible to convert applications from one to another,
+especially after the recent development of C++ for OpenCL (<a
+href="https://clang.llvm.org/docs/UsersManual.html#cxx-for-
+opencl">https://clang.llvm.org/docs/UsersManual.html#cxx-for-
+opencl</a>) that allows to write OpenCL applications fully in C++
+mode. In this talk we would like to present a tool that uses Clang
+Tooling and Rewriter to help migrating applications from CUDA to
+OpenCL. This tool combines (i) automatic rewriting for trivial and
+safe changes; (ii) source code annotation for non-trivial changes to
+assist manual porting of applications. We use Clang Tooling to parse
+the CUDA source and create an Abstract Syntax Tree (AST). Then a
+custom AST Consumer will visit the AST and with the help of Clang
+Rewriter will either modify the original source or insert annotation
+comments. If the mapping between CUDA and OpenCL constructs is
+straightforward, the construct is likely to be rewritten, e.g.,
+address space, kernel attribute, kernel invocation. If the mapping is
+not straightforward the tool emits annotations explaining how the code
+can be modified manually, e.g., if CUDA __shared__ variables are
+declared in the scope disallowed by OpenCL. Unlike OpenCL, CUDA
+combines device (also known as kernel) and host code into one single
+source file. The tool will output two so-called OpenCL code templates
+- one for the host side and one for the device side. In each template,
+irrelevant code will be stripped out from the original, trivial
+constructs will be rewritten and annotation hints will be added. Both
+templates can be further modified if needed and then compiled using
+any C++ compiler for the host template and using Clang for the device
+template. The tool is at an early stage of development and we are
+planning to open source it by the time of EuroLLVM 2020. The mechanics
+are now fully in place but we don’t support many CUDA features yet and
+therefore only a few simple examples can run successfully. We would
+like to invite developers to use the tool and provide feedback on the
+missing features they would like to see added or even to help us add
+popular features that are missing. One aim of this project is to keep
+the output from the tool as close to the original source as possible
+to allow developers reading and modifying the output manually. While
+Clang Tooling and Rewriter are excellent choices to accomplish our
+goals there are a number of suggestions for improvements that we are
+hoping to highlight, e.g. improving accuracy of source information in
+Rewriter and propagation of build options from Clang Driver.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_43">
+<b>Experiences using MLIR to implement a custom language</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_43">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_43.pdf">Slides</a> ]-->
+  &mdash; <i>Klas Segeljakt (KTH - Royal Institute of Technology)</i>
+<p>In this lightning talk, we will share our experiences using MLIR,
+both as experienced and beginner LLVM users, when implementing a
+middle-end for the language Arc. We will cover learning how to use the
+framework, creating custom operations, types, optimizations, and
+transforms, and integrating MLIR as a dependency into our research
+project. Arc is a functional intermediate representation for data
+analytics which is able to express distributed online stream
+operations. We use the standard optimizations provided by MLIR and
+implement our Arc-specific high-level optimizations in the MLIR
+framework. The MLIR framework gives us optimizations such as common
+subexpression elimination and constant propagation. In contrast to
+other compilers in the LLVM world, we do not lower our MLIR-level
+program to LLVM IR, instead we stay at the high-level dialects and
+produce Rust source code which is compiled and executed by our runtime
+system.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_45">
+<b>llvm-diva – Debug Information Visual Analyzer</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_45">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_45.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_45.pdf">Slides</a> ]-->
+  &mdash; <i>Carlos Enciso (Sony Interactive Entertainment)</i>
+<p>Complexity and source-to-DWARF mapping are common problems with
+LLVM’s debug information. For example, see the different sections used
+to store several items such as strings, types, locations lists, line
+information, executable code, etc. In 2017 we presented DIVA [1] which
+we have successfully used to analyse several debug information issues
+in Clang and LLVM. DIVA used libdwarf [2] to parse DWARF debug
+information from ELF files. We have since re-implemented and expanded
+upon this functionality in llvm-diva, a new tool which requires no
+additional dependencies outside of LLVM. llvm-diva is a command line
+tool that reads a file (e.g. ELF or PDB) containing debug information
+(DWARF or CodeView) and produces an output that represents its logical
+view. The logical view is a high-level representation of the debug
+information composed of scopes, types, symbols and lines. llvm-diva
+has two modes: Printing and Comparison. The first prints a logical
+view containing attributes such as: lexical scopes, disassembly code
+associated with the debug line records, types, variables percentage
+coverage, etc. The second compares logical views to produce a report
+with the logical elements that are missing or added. This is a very
+powerful aid to find semantic differences in debug information
+produced by different toolchain versions, or even debug information
+formats [3]. The tool currently supports the ELF, MacOS and PDB file
+formats and the DWARF and COFF debug information formats. In this
+lightning talk I will show some of the above features, to illustrate
+how to use llvm-diva with the debug information generated by Clang. We
+aim to propose llvm-diva for inclusion into the LLVM monorepo soon.
+</p>
+<p>[1] <a href="http://llvm.org/devmtg/2017-03/assets/slides/diva_debu
+g_information_visual_analyzer.pdf">http://llvm.org/devmtg/2017-03/asse
+ts/slides/diva_debug_information_visual_analyzer.pdf</a></p>
+<p>[2] <a href="https://www.prevanders.net/dwarf.html">https://www.pre
+vanders.net/dwarf.html</a></p>
+<p>[3] <a href="https://bugs.llvm.org/show_bug.cgi?id=43905">https://b
+ugs.llvm.org/show_bug.cgi?id=43905</a></p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_48">
+<b>Optimization Pass Sandboxing in LLVM: Replacing Heuristics on Statically Scheduled Targets</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_48">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_48.pdf">Slides</a> ]-->
+  &mdash; <i>Pierre-Andre Saulais (Codeplay Software)</i>
+<p>Many optimizations operate using a parameter that affects how the
+program is transformed. For example, the unrolling factor for loop
+unrolling or offset for software pipelining. The value of this
+parameter is typically chosen at compilation time using a heuristic,
+which may involve a model of the execution target to accurately
+predict the effect of the optimization. On statically scheduled
+targets such as some in-order processors, the effect of later backend
+passes such as packetization, scheduling and register allocation on
+performance makes writing such a model very difficult. Since it is
+typically straightforward to estimate the performance of a given block
+of assembly instructions, trying multiple values for a pass parameter
+and picking the one that produces the best code gives more accurate
+results at the expense of compilation time. With optimization pass
+sandboxing, a pass is executed multiple times in a sandbox, once for a
+selection of values. The entire LLVM backend pass pipeline is also
+executed in isolation in order to produce assembly, from which a
+performance metric is estimated. The value with the best metric is
+then chosen for the pass parameter, and the sandbox results discarded.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_51">
+<b>Compile Faster with the Program Repository and ccache</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_51">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_51.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_51.pdf">Slides</a> ]-->
+  &mdash; <i>Ying Yi (SN Systems Limited),
+     Paul Bowen-Huggett (SN Systems Limited)</i>
+<p>The Program Repository (llvm-prepo) is an LLVM/Clang compiler with
+program repository support. It aims to improve turnaround times and
+eliminate duplication of effort by centralising program data in a
+repository. This reduces compilation time by reusing previously
+optimised functions and global variable fragments, including both
+sharing them across multiple translation units and reusing them even
+when other portions of the relevant source files have changed. ccache
+is a compiler caching tool that uses textual hashing of the source
+files. When used to build a large project, the ccache cache can
+quickly become invalid due to the frequency of header file changes.
+Thus, llvm-prepo reduces the build time for changed files, whereas
+ccache reduces the build time for unchanged files. This lightning talk
+will focus on showing how using the llvm-prepo and ccache together
+achieves much faster builds than using either of them individually. We
+will show the benefits by building the LLVM+Clang project at points
+through its commit history.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_56">
+<b>Adventures using LLVM OpenMP Offloading for Embedded Heterogeneous Systems</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_56">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_56.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_56.pdf">Slides</a> ]-->
+  &mdash; <i>Lukas Sommer (TU Darmstadt)</i>
+<p>Modern embedded systems combine general-purpose processors with
+accelerators, such as GPUs, in a single, powerful heterogeneous
+system-on-chip (SoC). Such systems can be efficiently programmed using
+the device offloading features introduced in recent versions of the
+OpenMP standard. In this talk, we present an extension of LLVM&#x27;s
+OpenMP Nvidia GPU offloading capabilities for embedded, heterogeneous
+systems combining ARM CPUs and Nvidia GPUs. Additionally, we adapted
+libomptarget and its Nvidia GPU plugin to make use of physically
+shared memory on the device through the CUDA unified memory model. We
+demonstrate the use of the adapted infrastructure on three automotive
+benchmark-kernels from the autonomous driving domain. Our adapted LLVM
+OpenMP offloading infrastructure allows the user to significantly
+improve execution times on embedded, heterogeneous systems by
+allocating unified memory for simultaneous use on CPU and GPU and
+thereby eliminating unnecessary data-transfers.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_63">
+<b>Improving Launch Time for iOS App without Sacrificing Binary Size</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_63">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_63.pdf">Slides</a> ]-->
+  &mdash; <i>Jin Lin (Uber Corp)</i>
+<p>At Uber, people has spent a lot of efforts on improving iOS binary
+size through LTO(link time optimization), machine outlining and etc.
+These optimizations might affect startup time performance of Uber iOS
+apps. For example, LTO changes the ordering the global variables or
+functions. The machine outlining might generate outline function at
+hot startup code. The startup time of iOS app can be easily increased
+due to these aggressive compiler optimizations without profiling
+information. This talk tries to address the issue of improving startup
+time for iOS app without sacrificing binary size. The function/data
+order is obtained by profile to improve the locality of iOS app. The
+machine outlining is tuned based on profile. The experimental data
+shows the startup time of some Uber iOS app has been improved by 6%
+across different iPhone devices.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_69">
+<b>Merging Vector Registers in Predicated Codes</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_69">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_69.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_69.pdf">Slides</a> ]-->
+  &mdash; <i>Matthias Kurtenacker (Compiler Design Lab, Saarland University),
+     Simon Moll (NEC Germany),
+     Sebastian Hack (Compiler Design Lab, Saarland University)</i>
+<p>Vector Predication allows vectorizing if-converted code. New
+architectures, and extensions to existing ones, allow to enable and
+disable execution on individual vector lanes during program execution.
+As with predication in the scalar case, static analyses over the
+predicates allow refining the register allocation process. The
+liveness information over a vector value can be extended to include
+liveness predicates as well. This can be used for instance to reduce
+the amount of spilling that a function needs to perform. We extend the
+greedy register allocator to take per lane liveness information into
+account when allocating vector registers. The target-dependent parts
+of this approach were implemented for NECs SX-Aurora TSUBASA
+architecture. First benchmarks show promising results with speedups of
+up to 16%.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_80">
+<b>OpenMP in LLVM --- What is changing and why</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_80">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_80.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_80.pdf">Slides</a> ]-->
+  &mdash; <i>Johannes Doerfert (ANL)</i>
+<p>This lighting talk will give a short overview on all the currently
+ongoing efforts involving OpenMP. We will (try to) highlight the
+following topics with their respective rational:<ul>
+<li>The OpenMPOpt pass, the dedicated optimization pass that knows
+about and transforms OpenMP runtime calls.</li>
+<li>The OpenMPIRBuilder, the new location for *all* OpenMP related
+code generation.</li>
+<li>The interplay of OpenMP and Flang.</li>
+<li>The implementation of OpenMP loop transformations.</li>
+<li>The OpenMP device runtime redesign, a stepping stone to allow us
+to support more than a single offloading target.</li>
+<li>Scalar optimization for outlined OpenMP functions, transparent in
+the Attributor framework.</li>
+</ul>
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_88">
+<b>A Multidimensional Array Indexing Intrinsics</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_88">Video</a> ]-->
+<!--[ <a href="slides/poster_LightningTalk_88.pdf">Poster</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_88.pdf">Slides</a> ]-->
+  &mdash; <i>Prashanth NR (Compiler Tree Technologies),
+     Vinay Madhusudan (Compiler Tree Technologies),
+     Ranjith Kumar (Compiler Tree Technologies)</i>
+<p>LLVM linearizes the multidimensional array indices. This hinders
+the memory dependency analysis for loop nest optimization. Techniques
+like delinearization are adhoc and pattern based. Newer front ends
+like FC, F18 plan to alleviate the issue by using a new high level IR
+called MLIR. For the traditional front ends like flang, where MLIR
+lowering is not planned, a new technique is proposed to circumvent the
+issue. We use intrinsics in the front end to communicate the
+dimensions of array indices. We have implemented the same in
+flang/clang frameworks and have successfully experimented with
+moderately big input programs.
+</p>
+</td></tr>
+<tr><td valign="top" id="LightningTalk_95">
+<b>Improving Code Density for RISC-V Target</b>
+<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_95">Video</a> ]-->
+<!--[ <a href="slides/slides_LightningTalk_95.pdf">Slides</a> ]-->
+  &mdash; <i>Wei Wei,
+     Chao Yu</i>
+<p>RISC-V ISA is an open-source instruction set architecture designed
+to be useful in a wide range of embeded applications and devices. For
+many resource-constrained micro-controllers, code density will be a
+very important metric. Compression extension(named RVC) in RISC-V, is
+designed to reduce instruction bandwidth for common instructions,
+resulted in a 25%–30% code-size reduction. In this talk I&#x27;ll
+present some code size results by llvm and gcc compilers with RVC, and
+find out why the GCC-generated code is more compact. Finally, I will
+describe some implementation we are doing on the LLVM side to close
+these code size gaps.
+</p>
+</td></tr>
+</table>
+
+<div class="www_sectiontitle" id="Poster">Posters</div>
+
+<table cellpadding="10">
+<tr><td valign="top" id="Poster_19">
+<b>Automatic generation of LLVM based compiler toolchains from a high-level description</b>
+<!--[ <a href="slides/poster_Poster_19.pdf">Poster</a> ]-->
+  &mdash; <i>Pavel Snobl (Codasip)</i>
+<p>At Codasip we have developed a method for automatic generation of
+LLVM based compilers from a high level, architecture description
+language called CodAL. From this description, the register and
+instruction set architecture (ISA) definition is extracted in a
+process we call semantics extraction. This definition is then used as
+an input to the tool called backendgen which uses it to generate a
+fully functional C/C++ cross compiler. The high-level description is
+also used to generate all other parts of a standard SDK needed to
+develop applications for a typical processor - LLVM based assembler
+and disassembler, linker (LLD), debugger (LLDB) and a simulator. In
+this short talk and the related poster, I will describe the CodAL
+language and the process of automatic compiler generation and how it
+allows users with no previous compiler development experience to
+quickly create an LLVM based toolchain for their architecture.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_39">
+<b>Using MLIR to implement a compiler for Arc, a language for Batch and Stream Programming</b>
+<!--[ <a href="slides/poster_Poster_39.pdf">Poster</a> ]-->
+  &mdash; <i>Klas Segeljakt (KTH - Royal Institute of Technology),
+     Frej Drejhammar (RISE SICS)</i>
+<p>This poster covers the design and implementation of a compiler
+using MLIR for the language Arc. Arc is a intermediate representation
+for data analytics which supports distributed online stream
+operations, and comes with its own compilation pipeline and runtime
+system. The Arc compiler uses the MLIR framework for high-level
+optimizations. Using MLIR allows us to concentrate on defining Arc-
+specific optimizations and reuse standard high-level optimizations
+provided by MLIR. In addition, MLIR offers a rich infrastructure for
+representing the Arc parse tree, custom transformations, command-line
+parsing, and regression testing. The Arc compiler translates its parse
+tree into MLIR&#x27;s Affine and Standard dialects together with a new
+dialect for the Arc-specific operations. We define Arc-specific
+dataflow optimizations, such as operator reordering, fission, and
+fusion using the MLIR framework. The MLIR framework leverages
+optimizations such as common subexpression elimination and constant
+propagation. In contrast to other compilers in the LLVM world, we do
+not lower our MLIR-level program to LLVM IR, instead we stay at the
+high-level dialects and produce Rust source code which is compiled and
+executed by the runtime.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_52">
+<b>MultiLevel Tactics: Lifting loops in MLIR</b>
+<!--[ <a href="slides/poster_Poster_52.pdf">Poster</a> ]-->
+  &mdash; <i>lorenzo chelini (TU Eindhoven),
+     Andi Drebes (Inria and École Normale Supérieure),
+     Oleksandr Zinenko (Google),
+     Albert Cohen (Google),
+     Henk Corporaal (TU Eindhoven),
+     Tobias Grosser (ETH),
+     Nicolas Vasilache (Google)</i>
+<p>We propose MultiLevel Tactics, or ML Tactics for short, an
+extension to MLIR that recognizes patterns of high-level abstractions
+(e.g., linear algebra operations) in low-level dialects and replaces
+them with the corresponding operations of an appropriate high-level
+dialect. Our current prototype recognizes matrix multiplications in
+loop nests of the Affine dialect and lifts these to the Linalg
+dialect. The pattern recognition and replacement scheme are designed
+as reusable building blocks for transformations between arbitrary
+dialects and can be used to recognize commonly recurrent patterns in
+HPC applications.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_57">
+<b>Interpreted Pattern Matching in MLIR with MLIR</b>
+<!--[ <a href="slides/poster_Poster_57.pdf">Poster</a> ]-->
+  &mdash; <i>Jeff Niu (Google),
+     Mehdi Amini (Google),
+     River Riddle (Google)</i>
+<p>A pattern matching and rewrite system underlies many of MLIR’s
+transformations on code, including optimizations, canonicalization,
+and operation legalization. The current approach to pattern execution
+involves writing C++ classes to implement a match and rewrite function
+or using TableGen to describe patterns, from which a backend generates
+C++. This method is powerful, easy to use, and fits nicely into the
+overall system, but suffers from some pitfalls:<ul>
+<li>Not extensible at runtime: adding or modifying patterns requires
+rebuilding the compiler, which makes it cumbersome for users to easily
+modify pattern sets, especially for those not normally working with
+C++.</li>
+<li>Duplicate work between patterns: many patterns have similar
+constraints and checks, some of which can be expensive. E.g. attribute
+lookups are linear searches using string comparisons. Current pattern
+generation involves no intermediate form upon which optimizations may
+be performed.</li>
+<li>C++ code generation from TableGen results in binary size
+bloat.</li>
+</ul>
+</p>
+<p>The proposed solution involves representing pattern sets as
+bytecode and executing it in an interpreter embedded in MLIR, as with
+SelectionDagISel, but using a pipeline built with MLIR and
+representing patterns as an MLIR dialect. This pattern dialect should
+be able to express a superset of TableGen patterns and, if necessary,
+hook into native function calls to provide power similar to writing
+C++ patterns. Optimizations can be performed on sets of patterns
+represented in this intermediate form, which is then injected into the
+existing framework, allowing interoperability with existing C++
+patterns. Allowing emission of this intermediate form from “front-
+ends”, such as Python, JSON, and TableGen, enables users to specify
+patterns dynamically, without rebuilding the compiler. Then, pattern
+sets can be distributed separately from the compiler itself. Or, users
+can modify patterns on-the-fly with whatever DSL they work in. This
+specification leads to a series of sub-problems. Of them include
+designing the pattern dialect to be feature-complete, optimizing this
+intermediate form, “lowering” pattern sets into a byte-code, and
+designing the interpreter, in addition to how this system will
+integrate with the existing infrastructure and how it needs to be
+modified. An early version of this work was presented at an MLIR Open
+Design Meeting, see slides here: <a href="https://docs.google.com/pres
+entation/d/1e8MlXOBgO04kdoBoKTErvaPLY74vUaVoEMINm8NYDds/edit?usp=shari
+ng">https://docs.google.com/presentation/d/1e8MlXOBgO04kdoBoKTErvaPLY7
+4vUaVoEMINm8NYDds/edit?usp=sharing</a>
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_71">
+<b>Case Study: LLVM Optimizations for AI Applications Using RISC-V V Extension</b>
+<!--[ <a href="slides/poster_Poster_71.pdf">Poster</a> ]-->
+  &mdash; <i>Chia-Hsuan Chang (National Tsing Hua University, Taiwan),
+     Pi-You Chen (National Tsing Hua University, Taiwan),
+     Chao-Lin Lee (National Tsing Hua University, Taiwan),
+     Jenq-Kuen Lee (National Tsing Hua University, Taiwan)</i>
+<p>RISC-V is an open ISA with small and flexible features. Hardware
+vendors for RISC-V could select the extension by their requirements
+for the specific application. Among the extension, vector extension is
+one of the RISC-V extensions to enable the superword SIMD in RISC-V
+architectures to support the fallback engine of the AI Computing. As
+the specification is still new, there are needed supports in the LLVM
+compiler site. In our paper, we describe the techniques to efficiently
+support RISC-V with V extension at LLVM via both vector intrinsic
+functions and basic llvm vector builders. Note RISC-V vector extension
+allows one to dynamically set the size of each element in the vector
+and also the amount of vector elements. This was designed in the
+specification to allow the flexibility to deploy different widths for
+low-power numeric with different layers in the deep learning models.
+However, it creates challenges in the implementation site. In the
+optimization site, we support an extra llvm compiler phase for the
+redundancy elimination of the vsetvl instructions. With the
+flexibility of the dynamic vector size for each layer, there are extra
+vsetvl instructions generated in the vector code generations. Our
+redundancy elimination phase reduces the unnecessary vsetvl codes. In
+addition, an efficient vector initialization is devised. We perform AI
+model experiments with TVM compiler flow to our LLVM compiler with
+RISC-V V extension and achieve average 4.24x instruction reductions
+for the runtime execution than the baseline without SIMD supports.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_77">
+<b>OpenMP codegen in Flang using MLIR</b>
+<!--[ <a href="slides/poster_Poster_77.pdf">Poster</a> ]-->
+  &mdash; <i>Kiran Chandramohan (Arm Ltd)</i>
+<p>Flang is the Fortran frontend of LLVM under construction. This
+presentation (and/or poster) provides a brief summary of the design of
+LLVM IR generation for OpenMP constructs in Flang. Two major
+components are used for this project. i) MLIR: A dialect is created
+for OpenMP. The dialect is designed to be generic (so that other
+frontends can use it), inter-operable with other dialects and also
+capable of optimisations. ii) OpenMP IRBuilder: The OpenMP IRBuilder
+project refactors codegen for OpenMP directives from Clang and places
+them in the LLVM directory. This way both Clang and Flang can share
+the LLVM IR generation code for OpenMP. The overall flow will be as
+follows. The Flang parser will parse the Fortran source into a parse
+tree. The parse tree is then lowered to a mix of FIR and OpenMP
+dialects. These are then optimised and finally converted to mix of
+OpenMP and LLVM MLIR dialects. The mix is translated to LLVM IR using
+the existing translation library for LLVM MLIR and the OpenMP
+IRBuilder. The presentation will include the details of the OpenMP
+dialect, some examples, how it interacts with other dialects and how
+it is translated to LLVM IR. Also, see the RFC for the OpenMP dialect
+in MLIR group. <a href="https://groups.google.com/a/tensorflow.org/d/m
+sg/mlir/SCerbBpoxng/bVqWTRY7BAAJ">https://groups.google.com/a/tensorfl
+ow.org/d/msg/mlir/SCerbBpoxng/bVqWTRY7BAAJ</a>
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_89">
+<b>Some Improvements to the Branch Probability Information (BPI)</b>
+<!--[ <a href="slides/poster_Poster_89.pdf">Poster</a> ]-->
+  &mdash; <i>Akash Banerjee (IIT Hyderabad),
+     Venkata Keerthy S (IIT Hyderabad),
+     Rohit Aggarwal (IIT Hyderabad),
+     Ramakrishna Upadrasta (IIT Hyderabad)</i>
+<p>The BranchProbabilityInfo (BPI) pass is LLVM’s heuristic-based
+profiler. A study on this analysis pass indicates that the heuristics
+implemented in it were fast, but not adequate. We propose to improve
+the current heuristics to make them more robust and give better
+predictions. This has the potential to be useful in the absence of
+actual profile information (for example, from PGO). We suggest some
+possible improvements to the existing heuristics in the current
+implementation and experimentally observe that such improvements have
+a positive impact on the runtime when used by the standard O3
+sequence, and we obtained an average speed-up of 1.07.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_92">
+<b>Is Post Dominator tree spoiling your party?</b>
+<!--[ <a href="slides/poster_Poster_92.pdf">Poster</a> ]-->
+  &mdash; <i>Reshabh Kumar Sharma (AMD Inc)</i>
+<p>The difference in perspective of the implementation and use can
+sometimes result in behaviors that are not expected. They may not
+necessarily be bugs. We present you the same with a concrete example
+of post dominator tree construction algorithm in LLVM. Post dominator
+tree is a very important abstraction of a property of cfg (post
+dominance) which has wide applications in various analysis and
+transform passes in LLVM. We take two near similar cfg as the base of
+the analysis. We show these test cases exploit the post dominator tree
+construction algorithm to generate two different yet valid post
+dominator trees. We took it further to analyze the ripple effect on
+other passes which depends on it. We present a few cases that
+demonstrate this ripple effect. The main aim is to demonstrate that
+such behaviors can have a larger effect than expected and can be
+harder to debug in comparison with implementation bugs. Such behaviors
+if found can be very difficult to correct as sometimes the correction
+can bring in big performance regression.
+</p>
+</td></tr>
+<tr><td valign="top" id="Poster_94">
+<b>DragonFFI: using Clang/LLVM for seamless C interoperability, and much more!</b>
+<!--[ <a href="slides/poster_Poster_94.pdf">Poster</a> ]-->
+  &mdash; <i>Adrien Guinet (Quarkslab)</i>
+<p>DragonFFI [1] is a Clang/LLVM-based library that allows calling C
+functions and using C structures from any languages. It provides a way
+to easily call C functions and manipulate C structures from any
+language. Its purpose is to parse C libraries headers without any
+modifications and transparently use them in a foreign language, like
+Python or Ruby. The first release has been published in February 2018.
+A blog post presenting the project has been published on the LLVM blog
+in March 2018 [2], and been presented to Fosdem 2018 [3]. Since then,
+it has been improved to fulfill various users&#x27; needs, and
+stabilized so it is near being production-ready. That&#x27;s why a
+stable DragonFFI 1.0 version is planned for March 2020, and will
+include:<ul>
+<li>stable C++ and Python API/ABI</li>
+<li>generating Python portable structures from a C header file (for a
+given ABI). This is something the security community asks for, to make
+(for instance) exploit research easier.</li>
+<li>tutorials for first-users and proposer API documentation</li>
+</ul>
+</p>
+<p>This talk will showcase this version and be structured in this way:<ul>
+<li>why DragonFFI, and what are the pros and cons against existing
+solutions (e.g. libffi, cffi, cppyy)</li>
+<li>how DragonFFI use Clang and LLVM internally</li>
+<li>what could be improved in Clang and/or LLVM to make our life
+easier</li>
+<li>the life of a cross-platform DragonFFI release, and its
+pitfalls</li>
+<li>demos !</li>
+<li>future directions</li>
+</ul>
+</p>
+<p>[1] <a href="https://github.com/aguinet/dragonffi/">https://github.
+com/aguinet/dragonffi/</a></p>
+<p>[2] <a href="http://blog.llvm.org/2018/03/dragonffi-ffijit-for-c-
+language-using.html">http://blog.llvm.org/2018/03/dragonffi-ffijit-
+for-c-language-using.html</a></p>
+<p>[3] <a href="https://archive.fosdem.org/2018/schedule/event/dragonf
+fi/">https://archive.fosdem.org/2018/schedule/event/dragonffi/</a></p>
+</td></tr>
+</table>
+
+<!-- *********************************************************************** -->
+
+<!--#include virtual="sponsors.incl" -->
+
+<hr>
+
+<!--#include virtual="../../footer.incl" -->
