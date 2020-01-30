@@ -35,55 +35,175 @@
 
 <div class="www_sectiontitle" id="#cfp">Call for Speakers</div>
 
+<div class="www_sectiontitle">Preliminary Schedule</div>
 <p>
-We invite speakers from academia and industry to present their work on the following list of topics (including and not
-limited to:)
+ <table width="100%">
+   <tr><td><b>Time</b></td> <td><b>Room</b></td> <td><b>Speaker</b></td> <td><b>Title</b></td> <td>&nbsp;</td></tr>
+  <tr>
+    <td>9:15-10:15</td>
+    <td>tba</td>
+    <td>Simon Moll</td>
+    <td>Keynote I: An Overview of the Region Vectorizer</td>
+    <td><a href="#sm">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>10:15-10:30</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Break</td>
+  </tr>
+
+  <tr>
+    <td>10:30-10:45</td>
+    <td>tba</td>
+    <td>Utpal Bora, Santanu Das, Pankaj Kureja, Saurabh Joshi, Ramakrishna Upadrasta and Sanjay Rajopadhye</td>
+    <td>LLOV: A Fast Static Data-Race Checker for OpenMP Programs</td>
+    <td><a href="#ub">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>10:45-11:30</td>
+    <td>tba</td>
+    <td>Johannes Doerfert</td>
+    <td>OpenMP in LLVM --- A Design and Implementation Overview</td>
+    <td><a href="#jd1">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>11:30-12:00</td>
+    <td>tba</td>
+    <td>-</td>
+    <td>Discussion Round --- Participating in LLVM - GSoC and other opportunities</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>12:00-13:30</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Lunch</td>
+  </tr>
+  <tr>
+    <td>13:30-14:30</td>
+    <td>tba</td>
+    <td>William Moses and Johannes Doerfert</td>
+    <td>Keynote II: "Header Time Optimization": Cross-Translation Unit Optimization via Annotated Headers</td>
+    <td><a href="#wm">[Abstract]</a>
+    </td>
+  </tr>
+  <tr>
+    <td>14:30-15:00</td>
+    <td>tba</td>
+    <td>Shilei Tian, Johannes Doerfert and Barbara Chapman</td>
+    <td>Asynchronous OpenMP Offloading on NVIDIA GPUs</td>
+    <td><a href="#st">[Abstract]</a>
+    </td>
+  </tr>
+  <tr>
+    <td>15:00-15:15</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Break</td>
+  </tr>
+  <tr>
+    <td>15:15-15:45</td>
+    <td>tba</td>
+    <td>Kyungwoo Lee and Nikolai Tillmann</td>
+    <td>Global Machine Outliner for ThinLTO</td>
+    <td><a href="#kl">[Abstract]</a>
+  </tr>
+  <tr>
+    <td>15:45-16:15</td>
+    <td>tba</td>
+    <td>Aditya Kumar</td>
+    <td>Cheap function entry instrumentation to collect runtime metrics</td>
+    <td><a href="#ak">[Abstract]</a>
+  </tr>
+  <tr>
+    <td>16:15-17:00</td>
+    <td>tba</td>
+    <td>Johannes Doerfert</td>
+    <td>Interactive introduction: The Attributor: A Versatile Inter-procedural Fixpoint Iteration Framework</td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>17:00-</td>
+    <td>&nbsp;</td>
+    <td colspan=3>Open Discussion Round</td>
+  </tr>
+ </table>
 </p>
+
+<div class="www_sectiontitle">Abstracts</div>
+<p>
   <ul>
-    <li>Compilation and interpretation techniques benefitting from LLVM,</li>
-    <li>Performance optimizations, code-size optimizations and binary instrumentation techniques using LLVM,</li>
-    <li>Improvements to runtime libraries developed under llvm-infrastructure e.g., libc++, libc++-abi,</li>
-    <li>Improving the security of generated code using compilation techniques,</li>
-    <li>Any tools developed with LLVM (or subprojects) for performance analysis,</li>
-    <li>compiler flags, annotations and remarks to understand and improve performance,</li>
-    <li>any other topic related to improving and maintaining the performance and quality of LLVM generated code.</li>
+    <li><a id="sl"><b>Simon Mall: </b>An Overview of the Region Vectorizer</a>
+      <p>
+      The Region Vectorizer (RV) is a data-parallel vecorizer for LLVM IR. This talk gives an overview
+of the RV vectorization system, its main features and future directions.
+      </p>
+    </li>
+    <li><a id="sl"><b>Utpal Bora, Santanu Das, Pankaj Kureja, Saurabh Joshi, Ramakrishna Upadrasta and Sanjay
+          Rajopadhye: </b>LLOV: A Fast Static Data-Race Checker for OpenMP Programs</a>
+      <p>
+      In the era of Exascale computing, writing efficient parallel programs is indispensable and at the same time,
+writing sound parallel programs is highly difficult. While parallel programming is easier with frameworks
+such as OpenMP, the possibility of data races in these programs still persists. In this paper, we propose a
+fast, lightweight, language agnostic, and static data race checker for OpenMP programs based on the LLVM
+compiler framework. We compare our tool with other state-of-the-art data race checkers on a variety of
+well-established benchmarks. We show that the precision, accuracy, and the F1 score of our tool is comparable
+to other checkers while being orders of magnitude faster. To the best of our knowledge, this work is the only
+tool among the state-of-the-art data race checkers that can verify a FORTRAN program to be data race free.
+      </p>
+    </li>
+     <li><a id="jd1"><b>Johannes Doerfert: </b>OpenMP in LLVM --- A Design and Implementation Overview</a>
+      <p>
+      OpenMP support in LLVM is changing, fast and in many places. This talk will provide an overview of the changes, their status and goals, the rational behind them, as well as ways to contribute. A summary of the content is given below. Please note that the talk presents the work done by many people across the entire community.
+
+Due to relative frequent releases of new features, OpenMP was always a moving target when it comes to implementation. In addition, we currently working on increasing the hardware and language support: The second offloading target, namely AMDGPU, is advancing rapidly and with it the need to redesign/generalize the offloading code path in Clang and in the OpenMP device runtime library. On the language side, Flang, the Fortran compiler front-end, will require full support for OpenMP similar to the current implementation in Clang. To provide this support in a maintainable way, the code generation is transitioning out of Clang into LLVM-Core. In tandem with these changes, optimizations for OpenMP programs are developed. Utilizing abstract call sites, the Attributor performs scalar optimizations, e.g., constant propagation, across the boundaries of outlined OpenMP regions. Finally, explicit OpenMP aware optimizations are developed as part of the OpenMPOpt pass.
+      </p>
+    </li>
+
+     <li><a id="wm"><b>William Moses and Johannes Doerfert: </b>Keynote II: "Header Time Optimization": Cross-Translation Unit Optimization via Annotated Headers</a>
+      <p>
+      LLVM automatically derives facts that are only used while the respective translation unit, or LLVM module, is processed (i.e. constant function, error-throwing, etc). This is true both in standard compilation but also link-time-optimization (LTO) in which the module is (partially) merged with others in the same project at link time. LTO is able to take advantage of this to optimize functions calls to outside the translation unit. However, LTO doesn't solve the problem for two reasons of practicality: LTO comes with a nontrivial compile-time investment; and many libraries upon which a program could depend, do not ship with LTO information, simply headers and binaries. In this extended abstract, we solve the problem by generating annotated versions of the source code that also include this derived information. Such an approach has the benefits of both worlds: allowing optimizations previously limited to LTO without running LTO and only requiring C/C++-compatible headers. Our modified Clang understands three custom attributes that encode arbitrary LLVM-IR attributes and it can emit C/C++-compatible headers with the aforementioned attribute embedded based on the information available in the LLVM-IR. We test the approach experimentally on the LLVM multisource application test suite and find that annotated headers find up to a 30\% speedup, and represent half of the speedups found by full LTO.
+      </p>
+    </li>
+     <li><a id="st"><b>Shilei Tian, Johannes Doerfert and Barbara Chapman: </b>Asynchronous OpenMP Offloading on NVIDIA GPUs</a>
+      <p>
+      In the current implementation of LLVM OpenMP offloading, the runtime
+submits all kernels to the default stream and blocks the issuing thread
+until device execution is done. Since the default stream serializes all
+submitted kernel and lunches them sequentially, even in parallel issued
+kernels are not executed on a device concurrently. This is problematic
+especially if single kernels do not utilize the entire device
+consistently, a situation not uncommon on modern GPUs.
+
+In this work, we present a design and prototype to use multiple streams
+to offload OpenMP target regions in order for concurrent execution on
+the device. Our prototype infrastructure shows speedups of up to 1.33x
+on micro benchmarks and we expect further improvements from
+hardware-based dependence resolution.
+      </p>
+    </li>
+     <li><a id="kl"><b>Kyungwoo Lee and Nikolai Tillmann: </b>Global Machine Outliner for ThinLTO</a>
+      <p>
+      The existing machine-outliner in LLVM already provides a lot of value to reduce code size but also has significant shortcomings: In the context of ThinLTO, the machine-outliner operates on only one module at a time, and doesn’t reap outlining opportunities that only pay off when considering all modules together. Furthermore, identical outlined functions in different modules do not get deduplicated because of misaligned names.
+
+We propose to address these shortcomings: We run machine-level codegen (but not the IR-level optimizations) twice: The first time, the purpose is purely to gather statistics on outlining opportunities. The second time, the gathered knowledge is applied during machine outlining to do more. The core idea is to track information about outlined instruction sequences via a new kind of stable machine instruction hashes that are meaningful and quite exact across modules. In this way, the machine-outliner may outline many identical functions in separate modules. Furthermore, we introduce unique names for outlined functions across modules, and then enable link-once ODR to let the linker deduplicate functions.
+
+We also observed that frame-layout code tends to not get outlined: the generated frame-layout code tends to be irregular as it is optimized for performance, using the return address register in unique ways which are not easily outlinable. We change the machine-specific layout code generation to be homogenous, and we synthesize outlined prologue and epilogue helper functions on-demand in way that can be fitted to actually occurring frequent patterns across all modules. Again, we can gather statistics in the first codegen, and apply them in the second one.
+
+Fortunately, it turns out that the time spent in codegen is not dominating the overall compilation, and our approach to run codegen twice represents an acceptable cost. Also, codegen tends to be very deterministic, and the information gathered during the first codegen is highly applicable to the second one. In any case, our optimizations are sound.
+
+In our experience, this often significantly increases the effectiveness of outlining with ThinLTO in terms of size and even performance of the generated code. We have observed an improvement in the code size reduction of outlining by a factor of two in some large applications.
+      </p>
+    </li>
+     <li><a id="ak"><b>Aditya Kumar: </b>Cheap function entry instrumentation to collect runtime metrics</a>
+      <p>
+      Compiler instrumentation technique that is extremely cheap, lock free (in some cases) and extensible. This can be
+      used for dead code detection, detecting null pointers, value profiling of function arguments etc.
+      </p>
+    </li>
   </ul>
-<p>
-While the primary focus of the workshop is on these topics, we welcome any submissions related to the LLVM compiler
-infrastructure, its sub-projects (clang, lldb, openmp, Polly etc.), as well as its use in industry and academia.
 </p>
 
-<p>
-  We are looking for:
-</p>
-<ul>
-  <li>keynote speakers,</li>
-  <li>technical presentations: 30 minutes plus questions and discussion,</li>
-  <li>tutorials,</li>
-  <li>panels,</li>
-  <li>BOFs.</li>
-</ul>
 
-<p>
-  Proposals should provide enough information for the review committee to be
-  able to judge the quality of the submission. Proposals can be submitted under
-  the form of an extended abstract (1-2 pages) or slides.</p>
-
-
-<h4>What types of people attend?</h4>
-<ul>
-  <li>Active developers of projects in the LLVM Umbrella (LLVM core, Clang, LLDB, libc++, compiler_rt, klee, lld, etc).</li>
-  <li>Anyone interested in using these as part of another project.</li>
-  <li>Students and Researchers.</li>
-  <li>Compiler, programming language, and runtime enthusiasts.</li>
-  <li>Those interested in using compiler and toolchain technology in novel and interesting ways.</li>
-</ul>
-
-<div class="www_sectiontitle" id="register">Registration</div>
-  Proposals should be submitted to <a href="https://easychair.org/conferences/?conf=llvmcgo2020">Easychair LLVM-CGO 2020</a>.
-  The deadline for receiving submissions is January 5, 2020 (Anywhere on
-  Earth). Speakers will be notified of acceptance or rejection by January 15,
-  2020.
 
 <div class="www_sectiontitle" id="contact">Contact</div>
 <p>
