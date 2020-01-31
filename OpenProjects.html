@@ -13,6 +13,7 @@
           <ul>
             <li><a href="#llvm_ipo">Improve inter-procedural analyses and optimizations</a></li>
             <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
+            <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
           </ul>
           <li>
             <b>MLIR</b>
@@ -208,6 +209,73 @@
 
   <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
   <p><b>Desirable skills:</b> Intermediate knowledge of C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_dbg_invariant">Make LLVM passes debug info invariant</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Generating debug information is one of the fundamental tasks a compiler
+    typically fulfills. It is clear that executable generated code should not
+    depend on the presence of debug information.
+    <br><br>
+    Unfortunately there are known cases in LLVM were code generation differs
+    depending on whether debug information is enabled (`-g`) or not. These kind
+    of bugs can lead to bad debug experience ranging from unexpected execution
+    behaviour to the point of programs running fine in debug mode while crashing
+    without debug information.
+    <br><br>
+    The issue has likely not a single cause but is triggered during different
+    passes on different architectures. One such reason is the insertion of Call
+    Frame Information (CFI) in the compiler backend during frame lowering and
+    other later passes. The presence of CFI instructions seems to change
+    instruction scheduling which therefore leads to different generated code.
+  </p>
+
+  <p><b>Preparation resources:</b>
+    <ul>
+      <li>
+        <a href="https://bugs.llvm.org/show_bug.cgi?id=37728">PR37728</a> is a
+        meta-bug that collects several related issues of differing codegen.
+      </li>
+      <li>
+        <a href="https://bugs.llvm.org/show_bug.cgi?id=37240">PR37240</a> is a
+        bug discussing the CFI issue mentioned above.
+      </li>
+      <li>
+        The following
+        <a href="http://lists.llvm.org/pipermail/llvm-dev/2019-September/135433.html">
+        RFC</a> discusses some possible mitigation strategies and gives some
+        background information on the CFI issue.
+      </li>
+    </ul>
+  </p>
+  <p><b>Expected results:</b>
+    <ul>
+    <li>
+      Write some tooling based on existing scripts to automatically generate
+      examples of differing codegen. This is intended as a starting task to get
+      to know the existing LLVM tools, learn to read LLVM's internal outputs etc.
+    </li>
+    <li>
+      Choose one or more (depending on the difficulty) bugs that cause codegen
+      differences and try to provide patches to fix them. We would be
+      particularly interested in the mentioned CFI issue but working on some of
+      the other related bugs is also absolutely fine.
+    </li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed Mentors:</b> Paul Robinson and David Tellenbach</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, some familarity with general computer
+    architecture, some familarity with the x86 or Arm/AArch64 instruction set.
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
