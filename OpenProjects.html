@@ -16,6 +16,14 @@
             <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
           </ul>
+          <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+            <ul>
+              <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
+                provide information for the type as written in template
+                instantiations</a>
+              </li>
+            </ul>
+          </li>
           <b>LLDB</b>
           <ul>
             <li><a href="#lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands using the public SB API.</a></li>
@@ -46,10 +54,6 @@
         </li>
         <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
           <ul>
-            <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
-              provide information for the type as written in template
-              instantiations</a>
-            </li>
             <li><a href="#clang-astimporter-fuzzer">Implement an ASTImporter
               fuzzer</a>
             </li>
@@ -326,6 +330,68 @@ are opened to GSOC. Feel free to propose your own ideas as well on
 <a href="https://llvm.discourse.group/c/llvm-project/mlir">Discourse</a>.
 </p></div>
 
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Clang</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
+    information for the type as written in template instantiations.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    When instantiating a template, the template arguments are canonicalized
+    before being substituted into the template pattern. Clang does not preserve
+    type sugar when subsequently accessing members of the instantiation.
+
+    <pre>
+    std::vector&lt;std::string&gt; vs;
+    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
+
+    template&lt;typename T&gt; struct Id { typedef T type; };
+    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
+    </pre>
+
+    Clang should "re-sugar" the type when performing member access on a class
+    template specialization, based on the type sugar of the accessed
+    specialization. The type of vs.front() should be std::string, not
+    std::basic_string&lt;char, [...]&gt;.
+    <br /> <br />
+    Suggested design approach: add a new type node to represent template
+    argument sugar, and implicitly create an instance of this node whenever a
+    member of a class template specialization is accessed. When performing a
+    single-step desugar of this node, lazily create the desugared representation
+    by propagating the sugared template arguments onto inner type nodes (and in
+    particular, replacing Subst*Parm nodes with the corresponding sugar). When
+    printing the type for diagnostic purposes, use the annotated type sugar to
+    print the type as originally written.
+    <br /> <br />
+    For good results, template argument deduction will also need to be able to
+    deduce type sugar (and reconcile cases where the same type is deduced twice
+    with different sugar).
+  </p>
+
+  <p><b>Expected results: </b>
+    Diagnostics preserve type sugar even when accessing members of a template
+    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
+    same type and the same template instantiation, but
+    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
+    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
+
+  <p><b>Confirmed Mentor:</b> Vassil Vassilev, Richard Smith</p>
+
+  <p><b>Desirable skills:</b>
+    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
+  </p>
+</div>
+
+
 <!-- *********************************************************************** -->
 <div class="www_subsection">
   <a>LLDB</a>
@@ -462,61 +528,6 @@ are opened to GSOC. Feel free to propose your own ideas as well on
   <a>Clang</a>
 </div>
 <!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
-    information for the type as written in template instantiations.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    When instantiating a template, the template arguments are canonicalized
-    before being substituted into the template pattern. Clang does not preserve
-    type sugar when subsequently accessing members of the instantiation.
-
-    <pre>
-    std::vector&lt;std::string&gt; vs;
-    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
-
-    template&lt;typename T&gt; struct Id { typedef T type; };
-    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
-    </pre>
-
-    Clang should "re-sugar" the type when performing member access on a class
-    template specialization, based on the type sugar of the accessed
-    specialization. The type of vs.front() should be std::string, not
-    std::basic_string&lt;char, [...]&gt;.
-    <br /> <br />
-    Suggested design approach: add a new type node to represent template
-    argument sugar, and implicitly create an instance of this node whenever a
-    member of a class template specialization is accessed. When performing a
-    single-step desugar of this node, lazily create the desugared representation
-    by propagating the sugared template arguments onto inner type nodes (and in
-    particular, replacing Subst*Parm nodes with the corresponding sugar). When
-    printing the type for diagnostic purposes, use the annotated type sugar to
-    print the type as originally written.
-    <br /> <br />
-    For good results, template argument deduction will also need to be able to
-    deduce type sugar (and reconcile cases where the same type is deduced twice
-    with different sugar).
-  </p>
-
-  <p><b>Expected results: </b>
-    Diagnostics preserve type sugar even when accessing members of a template
-    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
-    same type and the same template instantiation, but
-    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
-    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
-
-  <p><b>Confirmed Mentor:</b> Vassil Vassilev, Richard Smith</p>
-
-  <p><b>Desirable skills:</b>
-    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
-  </p>
-</div>
-
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
