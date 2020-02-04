@@ -22,6 +22,9 @@
                 provide information for the type as written in template
                 instantiations</a>
               </li>
+              <li><a href="#clang-sa-cplusplus-checkers">Find null smart pointer dereferences
+                                                         with the Static Analyzer</a>
+              </li>
             </ul>
           </li>
          <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a></li>
@@ -383,12 +386,69 @@ are opened to GSOC. Feel free to propose your own ideas as well on
     specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
     same type and the same template instantiation, but
     T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
-    T&lt;size_t&gt;::type single-step desugars to 'size_t'.
+    T&lt;size_t&gt;::type single-step desugars to 'size_t'.</p>
 
   <p><b>Confirmed Mentor:</b> Vassil Vassilev, Richard Smith</p>
 
   <p><b>Desirable skills:</b>
     Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
+  </p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-sa-cplusplus-checkers">Find null smart pointer dereferences
+                                        with the Static Analyzer</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    The Clang Static Analyzer already knows how to prevent crashes caused by
+    null pointer dereference in arbitrary code, however it often "gives up"
+    when the code is too complicated. In particular, implementation details
+    of C++ standard classes, even simple ones such as smart pointers
+    or optionals, may be too convoluted for the Analyzer to fully understand.
+    Moreover, the exact behavior depends on which implementation of
+    the Standard Library is used (e.g., GNU libstdc++ or LLVM's own libc++).
+  </p>
+  <p>
+    We can enable the Analyzer to find more bugs in modern C++ code
+    by teaching it explicitly about the behavior of C++ standard classes,
+    and therefore skipping the whole process in which the Analyzer
+    tries to understand all the implementation details on its own.
+    For example, we could teach it that a default-constructed smart pointer
+    is null, and any attempt to dereference it would result in a crash.
+    The project would therefore consist in manually providing implementations
+    for various methods of standard classes.
+  </p>
+
+  <p><b>Expected results: </b>
+    We want the Static Analyzer to emit warnings when a null smart pointer
+    dereference would occur in the code. For example:
+    <pre>
+    #include &lt;memory&gt;
+
+    int foo(bool flag) {
+      std::unique_ptr&lt;int&gt; x;  <i>// note: Default constructor produces a null unique pointer;</i>
+
+      if (flag)                <i>// note: Assuming 'flag' is false;</i>
+        return 0;              <i>// note: Taking false branch</i>
+
+      return *x;               <i>// warning: Dereferenced smart pointer 'x' is null.</i>
+    }
+    </pre>
+    We should be able to cover at least one class fully, for example, <tt>std::unique_ptr</tt>,
+    and then see if we can generalize our results to other classes, such as <tt>std::shared_ptr</tt>
+    or the C++17 <tt>std::optional</tt>.
+  </p>
+
+
+  <p><b>Confirmed Mentor:</b> Artem Dergachev, Gábor Horváth</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
   </p>
 </div>
 
