@@ -26,6 +26,7 @@
           </li>
          <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a></li>
           <ul>
+            <li><a href="#lldb-autosuggestions">Support autosuggestions in LLDB's command line</a></li>
             <li><a href="#lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands using the public SB API.</a></li>
             <li><a href="#lldb-data-formatters">Implement a DSL for LLDB data formatters</a></li>
             <li><a href="#lldb-batch-testing">Add support for batch-testing to the LLDB testsuite.</a></li>
@@ -397,6 +398,31 @@ are opened to GSOC. Feel free to propose your own ideas as well on
   <a>LLDB</a>
 </div>
 <!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb-autosuggestions">Support autosuggestions in LLDB's command line</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b> LLDB's command line offers several convenience
+    features that are inspired by features of UNIX shells such as tab completions or a command history.
+    One feature that is not implemented yet are 'autosuggestions'. These are suggestions
+    for possible commands that the user might want to type, but unlike tab completions they
+    are displayed directly behind the cursor while the user is typing a command. A good demonstration
+    how this could look like are the autosuggestions implemented in <a href="https://fishshell.com">fish shell</a>.
+  </p>
+  <p>
+    This project is about implementing autosuggestions in LLDB's editline-based command shell.
+  </p>
+  <p><b>Confirmed Mentor:</b>Jonas Devlieghere and Raphael Isemann</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
