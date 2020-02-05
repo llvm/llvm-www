@@ -1400,26 +1400,6 @@ allocating unified memory for simultaneous use on CPU and GPU and
 thereby eliminating unnecessary data-transfers.
 </p>
 </td></tr>
-<tr><td valign="top" id="LightningTalk_63">
-<b>Improving Launch Time for iOS App without Sacrificing Binary Size</b>
-<!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_63">Video</a> ]-->
-<!--[ <a href="slides/slides_LightningTalk_63.pdf">Slides</a> ]-->
-  &mdash; <i>Jin Lin (Uber Corp)</i>
-<p>At Uber, people has spent a lot of efforts on improving iOS binary
-size through LTO(link time optimization), machine outlining and etc.
-These optimizations might affect startup time performance of Uber iOS
-apps. For example, LTO changes the ordering the global variables or
-functions. The machine outlining might generate outline function at
-hot startup code. The startup time of iOS app can be easily increased
-due to these aggressive compiler optimizations without profiling
-information. This talk tries to address the issue of improving startup
-time for iOS app without sacrificing binary size. The function/data
-order is obtained by profile to improve the locality of iOS app. The
-machine outlining is tuned based on profile. The experimental data
-shows the startup time of some Uber iOS app has been improved by 6%
-across different iPhone devices.
-</p>
-</td></tr>
 <tr><td valign="top" id="LightningTalk_69">
 <b>Merging Vector Registers in Predicated Codes</b>
 <!--[ <a href="https://www.youtube.com/watch?v=ytv_LightningTalk_69">Video</a> ]-->
