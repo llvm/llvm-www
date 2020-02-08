@@ -38,11 +38,18 @@
  <table width="100%">
    <tr><td><b>Time</b></td> <td><b>Room</b></td> <td><b>Speaker</b></td> <td><b>Title</b></td> <td>&nbsp;</td></tr>
   <tr>
-    <td>9:15-10:15</td>
+    <td>9:15-9:50</td>
     <td>tba</td>
     <td>Simon Moll</td>
-    <td>Keynote I: An Overview of the Region Vectorizer</td>
+    <td>An Overview of the Region Vectorizer</td>
     <td><a href="#sm">[Abstract]</a> </td>
+  </tr>
+  <tr>
+    <td>9:50-10:15</td>
+    <td>tba</td>
+    <td>Prithayan Barua</td>
+    <td>Optimized Memory Movement for OpenMp target offloading</td>
+    <td><a href="#pb">[Abstract]</a> </td>
   </tr>
   <tr>
     <td>10:15-10:30</td>
@@ -80,7 +87,7 @@
     <td>13:30-14:30</td>
     <td>tba</td>
     <td>William Moses and Johannes Doerfert</td>
-    <td>Keynote II: "Header Time Optimization": Cross-Translation Unit Optimization via Annotated Headers</td>
+    <td>Keynote: "Header Time Optimization": Cross-Translation Unit Optimization via Annotated Headers</td>
     <td><a href="#wm">[Abstract]</a>
     </td>
   </tr>
@@ -134,6 +141,27 @@
       <p>
       The Region Vectorizer (RV) is a data-parallel vecorizer for LLVM IR. This talk gives an overview
 of the RV vectorization system, its main features and future directions.
+      </p>
+    </li>
+    <li><a id="pb"><b>Prithayan Barua: </b>Optimized Memory Movement for OpenMp target offloading</a>
+      <p>
+
+OpenMP offers directives for offloading computations from CPU hosts to
+accelerator devices such as GPUs. A key underlying challenge is in efficiently
+managing the movement of data across the host and the accelerator. Since the
+cost of data movement is high due to data volume and the delay of
+interconnection, how to efficiently manage the data movement operations to
+avoid redundancy is the challenge faced by the compilers. In this talk, we
+introduce an optimization framework that runs analysis and transformation on a
+novel intermediate representation: location-aware heap SSA (LASSA) that models
+the memory accesses and data movement across tasks running on different devices
+that have private storage. This framework casts the problem of removal of
+redundant data movements into a partial redundancy elimination (PRE) problem
+and applies the lazy code motion technique to optimize it. This is a work in
+progress, and we have a prototype LLVM implementation. We evaluated it with 10
+benchmarks and got a Geo-mean speedup of 2.3X, and saved a Geo-mean 3480 MB of
+redundant data transfers.
+
       </p>
     </li>
     <li><a id="ub"><b>Utpal Bora, Santanu Das, Pankaj Kureja, Saurabh Joshi, Ramakrishna Upadrasta and Sanjay
