@@ -73,9 +73,6 @@
   <span style="font-size:smaller">Mailing Lists:</span><br>
   <a href="https://lists.llvm.org/mailman/listinfo/llvm-announce">LLVM-announce</a><br>
   <a href="https://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM-dev</a><br>
-  <a href="https://lists.llvm.org/mailman/listinfo/llvm-bugs">LLVM-bugs</a><br>
-  <a href="https://lists.llvm.org/mailman/listinfo/llvm-commits">LLVM-commits</a><br>
-  <a href="https://lists.llvm.org/mailman/listinfo/llvm-branch-commits">LLVM-branch-commits</a><br>
   <a href="https://lists.llvm.org/cgi-bin/mailman/listinfo">(more)</a>
   <br><br>
 
