@@ -30,6 +30,7 @@
          <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a></li>
           <ul>
             <li><a href="#lldb-autosuggestions">Support autosuggestions in LLDB's command line</a></li>
+            <li><a href="#lldb-more-completions">Implement the missing tab completions for LLDB's command line</a></li>
             <li><a href="#lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands using the public SB API.</a></li>
             <li><a href="#lldb-data-formatters">Implement a DSL for LLDB data formatters</a></li>
             <li><a href="#lldb-batch-testing">Add support for batch-testing to the LLDB testsuite.</a></li>
@@ -477,6 +478,35 @@ are opened to GSOC. Feel free to propose your own ideas as well on
     This project is about implementing autosuggestions in LLDB's editline-based command shell.
   </p>
   <p><b>Confirmed Mentor:</b>Jonas Devlieghere and <a href="mailto:teemperor@gmail.com?subject=[GSoC]%20Autosuggestions">Raphael Isemann</a></p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb-more-completions">Implement the missing tab completions for LLDB's command line</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b> LLDB's command line offers several convenience
+    features that are inspired by features of UNIX shells such as tab completions for commands.
+    These tab completions are implemented by a completion engine that is not only used by the
+    command line interface of LLDB, but also by graphical interfaces for LLDB such as IDEs.
+
+    While the tab completions in LLDB are really useful, they are currently not implemented for
+    all commands and their respective arguments. This project is about implementing the remaining
+    completions for the commands in LLDB which will greatly improve the user experience of LLDB.
+    Improving existing completions is also part of the project.
+
+    Note that the completions are not static list of strings but often require inspecting and
+    understanding the internal state of LLDB. As LLDB commands and their tab completions cover
+    all aspects of LLDB, this project offers a great way to get an overview of all the functionality
+    in LLDB.
+  </p>
+  <p><b>Confirmed Mentor:</b><a href="mailto:teemperor@gmail.com?subject=[GSoC]%20Completions">Raphael Isemann</a></p>
 
   <p><b>Desirable skills:</b>
     Intermediate knowledge of C++.
