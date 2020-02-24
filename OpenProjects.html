@@ -15,6 +15,7 @@
             <li><a href="#llvm_ipo">Improve inter-procedural analyses and optimizations</a></li>
             <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
+            <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -319,6 +320,77 @@
   <p><b>Desirable skills:</b>
     Intermediate knowledge of C++, some familarity with general computer
     architecture, some familarity with the x86 or Arm/AArch64 instruction set.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a>
+</div>
+<!-- *********************************************************************** -->
+
+ <div class="www_text">
+  <p><b>Description of the project:</b> MergeSimilarFunctions pass is able to
+    merge not just identical functions, but also functions with small differences in
+    their instructions to reduce code size. It does this by inserting control flow
+    and an additional argument in the merged function to account for the
+    differences.
+
+    This work was presented at the LLVM Dev Meeting in 2013
+    (http://llvm.org/devmtg/2013-11/#talk3). A more detailed description was
+    published in a paper at LCTES 2014
+    (http://dl.acm.org/citation.cfm?id=2597811). The code was released to the
+    community at the time. Meanwhile, the pass has been in production use at
+    QuIC for the past few years and has been actively maintained internally. In
+    order to magnify the impact of MergeSimilarFunctions, it has been ported to
+    ThinLTO and the patches have been upstreamed (see stack of 5 patches:
+    https://reviews.llvm.org/D52896). But instead of replacing the existing
+    MergeFunctions pass in LLVM-upstream the community suggested we improve the
+    existing one with the ideas from MergeSimilarFunctions.  And then leverage
+    the ThinLTO on top of that. The MergeSimilarFunction used in ThinLTO gives
+    impressive code size reduction across a wide range of workloads and the work
+    was presented at LLVM-dev 2018
+    (https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2). The LLVM
+    project would greatly benefit from this code size optimization as most
+    embedded systems (think SmartPhones) applications are constrained on
+    code-size.
+  </p>
+  <p><b>Preparation resources:</b>
+    <ul>
+      <li>
+	Stack of patches:
+	<a href="https://reviews.llvm.org/D52896">MergeSimilarFunctions 1/n: a code size pass to merge functions with small differences</a>
+	<a href="https://reviews.llvm.org/D52898">[Porting MergeSimilarFunctions 2/n] Changes to DataLayout</a>
+	<a href="https://reviews.llvm.org/D52966">[Merge SImilar Function ThinLTO 3/n] Add hash code to function summary</a>
+	<a href="https://reviews.llvm.org/D53253">[Merge SImilar Function ThinLTO 4/n] Make merge function decisions before the thin-lto stage</a>
+	<a href="https://reviews.llvm.org/D53254">[Merge SImilar Function ThinLTO 5/n] Set up similar function to be imported</a>
+	The paches can be easily applied to LLVM-trunk and would give a developer a decent head start ;).
+      </li>
+      <li>
+	<a href="http://dl.acm.org/citation.cfm?id=2597811">The original paper: LCTES 2014</a>
+      </li>
+      <li>
+	<a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">Video and slides of the presentation</a>
+      </li>
+    </ul>
+  </p>
+  <p><b>Expected results:</b>
+    <ul>
+      <li>
+	Improve MergeFunctions to have feature parity with MergeSimilarFunctions.
+      </li>
+      <li>
+	Enable MergeFunctions to ThinLTO.
+      </li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed Mentors:</b>Aditya Kumar</p>
+
+  <p><b>Desirable skills:</b>
+    Course on compiler design, SSA Representation,
+    Intermediate knowledge of C++, Familiarity with LLVM Core.
   </p>
 </div>
 
