@@ -337,43 +337,55 @@
     and an additional argument in the merged function to account for the
     differences.
 
-    This work was presented at the LLVM Dev Meeting in 2013
-    (http://llvm.org/devmtg/2013-11/#talk3). A more detailed description was
-    published in a paper at LCTES 2014
-    (http://dl.acm.org/citation.cfm?id=2597811). The code was released to the
-    community at the time. Meanwhile, the pass has been in production use at
-    QuIC for the past few years and has been actively maintained internally. In
-    order to magnify the impact of MergeSimilarFunctions, it has been ported to
-    ThinLTO and the patches have been upstreamed (see stack of 5 patches:
-    https://reviews.llvm.org/D52896). But instead of replacing the existing
-    MergeFunctions pass in LLVM-upstream the community suggested we improve the
-    existing one with the ideas from MergeSimilarFunctions.  And then leverage
-    the ThinLTO on top of that. The MergeSimilarFunction used in ThinLTO gives
-    impressive code size reduction across a wide range of workloads and the work
-    was presented at LLVM-dev 2018
-    (https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2). The LLVM
-    project would greatly benefit from this code size optimization as most
-    embedded systems (think SmartPhones) applications are constrained on
-    code-size.
+    This work was presented at
+    the <a href="http://llvm.org/devmtg/2013-11/#talk3">LLVM Dev Meeting in
+    2013</a> A more detailed description was published in a paper at
+    <a href="http://dl.acm.org/citation.cfm?id=2597811">LCTES 2014</a>. The code
+    was released to the community at the time. Meanwhile, the pass has been in
+    production use at QuIC for the past few years and has been actively
+    maintained internally. In order to magnify the impact of
+    MergeSimilarFunctions, it has been ported to ThinLTO and the patches have
+    been upstreamed (see stack of 5 patches mentioned below). But instead of
+    replacing the existing MergeFunctions pass in LLVM-upstream the community
+    suggested we improve the existing one with the ideas from
+    MergeSimilarFunctions.  And then leverage the ThinLTO on top of that. The
+    MergeSimilarFunction used in ThinLTO gives impressive code size reduction
+    across a wide range of workloads and the work was presented at
+    <a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">LLVM-dev
+    2018</a>. The LLVM project would greatly benefit from this code size
+    optimization as most embedded systems (think SmartPhones) applications are
+    constrained on code-size.
   </p>
   <p><b>Preparation resources:</b>
-    <ul>
-      <li>
-	Stack of patches:
-	<a href="https://reviews.llvm.org/D52896">MergeSimilarFunctions 1/n: a code size pass to merge functions with small differences</a>
-	<a href="https://reviews.llvm.org/D52898">[Porting MergeSimilarFunctions 2/n] Changes to DataLayout</a>
-	<a href="https://reviews.llvm.org/D52966">[Merge SImilar Function ThinLTO 3/n] Add hash code to function summary</a>
-	<a href="https://reviews.llvm.org/D53253">[Merge SImilar Function ThinLTO 4/n] Make merge function decisions before the thin-lto stage</a>
-	<a href="https://reviews.llvm.org/D53254">[Merge SImilar Function ThinLTO 5/n] Set up similar function to be imported</a>
-	The paches can be easily applied to LLVM-trunk and would give a developer a decent head start ;).
-      </li>
-      <li>
-	<a href="http://dl.acm.org/citation.cfm?id=2597811">The original paper: LCTES 2014</a>
-      </li>
-      <li>
-	<a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">Video and slides of the presentation</a>
-      </li>
-    </ul>
+  <ul>
+    <li>
+      Stack of patches:
+      <ul>
+        <li>
+          <a href="https://reviews.llvm.org/D52896">MergeSimilarFunctions 1/n: a code size pass to merge functions with small differences</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D52898">[Porting MergeSimilarFunctions 2/n] Changes to DataLayout</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D52966">[Merge SImilar Function ThinLTO 3/n] Add hash code to function summary</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D53253">[Merge SImilar Function ThinLTO 4/n] Make merge function decisions before the thin-lto stage</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D53254">[Merge SImilar Function ThinLTO 5/n] Set up similar function to be imported</a>
+        </li>
+      </ul>
+      The paches can be easily applied to LLVM-trunk and would give a developer a decent head start ;).
+    </li>
+    <li>
+      <a href="http://dl.acm.org/citation.cfm?id=2597811">The original paper: LCTES 2014</a>
+    </li>
+    <li>
+      <a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">Video and slides of the presentation</a>
+    </li>
+  </ul>
   </p>
   <p><b>Expected results:</b>
     <ul>
