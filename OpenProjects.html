@@ -16,6 +16,7 @@
             <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
             <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
+            <li><a href="#llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -403,6 +404,45 @@
   <p><b>Desirable skills:</b>
     Course on compiler design, SSA Representation,
     Intermediate knowledge of C++, Familiarity with LLVM Core.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    LLVM provides a tool called yaml2obj which coverts a YAML document into an
+    object file, for various different file formats such as ELF, COFF and
+    Mach-O, along with obj2yaml which does the inverse. The tool is commonly
+    used to test parts of LLVM, as YAML is often easier to use to describe an
+    object file than raw assembly and more maintainable than a pre-built binary.
+    DWARF is a debugging file format commonly used by LLVM. Many of the tests
+    for LLVM’s DWARF emission are written in assembly, but it would be nicer to
+    write them in YAML. However, yaml2obj does not properly support emission of
+    DWARF sections. This project is to add functionality to yaml2obj to make
+    writing test inputs for DWARF tests simpler, particularly for ELF objects.
+  </p>
+
+  <p><b>Preparation resources:</b>
+    Reading up on the DWARF file format will be useful, in particular the
+    standards available at http://dwarfstd.org/Download.php. Also, familiarising
+    yourself with the basics of the ELF file format, as described here
+    https://www.sco.com/developers/gabi/latest/contents.html, may be beneficial.
+  </p>
+  <p><b>Expected results:</b>
+    The ability to use yaml2obj to generate DWARF sections for object files.
+    Particularly important is ensuring the input YAML can be more easily
+    understood than the equivalent assembly.
+  </p>
+
+  <p><b>Confirmed Mentors:</b> James Henderson</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
   </p>
 </div>
 
