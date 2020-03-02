@@ -17,7 +17,7 @@
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
             <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
             <li><a href="#llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a></li>
-            <li><a href="#llvm_holtcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
+            <li><a href="#llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -454,68 +454,70 @@
 </div>
 <!-- *********************************************************************** -->
 
- <div class="www_text">
-  <p><b>Description of the project:</b>Hot Cold Splitting in LLVM is an IR level
-    function splitting transformation. The goal of hot/cold splitting is to improve
-    the memory locality of code and helps reduce startup working set. The splitting pass
-    does this by identifying cold blocks and moving them into separate functions. Because it
-    is implemented at the IR level all the back end target benefit from it.
+<div class="www_text">
+ <p><b>Description of the project:</b> Hot Cold Splitting in LLVM is an IR level
+   function splitting transformation. The goal of hot/cold splitting is to improve
+   the memory locality of code and helps reduce startup working set. The splitting pass
+   does this by identifying cold blocks and moving them into separate functions. Because it
+   is implemented at the IR level all the back end target benefit from it.
 
-    It is a relatively new optimization and it was recently presented at
-    the <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">LLVM Dev Meeting in
-    2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a> 
-    Currently, hot cold splitting works as a greedy algorithm where a region found
-    by first cold basic block is given preference. When a new region is found which
-    intersects with an existing region, the new region is dropped. One approach
-    would be to first run an analysis pass to find a set of SESE/SEME regions and do
-    some bookkeeping to detect the most profitable ones. The goal should be to not
-    regress and keep the compile time linear. There are fast algorithms to detect
-    SESE regions as illustrated in
-    (http://impact.gforge.inria.fr/impact2016/papers/impact2016-kumar.pdf), we can
-    additionally leverage the existing RegionInfo as well if that has acceptable
-    compilation time complexity.
+   It is a relatively new optimization and it was recently presented at
+   the <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">LLVM Dev Meeting in
+   2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a> 
+   Currently, hot cold splitting works as a greedy algorithm where a region found
+   by first cold basic block is given preference. When a new region is found which
+   intersects with an existing region, the new region is dropped. One approach
+   would be to first run an analysis pass to find a set of SESE/SEME regions and do
+   some bookkeeping to detect the most profitable ones. The goal should be to not
+   regress and keep the compile time linear. There are fast algorithms to detect
+   SESE regions as illustrated in
+   (http://impact.gforge.inria.fr/impact2016/papers/impact2016-kumar.pdf), we can
+   additionally leverage the existing RegionInfo as well if that has acceptable
+   compilation time complexity.
+ </p>
+ <p><b>Preparation resources:</b>
+ <ul>
+   <li>
+     <a href="http://lists.llvm.org/pipermail/llvm-dev/2019-January/129606.html">Update on hot cold splitting</a>
+   </li>
+   <li>
+     The following two papers provide earlier work on hot cold splitting. While these papers are a good start, LLVM's
+     HCS has completely different implementation in two aspects a) It is implemented at IR level and outlines basic
+     blocks as function rather than naked branches. b) It is based on regions and outlines a set of basic blocks.
+     <ul>
+       <li>
+         <a href="http://pages.cs.wisc.edu/~fischer/cs701.f05/code.positioning.pdf">Original paper on hot cold splitting by
+           Pettis and Hansen.</a>Section 5 on procedure splitting is interesting one. It has nice examples ;) to help
+         understand why HCS works.
+       </li>
+       <li>
+         <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15745-s07/www/papers/p80-cohn.pdf">Paper on hot cold
+           splitting</a> The paper provides some details on one approach to split functions. This is helpful to get a
+         different perspective and may help get new ideas.
+       </li>
+     </ul>
+   </li>
+   <li>
+     <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">Video and slides of the presentation</a>
+   </li>
+ </ul>
+ </p>
+ <p><b>Expected results:</b>
+   <ul>
+     <li>
+       Improve Hot Cold Splitting to detect maximal SEME regions without incurring super linear compile time overhead.
+       In case compile time overhead becomes quadratic, come up with a cost model to detect when quadratic behavior
+       gets triggered and bail out based on a compiler flag.
+     </li>
+   </ul>
+ </p>
 
-  </p>
-  <p><b>Preparation resources:</b>
-  <ul>
-    <li>
-      <a href="http://lists.llvm.org/pipermail/llvm-dev/2019-January/129606.html">Update on hot cold splitting</a>
-    </li>
-    <ul>
-      The following two papers provide earlier work on hot cold splitting. While these papers are a good start, LLVM's
-      HCS has completely different implementation in two aspects a) It is implemented at IR level and outlines basic
-      blocks as function rather than naked branches. b) It is based on regions and outlines a set of basic blocks.
-    <li>
-    <a href="http://pages.cs.wisc.edu/~fischer/cs701.f05/code.positioning.pdf">Original paper on hot cold splitting by
-      Pettis and Hansen.</a>Section 5 on procedure splitting is interesting one. It has nice examples ;) to help
-    understand why HCS works.
-    </li>
-    <li>
-      <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15745-s07/www/papers/p80-cohn.pdf">Paper on hot cold
-        splitting</a> The paper provides some details on one approach to split functions. This is helpful to get a
-      different perspective and may help get new ideas.
-    </li>
-    <li>
-      <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">Video and slides of the presentation</a>
-    </li>
-  </ul>
-  </p>
-  <p><b>Expected results:</b>
-    <ul>
-      <li>
-        Improve Hot Cold Splitting to detect maximal SEME regions without incurring super linear compile time overhead.
-        In case compile time overhead becomes quadratic, come up with a cost model to detect when quadratic behavior
-        gets triggered and bail out based on a compiler flag.
-      </li>
-    </ul>
-  </p>
+ <p><b>Confirmed Mentors:</b>Aditya Kumar</p>
 
-  <p><b>Confirmed Mentors:</b>Aditya Kumar</p>
-
-  <p><b>Desirable skills:</b>
-    Course on compiler design, SSA Representation,
-    Intermediate knowledge of C++, Familiarity with LLVM Core.
-  </p>
+ <p><b>Desirable skills:</b>
+   Course on compiler design, SSA Representation,
+   Intermediate knowledge of C++, Familiarity with LLVM Core.
+ </p>
 </div>
 
 
