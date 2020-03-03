@@ -18,6 +18,8 @@
             <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
             <li><a href="#llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a></li>
             <li><a href="#llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
+            <li><a href="#llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a></li>
+            <li><a href="#llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -463,7 +465,7 @@
 
    It is a relatively new optimization and it was recently presented at
    the <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">LLVM Dev Meeting in
-   2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a> 
+   2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a>
    Currently, hot cold splitting works as a greedy algorithm where a region found
    by first cold basic block is given preference. When a new region is found which
    intersects with an existing region, the new region is dropped. One approach
@@ -517,6 +519,87 @@
  <p><b>Desirable skills:</b>
    Course on compiler design, SSA Representation,
    Intermediate knowledge of C++, Familiarity with LLVM Core.
+ </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+ <p><b>Description of the project:</b>
+Selecting optimization passes for given application is very important but
+non-trivial problem because of the huge size of the compiler transformation
+space (incl. pass ordering). While the existing heuristics can provide high
+performance code for certain applications, they cannot easily benefit a wide
+range of application codes. The goal of the project is to learn the interplay
+between LLVM transformation passes and code structures, then improve the
+existing heuristics (or replace the heuristics with machine learning-based
+models) so that the LLVM compiler can provide a superior order of the passes
+customized per application.
+ </p>
+ <p><b>Expected results (possibilities):</b>
+ <ul>
+   <li>
+Insights about (implicit) dependences between existing passes.
+   </li>
+   <li>
+New pass pipelines (think -O3a, -O3b, ...) selectable by the user that tend to perform substantially better on certain kinds of programs.
+   </li>
+   <li>
+An improved LLVM pass heuristic or new machine learning-based models that can select
+the best order for LLVM transformation passes based on code structures.
+   </li>
+  </ul>
+ </p>
+
+ <p><b>Confirmed Mentors:</b>EJ Park, Giorgis Georgakoudis, Johannes Doerfert</p>
+
+ <p><b>Desirable skills:</b>
+    C++, Python, experience with LLVM and learning-based prediction preferable.
+ </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+ <p><b>Description of the project:</b>
+Current machine learning models for compiler optimization select the best
+optimization strategies for functions based on isolated per function analysis.
+In this approach, the constructed models are not aware of any relationships
+with other functions around it (callers or callees) which can be helpful to
+decide the best optimization strategies for each function. In this project, we
+want to explore the SCC (Strongly Connected Components) call graph to add
+inter-procedural features in constructing machine learning-based models to find
+the best optimization strategies per function. Moreover, we want to explore the
+case that it is helpful to group strongly related functions together and
+optimize them as a group, instead of per function.
+ </p>
+ <p><b>Expected results (possibilities):</b>
+ <ul>
+   <li>
+Improved heuristics for existing (inter-procedural) passes, e.g. to weight inlining versus function cloning based on code features.
+   </li>
+   <li>
+Machine learning models to select the best optimizations using code features
+and inter-procedural analysis. This model can be used for functions in
+isolation or groups of functions, e.g., CGSCCs.
+   </li>
+ </ul>
+ </p>
+
+ <p><b>Confirmed Mentors:</b>EJ Park, Giorgis Georgakoudis, Johannes Doerfert</p>
+
+ <p><b>Desirable skills:</b>
+    C++, Python, experience with LLVM and learning-based prediction preferable.
  </p>
 </div>
 
