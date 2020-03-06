@@ -20,6 +20,10 @@
             <li><a href="#llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
             <li><a href="#llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a></li>
             <li><a href="#llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a></li>
+            <li><a href="#llvm_postdominators">Add PostDominatorTree in LoopStandardAnalysisResults</a></li>
+            <li><a href="#llvm_loopnest">Create loop nest pass</a></li>
+            <li><a href="#llvm_instdump">Instruction properties dumper and checker</a></li>
+            <li><a href="#llvm_movecode">Unify ways to move code or check if code is safe to be moved</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -603,6 +607,154 @@ isolation or groups of functions, e.g., CGSCCs.
  </p>
 </div>
 
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_postdominators"></a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    There is currently no easy way to use the result of
+    PostDominatorTreeAnalysis in a loop pass, as PostDominatorTreeAnalysis is a
+    function analysis, and it is not included in LoopStandardAnalysisResults. If one adds
+    PostDominatorTreeAnalysis in LoopStandardAnalysisResults, then all loop passes
+    need to preserve it, meaning that all loop passes need to make sure the result is up to
+    date. In this project, we want to modify some commonly used utilities to generate a
+    list of updates, which can be consume by different updaters, e.g. DomTreeUpdater to
+    update DominatorTree and PostDominatorTree, and MSSAU to update MemorySSA,
+    etc, instead of only updating the DominatorTree. In additional, we want to change
+    existing loop passes to preserve the PostDominatorTree. Finally, adding
+    PostDominatorTree in LoopStandardAnalysisResults.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    PostDominatorTree added in LoopStandardAnalysisResults, and
+    can be used by loop passes. More common utilities change to generate list of updates
+    to be easily obtained by different updaters.
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto, Bardia Mahjour
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://reviews.llvm.org/rL336163"></a>
+    <a href="http://llvm.org/doxygen/classllvm_1_1DomTreeUpdater.html"></a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1PostDominatorTreeAnalysis.html"></a>
+    <a href="http://llvm.org/doxygen/structllvm_1_1LoopStandardAnalysisResults.html"></a>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_loopnest">Create LoopNest Pass</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Currently if you want to write a pass that works on a loop
+    nest, you have to pick from either a function pass or a loop pass. If you chose to write
+    it as a function pass, then you lose the ability to add loops dynamically back to the
+    pipeline. If you decide to write it as a loop pass, then you are wasting compile time to
+    traverse to your pass and return right away when the given loop is not the outermost
+    loop. In this project, we want to create a LoopNestPass, where transformations
+    intended for loop nest can inherit from it, and have the same ability as the LoopPass to
+    dynamically add loops to the pipeline. In addition, create all the adaptors requires to
+    add loop nest passes at different points of the pass builder.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    Transformations/Analyses can be written as LoopNestPass,
+    without compromising compile time or usability.
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://reviews.llvm.org/D68789"</a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1PassBuilder.html"</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_instdump">Instruction properties dumper and checker</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    TableGen is flexible and allow the end-user to define and set common properties of
+    records (instructions). Every target has dozens or hundreds of such instruction
+    properties. As target code evolve, the td files become more and more complicated,
+    it become harder to see whether the setting of some properties is necessary, even
+    correct or not. eg: whether hasSideEffects property is correctly set on all
+    instructions?
+
+    One can manually search through the TableGen-generated files; or write some
+    script to run TableGen and matching the output for some specific properties, but a
+    standalone utility that can dump and check instruction properties
+    systematically (eg: also allow target to define some verification rules) might be
+    better from a build-process-management standpoint. This can help to find quite
+    some hidden bugs and hence improve the overall codegen code quality. In
+    addition, the utility can be used to write regression tests for instruction
+    properties, which will increase the quality and precision of LLVM's
+    regression tests.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    A standalone llvm tool or utility that can dump and check instruction properties systematically
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Hal Finkel, Jinsong Ji , Qingshan Zhang
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_movecode">Unify ways to move code or check if code is safe to be moved</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Determining whether it is safe to move code around is
+    implemented in several transformations in LLVM (e.g. canSinkOrHoistInst in LICM,
+    or makeLoopInvariant in Loop). Each of these implementations may return different
+    results for a given query, making code motion safety checks inconsistent and
+    duplicated. On the other hand, the mechanism for doing the actual code motion is also
+    different in each transformation. Code duplication causes maintenance problems and
+    increases the time taken to write new transformation. In this project, we want to first
+    identify all the existing ways in loop transformations (could be function or loop pass)
+    to check if code is safe to move, and to move code, and create a standardize way to do
+    so.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    A standardize/superset of all the existing ways in loop
+    transformations of checking if code is safe to be moved and to move <code class=""></code>
+  </p>
+
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto, Bardia Mahjour
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://github.com/llvm/llvm-project/blob/master/llvm/include/llvm/Transforms/Utils/CodeMoverUtils.h"></a>
+    <a href="https://llvm.org/doxygen/LICM_8cpp_source.html"></a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1Loop.html"></a>
+  </p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_subsection">
