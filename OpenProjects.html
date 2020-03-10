@@ -15,6 +15,15 @@
             <li><a href="#llvm_ipo">Improve inter-procedural analyses and optimizations</a></li>
             <li><a href="#llvm_par">Improve parallelism-aware analyses and optimizations</a></li>
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
+            <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
+            <li><a href="#llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a></li>
+            <li><a href="#llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
+            <li><a href="#llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a></li>
+            <li><a href="#llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a></li>
+            <li><a href="#llvm_postdominators">Add PostDominatorTree in LoopStandardAnalysisResults</a></li>
+            <li><a href="#llvm_loopnest">Create loop nest pass</a></li>
+            <li><a href="#llvm_instdump">Instruction properties dumper and checker</a></li>
+            <li><a href="#llvm_movecode">Unify ways to move code or check if code is safe to be moved</a></li>
           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -323,6 +332,431 @@
 </div>
 
 <!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a>
+</div>
+<!-- *********************************************************************** -->
+
+ <div class="www_text">
+  <p><b>Description of the project:</b> MergeSimilarFunctions pass is able to
+    merge not just identical functions, but also functions with small differences in
+    their instructions to reduce code size. It does this by inserting control flow
+    and an additional argument in the merged function to account for the
+    differences.
+
+    This work was presented at
+    the <a href="http://llvm.org/devmtg/2013-11/#talk3">LLVM Dev Meeting in
+    2013</a> A more detailed description was published in a paper at
+    <a href="http://dl.acm.org/citation.cfm?id=2597811">LCTES 2014</a>. The code
+    was released to the community at the time. Meanwhile, the pass has been in
+    production use at QuIC for the past few years and has been actively
+    maintained internally. In order to magnify the impact of
+    MergeSimilarFunctions, it has been ported to ThinLTO and the patches have
+    been upstreamed (see stack of 5 patches mentioned below). But instead of
+    replacing the existing MergeFunctions pass in LLVM-upstream the community
+    suggested we improve the existing one with the ideas from
+    MergeSimilarFunctions.  And then leverage the ThinLTO on top of that. The
+    MergeSimilarFunction used in ThinLTO gives impressive code size reduction
+    across a wide range of workloads and the work was presented at
+    <a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">LLVM-dev
+    2018</a>. The LLVM project would greatly benefit from this code size
+    optimization as most embedded systems (think SmartPhones) applications are
+    constrained on code-size.
+  </p>
+  <p><b>Preparation resources:</b>
+  <ul>
+    <li>
+      Stack of patches:
+      <ul>
+        <li>
+          <a href="https://reviews.llvm.org/D52896">MergeSimilarFunctions 1/n: a code size pass to merge functions with small differences</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D52898">[Porting MergeSimilarFunctions 2/n] Changes to DataLayout</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D52966">[Merge SImilar Function ThinLTO 3/n] Add hash code to function summary</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D53253">[Merge SImilar Function ThinLTO 4/n] Make merge function decisions before the thin-lto stage</a>
+        </li>
+        <li>
+          <a href="https://reviews.llvm.org/D53254">[Merge SImilar Function ThinLTO 5/n] Set up similar function to be imported</a>
+        </li>
+      </ul>
+      The paches can be easily applied to LLVM-trunk and would give a developer a decent head start ;).
+    </li>
+    <li>
+      <a href="http://dl.acm.org/citation.cfm?id=2597811">The original paper: LCTES 2014</a>
+    </li>
+    <li>
+      <a href="https://llvm.org/devmtg/2018-10/talk-abstracts.html#talk2">Video and slides of the presentation</a>
+    </li>
+  </ul>
+  </p>
+  <p><b>Expected results:</b>
+    <ul>
+      <li>
+	Improve MergeFunctions to have feature parity with MergeSimilarFunctions.
+      </li>
+      <li>
+	Enable MergeFunctions to ThinLTO.
+      </li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed Mentors:</b>Aditya Kumar (hiraditya on IRC and phabricator)</p>
+
+  <p><b>Desirable skills:</b>
+    Course on compiler design, SSA Representation,
+    Intermediate knowledge of C++, Familiarity with LLVM Core.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    LLVM provides a tool called yaml2obj which coverts a YAML document into an
+    object file, for various different file formats such as ELF, COFF and
+    Mach-O, along with obj2yaml which does the inverse. The tool is commonly
+    used to test parts of LLVM, as YAML is often easier to use to describe an
+    object file than raw assembly and more maintainable than a pre-built binary.
+    DWARF is a debugging file format commonly used by LLVM. Many of the tests
+    for LLVM’s DWARF emission are written in assembly, but it would be nicer to
+    write them in YAML. However, yaml2obj does not properly support emission of
+    DWARF sections. This project is to add functionality to yaml2obj to make
+    writing test inputs for DWARF tests simpler, particularly for ELF objects.
+  </p>
+
+  <p><b>Preparation resources:</b>
+    Reading up on the DWARF file format will be useful, in particular the
+    standards available at http://dwarfstd.org/Download.php. Also, familiarising
+    yourself with the basics of the ELF file format, as described here
+    https://www.sco.com/developers/gabi/latest/contents.html, may be beneficial.
+  </p>
+  <p><b>Expected results:</b>
+    The ability to use yaml2obj to generate DWARF sections for object files.
+    Particularly important is ensuring the input YAML can be more easily
+    understood than the equivalent assembly.
+  </p>
+
+  <p><b>Confirmed Mentors:</b> James Henderson</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+ <p><b>Description of the project:</b> Hot Cold Splitting in LLVM is an IR level
+   function splitting transformation. The goal of hot/cold splitting is to improve
+   the memory locality of code and helps reduce startup working set. The splitting pass
+   does this by identifying cold blocks and moving them into separate functions. Because it
+   is implemented at the IR level all the back end target benefit from it.
+
+   It is a relatively new optimization and it was recently presented at
+   the <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">LLVM Dev Meeting in
+   2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a>
+   Currently, hot cold splitting works as a greedy algorithm where a region found
+   by first cold basic block is given preference. When a new region is found which
+   intersects with an existing region, the new region is dropped. One approach
+   would be to first run an analysis pass to find a set of SESE/SEME regions and do
+   some bookkeeping to detect the most profitable ones. The goal should be to not
+   regress and keep the compile time linear. There are fast algorithms to detect
+   SESE regions as illustrated in
+   (http://impact.gforge.inria.fr/impact2016/papers/impact2016-kumar.pdf), we can
+   additionally leverage the existing RegionInfo as well if that has acceptable
+   compilation time complexity.
+ </p>
+ <p><b>Preparation resources:</b>
+ <ul>
+   <li>
+     <a href="http://lists.llvm.org/pipermail/llvm-dev/2019-January/129606.html">Update on hot cold splitting</a>
+   </li>
+   <li>
+     The following two papers provide earlier work on hot cold splitting. While these papers are a good start, LLVM's
+     HCS has completely different implementation in two aspects a) It is implemented at IR level and outlines basic
+     blocks as function rather than naked branches. b) It is based on regions and outlines a set of basic blocks.
+     <ul>
+       <li>
+         <a href="http://pages.cs.wisc.edu/~fischer/cs701.f05/code.positioning.pdf">Original paper on hot cold splitting by
+           Pettis and Hansen.</a>Section 5 on procedure splitting is interesting one. It has nice examples ;) to help
+         understand why HCS works.
+       </li>
+       <li>
+         <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15745-s07/www/papers/p80-cohn.pdf">Paper on hot cold
+           splitting</a> The paper provides some details on one approach to split functions. This is helpful to get a
+         different perspective and may help get new ideas.
+       </li>
+     </ul>
+   </li>
+   <li>
+     <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">Video and slides of the presentation</a>
+   </li>
+ </ul>
+ </p>
+ <p><b>Expected results:</b>
+   <ul>
+     <li>
+       Improve Hot Cold Splitting to detect maximal SEME regions without incurring super linear compile time overhead.
+       In case compile time overhead becomes quadratic, come up with a cost model to detect when quadratic behavior
+       gets triggered and bail out based on a compiler flag.
+     </li>
+   </ul>
+ </p>
+
+ <p><b>Confirmed Mentors:</b>Aditya Kumar (hiraditya on IRC and phabricator)</p>
+
+ <p><b>Desirable skills:</b>
+   Course on compiler design, SSA Representation,
+   Intermediate knowledge of C++, Familiarity with LLVM Core.
+ </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+ <p><b>Description of the project:</b>
+Selecting optimization passes for given application is very important but
+non-trivial problem because of the huge size of the compiler transformation
+space (incl. pass ordering). While the existing heuristics can provide high
+performance code for certain applications, they cannot easily benefit a wide
+range of application codes. The goal of the project is to learn the interplay
+between LLVM transformation passes and code structures, then improve the
+existing heuristics (or replace the heuristics with machine learning-based
+models) so that the LLVM compiler can provide a superior order of the passes
+customized per application.
+ </p>
+ <p><b>Expected results (possibilities):</b>
+ <ul>
+   <li>
+Insights about (implicit) dependences between existing passes.
+   </li>
+   <li>
+New pass pipelines (think -O3a, -O3b, ...) selectable by the user that tend to perform substantially better on certain kinds of programs.
+   </li>
+   <li>
+An improved LLVM pass heuristic or new machine learning-based models that can select
+the best order for LLVM transformation passes based on code structures.
+   </li>
+  </ul>
+ </p>
+
+ <p><b>Confirmed Mentors:</b>EJ Park, Giorgis Georgakoudis, Johannes Doerfert</p>
+
+ <p><b>Desirable skills:</b>
+    C++, Python, experience with LLVM and learning-based prediction preferable.
+ </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+ <p><b>Description of the project:</b>
+Current machine learning models for compiler optimization select the best
+optimization strategies for functions based on isolated per function analysis.
+In this approach, the constructed models are not aware of any relationships
+with other functions around it (callers or callees) which can be helpful to
+decide the best optimization strategies for each function. In this project, we
+want to explore the SCC (Strongly Connected Components) call graph to add
+inter-procedural features in constructing machine learning-based models to find
+the best optimization strategies per function. Moreover, we want to explore the
+case that it is helpful to group strongly related functions together and
+optimize them as a group, instead of per function.
+ </p>
+ <p><b>Expected results (possibilities):</b>
+ <ul>
+   <li>
+Improved heuristics for existing (inter-procedural) passes, e.g. to weight inlining versus function cloning based on code features.
+   </li>
+   <li>
+Machine learning models to select the best optimizations using code features
+and inter-procedural analysis. This model can be used for functions in
+isolation or groups of functions, e.g., CGSCCs.
+   </li>
+ </ul>
+ </p>
+
+ <p><b>Confirmed Mentors:</b>EJ Park, Giorgis Georgakoudis, Johannes Doerfert</p>
+
+ <p><b>Desirable skills:</b>
+    C++, Python, experience with LLVM and learning-based prediction preferable.
+ </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_postdominators"></a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    There is currently no easy way to use the result of
+    PostDominatorTreeAnalysis in a loop pass, as PostDominatorTreeAnalysis is a
+    function analysis, and it is not included in LoopStandardAnalysisResults. If one adds
+    PostDominatorTreeAnalysis in LoopStandardAnalysisResults, then all loop passes
+    need to preserve it, meaning that all loop passes need to make sure the result is up to
+    date. In this project, we want to modify some commonly used utilities to generate a
+    list of updates, which can be consume by different updaters, e.g. DomTreeUpdater to
+    update DominatorTree and PostDominatorTree, and MSSAU to update MemorySSA,
+    etc, instead of only updating the DominatorTree. In additional, we want to change
+    existing loop passes to preserve the PostDominatorTree. Finally, adding
+    PostDominatorTree in LoopStandardAnalysisResults.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    PostDominatorTree added in LoopStandardAnalysisResults, and
+    can be used by loop passes. More common utilities change to generate list of updates
+    to be easily obtained by different updaters.
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto, Bardia Mahjour
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://reviews.llvm.org/rL336163"></a>
+    <a href="http://llvm.org/doxygen/classllvm_1_1DomTreeUpdater.html"></a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1PostDominatorTreeAnalysis.html"></a>
+    <a href="http://llvm.org/doxygen/structllvm_1_1LoopStandardAnalysisResults.html"></a>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_loopnest">Create LoopNest Pass</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Currently if you want to write a pass that works on a loop
+    nest, you have to pick from either a function pass or a loop pass. If you chose to write
+    it as a function pass, then you lose the ability to add loops dynamically back to the
+    pipeline. If you decide to write it as a loop pass, then you are wasting compile time to
+    traverse to your pass and return right away when the given loop is not the outermost
+    loop. In this project, we want to create a LoopNestPass, where transformations
+    intended for loop nest can inherit from it, and have the same ability as the LoopPass to
+    dynamically add loops to the pipeline. In addition, create all the adaptors requires to
+    add loop nest passes at different points of the pass builder.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    Transformations/Analyses can be written as LoopNestPass,
+    without compromising compile time or usability.
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://reviews.llvm.org/D68789"</a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1PassBuilder.html"</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_instdump">Instruction properties dumper and checker</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    TableGen is flexible and allow the end-user to define and set common properties of
+    records (instructions). Every target has dozens or hundreds of such instruction
+    properties. As target code evolve, the td files become more and more complicated,
+    it become harder to see whether the setting of some properties is necessary, even
+    correct or not. eg: whether hasSideEffects property is correctly set on all
+    instructions?
+
+    One can manually search through the TableGen-generated files; or write some
+    script to run TableGen and matching the output for some specific properties, but a
+    standalone utility that can dump and check instruction properties
+    systematically (eg: also allow target to define some verification rules) might be
+    better from a build-process-management standpoint. This can help to find quite
+    some hidden bugs and hence improve the overall codegen code quality. In
+    addition, the utility can be used to write regression tests for instruction
+    properties, which will increase the quality and precision of LLVM's
+    regression tests.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    A standalone llvm tool or utility that can dump and check instruction properties systematically
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Hal Finkel, Jinsong Ji , Qingshan Zhang
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<div class="www_subsubsection">
+  <a name="llvm_movecode">Unify ways to move code or check if code is safe to be moved</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Determining whether it is safe to move code around is
+    implemented in several transformations in LLVM (e.g. canSinkOrHoistInst in LICM,
+    or makeLoopInvariant in Loop). Each of these implementations may return different
+    results for a given query, making code motion safety checks inconsistent and
+    duplicated. On the other hand, the mechanism for doing the actual code motion is also
+    different in each transformation. Code duplication causes maintenance problems and
+    increases the time taken to write new transformation. In this project, we want to first
+    identify all the existing ways in loop transformations (could be function or loop pass)
+    to check if code is safe to move, and to move code, and create a standardize way to do
+    so.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    A standardize/superset of all the existing ways in loop
+    transformations of checking if code is safe to be moved and to move <code class=""></code>
+  </p>
+
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto, Bardia Mahjour
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
+  </p>
+  <p><b>Preparation resources:</b>
+    <a href="https://github.com/llvm/llvm-project/blob/master/llvm/include/llvm/Transforms/Utils/CodeMoverUtils.h"></a>
+    <a href="https://llvm.org/doxygen/LICM_8cpp_source.html"></a>
+    <a href="https://llvm.org/doxygen/classllvm_1_1Loop.html"></a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
 <div class="www_subsection">
   <a>MLIR</a>
 </div>
@@ -477,8 +911,8 @@ are opened to GSOC. Feel free to propose your own ideas as well on
   <p>
     This project is about implementing autosuggestions in LLDB's editline-based command shell.
   </p>
-  <p><b>Confirmed Mentor:</b>Jonas Devlieghere and <a href="mailto:teemperor@gmail.com?subject=[GSoC]%20Autosuggestions">Raphael Isemann</a></p>
-
+  <p><b>Confirmed Mentor:</b>
+    <a href="mailto:teemperor@gmail.com,jonas@devlieghere.com?subject=[GSoC]%20Autosuggestions">Jonas Devlieghere and Raphael Isemann</a></p>
   <p><b>Desirable skills:</b>
     Intermediate knowledge of C++.
   </p>
