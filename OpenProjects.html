@@ -41,7 +41,6 @@
             <li><a href="#lldb-autosuggestions">Support autosuggestions in LLDB's command line</a></li>
             <li><a href="#lldb-more-completions">Implement the missing tab completions for LLDB's command line</a></li>
             <li><a href="#lldb-reimplement-lldb-cmdline">Reimplement LLDB's command-line commands using the public SB API.</a></li>
-            <li><a href="#lldb-data-formatters">Implement a DSL for LLDB data formatters</a></li>
             <li><a href="#lldb-batch-testing">Add support for batch-testing to the LLDB testsuite.</a></li>
           </ul>
           <li>
@@ -981,22 +980,6 @@ are opened to GSOC. Feel free to propose your own ideas as well on
     the variants and also future-proof the APIs.
   </p>
   <p><b>Confirmed Mentor:</b>Adrian Prantl and Jim Ingham</p>
-
-  <p><b>Desirable skills:</b>
-    Intermediate knowledge of C++.
-  </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="lldb-data-formatters">Implement a DSL for LLDB data formatters</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b> LLDB's data formatters allow it to pretty-print objects such as std::vector (from the C++ standard library), or String (from the Swift standard library). These data formatters are implemented in C++ and reside within the debugger, but the data structures are defined in other projects. This means that when the data structures change, lldb's data formatters may not be updated in sync. This also means that it's difficult for projects to define and test custom data formatters for special kinds of objects.  </p>
-  <p><b>Expected results: </b> The goal of this project would be to define a DSL which makes it possible to implement lldb data formatters for standard C++ containers. These formatters would be moved into libc++ and tested there. </p>
-  <p><b>Confirmed Mentor:</b> Vedant Kumar and Davide Italiano</p>
 
   <p><b>Desirable skills:</b>
     Intermediate knowledge of C++.
