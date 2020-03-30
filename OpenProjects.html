@@ -17,7 +17,7 @@
             <li><a href="#llvm_dbg_invariant">Make LLVM passes debug info invariant</a></li>
             <li><a href="#llvm_mergesim">Improve MergeFunctions to incorporate MergeSimilarFunction patches and ThinLTO Support</a></li>
             <li><a href="#llvm_dwarf_yaml2obj">Add DWARF support to yaml2obj</a></li>
-            <li><a href="#llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a></li>
+            <li><a href="#llvm_hotcold">Improve hot cold splitting to aggressively outline small blocks</a></li>
             <li><a href="#llvm_pass_order">Advanced Heuristics for Ordering Compiler Optimization Passes</a></li>
             <li><a href="#llvm_ml_scc">Machine learning and compiler optimizations: using inter-procedural analysis to select optimizations</a></li>
             <li><a href="#llvm_postdominators">Add PostDominatorTree in LoopStandardAnalysisResults</a></li>
@@ -435,7 +435,7 @@
 <!-- *********************************************************************** -->
 
 <div class="www_subsubsection">
-  <a name="llvm_hotcold">Improve hot cold splitting to outline maximal SESE/SEME regions</a>
+  <a name="llvm_hotcold">Improve hot cold splitting to aggressively outline small blocks</a>
 </div>
 <!-- *********************************************************************** -->
 
@@ -449,16 +449,12 @@
    It is a relatively new optimization and it was recently presented at
    the <a href="https://llvm.org/devmtg/2019-10/talk-abstracts.html#tech8">LLVM Dev Meeting in
    2019</a> and the slides are <a href="https://llvm.org/devmtg/2019-10/slides/Kumar-HotColdSplitting.pdf">here</a>
-   Currently, hot cold splitting works as a greedy algorithm where a region found
-   by first cold basic block is given preference. When a new region is found which
-   intersects with an existing region, the new region is dropped. One approach
-   would be to first run an analysis pass to find a set of SESE/SEME regions and do
-   some bookkeeping to detect the most profitable ones. The goal should be to not
-   regress and keep the compile time linear. There are fast algorithms to detect
-   SESE regions as illustrated in
-   (http://impact.gforge.inria.fr/impact2016/papers/impact2016-kumar.pdf), we can
-   additionally leverage the existing RegionInfo as well if that has acceptable
-   compilation time complexity.
+   Because most of the benefit comes from outlining small blocks e.g., __assert_rtn. The goal of this project
+   is to identify potential blocks via static analysis e.g., exception handling code, optimizing personality functions.
+
+   Use cost-model to ensure outlining reduces the code size of the caller, use tail call whenever appropriate to save
+   instructions.
+
  </p>
  <p><b>Preparation resources:</b>
  <ul>
@@ -490,7 +486,8 @@
  <p><b>Expected results:</b>
    <ul>
      <li>
-       Improve Hot Cold Splitting to detect maximal SEME regions without incurring super linear compile time overhead.
+       Improve Hot Cold Splitting to detect and outline cold blocks from program via static analysis or profile
+       information. Use appropriate cost model to weigh benefit of HCS.
        In case compile time overhead becomes quadratic, come up with a cost model to detect when quadratic behavior
        gets triggered and bail out based on a compiler flag.
      </li>
