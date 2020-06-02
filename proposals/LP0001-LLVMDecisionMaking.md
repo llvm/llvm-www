@@ -80,7 +80,7 @@ After checking in the proposal, a review manager starts a new thread on the "LLV
     github).
 
     Feedback is an important part of the LLVM Proposal process. All review 
-    feedback should be either on this forum thread or, if you would like to 
+    feedback should be either on this thread or, if you would like to 
     keep your feedback private, directly to one of the review managers.
 
     **What goes into a review?**
