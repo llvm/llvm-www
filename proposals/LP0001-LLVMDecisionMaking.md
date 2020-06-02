@@ -1,4 +1,4 @@
-## [PITCH] Improvements to LLVM Decision Making
+## Improvements to LLVM Decision Making
 
 *   Proposal: LP-0001
 *   Author: Chris Lattner

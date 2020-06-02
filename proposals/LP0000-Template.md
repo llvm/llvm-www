@@ -21,7 +21,7 @@ This proposal was discussed in this [pitch thread](URL for the pitch thread on l
 
 ## Motivation
 
-Describe the problems that this proposal seeks to address. Explain why a change is needed, what non-action is a problem, and why now is a good time to address the problem.
+Describe the problems that this proposal seeks to address. Explain why a change is needed, why non-action is a problem, and why now is a good time to address the problem.
 
 
 ## Proposed solution
