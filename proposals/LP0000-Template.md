@@ -1,14 +1,15 @@
 # Proposal Name
 
-*   Proposal: LP-0123
+*   Proposal: [LP-0123](link to the file on github when it lands)
 *   Author(s): Author 1, Author 2, ...
 *   Review Managers: TBD1, TBD2[, TBD3, TBD4]
 *   Status: [WIP, Active review (date...date), Accepted, Rejected, Returned for revision, etc.]
 
 _During the review process, add the following fields as needed:_
 
+*   Pitch Thread: [1](url for discussion) [2](url for discussion)
 *   Decision Notes: Rationale, Additional Commentary
-*   Previous Revision: [1](https://github.com/apple/swift-evolution/blob/...commit-ID.../proposals/NNNN-filename.md)
+*   Previous Revision: [1](url for previous significant revision)
 *   Previous Proposal: LP-0012
 
 

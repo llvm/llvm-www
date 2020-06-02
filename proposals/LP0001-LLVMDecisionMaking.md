@@ -1,10 +1,10 @@
-## Improvements to LLVM Decision Making
+## Introduce a new LLVM process to resolve contentious decisions
 
-*   Proposal: LP-0001
-*   Author: Chris Lattner
-*   Review Managers: TBD1, TBD2
-*   Status: WIP
-
+*   Proposal: [LP-0001](https://github.com/llvm/llvm-www/blob/master/proposals/LP0001-LLVMDecisionMaking.md)
+*   Author: [Chris Lattner](https://github.com/lattner)
+*   Review Manager: [Chris Lattner](https://github.com/lattner)
+*   Status: [Active Discussion](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142017.html) through June 12, 2020
+*   Pitch threads: [[1](http://lists.llvm.org/pipermail/llvm-dev/2020-January/138267.html)] [[2](http://lists.llvm.org/pipermail/llvm-dev/2020-May/141810.html)]
 
 ## Introduction
 
@@ -75,18 +75,19 @@ After checking in the proposal, a review manager starts a new thread on the "LLV
     Hello LLVM community,
 
     The review of "((PROPOSAL NAME))" begins now and runs through 
-    ((REVIEW END DATE)). The proposal is [available online](URL of proposal on github):
+    ((REVIEW END DATE)). The proposal is [available online](URL of proposal on 
+    github).
 
-    Reviews are an important part of the LLVM Proposal process. All review feedback
-    should be either on this forum thread or, if you would like to keep your feedback
-    private, directly to one of the review managers.
+    Feedback is an important part of the LLVM Proposal process. All review 
+    feedback should be either on this forum thread or, if you would like to 
+    keep your feedback private, directly to one of the review managers.
 
     **What goes into a review?**
 
-    The goal of the review process is to improve the proposal under review through
-    constructive criticism and, eventually, determine the direction of LLVM. When 
-    writing your response, here are some questions you might want to answer in your
-    review:
+    The goal of the review process is to improve the proposal under review 
+    through constructive criticism and, eventually, determine the direction of 
+    LLVM. When writing your response, here are some questions you might want 
+    to answer in your review:
 
     *   What is your evaluation of the proposal?  What positive or negative 
         implications would accepting this have?
