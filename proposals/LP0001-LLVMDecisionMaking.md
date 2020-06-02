@@ -61,7 +61,7 @@ This process consists of several phases:
 4. Chris takes a look, gives high level guidance to improve the quality of the proposal, approves (or suggests changes to) the Review Manager list, and decides whether it makes sense to run.  He will reject proposals that are obviously inappropriate or that can be addressed with lighter-weight processes.
 5. A review manager checks the proposal into a directory (llvm/llvm-www/proposals) so it is version controlled.  This allows better tracking over time of the evolution of the discussion and proposal: for an extreme example of how this is useful, see the header on [this Swift proposal](https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-wrappers.md).
 6. That review manager starts a thread on llvm-dev using a template (see below) in a new "[PROPOSAL]" thread on llvm-dev.  Formal discussions occur on this thread over a specific time period (selected by the review manager team, depending on the issue) e.g. one or two weeks.
-7. The review managers are responsible for facilitating and moderating the discussion - helping to keep the discussion on-topic and civil, without trying to overtly influence the discussion.  They can also raise awareness of the discussion in affected external communities.
+7. The review managers are responsible for facilitating and moderating the discussion - helping to keep the discussion on-topic and civil, without trying to overtly influence the discussion.  They can also raise awareness of the discussion in affected external communities.  They can also make clarifications and minor improvements to the proposal that don't fundamentally alter its nature.
 8. When the discussion concludes, Chris and the review managers have a video chat to review the outcome of the discussion.  The goal of this private discussion is to achieve consensus on an outcome between the review managers and Chris, but if that isn't possible, then Chris will tie break. The outcome may be Approve, Deny, Approve with Changes, or to kick it back to the pitch phase for more discussion.
 9. A review manager writes up a summary of the outcome and shares that with the community on the llvm-de.  The outcome is added to the proposal in github to build a history of proposals and their outcomes.
 
@@ -70,7 +70,7 @@ The goal of this is to allow virtually everyone interested in LLVM to follow the
 
 ## Review Discussion Template
 
-After checking in the proposal, a review manager starts a new thread on the "LLVM Proposal Reviews" category on the LLVM Discourse, using the following template as a starting point - it should be modified on a case-by-case basis:
+After checking in the proposal, a review manager starts a new thread on the llvm-dev mailing list.  Please use the following template as a starting point - it should be modified on a case-by-case basis:
 
 
     Hello LLVM community,
