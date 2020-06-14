@@ -3,7 +3,7 @@
 *   Proposal: [LP-0001](https://github.com/llvm/llvm-www/blob/master/proposals/LP0001-LLVMDecisionMaking.md)
 *   Author: [Chris Lattner](https://github.com/lattner)
 *   Review Manager: [Chris Lattner](https://github.com/lattner)
-*   Status: Active Discussion through June 12, 2020
+*   Status: Accepted June 14, 2020 [thread](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142250.html)
 *   Review Discussion: [thread](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142017.html)
 *   Pitch threads: [[1](http://lists.llvm.org/pipermail/llvm-dev/2020-January/138267.html)] [[2](http://lists.llvm.org/pipermail/llvm-dev/2020-May/141810.html)]
 
