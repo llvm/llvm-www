@@ -65,7 +65,7 @@ This process consists of several phases:
 8. When the discussion concludes, Chris and the review managers have a video chat to review the outcome of the discussion.  The goal of this private discussion is to achieve consensus on an outcome between the review managers and Chris, but if that isn't possible, then Chris will tie break. The outcome may be Approve, Deny, Approve with Changes, or to kick it back to the pitch phase for more discussion.
 9. A review manager writes up a summary of the outcome and shares that with the community on the llvm-dev.  The outcome is added to the proposal in github to build a history of proposals and their outcomes.
 
-The goal of this is to allow virtually everyone interested in LLVM to follow the "LLVM Proposal Reviews" category on discourse, and allow them to participate in the discussion.  The review managers and Chris can weigh this feedback with a goal of being fair, learning from the community, and producing the best outcome for the community at large: there is no voting.
+The goal of this is to allow virtually everyone interested in LLVM to participate in the discussion.  The review managers and Chris can weigh this feedback with a goal of being fair, learning from the community, and producing the best outcome for the community at large: there is no voting.
 
 
 ## Review Discussion Template
