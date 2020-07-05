@@ -107,7 +107,7 @@ The schedule may be viewed here: <a href="http://devmtg15.llvm.org">http://devmt
 <tr><td><a href="slides/GueltonGuinet-BuildingTestingDebuggingASimpleOutOfTreePass.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=BnlG-owSVTk&index=8&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial1">Tutorial: Building, Testing and Debugging a Simple out-of-tree LLVM Pass</a></b><br><i>Serge Guelton, <i>Quarkslab</i><br>
     Adrien Guinet, <i>Quarkslab</i><br></td></tr>
 
-<tr><td><a href="slides/Rogers-IntegerVectorOptimizationsAndUACs.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=ePu6c4FLc9I&index=9&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial2">Tutorial: Creating an SPMD Vectorizer for OpenCL with LLVM</a></b><br>Pierre-Andre Saulais, <i>Codeplay Software</i></td></tr>
+<tr><td><a href="slides/Saulais-CreatingSPMDVectorizerOpenCL.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=ePu6c4FLc9I&index=9&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial2">Tutorial: Creating an SPMD Vectorizer for OpenCL with LLVM</a></b><br>Pierre-Andre Saulais, <i>Codeplay Software</i></td></tr>
 
 <tr><td><a href="slides/DoerfertGrosser-OptimisticAssumptionsInPolly.pdf">Slides</a><br><a href="https://www.youtube.com/watch?v=mIBUY20d8c8&index=10&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a></td><td><b><a href="#tutorial3">Tutorial: Polly - Optimistic Loop Nest Optimizations with Schedule Trees</a></b><br>Tobias Grosser, <i>ETH Zurich</i><br>
     Johannes Doerfert, <i>Saarland University</i></td></tr>
@@ -471,7 +471,7 @@ This tutorial aims at providing solid ground to develop out-of-tree LLVM passes.
 <b><a id="tutorial2">Tutorial: Creating an SPMD Vectorizer for OpenCL with LLVM
 </a></b><br>
 <i>Pierre-Andre Saulais - Codeplay Software</i><br>
-<a href="slides/Rogers-IntegerVectorOptimizationsAndUACs.pdf">Slides</a><br>
+<a href="slides/Saulais-CreatingSPMDVectorizerOpenCL.pdf">Slides</a><br>
 <a href="https://www.youtube.com/watch?v=ePu6c4FLc9I&index=9&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21">Video</a><br>
 <br>
 Processors such as CPUs or DSPs often feature SIMD instructions, but are not designed to efficiently support Single Program Multiple Data (SPMD) execution models such as OpenCL. The design of a compiler for such a target therefore needs some form of vectorization to generate the most optimal code for this kind of data-parallel execution model. This is because SPMD programs are most often written in scalar form with the implicit assumption that many instances of the program are executed in parallel. On CPU-like architectures, SIMD vector units can be leveraged for parallelism, such that each SIMD lane is loosely mapped to a program instance.
