@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/download.html#10.0.1"><b>LLVM&nbsp;10.0.1</b></a><br>
+<a href="https://releases.llvm.org/download.html#11.0.0"><b>LLVM&nbsp;11.0.0</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
@@ -50,7 +50,7 @@
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/10.0.0/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/11.0.0/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
@@ -110,6 +110,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  11.0.0: <a href="https://lists.llvm.org/pipermail/llvm-announce/2020-October/000089.html">Oct 2020</a><br>
   10.0.1: <a href="https://lists.llvm.org/pipermail/llvm-announce/2020-August/000088.html">Aug 2020</a><br>
   10.0.0: <a href="https://lists.llvm.org/pipermail/llvm-announce/2020-March/000087.html">Mar 2020</a><br>
   9.0.1:  <a href="https://lists.llvm.org/pipermail/llvm-announce/2019-December/000086.html">Dec 2019</a><br>
