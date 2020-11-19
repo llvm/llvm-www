@@ -244,7 +244,7 @@ For the past 7 months Qualcomm and ARM have jointly been analyzing and improving
 <i>Robin Morisset (Speaker) - Google, 
 JF Bastien -  Google</i><br>
 <a href="Slides/Morisset-AtomicsPresentation.pdf">Slides</a><br>
-<a href="https://youtu.be/cDM6Gr_XzGI">Video</a> (Computer) 
+<a href="https://youtu.be/cDM6Gr_XzGI">Video</a> 
 <br>
 Atomics in C11 and C++11 let the programmer express the guarantees needed for racy accesses in lock-free code, in theory bringing a zero-cost abstraction for parallelism to the language. This talk will showcase how you can use atomics today and where the abstraction breaks down. We’ll focus on LLVM’s recent improvements for atomics that provide significant performance gains on ARMv7, Power and x86. Finally we’ll discuss some extremely non-intuitive behaviors of atomics, how atomics in C++ may evolve, and how it may impact LLVM.
 </p>
@@ -254,7 +254,7 @@ Atomics in C11 and C++11 let the programmer express the guarantees needed for ra
 </a></b><br>
 <i>Chandler Carruth - Google</i><br>
 <a href="Slides/Carruth-TheLLVMPassManagerPart2.pdf">Slides</a><br>
-<a href="https://youtu.be/6NDQl544yEg">Video</a> (Computer) 
+<a href="https://youtu.be/6NDQl544yEg">Video</a> 
 <br>
 I will present a new design and implementation of the LLVM pass manager that is currently being developed in the tree. I will cover how it differs from the previous implementation and how those differences allow it to solve many of the long-standing limitations of the current implementation. I will discuss in depth how the new system supports richer analysis dependencies, flexible composition of function-level analyses and module- or call-graph-level transformations. The new pass manager also introduces a caching-based scheduling model which is substantially different from the prior ones and critical to understanding the impact of transitioning. And as I go through these topics I will introduce how to write a pass suitable for the new infrastructure and how to port an existing pass to live happily in both.
 <br>
@@ -267,7 +267,7 @@ Finally, I will show a specific new call-graph analysis used by the new pass man
 <i>Bill Schmidt (Speaker) - IBM,
 Michael Gschwind - IBM</i><br>
 <a href="Slides/Schmidt-SupportingVectorProgramming.pdf">Slides</a><br>
-<a href="https://youtu.be/y_YU5CxrxNo">Video</a> (Computer) 
+<a href="https://youtu.be/y_YU5CxrxNo">Video</a> 
 <br>
 The POWER instruction set architecture is designed to support both
 big-endian and little-endian memory models.  However, many of the
@@ -285,7 +285,7 @@ status of implementation in the GCC and Clang/LLVM compilers.
 </a></b><br>
 <i>Hal Finkel - Argonne National Laboratory</i><br>
 <a href="Slides/Finkel-IntrinsicsMetadataAttributes.pdf">Slides</a><br>
-<a href="https://youtu.be/Zyeey4gkIg8">Video</a> (Computer) 
+<a href="https://youtu.be/Zyeey4gkIg8">Video</a> 
 <br>
 Over the past year, LLVM has grown several new ways to communicate important information to the optimizer: An @llvm.assume intrinsic function to provided additional truths, scoped-noalias metadata to provided explicit pointer aliasing sets, and parameter attributes that specify pointer alignment, dereferenceability, and more. I'll explain the semantics of many of these new features, their intended uses, and a few ways they shouldn't be used. Finally, I'll discuss how Clang exposes and leverages these new features to encourage the generation of higher-performance code.
 </p>
@@ -296,7 +296,7 @@ Over the past year, LLVM has grown several new ways to communicate important inf
 <i>Prashantha NR (Speaker) - Compiler Tree Technologies, Vikram TV - Compiler Tree Technologies,
 		   Vaivaswatha N - Compiler Tree Technologies</i><br>
 <a href="Slides/Prashanth-DLO.pdf">Slides</a><br>
-<a href="https://youtu.be/Ckzole3hArc">Video</a> (Computer) 
+<a href="https://youtu.be/Ckzole3hArc">Video</a> 
 <br>
 Modern server workloads are limited by memory bandwidth. For regular accesses like loops, people change the loop iterations to change the access pattern; thereby gaining locality. Another way to alleviate the memory bottleneck is to change the data layout organization for better locality. In this talk we will speak about memory layout optimizations like Structure Splitting, Instance Interleaving, Struct Array copy, Array Remapping in LLVM compiler framework.
 </p>
@@ -306,7 +306,7 @@ Modern server workloads are limited by memory bandwidth. For regular accesses li
 </a></b><br>
 <i>David Majnemer - Google</i><br>
 <a href="Slides/Majnemer-FuzzingClang.pdf">Slides</a><br>
-<a href="https://youtu.be/0yUzo-pBkFk">Video</a> (Computer) 
+<a href="https://youtu.be/0yUzo-pBkFk">Video</a> 
 <br>
 Correctly implementing C++ is very hard, bugs can arise from incredibly subtle interactions of different language features.
 In this talk, we will discuss how we used fuzzing to dramatically increase the reliability of Clang's ABI-specific code.
@@ -318,7 +318,7 @@ In this talk, we will discuss how we used fuzzing to dramatically increase the r
 </a></b><br>
 <i>Tilmann Scheller - Samsung Electronics</i><br>
 <a href="Slides/Scheller-ARMCodeQuality.pdf">Slides</a><br>
-<a href="https://youtu.be/1DM2Q75qDSU">Video</a> (Computer) 
+<a href="https://youtu.be/1DM2Q75qDSU">Video</a> 
 <br>
 This talk presents current performance numbers for the SPEC CPU benchmark
 suites on ARM, comparing the performance of LLVM and GCC, with the main
@@ -336,7 +336,7 @@ code generation opportunities for LLVM.
 </a></b><br>
 <i>Sergei Larin (Speaker) - QuIC,  Aditya Kumar (Speaker) - QuIC</i><br>
 <a href="Slides/Larin-GlobalInstructionScheduling.pdf">Slides</a><br>
-<a href="https://youtu.be/A88vO_lP5b8">Video</a> (Computer) 
+<a href="https://youtu.be/A88vO_lP5b8">Video</a> 
 <br>
 Discuss perspectives and tradeoffs in implementation of global instruction scheduling and support for it in the LLVM infrastructure. Present and discuss relative QuIC experience.
 </p>
@@ -347,7 +347,7 @@ Discuss perspectives and tradeoffs in implementation of global instruction sched
 <i>Jordan Rose (Speaker) - Apple,
 John McCall (Speaker) - Apple</i><br>
 <a href="Slides/Skip the FFI.pdf">Slides</a><br>
-<a href="https://youtu.be/_xAqf-VwaOM">Video</a> (Computer)
+<a href="https://youtu.be/_xAqf-VwaOM">Video</a> 
 <br>
 Most languages that aren't a superset of C provide a Foreign Function Interface (FFI) that allows one to interface with existing C libraries. FFIs are often an afterthought, requiring manual or source-to-source translation from C header files to a subset of the target language, resulting in complicated build processes, frequent manual tweaking, and numerous implementation challenges. 
 <br>
@@ -359,7 +359,7 @@ This talk will discuss an alternative approach that embeds Clang into an LLVM-ba
 </a></b><br>
 <i>Alan Baker - Altera Corporation</i><br>
 <a href="Slides/Baker-CustomHardwareStateMachines.pdf">Slides</a><br>
-<a href="https://youtu.be/DGWFQXK_EU4">Video</a> (Computer) 
+<a href="https://youtu.be/DGWFQXK_EU4">Video</a> 
 <br>
 Altera Corporation’s OpenCL compiler uses LLVM to generate FPGA accelerators. In order to generate efficient hardware, many transformations were implemented. The key transformations will be discussed, emphasizing the FPGA vs CPU architectural differences that motivate them.
 </p>
@@ -369,7 +369,7 @@ Altera Corporation’s OpenCL compiler uses LLVM to generate FPGA accelerators. 
 </a></b><br>
 <i>Ivan Baev - QuIC</i><br>
 <a href="Slides/Baev-Controlling_VRP.pdf">Slides</a><br>
-<a href="https://youtu.be/lJmXiwJo2ZQ">Video</a> (Computer) 
+<a href="https://youtu.be/lJmXiwJo2ZQ">Video</a> 
 <br>
 Enabling new compiler optimizations or compiling at higher optimization levels do not necessarily improve performance. One common reason is the increased register pressure that results in an increased amount of spill code. We analyze several LLVM target-independent optimizations with respect to register pressure. We then describe algorithms for controlling register pressure in LICM and GVN and report their positive impact on run-time performance. A discussion on how to control register pressure in the inliner concludes the talk.
 </p>
@@ -380,7 +380,7 @@ Enabling new compiler optimizations or compiling at higher optimization levels d
 <i>James Dennett - Google,
 Luke Zarko (Speaker) - Google</i><br>
 <a href="Slides/Zarko-IndexingLargeMixedLang.pdf">Slides</a><br>
-<a href="https://youtu.be/KDiXo5GwQ-U">Video</a> (Computer) 
+<a href="https://youtu.be/KDiXo5GwQ-U">Video</a> 
 <br>
 The Kythe project aims to establish open data formats and protocols for
 interoperable developer tools. In this talk, we will introduce the Kythe
@@ -493,8 +493,7 @@ Brief overview of the internals and some initial deployment results.
 </a></b><br>
 <i>Fraser Cormack (Speaker) - Codeplay Software, Pierre-André Saulais (Speaker) - Codeplay Software</i><br>
 <a href="Slides/Cormack-BuildingAnLLVMBackend.pdf">Slides</a><br>
-<a href="Videos/Building an LLVM backend-720.mov">Video</a> (Computer) 
-<a href="Videos/Building an LLVM backend-360.mov">Video</a> (Mobile)
+<a href="https://youtu.be/b53WqCbLEYg">Video</a> 
 <br>
 This talk explains how to get started with building a LLVM backend for a new architecture. It shows how LLVM transforms programs through the back-end compilation pipeline and what needs implementing for a new target. Practical debugging tips, as well as solutions to common issues are given. No LLVM backend experience is needed, but experience with LLVM IR is recommended.
 </p>
@@ -504,8 +503,7 @@ This talk explains how to get started with building a LLVM backend for a new arc
 </a></b><br>
 <i>Dave Estes (Tutorial) - QuIC</i><br>
 <a href="Slides/Estes-MISchedulerTutorial.pdf">Slides</a><br>
-<a href="Videos/Adding and Optimizing a Subtarget for MIScheduler-720.mov">Video</a> (Computer) 
-<a href="Videos/Adding and Optimizing a Subtarget for MIScheduler-360.mov">Video</a> (Mobile)
+<a href="https://youtu.be/Uge_whHVmtM">Video</a> 
 <br>
 Tutorial for adding a subtarget to an existing backend for use with the MIScheduler. Will cover TableGen basics insofar as understanding the records used for the MachineSchedModel. Will provide strategies on how to best model some basic machine architectures.
 </p>
@@ -516,8 +514,7 @@ Tutorial for adding a subtarget to an existing backend for use with the MISchedu
 <i>Eric Christopher (Speaker) - Google,
 David Blaikie (Speaker) - Google</i><br>
 <a href="Slides/Christopher-DebugInfoTutorial.pdf">Slides</a><br>
-<a href="Videos/Debug Info Tutorial-720.mov">Video</a> (Computer) 
-<a href="Videos/Debug Info Tutorial-360.mov">Video</a> (Mobile)
+<a href="https://youtu.be/_wqX9H2A66M">Video</a> 
 <br>
 Take a walk through the DWARF debug information format and the llvm
 APIs that serve as an interface to emitting debug information for your
