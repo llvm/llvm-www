@@ -622,7 +622,7 @@ Maintaining consistency while manual reference counting is very difficult. Langu
     <li><a id="lt19">Eliminating always_inline in libc++: a journey of visibility and linkage</a>
 <br><i>Louis Dionne</i>
 <p>
-Maintaining consistency while manual reference counting is very difficult. Languages like Java, C#, Go and other scripting languages employ garbage collection which automatically performs memory management. On the other hand, there are certain libraries like ISL (Integer Set Library) which use memory annotations in function declarations to declare what happens to an objects ownership, thereby specifying the responsibility of releasing it as well. However, improper memory management in ISL leads to invocations of runtime errors. Hence, we have added support to Clang Static Analyzer for performing reference counting of ISL objects (although with the current implementation, it can be used for any type of C/C++ object) thereby enabling the static analyzer to raise warnings in case there is a possibility of a memory leak, bad release, etc.
+Libc++ has long abused the always_inline attribute to avoid leaking unstable ABIs through object and library boundaries. This will explain why we stopped using this attribute, what we do instead, and why it matters.
 </p>
 </li>
 
