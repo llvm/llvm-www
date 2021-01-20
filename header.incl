@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>The LLVM Compiler Infrastructure Project</title>
-  <link rel="stylesheet" href="/llvm.css" type="text/css">
+  <link rel="stylesheet" href="llvm.css" type="text/css">
 </head>
 
 <body style="margin-left:0;">
