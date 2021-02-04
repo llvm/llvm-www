@@ -7,6 +7,14 @@
     <ul>
       <li>
         <a href="#gsoc21">Google Summer of Code 2021</a>
+        <ul>
+          <li>
+            <b>LLVM Core</b>
+            <ul>
+              <li><a href="#llvm_distributing_lit">Distributed lit testing</a></li>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#gsoc20">Google Summer of Code 2020</a>
@@ -157,6 +165,52 @@
     different and look forward to hearing your proposals. For information on how to
     submit a proposal, please visit the Google Summer of Code
     main <a href="https://developers.google.com/open-source/gsoc/">website.</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_distributing_lit">Distributed lit testing</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The LLVM lit test suites consist of thousands of small independent tests.
+    Due to the number of tests, it can take a long time to run the full suite,
+    even on a high-spec computer. Builds are already distributable across
+    multiple computers available on the same network, using software such as
+    distcc or icecream, so running tests on a single machine becomes a potential
+    bottleneck. One way to speed up running of the tests could be to distribute
+    test execution across many computers too. Lit provides a test sharding
+    mechanism, which allows multiple computers to run parts of the same
+    testsuite in tandem, but this currently assumes access to a single common
+    filesystem, which may not be possible in all cases and a knowledge of which
+    machines the suite can currently be run on.
+
+    This project’s goal is to update the existing lit harness (or write a
+    wrapper around it) to allow distribution of the tests in this way, with the
+    idea that developers can write their own interface between the harness and
+    the distribution system of their choice. This harness may need to be able to
+    identify test dependencies such as input files and executables, send the
+    tests to the distribution system (possibly in batches), and receive, collate
+    and report the results to the user, in a similar manner to how lit already
+    does.
+  </p>
+
+  <p><b>Expected results:</b> An easy to use harness as described above. Some
+    evidence that given a distributed system, a user can expect to see test
+    suite execution to speed up if they are using that harness.</p>
+
+  <p><b>Confirmed mentor:</b> James Henderson</p>
+  <p><b>Desirable skills:</b> Good knowledge of Python. Familiarity with LLVM
+    lit testing. Some knowledge of distribution systems would also be
+    beneficial.</p>
 </div>
 
 <!-- *********************************************************************** -->
