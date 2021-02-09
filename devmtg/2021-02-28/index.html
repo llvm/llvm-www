@@ -55,7 +55,7 @@
   </tr>
 
   <tr>
-    <td>9:50-10:15</td>
+    <td>10:00-10:30</td>
     <td><a href="http://www.compilertree.com">Vinay Madhusudan, Ranjith Kumar and Prashanth Nr (Compiler Tree Technologies Pvt Ltd)</a></td>
     <td>Moving LLVM’s code generator to MLIR framework</td>
     <td><a href="#vm1">[Abstract]</a></td>
@@ -116,25 +116,29 @@
   </tr>
 
   <tr>
-    <td>2:30:3:30</td>
+    <td>2:30:3:00</td>
     <td><a href="https://www.linkedin.com/in/gokcen-kestor-9abb6914/">Gokcen Kestor</a></td>
     <td>COMET: Domain Specific Compilation for Heterogenous Targets</td>
     <td><a href="#gk">[Abstract]</a></td>
   </tr>
 
   <tr>
+    <td>3.00-3:30</td>
+    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
+    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
+    <td><a href="#ak">[Abstract]</a></td>
+  </tr>
+  <tr>
     <td>3:30-4:00</td>
     <td><a href="">Alexis Engelke and Martin Schulz (Technical University of Munich)</a></td>
     <td>Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation</td>
     <td><a href="#ae">[Abstract]</a></td>
   </tr>
-
   <tr>
     <td>4:00-4:30</td>
     <td>&nbsp;</td>
     <td colspan=2>Break</td>
   </tr>
-
   <tr>
     <td>4:30-5:00</td>
     <td><a href="http://users.uoa.gr/~sdi1600105/">Stefanos Baziotis (NEC Deutschland GmbH)</td>
@@ -146,12 +150,6 @@
     <td><a href="http://easyperf.net">Denis Bakhvalov (Intel)</a></td>
     <td>Performance Analysis and Tuning on Modern CPUs: the Present and the Future</td>
     <td><a href="#db">[Abstract]</a></td>
-  </tr>
-  <tr>
-    <td>5.30-6.00</td>
-    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
-    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
-    <td><a href="#ak">[Abstract]</a></td>
   </tr>
 </table>
 <b>Note to presenters: Please plan to leave some time (typically 5 minutes) for questions.</b>
@@ -224,6 +222,14 @@ and currently targeting computational chemistry and graph analytics domains.
     </p>
     </li>
 
+   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
+    <p>
+    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
+
+Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
+    </p>
+    </li>
+
    <li><a id="ae"><b>Alexis Engelke and Martin Schulz: </b>Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation</a>
     <p>
     Dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. Binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research.
@@ -264,13 +270,6 @@ In the end, I will dedicate some time to share my vision of the future trends an
 1. PGO will become even more important. More optimizations will be guided by profiling data.
 2. Performance challenges of programming in an increasingly heterogeneous world.
 3. A novel idea of Machine Programming.
-    </p>
-    </li>
-   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
-    <p>
-    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
-
-Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
     </p>
     </li>
   </ul>
