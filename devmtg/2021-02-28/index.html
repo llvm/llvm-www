@@ -124,9 +124,9 @@
 
   <tr>
     <td>3.00-3:30</td>
-    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
-    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
-    <td><a href="#ak">[Abstract]</a></td>
+    <td><a href="http://users.uoa.gr/~sdi1600105/">Stefanos Baziotis (NEC Deutschland GmbH)</td>
+    <td>Latest Advancements in Automatic Vectorization Research</td>
+    <td><a href="#sb">[Abstract]</a></td>
   </tr>
   <tr>
     <td>3:30-4:00</td>
@@ -141,9 +141,9 @@
   </tr>
   <tr>
     <td>4:30-5:00</td>
-    <td><a href="http://users.uoa.gr/~sdi1600105/">Stefanos Baziotis (NEC Deutschland GmbH)</td>
-    <td>Latest Advancements in Automatic Vectorization Research</td>
-    <td><a href="#sb">[Abstract]</a></td>
+    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
+    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
+    <td><a href="#ak">[Abstract]</a></td>
   </tr>
   <tr>
     <td>5.00-5.30</td>
@@ -221,26 +221,6 @@ low-level IR to improve performance. Our compiler has been implemented on top of
 and currently targeting computational chemistry and graph analytics domains.
     </p>
     </li>
-
-   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
-    <p>
-    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
-
-Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
-    </p>
-    </li>
-
-   <li><a id="ae"><b>Alexis Engelke and Martin Schulz: </b>Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation</a>
-    <p>
-    Dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. Binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research.
-
-State-of-the-art tools, like Valgrind, DynamoRIO or PIN for binary instrumentation or QEMU for binary translation, however, typically either have a high performance overhead or allow only minor low-level modifications. To address these performance and functionality limitations, the latter --- QEMU --- has been extended to make use of the LLVM framework (HQEMU, DBILL) in order to take advantage of its optimization potential. However, this approach still uses the existing QEMU intermediate format in the translation process and hence inherits many of the imitations of QEMU. Additionally, it relies on a modified LLVM library, reducing portability and maintainability.
-
-In the Instrew project we, therefore, go a step further and solely rely on an unmodified LLVM for code instrumentation and translation, shortcutting the translation process, avoiding the limitations of an additional intermediate language with its own limitations (as in QEMU with its TCG representation) and taking full advantage of code generation features of LLVM.
-
-In this talk, we describe the general architecture of Instrew and show results comparing the performance to state-of-the-art tools. Additionally, we identify key problems of LLVM in the context of representing machine code in the high-level LLVM-IR.
-    </p>
-    </li>
    <li><a id="sb"><b>Stefanos Baziotis: </b>Latest Advancements in Automatic Vectorization Research</a>
     <p>
     In this talk, I want to connect developers the state-of-the-art in automatic vectorization and more specifically, in those advancements that I believe have
@@ -256,6 +236,26 @@ has already presented in the papers. Rather, it is to provide an intuitive
 but accurate explanation and overview of the latest research.
     </p>
     </li>
+   <li><a id="ae"><b>Alexis Engelke and Martin Schulz: </b>Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation</a>
+    <p>
+    Dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. Binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research.
+
+State-of-the-art tools, like Valgrind, DynamoRIO or PIN for binary instrumentation or QEMU for binary translation, however, typically either have a high performance overhead or allow only minor low-level modifications. To address these performance and functionality limitations, the latter --- QEMU --- has been extended to make use of the LLVM framework (HQEMU, DBILL) in order to take advantage of its optimization potential. However, this approach still uses the existing QEMU intermediate format in the translation process and hence inherits many of the imitations of QEMU. Additionally, it relies on a modified LLVM library, reducing portability and maintainability.
+
+In the Instrew project we, therefore, go a step further and solely rely on an unmodified LLVM for code instrumentation and translation, shortcutting the translation process, avoiding the limitations of an additional intermediate language with its own limitations (as in QEMU with its TCG representation) and taking full advantage of code generation features of LLVM.
+
+In this talk, we describe the general architecture of Instrew and show results comparing the performance to state-of-the-art tools. Additionally, we identify key problems of LLVM in the context of representing machine code in the high-level LLVM-IR.
+    </p>
+    </li>
+
+   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
+    <p>
+    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
+
+Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
+    </p>
+    </li>
+
    <li><a id="db"><b>Denis Bakhvalov: </b>Performance Analysis and Tuning on Modern CPUs: the Present and the Future</a>
     <p>
     We live in an increasingly data-centric world, where we generate enormous amounts of data each day. The growth of information exchange fuels the need for both faster software and faster hardware. Unfortunately, modern CPUs are not enjoying big improvements in single-core performance as they used to in the past decades.
