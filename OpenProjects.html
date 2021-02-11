@@ -12,6 +12,13 @@
             <b>LLVM Core</b>
             <ul>
               <li><a href="#llvm_distributing_lit">Distributed lit testing</a></li>
+              <li><a href="#llvm_loop_heuristics">Learning Loop Transformation Heuristics</a></li>
+              <li><a href="#llvm_ir_fuzzing">Fuzzing LLVM-IR Passes</a></li>
+              <li><a href="#llvm_ir_assume"><tt>llvm.assume</tt> the missing pieces</a></li>
+            </ul>
+            <b>OpenMP</b>
+            <ul>
+              <li><a href="#openmp_gpu_jit">JIT-ing OpenMP GPU kernels transparently</a></li>
             </ul>
           </li>
         </ul>
@@ -211,6 +218,144 @@
   <p><b>Desirable skills:</b> Good knowledge of Python. Familiarity with LLVM
     lit testing. Some knowledge of distribution systems would also be
     beneficial.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_loop_heuristics">Learning Loop Transformation Heuristics</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on
+    IRC) and Mircea Trofin if it sounds interesting.
+
+    We successfully introduced an ML framework for inliner decisions, now we want
+    to expand the scope. In this project we will look at loop transformation
+    heuristics, such as the unroll factor. As a motivational example we can look
+    at a small trip count <a href="https://godbolt.org/z/Eeqcvs">dgemm</a> which
+    we optimize pretty poorly. With the nounroll pragmas we do a better job but
+    still not close to gcc.
+
+    The project is open-ended and we could look at various passes/heuristics
+    concurrently.
+  </p>
+
+  <p><b>Preparation resources:</b> The ML inliner framework in the LLVM code
+  base as well as the <a href="https://arxiv.org/abs/2101.04808">paper</a>. LLVM
+  transform passes (that are based on heuristics), e.g., loop unroll.</p>
+
+  <p><b>Expected results:</b> Measurable better performance with a learned
+  predictor, potentially a set of "classical" heuristics derived from the ML
+  model.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert, Mircea Trofin</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge of ML, C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_ir_fuzzing">Fuzzing LLVM-IR Passes</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on
+    IRC) if it sounds interesting.
+
+    Fuzzing often reveals a myriad of bugs. CSmith (and others) showed how to do
+    this with C-like languages and we have used <a
+    href="https://www.youtube.com/watch?v=UBbQ_s6hNgg">LLVM-IR fuzzing</a> in
+    the past successfully. In this project we will apply fuzzing to new passes
+    that are in development, e.g., the Attributor pass. We want to find and fix
+    crashes but also other bugs, including compile time performance problems.
+  </p>
+
+  <p><b>Preparation resources:</b> The <a
+    href="https://llvm.org/docs/FuzzingLLVM.html#llvm-opt-fuzzer">LLVM fuzzer
+    infrastructure</a>. LLVM passes that we might want to fuzz, e.g. the
+  Attributor pass. Prior IR-Fuzzing work
+  (https://www.youtube.com/watch?v=UBbQ_s6hNgg)</p>
+
+
+  <p><b>Expected results:</b> Crashes, maybe also a way to catch non-crash
+  bugs, including performance problems.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_ir_assume"><tt>llvm.assume</tt> the missing pieces</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on
+    IRC) if it sounds interesting.
+
+    <tt>llvm.assume</tt> is a powerful mechanism to retain knowledge. Since it
+    inception it was improved already multiple times but there are major
+    extensions still outstanding which we want to tackled in this project.
+    An incomplete list of topics includes:
+    <ul>
+      <li> range-based assumptions, design idea 3) in the <a href="https://lists.llvm.org/pipermail/llvm-dev/2019-December/137632.html">RFC</a>. </li>
+      <li> outline arbitrary assumption/assertion code, design idea 2) in the <a href="https://lists.llvm.org/pipermail/llvm-dev/2019-December/137632.html">RFC</a>. </li>
+      <li> side-effect free assumptions, see <a href="https://reviews.llvm.org/D89054">this review</a>. </li>
+      <li> more knowledge retention usages </li>
+      <li> less interference with optimizations </li>
+    </ul>
+
+  </p>
+
+  <p><b>Preparation resources:</b> The llvm.assumption usage, the assumption
+  cache, the "enable-knowledge-retention" option, the <a
+  href="https://lists.llvm.org/pipermail/llvm-dev/2019-December/137632.html">RFC</a>
+  and <a href="https://reviews.llvm.org/D89054">this review</a>.
+  </p>
+
+
+  <p><b>Expected results:</b> New llvm.assume use cases, improved performance through knowledge retention, optimization based on assertions.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="openmp_gpu_jit">JIT-ing OpenMP GPU kernels transparently</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    This is a short description, please reach out to Johannes (jdoerfert on
+    IRC) if it sounds interesting.
+
+    OpenMP GPU kernels are usually lowered to native binaries, e.g., cubin, and
+    embedded into the host object. At runtime, OpenMP "plugins" will connect with
+    the device driver, e.g., CUDA, to load and run such embedded binary images.
+    In this project we want to develop a new plugin that takes LLVM-IR code, optimizes
+    the IR with kernel parameters known only at runtime, and then generates the GPU
+    binary for consumption by other plugins. Similar to the <a
+      href=https://openmp.llvm.org/docs/design/Runtimes.html#remote-offloading-plugin>remote
+      offload plugin</a> we can do this transparently to the user. In addition to the JIT
+    infrastructure setup in the plugin we will need to embed the IR into the host object.
+
+  </p>
+
+  <p><b>Preparation resources:</b>OpenMP target offloading infrastructure, LLVM JIT infrastructure</a>.
+  </p>
+
+
+  <p><b>Expected results:</b> A JIT-capable offload plugin which can achieve superior performance when kernel specialization is enabling optimizations.</p>
+
+  <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
+  <p><b>Desirable skills:</b> Intermediate knowledge C++, JIT compilation, self motivation.</p>
 </div>
 
 <!-- *********************************************************************** -->
