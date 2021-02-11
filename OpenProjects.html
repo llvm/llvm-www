@@ -16,9 +16,17 @@
               <li><a href="#llvm_ir_fuzzing">Fuzzing LLVM-IR Passes</a></li>
               <li><a href="#llvm_ir_assume"><tt>llvm.assume</tt> the missing pieces</a></li>
             </ul>
+          </li>
+          <li>
             <b>OpenMP</b>
             <ul>
               <li><a href="#openmp_gpu_jit">JIT-ing OpenMP GPU kernels transparently</a></li>
+            </ul>
+          </li>
+          <li>
+            <b><a href="https://polly.llvm.org">Polly</a></b>
+            <ul>
+              <li><a href="#polly_isl_bindings">Use official isl C++ bindings</a></li>
             </ul>
           </li>
         </ul>
@@ -356,6 +364,55 @@
 
   <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
   <p><b>Desirable skills:</b> Intermediate knowledge C++, JIT compilation, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Polly</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="polly_isl_bindings">Use official isl C++ bindings</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Polly use algorithms from the
+    <a href="http://isl.gforge.inria.fr/">Integer Set Library (isl)</a>, which is a
+    library written in C. It uses reference-counting for memory management.
+    Getting reference counting correct is much easier in C++ using RAII,
+    therefore we created a C++ binding for isl:
+    <a href="https://github.com/llvm/llvm-project/blob/main/polly/lib/External/isl/include/isl/isl-noexceptions.h">isl-noexceptions.h</a>.
+    Since then, isl also gained two official C++ bindings,
+    <a href="https://github.com/llvm/llvm-project/blob/main/polly/lib/External/isl/include/isl/cpp.h">cpp.h</a>
+    and
+    <a href="https://github.com/llvm/llvm-project/blob/main/polly/lib/External/isl/include/isl/cpp-checked.h">cpp-checked.h</a>.
+
+    We would like to replace the Polly-maintained C++ bindings with the upstream
+    bindings. Unfortunately, this is not an in-place replacement. Differences
+    include how errors are checked, method names, which functions are
+    considered as operator/constructor overloads and the set of exported functions.
+    This will require changing Polly's uses of the C++ bindings and submitting
+    patches to isl to export additional functionality needed by Polly.
+  </p>
+
+  <p><b>Expected results:</b>
+    Reduce the differences between the Polly-maintained isl-noexceptions.h
+    bindings and one of the two C++ bindings that isl supports. Due to
+    isl-noexceptions.h exporting more functions and classes than the upstream
+    bindings do, a complete replacement will probably be out of reach, but
+    even reducing the differences will reduce the maintenance cost of Polly's
+    isl-noexceptions.h.
+  </p>
+
+  <p><b>Confirmed mentor:</b> Michael Kruse</p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++, in particular RAII. Experience with the isl library
+    would be nice, but can also be learned in the project.
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
