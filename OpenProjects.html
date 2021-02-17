@@ -15,6 +15,17 @@
               <li><a href="#llvm_loop_heuristics">Learning Loop Transformation Heuristics</a></li>
               <li><a href="#llvm_ir_fuzzing">Fuzzing LLVM-IR Passes</a></li>
               <li><a href="#llvm_ir_assume"><tt>llvm.assume</tt> the missing pieces</a></li>
+              <li><a href="#llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a></li>
+              <li><a href="#llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a></li>
+              <li><a href="#llvm_jit_new_format">Write JITLink support for a new format/architecture</a></li>
+            </ul>
+          </li>
+          <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+            <ul>
+              <li><a href="#clang-template-instantiation-sugar">Extend clang AST to
+                provide information for the type as written in template
+                instantiations</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -331,6 +342,118 @@
 
   <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
   <p><b>Desirable skills:</b> Intermediate knowledge C++, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Write a shared-memory based JITLinkMemoryManager.
+    <br />
+    LLVM’s JIT uses the JITLinkMemoryManager interface to allocate both working
+    memory (where the JIT fixes up the relocatable objects produced by the
+    compiler) and target memory (where the JIT’d code will reside in the target).
+    JITLinkMemoryManager instances are also responsible for transporting
+    fixed-up code from working memory to target memory. LLVM has an existing
+    cross-process allocator that uses remote procedure calls (RPC) to allocate
+    and copy bytes to the target process, however a more attractive solution
+    (when the JIT and target process share the same physical memory) would be to
+    use shared memory pages to avoid copies between processes.
+
+  </p>
+
+  <p><b>Expected results:</b>
+    <ul>Implement a shared-memory based JITLinkMemoryManager:
+      <li>Write generic LLVM APIs for shared memory allocation.</li>
+      <li>
+        Write a JITLinkMemoryManager that uses these generic APIs to allocate
+        shared working-and-target memory.
+      </li>
+      <li>Make an extensive performance study of the approach.</li>
+    </ul>
+
+  <p><b>Confirmed Mentor:</b> Vassil Vassilev; Lang Hames</p>
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; Understanding of virtual memory management APIs.
+    Intermediate C++; Understanding of LLVM and the LLVM JIT in particular;
+    Understanding of virtual memory management APIs.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The LLVM BuildingAJIT tutorial series teaches readers to build their own JIT
+    class from scratch using LLVM’s ORC APIs, however the tutorial chapters have
+    not kept pace with recent API improvements. Bring the existing tutorial
+    chapters up to speed, write up a new chapter on lazy compilation (chapter
+    code already available) or write a new chapter from scratch.
+  </p>
+
+  <p><b>Expected results:</b>
+    <ul>
+      <li>
+        Update chapter text for Chapters 1-3 -- Easy, but offers a chance to get
+        up-to-speed on the APIs.
+      </li>
+      <li>
+        Write chapter text for Chapter 4 -- Chapter code is already available,
+        but no chapter text exists yet.
+      </li>
+      <li>
+        Write a new chapter from scratch -- E.g. How to write an out-of-process
+        JIT, or how to directly manipulate the JIT'd instruction stream using
+        the ObjectLinkingLayer::Plugin API.
+      </li>
+    </ul>
+
+  <p><b>Confirmed Mentor:</b> Vassil Vassilev; Lang Hames</p>
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; Familiarity with RST (reStructed Text); Technical
+    writing skills.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_jit_new_format">Write JITLink support for a new format/architecture</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    JITLink is LLVM’s new JIT linker API -- the low-level API that transforms
+    compiler output (relocatable object files) into ready-to-execute bytes in
+    memory. To do this JITLink’s generic linker algorithm needs to be
+    specialized to support the target object format (COFF, ELF, MachO), and
+    architecture (arm, arm64, i386, x86-64). LLVM already has mature
+    implementations of JITLink for MachO/arm64 and MachO/x86-64, and a
+    relatively new implementation for ELF/x86-64. Write a JITLink implementation
+    for a missing target that interests you. If you choose to implement support
+    for a new architecture using the ELF or MachO formats then you will be able
+    to re-use the existing generic code for these formats. If you want to
+    implement support for a new target using the COFF format then you will need
+    to write both the generic COFF support code and the architecture support
+    code for your chosen architecture.
+  </p>
+
+  <p><b>Expected results:</b>
+    Write a JITLink specialization for a not-yet-supported format/architecture.
+  </p>
+  <p><b>Confirmed Mentor:</b> Vassil Vassilev; Lang Hames</p>
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; familiarity with your chosen format/architecture,
+    and basic linker concepts (e.g. sections, symbols, and relocations).
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
