@@ -40,6 +40,19 @@
               <li><a href="#polly_isl_bindings">Use official isl C++ bindings</a></li>
             </ul>
           </li>
+          <li>
+            <b>Clang Static Analyzer</b>
+            <ul>
+              <li><a href="#static_analyzer_profling">Clang Static Analyzer performance profiling</a></li>
+              <li><a href="#static_analyzer_constraint_solver">Clang Static Analyzer constraint solver improvements</a></li>
+            </ul>
+          </li>
+          <li>
+            <b>LLDB</b>
+            <ul>
+              <li><a href="#lldb_diagnostics">A structured approach to diagnostics in LLDB</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li>
@@ -534,6 +547,88 @@
     Good knowledge of C++, in particular RAII. Experience with the isl library
     would be nice, but can also be learned in the project.
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="static_analyzer_profling">Clang Static Analyzer performance profiling</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <ul>
+     <li>
+       Chart how much time is spent in transfer functions – including (but not
+       limited to!) checker callbacks.
+     </li>
+     <li>
+       Add llvm Statistics and Timers for quickly obtaining precise and concise
+       dumps without external profilers. Statistics on state splits might be
+       particularly interesting!
+     </li>
+     <li>
+       Measure time spent analyzing specific stack frames. Say, how much time
+       do we spend inlining <tt>std::string</tt> methods? This time could be
+       saved if we add custom  models for these methods instead.
+     </li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed mentor:</b>  Artem Dergachev</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="static_analyzer_constraint_solver">Clang Static Analyzer constraint solver improvements</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    CSA has a small in-house constraint solver, it is pretty trivial, but super
+    fast.  The goal is to support range-based logic for some of the symbolic
+    operators, while keeping it linear.  Additionally, a unit-test framework
+    can be designed specifically for testing constraint solvers (right now it’s
+    tested rather awkwardly). This project has a couple of interesting
+    properties.  It can be segmented into small chunks, and each of these
+    chunks has a non-trivial solution.  It might introduce you to a world of
+    solvers (it is a good idea to check your ideas with some heavy-weight
+    solver such as z3). And because the existing solver is simple, there is a
+    myriad of possible extensions to try.
+  </p>
+
+  <p><b>Confirmed mentor:</b>  Valeriy Savchenko</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="lldb_diagnostics">A structured approach to diagnostics in LLDB</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <ul>
+     <li>
+       Design and integrate a new diagnostic abstraction (similar to
+       clang::Diagnostic) to report errors, warnings and notes in a structured
+       way.
+     </li>
+     <li>
+       Allow us to differentiate between bugs (unexpected errors) and things
+       the debugger simply doesn’t know (expected errors). Be smart about
+       printing global errors only once. Have the ability of being verbose and
+       have additional metadata (source location, DWARF unit, object file, etc,
+       depending on the type of error and where it originated). </li>
+     <li>
+       Should be compatible and tightly integrated with the existing classes,
+       such as the Status and CommandReturnObject.
+     </li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed mentor:</b>  Jonas Devlieghere</p>
 </div>
 
 <!-- *********************************************************************** -->
