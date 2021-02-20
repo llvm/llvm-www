@@ -41,6 +41,14 @@
             </ul>
           </li>
           <li>
+            <b><a href="https://enzyme.mit.edu">Enzyme</a></b>
+            <ul>
+              <li><a href="#enzyme_blas">Integrate custom derivatives of BLAS, Eigen, and similar routines into Enzyme</a></li>
+              <li><a href="#enzyme_swift">Integrate Enzyme into Swift to provide high-performance differentiation in Swift</a></li>
+              <li><a href="#enzyme_numba">Integrate Enzyme into Python's Numba to provide high-performance differentiation in Python</a></li>
+            </ul>
+          </li>
+          <li>
             <b>Clang Static Analyzer</b>
             <ul>
               <li><a href="#static_analyzer_profling">Clang Static Analyzer performance profiling</a></li>
@@ -550,6 +558,128 @@
 </div>
 
 <!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Enzyme</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enzyme_blas">Integrate custom derivatives of BLAS, Eigen, and similar routines into Enzyme</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://enzyme.mit.edu/">Enzyme</a> performs automatic differentiation
+    (in the calculus sense) of LLVM programs. This enables users to use Enzyme to
+    perform various algorithms such as back-propagation in ML
+    or scientific simulation on existing code for any language that lowers to LLVM.
+
+    Enzyme does so by applying the chain rule to every instruction in every
+    function called by the original function to be differentiated. While functional,
+    this is not necessarily optimal for high-level matrix operations which may
+    have algebraic properties for faster derivative computation.
+
+    Enzyme also has a mechanism for specifying a custom gradient for a given function.
+    If a custom derivative is available, Enzyme will use that rather than fallback
+    to implementing its own.
+
+    Many programs use BLAS libraries to efficiently compute matrix and tensor
+    operations. This project would enable high-performance automatic differentiation
+    of BLAS and similar libraries (such as Eigen) by specifying custom derivative
+    rules for their operations.
+  </p>
+
+  <p><b>Expected results:</b>
+    Efficient differentiation of BLAS and Eigen codes by writing custom
+    derivative rules for matrix and tensor operations.
+  </p>
+
+  <p><b>Confirmed mentor:</b> <a href="mailto:wmoses@mit.edu">William Moses</a></p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++, calculus, and linear algebra. Experience with BLAS, Eigen,
+    or Enzyme would be nice, but can also be learned in the project.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enzyme_swift">Integrate Enzyme into Swift to provide high-performance differentiation in Swift</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://enzyme.mit.edu/">Enzyme</a> performs automatic differentiation
+    (in the calculus sense) of LLVM programs. This enables users to use Enzyme to
+    perform various algorithms such as back-propagation in ML
+    or scientific simulation on existing code for any language that lowers to LLVM.
+
+    While this functions for any frontend that emits LLVM IR, it may be desirable
+    to have closer integration between Enzyme and the frontend for the sake of
+    passing additional information and creating a better user experience.
+
+    Swift provides automatic differentiation through the use of specifying custom
+    derivative rules in the front-end. Enzyme could be integrated directly with
+    Swift, differentiating the eventual LLVM, but it would lose out on all this
+    additional information about custom derivatives. Moreover, calling into
+    Enzyme naiively would be without Type checking, fine AD-specific debug information,
+    or various other nice tools that Swift provides users of AD.
+
+    This project would seek to integrate Enzyme and the Swift front end to provide
+    both a nice user-experience for swift programmers who want to use Enzyme
+    to enable high-performance automatic differentiation, and also to allow Enzyme
+    to take advantage of derivative-specific metadata already available in swift.
+  </p>
+
+  <p><b>Expected results:</b>
+    Creation of a custom type-checked linguistic construct in Swift for calling Enzyme.
+    Mechanisms for passing Swift's differentiation-specific metadata for use by Enzyme.
+  </p>
+
+  <p><b>Confirmed mentor:</b> <a href="mailto:wmoses@mit.edu">William Moses</a></p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++ and Swift. Experience with Enzyme or automatic differentiation
+    would be nice, but can also be learned in the project.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enzyme_numba">Integrate Enzyme into Python's Numba to provide high-performance differentiation in Python</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://enzyme.mit.edu/">Enzyme</a> performs automatic differentiation
+    (in the calculus sense) of LLVM programs. This enables users to use Enzyme to
+    perform various algorithms such as back-propagation in ML
+    or scientific simulation on existing code for any language that lowers to LLVM.
+
+    While this functions for any frontend that emits LLVM IR, it may be desirable
+    to have closer integration between Enzyme and the frontend for the sake of
+    passing additional information and creating a better user experience.
+
+    Python has several packages for JIT'ing LLVM code from python primitives.
+    Examples include Numba, Weld, among others. Integration of Enzyme into Numba
+    would enable automatic differentiation of arbitrary Python programs (supported by Numba),
+    not just codes written in a differentiable DSL such as PyTorch or TensorFlow.
+  </p>
+
+  <p><b>Expected results:</b>
+    Extension to Numba that uses Enzyme to differentiate Python programs
+  </p>
+
+  <p><b>Confirmed mentor:</b> <a href="mailto:wmoses@mit.edu">William Moses</a></p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++ and Numba. Experience with Enzyme or automatic differentiation
+    would be nice, but can also be learned in the project.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a name="static_analyzer_profling">Clang Static Analyzer performance profiling</a>
 </div>
@@ -868,10 +998,10 @@
   <p><b>Expected results:</b>
     <ul>
       <li>
-	Improve MergeFunctions to have feature parity with MergeSimilarFunctions.
+    Improve MergeFunctions to have feature parity with MergeSimilarFunctions.
       </li>
       <li>
-	Enable MergeFunctions to ThinLTO.
+    Enable MergeFunctions to ThinLTO.
       </li>
     </ul>
   </p>
@@ -1546,10 +1676,10 @@ are opened to GSOC. Feel free to propose your own ideas as well on
 
 <div class="www_text">
   <p><b>Description of the project:</b>
-	  Adding Debug Info (compiling with `clang -g`) shouldn't change the
-	  generated code at all. Unfortunately we have bugs. These are usually not
-	  too hard to fix and a good way to discover new part of the codebase!
-	  We suggest building object files both ways and disassembling the
+      Adding Debug Info (compiling with `clang -g`) shouldn't change the
+      generated code at all. Unfortunately we have bugs. These are usually not
+      too hard to fix and a good way to discover new part of the codebase!
+      We suggest building object files both ways and disassembling the
           text sections, which will give cleaner diffs than comparing .s files.
   </p>
 
