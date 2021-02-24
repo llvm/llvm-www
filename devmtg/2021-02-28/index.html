@@ -140,16 +140,16 @@
     <td colspan=2>Break</td>
   </tr>
   <tr>
-    <td>4:30-5:00</td>
-    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
-    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
-    <td><a href="#ak">[Abstract]</a></td>
-  </tr>
-  <tr>
-    <td>5.00-5.30</td>
+    <td>4:30-4:45</td>
     <td><a href="http://easyperf.net">Denis Bakhvalov (Intel)</a></td>
     <td>Performance Analysis and Tuning on Modern CPUs: the Present and the Future</td>
     <td><a href="#db">[Abstract]</a></td>
+  </tr>
+  <tr>
+    <td>4:45-5:20</td>
+    <td><a href="https://hiraditya.github.io/">Aditya Kumar (Facebook)</a></td>
+    <td>Performance improvement opportunities in the open source C++ standard libraries</td>
+    <td><a href="#ak">[Abstract]</a></td>
   </tr>
 </table>
 <b>Note to presenters: Please plan to leave some time (typically 5 minutes) for questions.</b>
@@ -248,14 +248,6 @@ In this talk, we describe the general architecture of Instrew and show results c
     </p>
     </li>
 
-   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
-    <p>
-    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
-
-Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
-    </p>
-    </li>
-
    <li><a id="db"><b>Denis Bakhvalov: </b>Performance Analysis and Tuning on Modern CPUs: the Present and the Future</a>
     <p>
     We live in an increasingly data-centric world, where we generate enormous amounts of data each day. The growth of information exchange fuels the need for both faster software and faster hardware. Unfortunately, modern CPUs are not enjoying big improvements in single-core performance as they used to in the past decades.
@@ -272,6 +264,15 @@ In the end, I will dedicate some time to share my vision of the future trends an
 3. A novel idea of Machine Programming.
     </p>
     </li>
+
+   <li><a id="ak"><b>Aditya Kumar: </b>Performance improvement opportunities in the open source C++ standard libraries</a>
+    <p>
+    The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems.
+
+Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.
+    </p>
+    </li>
+
   </ul>
 </div>
 
