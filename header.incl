@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/download.html#11.0.1"><b>LLVM&nbsp;11.0.1</b></a><br>
+<a href="https://releases.llvm.org/download.html#11.1.0"><b>LLVM&nbsp;11.1.0</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
@@ -50,7 +50,7 @@
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/11.0.1/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/11.1.0/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
