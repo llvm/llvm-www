@@ -18,6 +18,7 @@
               <li><a href="#llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a></li>
               <li><a href="#llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a></li>
               <li><a href="#llvm_jit_new_format">Write JITLink support for a new format/architecture</a></li>
+              <li><a href="#llvm_ir_issues">Fix fundamental issues in LLVM's IR</a></li>
             </ul>
           </li>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
@@ -471,6 +472,38 @@
   <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
     LLVM JIT in particular; familiarity with your chosen format/architecture,
     and basic linker concepts (e.g. sections, symbols, and relocations).
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_ir_issues">Fix fundamental issues in LLVM's IR</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    LLVM's IR has fundamental, long-standing issues. Many are related with
+    undefined behaviors. Others are simply a fallout from underspecification
+    and different interpretations by diffferent people.
+    <a href="https://github.com/AliveToolkit/alive2">Alive2</a> is a tool that
+    detects bugs in LLVM's optimizations automatically. Using Alive2, we track
+    bugs exposed by the unit tests on a
+    <a href="https://web.ist.utl.pt/nuno.lopes/alive2/">dashboard</a>.
+  </p>
+
+  <p><b>Expected results:</b>
+    1) Report and fix bugs detected by Alive2.
+    2) Pick one fundamental IR issue and
+    make progress towards fixing it, including proposing fixes for the
+    <a href="https://llvm.org/docs/LangRef.html">semantics</a>, testing
+    fixes to the semantics by running Alive2 over the LLVM unit tests and
+    medium-sized programs, test performance of semantic fixes and fix
+    performance regressions.
+  </p>
+  <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
+  <p><b>Desirable skills:</b> Intermediate C++; willingness to learn about LLVM
+    IR semantics; experience reading papers (preferred).
   </p>
 </div>
 
