@@ -9,7 +9,9 @@
     [Chris Lattner](https://github.com/lattner),
     [Geoffrey Martin-Noble](https://github.com/gmngeoffrey),
     [Tom Stellard](https://github.com/tstellar)
-*   Status: WIP
+*   Status: Active review (2021-02-09...2021-02-23)
+*   Proposal thread:
+    [thread](https://lists.llvm.org/pipermail/llvm-dev/2021-February/148437.html)
 *   Pitch thread:
     [thread](https://lists.llvm.org/pipermail/llvm-dev/2021-January/147745.html)
 *   Previous Discussions
