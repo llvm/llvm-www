@@ -36,6 +36,12 @@
             </ul>
           </li>
           <li>
+            <b>OpenACC</b>
+            <ul>
+              <li><a href="#openacc_rt_diagnostics">OpenACC Diagnostics from the OpenMP Runtime</a></li>
+            </ul>
+          </li>
+          <li>
             <b><a href="https://polly.llvm.org">Polly</a></b>
             <ul>
               <li><a href="#polly_isl_bindings">Use official isl C++ bindings</a></li>
@@ -538,6 +544,61 @@
 
   <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
   <p><b>Desirable skills:</b> Intermediate knowledge C++, JIT compilation, self motivation.</p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>OpenACC</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="openacc_rt_diagnostics">OpenACC Diagnostics from the OpenMP Runtime</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Clacc and Flacc are projects to introduce OpenACC support to Clang and
+    Flang.  For that purpose, OpenACC runtime support is being developed on top
+    of LLVM's OpenMP runtime.  However, diagnostics emitted by LLVM's OpenMP
+    runtime are expressed in terms of OpenMP concepts, and so those diagnostics
+    are not always meaningful to OpenACC users.  This project should address
+    this issue in two steps:
+    <ol>
+      <li>
+        Develop a mechanism that selects OpenACC versions of diagnostics that
+        are emitted as a result of OpenACC-related calls into the runtime.  This
+        mechanism should be general enough that it could be used for programming
+        languages besides OpenMP and OpenACC.  One possible approach is to
+        extend internationalization mechanisms already present in some
+        components of the OpenMP runtime.
+      </li>
+      <li>
+        Provide OpenACC translations for existing OpenMP diagnostics.  This step
+        requires an understanding of the relationship between OpenACC and OpenMP
+        as implemented in Clacc and Flacc.
+      </li>
+    </ol>
+    Many components of OpenACC support that will depend upon this project have
+    not yet been upstreamed and are under development.  A high-level
+    understanding of those efforts is helpful for this project and can be
+    provided by the mentors.  Nevertheless, this project can be completed in
+    upstream LLVM's OpenMP runtime now independently of those efforts.
+  </p>
+
+  <p>
+    <b>Expected results:</b> A version of upstream LLVM's OpenMP runtime that
+    can emit OpenACC diagnostics as needed.
+  </p>
+
+  <p><b>Confirmed Mentors:</b> Valentin Clement, Joel E. Denny</p>
+
+  <p>
+    <b>Desirable skills:</b> Intermediate C++; Experience with OpenACC or
+    OpenMP
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
