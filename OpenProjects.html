@@ -19,6 +19,7 @@
               <li><a href="#llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a></li>
               <li><a href="#llvm_jit_new_format">Write JITLink support for a new format/architecture</a></li>
               <li><a href="#llvm_ir_issues">Fix fundamental issues in LLVM's IR</a></li>
+              <li><a href="#llvm_utilize_loopnest">Utilize LoopNest Pass</a></li>
             </ul>
           </li>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
@@ -510,6 +511,37 @@
   <p><b>Confirmed Mentor:</b> Nuno Lopes</p>
   <p><b>Desirable skills:</b> Intermediate C++; willingness to learn about LLVM
     IR semantics; experience reading papers (preferred).
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_utilize_loopnest">Utilize LoopNest Pass</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The idea of LoopNest pass is recently added, and there are no existing
+    passes utilizing it. Before having LoopNest pass, if you want to write a
+    pass that works on a loop nest, you have to pick from either a function
+    pass or a loop pass. If you chose to write it as a function pass, then you
+    lose the ability to add loops dynamically back to the pipeline. If you
+    decide to write it as a loop pass, then you are wasting compile time to
+    traverse to your pass and return right away when the given loop is not the
+    outermost loop. In this project, we want to utilize the recently introduced
+    LoopNest pass for passes intended for loop nest and have the same ability
+    as the LoopPass to dynamically add loops to the pipeline. In addition,
+    improve the current implementation of LoopNestPass when necessary.
+  </p>
+  <p><b>Expected results (possibilities):</b>
+    Utilize LoopNest Pass for some existing transformations/analyses.
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    Whitney Tsang, Ettore Tiotto
+  </p>
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++, self-motivation.
   </p>
 </div>
 
