@@ -53,6 +53,7 @@
             <ul>
               <li><a href="#enzyme_blas">Integrate custom derivatives of BLAS, Eigen, and similar routines into Enzyme</a></li>
               <li><a href="#enzyme_swift">Integrate Enzyme into Swift to provide high-performance differentiation in Swift</a></li>
+              <li><a href="#enzyme_fixed">Differentiation of Fixed-Point Arithmetic</a></li>
             </ul>
           </li>
           <li>
@@ -767,6 +768,41 @@
   <p><b>Desirable skills:</b>
     Good knowledge of C++ and Swift. Experience with Enzyme or automatic differentiation
     would be nice, but can also be learned in the project.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enzyme_fixed">Differentiation of Fixed-Point Arithmetic</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://enzyme.mit.edu/">Enzyme</a> performs automatic differentiation
+    (in the calculus sense) of LLVM programs. This enables users to use Enzyme to
+    perform various algorithms such as back-propagation in ML
+    or scientific simulation on existing code for any language that lowers to LLVM.
+
+    In a variety of fields, it is desirable to compute on fixed-point values
+    (e.g. integers) rather than floating point values. This avoid certain truncation
+    errors that may be critical to a given application. Moreover, particular pieces
+    of hardware may simply be more efficient on fixed point rather than floating
+    point values.
+
+    This project would seek to extend Enzyme to support differentiation of not only
+    floating point base values, but also fixed point base values..
+  </p>
+
+  <p><b>Expected results:</b>
+    Implementation of adjoints for LLVM fixed point intrinsics, requisite type analysis
+    rules, and integration into a front-end for an end-to-end test.
+  </p>
+
+  <p><b>Confirmed mentor:</b> <a href="mailto:wmoses@mit.edu">William Moses</a></p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++, caclulus, and LLVM internals. Experience with Enzyme or
+    automatic differentiation would be nice, but can also be learned in the project.
   </p>
 </div>
 
