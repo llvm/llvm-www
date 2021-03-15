@@ -273,3 +273,64 @@ neutral and standard governance of build configurations that matches that of
 LLVM itself. It does not alleviate coordination problems contributing to and
 fetching these configurations while keeping them tied to specific LLVM commits,
 however.
+
+## Review Meeting Notes
+
+* Date: March 11, 2021
+* Attendees: [Chris Bieneman](https://github.com/thegreatbeanz),
+    [Eric Christopher](https://github.com/echristo),
+    [Chris Lattner](https://github.com/lattner),
+    [Geoffrey Martin-Noble](https://github.com/gmngeoffrey)
+* Decision: Proposal Approved
+
+### Decision Summary
+
+The review managers met to discuss the technical and community aspects of the
+proposal. It was the consensus of the review managers in attendance that the
+proposal, if approved, would impose little to no burden on the community, and
+provided material benefit to contributors and downstream users.
+
+The committee also agreed that the Bazel build files should be included under
+the top-level `github.com/llvm/llvm-project/utils` directory as they relate to
+multiple subprojects in LLVM.
+
+### Discussion Notes
+
+Several concerns have been raised over the course of this proposal, and the
+committee tried to discuss each of them and weigh the costs and benefits to the
+LLVM community as a whole.
+
+Most of the concerns centered around support expectations and the burden they
+would impose on the community. The review committee discussions referenced the
+legacy autoconf build system as an example of the undesirable state and the
+burden maintaining multiple build systems imposed on the wider LLVM community.
+The review committee felt that the proposal's designation of the Bazel build as
+"peripheral" would limit the community burden. We agreed that under the proposal
+engineers making changes to LLVM are only responsible for verifying their
+changes against the CMake build system, and as such the additional burden to
+general contributions was minimal.
+
+One concern of note was that the addition of Bazel support might detract from
+the development and maintenance of the CMake build system. While the concern is
+notable and worth keeping an eye on, the inclusion of the GN build did not
+noticeably detract attention from the CMake build. The committee also noted that
+since the Bazel and CMake builds are building effectively the same LLVM they
+must follow roughly the same dependency and build graphs. This means that most
+substantial improvements to how LLVM builds in one system will be either
+portable or directly applicable to all systems.
+
+The committee also discussed the expected functionality in release branches. As
+a "peripheral" component of LLVM, we think it is important to make it clear that
+there  is no support promise for the release branch. Downstream projects should
+not expect Bazel support to work in releases -- if there were a desire to change
+that in the future, then we should separately discuss that based on the details
+of the situation.
+
+Lastly we discussed the location in the source tree for where the Bazel-related
+files should live. Currently the GN configuration lives under `llvm/utils/gn`.
+That location is an artifact of the pre-GitHub source layout. While it does make
+logical sense for Bazel files to live beside GN, we didn't feel that the GN
+files are currently living in the right place. In the interest of this proposal
+resulting in the correct decision, we agreed the Bazel files should live under
+the `utils` directory at the root of the `llvm-project` repository, and we think
+GN should move there as well.
