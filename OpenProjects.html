@@ -54,6 +54,7 @@
               <li><a href="#enzyme_blas">Integrate custom derivatives of BLAS, Eigen, and similar routines into Enzyme</a></li>
               <li><a href="#enzyme_swift">Integrate Enzyme into Swift to provide high-performance differentiation in Swift</a></li>
               <li><a href="#enzyme_fixed">Differentiation of Fixed-Point Arithmetic</a></li>
+              <li><a href="#enzyme_rust">Integrate Enzyme into Rust to provide high-performance differentiation in Rust</a></li>
             </ul>
           </li>
           <li>
@@ -803,6 +804,41 @@
   <p><b>Desirable skills:</b>
     Good knowledge of C++, caclulus, and LLVM internals. Experience with Enzyme or
     automatic differentiation would be nice, but can also be learned in the project.
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enzyme_rust">Integrate Enzyme into Rust to provide high-performance differentiation in Rust</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://enzyme.mit.edu/">Enzyme</a> performs automatic differentiation
+    (in the calculus sense) of LLVM programs. This enables users to use Enzyme to
+    perform various algorithms such as back-propagation in ML
+    or scientific simulation on existing code for any language that lowers to LLVM.
+
+    While this functions for any frontend that emits LLVM IR, it may be desirable
+    to have closer integration between Enzyme and the frontend for the sake of
+    passing additional information and creating a better user experience.
+
+    This project would seek to integrate Enzyme and the Rust front end to provide
+    a nice user-experience for Rust programmers who want to use Enzyme
+    to enable high-performance automatic differentiation. This also potentially
+    involves integration of LLVM plugin support/custom codegen into rustc.
+  </p>
+
+  <p><b>Expected results:</b>
+    Creation of a custom type-checked linguistic construct in Swift for calling Enzyme.
+    Mechanisms for passing Swift's differentiation-specific metadata for use by Enzyme.
+  </p>
+
+  <p><b>Confirmed mentor:</b> <a href="mailto:wmoses@mit.edu">William Moses</a></p>
+  <p><b>Desirable skills:</b>
+    Good knowledge of C++ and Rust. Experience with Enzyme or automatic differentiation
+    would be nice, but can also be learned in the project.
   </p>
 </div>
 
