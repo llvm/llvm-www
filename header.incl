@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/download.html#11.1.0"><b>LLVM&nbsp;11.1.0</b></a><br>
+<a href="https://releases.llvm.org/download.html#12.0.0"><b>LLVM&nbsp;12.0.0</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="/builds/">Win Installer</a><br>
@@ -50,7 +50,7 @@
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/11.1.0/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/12.0.0/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
@@ -87,7 +87,7 @@
 
   <br><br>
 
-  <span style="font-size:smaller">Real-time Chat Proposal:</span><br>
+  <span style="font-sizjje:smaller">Real-time Chat Proposal:</span><br>
   <a href="https://discord.gg/xS7Z362">Discord</a>
 
   <br><br>
@@ -110,6 +110,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  12.0.0: <a href="https://lists.llvm.org/pipermail/llvm-announce/2021-April/000092.html">Apr 2021</a><br>
   11.0.1: <a href="https://lists.llvm.org/pipermail/llvm-announce/2021-January/000090.html">Jan 2021</a><br>
   11.0.0: <a href="https://lists.llvm.org/pipermail/llvm-announce/2020-October/000089.html">Oct 2020</a><br>
   10.0.1: <a href="https://lists.llvm.org/pipermail/llvm-announce/2020-August/000088.html">Aug 2020</a><br>
