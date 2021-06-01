@@ -1,6 +1,6 @@
 ## Introduce a new LLVM process to resolve contentious decisions
 
-*   Proposal: [LP-0001](https://github.com/llvm/llvm-www/blob/master/proposals/LP0001-LLVMDecisionMaking.md)
+*   Proposal: [LP-0001](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0001-LLVMDecisionMaking.md)
 *   Author: [Chris Lattner](https://github.com/lattner)
 *   Review Manager: [Chris Lattner](https://github.com/lattner)
 *   Status: Accepted June 14, 2020 [[thread](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142250.html)]

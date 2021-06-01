@@ -1,7 +1,7 @@
 # Add Bazel Build Configuration to the LLVM Monorepo
 
 *   Proposal:
-    [LP-0002](https://github.com/llvm/llvm-www/blob/master/proposals/LP0002-BazelBuildConfiguration.md)
+    [LP-0002](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0002-BazelBuildConfiguration.md)
 *   Author: [Geoffrey Martin-Noble](https://github.com/gmngeoffrey)
 *   Review Managers: [Chris Bieneman](https://github.com/thegreatbeanz),
     [Eric Christopher](https://github.com/echristo),
