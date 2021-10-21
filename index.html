@@ -16,7 +16,7 @@
 
 <p>LLVM began as a <a href="pubs/2004-01-30-CGO-LLVM.html">research
    project</a> at
-   the <a href="http://cs.illinois.edu/">University of Illinois</a>, with
+   the <a href="https://cs.illinois.edu/">University of Illinois</a>, with
    the goal of providing a modern, SSA-based compilation strategy capable
    of supporting both static and dynamic compilation of arbitrary
    programming languages.  Since then, LLVM has
@@ -43,67 +43,67 @@
     <a href="docs/tutorial/">LLVM as an optimizer and code generator</a>.</p>
 </li>
 
-<li><p><b><a href="http://clang.llvm.org">Clang</a></b> is an "LLVM native"
+<li><p><b><a href="https://clang.llvm.org">Clang</a></b> is an "LLVM native"
     C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles,
-    extremely useful <a href="http://clang.llvm.org/diagnostics.html">error
+    extremely useful <a href="https://clang.llvm.org/diagnostics.html">error
     and warning messages</a> and to provide a platform for building great
     source level tools.
-    The <a href="http://clang-analyzer.llvm.org/">Clang Static Analyzer</a> and
+    The <a href="https://clang-analyzer.llvm.org/">Clang Static Analyzer</a> and
     <a href="https://clang.llvm.org/extra/clang-tidy/">clang-tidy</a> are
     tools that automatically find bugs in your code, and are great examples of the
     sort of tools that can be built using the Clang frontend as a library to
     parse C/C++ code.</p></li>
 
-<li><p>The <b><a href="http://lldb.llvm.org">LLDB</a></b> project builds on
+<li><p>The <b><a href="https://lldb.llvm.org">LLDB</a></b> project builds on
     libraries provided by LLVM and Clang to provide a great native debugger.
     It uses the Clang ASTs and expression parser, LLVM JIT, LLVM disassembler,
     etc so that it provides an experience that "just works".  It is also
     blazing fast and much more memory efficient than GDB at loading symbols.
     </p></li>
 
-<li><p>The <b><a href="http://libcxx.llvm.org">libc++</a></b> and
-    <b><a href="http://libcxxabi.llvm.org">libc++ ABI</a></b> projects provide
+<li><p>The <b><a href="https://libcxx.llvm.org">libc++</a></b> and
+    <b><a href="https://libcxxabi.llvm.org">libc++ ABI</a></b> projects provide
     a standard conformant and high-performance implementation of the C++
     Standard Library, including full support for C++11 and C++14.</p></li>
 
-<li><p>The <b><a href="http://compiler-rt.llvm.org">compiler-rt</a></b> project
+<li><p>The <b><a href="https://compiler-rt.llvm.org">compiler-rt</a></b> project
     provides highly tuned implementations of the low-level code generator
     support routines like "<tt>__fixunsdfdi</tt>" and other calls generated when
     a target doesn't have a short sequence of native instructions to implement
     a core IR operation. It also provides implementations of run-time libraries
     for dynamic testing tools such as
-    <a href="http://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a>,
-    <a href="http://clang.llvm.org/docs/ThreadSanitizer.html">ThreadSanitizer</a>,
-    <a href="http://clang.llvm.org/docs/MemorySanitizer.html">MemorySanitizer</a>,
+    <a href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a>,
+    <a href="https://clang.llvm.org/docs/ThreadSanitizer.html">ThreadSanitizer</a>,
+    <a href="https://clang.llvm.org/docs/MemorySanitizer.html">MemorySanitizer</a>,
     and
-    <a href="http://clang.llvm.org/docs/DataFlowSanitizer.html">DataFlowSanitizer</a>.
+    <a href="https://clang.llvm.org/docs/DataFlowSanitizer.html">DataFlowSanitizer</a>.
     </p></li>
 
-<li><p>The <b><a href="http://mlir.llvm.org">MLIR</a></b> subproject is a novel
+<li><p>The <b><a href="https://mlir.llvm.org">MLIR</a></b> subproject is a novel
     approach to building reusable and extensible compiler infrastructure. MLIR
     aims to address software fragmentation, improve compilation for heterogeneous
     hardware, significantly reduce the cost of building domain specific compilers,
     and aid in connecting existing compilers together.
     </p></li>
 
-<li><p>The <b><a href="http://openmp.llvm.org">OpenMP</a></b> subproject
-    provides an <a href="http://openmp.org">OpenMP</a> runtime for use with the
+<li><p>The <b><a href="https://openmp.llvm.org">OpenMP</a></b> subproject
+    provides an <a href="https://openmp.org">OpenMP</a> runtime for use with the
     OpenMP implementation in Clang.</p></li>
 
-<li><p>The <b><a href="http://polly.llvm.org/">polly</a></b> project implements
+<li><p>The <b><a href="https://polly.llvm.org/">polly</a></b> project implements
     a suite of cache-locality optimizations as well as auto-parallelism and
     vectorization using a polyhedral model.</p></li>
 
-<li><p>The <b><a href="http://libclc.llvm.org/">libclc</a></b> project aims to
+<li><p>The <b><a href="https://libclc.llvm.org/">libclc</a></b> project aims to
     implement the OpenCL standard library.</p></li>
 
-<li><p>The <b><a href="http://klee.llvm.org">klee</a></b> project implements a
+<li><p>The <b><a href="https://klee.llvm.org">klee</a></b> project implements a
     "symbolic virtual machine" which uses a theorem prover to try to evaluate
     all dynamic paths through a program in an effort to find bugs and to prove
     properties of functions.  A major feature of klee is that it can produce a
     testcase in the event that it detects a bug.</p></li>
 
-<li><p>The <b><a href="http://lld.llvm.org/">LLD</a></b> project is a new
+<li><p>The <b><a href="https://lld.llvm.org/">LLD</a></b> project is a new
     linker. That is a drop-in replacement for system linkers
     and runs much faster.</p></li>
 </ol>
@@ -120,8 +120,8 @@ like Lua to compiling Fortran code for massive super computers.</p>
 <p>As much as everything else, LLVM has a broad and friendly community of people
 who are interested in building great low-level tools.  If you are interested in
 getting involved, a good first place is to skim the <a
-href="http://blog.llvm.org">LLVM Blog</a> and to sign up for the <a
-href="http://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM Developer mailing
+href="https://blog.llvm.org">LLVM Blog</a> and to sign up for the <a
+href="https://lists.llvm.org/mailman/listinfo/llvm-dev">LLVM Developer mailing
 list</a>.  For information on how to send in a patch, get commit access, and
 copyright and license topics, please see <a href="docs/DeveloperPolicy.html">the
 LLVM Developer Policy</a>.
@@ -168,7 +168,7 @@ November 16-19, 2021: <a href="/devmtg/2021-11/">LLVM Developers' Meeting</a> <b
      developing a software system that has had a lasting influence,
      reflected in contributions to concepts, in commercial acceptance,
      or both</i>".-->
-     LLVM is <a href="http://awards.acm.org/software_system/year.cfm">
+     LLVM is <a href="https://awards.acm.org/software_system/year.cfm">
      in highly distinguished company</a>!
      Click on any of the individual recipients' names on that page for
      the detailed citation describing the award.
