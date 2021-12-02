@@ -467,7 +467,7 @@ This work was presented as a poster at the LLVM Dev Meeting 2013 (https://llvm.o
 	</p>
 	</li>
 
-    <li><a id="lt2">More efficient LLVM devs: 1000x faster build file generation, -j1000 builds, and O(1) test execution</a>
+    <li><a id="lt2">More efficient LLVM devs: 1000x faster build file generation, -j1000 builds, and O(1) test execution</a> [ <a href="https://youtu.be/gZwu8aBmqtc">Video</a> ] [ <a href="https://llvm.org/devmtg/2018-10/slides/Weber-FunnerLLVMDevelopment.pdf">Slides</a> ]
     <br><i>Nico Weber</i>
 <p>
 The Chromium project has developed several tools to make working on large C++ codebases a better experience. I've hooked up the LLVM build to these tools and use them for my personal work on llvm, clang, and lld. With this, I can generate build files for llvm in 30ms instead of 4m on my laptop, do full builds of LLVM in less than 4 minutes on my laptop, and upload all llvm binaries to a data center and run check-llvm, check-clang, and check-lld in parallel in about 2 minutes. This talk describes the setup. Several parts are generally usable and could help other interested llvm developers.
