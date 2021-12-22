@@ -30,7 +30,7 @@
 <a href="/ProjectsWithLLVM/">LLVM&nbsp;Projects</a><br>
 <a href="/OpenProjects.html">Open&nbsp;Projects</a><br>
 <a href="/Users.html">LLVM&nbsp;Users</a><br>
-<a href="http://bugs.llvm.org/">Bug&nbsp;Database</a><br>
+<a href="https://github.com/llvm/llvm-project/issues/">Bug&nbsp;tracker</a><br>
 <a href="/Logo.html">LLVM Logo</a><br>
 <a href="http://blog.llvm.org/">Blog</a><br>
 <a href="/devmtg/">Meetings</a><br>
@@ -98,7 +98,7 @@
   <a href="https://github.com/llvm/llvm-project/">Sources (GitHub)</a><br>
   <a href="https://reviews.llvm.org">Code Review</a><br>
   <a href="http://blog.llvm.org/">Blog</a><br>
-  <a href="http://bugs.llvm.org/">Bugzilla</a><br>
+  <a href="https://github.com/llvm/llvm-project/issues/">Bug tracker</a><br>
   <a href="https://lab.llvm.org/buildbot/">Buildbot</a><br>
   <a href="http://green.lab.llvm.org/green/">Green Dragon</a><br>
   <a href="http://lnt.llvm.org/">LNT</a><br>
