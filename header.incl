@@ -75,11 +75,12 @@
   <span style="font-size:smaller">Forums</span><br>
   <a href="https://discourse.llvm.org/">LLVM Discourse</a>
 
-  <span style="font-size:smaller">Commits Mailing Lists:</span><br>
-  <a href="https://lists.llvm.org/cgi-bin/mailman/listinfo"></a>
-  <br><br>
+ <br><br>
 
-  <br><br>
+  <span style="font-size:smaller">Mailing Lists:</span><br>
+  <a href="https://lists.llvm.org/cgi-bin/mailman/listinfo">Commits List</a>
+
+ <br><br>
 
   <span style="font-size:smaller">IRC Channel:</span><br>
   <a href="/docs/GettingInvolved.html#irc">irc.oftc.net #llvm</a>
