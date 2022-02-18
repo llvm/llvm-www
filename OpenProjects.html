@@ -6,7 +6,7 @@
   <li>Google Summer of Code Ideas & Projects
     <ul>
       <li>
-        <a href="#gsoc21">Google Summer of Code 2022</a>
+        <a href="#gsoc22">Google Summer of Code 2022</a>
         <ul>
           <li>
             <b>LLVM Core</b>
@@ -219,6 +219,251 @@
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
+  <a name="gsoc22">Google Summer of Code 2022</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>
+    Welcome prospective Google Summer of Code 2022 Students! This document is
+    your starting point to finding interesting and important projects for LLVM,
+    Clang, and other related sub-projects. This list of projects is not only
+    developed for Google Summer of Code, but open projects that really need
+    developers to work on and are very beneficial for the LLVM community.
+  </p>
+
+  <p>We encourage you to look through this list and see which projects excite
+    you and match well with your skill set. We also invite proposals not on this
+    list. More information and discussion about GSoC can be found in
+    <a href="https://discourse.llvm.org/c/community/gsoc" target="_blank">
+      discourse
+    </a>. If you have questions about a particular project please find the
+    relevant entry in discourse, check previous discussion and ask. If there is
+    no such entry or you would like to propose an idea please create a new
+    entry. Feedback from the community is a requirement for your proposal to be
+    considered and hopefully accepted.
+  </p>
+
+  <p>The LLVM project has participated in Google Summer of Code for several years
+    and has had some very successful projects. We hope that this year is no
+    different and look forward to hearing your proposals. For information on how
+    to submit a proposal, please visit the Google Summer of Code main
+    <a href="https://summerofcode.withgoogle.com/">website.</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Write a shared-memory based JITLinkMemoryManager.
+    <br />
+    LLVM’s JIT uses the JITLinkMemoryManager interface to allocate both working
+    memory (where the JIT fixes up the relocatable objects produced by the
+    compiler) and target memory (where the JIT’d code will reside in the target).
+    JITLinkMemoryManager instances are also responsible for transporting
+    fixed-up code from working memory to target memory. LLVM has an existing
+    cross-process allocator that uses remote procedure calls (RPC) to allocate
+    and copy bytes to the target process, however a more attractive solution
+    (when the JIT and target process share the same physical memory) would be to
+    use shared memory pages to avoid copies between processes.
+
+  </p>
+
+  <p><b>Expected results:</b>
+    <ul>Implement a shared-memory based JITLinkMemoryManager:
+      <li>Write generic LLVM APIs for shared memory allocation.</li>
+      <li>
+        Write a JITLinkMemoryManager that uses these generic APIs to allocate
+        shared working-and-target memory.
+      </li>
+      <li>Make an extensive performance study of the approach.</li>
+    </ul>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/lhames>Lang Hames</a></p>
+
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; Understanding of virtual memory management APIs.
+  </p>
+
+  <p><b>Project type:</b> Large</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/implement-a-shared-memory-based-jitlinkmemorymanager-for-out-of-process-jitting">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The LLVM BuildingAJIT tutorial series teaches readers to build their own JIT
+    class from scratch using LLVM’s ORC APIs, however the tutorial chapters have
+    not kept pace with recent API improvements. Bring the existing tutorial
+    chapters up to speed, write up a new chapter on lazy compilation (chapter
+    code already available) or write a new chapter from scratch.
+  </p>
+
+  <p><b>Expected results:</b>
+    <ul>
+      <li>
+        Update chapter text for Chapters 1-3 -- Easy, but offers a chance to get
+        up-to-speed on the APIs.
+      </li>
+      <li>
+        Write chapter text for Chapter 4 -- Chapter code is already available,
+        but no chapter text exists yet.
+      </li>
+      <li>
+        Write a new chapter from scratch -- E.g. How to write an out-of-process
+        JIT, or how to directly manipulate the JIT'd instruction stream using
+        the ObjectLinkingLayer::Plugin API.
+      </li>
+    </ul>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/lhames>Lang Hames</a></p>
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; Familiarity with RST (reStructed Text); Technical
+    writing skills.
+  </p>
+  <p><b>Project type:</b> Medium</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/modernize-the-llvm-building-a-jit-tutorial-series">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_jit_new_format">Write JITLink support for a new format/architecture</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    JITLink is LLVM’s new JIT linker API -- the low-level API that transforms
+    compiler output (relocatable object files) into ready-to-execute bytes in
+    memory. To do this JITLink’s generic linker algorithm needs to be
+    specialized to support the target object format (COFF, ELF, MachO), and
+    architecture (arm, arm64, i386, x86-64). LLVM already has mature
+    implementations of JITLink for MachO/arm64 and MachO/x86-64, and a
+    relatively new implementation for ELF/x86-64. Write a JITLink implementation
+    for a missing target that interests you. If you choose to implement support
+    for a new architecture using the ELF or MachO formats then you will be able
+    to re-use the existing generic code for these formats. If you want to
+    implement support for a new target using the COFF format then you will need
+    to write both the generic COFF support code and the architecture support
+    code for your chosen architecture.
+  </p>
+
+  <p><b>Expected results:</b>
+    Write a JITLink specialization for a not-yet-supported format/architecture.
+  </p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/lhames>Lang Hames</a></p>
+  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
+    LLVM JIT in particular; familiarity with your chosen format/architecture,
+    and basic linker concepts (e.g. sections, symbols, and relocations).
+  </p>
+  <p><b>Project type:</b> Large</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/write-jitlink-support-for-a-new-format-architecture">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Clang</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
+    information for the type as written in template instantiations.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    When instantiating a template, the template arguments are canonicalized
+    before being substituted into the template pattern. Clang does not preserve
+    type sugar when subsequently accessing members of the instantiation.
+
+    <pre>
+    std::vector&lt;std::string&gt; vs;
+    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
+
+    template&lt;typename T&gt; struct Id { typedef T type; };
+    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
+    </pre>
+
+    Clang should "re-sugar" the type when performing member access on a class
+    template specialization, based on the type sugar of the accessed
+    specialization. The type of vs.front() should be std::string, not
+    std::basic_string&lt;char, [...]&gt;.
+    <br /> <br />
+    Suggested design approach: add a new type node to represent template
+    argument sugar, and implicitly create an instance of this node whenever a
+    member of a class template specialization is accessed. When performing a
+    single-step desugar of this node, lazily create the desugared representation
+    by propagating the sugared template arguments onto inner type nodes (and in
+    particular, replacing Subst*Parm nodes with the corresponding sugar). When
+    printing the type for diagnostic purposes, use the annotated type sugar to
+    print the type as originally written.
+    <br /> <br />
+    For good results, template argument deduction will also need to be able to
+    deduce type sugar (and reconcile cases where the same type is deduced twice
+    with different sugar).
+  </p>
+
+  <p><b>Expected results: </b>
+    Diagnostics preserve type sugar even when accessing members of a template
+    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
+    same type and the same template instantiation, but
+    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
+    T&lt;size_t&gt;::type single-step desugars to 'size_t'.</p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/zygoloid>Richard Smith</a></p>
+
+  <p><b>Desirable skills:</b>
+    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
+  </p>
+  <p><b>Project type:</b> Large</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/clang-extend-clang-ast-to-provide-information-for-the-type-as-written-in-template-instantiations">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
   <a name="gsoc21">Google Summer of Code 2021</a>
 </div>
 <!-- *********************************************************************** -->
@@ -395,127 +640,6 @@
 
   <p><b>Confirmed Mentor:</b> Johannes Doerfert</p>
   <p><b>Desirable skills:</b> Intermediate knowledge C++, self motivation.</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-    Write a shared-memory based JITLinkMemoryManager.
-    <br />
-    LLVM’s JIT uses the JITLinkMemoryManager interface to allocate both working
-    memory (where the JIT fixes up the relocatable objects produced by the
-    compiler) and target memory (where the JIT’d code will reside in the target).
-    JITLinkMemoryManager instances are also responsible for transporting
-    fixed-up code from working memory to target memory. LLVM has an existing
-    cross-process allocator that uses remote procedure calls (RPC) to allocate
-    and copy bytes to the target process, however a more attractive solution
-    (when the JIT and target process share the same physical memory) would be to
-    use shared memory pages to avoid copies between processes.
-
-  </p>
-
-  <p><b>Expected results:</b>
-    <ul>Implement a shared-memory based JITLinkMemoryManager:
-      <li>Write generic LLVM APIs for shared memory allocation.</li>
-      <li>
-        Write a JITLinkMemoryManager that uses these generic APIs to allocate
-        shared working-and-target memory.
-      </li>
-      <li>Make an extensive performance study of the approach.</li>
-    </ul>
-
-  <p><b>Confirmed Mentor:</b>
-    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
-    <a href=https://github.com/lhames>Lang Hames</a></p>
-
-  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
-    LLVM JIT in particular; Understanding of virtual memory management APIs.
-  </p>
-
-  <p><b>Project type:</b> Large</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-    The LLVM BuildingAJIT tutorial series teaches readers to build their own JIT
-    class from scratch using LLVM’s ORC APIs, however the tutorial chapters have
-    not kept pace with recent API improvements. Bring the existing tutorial
-    chapters up to speed, write up a new chapter on lazy compilation (chapter
-    code already available) or write a new chapter from scratch.
-  </p>
-
-  <p><b>Expected results:</b>
-    <ul>
-      <li>
-        Update chapter text for Chapters 1-3 -- Easy, but offers a chance to get
-        up-to-speed on the APIs.
-      </li>
-      <li>
-        Write chapter text for Chapter 4 -- Chapter code is already available,
-        but no chapter text exists yet.
-      </li>
-      <li>
-        Write a new chapter from scratch -- E.g. How to write an out-of-process
-        JIT, or how to directly manipulate the JIT'd instruction stream using
-        the ObjectLinkingLayer::Plugin API.
-      </li>
-    </ul>
-
-  <p><b>Confirmed Mentor:</b>
-    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
-    <a href=https://github.com/lhames>Lang Hames</a></p>
-  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
-    LLVM JIT in particular; Familiarity with RST (reStructed Text); Technical
-    writing skills.
-  </p>
-  <p><b>Project type:</b> Medium</p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="llvm_jit_new_format">Write JITLink support for a new format/architecture</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-    JITLink is LLVM’s new JIT linker API -- the low-level API that transforms
-    compiler output (relocatable object files) into ready-to-execute bytes in
-    memory. To do this JITLink’s generic linker algorithm needs to be
-    specialized to support the target object format (COFF, ELF, MachO), and
-    architecture (arm, arm64, i386, x86-64). LLVM already has mature
-    implementations of JITLink for MachO/arm64 and MachO/x86-64, and a
-    relatively new implementation for ELF/x86-64. Write a JITLink implementation
-    for a missing target that interests you. If you choose to implement support
-    for a new architecture using the ELF or MachO formats then you will be able
-    to re-use the existing generic code for these formats. If you want to
-    implement support for a new target using the COFF format then you will need
-    to write both the generic COFF support code and the architecture support
-    code for your chosen architecture.
-  </p>
-
-  <p><b>Expected results:</b>
-    Write a JITLink specialization for a not-yet-supported format/architecture.
-  </p>
-  <p><b>Confirmed Mentor:</b>
-    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
-    <a href=https://github.com/lhames>Lang Hames</a></p>
-  <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
-    LLVM JIT in particular; familiarity with your chosen format/architecture,
-    and basic linker concepts (e.g. sections, symbols, and relocations).
-  </p>
-  <p><b>Project type:</b> Large</p>
 </div>
 
 <!-- *********************************************************************** -->
@@ -1602,71 +1726,6 @@ https://ieeexplore.ieee.org/document/8357388
 are opened to GSOC. Feel free to propose your own ideas as well on
 <a href="https://llvm.discourse.group/c/llvm-project/mlir">Discourse</a>.
 </p></div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsection">
-  <a>Clang</a>
-</div>
-<!-- *********************************************************************** -->
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="clang-template-instantiation-sugar">Extend clang AST to provide
-    information for the type as written in template instantiations.</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project: </b>
-    When instantiating a template, the template arguments are canonicalized
-    before being substituted into the template pattern. Clang does not preserve
-    type sugar when subsequently accessing members of the instantiation.
-
-    <pre>
-    std::vector&lt;std::string&gt; vs;
-    int n = vs.front(); // bad diagnostic: [...] aka 'std::basic_string&lt;char&gt;' [...]
-
-    template&lt;typename T&gt; struct Id { typedef T type; };
-    Id&lt;size_t&gt;::type // just 'unsigned long', 'size_t' sugar has been lost
-    </pre>
-
-    Clang should "re-sugar" the type when performing member access on a class
-    template specialization, based on the type sugar of the accessed
-    specialization. The type of vs.front() should be std::string, not
-    std::basic_string&lt;char, [...]&gt;.
-    <br /> <br />
-    Suggested design approach: add a new type node to represent template
-    argument sugar, and implicitly create an instance of this node whenever a
-    member of a class template specialization is accessed. When performing a
-    single-step desugar of this node, lazily create the desugared representation
-    by propagating the sugared template arguments onto inner type nodes (and in
-    particular, replacing Subst*Parm nodes with the corresponding sugar). When
-    printing the type for diagnostic purposes, use the annotated type sugar to
-    print the type as originally written.
-    <br /> <br />
-    For good results, template argument deduction will also need to be able to
-    deduce type sugar (and reconcile cases where the same type is deduced twice
-    with different sugar).
-  </p>
-
-  <p><b>Expected results: </b>
-    Diagnostics preserve type sugar even when accessing members of a template
-    specialization. T&lt;unsigned long&gt; and T&lt;size_t&gt; are still the
-    same type and the same template instantiation, but
-    T&lt;unsigned long&gt;::type single-step desugars to 'unsigned long' and
-    T&lt;size_t&gt;::type single-step desugars to 'size_t'.</p>
-
-  <p><b>Confirmed Mentor:</b>
-    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
-    <a href=https://github.com/zygoloid>Richard Smith</a></p>
-
-  <p><b>Desirable skills:</b>
-    Good knowledge of clang API, clang's AST, intermediate knowledge of C++.
-  </p>
-  <p><b>Project type:</b> Large</p>
-</div>
-
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
