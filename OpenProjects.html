@@ -14,6 +14,7 @@
               <li><a href="#llvm_shared_jitlink">Implement a shared-memory based JITLinkMemoryManager for out-of-process JITting</a></li>
               <li><a href="#llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a></li>
               <li><a href="#llvm_jit_new_format">Write JITLink support for a new format/architecture</a></li>
+              <li><a href="#llvm_instrumentaion_for_compile_time">Instrumentation of Clang/LLVM for Compile Time</a></li>
             </ul>
           </li>
 
@@ -392,6 +393,54 @@
     <a href="https://discourse.llvm.org/t/write-jitlink-support-for-a-new-format-architecture">
       URL</a>
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_instrumentaion_for_compile_time">Instrumentation of Clang/LLVM for Compile Time</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Every developer, at some point (usually while waiting for their program to
+    compile), has asked "Why is it taking so long?"  This project is to seek an
+    answer to this question.  There exists within LLVM, and by extension CLANG,
+    a timing infrastructure that records events within the compiler.  However,
+    its utilization is inconsistent and insufficient.  This can be improved by
+    adding more instrumentation throughout LLVM and CLANG but one must be careful.
+    Too much instrumentation, or instrumenting the wrong things, can be confusing
+    and overwhelming, thus making it no more useful than not enough information.
+    The trick is to find the right places to instrument and controlling the
+    instrumentation.  Seeking out these key spots will take you through the
+    entire compilation process, from preprocessing through to final code
+    generation, and all phases between.  As you instrument the code, you will
+    look at the data as you evolve it, which will further direct your search.
+    You will develop new ways to control and filter the information to allow a
+    better understanding of where the compiler is spending its time.  You will
+    seek out and develop example test inputs that illustrate where the compiler
+    can be improved, which will in turn, help direct your instrumenting and search.
+    You will consider and develop ways of controlling the instrumentation to
+    allow better understanding and detailed examination of phases of compilation.
+    Through all of this, you will gain an understanding of how a compiler works,
+    from front end processing, through the LLVM optimization pipeline, through
+    to code generation.  You will see, and understand, the big picture of what
+    is required to compile and optimize a C/C++ program, and in particular, how
+    CLANG, LLVM and LLC accomplish these tasks.  Your mentors have a combined
+    experience of approximately 25 years of compiler development and around 8
+    years of experience with LLVM itself to help you on your quest.
+  </p>
+
+  <p><b>Expected results:</b>
+    <ul>
+      <li>Targetted expansion of the use of the existing timing infrastructure</li>
+      <li>Identification of appropriate test inputs for improving compile time</li>
+      <li>Identification of compile time hotspots</li>
+      <li>New and improved methods of controlling the timing infrastructure</li>
+    </ul>
+  </p>
+  <p><b>Confirmed Mentor:</b> Jamie Schmeiser, Whitney Tsang</p>
+  <p><b>Desirable skills:</b> C++ programming skills; CLANG/LLVM knowledge an asset but not necessary; self motivated; curiosity; desire to learn</p>
 </div>
 
 <!-- *********************************************************************** -->
