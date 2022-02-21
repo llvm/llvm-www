@@ -15,6 +15,7 @@
               <li><a href="#llvm_build_jit_tutorial">Modernize the LLVM "Building A JIT" tutorial series</a></li>
               <li><a href="#llvm_jit_new_format">Write JITLink support for a new format/architecture</a></li>
               <li><a href="#llvm_instrumentaion_for_compile_time">Instrumentation of Clang/LLVM for Compile Time</a></li>
+              <li><a href="#llvm_lto_dependency_info">Richer symbol dependency information for LTO</a></li>
             </ul>
           </li>
 
@@ -443,6 +444,99 @@
   <p><b>Desirable skills:</b> C++ programming skills; CLANG/LLVM knowledge an asset but not necessary; self motivated; curiosity; desire to learn</p>
   <p><b>Discourse</b>
     <a href="https://discourse.llvm.org/t/instrumentation-of-clang-llvm-for-compile-time">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_lto_dependency_info">Richer symbol dependency information for LTO</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The implications of LLVM's LTO implementation with respect to linker GC
+    (linker garbage collection) can be improved, especially for aggressive forms
+    with lazy inclusion of objects and sections.
+    In particular, the symbols referenced but undefined by an LTO module are,
+    to the linker,
+    monolithic at the module level. That means that the inclusion of the module
+    into the LTO process potentially leads, in the linker's initial symbol
+    resolution, to all the undefined symbols in that module being considered as
+    referenced; in turn, additional artifacts (e.g., archive members) may be
+    added into the resolution, which further leads to references that may
+    resolve to symbols defined in LTO modules and a premature conclusion that
+    the definition of these symbols are needed.
+    This at least means potentially unnecessary codegen is being done for
+    functions that will be garbage-collected in the end (waste of electricity
+    and time).
+  </p>
+  <p>We acknowledge that an ideal implementation probably involves a "coroutine"
+    like interaction between the linker and LTO codegen where information flows
+    back and forth; however, such an endeavour is invasive to both linkers and
+    to LLVM.
+  </p>
+  <p>We believe that by</p>
+  <ul>
+    <li>having the linker register, via an API to LTO, symbol reference "nodes"
+    modelling the relationship between a symbol and the symbols that are
+    referenced in turn from (the object file section containing) its
+    linker-selected definition, and
+    </li>
+    <li>using that information in LTO processing,</li>
+  </ul>
+  <p>the LTO processing will be able to effectively identify a more accurate set
+    of LTO symbols that are visible outside of the LTO unit.
+    The linker merely needs to identify only exported symbols and entry points
+    (such as the entry point for an executable and functions involved in
+    initialization and finalization).
+  </p>
+  <p>Having the LLVM opt/codegen understand the dependency implications from the
+    "outside world" is strictly better than the other direction: the symbols
+    referred to by relocations in non-LTO code are pretty much fixed as compiled
+    (whereas some references in LTO code may disappear with optimization).
+  </p>
+
+  <p><b>Expected results:</b></p>
+  <ol>
+    <li>Modification of the C++ LTO interface used by LLD to implement an
+      interface to record the symbol reference dependency data (incorporating
+      awareness of sections and comdats). This may additionally include a
+      method to add LTO objects provisionally, simulating behaviours where
+      linkers only add objects as needed.
+    </li>
+    <li>
+      Modification of LTO to use new symbol reference information
+      for definitions in regular objects when visiting definitions
+      in the IR prior to the
+      internalization pass to discover (transitive) symbol references and
+      record the so-referenced symbols as being visible to regular objects.
+      This may additionally include the "late" incorporation of LTO objects
+      added provisionally into the merged LTO module.
+    </li>
+    <li>Modification of LLD (for ELF) to modify initial resolution to use the
+      new interface as a replacement for setting `VisibleToRegularObj` except
+      for entry point functions (including C++ dynamic initialization and
+      finalization).
+    </li>
+  </ol>
+
+  <p><b>Confirmed Mentors:</b>
+    Sean Fertile,
+    Hubert Tong,
+    Wael Yehia
+  </p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++;
+    basic linker concepts (e.g., symbols, sections, and relocations)
+  </p>
+
+  <p><b>Project type:</b> Large</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/richer-symbol-dependency-information-for-lto/60335">
       URL</a>
   </p>
 </div>
