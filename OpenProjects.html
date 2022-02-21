@@ -459,7 +459,8 @@
     The implications of LLVM's LTO implementation with respect to linker GC
     (linker garbage collection) can be improved, especially for aggressive forms
     with lazy inclusion of objects and sections.
-    In particular, the symbols referenced but undefined by an LTO module are
+    In particular, the symbols referenced but undefined by an LTO module are,
+    to the linker,
     monolithic at the module level. That means that the inclusion of the module
     into the LTO process potentially leads, in the linker's initial symbol
     resolution, to all the undefined symbols in that module being considered as
@@ -506,7 +507,9 @@
       linkers only add objects as needed.
     </li>
     <li>
-      Modification of LTO to visit definitions in the IR prior to the
+      Modification of LTO to use new symbol reference information
+      for definitions in regular objects when visiting definitions
+      in the IR prior to the
       internalization pass to discover (transitive) symbol references and
       record the so-referenced symbols as being visible to regular objects.
       This may additionally include the "late" incorporation of LTO objects
