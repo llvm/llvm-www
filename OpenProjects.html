@@ -456,13 +456,17 @@
 
 <div class="www_text">
   <p><b>Description of the project:</b>
+    <!-- TODO: Describe the general concept of LTO and also lead in to the rest
+      of the description. -->
     The implications of LLVM's LTO implementation with respect to linker GC
     (linker garbage collection) can be improved, especially for aggressive forms
-    with lazy inclusion of objects and sections.
+    of linker GC with lazy inclusion of objects and sections.
     In particular, the symbols referenced but undefined by an LTO module are,
-    to the linker,
-    monolithic at the module level. That means that the inclusion of the module
-    into the LTO process potentially leads, in the linker's initial symbol
+    to the linker, monolithic at the module level.
+    At the same time, the symbols referenced but undefined by regular
+    (non-LTO) objects are monolithic to LTO.
+    Together, this means that the inclusion of an LTO module
+    into the overall process potentially leads, in the linker's initial symbol
     resolution, to all the undefined symbols in that module being considered as
     referenced; in turn, additional artifacts (e.g., archive members) may be
     added into the resolution, which further leads to references that may
@@ -516,8 +520,9 @@
       added provisionally into the merged LTO module.
     </li>
     <li>Modification of LLD (for ELF) to modify initial resolution to use the
-      new interface as a replacement for setting `VisibleToRegularObj` except
-      for entry point functions (including C++ dynamic initialization and
+      new interface as a replacement for setting
+      <code>VisibleToRegularObj</code>
+      except for entry point functions (including C++ dynamic initialization and
       finalization).
     </li>
   </ol>
