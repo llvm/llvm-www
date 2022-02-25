@@ -506,7 +506,6 @@
   Guided Optimizations (MLGO) infra to generate training logs; 2) define a reward
   signal, computable at compile time, to guide a reinforcement learning training loop;
   3) iterate through training and refine reward/feature set
-
   </p>
   <p><b>Project size:</b> either 175 or 350 hr, ideally 350 hr</p>
   <p><b>Difficulty:</b> Medium/Hard</p>
@@ -524,6 +523,41 @@
   <a href="https://discourse.llvm.org/t/learning-loop-transformation-policies/60413">URL</a>
   </p>
 </div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_module_inliner">Evaluate and Expand the Module-Level Inliner</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+    LLVM's inliner is a bottom-up, strongly-connected component-level pass. This
+    places limits on the order in which call sites are evaluated, which impacts
+    the effectiveness of inlining.
+    
+    We now have a functional Module Inliner, as result of <a href="https://summerofcode.withgoogle.com/archive/2021/projects/5195658885070848">GSoC2021 work</a>.
+    We want to call site priority schemes, effectiveness/frequency of running
+    function passes after successful inlinings, interplay with the ML inline
+    advisor, to name a few areas of exploration.
+  </p>
+  <p><b>Project size:</b> either 175 or 350 hr, ideally 350 hr, milestones allow
+    for 175hr scoping</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Skills:</b> C/C++, some compiler experience.</p>
+  <p><b>Expected outcomes</b>: Proposal and Evaluation of alternative traversal
+    orders; evaluation of 'clustering' inlining decisions (inline more than one
+    call site at a time); evaluation of effectiveness/frequency of function
+    optimization passes after inlining
+  </p>
+  <p><b>Mentors</b>
+    Kazu Hirata, Liqiang Tao, Mircea Trofin
+  </p>
+  <p>
+  <b>Discourse</b>
+  <a href="">URL</a>
+  </p>
+</div>
+
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a id="llvm_lto_dependency_info">Richer symbol dependency information for LTO</a>
