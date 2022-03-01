@@ -28,6 +28,9 @@
                 provide information for the type as written in template
                 instantiations</a>
               </li>
+              <li><a href="#clang-sa-structured-bindings">Implement support for
+                C++17 structured bindings in the Clang Static Analyzer</a>
+              </li>
             </ul>
           </li>
 
@@ -716,6 +719,54 @@
 
   <p><b>Discourse</b>
     <a href="https://discourse.llvm.org/t/clang-extend-clang-ast-to-provide-information-for-the-type-as-written-in-template-instantiations">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-sa-structured-bindings">Implement support for
+    C++17 structured bindings in the Clang Static Analyzer</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project: </b>
+    Even though a lot of new C++ features are supported by the static analyzer
+    automatically by the virtue of clang AST doing all the work under the hood,
+    the C++17 "structured binding" syntax
+    <pre>    auto [x, y] = ...;</pre>
+    requires some extra work on the Static Analyzer side. The analyzer's transfer functions
+    need to be taught about the new AST nodes, <a href="https://clang.llvm.org/doxygen/classclang_1_1BindingDecl.html">BindingDecl</a>
+    and <a href="https://clang.llvm.org/doxygen/classclang_1_1DecompositionDecl.html">DecompositionDecl</a>,
+    to work correctly in all <a href="https://en.cppreference.com/w/cpp/language/structured_binding">three interpretations</a>
+    described by the Standard.
+    <br /><br />
+    Incomplete support for structured bindings is a common source of
+    false positives in the uninitialized variable checker on modern C++ code,
+    such as <a href="https://github.com/llvm/llvm-project/issues/42387">#42387</a>.
+    <br /><br />
+    It is likely that the Clang CFG also needs to be updated. Such changes in
+    the CFG may improve quality of clang warnings outside of
+    the Static Analyzer.
+  </p>
+
+  <p><b>Expected results: </b>
+    The Static Analyzer correctly models structured binding and decomposition
+    declarations. In particular, binding variables no longer appear
+    uninitialized to the Static Analyzer's uninitialized variable checker.</p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/haoNoQ>Artem Dergachev</a>
+
+  <p><b>Desirable skills:</b>
+    Intermediate knowledge of C++. Some familiarity with Clang AST and/or
+    some static analysis background.
+  </p>
+  <p><b>Project size:</b> 350 hr</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/implement-support-for-c-17-structured-bindings-in-the-clang-static-analyzer/60588">
       URL</a>
   </p>
 </div>
