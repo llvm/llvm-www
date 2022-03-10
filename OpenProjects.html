@@ -19,6 +19,7 @@
               <li><a href="#llvm_mlgo_passes">Machine Learning Guided Ordering of Compiler Optimization Passes</a></li>
               <li><a href="#llvm_mlgo_loop">Learning Loop Transformation Heuristics</a></li>
               <li><a href="#llvm_module_inliner">Evaluate and Expand the Module-Level Inliner</a></li>
+              <li><a href="#llvm_undef_load">Remove undef: move uninitialized memory to poison</a></li>
             </ul>
           </li>
 
@@ -654,6 +655,51 @@
   <p><b>Discourse</b>
     <a href="https://discourse.llvm.org/t/richer-symbol-dependency-information-for-lto/60335">
       URL</a>
+  </p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_undef_load">Remove undef: move uninitialized memory to poison</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+    The existence of the undef value in LLVM prevents several optimizations,
+    even in programs where it is not used. Therefore, we have been trying to
+    move all uses of undef to poison so we can eventually remove undef from
+    LLVM.<br/>
+    This project focuses on uninitialized memory: right now the semantics of
+    LLVM is that loading a value from uninitilized memory yields an undef value.
+    This prevents, for example, SROA/mem2reg from optimizing conditional loads
+    as phi(undef, %x) cannot be replaced with x, as %x might be poison.<br/>
+    This project consists in devising a consistent semantics for uninitialized
+    (based on existing proposals), an upgrade plan for LLVM, and implementing
+    the changes in LLVM and clang.
+    In clang the changes should be specific to bit-fields.<br/>
+    For more information see the following
+    <a href="https://github.com/llvm/llvm-project/issues/52930">discussion</a>
+    and/or contact the mentor.<br/>
+    Further reading:
+    <a href="https://web.ist.utl.pt/nuno.lopes/pubs/llvmmem-oopsla18.pdf">introduction to LLVM's memory model</a>.
+  </p>
+  <p><b>Project size:</b> 350 hr</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Skills:</b> Intermediate C++</p>
+  <p><b>Expected outcomes</b>:
+    <ul>
+      <li>Semantics for memory operations that removes the need for undef
+        values</li>
+      <li>Upgrade plan for LLVM and frontends</li>
+      <li>Implementation of the proposed semantics in LLVM</li>
+      <li>Implementation of auto-upgrade path for old LLVM IR files</li>
+      <li>Implementation of fixes in clang to use the new IR features</li>
+      <li>Benchmarking to check for regressions and/or perf improvements</li>
+    </ul>
+  </p>
+  <p><b>Mentors:</b>
+    <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a>
   </p>
 </div>
 
