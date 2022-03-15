@@ -571,13 +571,34 @@
 
 <div class="www_text">
   <p><b>Description of the project:</b>
-    The implications of LLVM's LTO implementation with respect to linker GC
+    C and C++ programs are often composed of various object files produced from
+    separately-compiled source files that are then linked together.
+    When compiling one source file, knowledge that can be derived from the logic
+    contained within the other source files would normally not be available.
+    Link-time optimization, also known as LTO, is a way for optimization to be
+    done using information from more than one source file.
+  </p>
+  <p>In LLVM, LTO is achieved by using LLVM bitcode objects as the output from
+    the "compile" step and feeding those objects into the link step.
+    LLVM's LTO operates in conjunction with the linker.
+    The linker is invoked by the user and the linker in turn drives LLVM's LTO
+    when it encounters LLVM bitcode files, getting information from LTO about
+    what symbols a bitcode object defines or references.
+    Information about what symbols are defined in or referenced from an object
+    is necessary for the linker to perform symbol resolution, and a linker is
+    normally able to extract such information from regular (non-bitcode) object
+    files.
+  </p>
+  <p>The implied consequences of LLVM's LTO implementation
+    with respect to linker GC
     (linker garbage collection) can be improved, especially for aggressive forms
-    with lazy inclusion of objects and sections.
+    of linker GC with lazy inclusion of objects and sections.
     In particular, the symbols referenced but undefined by an LTO module are,
-    to the linker,
-    monolithic at the module level. That means that the inclusion of the module
-    into the LTO process potentially leads, in the linker's initial symbol
+    to the linker, monolithic at the module level.
+    At the same time, the symbols referenced but undefined by regular
+    (non-LTO) objects are monolithic to LTO.
+    Together, this means that the inclusion of an LTO module
+    into the overall process potentially leads, in the linker's initial symbol
     resolution, to all the undefined symbols in that module being considered as
     referenced; in turn, additional artifacts (e.g., archive members) may be
     added into the resolution, which further leads to references that may
@@ -631,8 +652,9 @@
       added provisionally into the merged LTO module.
     </li>
     <li>Modification of LLD (for ELF) to modify initial resolution to use the
-      new interface as a replacement for setting `VisibleToRegularObj` except
-      for entry point functions (including C++ dynamic initialization and
+      new interface as a replacement for setting
+      <code>VisibleToRegularObj</code>
+      except for entry point functions (including C++ dynamic initialization and
       finalization).
     </li>
   </ol>
