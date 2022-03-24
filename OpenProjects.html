@@ -35,6 +35,13 @@
             </ul>
           </li>
 
+          <li>
+            <a href="https://polly.llvm.org"><b>Polly</b></a>
+            <ul>
+              <li><a href="#polly_npm">Completely switch to new pass manager</a></li>
+            </ul>
+          </li>
+
         </ul>
       </li>
       <li>
@@ -843,6 +850,50 @@
     <a href="https://discourse.llvm.org/t/implement-support-for-c-17-structured-bindings-in-the-clang-static-analyzer/60588">
       URL</a>
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Polly</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="polly_npm">Complete switch to new pass manager</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the Project:</b>
+    While the standard Polly-enabled -O1/-O2/-O3 optimization pass pipelines work fine with the <a href="https://blog.llvm.org/posts/2021-03-26-the-new-pass-manager/">New Pass Manager</a> (NPM), some parts of Polly still only works with the legacy pass manager.
+    This includes some passes such as -polly-export-jscop/-polly-export-jscop, regression testing, Polly-ACC, command line options such as -polly-show, the PassInstrumentation mechanism used by e.g. -print-after-all.
+    LLVM (and Clang) have moved to NPM being the default and support for the legacy pass manager is deprecated, slowly degenerates and features getting removed.
+    That is, all of Polly's functionality should eventually work with the NPM as well, and be prepared for the complete removal of the legacy pass manager.
+    More details about the two pass managers found <a href="https://github.com/banach-space/llvm-tutor#about-pass-managers-in-llvm">here</a>.
+  </p>
+  <p><b>Expected results:</b>
+    The goal is to make Polly more usable with using only the NPM. Milestones, not necessarily all to be reached in this GSoC, are:
+    <br/>
+    1. Make all of Polly's functionality available in the NPM (or decide to deprecate/remove it)
+    <br/>
+    2. Better integration into the NPM (such as supporting PassInstrumentation); If the NPM turns out to be inadequate, use only a monolothic function pass.
+    <br/>
+    3. Replace the legacy pass manager in regression tests.
+    <br/>
+    4. Be ready for complete removal of the legacy pass manager in LLVM.
+  </p>
+  <p><b>Confirmed mentor:</b>
+    <a href="https://github.com/Meinersbur">Michael Kruse</a>
+  </p>
+  <p><b>Desirable skills:</b>
+    Understanding of the C++ template pattern used by the new pass manager (<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</a>, <a href="https://en.wikipedia.org/wiki/Mixin">Mixins</a>, etc).
+    Familarity with how LLVM can be <a href="https://www.lurklurk.org/linkers/linkers.html">linked</a> (static, BUILD_SHARED_LIBS, and SHLIB/DYLIB) and its <a href="https://www.llvm.org/docs/WritingAnLLVMPass.html#building-pass-plugins">plugin loading machanisms</a> (static, -load and -load-pass-plugin).
+    Ideally, already worked with LLVM's new pass manager.
+  </p>
+  <p><b>Project size:</b> Medium</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Discourse</b> <a href="https://discourse.llvm.org/t/61174">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
