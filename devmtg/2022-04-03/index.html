@@ -21,7 +21,7 @@ of CGO/PPoPP/HPCA/CC has decided to make the conference virtual this
 year.
 </p>
 
-<div class="www_sectiontitle">Preliminary Schedule</div>
+<div class="www_sectiontitle" id="workshop-schedule">Schedule</div>
 
 <table width="100%" border="1">
   <tbody>
@@ -66,7 +66,7 @@ year.
             <p><a href="https://www.npopov.com/aboutMe.html">Nikita Popov</a></p>
           </td>
           <td>
-            <p>Opaque Pointers Are Coming</p>
+            <p><a href="#keynote">Opaque Pointers Are Coming</a></p>
         </td>
           <td>
           </td>
@@ -101,7 +101,7 @@ year.
               </p>
           </td>
           <td>
-              <p><a href="#pose-rl">POSET-RL: Phase ordering for Optimizing Size and Execution Time
+              <p><a href="#poset-rl">POSET-RL: Phase ordering for Optimizing Size and Execution Time
                       using Reinforcement Learning</a></p>
           </td>
           <td>
@@ -282,17 +282,17 @@ year.
 </table>
 
 <div class="www_sectiontitle">Abstracts</div>
-=====
 
-    <h3 id="keynote"  class="cgo-title" style="font-weight: bold;">Opaque Pointers Are Coming </h3>
+    <h3 id="keynote"  class="cgo-title" style="font-weight: bold;">Opaque Pointers Are Coming <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>TLLVM is currently finalizing the migration from typed pointers (i32*) to opaque pointers (ptr) 
         -- the likely largest intermediate representation change in LLVM's history. In this talk, 
         we'll discuss the motivations for the change, how it will affect developers working on/with 
         LLVM in practice, and why this migration took such a long time. We'll also briefly cover 
         possible future IR changes based on opaque pointers.
     </p>
+    
 
-    <h3 id="hot-path"  class="cgo-title" style="font-weight: bold;">The Hot Path SSA Form in LLVM</h3>
+    <h3 id="hot-path"  class="cgo-title" style="font-weight: bold;">The Hot Path SSA Form in LLVM<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>The Static Single Assignment (SSA) form is the most popular representation used in
             the LLVM compiler system. The SSA form has been affable to the design of simpler algorithms for existing
             optimizations and has facilitated the development of new ones. However, speculative
@@ -308,7 +308,7 @@ year.
 
         
     <h3 id="poset-rl" class="cgo-title" style="font-weight: bold;">POSET-RL: Phase ordering for Optimizing Size and
-              Execution Time using Reinforcement Learning</h3>
+              Execution Time using Reinforcement Learning<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
       
       <p>The ever increasing memory requirements of several applications has led to increased
               demands which might not be met by embedded devices. Constraining the usage of memory in such cases is of
@@ -333,7 +333,7 @@ year.
   
 
     <h3 id="learning-combine" class="cgo-title" style="font-weight: bold;">Learning to combine Instructions in LLVM
-            Compiler</h3>
+            Compiler<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>Instruction combiner (IC) is a critical compiler optimization pass, which replaces a
             sequence of instructions with an equivalent and optimized instruction sequence at basic block level. There
             can be thousands of instruction-combining patterns which need to be frequently updated as new coding
@@ -351,7 +351,7 @@ year.
             IC and neural machine translation metric Bleu precision score of 0.94, demonstrating its feasibility in a
             production compiler pipeline.</p>
 
-    <h3 id="tutorial-guide" class="cgo-title" style="font-weight: bold;">[Tutorial] An Guide to Performance Debugging LLVM-based Programs</h3>
+    <h3 id="tutorial-guide" class="cgo-title" style="font-weight: bold;">[Tutorial] An Guide to Performance Debugging LLVM-based Programs<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>LLVM is a compiler infrastructure that has become the foundation of a variety of
             compilers and languages including C/C++, Fortran, Rust, Swift, Julia, and more. When a user of an LLVM-based
             compiler is writing a program, it is unfortunately and surprisingly easy to shoot one self in the foot and
@@ -367,7 +367,7 @@ year.
             compiler flags.</p>
 
     <h3 id="compiling-running" class="cgo-title" style="font-weight: bold;">Compiling, running and benchmarking SNAP with LLVM
-      Flang - experiences with a new compiler</h3>
+      Flang - experiences with a new compiler<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>LLVM Flang is a new Fortran frontend and a compiler driver in LLVM, using MLIR as an
           intermediate step before generating LLVM-IR. SNAP is a physics application of medium size, written in
           Fortran 95 and using OpenMP and MPI for parallelism. This talk will discuss the trials and tribulations of
@@ -381,7 +381,7 @@ year.
 
 
     <h3 id="anatomy-optimized" class="cgo-title"  style="font-weight: bold;">An Anatomy of Optimized Matrix Multiplication on
-      AArch64</h3>
+      AArch64<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>This proposal presents our work in optimizing double-precision floating-point General
             Matrix Multiply (GEMM), which computes a matrix fma (fused multiply add) between three source matrices
             C+=A*B. For double precision GEMM, we were able to achieve 9.7 GFLOPs, which is close to the theoretical
@@ -413,7 +413,7 @@ year.
     
 
     <h3 id="improving-openmp" class="cgo-title" style="font-weight: bold;">Improving the OpenMP Offloading Driver: LTO, libraries,
-            and toolchains</h3>
+            and toolchains<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
       <p>This technical talk will describe the work done to improve the clang driver for
               generating OpenMP offloading applications. The talk will detail the motivations behind this change, the
               implementation and function of the new driver, and the features and performance this new approach provides.
@@ -423,7 +423,7 @@ year.
               notoriously slow for regular CUDA codes.</p>
 
     <h3 id="crash-analyzer" class="cgo-title" style="font-weight: bold;">Crash-Analyzer: An LLVM-based Tool for Triaging and
-            Analyzing Crashes</h3>
+            Analyzing Crashes<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>Crash-Analyzer is an LLVM-based tool that bridges the gap between triaging and fixing
             a bug. We introduce compiler technology and analyses to discover and reason about semantics of crashing
             program. The Crash-Analyzer consists of Corefile Reader, Decompiler, and Analyzer. It takes a corefile and
@@ -431,16 +431,16 @@ year.
             Crash-Analyzer also outputs a backward taint data flow graph which can be helpful for developers.</p>
     
     <h3 id="prototyping-compiler" class="cgo-title" style="font-weight: bold;">Prototyping a compiler for homomorphic encryption using
-            MLIR</h3>
+            MLIR<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>Homomorphic encryption is an encryption scheme in cryptography that provides a set of
-            operations on encrypted data.</p>
-    <p>Among homomorphic encryption schemes, CKKS provides efficient but approximate
-            operations on real numbers.</p>
-    <p>CKKS encrypts a plaintext as a pair of large integer polynomials, and its homomorphic
-            operations are defined as a series of polynomial operations on them.</p>
-    <p>Thus, the implementations of CKKS operations typically contain many loops on large
-            arrays representing polynomials.</p>
-    <p>Successfully applying loop optimizations can significantly boost the performance of
+            operations on encrypted data.
+       Among homomorphic encryption schemes, CKKS provides efficient but approximate
+            operations on real numbers.
+    CKKS encrypts a plaintext as a pair of large integer polynomials, and its homomorphic
+            operations are defined as a series of polynomial operations on them.
+    Thus, the implementations of CKKS operations typically contain many loops on large
+            arrays representing polynomials.
+    Successfully applying loop optimizations can significantly boost the performance of
             the operations.</p>
     
     <p>In this talk, we introduce a prototype of a compiler for homomorphic encryption using
@@ -450,7 +450,7 @@ year.
     <p>Our prototype can compile decryption/encryption, and the generated code is at most
             40% faster when run in 32 threads than the C++ implementation written using Intel HEXL.</p>
 
-    <h3 id="tutorial-flang" class="cgo-title" style="font-weight: bold;">A walk through Flang OpenMP lowering: From FIR to LLVMIR</h3>
+    <h3 id="tutorial-flang" class="cgo-title" style="font-weight: bold;">A walk through Flang OpenMP lowering: From FIR to LLVMIR<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>In this talk, we show the details of the lowering process from Source
     Fortran code to LLVMIR, through the Fortran Dialect of MLIR e.g FIR.
     We walk the listeners through an example OpenMP construct (SIMD) and
