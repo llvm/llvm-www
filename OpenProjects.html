@@ -20,6 +20,7 @@
               <li><a href="#llvm_mlgo_loop">Learning Loop Transformation Heuristics</a></li>
               <li><a href="#llvm_module_inliner">Evaluate and Expand the Module-Level Inliner</a></li>
               <li><a href="#llvm_undef_load">Remove undef: move uninitialized memory to poison</a></li>
+              <li><a href="#llvm_abi_export">Add ABI/API export annotations to the LLVM build</a></li>
             </ul>
           </li>
 
@@ -739,6 +740,59 @@
     <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a>
   </p>
 </div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_abi_export">Add API/ABI export annotations to the LLVM build</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+<p>Currently, all libraries inside LLVM export all their symbols publicly. When
+linking statically against them, the linker will remove unused symbols and this
+is not a problem.</p>
+
+<p>When the libraries are built as shared libraries however, the number of exported
+symbols is very large and symbols that are meant to be internal spill into the
+public ABI of the shared libLLVM.so.</p>
+
+<p>In this project, we’d like to change the default visibility of library symbols
+to “hidden”, add an annotation macro to LLVM and use the macro to gradually move
+the entire library in this direction. This will eventually enable building the
+shared libLLVM.so on Windows as well.<p>
+
+<p>In practice, this means adding -fvisibility=hidden to individual libraries and
+annotating exported symbols with the LLVM export annotation.</p>
+
+<p>We would like this work to be as unintrusive into other developer’s workflow as
+possible, so starting with a small internal library would be beneficial,
+e.g. one of the LLVM targets or IR passes.</p>
+
+<p>For further reading, there is a Discourse thread avaiable that discusses the
+idea behind this proposal:
+<a href="https://discourse.llvm.org/t/supporting-llvm-build-llvm-dylib-on-windows/58891">
+  Supporting LLVM_BUILD_LLVM_DYLIB on Windows</a>
+as well as the linked Phabricator review with a patch implementing the functionality:
+<a href="https://reviews.llvm.org/D109192">⚙ D109192 [WIP/DNM] Support:
+  introduce public API annotation support</a>
+None of this work has been committed yet but can be used as a starting point
+for this proposal.</p>
+  </p>
+  <p><b>Project size:</b> Medium</p>
+  <p><b>Difficulty:</b> Easy</p>
+  <p><b>Skills:</b> Build systems, CMake, LLVM</p>
+  <p><b>Expected outcomes</b>:
+    <ul>
+      <li>Export macro implemented and commited to LLVM</li>
+      <li>At least one internal target ported to the new export scheme</li>
+    </ul>
+  </p>
+  <p><b>Mentors:</b>
+    Timm Bäder, Tom Stellard
+  </p>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_subsection">
