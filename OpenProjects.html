@@ -33,6 +33,8 @@
               <li><a href="#clang-sa-structured-bindings">Implement support for
                 C++17 structured bindings in the Clang Static Analyzer</a>
               </li>
+	      <li><a href="#clang-improve-diagnostics">Improve Clang Diagnostics</a>
+	      </li>
             </ul>
           </li>
 
@@ -193,8 +195,6 @@
             </li>
             <li><a href="#header-generation">Generate annotated sources based on
               LLVM-IR analyses</a>
-            </li>
-            <li><a href="#header-clang-diagnostic">Improve Clang diagnostics</a>
             </li>
           </ul>
         </li>
@@ -910,6 +910,58 @@ for this proposal.</p>
   <p><b>Difficulty:</b> Medium/Hard</p>
   <p><b>Discourse</b>
     <a href="https://discourse.llvm.org/t/implement-support-for-c-17-structured-bindings-in-the-clang-static-analyzer/60588">
+      URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-improve-diagnostics">Improve Clang Diagnostics.</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Decription:</b>
+  Clang Diagnostics, which issues Warnings and Errors to the programmer, are a critical
+  feature of the compiler. Great diagnostics can have a significant impact on the
+  user experience of the compiler and increase their productivity.
+  </p>
+
+  <p>Recent improvements in GCC
+  <a href="https://developers.redhat.com/blog/2018/03/15/gcc-8-usability-improvements"> [1] </a>
+  <a href="https://developers.redhat.com/blog/2019/03/08/usability-improvements-in-gcc-9/"> [2] </a>
+  shows that there is significant headroom to improve diagnostics
+  (and user interactions in general). It would be a very impactful project
+  to survey and identify all the possible improvements to clang on this
+  topic and start redesigning the next generation of our diagnostics.
+  </p>
+
+  <p>
+  In addition, we will also make conclusions on issues reported on the LLVM Github Issue page labeled
+  with <a href="https://github.com/llvm/llvm-project/labels/clang%3Adiagnostics"> clang-diagnostics</a>
+  and if they need fixing, we will prepare patches otherwise simply close them.
+  </p>
+
+  <p><b>Expected outcomes</b>:
+  Diagnostics will be improved:
+    <ul>
+      <li>Improve diagnostic aesthetics</li>
+      <li>Cover missing diagnostics</li>
+      <li>Reduce false positive rate</li>
+      <li>Reword diagnostics</li>
+    </ul>
+  </p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/AaronBallman>Aaron Ballman</a>,
+    <a href=https://github.com/erichkeane>Erich Keane</a>,
+    <a href=https://github.com/xgupta>Shivam Gupta</a></p></p>
+
+  <p><b>Desirable skills:</b> C++ coding experience</p>
+  <p><b>Project type:</b> Large/350 hr</p>
+
+  <p><b>Discourse</b>
+    <a href="https://discourse.llvm.org/t/improve-clang-diagnostics/61521">
       URL</a>
   </p>
 </div>
@@ -2627,29 +2679,6 @@ are opened to GSOC. Feel free to propose your own ideas as well on
   <p><b>Desirable skills:</b>
   Intermediate knowledge of C++ and shell scripting
   </p>
-</div>
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="header-clang-diagnostic">Improve Clang Diagnostics</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Decription:</b>
-  Clang diagnostics (warnings and errors) issues to the programmer are a critical
-  feature of the compiler. Great diagnostics can have a signifiant impact on the
-  user experience of the compiler and increase their productivity.
-  </p>
-
-  <p><a href="https://developers.redhat.com/blog/2019/03/08/usability-improvements-in-gcc-9/">
-  Recent improvements in GCC 9.0</a> show that there is significant headroom to
-  improve diagnostics (and user interactions in general). It would be a very
-  impactful project to survey and identify all the possible improvements to clang
-  on this topic, and start resigning the next generation of our diagnostics.
-  </p>
-
-  <p><b>Desirable skills:</b> C++ coding experience</p>
 </div>
 
 <!-- *********************************************************************** -->
