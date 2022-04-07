@@ -86,7 +86,10 @@ year.
                  Subhajit Roy</p>
           </td>
           <td>
-              <p><a href="#hot-path">The Hot Path SSA Form in LLVM</a></p>
+              <p>
+                  <a href="#hot-path">The Hot Path SSA Form in LLVM</a>
+                  <br/><span style="font-family: monospace;">[<a href="slides/The.Hot.Path.SSA.Form.in.LLVM.pdf">slides</a>]</span>
+              </p>
           </td>
           <td>
               <p>OPT Analysis, MLIR</p>
@@ -104,8 +107,10 @@ year.
               </p>
           </td>
           <td>
-              <p><a href="#poset-rl">POSET-RL: Phase ordering for Optimizing Size and Execution Time
-                      using Reinforcement Learning</a></p>
+              <p>
+                  <a href="#poset-rl">POSET-RL: Phase ordering for Optimizing Size and Execution Time using Reinforcement Learning</a>
+                  <br/><span style="font-family: monospace;">[<a href="slides/POSET-RL.Phase.ordering.for.Optimizing.Size.and.Execution.Time.using.Reinforcement.Learning.pdf">slides</a>]</span>
+              </p>
           </td>
           <td>
               <p>Opt, Code size, ML</p>
@@ -159,8 +164,10 @@ year.
               <p>Mats Petersson</p>
           </td>
           <td>
-              <p> <a href="#compiling-running">Compiling, running and benchmarking SNAP with LLVM Flang -
-                      experiences with a new compiler</a></p>
+              <p>
+                  <a href="#compiling-running">Compiling, running and benchmarking SNAP with LLVM Flang - experiences with a new compiler</a>
+                  <br/><span style="font-family: monospace;">[<a href="slides/Building.and.running.SNAP.using.LLVM.Flang.pdf">slides</a>]</span>
+              </p>
           </td>
           <td>
               <p>Flang, Application, OpenMP</p>
@@ -176,7 +183,10 @@ year.
                   Ehsan Amiri</p>
           </td>
           <td>
-              <p><a href="#anatomy-optimized">An Anatomy of Optimized Matrix Multiplication on AArch64</a></p>
+              <p>
+                  <a href="#anatomy-optimized">An Anatomy of Optimized Matrix Multiplication on AArch64</a>
+                  <br/><span style="font-family: monospace;">[<a href="slides/An.Anatomy.of.Optimized.Matrix.Multiplication.in.AArch64.pdf">slides</a>]</span>
+              </p>
           </td>
           <td>
               <p>DSL, IR</p>
@@ -251,6 +261,7 @@ year.
         </td>
         <td>
             <p><a href="#tutorial-flang">[Tutorial] A walk through Flang OpenMP lowering: From FIR to LLVMIR</a>
+            <br/><span style="font-family: monospace;">[<a href="slides/A.walk.through.Flang.OpenMP.lowering.From.FIR.to.LLVMIR.pdf">slides</a>]</span>
             </p>
         </td>
         <td>
@@ -283,13 +294,13 @@ year.
 <div class="www_sectiontitle">Abstracts</div>
 
     <h3 id="keynote"  class="cgo-title" style="font-weight: bold;">Opaque Pointers Are Coming <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
-    <p>TLLVM is currently finalizing the migration from typed pointers (i32*) to opaque pointers (ptr) 
-        -- the likely largest intermediate representation change in LLVM's history. In this talk, 
-        we'll discuss the motivations for the change, how it will affect developers working on/with 
-        LLVM in practice, and why this migration took such a long time. We'll also briefly cover 
+    <p>TLLVM is currently finalizing the migration from typed pointers (i32*) to opaque pointers (ptr)
+        -- the likely largest intermediate representation change in LLVM's history. In this talk,
+        we'll discuss the motivations for the change, how it will affect developers working on/with
+        LLVM in practice, and why this migration took such a long time. We'll also briefly cover
         possible future IR changes based on opaque pointers.
     </p>
-    
+
 
     <h3 id="hot-path"  class="cgo-title" style="font-weight: bold;">The Hot Path SSA Form in LLVM<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>The Static Single Assignment (SSA) form is the most popular representation used in
@@ -305,31 +316,31 @@ year.
             analyses by building a SpecSCCP pass &mdash;a speculative variant of Wegman and Zadeck&rsquo;s Sparse
             Conditional Constant Propagation algorithm.</p>
 
-        
+
     <h3 id="poset-rl" class="cgo-title" style="font-weight: bold;">POSET-RL: Phase ordering for Optimizing Size and
               Execution Time using Reinforcement Learning<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
-      
+
       <p>The ever increasing memory requirements of several applications has led to increased
               demands which might not be met by embedded devices. Constraining the usage of memory in such cases is of
               paramount importance. It is important that such code size improvements should not have a negative impact on
               the runtime. Improving the execution time while optimizing for code size is a non-trivial but a significant
               task.</p>
-      
+
       <p>The ordering of standard optimization sequences in modern compilers is fixed, and are
               heuristically created by the compiler domain experts based on their expertise. However, this ordering is
               sub-optimal, and does not generalize well across all the cases.</p>
-      
+
       <p>We present a reinforcement learning based solution to the phase ordering problem,
               where the ordering improves both the execution time and code size. We propose two different approaches to
               model the sequences: one by manual ordering, and other derived from Oz sequences by creating a graph called
               Oz Dependence Graph (ODG). Our approach uses minimal data as training set, and is integrated with
               LLVM.</p>
-      
+
       <p>We show results on X86 and AArch64 architectures using the benchmarks from SPEC-CPU
               2006, SPEC-CPU 2017 and MiBench. We observe that the proposed model based on ODG outperforms the Oz sequence
               both in terms of size and execution time by 6.19% and 11.99% in SPEC 2017 benchmarks, on an average.
       </p>
-  
+
 
     <h3 id="learning-combine" class="cgo-title" style="font-weight: bold;">Learning to combine Instructions in LLVM
             Compiler<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
@@ -388,7 +399,7 @@ year.
             miss rate of only 0.2%. This GEMM IR will be shipped together with Huawei&#39;s BiSheng compiler, a compiler
             based on the open source LLVM project. The presentation will focus on how to best use the techniques for
             high-performance GEMM.</p>
-    
+
     <p>There are many well-established optimization techniques for GEMM, but their
             effectiveness doesn&#39;t scale well over a wide range of matrix sizes. To obtain an optimized MM for a
             general size, from the small to the large, the challenge is to choose the appropriate techniques for
@@ -401,7 +412,7 @@ year.
             128-by-128 MM, but as the matrix size increases into the thousands and cache locality decreases, the
             performance gain from outer products quickly degrades, and tiling and packing are needed to improve
             caching.</p>
-    
+
     <p>We will demonstrate how to best choose the matrix sizes for the micro- and
             macro-kernels based on the platform. We present optimized GEMM on AArch64 for the small, medium and large
             sizes: a 4-by-4 MM micro-kernel hand-vectorized with the NEON vector infrastructure, a 128-by-128
@@ -409,7 +420,7 @@ year.
             packing. Alongside a tutorial of these techniques themselves, we will demonstrate how to best use the MM
             kernel of a smaller size in the MM of a larger size, and provide a deeper understanding of why each
             technique is most effective on its corresponding matrix size.</p>
-    
+
 
     <h3 id="improving-openmp" class="cgo-title" style="font-weight: bold;">Improving the OpenMP Offloading Driver: LTO, libraries,
             and toolchains<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
@@ -428,7 +439,7 @@ year.
             program. The Crash-Analyzer consists of Corefile Reader, Decompiler, and Analyzer. It takes a corefile and
             the corresponding executable binary and attempts to identify the function that is responsible for the crash.
             Crash-Analyzer also outputs a backward taint data flow graph which can be helpful for developers.</p>
-    
+
     <h3 id="prototyping-compiler" class="cgo-title" style="font-weight: bold;">Prototyping a compiler for homomorphic encryption using
             MLIR<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
     <p>Homomorphic encryption is an encryption scheme in cryptography that provides a set of
@@ -441,7 +452,7 @@ year.
             arrays representing polynomials.
     Successfully applying loop optimizations can significantly boost the performance of
             the operations.</p>
-    
+
     <p>In this talk, we introduce a prototype of a compiler for homomorphic encryption using
             MLIR.</p>
     <p>It takes a program that describes polynomial operations and compiles it into LLVM
