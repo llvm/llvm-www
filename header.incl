@@ -101,7 +101,7 @@
   <a href="http://green.lab.llvm.org/green/">Green Dragon</a><br>
   <a href="http://lnt.llvm.org/">LNT</a><br>
   <a href="/reports/scan-build/">Scan-build</a><br>
-  <a href="http://lab.llvm.org:8080/coverage/coverage-reports/index.html">llvm-cov</a><br>
+  <a href="https://lab.llvm.org/coverage/coverage-reports/index.html">llvm-cov</a><br>
 </div>
 
 <br>
