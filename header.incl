@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/download.html#14.0.0"><b>LLVM&nbsp;14.0.0</b></a><br>
+<a href="https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.4"><b>LLVM&nbsp;14.0.4</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">Fedora Snapshot Packages</a><br>
