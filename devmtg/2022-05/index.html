@@ -78,13 +78,13 @@ and interesting ways.</li>
 <b>Keynotes</b>
 </p>
 <p>
-MCA Daemon: Hybrid Throughput Analysis Beyond Basic Blocks [ Video ] [ Slides ]<br>
+MCA Daemon: Hybrid Throughput Analysis Beyond Basic Blocks [ <a href="https://youtu.be/ZGEP7JEIKNo">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-MCA-Deamon.pdf">Slides</a> ]<br>
 <i>Min-Yih Hsu, University of California, Irvine</i><br>
 <br>Estimating instruction-level throughput (for example, predicting the cycle counts) is critical for many applications that rely on tightly calculated and accurate timing bounds. In this talk, we will present a new throughput analysis tool, MCA Daemon (MCAD). It is built on top of LLVM MCA and combines the advantages of both static and dynamic throughput analyses, providing a powerful, fast, and easy-to-use tool that scales up with large-scale programs in the real world.
 </p>
 
 <p>
-Finding Missed Optimizations Through the Lens of Dead Code Elimination [ Video ] [ Slides ]<br>
+Finding Missed Optimizations Through the Lens of Dead Code Elimination [ <a href="https://youtu.be/jD0WDB5bFPo">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-FindingMissedOptimizations.pdf">Slides</a> ]<br>
 <i>Theodoros Theodoridis, ETH Zurich</i><br>
 <br>Compilers are foundational software development tools and incorporate increasingly sophisticated optimizations.  Due to their complexity, it is difficult to systematically identify opportunities for improving them. Indeed, the automatic discovery of missed optimizations has been an important and significant challenge. We tackle this challenge by introducing a novel, effective approach that, in a simple and general manner, automatically identifies a wide range of missed optimizations. Our core insight is to leverage dead code elimination (DCE) to both analyze how well compilers optimize code and identify missed optimizations: (1) insert "optimization markers'' in the basic blocks of a given program, (2) compute the program's live/dead basic blocks using the "optimization markers'', and (3) identify missed optimizations from how well compilers eliminate dead blocks. We have implemented and open-sourced our approach in our tool DEAD. DEAD can automatically find missed optimizations and regressions and generate minimal test cases. We reported over a hundred such bugs in LLVM and GCC most of which have already been confirmed or fixed, demonstrating our work's strong practical utility.
 </p>
@@ -94,66 +94,66 @@ Finding Missed Optimizations Through the Lens of Dead Code Elimination [ Video ]
 </p>
 
 <p>
-Precise Polyhedral Analyses For MLIR using the FPL Presburger Library [ Video ] [ Slides ] <br>
+Precise Polyhedral Analyses For MLIR using the FPL Presburger Library [ <a href="https://youtu.be/Xg4RfgPIT-Y">Video</a> ] [ Slides ] <br>
 <i>Arjun Pitchanathan, University of Edinburgh</i><br>
 <br>Since March 2022, MLIR has a Presburger library, FPL, that provides native support for a full set of polyhedral analysis operators. This functionality has already been deployed in the loop fusion pass in the Affine dialect and has also been used to enable better dependence analysis in CIRCT. In this tutorial, we demonstrate several case studies showing how to use FPL’s Presburger arithmetic functionality in MLIR. Reasoning precisely about sets of integers enables accurate analytical cache models and brings powerful transformations to loop optimizers for ML and HPC, formal verification, and hardware design. Despite many efforts to use Presburger arithmetic in LLVM, their use has thus far been confined to optional extensions like Polly due to the need for external Presburger libraries (e.g., isl) that were not part of the core compiler toolchain. In the course of developing FPL we worked closely with the LLVM community to make FPL and Presburger arithmetic available in the MLIR upstream repositories. In this talk, we give a detailed walkthrough and demonstrate how they can be used. Our objective is to overcome the longstanding ‘vendor-lock-in’ and inflexibility of polyhedral toolchains by working with the LLVM community to provide targeted analyses that enhance the native components of the LLVM ecosystem.
 </p>
 
 <p>
-<b>Technical Talks></b>
+<b>Technical Talks</b>
 </p>
 
 <p>
- Prototyping a Compiler for Homomorphic Encryption Using MLIR [ Video ] [ Slides ] <br>
+ Prototyping a Compiler for Homomorphic Encryption Using MLIR [ <a href="https://youtu.be/QyxiqmO6_qQ">Video</a> ] [ Slides ] <br>
 <i>Juneyoung Lee, CryptoLab</i><br>
 <br>
 In this talk, we introduce a prototype of a compiler for homomorphic encryption using MLIR. Homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. Implementations of HE operations typically contain many loops on large arrays representing polynomials. Successfully applying loop optimizations can significantly boost the performance of the operations. Our prototype can compile decryption/encryption, and the generated code is at most 40% faster when run in multi threads than the C++ implementation written using Intel HEXL.
 </p>
 
 <p>
-Lightweight Instrumentation using Debug Information [ Video ] [ Slides ] <br>
+Lightweight Instrumentation using Debug Information [ <a href="https://youtu.be/vFWwJrOiVMM">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LightweightInstrumentationUsingDebugInformation.pdf">Slides</a> ] <br>
 <i>Ellis Hoag & Kyungwoo Lee, Meta</i><br>
 <br>Profile-Guided Optimization (PGO) has been shown to be useful not only in CPU-bound scenarios, but also in the mobile space where app size is a dominating issue. Collecting profiles on size-constrained devices is challenging because the instrumented binary can be doubled in size. Recently, we’ve introduced Lightweight Instrumentation that greatly improves the instrumented binary size overhead using debug info. In this talk we will describe how we reduced this overhead, how to create a minimal instrumented binary for function entry coverage only, and our future plans in this space.
 </p>
 
 <p>
-Custom benefit-driven inliner in Falcon JIT [ Video ] [ Slides ] <br>
+Custom benefit-driven inliner in Falcon JIT [ <a href="https://youtu.be/UfA3VlByloU">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-CustomBenefitDrivenInliner-in-FalconJIT.pdf">Slides</a> ] <br>
 <i>Artur Pilipenko, Azul</i><br>
 <br>This talk continues a series of technical talks about the internals of Azul's Falcon compiler. Inlining is a critically important compiler optimization. It is especially important in Java because of the extensive use of object-oriented abstractions. Introducing a custom downstream inliner in Falcon enabled great performance and compile-time improvements. In this session, we will give an overview of the inliner we implemented. We will talk about benefit-driven inlining heuristics, prioritization, a combination of top-down and bottom-up traversal orders, and clustering.
 </p>
 
 <p>
-LLD for Mach-O: The Journey [ Videos ] [ Slides ] <br>
+LLD for Mach-O: The Journey [ <a href="https://youtu.be/ynbFTojAOiY">Videos</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LLD-for-Mach-O.pdf">Slides</a> ] <br>
 <i>Jez Ng, Meta</i><br>
 <br>It's been more than two years since we started working on the Mach-O back-end of LLD. We can now successfully link a wide range of large programs, including Chromium as well as LLVM itself. LLD links programs roughly 2x faster than ld64, greatly improving the developer experience on large projects. In this talk, we'll go over some of the challenges we've faced, the reasoning behind the design decisions we've made, as well as our future plans for the linker.
 </p>
 
 <p>
-How to write a new compiler driver? The LLVM Flang perspective. [ Video ] [ Slides ] <br>
+How to write a new compiler driver? The LLVM Flang perspective. [ <a href="https://youtu.be/OvTiKWfhaho">Video</a> ] [ Slides ] <br>
 <i>Andrzej Warzynski, Arm</i><br>
 <br>When LLVM Flang (then "F18") was merged into LLVM as a sub-project in 2020, it had no compiler driver. Two years later, Flang enjoys a driver that integrates all components of the Flang sub-project, can generate executables and that shares the driver logic with Clang. In this presentation I will walk you through our journey.
 </p>
 
 <p>
-Developing an LLVM backend for the KV3 Kalray VLIW core [ Videos ] [ Slides ] <br>
+Developing an LLVM backend for the KV3 Kalray VLIW core [ <a href="https://youtu.be/4Xad8NDRYDI">Videos</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-DevelopingAnLLVMBackend-for-the-KV3KalrayVLIWCore.pdf">Slides</a> ] <br>
 <i>Cyril Six, Kalray</i><br>
 <br>Kalray is a semiconductor company. We design and produce a manycore architecture with 6-issue VLIW cores. We started writing a backend for our VLIW 3 years ago. This talk will describe our architecture and relate our experience in the development of its LLVM backend, including the challenges we faced, and a comparison between GCC and LLVM generated code on a few examples.
 </p>
 
 <p>
-Hardware loops in the IPU backend [ Videos ] [ Slides ] <br>
+Hardware loops in the IPU backend [ <a href="https://youtu.be/jZlGY4Eu314">Videos</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-HardwareLoops-in-the-IPUBackend.pdf">Slides</a> ] <br>
 <i>Janek van Oirschot, Graphcore</i><br>
 <br>Albeit rare, more and more of today’s architectures implement their own concept of hardware loops; A set of instructions designed to aid the workhorse of computational algorithms: loops. Like these hardware loop enabled architectures, Graphcore’s IPU architecture has multiple of its own hardware loops. This talk will explore IPU’s hardware loops, their use, functionality, constraints, and lowering pipeline within LLVM.
 </p>
 
 <p>
-Experiences of OS distributions using LLVM as their main toolchain [ Videos ] [ Slides ] <br>
+Experiences of OS distributions using LLVM as their main toolchain [ <a href="https://youtu.be/h9xg8Y8byIg">Videos</a> ] [ Slides ] <br>
 <i>Bernhard Rosenkränzer, Huawei Open Source Technology Center</i> <br>
 <br>A report from the toolchain maintainer of 2 OS distributions targeting 8 different processor architectures that have picked LLVM components (clang/clang++, lld, lldb, and in one case also libc++) as their main toolchain. What is going well? Where are other options still doing better? And more...
 </p>
 
 <p>
-Faust audio Domain Specific Language and LLVM [ Videos ] [ Slides ] <br>
+Faust audio Domain Specific Language and LLVM [ <a href="https://youtu.be/LVtH3BlMG0Y">Videos</a> ] [ Slides ] <br>
 <i>Stéphane Letz, GRAME</i> <br>
 <br>The talk will briefly present the Faust audio Domain Special Language for sound synthesis and audio processing, then how using the LLVM technology allows programmers to rapidly prototype and test their audio DSP programs, share the same code between several environments, and discover the best set of Faust compiler options to produce the fastest executable.
 </p>
@@ -165,13 +165,13 @@ Implicitly discovered, explicitly built Clang modules [ Videos ] [ Slides ] <br>
 </p>
 
 <p>
-Introduction to the IPU graph compiler and the use of LLVM [ Videos ] [ Slides ] <br>
+Introduction to the IPU graph compiler and the use of LLVM [ <a href="https://youtu.be/nr2ibjPg7bc">Videos</a> ] [ Slides ] <br>
 <i>David Bozier, Graphcore</i><br>
 <br>The IPU is a completely new kind of massively parallel processor, co-designed from the ground up with the Poplar® SDK, to accelerate machine intelligence. The compute and memory architecture are designed for AI scale-out. The hardware is developed together with the software, delivering a platform that is easy to use and excels at real-world applications. In this talk we will provide an overview of our IPU processor, the Poplar graph framework library and how it utilizes Clang and LLVM to enable users to write highly optimized C++ compute kernels that run on the IPU device.
 </p>
 
 <p>
-ez-clang C++ REPL for bare metal embedded devices [ Videos ] [ Slides ] <br>
+ez-clang C++ REPL for bare metal embedded devices [ <a href="https://youtu.be/_qYqEYh1nHE">Videos</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ezClang.pdf">Slides</a> ] <br>
 <i>Stefan Gränitz </i><br>
 <br>
 "ez-clang is an experimental Clang-based cross-compiler with a remote-JIT backend targeting very low-resource embedded devices. Compilation, linking and memory management all run on the host machine. Thus, the RPC endpoint on the device is very simple and only takes few kilobytes of flash memory. Right now, ez-clang supports 32-bit ARMv7-m Cortex devices (i.e. Arduino Due and QEMU LM3S811). Please find public previews on https://echtzeit.dev/ez-clang
@@ -180,7 +180,7 @@ Give it a try and hack with it on your own hardware! I am looking forward to dis
 </p>
 
 <p>
-SCEV-Based debuginfo salvaging in Loop Strength Reduction [ Videos ] [ Slides ] <br>
+SCEV-Based debuginfo salvaging in Loop Strength Reduction [ <a href="https://youtu.be/aok7taVFUWQ">Videos</a> ] [ Slides ] <br>
 <i>Chris Jackson, Graphcore</i><br>
 <br>A discussion of how Scalar Evolution has been used to improve debuginfo retention in the Loop trength Reduction pass by translating SCEVs for optimised-out locations and induction variables into DWARF expressions. This work was enabled by the addition of variadic dbg.value, or dbg.value that allow references to  multiple locations. This means that a DWARF program can combine results from multiple SCEVs that refer to multiple locations.
 </p>
@@ -191,19 +191,19 @@ SCEV-Based debuginfo salvaging in Loop Strength Reduction [ Videos ] [ Slides ] 
 </p>
 
 <p>
-How to Make Hardware with Maths: An Introduction to CIRCT's Scheduling Infrastructure [ Video ] [ Slides ] <br>
+How to Make Hardware with Maths: An Introduction to CIRCT's Scheduling Infrastructure [ <a href="https://youtu.be/tctEk7O5DU0">Video</a> ] [ Slides ] <br>
 <i>Julian Oppermann, Technical University of Darmstadt</i><br>
 <br>The LLVM incubator project CIRCT aims to provide an MLIR-based foundation for the next generation of modular hardware design tools. Scheduling is a common concern in this domain, for example in high-level synthesis (HLS) flows that build tailored, synchronous microarchitectures from untimed dataflow graphs. This talk gives a gentle introduction to CIRCT's scheduling abstractions and presents the currently available infrastructure—including extensible problem models, ready-to-use scheduler implementations and support for external solvers. We discuss current users of the infrastructure and outline future plans for this recent addition to the project.
 </p>
 
 <p>
-Improving debug locations for variables in memory [ Video ] [ Slides ] <br>
+Improving debug locations for variables in memory [ <a href="https://youtu.be/wSmveKsWSSY">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ImprovingDebugLocations-for-Variables-in-Memory.pdf">Slides</a> ] <br>
 <i>Orlando Cazalet-Hyams, SN Systems (Sony Interactive Entertainment</i><br>
 <br>LLVM generates suboptimal debug variable locations for variables in memory in optimised code. Due to a lack of information in the compiler, it uses a heuristic to decide whether to issue locations with low availability or locations that may be incorrect. We’ve been prototyping a new debug intrinsic which enables LLVM to make smarter decisions for these variables by connecting stores and source assignment markers. In this talk I will briefly outline the problem with the existing system, how the new system works - including how existing passes are affected - and discuss the accuracy and coverage improvements we've found so far.
 </p>
 
 <p>
-LLVM-MOS 6502 Backend: Having a Blast in the Past [ Video ] [ Slides ] <br>
+LLVM-MOS 6502 Backend: Having a Blast in the Past [ <a href="https://youtu.be/2lW3WHPtmKo">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LLVM-MOS-6502Backend.pdf">Slides</a> ] <br>
 <i>Daniel Thornburgh, Google</i><br>
 <br>LLVM-MOS is an out-of-tree Clang and LLVM backend for the MOS Technology 6502, the CPU behind the NES, Atari 2600/8-bit, BBC Micro, Commodore 64, and many more beloved devices. LLVM-MOS converts freestanding C/C++ into fairly efficient 6502 machine code, despite the 6502’s limited and heterogeneous registers, lack of stack-relative addressing modes, and 256-byte stack. This talk will explore the grab-bag of tricks that hoodwinked LLVM into supporting an almost 50-year-old architecture: "imaginary" registers, instruction set regularization, whole-program static stack allocation, and, of course, lots and lots of pseudo-instructions.
 </p>
