@@ -94,7 +94,7 @@ Finding Missed Optimizations Through the Lens of Dead Code Elimination [ <a href
 </p>
 
 <p>
-Precise Polyhedral Analyses For MLIR using the FPL Presburger Library [ <a href="https://youtu.be/Xg4RfgPIT-Y">Video</a> ] [ Slides ] <br>
+Precise Polyhedral Analyses For MLIR using the FPL Presburger Library [ <a href="https://youtu.be/Xg4RfgPIT-Y">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-PrecisePolyhedralAnalysesForMLIR.pdf">Slides</a> ] <br>
 <i>Arjun Pitchanathan, University of Edinburgh</i><br>
 <br>Since March 2022, MLIR has a Presburger library, FPL, that provides native support for a full set of polyhedral analysis operators. This functionality has already been deployed in the loop fusion pass in the Affine dialect and has also been used to enable better dependence analysis in CIRCT. In this tutorial, we demonstrate several case studies showing how to use FPL’s Presburger arithmetic functionality in MLIR. Reasoning precisely about sets of integers enables accurate analytical cache models and brings powerful transformations to loop optimizers for ML and HPC, formal verification, and hardware design. Despite many efforts to use Presburger arithmetic in LLVM, their use has thus far been confined to optional extensions like Polly due to the need for external Presburger libraries (e.g., isl) that were not part of the core compiler toolchain. In the course of developing FPL we worked closely with the LLVM community to make FPL and Presburger arithmetic available in the MLIR upstream repositories. In this talk, we give a detailed walkthrough and demonstrate how they can be used. Our objective is to overcome the longstanding ‘vendor-lock-in’ and inflexibility of polyhedral toolchains by working with the LLVM community to provide targeted analyses that enhance the native components of the LLVM ecosystem.
 </p>
@@ -165,7 +165,7 @@ Implicitly discovered, explicitly built Clang modules [ Videos ] [ Slides ] <br>
 </p>
 
 <p>
-Introduction to the IPU graph compiler and the use of LLVM [ <a href="https://youtu.be/nr2ibjPg7bc">Videos</a> ] [ Slides ] <br>
+Introduction to the IPU graph compiler and the use of LLVM [ <a href="https://youtu.be/nr2ibjPg7bc">Videos</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-Introduction-to-the-IPUGraphCompiler-and-the-use-of-LLVM.pdf">Slides</a> ] <br>
 <i>David Bozier, Graphcore</i><br>
 <br>The IPU is a completely new kind of massively parallel processor, co-designed from the ground up with the Poplar® SDK, to accelerate machine intelligence. The compute and memory architecture are designed for AI scale-out. The hardware is developed together with the software, delivering a platform that is easy to use and excels at real-world applications. In this talk we will provide an overview of our IPU processor, the Poplar graph framework library and how it utilizes Clang and LLVM to enable users to write highly optimized C++ compute kernels that run on the IPU device.
 </p>
@@ -191,7 +191,7 @@ SCEV-Based debuginfo salvaging in Loop Strength Reduction [ <a href="https://you
 </p>
 
 <p>
-How to Make Hardware with Maths: An Introduction to CIRCT's Scheduling Infrastructure [ <a href="https://youtu.be/tctEk7O5DU0">Video</a> ] [ Slides ] <br>
+How to Make Hardware with Maths: An Introduction to CIRCT's Scheduling Infrastructure [ <a href="https://youtu.be/tctEk7O5DU0">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-HowtoMakeHardwarewithMaths.pdf">Slides</a> ] <br>
 <i>Julian Oppermann, Technical University of Darmstadt</i><br>
 <br>The LLVM incubator project CIRCT aims to provide an MLIR-based foundation for the next generation of modular hardware design tools. Scheduling is a common concern in this domain, for example in high-level synthesis (HLS) flows that build tailored, synchronous microarchitectures from untimed dataflow graphs. This talk gives a gentle introduction to CIRCT's scheduling abstractions and presents the currently available infrastructure—including extensible problem models, ready-to-use scheduler implementations and support for external solvers. We discuss current users of the infrastructure and outline future plans for this recent addition to the project.
 </p>
@@ -211,25 +211,25 @@ LLVM-MOS 6502 Backend: Having a Blast in the Past [ <a href="https://youtu.be/2l
 <p><b>Lightning Talks</b></p>
 
 <p>
-LLVM office hours: addressing LLVM engagement and contribution barriers [ Video ] [ Slides ] <br>
+LLVM office hours: addressing LLVM engagement and contribution barriers [ <a href="https://youtu.be/xp7yQTIyxkw">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-OfficeHours.pdf">Slides</a> ] <br>
 <i>Kristof Beyls, Arm</i><br>
 <br>As part of registering for the 2021 LLVM dev meeting, participants were asked to answer a few questions about how the LLVM community could increase engagement and contributions. Out of the 450 people replying, the top 3 issues mentioned were "sometimes people aren't receiving detailed enough feedback on their proposals"; "people are worried to come across as an idiot when asking a question on the mailing list/on record"; "People cannot find where to start; where to find documentation; etc." These were discussed in the community.o workshop at the 2021 LLVM dev meeting, and a summary of that discussion was presented by Adelina Chalmers as a keynote session, see  2021 LLVM Dev Mtg "Deconstructing the Myth: Only real coders contribute to LLVM!? - Takeaways” One of the solutions suggested to help address those top identified barriers from the majority of participants is introducing the concept of "office hours". We have taken some small steps since then to make "office hours" a reality. In this lightning talk, I will talk about what issues"office hours" is aiming to address; how both newbies and experienced contributors can get a lot of value out of them; and where we are in implementing this concept and how you can help for them to be as effective as possible.
 </p>
 
 <p>
-llsoftsecbook: an open source book on low-level software security for compiler developers [ Video ] [ Slides ] <br>
+llsoftsecbook: an open source book on low-level software security for compiler developers [ <a href="https://youtu.be/GeGvkrkHrh8">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-llsoftsecbook.pdf">Slides</a> ] <br>
 <i>Kristof Beyls, Arm</i><br>
 <br>Many compiler engineers work on security hardening features and many of them feel their work would benefit from a better understanding of attacks and hardening techniques. Therefore, we recently started an open source book titled "Low Level Software Security for Compiler developers" at https://github.com/llsoftsec/llsoftsecbook/. It aims to help compiler developers improve their knowledge about security hardening; ultimately leading to more innovation and better implementations of security features.
 </p>
 
 <p>
-Exploring Clang/LLVM optimization on programming horror [ Video ] [ Slides ] <br>
+Exploring Clang/LLVM optimization on programming horror [ <a href="https://youtu.be/21qjU6ml7vk">Video</a> ] [ Slides ] <br>
 <i>Matthieu Dubet </i><br>
 <br>Exploring how Clang/LLVM manages to transform a linear time complexity algorithm to a constant time one.
 </p>
 
 <p>
-Flang update [ Video ] [ Slides ]<br>
+Flang update [ <a href="https://youtu.be/FoIjafZGDdE">Video</a> ] [ Slides ]<br>
 <i>Kiran Chandramohan, Arm</i><br>
 <br>F18/Flang was accepted as the Fortran frontend of LLVM in 2019. The project joined the monorepo in 2020. Development of a large chunk of code dealing with the lowering of the parse-tree to FIR (Fortran IR) continued in a fork of the llvm-project. In the last year, a significant effort went in to upstreaming this fork. Most of this code is upstreamed and all development has shifted to the llvm-project monorepo. Much development effort has also gone into adding a runtime and lowering for Fortran 95. In parallel, great progress has been achieved on adding a driver, support for OpenMP 1.1+ and OpenACC. In this talk, I will summarize the developmental activities for the last year, the current status and future work.
 </p>
@@ -237,19 +237,19 @@ Flang update [ Video ] [ Slides ]<br>
 <p><b>Student Talks</b></p>
 
 <p>
-Using link-time call graph embedding to streamline compiler-assisted instrumentation selection [ Video ] [ Slides ]<br>
+Using link-time call graph embedding to streamline compiler-assisted instrumentation selection [ <a href="https://youtu.be/I5DaDeF7cmI">Video</a> ] [ Slides ]<br>
 <i>Sebastian Kreutzer, TU Darmstadt</i></br>
 <br>CaPI is an instrumentation tool that combines static analysis with user-direction to create low-overhead configurations for accurate performance measurements of scientific applications. We present a prototype implementation of an improved instrumentation toolchain for CaPI that generates a whole-program call graph at link-time and embeds it into the binary. We combine this approach with a dynamic instrumentation method based on XRay.
 </p>
 
 <p>
-Automated Batching and Differentiation of Scalar Code in Enzyme [ Video ] [ Slides ] <br>
+Automated Batching and Differentiation of Scalar Code in Enzyme [ <a href="https://youtu.be/edvaLAL5RqU">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-AutomatedBatchingandDifferentiationofScalarCodeinEnzyme.pdf">Slides</a> ] <br>
 <i>Tim Gymnich, Technical University of Munich</i><br>
 <br>Derivatives are the key to many important problems in computing, such as machine learning, and optimization. Building on the Enzyme compiler plugin for automatic differentiation, we add forward mode automatic differentiation, batching and the emission of vectorization-ready IR for arbitrary scalar code to unlock significant performance boosts.
 </p>
 
 <p>
-Extending Sulong (an LLVM bitcode runtime) for cross-language interoperability between C++/Swift and Java, JavaScript or Python [ Video ] [ Slides ] <br>
+Extending Sulong (an LLVM bitcode runtime) for cross-language interoperability between C++/Swift and Java, JavaScript or Python [ <a href="https://youtu.be/Z0imCJmfMAk">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ExtendingSulong.pdf">Slides</a> ] <br>
 <i>Christoph Pichler, Johannes Kepler University, Linz</i><br>
 <br>Sulong is an execution engine for LLVM bitcode and is part of GraalVM, a polyglot virtual machine that can execute programs written in multiple programming languages. Besides advanced tooling (e.g., debugging, monitoring and profiling), GraalVM supports cross-language interoperability as well, which includes languages that can be compiled to LLVM bitcode, such as Swift and C++. Although Sulong runs LLVM bitcode within GraalVM, the implemented interoperability concept also takes the corresponding source language (C++/Swift) semantics into account (e.g., where to apply dynamic binding). In this talk, we will show that Swift/C++ code can be used to treat objects from different languages the same way as Swift/C++ objects, and vice versa. Moreover, we will demonstrate how to use object-oriented concepts (such as interfaces and information hiding) across those languages.
 </p>
