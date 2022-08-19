@@ -9,12 +9,12 @@ address img { float: right; width: 88px; height: 31px; }
 address     { clear: right; }
 
 /* Main website */
-.www_title  { font-family: "Georgia,Palatino,Times,Roman";
+.www_title  { font-family: "Georgia","Palatino","Times","Roman";
               font-size: 33pt; 
               text-align: center;}
 
 .www_sidebar  { text-align: center; 
-               font-family: "Georgia,Palatino,Times,Roman";
+               font-family: "Georgia","Palatino","Times","Roman";
                font-size: 12pt;
                margin-left: 0em; margin-right: 0em;
                padding: 0.15em 0.15em 0.15em .15em; 
@@ -27,7 +27,7 @@ address     { clear: right; }
                border-style: solid none solid none;
                text-align: center;
                vertical-align: middle;
-               font-family: "Georgia,Palatino,Times,Roman";
+               font-family: "Georgia","Palatino","Times","Roman";
                font-weight: bold; font-size: 18pt;
                background: url("img/lines.gif");
                padding: 0.1em 0.1em 0.1em .1em; 
