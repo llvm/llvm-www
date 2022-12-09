@@ -4,7 +4,6 @@
 <div style="float:left; width:68%;">
 <br>
 <div style="width:100%;">
-<img src="">
 <table><tr>
 <td valign="top">
 <ol>
@@ -36,7 +35,7 @@
 <p>
 Paths towards unifying LLVM and MLIR<br>
 Speaker: Nicolai Hähnle<br>
-[<a href=”https://youtu.be/VbFqA9rvxPs”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Keynote1-PathsTowardsUnifyingLLVMandMLIR.pdf”>Slides</a> ]	
+[ <a href="https://youtu.be/VbFqA9rvxPs">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Keynote1-PathsTowardsUnifyingLLVMandMLIR.pdf">Slides</a> ]	
 </p><p>
 Where do you see the LLVM project 10 years from now? Intermediate representation (IR) plays a central role in this question. LLVM IR can be represented on top of MLIR's data structures, but in practice it uses its own data structures. That creates a barrier in compilation pipelines and has other downsides. Is there hope for unification on a single set of data structures? How can we move
 towards such a goal? Let me show you a framework for thinking about these questions and some concrete ideas for how we can move in the right direction.
@@ -45,7 +44,7 @@ towards such a goal? Let me show you a framework for thinking about these questi
 <p>
 Implementing Language Support for ABI-Stable Software Evolution in Swift and LLVM<br>
 Speaker: Doug Gregor<br>
-[Video] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Keynote2-ImplementingLanguageSupportforABI-Swift.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/Keynote2-ImplementingLanguageSupportforABI-Swift.pdf">Slides</a> ]
 </p><p>
 Unlike its peer languages, Swift has made the deliberate decision to embrace a stable Application Binary Interface (ABI) along with native code compilation, such that separately-compiled software modules can evolve independently without breaking binary compatibility. Come learn about the impact that a stable ABI has on the design of a programming language and its implementation in LLVM.	
 </p>
@@ -56,7 +55,7 @@ Unlike its peer languages, Swift has made the deliberate decision to embrace a s
 <p>
 Implementing the Unimplementable: Bringing HLSL's Standard Library into Clang<br>
 Speaker: Chris Bieneman<br>
-[<a href=”https://youtu.be/DmDsgPLFOZA”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/TechTalk1-Implementing-The-Unimplementable-HLSL.pdf”>Slides</a> ]
+[<a href="https://youtu.be/DmDsgPLFOZA">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk1-Implementing-The-Unimplementable-HLSL.pdf">Slides</a> ]
 	
 </p><p>
 The HLSL programming language has a rich library of built in types that model semantics which can't be written in HLSL. Clang's implementation of HLSL leverages existing extensions and abstractions with a few tweaks here and there to implement the unimplementable datatypes in valid Clang ASTs.
@@ -65,7 +64,7 @@ The HLSL programming language has a rich library of built in types that model se
 <p>
 Heterogeneous Debug Metadata in LLVM<br>	
 Speaker: Scott Linder<br>
-[<a href=”https://youtu.be/HEhigWu_0uE”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/TechTalk2-HeterogeneousDebugMetadata.pdf”>Slides</a> ]
+[<a href="https://youtu.be/HEhigWu_0uE">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk2-HeterogeneousDebugMetadata.pdf">Slides</a> ]
 </p><p>
 An alternative debug information representation for LLVM is proposed, which removes classes of redundant representations of semantically equivalent expressions and makes expression evaluation context-free. These changes open the possibility of general support for heterogeneous architectures, as well as more aggressive optimizations.	
 </p>
@@ -73,7 +72,7 @@ An alternative debug information representation for LLVM is proposed, which remo
 <p>
 Clang, Clang: Who's there? WebAssembly!	<br>
 Speaker: Paulo Matos <br>
-[<a href=”https://youtu.be/lwPg_Vjs7p4”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk3-ClangClang-WebAssembly.pdf”>Slides</a> ]
+[<a href="https://youtu.be/lwPg_Vjs7p4">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk3-ClangClang-WebAssembly.pdf">Slides</a> ]
 </p><p>
 An introduction to the Reference Types and Garbage Collection proposal along with what already has been upstreamed and how we propose to integrate the trickier bits into Clang/LLVM.	
 </p>
@@ -81,7 +80,7 @@ An introduction to the Reference Types and Garbage Collection proposal along wit
 <p>
 MC/DC: Enabling easy-to-use safety-critical code coverage analysis with LLVM <br>
 Speaker: Alan Phipps <br>
-[<a href=”https://youtu.be/RmX_8GxxTbs”>Video<?a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk4-MCDC-EnablingSafetyCriticalCodeCoverage.pdf”>Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk4-MCDC-EnablingSafetyCriticalCodeCoverage.pptx”>PPT</a> ]
+[<a href="https://youtu.be/RmX_8GxxTbs">Video<?a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk4-MCDC-EnablingSafetyCriticalCodeCoverage.pdf">Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk4-MCDC-EnablingSafetyCriticalCodeCoverage.pptx">PPT</a> ]
 </p><p>
 Modified Condition/Decision Coverage (MC/DC) is a comprehensive code coverage criterion that is extremely useful in weeding out hidden bugs and guaranteeing robustness.  MC/DC is very handy for average developers as well as those in the safety-critical embedded Industrial, Automotive, and Aviation markets where it is required. In this talk, I will show how we extended LLVM’s Source-based Code Coverage infrastructure to support MC/DC by tracking test vectors, which represent the sequential true/false evaluation of conditions through a boolean expression.	
 </p>
@@ -89,7 +88,7 @@ Modified Condition/Decision Coverage (MC/DC) is a comprehensive code coverage cr
 <p>
 What does it take to run LLVM Buildbots? <br>	
 Speaker: David Spickett <br>
-[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk5-WhatDoesItTakeToRunLLVMBuildbots.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk5-WhatDoesItTakeToRunLLVMBuildbots.pdf">Slides</a> ]
 </p><p>
 Many of us have broken a Buildbot at least once, but do you know what goes into running them? Why are there so many configurations and who are the people behind it all? Attend this talk to see behind the scenes of one of the largest providers of LLVM Buildbots.
 </p>
@@ -97,7 +96,7 @@ Many of us have broken a Buildbot at least once, but do you know what goes into 
 <p>
 llvm-gitbom: Building Software Artifact Dependency Graphs for Vulnerability Detection	 <br>
 Speaker: Bharathi Seshadri, Ed Warnicke <br>
-[<a href=”https://youtu.be/58spqN4ksac”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk6-llvm-gitbom.pdf”>Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk6-llvm-gitbom.pptx”>PPT</a> ]
+[<a href="https://youtu.be/58spqN4ksac">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk6-llvm-gitbom.pdf">Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk6-llvm-gitbom.pptx">PPT</a> ]
 </p><p>
 What if we could know the complete and reproducible artifact tree for every binary executable, shared object, container, etc – including all its dependencies – and we could efficiently cross-reference that against a database of known vulnerabilities before deployment? If we had had that information, could we have remediated vulnerabilities such as Log4Shell faster? Might it even help open-source maintainers identify at-risk dependencies sooner? GitBOM is an open-source initiative to construct a verifiable Artifact Dependency Graph (ADG) and enable automatic, verifiable artifact resolution.  In this talk, we will explain about GitBOM and demonstrate a use case on CVE detection using llvm-gitbom. Given a version of OpenSSL, we will show how we detect if this version has any vulnerabilities that are not fixed and what if any, have been fixed in that version.	
 </p>
@@ -105,7 +104,7 @@ What if we could know the complete and reproducible artifact tree for every bina
 <p>
 CuPBoP: CUDA for Parallelized and Broad-range Processors <br>
 Speaker: Ruobing Han <br>
-[<a href=”https://youtu.be/jlo5NM62MnI”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk7-CuPBoP-CUDAForParallelizedBroadRangeProcessors.pdf”>Slides</a> ]
+[<a href="https://youtu.be/jlo5NM62MnI">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk7-CuPBoP-CUDAForParallelizedBroadRangeProcessors.pdf">Slides</a> ]
 </p><p>
 We propose and build a framework that executes CUDA programs on non-NVIDIA devices without relying on any other programming languages. In particularly, compared with existing CUDA on CPU frameworks, our framework achieves the highest coverage and performance on X86, AArch64, and RISC-V.	
 </p>
@@ -113,7 +112,7 @@ We propose and build a framework that executes CUDA programs on non-NVIDIA devic
 <p>
 Uniformity Analysis for Irreducible CFGs <br>
 Speaker: Sameer Sahasrabuddhe <br>
-[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk8-UniformityAnalysisForIrreducibleCFGs.pdf”>Slides</a> ]	
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk8-UniformityAnalysisForIrreducibleCFGs.pdf">Slides</a> ]	
 </p><p>
 We present a definition of thread convergence that is reasonable for targets that execute threads in groups (e.g., GPUs). This is accompanied by a definition of uniformity (i.e., when do different threads compute the same value), and a *uniformity analysis* that extends the existing divergence analysis to cover irreducible control-flow.	
 </p>
@@ -121,7 +120,7 @@ We present a definition of thread convergence that is reasonable for targets tha
 <p>
 Using Content-Addressable Storage in Clang for Caching Computations and Eliminating Redundancy <br>
 Speaker: Steven Wu, Ben Langmuir <br>
-[ Video ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk9-UsingContent-AddressableStorage.pdf”>Slides</a> ]
+[ Video ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk9-UsingContent-AddressableStorage.pdf">Slides</a> ]
 </p><p>
 In this presentation, we introduce a Content-Addressable Storage (CAS) library for LLVM and use it to create a compilation caching system for Clang. We isolate the functional computations from filesystem and execution environment and model input discovery explicitly, caching computations based on explicit inputs from the CAS. We increase cache hits between related compiler invocations by caching fine-grained actions/requests that prune and canonicalize their inputs. We also explore modeling object file contents, such as debug information, as a CAS graph, in order to deduplicate and reduce the redundancy in the output format, thus reducing the storage cost for the cached compilation artifacts.	
 </p>
@@ -129,7 +128,7 @@ In this presentation, we introduce a Content-Addressable Storage (CAS) library f
 <p>
 Direct GPU Compilation and Execution for Host Applications with OpenMP Parallelism <br>	
 Speaker: Shilei Tian, Joseph Huber <br>
-[<a href=”https://youtu.be/MT0vQgXbGmg”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk10-DirectGPUCompilationAndExecution.pdf”>Slides</a> ]
+[<a href="https://youtu.be/MT0vQgXbGmg">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk10-DirectGPUCompilationAndExecution.pdf">Slides</a> ]
 </p><p>
 In this talk, we will present a direct GPU compilation scheme that leverages the portable target offloading interface provided by LLVM/OpenMP Utilizing this infrastructure allows us to compile an existing host application for the GPU and execute it there with only a minimal wrapper layer for the user code, command line arguments, and a compiler provided GPU implementation of C/C++ standard library functions. The C/C++ library functions are partially implemented for direct device execution and otherwise fallback to remote procedure call (RPC) to call host functions transparently. Our proposed prototype will allow users to quickly compile for, and test on, the GPU without explicitly handling kernel launches, data mapping, or host-device synchronization. We will demonstrate our implementation using three proxy applications with host OpenMP parallelism and three microbenchmarks to test the correctness of our prototype GPU compilation.	
 </p>
@@ -137,7 +136,7 @@ In this talk, we will present a direct GPU compilation scheme that leverages the
 <p>
 Linker Code Size Optimization for Native Mobile Applications	 <br>
 Speaker: Gai Liu <br>
-[<a href=”https://youtu.be/s1u_E_6_fvY”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk11-LinkerCodeSizeOptimization.pdf”>Slides</a> ]
+[<a href="https://youtu.be/s1u_E_6_fvY">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk11-LinkerCodeSizeOptimization.pdf">Slides</a> ]
 </p><p>
 Modern mobile applications have grown rapidly in binary size, which restricts user growth and updates for existing users. Thus, reducing the binary size is important for application developers. 
 </p><p>
@@ -147,7 +146,7 @@ In this paper, we propose several novel optimization techniques that do not requ
 <p>
 Minotaur: A SIMD Oriented Superoptimizer <br>	
 Speaker: Zhengyang Liu <br>
-[<a href=”https://youtu.be/VIVWtndKErQ”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk12-Minotaur.pdf”>Slides</a> ]
+[<a href="https://youtu.be/VIVWtndKErQ">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk12-Minotaur.pdf">Slides</a> ]
 </p><p>
 Minotaur is a synthesis-based superoptimizer for the LLVM intermediate representation, that focuses on optimizing LLVM’s portable vector operations as well as intrinsics specific to the Intel AVX extensions. The goal is to automatically discover transformation rules that are missing from LLVM, which are challenging due to the large number of intrinsics, their semantic complexity, and their counterintuitive costs. Minotaur has found many new transformations for vectors instruction. We have evaluated Minotaur on various micro-benchmarks and real-world applications such as GNU MP library. The micro-benchmarks optimized by Minotaur show speedups up to 1.4x, and the real-world applications show speedups up to 1.06x.
 </p>
@@ -155,7 +154,7 @@ Minotaur is a synthesis-based superoptimizer for the LLVM intermediate represent
 <p>
 ML-based Hardware Cost Model for High-Level MLIR <br>
 Speaker: Dibyendu Das <br>	
-[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk13-ML-basedHardwareCostModel-MLIR.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk13-ML-basedHardwareCostModel-MLIR.pdf">Slides</a> ]
 </p><p>
 Compilers often need to make estimates of hardware characteristics during early optimization passes, which are available only later such as execution unit utilization, number of register spills, latency, throughput etc. Often a hand-written static/analytical hardware cost model is built into the compiler, for example, LLVM's TTI. However, the need for more sophisticated and varied predictions has become more pronounced with the development of deep learning compilers which need to optimize dataflow graphs. Such compilers usually employ a much higher level MLIR form as an IR representation. A static/analytical cost model is cumbersome and error prone for such systems. We develop a machine learning-based cost model for high-level MLIR which can predict different target variables of interest such as CPU/GPU/xPU utilization, instructions executed, register usage etc. by considering the incoming MLIR as a text input a la NLP models. The learnt model can be deployed to estimate the target variable of interest for a new computation graph. We report early work in progress results of developing such a model and show that these models can provide reasonably good estimates with low error bounds.
 </p>
@@ -163,7 +162,7 @@ Compilers often need to make estimates of hardware characteristics during early 
 <p>	
 VAST: MLIR for program analysis of C/C++ <br>	
 Speaker: Henrich Lauko <br>
-[<a href=”https://youtu.be/YFqWa4pxXzM”>Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk14-VAST-MLIRForProgramAnalysis.pdf”>Slides</a> ]
+[<a href="https://youtu.be/YFqWa4pxXzM">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk14-VAST-MLIRForProgramAnalysis.pdf">Slides</a> ]
 </p><p>
 Program analysis has specific requirements for compiler toolchains that are usually unsatisfied. Ideally, an analysis tool would pick the best-fit representation that preserves interesting semantic features. Such a representation would know the precise relationships between low-level constructs in IR and the analyzed source code. LLVM IR is rarely the best fit representation for program analysis. In this talk, we will look at how we can improve the situation using an MLIR infrastructure called VAST. VAST is an MLIR library for multi-level C/C++ representation. With VAST, an analysis does not need to commit to a single best fit. Instead, an analysis can have simultaneous visibility into multiple progressions of the code, from very high-level down to very low-level.	
 </p>
@@ -171,7 +170,7 @@ Program analysis has specific requirements for compiler toolchains that are usua
 <p>
 MLIR for Functional Programming <br>	
 Speaker: Siddharth Bhat <br>
-[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk15-ShortLambdatheUltimateSSA.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk15-ShortLambdatheUltimateSSA.pdf">Slides</a> ]
 </p><p>
 In this talk, we discuss the implementation, upstreaming, and community concerns of adoption LLVM and MLIR within the Lean4 proof assistant, and more broadly, discuss takeaways for MLIR to have strong support for functional programming languages. We walk through the process of creating a new MLIR-based backend for Lean4, a dependently typed programming language. We demonstrate our MLIR dialect (https://arxiv.org/abs/2201.07272) which encode core functional programming concepts within the SSA style. However, having a fully functional backend is not enough; We discuss the worries around MLIR adoption in the Lean4 community, and the discussions that led to Lean4 choosing to adopt LLVM for the time being. We discuss our current LLVM backend effort for Lean4 (https://github.com/leanprover/lean4/pull/1497), and end with a discussion of how the MLIR community could help with the adoption of MLIR for functional programming languages.	
 </p>
@@ -179,7 +178,7 @@ In this talk, we discuss the implementation, upstreaming, and community concerns
 <p>
 SPIR-V Backend in LLVM: Upstream and Beyond <br>	
 Speaker: Michal Paszkowski, Alex Bezzubikov <br>
-[ <a href=”https://youtu.be/qte1OJdpgkY”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk16-SPIR-V-Backend-in-LLVM.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/qte1OJdpgkY">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk16-SPIR-V-Backend-in-LLVM.pdf">Slides</a> ]
 </p><p>
 SPIR-V is a binary intermediate language commonly used for GPU computations and targeted by many projects (including OpenCL, OpenMP and SYCL). In this talk, we will discuss what it took to upstream SPIR-V GlobalISel-based backend, present some of the issues stemming from the high-level design of the language, and explain the steps required to maintain the target in-tree. We will also talk briefly about the extensibility, support for other APIs/SPIR-V flavors (e.g. Vulkan), and the ongoing effort to unify methods of lowering builtins across GPU targets.	
 </p>
@@ -187,7 +186,7 @@ SPIR-V is a binary intermediate language commonly used for GPU computations and 
 <p>
 IRDL: A Dialect for dialects	 <br>
 Speaker: Mathieu Fehr, Théo Degioanni <br>
-[ <a href=”https://youtu.be/nxFD4DBVxOk”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk17-IRDL-ADialectForDialects.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/nxFD4DBVxOk">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk17-IRDL-ADialectForDialects.pdf">Slides</a> ]
 </p><p>
 We present IRDL, a dialect for representing IR definitions. IRDL lets users define dialects in a declarative style, allowing for a dynamic registration of dialects using dynamic dialects, which were recently introduced in MLIR. Additionally, we will present two lower-lever dialects, IRDL-SSA and IRDL-Eval, and their respective lowerings, which enable interesting optimizations on the operation verifiers, which ODS does not currently handle. We hope that with IRDL, we will simplify the generation of dialects through metaprogramming, or external languages, like Python.
 </p>
@@ -195,7 +194,7 @@ We present IRDL, a dialect for representing IR definitions. IRDL lets users defi
 <p>	
 Automated translation validation for an LLVM backend <br>
 Speaker: Nader Boushehrinejad Moradi <br>
-[ <a href=”https://youtu.be/QLnPfcDNcpY”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk18-AutomatedTranslationValidation.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/QLnPfcDNcpY">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk18-AutomatedTranslationValidation.pdf">Slides</a> ]
 </p><p>
 We developed an automated bug-finding tool for LLVM’s AArch64 backend. Our prototype, ARM-TV, builds on Alive2, a bounded translation validator for LLVM’s optimization passes. Using ARM-TV, we have discovered and reported 17 new miscompilation bugs in the SelectionDAG and GlobalISel backends, most of which have been fixed. In this talk, we will describe the current state of our prototype and our plans for enhancing the tool.
 </p>
@@ -203,7 +202,7 @@ We developed an automated bug-finding tool for LLVM’s AArch64 backend. Our pro
 <p>	
 llvm-dialects: bringing dialects to the LLVM IR substrate <br>	
 Speaker: Nicolai Hähnle <br>
-[ <a href=”https://youtu.be/4NLw4IFRTY0”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk19-llvm-dialects.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/4NLw4IFRTY0">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk19-llvm-dialects.pdf">Slides</a> ]
 </p><p>
 Is your compiler stack built on LLVM and you're eyeing some of the goodness provided by MLIR, but can't justify rewriting your stack? Then we may have just the project for you! llvm-dialects is an add-on to LLVM that allows you to define dialects and gradually transition to their use within a compiler stack built on LLVM IR.
 </p>
@@ -211,7 +210,7 @@ Is your compiler stack built on LLVM and you're eyeing some of the goodness prov
 <p>	
 YARPGen: A Compiler Fuzzer for Loop Optimizations and Data-Parallel Languages	 <br>
 Speaker: Vsevolod Livinskii <br>
-[ <a href=”https://youtu.be/Yyj2Fex9yEo”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk20-YARPGen-CompilerFuzzer.pdf”>Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk20-YARPGen-CompilerFuzzer.pptx”>PPT</a> ]
+[ <a href="https://youtu.be/Yyj2Fex9yEo">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk20-YARPGen-CompilerFuzzer.pdf">Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk20-YARPGen-CompilerFuzzer.pptx">PPT</a> ]
 </p><p>
 YARPGen is a generative (as opposed to mutation-based) compiler fuzzer that we developed. It previously focused on testing scalar optimizations, but after a recent substantial upgrade, it now supports a collection of strategies for stress-testing loop optimizations. To achieve this, we ensure that its tests contain optimization prerequisites and interesting data access patterns (e.g., stencils), which are necessary to trigger loop optimizations (e.g., GVN). YARPGen's internal intermediate representation allows us to lower generated tests to C, C++, DPC++, and ISPC. Along with an automated testing system, this new version of YARPGen has discovered more than 120 bugs in compilers such as Clang, GCC, the ISPC compiler, and the DPC++ compiler, in addition to finding a comparable number of bugs in proprietary compilers.	
 </p>
@@ -219,7 +218,7 @@ YARPGen is a generative (as opposed to mutation-based) compiler fuzzer that we d
 <p>
 RISC-V Sign Extension Optimizations <br>
 Speaker: Craig Topper <br>
-[ <a href=”https://youtu.be/TmWs3QsSuUg”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk21-RISC-VSignExtensionOptimizations.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/TmWs3QsSuUg">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk21-RISC-VSignExtensionOptimizations.pdf">Slides</a> ]
 </p><p>
 The 64-bit RISC-V target is the only one in-tree that does not have 32-bit sub-registers or i32 as a legal type. Many instructions have forms that sign extend their result by copying bit 31 into bits 63:32. Only loads are able to implicitly zero bits 63:32. Some instructions such as comparisons only operate on all 64 bits and require smaller values to be extended. The ABI also requires 32-bit arguments and return values to be sign extended to 64 bits. Making good use of the implicit sign extending instructions is important to generate optimal assembly from C code where 32-bit integers are prevalent.
 </p><p>
@@ -229,7 +228,7 @@ This talk will discuss how this differs from other 64-bit targets, how single ba
 <p>	
 Execution Domain Transition: Binary and LLVM IR can run in conjunction <br>
 Speaker: Jaeyong Ko, Sangrok Lee <br>
-[ <a href=”https://youtu.be/s7nNYZvkGi8”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk22-ExecutionDomainTransition.pdf>Slides</a> ]
+[ <a href="https://youtu.be/s7nNYZvkGi8">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/TechTalk22-ExecutionDomainTransition.pdf>Slides</a> ]
 </p><p>
 In this talk, we will start by showing the multi-CPU architectural IoT malware. And why it is challenging to analyze such IoT malware from the perspective of static and dynamic analysis. Then we will talk about how it was possible to do cross-architectural malware analysis through the LLVM interpreter by lifting it to LLVM IR. Next, we will explain a problem that could be a significant hurdle in being a practical analysis tool: slow execution, and how we resolved this problem by inventing execution domain transition. Finally, we will end our talk with a demo of our work.	
 </p>
@@ -239,7 +238,7 @@ In this talk, we will start by showing the multi-CPU architectural IoT malware. 
 <p>
 Using LLVM's libc <br>
 Speaker: Sivachandra Reddy, Michael Jones, Tue Ly <br>
-[ <a href=”https://youtu.be/OpY4lnpnbq4”>Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Tutorial1-UsingLLVM-libc.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/OpY4lnpnbq4">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Tutorial1-UsingLLVM-libc.pdf">Slides</a> ]
 </p><p>	
 LLVM's libc is a sanitizer friendly green field libc which will eventually serve as a full drop-in-replacement for the system libc. While it is not yet ready to be a drop-in-replacement, it has enough functionality that one can start using it in their projects and avail themselves of its benefits in production contexts. In this tutorial, we will talk about how we have used modern C++ to implement a sanitizer instrumentable libc which can be easily decomposed and custom tuned. We will also talk about how it is being used in production contexts at Google. There has been a lot of interest in the LLVM community in putting together an LLVM only toolchain. We will demonstrate how one can build and package the libc in order to put together such a toolchain and use it in their projects.
 </p>
@@ -257,7 +256,7 @@ JITLink is a new JIT linker in LLVM developed to eliminate limitations in LLVM's
 <p>
 Machine Learning Guided Optimizations (MLGO) in LLVM <br>
 Speakers:  Johannes Doerfert (moderator), Petr Hosek, Chris Cummins, Aiden Grossman, Mircea Trofin, Zoom: Yundi Qian, Ondrej Sykora, Dibyendu Das, Amir Ashouri, Mostafa Elhoushi, S. VenkataKeerthy <br>
-[<a href=”https://youtu.be/0uUKDQyn1Z4”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Panel1-MLGO.pdf”>Slides</a> ]
+[<a href="https://youtu.be/0uUKDQyn1Z4">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/Panel1-MLGO.pdf">Slides</a> ]
 </p><p>
 The panel brings together: compiler engineers working on ML-guided optimizations in LLVM, product engineers applying such optimizations in production, and researchers exploring the area.
 </p>
@@ -265,7 +264,7 @@ The panel brings together: compiler engineers working on ML-guided optimizations
 <p>
 Panel discussion on Best practices with toolchain release and maintenance<br>
 Speakers: Aditya Kumar, Petr Hosek , Jeremy Stenglein , Han Zhu <br>
-[ <a href=”https://youtu.be/aGMJ1vxRAUs”>Video</a> ]
+[ <a href="https://youtu.be/aGMJ1vxRAUs">Video</a> ]
 </p><p>
 With the proliferation of vendors shipping custom llvm toolchain, it would be great to bring in toolchain distributors and share each other's experience. We’ll focus the discussion on:
 <ul>
@@ -287,7 +286,7 @@ The Clang ecosystem has multiple static analysis tools. The compiler can produce
 <p>
 High-level IRs for a C/C++ Optimizing Compiler<br>
 Speakers: Bruno Lopes, Alex Zinenko, Ivan Baev , Johannes Doerfert, Chris Lattner, Mehdi Amini <br>
-[ <a href=”https://youtu.be/ElxPbIX4rDU”>Video</a> ]
+[ <a href="https://youtu.be/ElxPbIX4rDU">Video</a> ]
 </p><p>
 Most C/C++ optimizing compilers employ multiple intermediate representations (IRs). LLVM IR has been the cornerstone of C/C++ LLVM-based compilers for many years. However, optimizations involving loop nests, data layout, or multidimensional arrays, for example, challenge the existing LLVM infrastructure. 
 </p><p>
@@ -310,7 +309,7 @@ Both experts and newcomers are welcome to attend. Send questions to the organize
 <p>
 LLVM Education Initiative <br>
 Speakers: Chris Bieneman, Mike Edwards, Kit Barton <br>
-[ <a href=”https://youtu.be/u1WoRj9ioxQ”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuckTalk1-EducationEffort.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/u1WoRj9ioxQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuckTalk1-EducationEffort.pdf">Slides</a> ]
 </p><p>
 Interested in expanding the LLVM community through education? Interested in better documentation, tutorials, and examples? Interested in sharing your knowledge to help other engineers grow? Come learn about the proposal for a new LLVM Education working group!	
 </p>
@@ -318,7 +317,7 @@ Interested in expanding the LLVM community through education? Interested in bett
 <p>
 Enabling AArch64 Instrumentation Support In BOLT <br>
 Speakers: Elvina Yakubova <br>
-[ <a href=”https://youtu.be/LDaoJaYStOY”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk2-EnablingAArch64InstrumentationSupportinBOLT.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/LDaoJaYStOY">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk2-EnablingAArch64InstrumentationSupportinBOLT.pdf">Slides</a> ]
 </p><p>
 BOLT is a post-link optimizer, built on top of the LLVM. It achieves performance improvement by optimizing application's code layout based on execution profile gathered by a sampling profiler, such as Linux perf tool. In case when necessary advanced hardware counters for precise profiling are not available on some target platforms, one may collect profile by instrumenting binary. In this talk, we will cover changes essential for enabling instrumentation support in BOLT for a new target platform using AArch64 as an example.
 </p>	
@@ -326,7 +325,7 @@ BOLT is a post-link optimizer, built on top of the LLVM. It achieves performance
 <p>
 Approximating at Scale: How strto<float> in LLVM’s libc is faster <br>	
 Speaker: Michael Jones <br>
-[ <a href=”https://youtu.be/s-UjbTV8p6g”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk3-ApproximatingatScale-StringToFloat.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/s-UjbTV8p6g">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk3-ApproximatingatScale-StringToFloat.pdf">Slides</a> ]
 </p><p>
 The string to float conversion functions are deceptively simple. You pass them a string of digits, and they return the floating point value closest to that string. The process of finding that value as quickly as possible is very complex, and in this talk I will describe how the implementation in LLVM’s libc works. The focus will be mainly on the three conversion algorithms used, specifically W.D Clinger’s Fast Path, the Eisel-Lemire fast_float algorithm, and Nigel Tao’s Simple Decimal Conversion. I will explain the overview of how they work and how they fit together to create a complete strto<float> implementation. Finally, I’ll demonstrate how this makes it faster than existing libc implementations, specifically about 15% faster than glibc.	
 </p>
@@ -334,7 +333,7 @@ The string to float conversion functions are deceptively simple. You pass them a
 <p>
 MIR support in llvm-reduce <br>	
 Speaker: Matthew Arsenault <br>
-[ <a href=”https://youtu.be/7KRSIrhXCAE”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk4-MIRSupportIn-llvm- reduce.pdf”>Slides</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk4-MIRSupportIn-llvm- reduce.pptx”>PPT</a> ]
+[ <a href="https://youtu.be/7KRSIrhXCAE">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk4-MIRSupportIn-llvm- reduce.pdf">Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk4-MIRSupportIn-llvm- reduce.pptx">PPT</a> ]
 </p><p>
 Bugpoint has long existed to assist in reducing LLVM IR testcases, but lacked an equivalent tool for reducing code generation passes. Recently llvm-reduce gained support for reducing MIR. This talk will discuss the current status and future improvements, difficulties MIR presents compared to the higher level IR, and my experience using it to reduce register allocation failures in large test cases.	
 </p>
@@ -342,7 +341,7 @@ Bugpoint has long existed to assist in reducing LLVM IR testcases, but lacked an
 <p>
 Interactive Crashlogs in LLDB <br>
 Speaker: Med Ismail Bennani <br>	
-[Video] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk5-InteractiveCrashlogsInLLDB.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk5-InteractiveCrashlogsInLLDB.pdf">Slides</a> ]
 </p><p>
 While we'd all prefer if programs never crashed, the logs captured from those crashes can help troubleshoot bugs and get your program up and running again. At Apple, diagnostic data gets captured into a crash report: a detailed textual representation of the program's state when it crashed. Thanks to the addition of interactive crashlogs, developers can now load crash reports into LLDB and interact with them like a regular lldb session, using all the techniques they're already familiar with to debug the issue.	
 </p>
@@ -350,7 +349,7 @@ While we'd all prefer if programs never crashed, the logs captured from those cr
 <p>
 clang-extract-api: Clang support for API information generation in JSON <br>	
 Speaker: Zixu Wang <br>
-[Video] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk6-clang-extract-api.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk6-clang-extract-api.pdf">Slides</a> ]
 </p><p>
 This talk introduces clang-extract-api, a new tool to collect and serialize API information from header files, that enables downstream tooling, like documentation 
 generation, to inspect API symbols without having to understand the clang AST.	
@@ -359,7 +358,7 @@ generation, to inspect API symbols without having to understand the clang AST.
 <p>
 Using modern CPU instructions to improve LLVM's libc math library. <br>	
 Speaker: Tue Ly <br>
-[ <a href=”https://youtu.be/9bvdbdn0nMA”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk7-UsingModernCPUInstructionsToImproveLLVM-libcMathLibrary.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/9bvdbdn0nMA">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk7-UsingModernCPUInstructionsToImproveLLVM-libcMathLibrary.pdf">Slides</a> ]
 </p><p>
 LLVM libc's math routines aim to be both performant and correctly rounded according to the IEEE 754 standard.  Modern CPU instruction sets include many useful instructions for mathematical computations.  Effectively utilize these instructions could boost the performance of your math functions' implementations significantly.  In this talk, we will discuss about how 2 families of such instructions, fused-multiply-add (FMA) and floating point rounding, are used in LLVM's libc for x86-64 and ARMv8 architectures allowing us to have comparable performance to glibc while achieving accuracy for all rounding modes.	
 </p>
@@ -367,7 +366,7 @@ LLVM libc's math routines aim to be both performant and correctly rounded accord
 <p>
 Challenges Of Enabling Golang Binaries Optimization By BOLT <br>
 Speaker: Vasily Leonenko, Vladislav Khmelevskyi <br>
-[ <a href=”https://youtu.be/AT-ttb6VwRA”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk8-ChallengesOfEnablingGolangBinariesOptimizationByBOLT.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/AT-ttb6VwRA">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk8-ChallengesOfEnablingGolangBinariesOptimizationByBOLT.pdf">Slides</a> ]
 </p><p>
 Golang is a very specific language, which compiles to an architecture-specific binary, but also uses its own runtime library, which in turn uses a version-specific data structures to support internal mechanisms like garbage collection, scheduling, reflection and others. BOLT is a post-link optimizer – it rearranges code and data locations in the output binary, so Golang-specific tables should also be updated according to performed modifications. In this talk, we will cover the status of current implementation of Golang support in BOLT, achieved optimization effect and challenges of enabling Golang binaries optimization by BOLT.	
 </p>
@@ -375,7 +374,7 @@ Golang is a very specific language, which compiles to an architecture-specific b
 <p>
 Inlining for Size <br>
 Speaker: Kyungwoo Lee	 <br>
-[<a href=”https://youtu.be/8Uiv2RsPim4”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk9-InliningForSize.pdf”>Slides</a> ]
+[<a href="https://youtu.be/8Uiv2RsPim4">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk9-InliningForSize.pdf">Slides</a> ]
 </p><p>
 Inlining for size is critical in mobile apps as app size continues to grow.
 While a link-time optimization (LTO) largely minimizes the app size at minimum size optimization (-Oz), a scalable link-time optimization (ThinLTO) misses many inline opportunities because each module inliner works independently without modeling the size cost globally. 
@@ -388,7 +387,7 @@ We reduced the code size by 2.8% for SocialApp, 4.0% for ChatApp, and 3.0% for C
 <p>
 Automatic indirect memory access instructions generation for pointer chasing patterns	 <br>
 Speaker: Przemysław Ossowski <br>
-[ <a href=”https://youtu.be/AGwEgGqRiOY”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk10-AutomaticIndirectMemoryAccessInstructions.pdf”>Slides</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk10-AutomaticIndirectMemoryAccessInstructions.ppsx”>PPT</a> ]
+[ <a href="https://youtu.be/AGwEgGqRiOY">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk10-AutomaticIndirectMemoryAccessInstructions.pdf">Slides</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk10-AutomaticIndirectMemoryAccessInstructions.ppsx">PPT</a> ]
 </p><p>
 This short talk provides an example how newly introduced feature into real HW can be adopted into Clang and LLVM and thanks to it easily available for the user. Indirect Memory Access Instructions (IMAI) can provide significant performance improvement but its usability is limited with particular HW restrictions. This talk will present how we tried to reconcile HW limitations, complexity of IMAI and ease of use by handling dedicated pragma in Clang and applying Complex Patterns in DAG in LLVM Backend.	
 </p>
@@ -396,7 +395,7 @@ This short talk provides an example how newly introduced feature into real HW ca
 <p>
 Link-Time Attributes for LTO: Incorporating linker knowledge into the LTO recompile	 <br>
 Speaker: Todd Snider <br>
-[ <a href=”https://youtu.be/OkGsMrVd2y8”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk11-Link-TimeAttributesforLTO.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/OkGsMrVd2y8">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk11-Link-TimeAttributesforLTO.pdf">Slides</a> ]
 </p><p>
 Embedded-application systems have limited memory, so user control over placement of functions and variables is important. The programmer uses a linker script to define a memory configuration and specify placement constraints on input sections that contain function and variable definitions. With LTO enabled, it is critical that the compiler incorporate link-time placement information into the LTO recompile (Edler von Koch - LLVM 2017). This talk discusses a compiler and linker implementation that roughly follows the ideas presented in Edler von Koch, highlighting differences in our implementation that offer significant advantages.	
 </p>
@@ -404,7 +403,7 @@ Embedded-application systems have limited memory, so user control over placement
 <p>
 Expecting the expected: Honoring user branch hints for code placement optimizations <br>	
 Speaker: Stan Kvasov, Vince Del Vecchio <br>
-[ <a href=”https://youtu.be/g-lvF7rM7fw”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk12-ExpectingTheExpected.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/g-lvF7rM7fw">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk12-ExpectingTheExpected.pdf">Slides</a> ]
 </p><p>
 LLVM's __builtin_expect, and a variant we recently added, __builtin_expect_with_probability, allow source code control over branch weights and can boost performance with or without PGO via hot/cold splitting.  But in LLVM optimization, it's not always intuitive how to update branch weight metadata with control flow changes.  We talk about recent issues with losing branch weights in SimplifyCFG and possible improvements to the infrastructure for maintaining branch weights.	
 </p>
@@ -412,7 +411,7 @@ LLVM's __builtin_expect, and a variant we recently added, __builtin_expect_with_
 <p>
 CUDA-OMP — Or, Breaking the Vendor Lock	 <br>
 Speaker: Joseph Huber, Johannes Doerfert <br>
-[ <a href=”https://youtu.be/7m8kn5_l970”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk13-CUDA-OMP-BreakingTheVendorLock.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/7m8kn5_l970">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk13-CUDA-OMP-BreakingTheVendorLock.pdf">Slides</a> ]
 </p><p>
 In this talk we show that performance portability and interoperability are achievable goals even for existing (HPC) software. Through compiler and runtime augmentation, we can run off-the-shelf CUDA programs efficiently on AMD GPUs and further debug them on the host, all without modifications of the original source code. 
 As a side-effect, a modern LLVM/Clang will provide a compilation environment in which CUDA and OpenMP offload are fully interoperable, allowing the use of both in the same project, even the same kernel, without intrinsic overheads.
@@ -421,7 +420,7 @@ As a side-effect, a modern LLVM/Clang will provide a compilation environment in 
 <p>
 Thoughts on GPUs as First-Class Citizens <br>	
 Speaker: Johannes Doerfert <br>
-[ <a href=”https://youtu.be/YMI382d4Vz4”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk14-ThoughtsonGPUsAsFirst-ClassCitizens.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/YMI382d4Vz4">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk14-ThoughtsonGPUsAsFirst-ClassCitizens.pdf">Slides</a> ]
 </p><p>
 In this short talk we will ramble about some of the discrepancies between GPU and CPU targets as well as the accompanying infrastructure. While we briefly mention ongoing efforts to rectify some of the problems, we'll mainly focus on the areas where solutions are sparse and efforts are required.	
 </p>
@@ -429,7 +428,7 @@ In this short talk we will ramble about some of the discrepancies between GPU an
 <p>
 Building an End-to-End Toolchain for Fully Homomorphic Encryption with MLIR <br>	
 Speaker: Alexander Viand <br>
-[<a href=”https://youtu.be/vjtPWZRxAkI”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/QuickTalk15-BuildingAnEnd-to-EndToolchainForFullyHomomorphicEncryptionWithMLIR.pdf”>Slides</a> ]
+[<a href="https://youtu.be/vjtPWZRxAkI">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/QuickTalk15-BuildingAnEnd-to-EndToolchainForFullyHomomorphicEncryptionWithMLIR.pdf">Slides</a> ]
 </p><p>
 Fully Homomorphic Encryption (FHE) allows a third party to perform arbitrary computations on encrypted data, learning neither the inputs nor the computation results. However, the complexity of developing an efficient FHE application currently limits deploying FHE in practice. In this talk, we will first present the underlying challenges of FHE development that motivate the development of tools and compilers. We then discuss how MLIR has been used by three different efforts, including one led by us, to significantly advance the state of the art in FHE tooling. While MLIR has brought great benefits to the FHE community, we also want to highlight some of the challenges experienced when introducing the framework to a new domain. Finally, we conclude by discussing how the ongoing efforts could be combined and unified before potentially being up-streamed.	
 </p>
@@ -439,15 +438,15 @@ Fully Homomorphic Encryption (FHE) allows a third party to perform arbitrary com
 <p>
 LLVM Office Hours: addressing LLVM engagement and contribution barriers	 <br>	
 Speaker: Kristof Beyls <br>	
-[ <a href=”https://youtu.be/2aS12AqErik”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning1-LLVMOfficeHours.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/2aS12AqErik">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning1-LLVMOfficeHours.pdf">Slides</a> ]
 </p><p>
-As part of registering for the 2021 LLVM dev meeting, participants were asked to answer a few questions about how the LLVM community could increase engagement and contributions. Out of the 450 people replying, the top 3 issues mentioned were "sometimes people aren't receiving detailed enough feedback on their proposals"; "people are worried to come across as an idiot when asking a question on the mailing list/on record"; "People cannot find where to start; where to find documentation; etc." These were discussed in the community.o workshop at the 2021 LLVM dev meeting, and a summary of that discussion was presented by Adelina Chalmers as a keynote session, see 2021 LLVM Dev Mtg "Deconstructing the Myth: Only real coders contribute to LLVM!? - Takeaways” One of the solutions suggested to help address those top identified barriers from the majority of participants is introducing the concept of "office hours". We have taken steps since then to make "office hours" a reality. In this lightning talk, I will talk about what issues "office hours" is aiming to address; how both newbies and experienced contributors can get a lot of value out of them; and where we are in implementing this concept and how you can help for them to be as effective as possible.			
+As part of registering for the 2021 LLVM dev meeting, participants were asked to answer a few questions about how the LLVM community could increase engagement and contributions. Out of the 450 people replying, the top 3 issues mentioned were "sometimes people aren't receiving detailed enough feedback on their proposals"; "people are worried to come across as an idiot when asking a question on the mailing list/on record"; "People cannot find where to start; where to find documentation; etc." These were discussed in the community.o workshop at the 2021 LLVM dev meeting, and a summary of that discussion was presented by Adelina Chalmers as a keynote session, see 2021 LLVM Dev Mtg "Deconstructing the Myth: Only real coders contribute to LLVM!? - Takeaways" One of the solutions suggested to help address those top identified barriers from the majority of participants is introducing the concept of "office hours". We have taken steps since then to make "office hours" a reality. In this lightning talk, I will talk about what issues "office hours" is aiming to address; how both newbies and experienced contributors can get a lot of value out of them; and where we are in implementing this concept and how you can help for them to be as effective as possible.			
 </p>
 
 <p>
 Improved Fuzzing of Backend Code Generation in LLVM	 <br>	
 Speaker: Peter Rong <br>	
-[ <a href=”https://youtu.be/LfpmUxIuKgo”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning2-ImprovingIRFuzzingWithMoreDiversifiedInput.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/LfpmUxIuKgo">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning2-ImprovingIRFuzzingWithMoreDiversifiedInput.pdf">Slides</a> ]
 </p><p>
 Fuzzing has been a effective method to test software's. However, even with libFuzzer, LLVM backend is not sufficiently fuzzed nowadays. The difficulties are two fold.  First, we lack a better way to monitor program behavior, edge coverage is not effective when backend heavily rely on target descriptor where data flow is more important than control flow.  Second, mutation method is naive and ineffective. We design a new tool to better fuzz LLVM backend and we have found numerous missing features inside AMD. We also found many bugs in LLVM upstream, eight of which have been confirmed, 2 of which are fixed.			
 </p>
@@ -455,7 +454,7 @@ Fuzzing has been a effective method to test software's. However, even with libFu
 <p>
 Interactive Programming for LLVM TableGen <br>		
 Speaker: David Spickett <br>	
-[ <a href=”https://youtu.be/Gf0FUiY2TRo”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning3-InteractiveProgrammingForLLVMTableGen.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/Gf0FUiY2TRo">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning3-InteractiveProgrammingForLLVMTableGen.pdf">Slides</a> ]
 </p><p>
 Interactive programming with Jupyter is a game changer for learning. The ability to have your code and documentation in one place, always up to date and extendable. See how this is being applied to a core part of LLVM, TableGen, and why we should embrace the concept.			
 </p>
@@ -463,7 +462,7 @@ Interactive programming with Jupyter is a game changer for learning. The ability
 <p>
 Efficient JIT-based remote execution <br>	
 Speaker: Anubhab Ghosh	 <br>	
-[ <a href=”https://youtu.be/dosXtBAFWiE”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning4-EfficientJIT-basedRemoteExecution.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/dosXtBAFWiE">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning4-EfficientJIT-basedRemoteExecution.pdf">Slides</a> ]
 </p><p>
 In this talk we demonstrate a shared memory implementation and its performance improvements for most use cases of JITLink. We demonstrate the benefits of a separate executor process on top of the same underlying physical memory. We elaborate how this work will be useful to larger projects such as clang-repl and Cling.			
 </p>
@@ -471,7 +470,7 @@ In this talk we demonstrate a shared memory implementation and its performance i
 <p>
 FFTc: An MLIR Dialect for Developing HPC Fast Fourier Transform Libraries <br>		
 Speaker: Yifei He <br>	
-[ <a href=”https://youtu.be/2Q0GETWe76s”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning5-FFTc-AnMLIRDialect.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/2Q0GETWe76s">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning5-FFTc-AnMLIRDialect.pdf">Slides</a> ]
 </p><p>
 Discrete Fourier Transform (DFT) libraries are one of the most critical software components for scientific computing. Inspired by FFTW, a widely used library for DFT HPC calculations, we apply compiler technologies for the development of HPC Fourier transform libraries. In this work, we introduce FFTc, a domain-specific language, based on Multi-Level Intermediate Representation (MLIR), for expressing Fourier Transform algorithms. FFTc is composed of: A domain-specific abstraction level (FFT MLIR dialect), a domain-specific compilation pipeline, and a domain-specific runtime (working in progress). We present the initial design, implementation, and preliminary results of FFTc.			
 </p>
@@ -479,7 +478,7 @@ Discrete Fourier Transform (DFT) libraries are one of the most critical software
 <p>
 Recovering from Errors in Clang-Repl and Code Undo <br>	
 Speaker: Purva Chaudhari, Jun Zhang <br>	
-[ <a href=”https://youtu.be/LSPBPC2av54”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning6-RecoveringFromErrorsInClang-ReplAndCodeUndo.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/LSPBPC2av54">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning6-RecoveringFromErrorsInClang-ReplAndCodeUndo.pdf">Slides</a> ]
 </p><p>
 In this talk we outline the PTU-based error recovery capability implemented in Clang and available in Clang-Repl. We explain the challenges in error recovery of templated code. We demonstrate how to extend the error recovery facility to implement restoring the Clang infrastructure to a previous state. We demonstrate the `undo` command available in 
 Clang-Repl and the changes required for its reliability.			
@@ -488,7 +487,7 @@ Clang-Repl and the changes required for its reliability.
 <p>
 10 commits towards GlobalISel for PowerPC <br>	
 Speaker: Kai Nacke, Amy Kwan, Nemanja Ivanovic <br>	
-[ <a href=”https://youtu.be/8HUnqLjCewU”>Video</a>] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning7-10CommitsTowardsGlobalISelForPowerPC.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/8HUnqLjCewU">Video</a>] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning7-10CommitsTowardsGlobalISelForPowerPC.pdf">Slides</a> ]
 </p><p>
 We share our experiences with the first steps to implement GlobalISel for the PowerPC target.			
 </p>
@@ -496,7 +495,7 @@ We share our experiences with the first steps to implement GlobalISel for the Po
 <p>
 Nonstandard reductions with SPRAY <br>	
 Speaker: Jan Hueckelheim <br>	
-[ <a href=”https://youtu.be/F8PeWkeEw0Y”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning8-SPRAY-Reproducible.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/F8PeWkeEw0Y">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning8-SPRAY-Reproducible.pdf">Slides</a> ]
 </p><p>
 We present a framework that allows non-standard floating point reductions in OpenMP, for example to ensure reproducibility, compute roundoff estimates, or exploit sparsity in array reductions.			
 </p>
@@ -504,7 +503,7 @@ We present a framework that allows non-standard floating point reductions in Ope
 <p>
 Type Resugaring in Clang for Better Diagnostics and Beyond <br>		
 Speaker: Matheus Izvekov <br>	
-[ <a href=”https://youtu.be/bZ2HPrSkTZI”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning9-TypeResugaringInClang .pdf”>Slides</a> ]
+[ <a href="https://youtu.be/bZ2HPrSkTZI">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning9-TypeResugaringInClang .pdf">Slides</a> ]
 </p><p>
 In this presentation, we talk about the effort to implement type resugaring in Clang.
 This is an economical way to solve, for the majority of cases, diagnostic issues related to the canonicalization of template arguments during instantiation. The infamous 'std::basic_string' appearing on the diagnostics when the user wrote 'std::string' is the classic example."			
@@ -513,7 +512,7 @@ This is an economical way to solve, for the majority of cases, diagnostic issues
 <p>
 Swift Bindings for LLVM <br>	
 Speaker: Egor Zhdan <br>	
-[Video] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning10-SwiftBindingsForLLVM.pdf”>Slides</a> ]
+[Video] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning10-SwiftBindingsForLLVM.pdf">Slides</a> ]
 </p><p>
 Using LLVM APIs from a different language than C++ has often been necessary to develop compilers and program analysis tools. However, LLVM headers rely on many C++ features, and most languages do not provide interoperability with C++. As part of the ongoing Swift/C++ interoperability effort, we have been creating Swift bindings for LLVM APIs that feel convenient and natural in Swift, with the purpose of using the bindings to implement parts of the Swift compiler in Swift. In this talk, I will present our current status and what we were able to accomplish so far.
 </p>
@@ -521,15 +520,15 @@ Using LLVM APIs from a different language than C++ has often been necessary to d
 <p>			
 Min-sized Function Coverage with IRPGO <br>	
 Speaker: Ellis Hoag, Kyungwoo Lee <br>	
-[ <a href=”https://youtu.be/NuXk1V19pew”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning11-MinimumSizeFunctionCoverage.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/NuXk1V19pew">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning11-MinimumSizeFunctionCoverage.pdf">Slides</a> ]
 </p><p>
-IRPGO has a mode to collect function entry coverage, which can be used for dead code detection. When combined with Lightweight Instrumentation, the binary size and performance overhead should be small enough to be used in a production setting. Unfortunately, when building an instrumented binary with -Oz, the “.text” size overhead is much larger than what we’d expect from the injected instrumentation instructions alone. In fact, even if we block instrumentation for all functions we still get a 15% “.text” size overhead from extra passes added by IRPGO. This talk explores the flags we can use to create a function entry coverage instrumented binary with a “.text” size overhead of 4% or smaller.			
+IRPGO has a mode to collect function entry coverage, which can be used for dead code detection. When combined with Lightweight Instrumentation, the binary size and performance overhead should be small enough to be used in a production setting. Unfortunately, when building an instrumented binary with -Oz, the “.text" size overhead is much larger than what we’d expect from the injected instrumentation instructions alone. In fact, even if we block instrumentation for all functions we still get a 15% “.text" size overhead from extra passes added by IRPGO. This talk explores the flags we can use to create a function entry coverage instrumented binary with a “.text" size overhead of 4% or smaller.			
 </p>
 
 <p>
 High-Performance GPU-to-CPU Transpilation and Optimization via High-Level Parallel Constructs in Polygeist/MLIR <br>		
 Speaker: Ivan R. Ivanov <br>	
-[ <a href=”https://youtu.be/Ivyhuj_zCxE”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning12-High-PerformanceGPU-to-CPUTranspilationAndOptimization.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/Ivyhuj_zCxE">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning12-High-PerformanceGPU-to-CPUTranspilationAndOptimization.pdf">Slides</a> ]
 </p><p>
 We extent Polygeist/MLIR to succinctly representation, optimize, and transpile CPU and GPU parallel programs. Through the use of our new operations (e.g. memory effects-based barrier) and transformations, we can successfully transpile GPU Rodinia and PyTorch benchmarks to efficiently run on the CPU _faster_ than their existing CPU parallel versions.			
 </p>
@@ -537,7 +536,7 @@ We extent Polygeist/MLIR to succinctly representation, optimize, and transpile C
 <p>
 Tools for checking and writing non-trivial DWARF programs <br>	
 Speaker: Chris Jackson <br>	
-[ <a href=”https://youtu.be/ywSMVnJOeiw”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning13-ToolsForCheckingAndWritingNon-trivialDWARFPrograms.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/ywSMVnJOeiw">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning13-ToolsForCheckingAndWritingNon-trivialDWARFPrograms.pdf">Slides</a> ]
 </p><p>
 DWARF expressions describe how to recover the location or value of a variable which has been optimized away. They are expressed in terms of postfix operations that operate on a stack machine. A DWARF program is encoded as a stream of operations, each consisting of an opcode followed by a variable number of literal operands.  Some DWARF programs are difficult to interpret and check for correctness in their assembly-language format.  Currently, checking a DWARF expression requires the building of an executable with debuginfo and running the executable in a debugger, such as LLDB. We propose and have begun a fun project to construct a small suite of tools to aid in construction and checking of non-trivial DWARF programs.
 </p>
@@ -545,7 +544,7 @@ DWARF expressions describe how to recover the location or value of a variable wh
 <p>			
 Analysis of RISC-V Vector Performance Using MCA Tools <br>		
 Speaker: Michael Maitland <br>	
-[ <a href=”https://youtu.be/gxrD6M-OnLo”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning14-AnalysisOfRISC-V-VectorPerformanceUsingMCATools.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/gxrD6M-OnLo">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning14-AnalysisOfRISC-V-VectorPerformanceUsingMCATools.pdf">Slides</a> ]
 </p><p>
 The llvm-mca tool performs static performance analysis on basic blocks and llvm-mcad tool performs dynamic performance analysis on program traces. These tools allow us to gain insights on how sequences of instructions run on different subtargets.
 </p><p>
@@ -555,7 +554,7 @@ In this talk, I will discuss the shortcomings of these tools when they are taske
 <p>		
 Optimizing Clang with BOLT using CMake <br>	
 Speaker: Amir Ayupov <br>	
-[ <a href=”https://youtu.be/wO878A3eSOA”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning15-OptimizingClangWithBOLTUsingCMake.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/wO878A3eSOA">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning15-OptimizingClangWithBOLTUsingCMake.pdf">Slides</a> ]
 </p><p>
 Advanced build configuration with BOLT for faster Clang	
 </p>
@@ -563,7 +562,7 @@ Advanced build configuration with BOLT for faster Clang
 <p>		
 Exploring OpenMP target offloading for the GraphCore architecture <br>	
 Speaker: Jose M Monsalve Daiz <br>	
-[ <a href=”https://youtu.be/HrqcS1aX5d8”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/Lightning16-ExploringOpenMPTargetOffloadingForTheGraphCoreArchitecture.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/HrqcS1aX5d8">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/Lightning16-ExploringOpenMPTargetOffloadingForTheGraphCoreArchitecture.pdf">Slides</a> ]
 </p><p>
 GraphCore is a mature and well documented architecture that features a MIMD execution model. Different to the other players in the market, GraphCore systems are currently available, its compiler infrastructure is based on LLVM, and it allows direct compilation to the device. Furthermore, the Poplar SDK is a C++ library that can be directly used with the current OpenMP Offloading Runtime (i.e. libomptarget). In this short presentation, we describe the strategy we are currently using to explore compilation of OpenMP Offloading support for the GraphCore architecture.			
 </p>
@@ -574,7 +573,7 @@ GraphCore is a mature and well documented architecture that features a MIMD exec
 <p>
 Merging Similar Control-Flow Regions in LLVM for Performance and Code Size Benefits <br>	
 Speaker: Charitha Saumya <br>	
-[ <a href=”https://youtu.be/iGbdcItU0F8”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/StudentTechTalk1-MergingSimilarControl-FlowRegions.pdf”>Slides </a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/StudentTechTalk1-MergingSimilarControl-FlowRegions.pptx”>PPT</a> ]
+[ <a href="https://youtu.be/iGbdcItU0F8">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/StudentTechTalk1-MergingSimilarControl-FlowRegions.pdf">Slides </a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/StudentTechTalk1-MergingSimilarControl-FlowRegions.pptx">PPT</a> ]
 </p><p>
 In this talk, we will discuss about Control-flow Melding (CFM) and its implementation in LLVM. CFM is a new compiler transformation that exploits both instruction and control-flow similarity to improve performance and reduce code size. CFM uses a hierarchical region and instruction alignment approach to merge common code fragments.  CFM is implemented as an LLVM-IR transformation pass and our evaluation suggests its utility in multiple applications.
 </p>
@@ -582,7 +581,7 @@ In this talk, we will discuss about Control-flow Melding (CFM) and its implement
 <p>
 Alive-mutate: a fuzzer that cooperates with Alive2 to find LLVM bugs <br>	
 Speaker: Yuyou Fan <br>	
-[ <a href=”https://youtu.be/TrCfvDHPrrs”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/StudentTechTalk2-Alive-mutate.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/TrCfvDHPrrs">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/StudentTechTalk2-Alive-mutate.pdf">Slides</a> ]
 </p><p>
 We developed a new fuzzer, Alive-mutate, that randomly alters an LLVM module and then invokes the Alive2 translation validation tool to see if the mutated module is optimized correctly. Alive-mutate achieves high throughput by avoiding the creation of invalid IR and also by running in the same address space as Alive2, keeping OS-related overhead out of our fuzzing loop. We support 9 different kinds of mutation and have used Alive-mutate to find 23 LLVM bugs including 10 miscompilation bugs in the AArch64 backend and 5 crashes in the instruction combiner.
 </p>
@@ -590,7 +589,7 @@ We developed a new fuzzer, Alive-mutate, that randomly alters an LLVM module and
 <p>
 Enabling Transformers to Understand Low-Level Programs <br>	
 Speaker: William S. Moses, Zifan Guo <br>	
-[ <a href=”https://youtu.be/bTIZLFYpLIM”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/StudentTalk3-EnablingTransformersToUnderstandLow-LevelPrograms.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/bTIZLFYpLIM">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/StudentTalk3-EnablingTransformersToUnderstandLow-LevelPrograms.pdf">Slides</a> ]
 </p><p>
 This talk explores the application of Transformers to learning LLVM, which can open up new possibilities in optimization. Low-level programs like LLVM tend to be more verbose than high-level languages to precisely specify program behavior and provide more details about microarchitecture, all of which make it difficult for machine learning. We apply Transformer models to translate from C to both unoptimized (-O0) and optimized (-O1) LLVM IR and discuss various techniques that can boost model effectiveness. On the AnghaBench dataset, our model achieves a 49.57% verbatim match and BLEU score of 87.68 against Clang -O0 and 38.73% verbatim match and BLEU score of 77.03 against Clang -O1.
 </p>
@@ -598,7 +597,7 @@ This talk explores the application of Transformers to learning LLVM, which can o
 <p>
 LAGrad: Leveraging the MLIR Ecosystem for Efficient Differentiable Programming <br>	
 Speaker: Mai Jacob Peng <br>	
-[ <a href=”https://youtu.be/HPv8VUWGAvw”>Video</a> ] [ <a href=”https://llvm.org/devmtg/2022-11/slides/StudentTalk4-LAGradLeveragingMLIRForEfficientDifferentiableProgramming.pdf”>Slides</a> ]
+[ <a href="https://youtu.be/HPv8VUWGAvw">Video</a> ] [ <a href="https://llvm.org/devmtg/2022-11/slides/StudentTalk4-LAGradLeveragingMLIRForEfficientDifferentiableProgramming.pdf">Slides</a> ]
 </p><p>
 Automatic differentiation (AD) is a central algorithm in machine learning and optimization. This talk introduces LAGrad, a reverse-mode source-to-source AD system that differentiates tensor operations in the linalg, scf, and tensor dialects of MLIR. LAGrad leverages the value semantics of linalg-on-tensors in MLIR to simplify the analyses required to generate adjoint code that is efficient in terms of both run time and memory consumption. LAGrad also combines AD with MLIR’s type system to exploit structured sparsity patterns such as lower triangular tensors. We compare performance results to Enzyme, a state of the art AD system, on Microsoft’s ADBench suite. Our results show speedups of up to 2x relative to Enzyme and in some cases use 30x less memory.
 </p>
