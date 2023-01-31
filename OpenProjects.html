@@ -8,6 +8,13 @@
       <li>
         <a href="#gsoc23">Google Summer of Code 2023</a>
         <ul>
+          <li>
+            <b>LLVM Core</b>
+            <ul>
+               <li><a href="#llvm_improving_compile_times">Improving compile times</a></li>
+               <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -295,6 +302,117 @@
   </p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_improving_compile_times">Improving compile times</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    While the primary job of a compiler is to produce fast code (good run-time
+    performance), it is also important that optimization doesn’t take too much
+    time (good compile-time performance). The goal of this project is to improve
+    compile-time without hurting optimization quality.
+    <br />
+    The general approach to this project is:
+    <ol>
+      <li>Pick a workload to optimize. For example, this could be a file from
+        <a href="https://github.com/llvm/llvm-test-suite/tree/main/CTMark">CTMark</a>
+        compiled in a certain build configuration (e.g. <code>-O0 -g</code> or
+        <code>-O3 -flto=thin</code>).</li>
+      <li>Collect profiling information. This could involve compiler options like
+        <code>-ftime-report</code> or <code>-ftime-trace</code> for a high-level
+        overview, as well as <code>perf record</code> or
+        <code>valgrind --tool=callgrind</code> for a detailed profile.</li>
+      <li>Identify places that are unexpectedly slow. This is heavily workload
+        dependent.</li>
+      <li>Try to optimize an identified hotspot, ideally without impacting generated
+        code. The <a href="https://llvm-compile-time-tracker.com/">compile-time tracker</a>
+        can be used to quickly evaluate impact on CTMark.</li>
+    </ol>
+    As a disclaimer, it should be noted that outside of pathological cases,
+    compilation doesn’t tend to have a convenient hotspot where 90% of the time
+    is spent, instead it is spread out across many passes. As such, individual
+    improvements also tend to have only small impact on overall compile-time.
+    Expect to do 10 improvements of 0.2% each, rather than one improvement of 2%.
+  </p>
+
+  <p><b>Expected result:</b>
+    Substantial improvements on some individual files (multiple percent), and a
+    small improvement on overall geomean compile-time.</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++. Familiarity with profiling tools (especially if you are
+    not on Linux, in which case I won’t be able to help).</p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentor:</b> <a href="https://github.com/nikic">Nikita Popov</a></p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/llvm-improving-compile-times/68094">URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The <a href="https://www.rust-lang.org/">Rust programming language</a> uses
+    LLVM for code generation, and heavily relies on LLVM’s optimization
+    capabilities. However, there are many cases where LLVM fails to optimize
+    typical code patterns that are emitted by rustc. Such issues are reported
+    using the <a href="https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AI-slow">I-slow</a>
+    and/or <a href="https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AA-LLVM">A-LLVM</a> labels.
+    <br />
+    The usual approach to fixing these issues is:
+    <ol>
+      <li>Inspect the <code>--emit=llvm-ir</code> output on
+        <a href="https://rust.godbolt.org/">Godbolt</a>.</li></li>
+      <li>Create an LLVM IR test case that is not optimized when run through
+        <code>opt -O3</code>.</li>
+      <li>Identify a minimal missing transform and prove its correctness
+        using <a href="https://alive2.llvm.org/ce/">alive2</a>.</li>
+      <li>Identify which LLVM pass or passes could perform the transform.</li>
+      <li>Add necessary test coverage and implement the transform.</li>
+      <li>(Much later: Check that the issue is really resolved after the next
+        major LLVM version upgrade in Rust.)</li>
+    </ol>
+    The goal of this project is to address some of the less hard optimization
+    failures. This means that in some cases, the process would stop after step 3
+    or 4 without proceeding to implementation, because it’s unclear how the issue
+    could be addressed, or it would take a large amount of effort. Having an
+    analysis of the problem is still valuable in that case.
+  </p>
+
+  <p><b>Expected result:</b>
+    Fixes for a number of easy to medium Rust optimization failures. Preliminary
+    analysis for some failures even if no fix was implemented.</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++ for implementation. Some familiarity with LLVM (at least
+    ability to understand LLVM IR) for analysis. Basic Rust knowledge (enough
+    to read, but not write Rust).</p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentor:</b> <a href="https://github.com/nikic">Nikita Popov</a></p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/llvm-addressing-rust-optimization-failures-in-llvm/68096">URL</a>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
