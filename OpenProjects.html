@@ -421,6 +421,63 @@
 </div>
 
 <!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_lld_embedded">LLD Linker Improvements for Embedded Targets</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+    GNU toolchain is used widely for building embedded targets. There's a certain momentum in the
+    Clang/LLVM community towards improving the Clang toolchain to support embedded targets. Using
+    the Clang toolchain as an alternative can help us improve code quality, find and fix security
+    bugs, improve developer experience and take advantage of the new ideas and the momentum
+    surrounding the Clang/LLVM community in supporting embedded devices.
+  </p>
+  <p><b>A non-comprehensive list of improvements that can be made to LLD</b>:
+  <ul>
+    <li>
+      <p><b>--print-memory-usage support</b></p>
+      <p>"--print-memory-usage" in GCC provides a breakdown of the memory used in each memory region
+        defined in the linker file. Embedded developers use this flag to understand the impact on
+        memory. Often embedded systems define multiple memory regions with different space
+        constraints. Supporting this in Clang toolchain will help projects that wish to use Clang
+        toolchain for their projects.</p>
+    </li>
+    <li>
+      <p><b>Linkmap</b></p>
+      <p>Currently, the LLD linker's linkmap output is not as rich as the BFD linker output.
+        Achieving feature parity on linkmap output will be highly
+        useful in analyzing the binaries created by the LLD linker. Further, outputting linkmap in
+        different formats (current LLD output, BFD, and JSON) can help build automation tools for
+        investigating the artifacts produced by the linker.</p>
+    </li>
+    <li>
+      <p><b>--print-gc-sections improvement</b></p>
+      <p>When the "--print-gc-sections" flag is enabled, LLD prints the sections that were
+        discarded during the linking process. This information currently does not include the
+        mapping between the symbol and the section groups, which is useful for debugging.
+        Preserving this information during the linking process will require modifications to
+        internal linker data structures.</p>
+    </li>
+  </ul>
+  <p><b>Project size:</b> Medium or Large</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Skills:</b> C++</p>
+  <p><b>Expected result</b>:
+    <ul>
+      <li>Implementation of "--print-memory-usage" flag.</li>
+      <li>Support for new linkmap output formats 1. BFD and 2. JSON. </li>
+      <li>Improved "--print-gc-sections" output to include information about the surviving symbols.</li>
+    </ul>
+  </p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/Prabhuk">Prabhu Rajasekaran</a>
+    <a href="https://github.com/petrhosek">Peter Hosek</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/lld-linker-improvements-for-embedded/68129">URL</a>
+</div>
+
+<!-- *********************************************************************** -->
 <div class="www_sectiontitle">
   <a name="gsoc22">Google Summer of Code 2022</a>
 </div>
