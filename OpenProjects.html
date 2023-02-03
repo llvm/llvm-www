@@ -14,6 +14,7 @@
                <li><a href="#llvm_improving_compile_times">Improving compile times</a></li>
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
                <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
+               <li><a href="#llvm_mlgo_latency_model">Better performance models for MLGO training</a></li>
             </ul>
           </li>
           <li>
@@ -755,6 +756,38 @@
   <p><b>Discourse</b>
     <a href="https://discourse.llvm.org/t/instrumentation-of-clang-llvm-for-compile-time">
       URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_mlgo_latency_model">Better performance models for MLGO training</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+    We are using machine-guided compiler optimizations ("MLGO") for register allocation eviction and inlining for size, in
+    real-life deployments. The ML models have been trained with reinforcement learning algorithms. Expanding to more
+    performance areas is currently impeded by the poor prediction quality of our performance estimation models. Improving
+    those is critical to the effectiveness of reinforcement learning training algorithms, and therefore to enabling applying
+    MLGO systematically to more optimizations.
+  </p>
+  <p><b>Project size:</b> either 175 or 350 hr.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Skills:</b> C/C++, some compiler experience, some Python. ML experience is a bonus.</p>
+  <p><b>Expected outcomes</b>: Better modeling of the execution environment by including additional runtime/profiling
+    information, such as additional PMU data, LLC miss probabilities or branch mispredictions. This involves (1) building
+    a data collection pipeline that covers additional runtime information, (2) modifying the ML models to allow processing
+    this data, and (3) modifying the training and inference process for the models to make use this data.
+  <p>Today, the models are almost pure static analysis; they see the instructions, but they make one-size-fits-all
+    assumptions about the execution environment and the runtime behavior of the code. The goal of this project is to move
+    from static analysis towards more dynamic models that better represent code the way it actually executes.</p>
+  <p><b>Mentors</b>
+    Ondrej Sykora, Mircea Trofin, Aiden Grossman
+  </p>
+  <p>
+  <b>Discourse</b>
+  <a href="https://discourse.llvm.org/t/better-performance-models-for-mlgo-training/68219">URL</a>
   </p>
 </div>
 
