@@ -22,6 +22,12 @@
               <li><a href="#llvm_lld_embedded">LLD Linker Improvements for Embedded Targets</a></li>
             </ul>
           </li>
+          <li>
+            <b>MLIR</b>
+            <ul>
+              <li><a href="#llvm_mlir_presburger_opt">Optimizing MLIR’s Presburger library</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -515,6 +521,31 @@
     <a href="https://github.com/petrhosek">Peter Hosek</a>
   </p>
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/lld-linker-improvements-for-embedded/68129">URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_mlir_presburger_opt">Optimizing MLIR’s Presburger library </a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><strong>Description</strong>: MLIR’s Presburger Library, FPL (<a href="https://grosser.science/FPL">https://grosser.science/FPL</a>), provides mathematical abstractions for polyhedral compilation and analysis. The main abstraction that the library provides is a set of integer tuples defined by a system of affine inequality constraints. The library supports standard set operations over such sets. The result will be a set defined by another constraint system, possibly having more constraints. When many set operations are performed in sequence, the constraint system may become very large, negatively impacting performance. There are several potential ways to simplify the constraint system; however, this involves performing additional computations. Thus, spending more time on more aggressive simplifications may make each individual operation slower, but at the same time, insufficient simplifications can make sequences of operations slow due to an explosion in constraint system size. The aim of this project is to find the right balance between the two.</p>
+<p><strong>The goals of this project:</strong></p>
+<ul>
+<li>Understand the library&#39;s performance in terms of runtime and output size.</li>
+<li>Optimize the library by finding the best output size and performance tradeoff.</li>
+</ul>
+<p><strong>Expected outcomes</strong>:</p>
+<ul>
+<li>Benchmarking the performance and output constraint complexity of the primary operations of the library.</li>
+<li>Implementing simplification heuristics.</li>
+<li>A better understanding of which simplification heuristics improve overall performance enough to be worth the additional computational cost.</li>
+</ul>
+<p><strong>Desirable skills</strong>: Intermediate C++, Experience in benchmarking</p>
+<p><strong>Project size</strong>: Large</p>
+<p><strong>Difficulty</strong>: Medium</p>
+<p><strong>Confirmed mentors</strong>: <a href="https://github.com/Groverkss">Kunwar Grover</a></p>
+<p><strong>Discourse</strong>: <a href="https://discourse.llvm.org/t/mlir-optimizing-mlir-s-presburger-library/68213/1">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
