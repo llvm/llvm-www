@@ -11,12 +11,20 @@
           <li>
             <b>LLVM Core</b>
             <ul>
+               <li><a href="#llvm_new_jitlink_backends">JITLink new backends</a></li>
                <li><a href="#llvm_improving_compile_times">Improving compile times</a></li>
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
                <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
                <li><a href="#llvm_mlgo_latency_model">Better performance models for MLGO training</a></li>
             </ul>
           </li>
+          <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+            <ul>
+              <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
+              </li>
+            </ul>
+          </li>
+
           <li>
             <b>LLD</b>
             <ul>
@@ -324,6 +332,50 @@
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
+  <a name="llvm_new_jitlink_backends">JITLink new backends</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    JITLink is LLVM's new JIT linker API -- the low-level API that transforms
+    compiler output (relocatable object files) into ready-to-execute bytes in
+    memory. To do this JITLink’s generic linker algorithm needs to be
+    specialized to support the target object format (COFF, ELF, MachO), and
+    architecture (arm, arm64, i386, x86-64). LLVM already has mature
+    implementations of JITLink for MachO/arm64 and MachO/x86-64, and a
+    relatively new implementation for ELF/x86-64. Write a JITLink implementation
+    for a missing target such as PowerPC or BPF. If you choose to implement
+    support for a new architecture using the ELF or MachO formats then you will
+    be able to re-use the existing generic code for these formats. If you want
+    to implement support for a new target using the COFF format then you will
+    need to write both the generic COFF support code and the architecture
+    support code for your chosen architecture.
+    <br />
+
+  <p><b>Expected result:</b>
+    Write a JITLink specialization for a not-yet-supported format/architecture
+    such as BPF or PowerPC.
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++; Understanding of LLVM and the LLVM JIT in particular;
+    familiarity with your chosen format/architecture, and basic linker concepts
+    (e.g. sections, symbols, and relocations).
+
+  <p><b>Project size:</b> Large.</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/lhames>Lang Hames</a></p>
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/jitlink-new-backends/68223">URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
   <a name="llvm_improving_compile_times">Improving compile times</a>
 </div>
 <!-- *********************************************************************** -->
@@ -466,6 +518,61 @@
   <p><b>Confirmed Mentor:</b> <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a></p>
 </div>
 
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The Clang compiler is part of the LLVM compiler infrastructure and supports
+    various languages such as C, C++, ObjC and ObjC++. The design of LLVM and
+    Clang enables them to be used as libraries, and has led to the creation of
+    an entire compiler-assisted ecosystem of tools. The relatively friendly
+    codebase of Clang and advancements in the JIT infrastructure in LLVM further
+    enable research into different methods for processing C++ by blurring the
+    boundary between compile time and runtime. Challenges include incremental
+    compilation and fitting compile/link time optimizations into a more dynamic
+    environment.
+    <br /> <br />
+    Incremental compilation pipelines process code chunk-by-chunk by building an
+    ever-growing translation unit. Code is then lowered into the LLVM IR and
+    subsequently run by the LLVM JIT. Such a pipeline allows creation of
+    efficient interpreters. The interpreter enables interactive exploration and
+    makes the C++ language more user friendly. Clang-Repl is one example.
+    <br /> <br />
+    Clang-Repl uses the Orcv2 JIT infrastructure within the same process. That
+    design is efficient and easy to implement however it suffers from two
+    significant drawbacks. First, it cannot be used in devices which do not have
+    sufficient resources to host the entire infrastructure, such as the arduino
+    due (see this
+    <a href="https://compiler-research.org/meetings/#caas_10Mar2022">talk</a>
+    for more details). Second, crashes in user codes mean that the entire
+    process crashes, hindering overall reliability and ease of use.
+    <br /> <br />
+    This project aims to move Clang-Repl to an out-of-process execution model
+    in order to address both of these issues.
+  </p>
+
+  <p><b>Expected result:</b>
+    Implement an out-of-process execution of statements with Clang-Repl;
+    Demonstrate that Clang-Repl can support some of the ez-clang use-cases;
+    Research into approaches to restart/continue the session upon crash;
+    As a stretch goal design a versatile reliability approach for crash recovery;
+  </p>
+
+  <p><b>Project size:</b>Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/weliveindetail>Stefan Gränitz</a>,
+    <a href=https://github.com/lhames>Lang Hames</a>
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-out-of-process-execution-for-clang-repl/68225">URL</a>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
@@ -725,7 +832,9 @@
   </p>
   <p><b>Confirmed Mentor:</b>
     <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
-    <a href=https://github.com/lhames>Lang Hames</a></p>
+    <a href=https://github.com/weliveindetail>Stefan Gränitz</a>,
+    <a href=https://github.com/lhames>Lang Hames</a>
+  </p>
   <p><b>Desirable skills:</b> Intermediate C++; Understanding of LLVM and the
     LLVM JIT in particular; familiarity with your chosen format/architecture,
     and basic linker concepts (e.g. sections, symbols, and relocations).
