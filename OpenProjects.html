@@ -16,6 +16,7 @@
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
                <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
                <li><a href="#llvm_mlgo_latency_model">Better performance models for MLGO training</a></li>
+               <li><a href="#llvm_mlgo_passes_2023">Machine Learning Guided Ordering of Compiler Optimization Passes</a></li>               
             </ul>
           </li>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
@@ -833,6 +834,43 @@
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-improve-and-stabilize-the-static-analyzers-taint-analysis-checks/68235">URL</a>
 </div>
 
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_mlgo_passes_2023">Machine Learning Guided Ordering of Compiler Optimization Passes</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+  This continues the work of GSoC 2020 and <a href="https://summerofcode.withgoogle.com/archive/2021/projects/6411038932598784">2021</a>.
+
+  Developers generally use standard optimization pipelines like -O2 and -O3 to
+  optimize their code. Manually crafted heuristics are used to determine which
+  optimization passes to select and how to order the execution of those passes.
+  However, this process is not tailored for a particular program, or kind
+  of program, as it is designed to perform “reasonably well” for any input.
+
+  We want to improve the existing heuristics or replace the heuristics with
+  machine learning-based models so that the LLVM compiler can provide a superior
+  order of the passes customized per program.
+
+  The last milestone enabled feature extraction, and started investigating training
+  a policy for selecting a more appropriate pass pipeline.
+  </p>
+  <p><b>Project size:</b> either 175 or 350 hr.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Skills:</b> C/C++, some compiler experience. ML experience is a bonus.</p>
+  <p><b>Expected outcomes</b>: Pre-trained model selecting the most economical
+    optimization pipeline, with no loss in performance; hook-up of model in LLVM;
+    (re-)training tool; come up with new optimization sequences through search or learning.</p>
+  <p><b>Mentors</b>
+    Tarindu Jayatilaka, Mircea Trofin, Johannes Doerfert
+  </p>
+  <p>
+  <b>Discourse</b>
+  <a href="https://discourse.llvm.org/t/machine-learning-guided-ordering-of-compiler-optimization-passes/60415">URL</a>
+  </p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
