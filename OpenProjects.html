@@ -37,6 +37,12 @@
               <li><a href="#llvm_mlir_presburger_opt">Optimizing MLIR’s Presburger library</a></li>
             </ul>
           </li>
+          <li>
+            <b>Clang</b>
+            <ul>
+              <li><a href="#clang_analyzer_taint_analysis">Improve and Stabilize the Clang Static Analyzer's "Taint Analysis" Checks</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -686,6 +692,86 @@
   <b>Discourse</b>
   <a href="https://discourse.llvm.org/t/better-performance-models-for-mlgo-training/68219">URL</a>
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsection">
+  <a>Clang</a>
+</div>
+<!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang_analyzer_taint_analysis">Improve and Stabilize the Clang Static Analyzer's "Taint Analysis" Checks</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The Clang static analyzer comes with an experimental implementation of
+    taint analysis, a security-oriented analysis technique built to warn
+    the user about flow of attacker-controlled ("tainted") data into
+    sensitive functions that may behave in unexpected and dangerous ways
+    if the attacker is able to forge the right input. The programmer can address
+    such warnings by properly "sanitizing" the tainted data in order to
+    eliminate these dangerous inputs. A common example of a problem that can be
+    caught this way is <a href="https://xkcd.com/327/">SQL injections</a>.
+    A much simpler example, which is arguably much more relevant to users
+    of Clang, is buffer overflow vulnerabilities caused by attacker-controlled
+    numbers used as loop bounds while iterating over stack or heap arrays, or
+    passed as arguments to low-level buffer manipulating functions such as
+    <tt>memcpy()</tt>.
+  </p>
+  <p>
+    Being a static symbolic execution engine, the static analyzer implements
+    taint analysis by simply maintaining a list of "symbols" (named unknown
+    numeric values) that were obtained from known taint sources during the
+    symbolic simulation. Such symbols are then treated as potentially taking
+    arbitrary concrete values, as opposed to the general case of taking an
+    unknown subset of possible values. For example, division by a unchecked
+    unknown value doesn't necessarily warrant a division by zero warning,
+    because it's typically not known whether the value can be zero or not.
+    However, division by an unchecked <i>tainted</i> value does immediately
+    warrant a division by zero warning immediately, because the attacker is free
+    to pass zero as an input. Therefore the static analyzer's taint
+    infrastructure consists of several parts: there is a mechanism for keeping
+    track of tainted symbols in the symbolic program state, there is a way to
+    define new sources of taint, and a few path-sensitive checks were taught to
+    consume taint information to emit additional warnings (like the division
+    by zero checker), acting as taint "sinks" and defining checker-specific
+    "sanitization" conditions.
+  </p>
+  <p>
+    The entire facility is flagged as experimental: it's basically a
+    proof-of-concept implementation. It's likely that it can be made to work
+    really well, but it needs to go through some quality control by running it
+    on real-world source code, and a number of bugs need to be addressed,
+    especially in individual checks, before we can declare it stable.
+    Additionally, the tastiest check of them all – buffer overflow detection
+    based on tainted loop bounds or size parameters – was never implemented.
+    There is also a related check for array access with tainted index – which
+    is, again, experimental; let's see if we can declare this one stable
+    as well!
+  </p>
+
+  <p><b>Expected result:</b>
+    A number of taint-related checks either enabled by default for all users
+    of the static analyzer, or available as opt-in for users who care about
+    security. They're confirmed to have low false positive rate on real-world
+    code. Hopefully, the buffer overflow check is one of them.</p>
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++ to be able to understand LLVM code. We'll run our analysis
+    on some plain C code as well.
+  </p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentor:</b> <a href="https://github.com/haoNoQ">Artem Dergachev</a></p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-improve-and-stabilize-the-static-analyzers-taint-analysis-checks/68235">URL</a>
 </div>
 
 
