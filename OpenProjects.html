@@ -11,6 +11,7 @@
           <li>
             <b>LLVM Core</b>
             <ul>
+               <li><a href="#llvm_new_jitlink_reopt">Re-optimization using JITLink</a></li>
                <li><a href="#llvm_new_jitlink_backends">JITLink new backends</a></li>
                <li><a href="#llvm_improving_compile_times">Improving compile times</a></li>
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
@@ -333,6 +334,65 @@
   <a>LLVM</a>
 </div>
 <!-- *********************************************************************** -->
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_new_jitlink_reopt">Re-optimization using JITLink</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    In Just-In-Time compilers we often choose a low optimization level to
+    minimize compile time and improve launch times and latencies, however some
+    functions (which we call hot functions) are used very frequently and for
+    these functions it is worth optimizing more heavily. In general hot
+    functions can only be identified at runtime (different inputs will cause
+    different functions to become hot), so the aim of the reoptimization project
+    is to build infrastructure to (1) detect hot functions at runtime and (2)
+    compile them a second time at a higher optimization level, hence the name
+    "re-optimization".
+    <br /><br />
+    There are many possible approaches to both parts of this problem. E.g. hot
+    functions could be identified by sampling, or using existing profiling
+    infrastructure, or by implementing custom instrumentation. Reoptimization
+    could be applied to whole functions, or outlining could be used to enable
+    optimization of portions of functions. Re-entry into the JIT infrastructure
+    from JIT’d code might be implemented on top of existing lazy compilation, or
+    via a custom path.
+    <br /><br />
+    Whatever design is adopted, the goal is that the infrastructure should be
+    generic so that it can be used by other LLVM API clients, and should support
+    out-of-process JIT-compilation (so some of the solution will be implemented
+    in the ORC runtime).
+
+  <p><b>Expected result:</b>
+    <ul>
+      <li>Improve ergonomics of indirection – ideally all forms of indirection
+        (for re-optimization, lazy compilation, and procedure-linkage-tables)
+        should be able to share a single stub (and/or binary rewriting metadata)
+        at runtime.</li>
+      <li>Implement basic re-optimization on top of the tidied up
+        indirection.</li>
+      <li>(Stretch goal) Garbage-collect unoptimized code that is no longer
+        needed once the optimized version is available.</li>
+    </ul>
+
+  <p><b>Desirable skills:</b>
+    Intermediate C++; Understanding of LLVM and the LLVM JIT in particular.
+
+  <p><b>Project size:</b> Large.</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/lhames>Lang Hames</a></p>
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/re-optimization-using-jitlink/68260">URL</a>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
