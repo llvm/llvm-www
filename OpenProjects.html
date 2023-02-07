@@ -24,6 +24,7 @@
               <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
               <li><a href="#clang_analyzer_taint_analysis">Improve and Stabilize the Clang Static Analyzer's "Taint Analysis" Checks</a></li>
               <li><a href="#clang-repl-autocompletion">Implement autocompletion in clang-repl</a>
+              <li><a href="#clang-modules-build-daemon">Modules build daemon: build system agnostic support for explicitly built modules</a></li>
               </li>
             </ul>
           </li>
@@ -643,6 +644,41 @@
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-repl-implement-autocompletion-in-clang-repl/60364">URL</a>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-modules-build-daemon">Modules build daemon: build system agnostic support for explicitly built modules</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b> Clang currently handles modules independently in each
+    <code>clang</code> instance using the filesystem for synchronization of which instance builds
+    a given module. This has many issues with soundness and performance due to tradeoffs made for
+    module reuse and filesystem contention.</p>
+  <p>Clang has another way of building modules, explicitly built modules, that currently requires
+    build system changes to adopt. Here the build system determines which modules are needed, for
+    example by using <a href="https://github.com/llvm/llvm-project/tree/main/clang/tools/clang-scan-deps">clang-scan-deps</a>,
+    and ensures those modules are built before running the <code>clang</code> compile task that
+    needs them.</p>
+  <p>In order to allow adoption of this new way of building modules without major build system work
+    we need a module build daemon. With a small change to the command line, clang will connect to
+    this daemon and ask for the modules it needs. The module build daemon then either returns an
+    existing valid module, or builds and then returns it.</p>
+  <p>There is an existing open source dependency scanning daemon that is in a llvm-project fork.
+    This only handles file dependencies, but has an IPC mechanism. This IPC system could be used as
+    a base for the modules build daemon, but does need to be extended to work on Windows.</p>
+  <p><b>Expected result:</b> A normal project using Clang modules with an existing build system
+    (like Make or CMake) can be built using only explicitly built modules via a modules build
+    daemon.</p>
+  <p><b>Desirable skills:</b> Intermediate C++ programming skills; familiarity with compilers;
+    familiarity with Clang is an asset, but not required.</p>
+  <p><b>Project size:</b> 175h or 350h depending on reuse of IPC</p>
+  <p><b>Difficulty:</b> medium</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/Bigcheese">Michael Spencer</a>,
+    <a href="https://github.com/jansvoboda11">Jan Svoboda</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-modules-build-daemon-build-system-agnostic-support-for-explicitly-built-modules/68224">URL</a></p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
