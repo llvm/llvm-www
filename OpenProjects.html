@@ -45,6 +45,13 @@
               <li><a href="#llvm_mlir_presburger_opt">Optimizing MLIR’s Presburger library</a></li>
             </ul>
           </li>
+          <li>
+            <b>Code Coverage</b>
+            <ul>
+              <li><a href="#llvm_code_coverage">Support a hierarchical directory structure in generated coverage html reports</a></li>
+            </ul>
+          </li>
+
         </ul>
       </li>
 
@@ -912,7 +919,7 @@
   </p>
   <p><b>Confirmed Mentors:</b>
     <a href="https://github.com/Prabhuk">Prabhu Rajasekaran</a>
-    <a href="https://github.com/petrhosek">Peter Hosek</a>
+    <a href="https://github.com/petrhosek">Petr Hosek</a>
   </p>
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/lld-linker-improvements-for-embedded/68129">URL</a>
 </div>
@@ -1090,6 +1097,49 @@
   <b>Discourse</b>
   <a href="https://discourse.llvm.org/t/machine-learning-guided-ordering-of-compiler-optimization-passes/60415">URL</a>
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_code_coverage">Support a hierarchical directory structure in generated coverage html reports</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b><br>
+    Clang supports source-based coverage that shows which lines of code are covered by the executed tests
+    <a href="https://clang.llvm.org/docs/SourceBasedCodeCoverage.html">[1]</a>.
+    It uses llvm-profdata <a href="https://llvm.org/docs/CommandGuide/llvm-profdata.html">[2]</a> and
+    llvm-cov <a href="https://llvm.org/docs/CommandGuide/llvm-cov.html">[3]</a> tools to generate coverage reports.
+    llvm-cov currently generates a single top-level index HTML file.
+    For example, a single top-level directory code coverage report
+    <a href="https://lab.llvm.org/coverage/coverage-reports/index.html">[4]</a>
+    for LLVM repo is published on a coverage bot.
+    Top-level indexing causes rendering scalability issues in large projects,
+    such as Fuchsia <a href="https://fuchsia.dev">[5]</a>.
+    The goal of this project is to generate a hierarchical directory structure in generated coverage html reports
+    to match the directory structure and solve scalability issues.
+    Chromium uses its own post-processing tools to show a per-directory hierarchical structure for coverage results
+     <a href="https://analysis.chromium.org/coverage/p/chromium">[6]</a>.
+    Similarly, Lcov, which is a graphical front-end Gcov<a href="https://gcc.gnu.org/onlinedocs/gcc/Gcov.html">[7]</a>,
+    provides a one-level directory structure to display coverage results <a href="https://llvm.org/reports/coverage/index.html">[8]</a>. <br>
+    [1] <a href="https://clang.llvm.org/docs/SourceBasedCodeCoverage.html">Source-based code coverage</a><br>
+    [2] <a href="https://llvm.org/docs/CommandGuide/llvm-profdata.html">llvm-profdata</a><br>
+    [3] <a href="https://llvm.org/docs/CommandGuide/llvm-cov.html">llvm-cov</a><br>
+    [4] <a href="https://lab.llvm.org/coverage/coverage-reports/index.html">LLVM coverage reports</a><br>
+    [5] <a href="https://fuchsia.dev">Fuchsia</a><br>
+    [6] <a href="https://analysis.chromium.org/coverage/p/chromium">Coverage summary for Chromium</a><br>
+    [7] <a href="https://gcc.gnu.org/onlinedocs/gcc/Gcov.html">Gcov</a><br>
+    [8] <a href="https://llvm.org/reports/coverage/index.html">Lcov coverage reports</a><br>
+    [9] <a href="https://github.com/llvm/llvm-project/issues/54711">Issue #54711: Support per-directory index files for HTML coverage report</a></p>
+  </p>
+  <p><b>Expected result:</b> Implement a support in hierarchical directory structure in generated coverage html reports and show the usage of this feature in LLVM repo code coverage reports.</p>
+  <p><b>Project size:</b> Medium or Large</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/gulfemsavrun">Gulfem Savrun Yeniceri</a>
+    <a href="https://github.com/petrhosek">Petr Hosek</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/coverage-support-a-hierarchical-directory-structure-in-generated-coverage-html-reports/68239">URL</a>
 </div>
 
 <!-- *********************************************************************** -->
