@@ -26,6 +26,9 @@
               <li><a href="#clang_analyzer_taint_analysis">Improve and Stabilize the Clang Static Analyzer's "Taint Analysis" Checks</a></li>
               <li><a href="#clang-repl-autocompletion">Implement autocompletion in clang-repl</a>
               <li><a href="#clang-modules-build-daemon">Modules build daemon: build system agnostic support for explicitly built modules</a></li>
+              <li><a href="#clang-extract-api-categories">ExtractAPI Objective-C categories</a></li>
+              <li><a href="#clang-extract-api-cpp-support">ExtractAPI C++ Support</a></li>
+              <li><a href="#clang-extract-api-while-building">ExtractAPI while building</a></li>
               </li>
             </ul>
           </li>
@@ -738,6 +741,123 @@
     <a href="https://github.com/jansvoboda11">Jan Svoboda</a>
   </p>
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-modules-build-daemon-build-system-agnostic-support-for-explicitly-built-modules/68224">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-extract-api-categories">ExtractAPI Objective-C categories</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b> <a href="https://github.com/apple/swift-docc">Swift-DocC</a> is
+  the canonical documentation compiler for the Swift OSS project. However
+  Swift-DocC is not Swift specific and
+  uses <a href="https://github.com/apple/swift-docc-symbolkit/blob/main/openapi.yaml">SymbolKit</a>'s
+  languaguage agnostic JSON-based symbol graph format to understand which
+  symbols are available in the code, this way any language can be supported by
+  Swift-DocC as long as there is a symbol graph generator.</p>
+  <p>Clang supports symbol graph generation for C and Objective-C as described
+  in <a href="https://discourse.llvm.org/t/rfc-clang-support-for-api-information-generation-in-json/58845">[RFC]
+  clang support for API information generation in JSON</a>. Today, support for
+  Objective-C categories is not complete, on one hand if the category extends a
+  type in the current module, the category members are assumed to belong to the
+  extended type itself. On the other hand, if the extended type belongs to
+  another module the category is ignored. Nonetheless, it is common to extend
+  types belonging to other modules in Objective-C as part of the public API of
+  the module. The goal of this project is to extend the symbol graph format to
+  accommodate Objective-C categories and to implement support for generating
+  this information both through clang and through libclang.</p>
+  <p><b>Expected result:</b> Adding the necessary support to clang's symbol graph
+  generator and in libclang for describing categories of symbols defined in
+  other modules. This might involve additions to SymbolKit that would need to be
+  discussed with that community.</p>
+  <p><b>Desirable skills:</b> Intermediate C++ programming skills; familiarity
+  with clang and Objective-C are assets but not required.</p>
+  <p><b>Project size:</b> Medium</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/daniel-grumberg">Daniel Grumberg</a>,
+    <a href="https://github.com/zixu-w">Zixu Wang</a>,
+    <a href="https://github.com/ributzka">Juergen Ributzka</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-extractapi-objective-c-categories/68370">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-extract-api-cpp-support">ExtractAPI C++ Support</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b> <a href="https://github.com/apple/swift-docc">Swift-DocC</a> is
+  the canonical documentation compiler for the Swift OSS project. However
+  Swift-DocC is not Swift specific and
+  uses <a href="https://github.com/apple/swift-docc-symbolkit/blob/main/openapi.yaml">SymbolKit</a>'s
+  languaguage agnostic JSON-based symbol graph format to understand which
+  symbols are available in the code, this way any language can be supported by
+  Swift-DocC as long as there is a symbol graph generator.</p>
+  <p>Clang supports symbol graph generation for C and Objective-C as described
+  in <a href="https://discourse.llvm.org/t/rfc-clang-support-for-api-information-generation-in-json/58845">[RFC]
+  clang support for API information generation in JSON</a>.</p>
+  <p>Currently the emitted symbol graph format does not support various C++
+  constructs such as templates and exceptions and the symbol graph generator
+  does not fully understand C++. This project aims to introduce support for
+  various C++ constructs in the symbol graph format and to implement support for
+  generating this data in clang.</p>
+  <p><b>Expected result:</b> Adding the necessary support to clang's symbol graph
+  generator and in libclang for describing categories of symbols defined in
+  other modules. This will involve additions to SymbolKit that would need to be
+  discussed with that community.</p>
+  <p><b>Desirable skills:</b> Intermediate C++ programming skills; familiarity
+  with clang and Objective-C are assets but not required.</p>
+  <p><b>Project size:</b> Large</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/daniel-grumberg">Daniel Grumberg</a>,
+    <a href="https://github.com/zixu-w">Zixu Wang</a>,
+    <a href="https://github.com/ributzka">Juergen Ributzka</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/extractapi-c-support/68371">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-extract-api-while-building">ExtractAPI while building</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b> <a href="https://github.com/apple/swift-docc">Swift-DocC</a> is
+  the canonical documentation compiler for the Swift OSS project. However
+  Swift-DocC is not Swift specific and
+  uses <a href="https://github.com/apple/swift-docc-symbolkit/blob/main/openapi.yaml">SymbolKit</a>'s
+  languaguage agnostic JSON-based symbol graph format to understand which
+  symbols are available in the code, this way any language can be supported by
+  Swift-DocC as long as there is a symbol graph generator.</p>
+  <p>Clang supports symbol graph generation for C and Objective-C as described
+  in <a href="https://discourse.llvm.org/t/rfc-clang-support-for-api-information-generation-in-json/58845">[RFC]
+  clang support for API information generation in JSON</a>.</p>
+  <p>Currently users can use clang to generate symbol graph files using
+  the <code>clang -extract-api</code> command line interface or generating
+  symbol graphs for a specific symbol using the libclang interface. This project
+  would entail adding a third mode that would generate the symbol graph output
+  as a side-effect of a regular compilation job. This can enable using the
+  symbol graph format as a light weight alternative to clang Index or clangd
+  for code intelligence services.</p>
+  <p><b>Expected result:</b> Enable generating symbol graph files during a
+  regular compilation (or module build); provide a tool to merge symbol graph
+  files in the same way a static linker links individual object files; Extend
+  clang Index to support all the information contained by symbol graph
+  files.</p>
+  <p><b>Desirable skills:</b> Intermediate C++ programming skills; familiarity
+  with clang and Objective-C are assets but not required.</p>
+  <p><b>Project size:</b> Medium</p>
+  <p><b>Difficulty:</b> Medium/Hard</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/daniel-grumberg">Daniel Grumberg</a>,
+    <a href="https://github.com/zixu-w">Zixu Wang</a>,
+    <a href="https://github.com/ributzka">Juergen Ributzka</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-extractapi-while-building/68372">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
