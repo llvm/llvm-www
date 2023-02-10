@@ -886,7 +886,7 @@
     unknown value doesn't necessarily warrant a division by zero warning,
     because it's typically not known whether the value can be zero or not.
     However, division by an unchecked <i>tainted</i> value does immediately
-    warrant a division by zero warning immediately, because the attacker is free
+    warrant a division by zero warning, because the attacker is free
     to pass zero as an input. Therefore the static analyzer's taint
     infrastructure consists of several parts: there is a mechanism for keeping
     track of tainted symbols in the symbolic program state, there is a way to
