@@ -52,6 +52,12 @@
               <li><a href="#llvm_code_coverage">Support a hierarchical directory structure in generated coverage html reports</a></li>
             </ul>
           </li>
+          <li>
+            <b>ClangIR</b>
+            <ul>
+              <li><a href="#clangir">Build and run SingleSource benchmarks using ClangIR</a></li>
+            </ul>
+          </li>
 
         </ul>
       </li>
@@ -1184,6 +1190,36 @@
   <b>Discourse:</b>
   <a href="https://discourse.llvm.org/t/map-llvm-values-to-corresponding-source-level-expressions/68450">URL</a>
   </p>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="clangir">Build and run SingleSource benchmarks using ClangIR</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b><br>
+    Clang codegen works by emitting LLVM IR through AST visitors. In the
+    <a href="https://llvm.github.io/clangir/">ClangIR</a>. project, we emit ClangIR from AST visitors instead,
+    which can then be lowered to (a) LLVM IR directly or, alternatively, (b) MLIR in-tree dialects. Lowering
+    is still a quite immature and lacks many instructions, attributes and metadata support. By improving it
+    and pursuing parity with AST→LLVM IR codegen quality, ClangIR can incrementally bridge correctness and
+    performance testing, providing a baseline for future higher level optimizations for C/C++ and/or mixing of
+    MLIR dialects to improve specific workloads. A good starting point is to build and run simple benchmarks,
+    measuring both generated code and build time performance. LLVM's llvm-test-suite contains scripts and
+    machinery that easily allows checking correctness and collecting perf related data and its
+    <a href="https://github.com/llvm/llvm-test-suite/tree/main/SingleSource">SingleSource</a>
+    collection provide a set of simpler programs to build.
+  </p>
+
+  <p><b>Expected result:</b>Build and run programs from the SingleSource subdirectory from the
+  lvm-test-suite, collect and present results (perf and build time) against regular (upstream) clang codegen.</p>
+  <p><b>Project size:</b> Medium</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/bcardosolopes">Bruno Cardoso Lopes</a>
+    <a href="https://github.com/lanza">Nathan Lanza</a>
+  </p>
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clangir-build-and-run-singlesource-benchmarks-using-clangir/68473">URL</a>
 </div>
 
 <!-- *********************************************************************** -->
