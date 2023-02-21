@@ -96,7 +96,7 @@ Program Committee:
             </p>
           </td>
           <td>
-              <p>Automatic Code Generation for High-performance Graph Algorithms</p>
+              <p><a href="#auto-code-gen-for-graph">Automatic Code Generation for High-performance Graph Algorithms</a></p>
           </td>
           <td>
               <p>Codegen</p>
@@ -134,7 +134,7 @@ Program Committee:
         </p>
       </td>
       <td>
-          <p>A New Implementation for std::sort</p>
+          <p><a href="#std-sort">A New Implementation for std::sort</a></p>
       </td>
       <td>
           <p>Algorithms</p>
@@ -151,7 +151,7 @@ Program Committee:
         </p>
       </td>
       <td>
-          <p>Optimizing the Compiler’s Memory Usage? Let Us Implement a Basic Profiler First!</p>
+          <p><a href="#optimize-compiler-memory-usage">Optimizing the Compiler's Memory Usage? Let Us Implement a Basic Profiler First!</a></p>
       </td>
       <td>
           <p></p>
@@ -171,7 +171,7 @@ Program Committee:
         </p>
       </td>
       <td>
-          <p>Solid Work-Group Synchronization on CPUs</p>
+          <p><a href="#work-group-sync-cpu">Solid Work-Group Synchronization on CPUs</a></p>
       </td>
       <td>
           <p>GPU</p>
@@ -208,7 +208,7 @@ Program Committee:
       </p>
     </td>
     <td>
-        <p>RL4ReAl: Reinforcement Learning for Register Allocation</p>
+        <p><a href="#rl4real">RL4ReAl: Reinforcement Learning for Register Allocation</a></p>
     </td>
     <td>
       <p>Machine Learning</p>
@@ -268,11 +268,82 @@ Program Committee:
   </tbody>
 </table>
 
-<!-- <div class="www_sectiontitle">Abstracts</div>
+<div class="www_sectiontitle">Abstracts</div>
 
-    <h3 id="ADD_UNIQUE_ID_REF_IN_PROGRAM_ABOVE"  class="cgo-title" style="font-weight: bold;">TITLE <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
-    <p>This section will contain the abstract for the different talks once they are accepted
-    </p> -->
+<h3 id="auto-code-gen-for-graph" class="cgo-title" style="font-weight: bold;">Automatic Code Generation for High-Performance Graph Algorithms<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Rizwan A. Ashraf<sup>1</sup>, Zhen Peng<sup>1</sup>, Luanzheng Guo<sup>1</sup>, Gokcen Kestor<sup>1</sup></h4>
+<h5><sup>1</sup>Pacific Northwest National Laboratory</h5>
+<p>
+  Graph algorithms have broad applicability in many domains, such as scientific computing, social sciences, and many more.
+  A well-performing implementation of these algorithms on computing systems however requires significant programmer effort, and portability across various heterogeneous computing devices does not come for free.
+  In this paper, we describe the support of optimizations in the MLIR-based COMET compiler of graph algorithms for portable and faster implementation as compared to a library-based approach.
+  We discuss the needed extensions to our compiler front-end, intermediate representation, and the workspace and masking optimizations.
+  Our experimental results demonstrate speedup of up to 3.7X for the sparse matrix - sparse matrix operation over various semirings, as compared to a library-based implementation of the GraphBLAS standard.
+</p>
+
+<h3 id="std-sort" class="cgo-title" style="font-weight: bold;">A New Implementation for <code>std::sort</code><br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Marco Gelmi<sup>1</sup>, MinJae Hwang<sup>2</sup>, Danila Kutenin<sup>1</sup>, Daniel J. Mankowitz<sup>1</sup>, Andrea Michi<sup>1</sup>, Marco Selvi<sup>2</sup>, Nilay Vaish<sup>2</sup></h4>
+<h5><sup>1</sup>DeepMind, <sup>2</sup>Google LLC</h5>
+<p>
+  <code>std::sort</code> is one of the most used algorithms from the C++ Standard Library.
+  In this writeup, we talk about our recent changes to the <code>libc++</code> implementation of the algorithm for improving its performance.
+  Before our changes, the core of the implementation was the Quicksort algorithm. The implementation handled a few particular cases specially.
+  Collections of length 5 or less are sorted using sorting networks.
+  Depending on the data type being sorted, collections of lengths up to 30 are sorted using insertion sort.
+  There was special handling for collections where most items are equal and for collections that are almost sorted.
+</p>
+
+<h3 id="optimize-compiler-memory-usage" class="cgo-title" style="font-weight: bold;">Optimizing the Compiler's Memory Usage? Let Us Implement a Basic Profiler First!<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Gunnar Kudrjavets<sup>1</sup>, Aditya Kumar<sup>2</sup></h4>
+<h5><sup>1</sup>University of Groningen, <sup>2</sup>ACM Distinguished Speaker</h5>
+<p>
+  The number of files and source lines of code in popular industrial code bases is significant.
+  As of 2017, the Microsoft Windows code base contained 3.5 million files. The Linux kernel contained 27.8 million lines of code in 2020.
+  Compiling code fast is essential to developer productivity for thousands of engineers.
+  Compiler performance requirements, such as CPU and I/O usage, are high.
+  One of the application's standard performance criteria is memory usage and memory allocator churn. Lower memory usage implies a higher capacity to run more compiler instances in parallel.
+  Deceptively easy solutions to reduce memory usage, such as custom memory allocators (e.g., <code>jemalloc</code>), are available.
+  However, in our industry experience, nothing replaces context-dependent targeted optimizations.
+  To optimize memory usage, we need to be able to conduct reliable and valid measurements.
+  This talk describes the challenges associated with designing and implementing a performant and scalable mechanism to intercept calls to a memory allocator.
+  We can use that intercept mechanism as an essential profiling tool.
+  A critical requirement for this type of profiler is low-performance overhead, enabling us to run the profiling functionality in a production environment.
+  Attributing and quantifying memory usage in production is a complex problem.
+  The inspiration for this presentation is our experience at Meta (Facebook), where we worked on the performance engineering of various applications.
+  We discuss the problems related to (a) different methods of intercepting allocator calls, such as malloc and free,
+  (b) enabling and disabling the allocator intercept mechanism, (c) keeping track of the count and size of allocations that multiple threads request,
+  (d) the concept of "safe" APIs that are available during the execution of the intercept mechanism, and (e) avoiding reentrancy.
+  We finish our talk by discussing various problems and solutions related to extending the profiling mechanism.
+  If the in-memory data structures are insufficient to keep track of performance-related data, it must be stored somewhere.
+  Interacting with a storage mechanism, such as a hard disk, will add complexity in the case of multiple readers and writers.
+  As a concrete example for our discussion, we use publicly accessible information about Mac OS X and reference the source code from Apple.
+</p>
+
+<h3 id="work-group-sync-cpu" class="cgo-title" style="font-weight: bold;">Solid Work-Group Synchronization on CPUs<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Joachim Meyer<sup>1</sup>, Aksel Alpay<sup>2</sup>, Sebastian Hack<sup>1</sup>, Holger Fröning<sup>2</sup>, Vincent Heuveline<sup>3</sup></h4>
+<h5><sup>1</sup>Compiler Design Lab, Saarland Informatics Campus, Saarland University, <sup>2</sup>University of Heidelberg, <sup>3</sup>Heidelberg University</h5>
+<p>
+  More and more frameworks and simulations are developed using heterogeneous programming models such as CUDA, HIP, SYCL, or OpenCL.
+  Their hierarchical kernel models are easily mapped to the GPU's resource hierarchy, their massive number of threads, and lightweight synchronization.
+  For compatibility with CPU-only high-performance computing facilities (e.g. Fugaku) or for splitting work across GPUs and CPUs, it is beneficial if the kernels written for those programming models can also be executed on CPUs.
+  A significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on CPUs requires providing forward-progress guarantees.
+  These guarantees can only be provided by using sufficient concurrency (by means of threads or fibers) or compiler transformations that split the kernels at the barriers.
+  While new variants and improvements are still being proposed, the compiler transformations are similar in spirit.
+  This means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models.
+  We propose to have one of these implementations upstream in LLVM, to allow for reusing a mature and optimized implementation.
+</p>
+
+<h3 id="rl4real" class="cgo-title" style="font-weight: bold;">RL4ReAl: Reinforcement Learning for Register Allocation<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>S. Venkatakeerthy<sup>1</sup>, Siddharth Jain<sup>1</sup>, Anilava Kundu<sup>1</sup>, Rohit Aggarwal<sup>1</sup>, Albert Cohen<sup>2</sup> and Ramakrishna Upadrasta<sup>1</sup></h4>
+<h5><sup>1</sup>IIT Hyderabad, <sup>2</sup>Google</h5>
+<p>
+  We aim to automate decades of research and experience in register allocation, leveraging machine learning.
+  We tackle this problem by embedding a multi-agent reinforcement learning algorithm within LLVM, training it with state of the art techniques.
+  We formalize the constraints that precisely define the problem for a given instruction-set architecture, while ensuring that the generated code preserves semantic correctness.
+  We also develop a gRPC based framework providing a modular and efficient compiler interface for training and inference.
+  Our approach is architecture independent: we show experimental results targeting Intel x86 and ARM AArch64.
+  Our results match or out-perform the heavily tuned, production-grade register allocators of LLVM.
+</p>
 
 <div class="www_sectiontitle">Call for Speakers</div>
 
@@ -357,7 +428,7 @@ form. By registering for this event, we expect you to have read and agree to
 the <a href="http://llvm.org/docs/CodeOfConduct.html">LLVM Code of Conduct</a>.
 </p>
 <p>
-We also adhere to the <a href="https://conf.researchr.org/attending/cgo-2023/code-of-conduct" target="_blank"> Code of Conduct use by CGO </a> 
+We also adhere to the <a href="https://conf.researchr.org/attending/cgo-2023/code-of-conduct" target="_blank"> Code of Conduct use by CGO </a>
 </p>
 
 
