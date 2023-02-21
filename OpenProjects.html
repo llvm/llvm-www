@@ -50,6 +50,7 @@
             <b>Code Coverage</b>
             <ul>
               <li><a href="#llvm_code_coverage">Support a hierarchical directory structure in generated coverage html reports</a></li>
+              <li><a href="#llvm_patch_coverage">Patch based test coverage for quick test feedback</a></li>
             </ul>
           </li>
 
@@ -1183,6 +1184,48 @@
   <p>
   <b>Discourse:</b>
   <a href="https://discourse.llvm.org/t/map-llvm-values-to-corresponding-source-level-expressions/68450">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_patch_coverage">Patch based test coverage for quick test feedback</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project</b>
+    Most of the day to day tests in LLVM are regression tests executed by <a href="https://llvm.org/docs/CommandGuide/lit.html">Lit</a>, structured as source code or IR to be passed to some binary, rather than test code directly calling the code to be tested.
+    This has many advantages but can make it difficult to predict which code path is executed when the compiler is invoked with a certain test input, especially for edge cases where error handling is involved.
+    The goal of this project is to help developers create good test coverage for their patch and enable reviewers to verify that they have done so.
+    To accomplish this we would like to introduce a tool that can be fed a patch as input, add coverage instrumentation for the affected source files, runs Lit tests, and records which test cases cause each counter to be executed.
+    For each counter we can then report the number of test cases executing the counter, but perhaps more importantly we can also report the number of test cases executing the counter that are also changed in some way by the patch, since a modified line that results in the same test results isn’t properly tested, unless it’s intended to be a non-functional change.
+    This can be implemented in three separate parts:
+
+    <ol>
+      <li>Adding an option to llvm-lit to emit the necessary test coverage data, divided per test case (involves setting a unique value to <a href="https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#running-the-instrumented-program"><code>LLVM_PROFILE_FILE</code></a> for each RUN)
+      <li>New tool to process the generated coverage data and the relevant git patch, and present the results in a user friendly manner
+      <li>Adding a way to non-intrusively (without changing build configurations) enable coverage instrumentation to a build. By building the project normally, touching the files changed by the patch, and rebuilding with <a href="https://github.com/llvm/llvm-project/blob/93a1fc2e18b452216be70f534da42f7702adbe1d/clang/tools/driver/driver.cpp#L79-L105"><code>CCC_OVERRIDE_OPTIONS</code></a> set to <a href="https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#compiling-with-coverage-enabled">add coverage</a> we can lower the overhead of generating and processing coverage of lines not relevant to the patch.
+    </ol>
+
+    The tooling in step 2 and 3 can be made completely agnostic of the actual test-runner, lowering the threshold for other test harnesses than Lit to implement the same functionality.
+    If time permits adding this as a step in CI would also be helpful for reviewers.
+  </p>
+
+  <p><b>Project size:</b> Small or medium</p>
+
+  <p><b>Difficulty:</b> Simple </p>
+
+  <p><b>Skills:</b> Python for Lit, data processing and <a href="https://www.gnu.org/software/diffutils/manual/html_node/Unified-Format.html">diff</a> processing. No compiler experience necessary. </p>
+
+  <p><b>Expected result:</b> Implement a new tool for use by the community. Developers get help finding uncovered edge cases during development, while also avoiding paranoid sprinkling of asserts or logs just to check that the code is actually executed. Reviewers can more easily check which parts of the patch are tested by each test. </p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/hnrklssn">Henrik Olsson</a>
+  </p>
+
+  <p>
+  <b>Discourse:</b>
+  <a href="https://discourse.llvm.org/t/coverage-patch-based-test-coverage-for-quick-test-feedback/68628">URL</a>
   </p>
 </div>
 
