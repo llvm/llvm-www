@@ -419,19 +419,20 @@
     memory. To do this JITLink’s generic linker algorithm needs to be
     specialized to support the target object format (COFF, ELF, MachO), and
     architecture (arm, arm64, i386, x86-64). LLVM already has mature
-    implementations of JITLink for MachO/arm64 and MachO/x86-64, and a
-    relatively new implementation for ELF/x86-64. Write a JITLink implementation
-    for a missing target such as PowerPC or BPF. If you choose to implement
-    support for a new architecture using the ELF or MachO formats then you will
-    be able to re-use the existing generic code for these formats. If you want
-    to implement support for a new target using the COFF format then you will
-    need to write both the generic COFF support code and the architecture
-    support code for your chosen architecture.
+    implementations of JITLink for MachO/arm64, MachO/x86-64, ELF/x86-64,
+    ELF/aarch64 and COFF/x86-64, while the implementations for ELF/riscv,
+    ELF/aarch32 and COFF/i386 are still relatively new.
+    <br />    
+    You can either work on an entirely new architecture like PowerPC or eBPF,
+    or complete one of the recently added JITLink implementations. In both cases
+    you will likely reuse the existing generic code for one of the target object
+    formats. You will also work on relocation resolution, populate PLTs and GOTs
+    and wire up the ORC runtime for your chosen target.
     <br />
 
   <p><b>Expected result:</b>
-    Write a JITLink specialization for a not-yet-supported format/architecture
-    such as BPF or PowerPC.
+    Write a JITLink specialization for a not-yet-supported or incomplete
+    format/architecture such as PowerPC, AArch32 or eBPF.
 
   <p><b>Desirable skills:</b>
     Intermediate C++; Understanding of LLVM and the LLVM JIT in particular;
@@ -445,6 +446,7 @@
   <p><b>Confirmed Mentor:</b>
     <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
     <a href=https://github.com/lhames>Lang Hames</a></p>
+    <a href=https://github.com/weliveindetail>Stefan Gränitz</a></p>
   </p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/jitlink-new-backends/68223">URL</a>
