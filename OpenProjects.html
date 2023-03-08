@@ -30,6 +30,7 @@
               <li><a href="#clang-extract-api-categories">ExtractAPI Objective-C categories</a></li>
               <li><a href="#clang-extract-api-cpp-support">ExtractAPI C++ Support</a></li>
               <li><a href="#clang-extract-api-while-building">ExtractAPI while building</a></li>
+              <li><a href="#clang-improve-diagnostics2">Improve Clang diagnostics</a></li>
               </li>
             </ul>
           </li>
@@ -875,6 +876,58 @@
     <a href="https://github.com/ributzka">Juergen Ributzka</a>
   </p>
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-extractapi-while-building/68372">URL</a></p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-improve-diagnostics2">Improve Clang diagnostics</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description:</b>
+  The diagnostics clang emits are ultimately its interface to the developer. While the diagnostics are generally good, there are some rough edges that need to be ironed out. Some cases can be improved by special-casing them in the compiler as well.
+  </p>
+
+  <p>
+  As one can see from Clang’s issue tracker, there are <a href="https://github.com/llvm/llvm-project/issues?page=2&q=is%3Aopen+is%3Aissue+label%3Aclang%3Adiagnostics">lots of issues</a> open against clang’s diagnostics.
+  </p>
+
+  <p>
+  This project does not aim to implement one big feature but instead focuses on smaller, incremental improvements to Clang’s diagnostics.
+  </p>
+
+  <p>
+  Possible example issues to resolve:
+  <ul>
+    <li><a href="https://github.com/llvm/llvm-project/issues/59872">Calling nullptr function pointer in a constexpr function results in poor diagnostic</a></li>
+    <li><a href="https://github.com/llvm/llvm-project/issues/58601">Print name of uninitialized subobject (instead of type)</a></li>
+    <li><a href="https://github.com/llvm/llvm-project/issues/57906">https://github.com/llvm/llvm-project/issues/57906</a></li>
+    <li><a href="https://github.com/llvm/llvm-project/issues/57337">clang(++) unhelpful frame-larger-than warning, very small stack frame exceeding very large limit</a></li>
+    <li>Any other diagnostics issue you find interesting or ran into personally.</li>
+  </ul>
+  </p>
+
+
+  <p><b>Expected outcomes</b>:
+  At least three fixed smaller diagnostics issues, or one larger implemented diagnostics improvement.
+  </p>
+
+  <p><b>Confirmed Mentor:</b><a href=https://github.com/tbaederr>Timm Bäder</a>
+
+  <p><b>Desirable skills:</b>
+    <ul>
+      <li>Intermediate C++ knowledge.</li>
+      <li>Preferably experience in the Clang code base, since the issues mentioned can have their root cause in various parts of it.</li>
+      <li>Preferably an already working local LLVM build</li>
+    </ul>
+  </p>
+
+  <p><b>Project type:</b> Medium/200 hr</p>
+
+  <p><b>Discourse</b>
+  <a href="https://discourse.llvm.org/t/improve-clang-diagnostics-2/68900/3">URL</a>
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
@@ -1926,7 +1979,7 @@ for this proposal.</p>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
-  <p><b>Decription:</b>
+  <p><b>Description:</b>
   Clang Diagnostics, which issues Warnings and Errors to the programmer, are a critical
   feature of the compiler. Great diagnostics can have a significant impact on the
   user experience of the compiler and increase their productivity.
