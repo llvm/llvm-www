@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;15.0.7</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;16.0.0</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">Fedora Snapshot Packages</a><br>
@@ -50,7 +50,7 @@
 <br>
 
 <span style="font-size:smaller">View the open-source</span><br>
-<a href="/releases/15.0.0/LICENSE.TXT"><b>license</b></a>
+<a href="/releases/16.0.0/LICENSE.TXT"><b>license</b></a>
 </div>
 
 <br>
@@ -114,6 +114,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  16.0.0: <a href="https://discourse.llvm.org/t/llvm-16-0-0-release/69326">Mar 2023</a><br>
   14.0.6: <a href="https://discourse.llvm.org/t/llvm-14-0-6-release/63431">Jun 2022</a><br>
   14.0.5: <a href="https://discourse.llvm.org/t/llvm-14-0-5-release/63118">Jun 2022</a><br>
   14.0.4: <a href="https://discourse.llvm.org/t/llvm-14-0-4-release/62751">May 2022</a><br>
