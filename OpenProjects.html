@@ -32,6 +32,7 @@
               <li><a href="#clang-extract-api-while-building">ExtractAPI while building</a></li>
               <li><a href="#clang-improve-diagnostics2">Improve Clang diagnostics</a></li>
               <li><a href="#clang-tutorials-clang-repl">Tutorial development with clang-repl</a></li>
+              <li><a href="#clang-repl-wasm">Add WebAssembly Support in clang-repl</a></li>
               </li>
             </ul>
           </li>
@@ -993,6 +994,70 @@
 
   <p><b>Discourse</b>
   <a href="https://discourse.llvm.org/t/clang-repl-tutorial-development-with-clang-repl/60365">URL</a>
+  </p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-repl-wasm">Add WebAssembly Support in clang-repl</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description:</b>
+    The Clang compiler is part of the LLVM compiler infrastructure and supports
+    various languages such as C, C++, ObjC and ObjC++. The design of LLVM and
+    Clang enables them to be used as libraries, and has led to the creation of
+    an entire compiler-assisted ecosystem of tools. The relatively friendly
+    codebase of Clang and advancements in the JIT infrastructure in LLVM further
+    enable research into different methods for processing C++ by blurring the
+    boundary between compile time and runtime. Challenges include incremental
+    compilation and fitting compile/link time optimizations into a more dynamic
+    environment.
+  </p>
+
+  <p>
+    Incremental compilation pipelines process code chunk-by-chunk by building an
+    ever-growing translation unit. Code is then lowered into the LLVM IR and
+    subsequently run by the LLVM JIT. Such a pipeline allows creation of
+    efficient interpreters. The interpreter enables interactive exploration and
+    makes the C++ language more user friendly. The incremental compilation mode
+    is used by the interactive C++ in Jupyter via the xeus kernel protocol.
+    Newer versions of the protocol allow possible in-browser execution allowing
+    further possibilities for clang-repl and Jupyter.
+  </p>
+
+  <p>
+    We invest efforts to incorporate and possibly redesign parts of Cling in
+    Clang mainline through a new tool, clang-repl. The project aims to add
+    WebAssembly support in clang-repl and adopt it in xeus-clang-repl to aid
+    Jupyter-based C++.
+  </p>
+
+  <p><b>Expected result:</b>
+    There are several foreseen tasks:
+    <ul>
+      <li>Investigate feasibility of generating WebAssembly in a similar way to
+        the new <a href="https://reviews.llvm.org/D146389">interactive CUDA support</a>.</li>
+      <li>Enable generating WebAssembly in clang-repl.</li>
+      <li>Adopt the feature in xeus-clang-repl.</li>
+      <li>Prepare a blog post about clang-repl and possibly Jupyter.
+        Present the work at the relevant meetings and conferences.</li>
+  </p>
+
+
+  <p><b>Confirmed Mentor:</b>
+    <a href="https://github.com/vgvassilev">Vassil Vassilev</a>
+    <a href="https://github.com/alexander-penev">Alexander Penev</a>
+
+  <p><b>Desirable skills:</b>
+    Good C++; Understanding of Clang and the Clang API and the LLVM JIT in particular
+  </p>
+
+  <p><b>Project type:</b> Large</p>
+
+  <p><b>Discourse</b>
+  <a href="https://discourse.llvm.org/t/clang-repl-add-webassembly-support-in-clang-repl/69419">URL</a>
   </p>
 </div>
 
