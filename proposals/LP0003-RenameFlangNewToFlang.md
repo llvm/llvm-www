@@ -2,7 +2,7 @@
 
 *   Proposal: [LP-0003](link to the file on github when it lands)
 *   Author(s): [Brad Richardson](https://github.com/everythingfunctional), [Damian Rouson](https://github.com/rouson)
-*   Review Managers: [Brad Richardson](https://github.com/everythingfunctional), [Damian Rouson](https://github.com/rouson), [Steve Scalpone](https://github.com/sscalpone), [Peter Klausler](https://github.com/klausler)
+*   Review Managers: [Brad Richardson](https://github.com/everythingfunctional), [Damian Rouson](https://github.com/rouson), [Steve Scalpone](https://github.com/sscalpone), [Pete Steinfeld](https://github.com/psteinfeld)
 *   Status: Active review (3-22-23 .. 4-5-23)
 
 _During the review process, add the following fields as needed:_
