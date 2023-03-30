@@ -1416,22 +1416,38 @@
 <!-- *********************************************************************** -->
 <div class="www_text">
   <p><b>Description of the project:</b><br>
-    Clang codegen works by emitting LLVM IR through AST visitors. In the
-    <a href="https://llvm.github.io/clangir/">ClangIR</a>. project, we emit ClangIR from AST visitors instead,
-    which can then be lowered to (a) LLVM IR directly or, alternatively, (b) MLIR in-tree dialects. Lowering
-    is still a quite immature and lacks many instructions, attributes and metadata support. By improving it
-    and pursuing parity with AST→LLVM IR codegen quality, ClangIR can incrementally bridge correctness and
-    performance testing, providing a baseline for future higher level optimizations for C/C++ and/or mixing of
-    MLIR dialects to improve specific workloads. A good starting point is to build and run simple benchmarks,
+    Clang codegen works by emitting LLVM IR using AST visitors. In the
+    <a href="https://llvm.github.io/clangir/">ClangIR</a> project, we emit ClangIR (CIR)
+    from AST visitors too (CIRGen), and then lower to (a) LLVM IR directly or, alternatively,
+    (b) MLIR in-tree dialects. Lowering to LLVM is still quite immature and lacks many
+    instructions, attributes and metadata support.
+
+    ClangIR would greatly benefit from some level of parity with Clang AST →
+    LLVM IR codegen quality, in both performance and build time. This is key
+    for incrementally bridging correctness and performance testing, providing a
+    baseline for future higher level optimizations on top of C/C++.
+
+    A good starting point is to build and run simple benchmarks,
     measuring both generated code and build time performance. LLVM's llvm-test-suite contains scripts and
     machinery that easily allows checking correctness and collecting perf related data and its
     <a href="https://github.com/llvm/llvm-test-suite/tree/main/SingleSource">SingleSource</a>
     collection provide a set of simpler programs to build.
+
+    In a nutshell, while working on this project the student will brigde the
+    gap of CIR → LLVM lowering, and at times fix any lacking Clang AST → CIR
+    support. The work is going to be done incrementally on top of SingleSource
+    benchmarks, while measuring compiler build time and the performance of compiled
+    programs.
   </p>
 
+  <p><b>Skills:</b>
+    Intermediate C++ programming skills; familiarity with compilers, LLVM IR,
+    MLIR or Clang are a big plus, but willingness to learn is also a
+    possibility.
+  </p>
   <p><b>Expected result:</b>Build and run programs from the SingleSource subdirectory from the
   lvm-test-suite, collect and present results (perf and build time) against regular (upstream) clang codegen.</p>
-  <p><b>Project size:</b> Medium</p>
+  <p><b>Project size:</b> Large</p>
   <p><b>Difficulty:</b> Medium</p>
   <p><b>Confirmed Mentors:</b>
     <a href="https://github.com/bcardosolopes">Bruno Cardoso Lopes</a>
