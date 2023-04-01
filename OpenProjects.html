@@ -47,6 +47,7 @@
             <b>MLIR</b>
             <ul>
               <li><a href="#llvm_mlir_presburger_opt">Optimizing MLIR’s Presburger library</a></li>
+              <li><a href="#llvm_mlir_query">Interactively query MLIR IR</a></li>
             </ul>
           </li>
           <li>
@@ -1142,6 +1143,36 @@
 <p><strong>Difficulty</strong>: Medium</p>
 <p><strong>Confirmed mentors</strong>: <a href="https://github.com/Groverkss">Kunwar Grover</a></p>
 <p><strong>Discourse</strong>: <a href="https://discourse.llvm.org/t/mlir-optimizing-mlir-s-presburger-library/68213/1">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a id="llvm_mlir_query">Interactively query MLIR IR</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><strong>Description</strong>: 
+  The project aims to develop an interactive query language for MLIR that enables developers to query the MLIR IR dynamically.
+  The tool will provide a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as
+  "isConstant" and "resultOf". The proposed tool is intended to be similar to clang-query, which allows developers to match
+  AST expressions in C++ code using a TUI with autocomplete and other features.
+</p>
+<p><strong>The goals of this project:</strong></p>
+<ul>
+<li>Understand the MLIR IR representation and common explorations user do.</li>
+<li>Implement a REPL to execute queries over MLIR IR.</li>
+</ul>
+<p><strong>Expected outcomes</strong>:</p>
+<ul>
+<li>Standalone that can be used to interactively explore IR.</li>
+<li>Implement common matchers that are usable by the tool.</li>
+<li>(stretch) Enable extracting parts of the IR matched by query into self-contained IR snippets.</li>
+</ul>
+<p><strong>Desirable skills</strong>: Intermediate C++, Experience in writing/debugging peephole optimizations</p>
+<p><strong>Project size</strong>: Either medium or large.</p>
+<p><strong>Difficulty</strong>: Medium</p>
+<p><strong>Confirmed mentors</strong>: <a href="https://github.com/jpienaar">Jacques Pienaar</a></p>
+<p><strong>Discourse</strong>: <a href="https://discourse.llvm.org/t/gsoc-proposal-interactive-mlir-query-tool-to-make-exploring-the-ir-easier/69601">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
