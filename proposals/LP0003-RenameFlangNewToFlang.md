@@ -8,8 +8,7 @@
 _During the review process, add the following fields as needed:_
 
 *   Pitch Thread: [Initial Discussion](https://discourse.llvm.org/t/reviving-rename-flang-new-to-flang/68130) [Pitch Thread](https://discourse.llvm.org/t/pitch-rename-flang-new-to-flang/68665)
-*   Decision Notes:
-*   Previous Revision:
+*   Decision Notes: [[outcome post](https://discourse.llvm.org/t/proposal-rename-flang-new-to-flang/69462/33)]
 
 ## Introduction
 
