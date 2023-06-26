@@ -78,13 +78,13 @@ and interesting ways.</li>
 </p>
 
 <p>
-Order out of Chaos, The LLVM Release Process [ Video ] [ Slides ]<br>
+Order out of Chaos, The LLVM Release Process [ Video ] [ <a href="slides/TechnicalTalks-May10/01-Tobias Hieta-LLVM-Release-Process.pdf">Slides</a> ]<br>
 <i>Tobias Hieta, Ubisoft</i><br>
 <br>In this Talk, I will explain how the LLVM release process works. How fixes are created, staged, tested, and reviewed to be included in a release and how community members can get involved and help improve future releases of LLVM.</br>
 </p>
 
 <p>
-“-fbounds-safety”: Enforcing bounds safety for production C code [ Video ] [ Slides ]<br>
+“-fbounds-safety”: Enforcing bounds safety for production C code [ Video ] [ <a href="slides/TechnicalTalks-May11/01-Na-fbounds-safety.pdf">Slides</a> ]<br>
 <i>Yeoul Na, Apple</i><br>
 <br>In this talk we will describe “-fbounds-safety”, a new language extension implemented in Clang that brings bounds safety to the C language. The language extension addresses multiple of the practical challenges that have made existing approaches to safer C dialects difficult to adopt. Our approach facilitates incremental adoption by preserving source compatibility with standard C and preserving ABI-compatibility with C binaries. It also minimizes adoption effort by reconciling wide pointers (a.k.a. “fat” pointers) with ABI-preserving bounds annotations. “-fbounds-safety” has been adopted on millions of lines of production C code and proven to work in an industrial setting.</br>
 </p>
@@ -94,13 +94,13 @@ Order out of Chaos, The LLVM Release Process [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Title [ Video ] [ Slides ]<br>
+Title [ Video ] [ <a href="slides/TechnicalTalks-May10/07-TomEccles-JeffNiu-MLIRDataflowAnalysis.pdf">Slides</a> ]<br>
 <i>Tom Eccles, Arm & Jeff Niu, Modular</i><br>
 <br>Abstract</br>
 </p>
 
 <p>
-MLIR-based offline memory planning and other graph-level optimizations for xcore.ai [ Video ] [ Slides ]<br>
+MLIR-based offline memory planning and other graph-level optimizations for xcore.ai [ Video ] [ <a href="slides/TechnicalTalks-May10/06-Panickal-MLIROfflineMemoryPlanning.pdf">Slides</a> ]<br>
 <i>Deepak Panickal, XMOS</i><br>
 <br>In this talk, we will give a walk-through of our MLIR-based graph compiler optimizing TensorFlow Lite models to be deployed on the xcore.ai microcontroller. We focus specifically on MLIR passes for memory usage reduction, such as offline memory planning, operator splitting, and streaming constants from flash, along with other passes. We leverage open-source projects such as MLIR, Tensorflow, and tflite-micro-compiler to create a small executable within various resource constraints. In contrast to other compilers in the LLVM world, we do not lower to LLVM IR. Instead, we produce C++ source code using tflite-micro-compiler, which is compiled and executed by our toolchain. We will go through some of the challenges in our journey and future plans. All code for the graph compiler and runtime is available publically on GitHub.</br>
 </p>
@@ -116,63 +116,63 @@ with a demo).</br>
 </p>
 
 <p>
-Extending the AArch32 JITLink backend [ Video ] [ Slides ]<br>
+Extending the AArch32 JITLink backend [ Video ] [ <a href="slides/TechnicalTalks-May10/04-Granitz-ExtendingtheAArch32 -JITLinkBackend.pdf">Slides</a> ]<br>
 <i>Stefan Gränitz, echtzeit.dev</i><br>
 <br>Practical advice on llvm-jitlink-executor, JITLink development and debugging of JITed ARM/Thumb code</br>
 </p>
 
 <p>
-Using MLIR to Optimize Basic Linear Algebraic Subprograms [ Video ] [ Slides ]<br>
+Using MLIR to Optimize Basic Linear Algebraic Subprograms [ Video ] [ <a href="slides/TechnicalTalks-May10/08-Varoumas-UsingMLIR-to-OptimizeBasicLinearAlgebraicSubprograms.pdf">Slides</a> ]<br>
 <i>Steven Varoumas, Huawei Technologies Research & Development</i><br>
 <br>The powerful framework provided by MLIR has the potential to allow library developers to express and optimize standard linear algebra functions without having to write daunting assembly code. In this presentation, we will describe how we have leveraged and extended the capabilities of MLIR to generate an optimized subset of BLAS functions, with performance comparable to hand-written assembly implementations.</br>
 </p>
 
 <p>
-Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design [ Video ] [ Slides ]<br>
+Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design [ Video ] [ <a href="slides/TechnicalTalks-May10/09-Zhang-Buddy Compiler_An MLIR-BasedCompilationFramework-for-DeepLearningCo-Design.pdf">Slides</a> ]<br>
 <i>Hongbin Zhang, Institute of Software Chinese Academy of Sciences</i><br>
 <br>Buddy Compiler is a compiler framework for software and hardware co-design. We are committed to building an extensible co-design ecosystem based on MLIR and RISC-V. This talk will share our co-design process in deep learning inference, including preprocessing, optimization, and backend support. Furthermore, we will also present our plans and current progress on DSL (Domain-Specific Language) to DSA (Domain-Specific Architecture) co-design.</br>
 </p>
 
 <p>
-MachineScheduler - fine grain resource allocation using resource intervals [ Video ] [ Slides ]<br>
+MachineScheduler - fine grain resource allocation using resource intervals [ Video ] [ <a href="slides/TechnicalTalks-May11/03-Petrogalli-StartAtCycle.pdf">Slides</a> ]<br>
 <i>Francesco Petrogalli, Apple</i><br>
 <br>In this talk we will describe an optimisation introduced in the MachineScheduler that allows to allocate more resources in a smaller number of cycles. To achieve this, we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary.</br>
 </p>
 
 <p>
-Inliner in MLIR [ Video ] [ Slides ]<br>
+Inliner in MLIR [ Video ] [ <a href="slides/TechnicalTalks-May11/10-Absar-Inliner_in_MLIR.pdf">Slides</a> ]<br>
 <i>Javed Absar, Qualcomm</i><br>
 <br>We give an overview of the Inliner in MLIR. The Inliner strikes a balance by defining interfaces that define the expectations and can handle recursive functions using a history-based scheme. This talk will cover Inlining in MLIR, and touch upon optimizations in general in MLIR.
 </br>
 </p>
 
 <p>
-How to use llvm-debuginfo-analyzer tool [ Video ] [ Slides ]<br>
+How to use llvm-debuginfo-analyzer tool [ Video ] [ <a href="slides/TechnicalTalks-May11/09-Ensico-llvm-debuginfo-analyzer.pdf">Slides</a> ]<br>
 <i>Carlos Alberto Enciso, SN Systems (Sony Interactive Entertainment)</i><br>
 <br>Developed at Sony, llvm-debuginfo-analyzer is a command-line tool added recently to LLVM. This talk will present a more detailed information on how to use the tool, with specific test cases that cover the most common options. In addition, it will enumerate current limitations and future work.</br>
 </p>
 
 <p>
-Practical Global Merge Function with ThinLTO [ Video ] [ Slides ]<br>
+Practical Global Merge Function with ThinLTO [ Video ] [ <a href="slides/TechnicalTalks-May10/03-Lee-PracticalGlobalMergeFunction-with-ThinLTO.pdf">Slides</a> ]<br>
 <i>Kyungwoo Lee, Meta</i><br>
 <br>Function merging is an important technique for reducing code size by combining identical or similar functions into a single function. This technique has been extensively researched in both industry and academia. However, the existing methodologies have not been evaluated with -Oz, which includes aggressive outlinings, and the linker's identical code folding, which can already fold identical pieces of code. Additionally, none of these methodologies suggest a sound approach that works globally with ThinLTO, which is crucial when building large apps. In this talk, we propose our global merge function (GMF), which utilizes global merge information obtained from a prior codegen run and optimistically creates merging instances within each module context independently. Our evaluation showed that GMF can reduce code size in real-world iOS apps by up to 3.5% on top of state-of-the-art outliners that are fully enabled with ThinLTO.</br>
 </p>
 
 <p>
-Prototyping MLIR in Python [ Video ] [ Slides ]<br>
+Prototyping MLIR in Python [ Video ] [ <a href="slides/TechnicalTalks-May11/05-Fehr-PrototypeMLIRinPython.pdf">Slides</a> ]<br>
 <i>Sasha Lopoukhine, University of Edinburgh & Mathieu Fehr, University of Edinburgh</i><br>
 <br>We present xDSL, a reimplementation of MLIR core features in pure Python with a focus on accessibility. xDSL aims at bridging the Python DSL community with the MLIR one, by being fully compatible with MLIR through the textual format. Dialects can as well be translated from one framework to the other through IRDL. Since xDSL is written in pure Python, it lowers the barrier of entry for newcomers, and allows them to learn about MLIR concepts without having the struggle of installing MLIR, and can even do so directly on a Jupyter notebook hosted on the web. It is also a good option for prototyping dialects, since no recompilation is required in between changes, resulting in faster iteration time.</br>
 </p>
 
 <p>
-What would it take to remove debug intrinsics? [ Video ] [ Slides ]<br>
+What would it take to remove debug intrinsics? [ Video ] [ <a href="slides/TechnicalTalks-May11/08-Morse-RemoveDebugIntrinsics.pdf">Slides</a> ]<br>
 <i>Jeremy Morse, SN Systems (Sony Interactive Entertainment)</i><br>
 <br>It is a truth universally acknowledged that representing LLVMs debug-info with intrinsics is a poor design, slowing compile-time performance and creating new categories of bugs. However, removing them is not easy as our APIs lack a way of describing instruction positions from outside of the instruction list. In this talk I'll illustrate what's bad about the current design and explore the design space of possible solutions. I'll also suggest what information a new instruction-movement API would need to maintain debug-info if we didn't use intrinsics. Having a more precise API for describing instruction movement will ease the work of pass authors in getting debug-info correct, and rid optimisation passes of many footguns.
 </br>
 </p>
 
 <p>
-Compiling Ruby (with MLIR) [ Video ] [ Slides ]<br>
+Compiling Ruby (with MLIR) [ Video ] [ <a href="slides/TechnicalTalks-May11/06-Denisov-CompilingRubyWithMLIR.pdf">Slides</a> ]<br>
 <i>Alex Denisov</i><br>
 <br>Ever wondered how to build an ahead-of-time (AOT) compiler for a dynamic, interpreted language? Then this talk is a good starting point.
 In this presentation, you'll learn how a typical interpreter works, how to map it onto an intermediate representation (MLIR in this case), and how to produce an executable at the end of the compilation pipeline. By the end of this talk, we hope to inspire you to take on the challenge of building a compiler for your favorite interpreted language.</br>
@@ -185,7 +185,7 @@ What’s new in MLIR? [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Structured Bindings and How to Analyze Them [ Video ] [ Slides ]<br>
+Structured Bindings and How to Analyze Them [ Video ] [ <a href="slides/TechnicalTalks-May11/02-Domjan-StructuredBindingsCombined.pdf">Slides</a> ]<br>
 <i>Domján Dániel, Company</i><br>
 <br>A deeper dive into how structured bindings are handled inside the Clang Static Analyzer. The process involves multiple parts of the analyzer throughout the static analysis pipeline. This speech will give an insight into all the steps and tricks used in the implementation.</br>
 </p>
@@ -197,13 +197,13 @@ MLIR Dialect Design and Composition for Front-End Compilers [ Video ] [ Slides ]
 </p>
 
 <p>
-ML-LLVM-Tools: Towards Seamless Integration of Machine Learning in Compiler Optimizations [ Video ] [ Slides ]<br>
+ML-LLVM-Tools: Towards Seamless Integration of Machine Learning in Compiler Optimizations [ Video ] [ <a href="slides/TechnicalTalks-May10/10-Venkat-ML-LLVM-Tools.pdf">Slides</a> ]<br>
 <i>S. VenkataKeerthy, IIT Hyderabad</i><br>
 <br>With the growth in usage of Machine Learning (ML) to support compiler optimization decisions, there is a need for robust tools to support both training and inference. Such tools should be scalable and independent of the underlying model, and the ML framework upon which the model is built. We propose a unified infrastructure to aid ML based compiler optimizations in LLVM at each of training and inference stages by using: (1) LLVM-gRPC, a gRPC based framework to support training, (2) LLVM-InferenceEngine, a novel ONNX based infrastructure to support ML inference within LLVM.  Our infrastructure allows seamless integration of both the approaches with ML based compiler optimization passes. When our LLVM-InferenceEngine is integrated with a recently proposed approach that uses Reinforcement Learning for performing Register Allocation, it results in a 12.5x speedup in compile time.</br>
 </p>
 
 <p>
-Optimizing the Linux Kernel with LLVM BOLT [ Video ] [ Slides ]<br>
+Optimizing the Linux Kernel with LLVM BOLT [ Video ] [ <a href="slides/TechnicalTalks-May10/11-Panchenko-Optimizing-the-LinuxKernel-with-LLVM BOLT.pdf">Slides</a> ]<br>
 <i>Maksim Panchenko, Meta</i><br>
 <br>This technical talk explores the challenges and benefits of applying LLVM BOLT optimizations to the Linux Kernel, given its unique binary structure and compiled code. Early performance results are shared, and attendees gain insights into kernel-specific code patterns and improvements that can be achieved with post-link optimizations.</br>
 </p>
