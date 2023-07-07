@@ -444,19 +444,19 @@ RISC-V Vector Extension Support in MLIR: Motivation, Abstraction, and Applicatio
 </p>
 
 <p>
-Automatic Translation of C++ to Rust [ Video ] [ Slides ]<br>
+Automatic Translation of C++ to Rust [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/02-Preto-AutomaticTranslationCPlusPlus-Rust.pdf">Poster</a> ]<br>
 <i>Henrique Preto, ULisboa - Instituto Superior Técnico</i><br>
 <br>Memory safety bugs account for 70% of the security vulnerabilities found in major Microsoft and Google projects. C++, while not memory safe, is an efficient language commonly used to implement critical systems software. However, Rust is a memory-safe programming language that offers comparable performance to C++. Still, manually rewriting existing C++ codebases in Rust is not practical. This work presents a source-to-source compiler built with Clang that translates C++ code to safe Rust, automatically making the software safer without losing performance and efficiency.</br>
 </p>
 
 <p>
-A sustainable approach to have vector predication in the Loop Vectorizer [ Video ] [ Slides ]<br>
+A sustainable approach to have vector predication in the Loop Vectorizer [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/01-Albano-VectorPredictionPoster.pdf">Poster</a> ]<br>
 <i>Lorenzo Albano, Barcelona Supercomputing Center</i><br>
 <br>A number of vector ISAs, like the RISC-V Vector Extension, have support for vector length and predication. Vector Predication provides us intrinscis to express operations that map well to these ISAs. However, the Loop Vectorizer still does not make use of them. At BSC we extended the Loop Vectorizer so it can use Vector Predication intrinsics but the amount of duplication makes us reluctant to upstream it. In this poster we present an alternative that has less impact to the Loop Vectorizer and a new pass that propagates the vector length and mask to the vectorised code.</br>
 </p>
 
 <p>
-Performance Analysis of Undefined Behavior Optimizations [ Video ] [ Slides ]<br>
+Performance Analysis of Undefined Behavior Optimizations [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/05-Popescu-PerformanceImpactOfExploitingUndefinedBehavior.pdf">Poster</a> ]<br>
 <i>Lucian Popescu, Politehnica University of Bucharest</i><br>
 <br>State-of-the-art compilers, such as Clang/LLVM, use undefined behavior (UB) to
 issue optimizations. We present the impact of UB optimizations for a diverse set
@@ -465,19 +465,19 @@ critical.</br>
 </p>
 
 <p>
-Static Analysis for C++ Rust-Like Lifetime Annotations [ Video ] [ Slides ]<br>
+Static Analysis for C++ Rust-Like Lifetime Annotations [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/06-Monteiro-StaticAnalysisForCPlusPlus-Rust-Like-LifetimeAnnotations.pdf">Poster</a> ]<br>
 <i>Susana Monteiro, INESC-ID, IST ULisboa</i><br>
 <br>Memory safety vulnerabilities can be addressed by incrementally migrating from memory-unsafe languages like C++ to memory-safe languages, namely Rust. However, this involves some challenges, in particular regarding Rust’s concept of lifetimes, which does not exist in C++. Recently, Clang introduced Rust-like lifetime annotations to approach this challenge, but it is essential to ensure their correctness. Our work focuses on developing a static analyzer to verify the correctness of C++ lifetime annotations, consequently addressing memory-safety vulnerabilities.</br>
 </p>
 
 <p>
-Leveraging MLIR for Better SYCL Compilation [ Poster ] <br>
+Leveraging MLIR for Better SYCL Compilation [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/04-Lomuller-LeveragingMLIR-forBetterSYCLCompilation.pdf">Poster</a> ] <br>
 <i>Victor Lomüller, Codeplay Software</i><br>
 <br>SYCL is an open standard programming model for heterogeneous device programming, based on C++. Similar to optimizing C++ compilers, SYCL compilers would therefore also profit from a more suitable high-level representation for optimization. This poster presents first results on our investigation on how MLIR can be leveraged to improve SYCL compilation flows and optimizations.</br>
 </p>
 
 <p>
-Forcefully Embedding MLIR into Python [ Video ] [ Slides ]<br>
+Forcefully Embedding MLIR into Python [ <a href="https://llvm.org/devmtg/2023-05/slides/Posters/03-Mitenkov-ForcefullyEmbedding%20MLIR-intoPython.pdf">Poster</a> ]<br>
 <i>George Mitenkov, ETH Zurich</i><br>
 <br>While MLIR provides its users with the infrastructure to create new dialects, lowerings and rewrites to support efficient domain-specific and ML workload compilation, the front-ends that generate MLIR have not been fully explored. In particular, it is common to either write SSA-based MLIR code in high-level dialects, or re-implement the code generation flow from the source language to MLIR. Both approaches are not developer-friendly because they require maintenance and significant development effort. In this poster session, we present how MLIR can be embedded into Python, allowing one to generate non-SSA Pythonic front-ends based on the dialect specifications. Moreover, we discuss how the front-ends can be statically compiled to SSA-based MLIR or even dynamically executed. We evaluate our work by presenting examples of front-ends for zero-knowledge proof or RISC-V compilers.</br>
 </p>
