@@ -140,14 +140,14 @@ MachineScheduler - fine grain resource allocation using resource intervals [ Vid
 </p>
 
 <p>
-Inliner in MLIR [ Video ] [ <a href="slides/TechnicalTalks-May11/10-Absar-Inliner_in_MLIR.pdf">Slides</a> ]<br>
+Inliner in MLIR [ <a href="https://youtu.be/Ldxu8MJZY-I">Video</a> ] [ <a href="slides/TechnicalTalks-May11/10-Absar-Inliner_in_MLIR.pdf">Slides</a> ]<br>
 <i>Javed Absar, Qualcomm</i><br>
 <br>We give an overview of the Inliner in MLIR. The Inliner strikes a balance by defining interfaces that define the expectations and can handle recursive functions using a history-based scheme. This talk will cover Inlining in MLIR, and touch upon optimizations in general in MLIR.
 </br>
 </p>
 
 <p>
-How to use llvm-debuginfo-analyzer tool [ Video ] [ <a href="slides/TechnicalTalks-May11/09-Ensico-llvm-debuginfo-analyzer.pdf">Slides</a> ]<br>
+How to use llvm-debuginfo-analyzer tool [ <a href="https://youtu.be/V8pW0Wr9pSg">Video</a> ] [ <a href="slides/TechnicalTalks-May11/09-Ensico-llvm-debuginfo-analyzer.pdf">Slides</a> ]<br>
 <i>Carlos Alberto Enciso, SN Systems (Sony Interactive Entertainment)</i><br>
 <br>Developed at Sony, llvm-debuginfo-analyzer is a command-line tool added recently to LLVM. This talk will present a more detailed information on how to use the tool, with specific test cases that cover the most common options. In addition, it will enumerate current limitations and future work.</br>
 </p>
@@ -165,7 +165,7 @@ Prototyping MLIR in Python [ < a href="https://youtu.be/YJIKr1DoUCQ">Video</a> ]
 </p>
 
 <p>
-What would it take to remove debug intrinsics? [ Video ] [ <a href="slides/TechnicalTalks-May11/08-Morse-RemoveDebugIntrinsics.pdf">Slides</a> ]<br>
+What would it take to remove debug intrinsics? [ <a href="https://youtu.be/fZgFTOuhEzc">Video</a> ] [ <a href="slides/TechnicalTalks-May11/08-Morse-RemoveDebugIntrinsics.pdf">Slides</a> ]<br>
 <i>Jeremy Morse, SN Systems (Sony Interactive Entertainment)</i><br>
 <br>It is a truth universally acknowledged that representing LLVMs debug-info with intrinsics is a poor design, slowing compile-time performance and creating new categories of bugs. However, removing them is not easy as our APIs lack a way of describing instruction positions from outside of the instruction list. In this talk I'll illustrate what's bad about the current design and explore the design space of possible solutions. I'll also suggest what information a new instruction-movement API would need to maintain debug-info if we didn't use intrinsics. Having a more precise API for describing instruction movement will ease the work of pass authors in getting debug-info correct, and rid optimisation passes of many footguns.
 </br>
@@ -231,8 +231,8 @@ A whirlwind tour of the LLVM optimizer [ <a href="https://youtu.be/7GHXDEIMGIY">
 </p>
 
 <p>
-Tutorial: Controllable Transformations in MLIR [ Video ] [ Slides ]<br>
-<i>Name, Company</i><br>
+Tutorial: Controllable Transformations in MLIR [ <a href="https://youtu.be/P4gUj3QtH_Y">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Tutorial-May11/02-Zinenko-TransformDialectTutorial.pdf">Slides</a> ]<br>
+<i>Alex Zinenko, Google</i><br>
 <br>MLIR has recently introduced support for declaratively specifying and controlling compiler transformations via the transform dialect. It allows one to request compiler transformations using compiler IR itself, which can be embedded into the original IR that is being transformed (similarly to pragmas) or supplied separately (similarly to scheduling languages). This tutorial presents the concepts of the MLIR transform dialect and related infrastructure. It will be accompanied by a practical demonstration of three use scenarios.
 <ul>
 <li>Composing transform dialect operations available in (upstream) MLIR to perform a sequence of optimizing transformations that results in efficient code for an MLIR linear algebra operation.</li>
@@ -243,7 +243,7 @@ After following the tutorial, the attendees will be able to apply the transform 
 </p>
 
 <p>
-GlobalISel by example [ Video ] [ Slides ]<br>
+GlobalISel by example [ <a href="https://youtu.be/PEP0DfAT_N8">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Tutorial-May11/01-Bradbury-GlobalISelTutorial.pdf">Slides</a> ]<br>
 <i>Alex Bradbury, Igalia</i><br>
 <br>The GlobalISel framework was introduced with the intention of replacing SelectionDAG, aiming to provide advantages in terms of performance, granularity, and modularity. This tutorial will provide everything you need to know about using this framework for a new target, focusing on RISC-V as an example and working through some specific examples of challenging cases.</br>
 </p>
@@ -259,13 +259,13 @@ Iterative Compilation - Give the compiler a second chance [ <a href="https://you
 </p>
 
 <p>
-Another level of indirection - Compiler Fallback of load/store into gather/scatter enhance compiler robustness by overcoming analysis and hardware limitations [ Video ] [ Slides ]<br>
+Another level of indirection - Compiler Fallback of load/store into gather/scatter enhance compiler robustness by overcoming analysis and hardware limitations [ <a href="https://youtu.be/85VX3CQTFt8">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/06%20-Aviram-PDF%20EuroLLVM%20presentation%20-%20Fallback.pdf">Slides</a> ]<br>
 <i>Omer Aviram, Mobileye</i><br>
 <br>I'll introduce a recently developed LLVM-IR utility that can improve compilers robustness, by converting ("fallback") memory accesses (load/store) with a constant stride, into indirect accesses (scatter/gather); Discuss interesting cost decisions raised by such transformations; as well as the technical challenges faced in transforming load/store instructions with a single pointer into gather/scatter instructions with a vector of pointers.</br>
 </p>
 
 <p>
-Switch per function in LLVM [ Video ] [ Slides ]<br>
+Switch per function in LLVM [ <a href="https://youtu.be/-cPmbtw9dlQ">Video</a> ] [ < a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/05-Schneider-SwitchPerFunction_FINAL.pdf">Slides</a> ]<br>
 <i>Tomer Nissim Schneider, CEVA</i><br>
 <br>At CEVA, we have found that more optimizations and compiler hints are extremely essential for optimizing code of our customers.​ We added support for clang switches as function attributes.</br>
 </p>
@@ -277,7 +277,7 @@ Tensor Evolution - An ML Graph Optimization Technique [ <a href="https://youtu.b
 </p>
 
 <p>
-ML-on-CPU: should vectorization happen in the LLVM backend or higher up the stack? [ <a href="https://youtu.be/hyi1rtSHI6g">Video</a> ] [ < a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/02-Kalda-euroLLVM_ML_on_CPU.pdf">Slides</a> ]<br>
+ML-on-CPU: should vectorization happen in the LLVM backend or higher up the stack? [ <a href="https://youtu.be/hyi1rtSHI6g">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/02-Kalda-euroLLVM_ML_on_CPU.pdf">Slides</a> ]<br>
 <i>Elen Kalda, Arm</i><br>
 <br>This talk is about how TVM, one of the most mature machine learning compilation stacks in ML space, interacts with LLVM. TVM is a domain specific compiler that consumes a machine learning model expressed in high level ML framework like TensorFlow or PyTorch and compiles it for a chosen target, such as Arm(R) architecture. For CPU targets, it does this by using LLVM as a backend, directly translating TVM's IR into LLVM IR.
 </br><br>
@@ -285,13 +285,13 @@ In TVM, just like in other Machine Learning stacks using LLVM as a backend for C
 </p>
 
 <p>
-CORE-V LLVM: Adding eight vendor extensions to standard RISC-V LLVM [ Video ] [ Slides ]<br>
-<i>Charlie Keaney, Embecosm</i><br>
-<br>CORE-V is a family of open source commercially rust RISC-V designs from the Open Hardware Group, with a set of 8 custom instruction set extensions.  This talk will look at the practical challenges we have encountered in supporting vendor specific extensions to RISC-V in LLVM.  This has been a collaborative project across several organizations on two continents, and with an additional objective of training a new generation of LLVM developers in China and Europe.</br>
+CORE-V LLVM: Adding eight vendor extensions to standard RISC-V LLVM [ <a href="https://youtu.be/Sjg6xW6bQuM">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/04-Charlie-Keaney-Presentation.pdf">Slides</a> ]<br>
+<i>Charlie Keaney & Chunyu Liao, Embecosm</i><br>
+<br>CORE-V is a family of open source commercially rust RISC-V designs from the Open Hardware Group, with a set of 8 custom instruction set extensions. This talk will look at the practical challenges we have encountered in supporting vendor specific extensions to RISC-V in LLVM. This has been a collaborative project across several organizations on two continents, and with an additional objective of training a new generation of LLVM developers in China and Europe.</br>
 </p>
 
 <p>
-Advanced Bug Reports: Choose Your Own Adventure [ Video ] [ Slides ]<br>
+Advanced Bug Reports: Choose Your Own Adventure [ <a href="https://youtu.be/XAXFimqCCwI">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/03%20-arseniy-zaostrovnykh-path-sensitive-bug-reports-choose-your-own-adventure-slides.pdf">Slides</a> ]<br>
 <i>Arseniy Zaostrovnykh, SonarSource SA</i><br>
 <br>Finding actual bugs using the Clang Static Analyzer (CSA) is only half of the story. Getting bugs fixed also requires convincing developers that those bugs are real. Traditional bug reports, however, are typically either too short and miss important details, or too long such that they overwhelm developers with information. This talk presents a novel approach to make CSA-bug-reports interactive to confront developers with exactly the amount of information they need to understand and confirm a bug.</br>
 </p>
@@ -303,7 +303,7 @@ Multiple-Entry, Multiple-Exit MLIR Regions [ <a href="https://youtu.be/TM-97iioz
 </p>
 
 <p>
-Target-Independent Integer Arithmetic [ Video ] [ Slides ]<br>
+Target-Independent Integer Arithmetic [ <a href="https://youtu.be/PBA_iHGc6Zg">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/01%20-Target-Independent%20Integer%20Arithmetic.pdf">Slides</a> ]<br>
 <i>Jeff Niu, Modular</i><br>
 <br>How can you fold address arithmetic without knowing the maximum machine integer size? How about C integer types with variable widths? What about range analysis? Folding target-independent IR is important in producing target-agnostic serialization, where introducing a target can cause invalid arithmetic semantics. This talk will present a formulation for target-independent integer arithmetic, its limitations, and how it was implemented in MLIR.</br>
 </p>
@@ -315,7 +315,7 @@ Improving Vectorization for Loops with Control Flow [ <a href="https://youtu.be/
 </p>
 
 <p>
-How to run the LLVM-Test Suite on GPUs and what you’ll find [ Video ] [ Slides ]<br>
+How to run the LLVM-Test Suite on GPUs and what you’ll find [ <a href="https://youtu.be/_IYG_aMjsfs">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/02%20-EuroLLVM%2023%20-%20LLVM%20TS%20on%20GPU.pdf">Slides</a> ]<br>
 <i>Johannes Doerfert, LLNL</i><br>
 <br>Running codes on GPUs is nowadays pretty easy. However, testing GPU compilation on a large, well-understood selection of codes is not. We present an automated approach that allows running (most) existing codes on the GPU in order to test the optimizations and backends. We present our findings from running (most of) the LLVM Test Suite on modern GPUs and show how we combine existing functionality to create concise GPU reducers for bugs.</br>
 </p>
@@ -397,20 +397,20 @@ Cost Modelling for Register Allocation and Beyond [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-A Template-Based Code Generation Approach for MLIR [ Video ] [ Slides ]<br>
+A Template-Based Code Generation Approach for MLIR [ <a href="https://youtu.be/0z1uEgVwfDo">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/01-Florian-TemplatedBasedCodeGenerationApproach-for-MLIR.pdf">Slides</a> ]<br>
 <i>Florian Drescher, Technical University of Munich (TUM)</i><br>
 <br>In the talk, we introduce a template-based compilation approach for MLIR dialects. It derives code templates ahead-of-time for MLIR instructions using the already implemented lowerings. During run-time compilation of a program, it stitches together the created templates and patches missing constants to quickly derive native. We apply our compiler on database queries (LingoDB) as well as ONNX models and achieve compile-time speed-ups between 60x and 1000x at the cost of slower execution by the factor two to three compared to the existing LLVM compilation back-end.
 In this presentation, we describe our approach for fast, template-based compilation and outline our vision on how to improve on the idea and establish template-based compilation as a new code generation approach for MLIR as an alternative to the currently used LLVM back-end.</br>
 </p>
 
 <p>
-MLIR Query Tool for easier exploration of the IR [ Video ] [ Slides ]<br>
+MLIR Query Tool for easier exploration of the IR [ <a href="https://youtu.be/3ELHZARBmYs">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf">Slides</a> ]<br>
 <i>Devajith Valaparambil Sreeramaswamy</i><br>
 <br>This talk will introduce mlir-query, a query language tool designed to simplify the exploration of the Intermediate Representation (IR) of code in MLIR. mlir-query aims to provide a more efficient means of understanding and debugging the IR, which can be challenging without a query language. The presentation will showcase the tool's basic queries, such as operation, hasName, resultOf, and constant queries, along with a demo of its usefulness.</br>
 </p>
 
 <p>
-mlirSynth: Synthesis of Domain-Specific Programs in MLIR [ Video ] [ Slides ]<br>
+mlirSynth: Synthesis of Domain-Specific Programs in MLIR [ <a href="https://youtu.be/Ak24vvCatkc">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/03-Brauckmann-mlirSynth.pdf">Slides</a> ]<br>
 <i>Alexander Brauckmann, University of Edinburgh</i><br>
 <br>mlirSynth is a tool that automatically raises programs to high-level MLIR dialects, using MLIR's dialect definitions, instead of relying on manually-defined rules that are difficult to maintain. Our experiments show that mlirSynth achieves higher coverage than existing rule-based approaches on the PolyBench benchmark and enables high performance through domain-specific compilation.</br>
 </p>
@@ -434,7 +434,7 @@ Fast pivot Function for MLIR’s Presburger Library Through Vectorization and In
 </p>
 
 <p>
-RISC-V Vector Extension Support in MLIR: Motivation, Abstraction, and Application [ <a href="">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/02-Zhang-RISC-V-VectorExtensionSupport-in-MLIR.pdf">Slides</a> ]<br>
+RISC-V Vector Extension Support in MLIR: Motivation, Abstraction, and Application [ <a href="https://youtu.be/i9dsjzVOvy8">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/02-Zhang-RISC-V-VectorExtensionSupport-in-MLIR.pdf">Slides</a> ]<br>
 <i>Hongbin Zhang, Institute of Software Chinese Academy of Sciences</i><br>
 <br>This talk will share our work on supporting the RISC-V Vector (RVV) extension in MLIR. The RVV extension provides high-performance vector instructions, and the parallelism model is different from other SIMD architectures. However, MLIR vector abstractions cannot support some RVV features, especially the dynamic vector length and register group configuration. To address this issue, we add custom MLIR abstractions to support RVV parallelism model, and our design balances generic and specialized parts to avoid introducing fragmentation. As a demonstration case, we use our abstractions to implement a vectorization optimization for the matrix multiplication operation.</br>
 </p>
