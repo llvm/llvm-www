@@ -78,7 +78,7 @@ and interesting ways.</li>
 </p>
 
 <p>
-Order out of Chaos, The LLVM Release Process [ Video ] [ <a href="slides/TechnicalTalks-May10/01-Tobias Hieta-LLVM-Release-Process.pdf">Slides</a> ]<br>
+Order out of Chaos, The LLVM Release Process [ <a href="https://youtu.be/onaNb2U1Od8">Video</a> ] [ <a href="slides/TechnicalTalks-May10/01-Tobias Hieta-LLVM-Release-Process.pdf">Slides</a> ]<br>
 <i>Tobias Hieta, Ubisoft</i><br>
 <br>In this Talk, I will explain how the LLVM release process works. How fixes are created, staged, tested, and reviewed to be included in a release and how community members can get involved and help improve future releases of LLVM.</br>
 </p>
@@ -100,7 +100,7 @@ Title [ Video ] [ <a href="slides/TechnicalTalks-May10/07-TomEccles-JeffNiu-MLIR
 </p>
 
 <p>
-MLIR-based offline memory planning and other graph-level optimizations for xcore.ai [ Video ] [ <a href="slides/TechnicalTalks-May10/06-Panickal-MLIROfflineMemoryPlanning.pdf">Slides</a> ]<br>
+MLIR-based offline memory planning and other graph-level optimizations for xcore.ai [ <a href="https://youtu.be/zjDllpl8RVc">Video</a> ] [ <a href="slides/TechnicalTalks-May10/06-Panickal-MLIROfflineMemoryPlanning.pdf">Slides</a> ]<br>
 <i>Deepak Panickal, XMOS</i><br>
 <br>In this talk, we will give a walk-through of our MLIR-based graph compiler optimizing TensorFlow Lite models to be deployed on the xcore.ai microcontroller. We focus specifically on MLIR passes for memory usage reduction, such as offline memory planning, operator splitting, and streaming constants from flash, along with other passes. We leverage open-source projects such as MLIR, Tensorflow, and tflite-micro-compiler to create a small executable within various resource constraints. In contrast to other compilers in the LLVM world, we do not lower to LLVM IR. Instead, we produce C++ source code using tflite-micro-compiler, which is compiled and executed by our toolchain. We will go through some of the challenges in our journey and future plans. All code for the graph compiler and runtime is available publically on GitHub.</br>
 </p>
@@ -116,19 +116,19 @@ with a demo).</br>
 </p>
 
 <p>
-Extending the AArch32 JITLink backend [ Video ] [ <a href="slides/TechnicalTalks-May10/04-Granitz-ExtendingtheAArch32 -JITLinkBackend.pdf">Slides</a> ]<br>
+Extending the AArch32 JITLink backend [ <a href="https://youtu.be/9jFXNRzDSf0">Video</a> ] [ <a href="slides/TechnicalTalks-May10/04-Granitz-ExtendingtheAArch32 -JITLinkBackend.pdf">Slides</a> ]<br>
 <i>Stefan Gränitz, echtzeit.dev</i><br>
 <br>Practical advice on llvm-jitlink-executor, JITLink development and debugging of JITed ARM/Thumb code</br>
 </p>
 
 <p>
-Using MLIR to Optimize Basic Linear Algebraic Subprograms [ Video ] [ <a href="slides/TechnicalTalks-May10/08-Varoumas-UsingMLIR-to-OptimizeBasicLinearAlgebraicSubprograms.pdf">Slides</a> ]<br>
+Using MLIR to Optimize Basic Linear Algebraic Subprograms [ <a href="https://youtu.be/x8IIMeFH7sk">Video</a> ] [ <a href="slides/TechnicalTalks-May10/08-Varoumas-UsingMLIR-to-OptimizeBasicLinearAlgebraicSubprograms.pdf">Slides</a> ]<br>
 <i>Steven Varoumas, Huawei Technologies Research & Development</i><br>
 <br>The powerful framework provided by MLIR has the potential to allow library developers to express and optimize standard linear algebra functions without having to write daunting assembly code. In this presentation, we will describe how we have leveraged and extended the capabilities of MLIR to generate an optimized subset of BLAS functions, with performance comparable to hand-written assembly implementations.</br>
 </p>
 
 <p>
-Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design [ Video ] [ <a href="slides/TechnicalTalks-May10/09-Zhang-Buddy Compiler_An MLIR-BasedCompilationFramework-for-DeepLearningCo-Design.pdf">Slides</a> ]<br>
+Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design [ <a href="https://youtu.be/EELBpBA-XCE">Video</a> ] [ <a href="slides/TechnicalTalks-May10/09-Zhang-Buddy Compiler_An MLIR-BasedCompilationFramework-for-DeepLearningCo-Design.pdf">Slides</a> ]<br>
 <i>Hongbin Zhang, Institute of Software Chinese Academy of Sciences</i><br>
 <br>Buddy Compiler is a compiler framework for software and hardware co-design. We are committed to building an extensible co-design ecosystem based on MLIR and RISC-V. This talk will share our co-design process in deep learning inference, including preprocessing, optimization, and backend support. Furthermore, we will also present our plans and current progress on DSL (Domain-Specific Language) to DSA (Domain-Specific Architecture) co-design.</br>
 </p>
@@ -153,13 +153,13 @@ How to use llvm-debuginfo-analyzer tool [ Video ] [ <a href="slides/TechnicalTal
 </p>
 
 <p>
-Practical Global Merge Function with ThinLTO [ Video ] [ <a href="slides/TechnicalTalks-May10/03-Lee-PracticalGlobalMergeFunction-with-ThinLTO.pdf">Slides</a> ]<br>
+Practical Global Merge Function with ThinLTO [ <a href="https://youtu.be/rh2ApiBQQks">Video</a> ] [ <a href="slides/TechnicalTalks-May10/03-Lee-PracticalGlobalMergeFunction-with-ThinLTO.pdf">Slides</a> ]<br>
 <i>Kyungwoo Lee, Meta</i><br>
 <br>Function merging is an important technique for reducing code size by combining identical or similar functions into a single function. This technique has been extensively researched in both industry and academia. However, the existing methodologies have not been evaluated with -Oz, which includes aggressive outlinings, and the linker's identical code folding, which can already fold identical pieces of code. Additionally, none of these methodologies suggest a sound approach that works globally with ThinLTO, which is crucial when building large apps. In this talk, we propose our global merge function (GMF), which utilizes global merge information obtained from a prior codegen run and optimistically creates merging instances within each module context independently. Our evaluation showed that GMF can reduce code size in real-world iOS apps by up to 3.5% on top of state-of-the-art outliners that are fully enabled with ThinLTO.</br>
 </p>
 
 <p>
-Prototyping MLIR in Python [ Video ] [ <a href="slides/TechnicalTalks-May11/05-Fehr-PrototypeMLIRinPython.pdf">Slides</a> ]<br>
+Prototyping MLIR in Python [ < a href="https://youtu.be/YJIKr1DoUCQ">Video</a> ] [ <a href="slides/TechnicalTalks-May11/05-Fehr-PrototypeMLIRinPython.pdf">Slides</a> ]<br>
 <i>Sasha Lopoukhine, University of Edinburgh & Mathieu Fehr, University of Edinburgh</i><br>
 <br>We present xDSL, a reimplementation of MLIR core features in pure Python with a focus on accessibility. xDSL aims at bridging the Python DSL community with the MLIR one, by being fully compatible with MLIR through the textual format. Dialects can as well be translated from one framework to the other through IRDL. Since xDSL is written in pure Python, it lowers the barrier of entry for newcomers, and allows them to learn about MLIR concepts without having the struggle of installing MLIR, and can even do so directly on a Jupyter notebook hosted on the web. It is also a good option for prototyping dialects, since no recompilation is required in between changes, resulting in faster iteration time.</br>
 </p>
@@ -172,7 +172,7 @@ What would it take to remove debug intrinsics? [ Video ] [ <a href="slides/Techn
 </p>
 
 <p>
-Compiling Ruby (with MLIR) [ Video ] [ <a href="slides/TechnicalTalks-May11/06-Denisov-CompilingRubyWithMLIR.pdf">Slides</a> ]<br>
+Compiling Ruby (with MLIR) [ <a href="https://youtu.be/NfMX-dFMSr0">Video</a> ] [ <a href="slides/TechnicalTalks-May11/06-Denisov-CompilingRubyWithMLIR.pdf">Slides</a> ]<br>
 <i>Alex Denisov</i><br>
 <br>Ever wondered how to build an ahead-of-time (AOT) compiler for a dynamic, interpreted language? Then this talk is a good starting point.
 In this presentation, you'll learn how a typical interpreter works, how to map it onto an intermediate representation (MLIR in this case), and how to produce an executable at the end of the compilation pipeline. By the end of this talk, we hope to inspire you to take on the challenge of building a compiler for your favorite interpreted language.</br>
@@ -181,11 +181,11 @@ In this presentation, you'll learn how a typical interpreter works, how to map i
 <p>
 What’s new in MLIR? [ Video ] [ Slides ]<br>
 <i>Mehdi Amini</i><br>
-<br>Abstract</br>
+<br>MLIR has evolved significantly since it was introduced at EuroLLVM 2019. The last tutorial was at the US Dev Mtg in 2020. In this talk, we'll survey new components and provide a quick intro into how to take advantage of the new MLIR features from the last two years.</br>
 </p>
 
 <p>
-Structured Bindings and How to Analyze Them [ Video ] [ <a href="slides/TechnicalTalks-May11/02-Domjan-StructuredBindingsCombined.pdf">Slides</a> ]<br>
+Structured Bindings and How to Analyze Them [ <a href="https://youtu.be/ZPcf7w-Tk3Y">Video</a> ] [ <a href="slides/TechnicalTalks-May11/02-Domjan-StructuredBindingsCombined.pdf">Slides</a> ]<br>
 <i>Domján Dániel, Company</i><br>
 <br>A deeper dive into how structured bindings are handled inside the Clang Static Analyzer. The process involves multiple parts of the analyzer throughout the static analysis pipeline. This speech will give an insight into all the steps and tricks used in the implementation.</br>
 </p>
@@ -197,13 +197,13 @@ MLIR Dialect Design and Composition for Front-End Compilers [ Video ] [ Slides ]
 </p>
 
 <p>
-ML-LLVM-Tools: Towards Seamless Integration of Machine Learning in Compiler Optimizations [ Video ] [ <a href="slides/TechnicalTalks-May10/10-Venkat-ML-LLVM-Tools.pdf">Slides</a> ]<br>
+ML-LLVM-Tools: Towards Seamless Integration of Machine Learning in Compiler Optimizations [ <a href="https://youtu.be/3RYPv27Tp6s">Video</a> ] [ <a href="slides/TechnicalTalks-May10/10-Venkat-ML-LLVM-Tools.pdf">Slides</a> ]<br>
 <i>S. VenkataKeerthy, IIT Hyderabad</i><br>
 <br>With the growth in usage of Machine Learning (ML) to support compiler optimization decisions, there is a need for robust tools to support both training and inference. Such tools should be scalable and independent of the underlying model, and the ML framework upon which the model is built. We propose a unified infrastructure to aid ML based compiler optimizations in LLVM at each of training and inference stages by using: (1) LLVM-gRPC, a gRPC based framework to support training, (2) LLVM-InferenceEngine, a novel ONNX based infrastructure to support ML inference within LLVM.  Our infrastructure allows seamless integration of both the approaches with ML based compiler optimization passes. When our LLVM-InferenceEngine is integrated with a recently proposed approach that uses Reinforcement Learning for performing Register Allocation, it results in a 12.5x speedup in compile time.</br>
 </p>
 
 <p>
-Optimizing the Linux Kernel with LLVM BOLT [ Video ] [ <a href="slides/TechnicalTalks-May10/11-Panchenko-Optimizing-the-LinuxKernel-with-LLVM BOLT.pdf">Slides</a> ]<br>
+Optimizing the Linux Kernel with LLVM BOLT [ <a href="https://youtu.be/ivTCCTSMGZg">Video</a> ] [ <a href="slides/TechnicalTalks-May10/11-Panchenko-Optimizing-the-LinuxKernel-with-LLVM BOLT.pdf">Slides</a> ]<br>
 <i>Maksim Panchenko, Meta</i><br>
 <br>This technical talk explores the challenges and benefits of applying LLVM BOLT optimizations to the Linux Kernel, given its unique binary structure and compiled code. Early performance results are shared, and attendees gain insights into kernel-specific code patterns and improvements that can be achieved with post-link optimizations.</br>
 </p>
@@ -219,13 +219,13 @@ mlir-meminfo : A Memory Model for MLIR [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Developing BOLT pass [ Video ] [ Slides ]<br>
+Developing BOLT pass [ <a href="https://youtu.be/kPKPkg5ugMg">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Tutorial-May10/02-Ayupov-BOLTPass.pdf">Slides</a> ]<br>
 <i>Amir Ayupov, Meta</i><br>
 <br>The tutorial covering the basics of BOLT pass development and debugging techniques, with examples of adding a simple peephole rule and a standalone pass. Debugging examples cover narrowing down a misoptimized function, producing an assembly test and visualizing the CFG.</br>
 </p>
 
 <p>
-A whirlwind tour of the LLVM optimizer [ Video ] [ Slides ]<br>
+A whirlwind tour of the LLVM optimizer [ <a href="https://youtu.be/7GHXDEIMGIY">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Tutorial-May10/01-Popov-AWhirlwindTour-oftheLLVMOptimizer.pdf">Slides</a> ]<br>
 <i>Nikita Popov, Red Hat</i><br>
 <br>This is a tour of LLVM's optimization pipeline: It provides an overview of all important optimization passes and analyses, as well as how they work together and fit into the overall optimization pipeline.</br>
 </p>
@@ -253,7 +253,7 @@ GlobalISel by example [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Iterative Compilation - Give the compiler a second chance [ Video ] [ Slides ]<br>
+Iterative Compilation - Give the compiler a second chance [ <a href="https://youtu.be/XMuS2PGyWms">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/06-Zion-Iterative%20Compilation%20-%20EuroLLVM.pdf">Slides</a> ]<br>
 <i>Ziv Ben Zion, Mobileye</i><br>
 <br>Compiler heuristics play a crucial role in improving the performance of generated code. Revisiting some of the decisions taken by the compiler is possible using different compilation flags, and can sometimes overcome wrong compiler decisions. This talk introduces a different approach, where the compiler itself triggers new compiler runs with different heuristics. I will briefly outline how we implemented this new approach in our LLVM-based compiler.</br>
 </p>
@@ -271,13 +271,13 @@ Switch per function in LLVM [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Tensor Evolution - An ML Graph Optimization Technique [ Video ] [ Slides ]<br>
+Tensor Evolution - An ML Graph Optimization Technique [ <a href="https://youtu.be/T1yPnrVgISo">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/03-Absar-Tensor_Evolution_Final_Slides.pdf">Slides</a> ]<br>
 <i>Javed Absar, Qualcomm & Muthu Baskaran, Qualcomm</i><br>
 <br>We present ‘Tensor Evolution (TEV)’, a new analysis for tensors such as those found in loops of ML Graphs. It is an extension of the well-known Scalar Evolution (SCEV) for tensors and tensor expressions. In an ML Graph, tensors can be added, multiplied, sliced, reshaped, and concatenated. We describe how each of these tensor-ops could be handled to generate TEV-expressions and rewrite rules. TEV is an analysis that enables  optimizations such as loop-invariant code motion.</br>
 </p>
 
 <p>
-ML-on-CPU: should vectorization happen in the LLVM backend or higher up the stack? [ Video ] [ Slides ]<br>
+ML-on-CPU: should vectorization happen in the LLVM backend or higher up the stack? [ <a href="https://youtu.be/hyi1rtSHI6g">Video</a> ] [ < a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/02-Kalda-euroLLVM_ML_on_CPU.pdf">Slides</a> ]<br>
 <i>Elen Kalda, Arm</i><br>
 <br>This talk is about how TVM, one of the most mature machine learning compilation stacks in ML space, interacts with LLVM. TVM is a domain specific compiler that consumes a machine learning model expressed in high level ML framework like TensorFlow or PyTorch and compiles it for a chosen target, such as Arm(R) architecture. For CPU targets, it does this by using LLVM as a backend, directly translating TVM's IR into LLVM IR.
 </br><br>
@@ -297,7 +297,7 @@ Advanced Bug Reports: Choose Your Own Adventure [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Multiple-Entry, Multiple-Exit MLIR Regions [ Video ] [ Slides ]<br>
+Multiple-Entry, Multiple-Exit MLIR Regions [ <a href="https://youtu.be/TM-97iiozDY">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/01%20-Multiple-Exit%20MLIR%20Blocks-EuroLLVM%202023.pdf">Slides</a> ]<br>
 <i>Jeff Niu, Modular</i><br>
 <br>MLIR regions provide a natural representation of structured control-flow found in many applications, with implicit SSA value captures and automatic memory scopes, but they have been limited to single-entry, single-exit regions. In this talk, we present a new MLIR region-based control-flow representation for single-entry, multiple-exit regions and how this provides a faithful IR model of control-flow in source languages. We also integrated LLVM coroutine intrinsics in our compiler, and we will discuss how they interact with our control-flow representation and how the latter enables trivial implementations of coroutine frame optimizations.</br>
 </p>
@@ -309,7 +309,7 @@ Target-Independent Integer Arithmetic [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Improving Vectorization for Loops with Control Flow [ Video ] [ Slides ]<br>
+Improving Vectorization for Loops with Control Flow [ <a href="https://youtu.be/mKG0NmGtpbE">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/05-EuroLLVM23%20-%20Improving%20Vectorization%20for%20Loops%20with%20Control%20Flow.pdf">Slides</a> ]<br>
 <i>Ashutosh Nema, AMD</i><br>
 <br>Auto-vectorization is an essential compiler optimization. In the presence of control flow, it gets challenging. We introduce the implementation of Branch-On-Super-Word-Conditional-Codes (BOSCC) way of vectorization in the presence of conditional statements. BOSCC introduces a branch instruction that can be conditionally taken based on the comparison result of two vector variables. BOSCC encloses the vector instructions guarded by vector predicate inside an if-statement.</br>
 </p>
@@ -321,7 +321,7 @@ How to run the LLVM-Test Suite on GPUs and what you’ll find [ Video ] [ Slides
 </p>
 
 <p>
-OpenMP as GPU Kernel Language [ Video ] [ Slides ]<br>
+OpenMP as GPU Kernel Language [ <a href="https://youtu.be/16cedvl2Ly4">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/04%20-%20EuroLLVM%2023%20-%20OpenMP%20Kernel%20Language.pdf">Slides</a> ]<br>
 <i>Johannes Doerfert, LLNL</i><br>
 <br>In this talk, we discuss the use of OpenMP as a kernel language (think CUDA or HIP). While OpenMP comes with offloading capabilities, the execution model was different and generally associated with overheads. Further, the user did not have the same level of control, at least not without target-specific builtins. With our new OpenMP extensions, we can match native CUDA (and HIP) codes while retaining the portability of OpenMP as well as interoperability with the existing capabilities.</br>
 </p>
@@ -337,51 +337,51 @@ LLVM IR as an Embedded Domain-Specific Language [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Using MLIR for Dalvik Bytecode Analysis [ Video ] [ Slides ]<br>
+Using MLIR for Dalvik Bytecode Analysis [ <a href="https://youtu.be/hfqOivYdD40">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/01-Eduardo-EuroLLVM2023.pdf">Slides</a> ]<br>
 <i>Eduardo Blázquez, University Carlos III of Madrid</i><br>
 <br>Using intermediate representations allows analysts to write optimizations and code analysis passes easier than parsing binary or bytecode directly. Kunai is a library intended for static analysis of dalvik bytecode, in a newer version of the library, the idea is to use the capabilities and possibilities offered by MLIR, writing a new dialect centered on Dalvik instructions.</br>
 </p>
 
 <p>
-Spot the Difference with LLVM-FLOW: an open-source interactive visualization tool for comparing IR CFGs [ Video ] [ Slides ]<br>
+Spot the Difference with LLVM-FLOW: an open-source interactive visualization tool for comparing IR CFGs [ <a href="https://youtu.be/bCwteA-9mSs">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/08-Lee-LLVMFlow.pdf">Slides</a> ]<br>
 <i>Jinmyoung Lee, KC Machine Learning Lab</i><br>
 <br>One way to understand and debug IR optimization process is to visualize Control Flow Graphs (CFGs) before and after optimization and compare them. However, since the CFGs can be drastically different, comparing these two graphs is a challenging task.
 LLVM-FLOW (https://llvmflow.kc-ml2.com/), an open-source interactive CFG visualization web app, is developed to ease the difficulty by highlighting the same components in two graphs. By clicking the highlighted node, you can easily find the corresponding node in another graph. LLVM-FLOW is a useful tool for LLVM experts to understand the IR flow when writing a custom pass, as well as for LLVM newcomers to study the IR pattern's behavior.</br>
 </p>
 
 <p>
-Leveraging MLIR for Better SYCL Compilation [ Video ] [ Slides ]<br>
+Leveraging MLIR for Better SYCL Compilation [ <a href="https://youtu.be/UOOPFpojGN8">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/02-Lomuller-SYCL-MLIR.pdf">Slides</a> ]<br>
 <i>Victor Lomüller, Codeplay Software</i><br>
 <br>SYCL is an open standard programming model for heterogeneous device programming, based on C++. Similar to optimizing C++ compilers, SYCL compilers would therefore also profit from a more suitable high-level representation for optimization. This talk presents first results on our investigation on how MLIR can be leveraged to improve SYCL compilation flows and optimizations.</br>
 </p>
 
 <p>
-Arm/AArch64 Embedded Development with LLD : What’s New [ Video ] [ Slides ]<br>
+Arm/AArch64 Embedded Development with LLD : What’s New [ <a href="https://youtu.be/cJCr4XqFmFY">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/03-Amilendra-Arm-AArch64-EmbeddedDevelopment-with-LLD.pdf">Slides</a> ]<br>
 <i>Amilendra Kodithuwakku, Arm Limited</i><br>
 <br>Arm Limited has been continuously adding LLD support for embedded development on Arm/AArch64 targets. This lightning talk will be a short explanation of recently added features. 1) Armv8-M Security Extensions, also known as, Cortex-M Security Extensions (CMSE) 2) AArch64 Big Endian Support</br>
 </p>
 
 <p>
-Using automated tests to tune the -Og pipeline [ Video ] [ Slides ]<br>
+Using automated tests to tune the -Og pipeline [ <a href="https://youtu.be/f1uHy-ukucc">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/04-Tozer-UsingAutomatedTestsToTuneOgSlides.pdf">Slides</a> ]<br>
 <i>Stephen Livermore-Tozer, SN Systems (Sony Interactive Entertainment)</i><br>
 <br>In clang, the -Og flag is intended to run optimizations that will not significantly reduce the quality of the program's debug information. Rather than making informed decisions about which optimizations will preserve debug info, this flag currently uses the -O1 pipeline, to run a few optimizations and hope that debug info will not be significantly affected. This is due to the lack of useful data about how well the various optimization passes in LLVM preserve debug info. In this talk I explain how we at Sony have attempted to solve this problem using Dexter, a tool for testing debug info quality, in an automated test pipeline to empirically explore different pipeline designs to find a fast and debuggable -Og pipeline.</br>
 </p>
 
 <p>
-Buddy-CAAS: Compiler As A Service for MLIR [ Video ] [ Slides ]<br>
+Buddy-CAAS: Compiler As A Service for MLIR [ <a href="https://youtu.be/f7USv-oAtvI">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/05-Zhang-Buddy-CAAS-CompilerAs-AService-forMLIR.pdf">Slides</a> ]<br>
 <i>Hongbin Zhang, Institute of Software Chinese Academy of Sciences</i><br>
 <br>This talk will introduce the Buddy-CAAS, Buddy Compiler As A Service for MLIR. In practice, debugging and configuring an MLIR pass pipeline is always time-consuming, and there are no good aid tools. In order to improve the efficiency of compiler developers, we implemented an online platform called Buddy-CAAS (https://buddy.isrc.ac.cn/). Our platform allows MLIR developers to configure the pass pipeline, view the intermediate products, and execute on a specific backend through an emulator. We are also integrating more features on our platform to power the MLIR ecosystem.</br>
 </p>
 
 <p>
-llvm-buildmark - observations, tips, and tricks on reducing LLVM build times [ Video ] [ Slides ]<br>
+llvm-buildmark - observations, tips, and tricks on reducing LLVM build times [ <a href="https://youtu.be/ka1wehtGQ-4">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/06-Bradbury-llvm-buildmark.pdf">Slides</a> ]<br>
 <i>Alex Bradbury, Igalia</i><br>
 <br>This talk provides a series of statistics on LLVM build times (both incremental and in a simulation of common edit-compile-test cycles) using a simple script that aims to provide a common baseline statistic. We'll look at some figures across real-world hardware, how LLVM build performance has changed over time, and the impact of various options (e.g. -DBUILD_SHARED_LIBS=True, -DLLVM_USE_SPLIT_DWARF=True, GCC vs Clang, lld vs ld.{bfd,gold} and so on).
 </br>
 </p>
 
 <p>
-Lock Coarsening optimizations for loops in Java [ Video ] [ Slides ]<br>
+Lock Coarsening optimizations for loops in Java [ <a href="https://youtu.be/IpGqTq8cVKw">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/07-Thomas-LockOpts.pdf">Slides</a> ]<br>
 <i>Anna Thomas, Azul Systems</i><br>
 <br>This talk will focus on lock optimizations done for loops in Java by Falcon, Azul’s LLVM based JIT compiler. Synchronization is one the basic techniques that guarantee correctness in parallel execution. This is implemented using monitors in Java. Monitor acquires are expensive CPU operations, which also block various loop and reordering compiler optimizations. We will talk about two specific loop optimizations done for lock coarsening and the benefits it brings. For both these techniques, we introduced loop chunking in LLVM as a mechanism to coarsen locks over. We will go over the legality and cost model aspects as well.</br>
 </p>
@@ -416,27 +416,25 @@ mlirSynth: Synthesis of Domain-Specific Programs in MLIR [ Video ] [ Slides ]<br
 </p>
 
 <p>
-Image Processing Ops as first class citizens in MLIR: write once, vectorise everywhere! [ Video ] [ Slides ]<br>
+Image Processing Ops as first class citizens in MLIR: write once, vectorise everywhere! [ <a href="https://youtu.be/0xQ2lDY9RCw">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May10/04-Tagore-ImageProcessingOp.pdf">Slides</a> ]<br>
 <i>Prathamesh Tagore, Veermata Jijabai Technological Institute</i><br>
 <br>We present an MLIR dialect for Image Processing named Digital Image Processing (DIP). DIP dialect solves the problem of dependence on external tools and libraries for image pre-processing in deep learning models at the MLIR IR level. This dialect is capable of processing an image input at the IR level in the form of memrefs. We utilise MLIR’s vector dialect abstraction to generate optimal vectorisable code using a single lowering pipeline for different architectures. Additionally, we also present these operations in the form a C++ library for their higher level use. As of now, the DIP dialect supports 1D as well as 2D convolutions, resizing, rotation, FFT, IFFT and morphological transformations for images.</br>
 </p>
 
 <p>
-Using the Clang data-flow framework for null-pointer analysis [ Video ] [ Slides ]<br>
+Using the Clang data-flow framework for null-pointer analysis [ <a href="https://youtu.be/TPEQ3vg16iA">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May10/02-Cesh-Dataflow_RC1_finalized.pdf">Slides</a> ]<br>
 <i>Viktor Cseh, Eötvös Loránd University</i><br>
 <br>In late 2021 a new data-flow analysis framework was introduced into the Clang analysis tooling, enabling reasoning about program states the symbolic execution engine of the Clang Static Analyzer had difficulty deducing. In this talk, we summarize our experience with the data-flow framework through the lens of implementing a Clang-Tidy checker using null-pointer analysis. We discuss various approaches we tested to encode pointer values within the framework, their performance and limitations, and best practices and common pitfalls we encountered while implementing checkers using the framework.</br>
 </p>
 
 <p>
-Fast and Vectorized Pivot Function for MLIR Presburger Library [ Video ] [ Slides ]<br>
+Fast pivot Function for MLIR’s Presburger Library Through Vectorization and Integer Arithmetic in FPU [ <a href="https://youtu.be/-TQAy6WWBJ0">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May10/01-Zhou-pivotfpu.pdf">Slides</a> ]<br>
 <i>Qi Zhou</i><br>
-<br>In MLIR’s presburger library for polyhedral compilation, most of the runtime is spent on doing simplex method linear programming with the pivot function. Its hot loop is element-wise overflow-checked multiplication and addition on a input matrix.
-There are two methods to optimize this function through vectorization, the conventional way involves constructing matrix with int16_t and issue additional instruction to check overflow.
-However, a crazy approach is is to compute 23 bits or 52 bits integer using FPU, as mantissa part of single and double precision floating point number is 23 and 52 bits. By doing this we can exploits fused-multiply-add, and most importantly, imprecise floating point operation triggers status register, making overflow checking almost free.</br>
+<br>This talk presents a fast implementation of the core function pivot for the Presburger library in MLIR by performing vectorized integer arithmetics in FPU. The hot loop of the pivot function performs overflow-checked multiplication and addition on each element of an input matrix of low dimension and mostly small-value items. MLIR’s upstream uses element-wise transprecision computing, where the data type of each element starts with int64_t and will be switched to LargeInteger in case of overflow. Compilers cannot automatically vectorize this approach, and int64_t has a much larger bit width than what is typically needed for most items in the matrix. Additionally, extra arithmetics are required to perform overflow checking for integers, resulting in significant overhead. These issues can be addressed by taking advantage of SIMD and reducing the bit width for every element. This report also introduces the int24_t data type, a  24-bit integer data type created from the sign bit, plus the 23-bit mantissa of a 32-bit floating point. int24_t overflow can be captured as floating point imprecision by a status register, making overflow awareness almost free. On a  representative 30-row by 19-column input matrix, the runtime is reduced from 550 ns to 26 ns, achieving 20 times  speedup.</br>
 </p>
 
 <p>
-RISC-V Vector Extension Support in MLIR: Motivation, Abstraction, and Application [ Video ] [ Slides ]<br>
+RISC-V Vector Extension Support in MLIR: Motivation, Abstraction, and Application [ <a href="">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/02-Zhang-RISC-V-VectorExtensionSupport-in-MLIR.pdf">Slides</a> ]<br>
 <i>Hongbin Zhang, Institute of Software Chinese Academy of Sciences</i><br>
 <br>This talk will share our work on supporting the RISC-V Vector (RVV) extension in MLIR. The RVV extension provides high-performance vector instructions, and the parallelism model is different from other SIMD architectures. However, MLIR vector abstractions cannot support some RVV features, especially the dynamic vector length and register group configuration. To address this issue, we add custom MLIR abstractions to support RVV parallelism model, and our design balances generic and specialized parts to avoid introducing fragmentation. As a demonstration case, we use our abstractions to implement a vectorization optimization for the matrix multiplication operation.</br>
 </p>
@@ -473,7 +471,7 @@ Static Analysis for C++ Rust-Like Lifetime Annotations [ Video ] [ Slides ]<br>
 </p>
 
 <p>
-Leveraging MLIR for Better SYCL Compilation [ Video ] [ Slides ]<br>
+Leveraging MLIR for Better SYCL Compilation [ Poster ] <br>
 <i>Victor Lomüller, Codeplay Software</i><br>
 <br>SYCL is an open standard programming model for heterogeneous device programming, based on C++. Similar to optimizing C++ compilers, SYCL compilers would therefore also profit from a more suitable high-level representation for optimization. This poster presents first results on our investigation on how MLIR can be leveraged to improve SYCL compilation flows and optimizations.</br>
 </p>
