@@ -94,9 +94,22 @@ Order out of Chaos, The LLVM Release Process [ <a href="https://youtu.be/onaNb2U
 </p>
 
 <p>
-Title [ Video ] [ <a href="slides/TechnicalTalks-May10/07-TomEccles-JeffNiu-MLIRDataflowAnalysis.pdf">Slides</a> ]<br>
+Extensible and Composable Dataflow Analysis in MLIR [ <a href="https://www.youtube.com/watch?v=5BijBv2TDnU">Video</a> ] [ <a href="slides/TechnicalTalks-May10/07-TomEccles-JeffNiu-MLIRDataflowAnalysis.pdf">Slides</a> ]<br>
 <i>Tom Eccles, Arm & Jeff Niu, Modular</i><br>
-<br>Abstract</br>
+<br>
+Designing a dataflow analysis framework requires understanding the peculiarities of the compiler's IR: analyses need to run in a reasonable time and without algorithmic explosion, analyses need to compose, and the framework must be extensible to allow building a library of analyses.
+
+MLIR does not have fixed IR semantics. The IR is user-extensible, and this reflects the primary challenge of building core infrastructure in MLIR. It is not possible to build a dataflow analysis framework for MLIR the same way as they have been built for other compilers. 
+We proposed (and upstreamed) a general-purpose dataflow analysis framework to MLIR designed according to MLIR's core principles: extensible, composable, and debuggable.
+Our framework is unique in that it separates the states of lattice elements from the logic that produces them: we allow users to define new kinds of state but also inject transfer functions for existing states.
+Our framework also has a dynamic dependency graph that is lazily instantiated according to the shape of the IR, reducing the number of iterations to converge.
+
+In our talk, we will present the mathematical formulation for transparently composable dataflow analyses. We will discuss the implementation in upstream MLIR and how core analyses like dead code analysis, constant propagation,
+and integer range analysis can be composed together with out-of-tree dialects and analyses.
+
+As an in-depth example, we will give an overview of Flang's stack arrays pass, which operates on Flang's MLIR dialects, It moves compiler-added array temporaries from the heap to the stack and uses data-flow analysis to ensure that pointer lifetimes do not escape the current stack frame.
+We show how this analysis is composed with in-tree analyses to achieve better results. If there is time, we will show how data flow analysis can be used in a wider context by reviewing the whole Flang stack arrays pass.
+</br>
 </p>
 
 <p>
@@ -159,7 +172,7 @@ Practical Global Merge Function with ThinLTO [ <a href="https://youtu.be/rh2ApiB
 </p>
 
 <p>
-Prototyping MLIR in Python [ < a href="https://youtu.be/YJIKr1DoUCQ">Video</a> ] [ <a href="slides/TechnicalTalks-May11/05-Fehr-PrototypeMLIRinPython.pdf">Slides</a> ]<br>
+Prototyping MLIR in Python [ <a href="https://youtu.be/YJIKr1DoUCQ">Video</a> ] [ <a href="slides/TechnicalTalks-May11/05-Fehr-PrototypeMLIRinPython.pdf">Slides</a> ]<br>
 <i>Sasha Lopoukhine, University of Edinburgh & Mathieu Fehr, University of Edinburgh</i><br>
 <br>We present xDSL, a reimplementation of MLIR core features in pure Python with a focus on accessibility. xDSL aims at bridging the Python DSL community with the MLIR one, by being fully compatible with MLIR through the textual format. Dialects can as well be translated from one framework to the other through IRDL. Since xDSL is written in pure Python, it lowers the barrier of entry for newcomers, and allows them to learn about MLIR concepts without having the struggle of installing MLIR, and can even do so directly on a Jupyter notebook hosted on the web. It is also a good option for prototyping dialects, since no recompilation is required in between changes, resulting in faster iteration time.</br>
 </p>
