@@ -84,7 +84,7 @@ Order out of Chaos, The LLVM Release Process [ <a href="https://youtu.be/onaNb2U
 </p>
 
 <p>
-“-fbounds-safety”: Enforcing bounds safety for production C code [ Video ] [ <a href="slides/TechnicalTalks-May11/01-Na-fbounds-safety.pdf">Slides</a> ]<br>
+“-fbounds-safety”: Enforcing bounds safety for production C code [ <a href="https://youtu.be/RK9bfrsMdAM">Video</a> ] [ <a href="slides/TechnicalTalks-May11/01-Na-fbounds-safety.pdf">Slides</a> ]<br>
 <i>Yeoul Na, Apple</i><br>
 <br>In this talk we will describe “-fbounds-safety”, a new language extension implemented in Clang that brings bounds safety to the C language. The language extension addresses multiple of the practical challenges that have made existing approaches to safer C dialects difficult to adopt. Our approach facilitates incremental adoption by preserving source compatibility with standard C and preserving ABI-compatibility with C binaries. It also minimizes adoption effort by reconciling wide pointers (a.k.a. “fat” pointers) with ABI-preserving bounds annotations. “-fbounds-safety” has been adopted on millions of lines of production C code and proven to work in an industrial setting.</br>
 </p>
@@ -119,7 +119,7 @@ MLIR-based offline memory planning and other graph-level optimizations for xcore
 </p>
 
 <p>
-A Rusty CHERI: The path to hardware capabilities in Rust [ Video ] [ Slides ]<br>
+A Rusty CHERI: The path to hardware capabilities in Rust [ <a href="https://youtu.be/6vCh3WSLMvo">Video</a> ] [ Slides ]<br>
 <i>Lewis Revill, Embecosm</i><br>
 <br>Can we make unsafe Rust code safer with hardware capabilities? This talk
 presents the motivation behind our effort to support CHERI (Capability Hardware
@@ -147,7 +147,7 @@ Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design 
 </p>
 
 <p>
-MachineScheduler - fine grain resource allocation using resource intervals [ Video ] [ <a href="slides/TechnicalTalks-May11/03-Petrogalli-StartAtCycle.pdf">Slides</a> ]<br>
+MachineScheduler - fine grain resource allocation using resource intervals [ <a href="https://youtu.be/XWBVLcdzmFg">Video</a> ] [ <a href="slides/TechnicalTalks-May11/03-Petrogalli-StartAtCycle.pdf">Slides</a> ]<br>
 <i>Francesco Petrogalli, Apple</i><br>
 <br>In this talk we will describe an optimisation introduced in the MachineScheduler that allows to allocate more resources in a smaller number of cycles. To achieve this, we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary.</br>
 </p>
@@ -192,7 +192,7 @@ In this presentation, you'll learn how a typical interpreter works, how to map i
 </p>
 
 <p>
-What’s new in MLIR? [ Video ] [ Slides ]<br>
+What’s new in MLIR? [ <a href="https://youtu.be/LPlRLt9w4b0">Video</a> ] [ Slides ]<br>
 <i>Mehdi Amini</i><br>
 <br>MLIR has evolved significantly since it was introduced at EuroLLVM 2019. The last tutorial was at the US Dev Mtg in 2020. In this talk, we'll survey new components and provide a quick intro into how to take advantage of the new MLIR features from the last two years.</br>
 </p>
@@ -204,7 +204,7 @@ Structured Bindings and How to Analyze Them [ <a href="https://youtu.be/ZPcf7w-T
 </p>
 
 <p>
-MLIR Dialect Design and Composition for Front-End Compilers [ Video ] [ Slides ]<br>
+MLIR Dialect Design and Composition for Front-End Compilers [ <a href="https://youtu.be/hIt6J1_E21c">Video</a> ] [ Slides ]<br>
 <i>Jeff Niu, Modular</i><br>
 <br>MLIR dialect design is often more an art than a science. MLIR provides powerful infrastructure for building IR and a vast ecosystem of dialects to use, but lacks guidelines on how to actually do so. This talk is a deep dive on principles for MLIR dialect design and composition. We will focus on criteria for dialect design, such as concise and powerful representation and transparent composability, dialect design principles and techniques, such as preserving high-level information and distinguishing between “structural” and “computation” dialects, and challenges with integrating with upstream dialects. We will study how good dialect design allows us efficiently and easily write powerful optimizations on our IR and how to write generic IR transformations with MLIR interfaces. We will present our findings through the lens of building a general-purpose programming language with MLIR.</br>
 </p>
@@ -222,7 +222,7 @@ Optimizing the Linux Kernel with LLVM BOLT [ <a href="https://youtu.be/ivTCCTSMG
 </p>
 
 <p>
-mlir-meminfo : A Memory Model for MLIR [ Video ] [ Slides ]<br>
+mlir-meminfo : A Memory Model for MLIR [ <a href="https://youtu.be/7p3Vg3yZ29s">Video</a> ] [ Slides ]<br>
 <i>Kunwar Grover, IIIT Hyderabad & Arjun Pitchanathan, University of Edinburgh</i><br>
 <br>A number of transformations in high-level MLIR dialects like Linalg, SCF and Affine focus on building transformations for optimizing the cache behavior of programs. While building models for the cost of computation for these transformations are easy as it is a local property, data movement on cached architectures depends on the global state and is very hard to predict. Current approaches for memory models for these transformations use transformation-specific cost models, which do not compose from one transformation to another due to the global properties of data movement. We introduce mlir-meminfo, a lightweight, analytical memory model for MLIR. mlir-meminfo accurately predicts the cache behavior of a program, with a particular focus on transformations, updating the cache information almost instantly for modern neural networks like BERT, containing hundreds of memory accesses. With the introduction of mlir-meminfo, we aim to revolutionize transformation memory models for MLIR and improve developer productivity for performance programming.</br>
 </p>
@@ -404,7 +404,7 @@ Lock Coarsening optimizations for loops in Java [ <a href="https://youtu.be/IpGq
 </p>
 
 <p>
-Cost Modelling for Register Allocation and Beyond [ Video ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May10/03-Grossman-cost-modelling.pdf">Slides</a> ]<br>
+Cost Modelling for Register Allocation and Beyond [ <a href="https://youtu.be/1yWCbYlcdd4">Video</a> ] [ <a href="https://llvm.org/devmtg/2023-05/slides/StudentTalks-May10/03-Grossman-cost-modelling.pdf">Slides</a> ]<br>
 <i>Aiden Grossman, University of California, Davis</i><br>
 <br>Accurate and fast cost modeling is essential for training ML models to replace certain key heuristics within LLVM when looking for performance gains. For eviction in the LLVM greedy register allocator, we use a linear model with some domain specific features which has successfully trained highly performant ML replacements, but leaves a lot to be desired in terms of absolute accuracy. In this talk we present results on the application of more generic basic block specific cost models to this problem as well as future directions and current work to push accurate cost modeling beyond basic blocks for the application of training ML models.</br>
 </p>
