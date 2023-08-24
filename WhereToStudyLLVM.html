@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <title>Where can I study LLVM?</title>
+  </head>
+  <body>
+    <h1>Where can I study LLVM?</h1>
+    <p>Below is a list of institutions that offer courses and/or graduate programs on LLVM.</p>
+    <p>&nbsp;</p>
+    <div id="map"  style="width: 90%; height: 600px; max-width: 900px"></div>
+    <script>
+      /* Please keep the list in alphabetical order.
+      */
+      data = [
+      /* empty template
+      {
+          'name'        : '',
+          'website'     : '',
+          'institution' : '',
+          'offer'       : [], // e.g., course, msc, phd
+          'expertise'   : [],
+          'lat'         : ,  // use e.g. google maps to get the coordinates
+          'lng'         : ,
+        },
+        */
+       {
+          'name'        : 'Fernando Pereira',
+          'website'     : 'https://homepages.dcc.ufmg.br/~fernando/',
+          'institution' : 'Federal University of Minas Gerais (UFMG)',
+          'offer'       : ['course', 'msc'],
+          'expertise'   : ['optimizations'],
+          'lat'         : -19.869605631945415,
+          'lng'         : -43.96465461993801,
+        },
+        {
+          'name'        : 'John Regehr',
+          'website'     : 'https://users.cs.utah.edu/~regehr/',
+          'institution' : 'University of Utah',
+          'offer'       : ['msc', 'phd'],
+          'expertise'   : ['fuzzing', 'superoptimization'],
+          'lat'         : 40.76855508384174,
+          'lng'         : -111.84615713574507
+        },
+        {
+          'name'        : 'Nuno Lopes',
+          'website'     : 'https://web.ist.utl.pt/nuno.lopes/',
+          'institution' : 'University of Lisbon (IST-UL)',
+          'offer'       : ['msc', 'phd'],
+          'expertise'   : ['verification', 'semantics', 'optimizations'],
+          'lat'         : 38.736745,
+          'lng'         : -9.138801
+        },
+        {
+          'name'        : 'Tobias Grosser',
+          'website'     : 'https://grosser.science/',
+          'institution' : 'University of Edinburgh',
+          'offer'       : ['msc', 'phd'],
+          'expertise'   : ['MLIR', 'loop optimizations'],
+          'lat'         : 55.94481169822074,
+          'lng'         : -3.187326616960431,
+        },
+      ];
+      var map = L.map('map', {
+        center: [0,0],
+        zoom: 2
+      });
+      map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>')
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      for (const person of data) {
+        L.marker([person['lat'], person['lng']]).addTo(map)
+         .bindPopup('<b><a href="' + person['website'] + '">' + person['name'] +
+                    '</a></b> - ' + person['institution'] + '<br>' +
+                    'Expertise: ' + person['expertise'].join(', '));
+      }
+    </script>
+  </body>
+</html>
