@@ -14,21 +14,30 @@
       */
       data = [
       /* empty template
-      {
+        {
           'name'        : '',
           'website'     : '',
           'institution' : '',
-          'offer'       : [], // e.g., course, msc, phd
+          'offer'       : [], // e.g., Course, MSc, PhD
           'expertise'   : [],
           'lat'         : ,  // use e.g. google maps to get the coordinates
-          'lng'         : ,
+          'lng'         : 
         },
-        */
-       {
+      */
+        {
+            'name'        : 'Adrian Sampson',
+            'website'     : 'https://www.cs.cornell.edu/~asampson/',
+            'institution' : 'Cornell University',
+            'offer'       : ['Course'],
+            'expertise'   : ['verification', 'accelerators'],
+            'lat'         : 42.44492942439831,
+            'lng'         : -76.48100731258131
+        },
+        {
           'name'        : 'Fernando Pereira',
           'website'     : 'https://homepages.dcc.ufmg.br/~fernando/',
           'institution' : 'Federal University of Minas Gerais (UFMG)',
-          'offer'       : ['course', 'msc'],
+          'offer'       : ['Course', 'MSc'],
           'expertise'   : ['optimizations'],
           'lat'         : -19.869605631945415,
           'lng'         : -43.96465461993801,
@@ -37,7 +46,7 @@
           'name'        : 'John Regehr',
           'website'     : 'https://users.cs.utah.edu/~regehr/',
           'institution' : 'University of Utah',
-          'offer'       : ['msc', 'phd'],
+          'offer'       : ['MSc', 'PhD'],
           'expertise'   : ['fuzzing', 'superoptimization'],
           'lat'         : 40.76855508384174,
           'lng'         : -111.84615713574507
@@ -46,19 +55,37 @@
           'name'        : 'Nuno Lopes',
           'website'     : 'https://web.ist.utl.pt/nuno.lopes/',
           'institution' : 'University of Lisbon (IST-UL)',
-          'offer'       : ['msc', 'phd'],
+          'offer'       : ['MSc', 'PhD'],
           'expertise'   : ['verification', 'semantics', 'optimizations'],
           'lat'         : 38.736745,
           'lng'         : -9.138801
         },
         {
+          'name'        : 'Saman Amarasinghe',
+          'website'     : 'https://people.csail.mit.edu/saman/',
+          'institution' : 'MIT',
+          'offer'       : ['MSc', 'PhD'],
+          'expertise'   : ['SLP vectorization', 'sparse computations'],
+          'lat'         : 42.36191907765046,
+          'lng'         : -71.09042561964334
+        },
+        {
+          'name'        : 'Sebastian Hack',
+          'website'     : 'https://www.compilers.cs.uni-saarland.de/people/hack/',
+          'institution' : 'Saarland University',
+          'offer'       : ['MSc', 'PhD'],
+          'expertise'   : ['optimizations', 'vectorization'],
+          'lat'         : 49.257710327492,
+          'lng'         : 7.044960796415747
+        },
+        {
           'name'        : 'Tobias Grosser',
           'website'     : 'https://grosser.science/',
           'institution' : 'University of Edinburgh',
-          'offer'       : ['msc', 'phd'],
+          'offer'       : ['MSc', 'PhD'],
           'expertise'   : ['MLIR', 'loop optimizations'],
           'lat'         : 55.94481169822074,
-          'lng'         : -3.187326616960431,
+          'lng'         : -3.187326616960431
         },
       ];
       var map = L.map('map', {
@@ -78,5 +105,27 @@
                     'Expertise: ' + person['expertise'].join(', '));
       }
     </script>
+    <p>&nbsp;</p>
+    <table border="1">
+      <thead>
+        <tr>
+          <td>Person</td>
+          <td>Institution</td>
+          <td>Expertise</td>
+          <td>Offering</td>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          for (const person of data) {
+            document.write('<tr><td><a href="' + person['website'] + '">' +
+                           person['name'] + '</a></td>' +
+                           '<td>' + person['institution'] + '</td>' +
+                           '<td>' + person['expertise'].join(', ') + '</td>' +
+                           '<td>' + person['offer'].join(', ') + '</td></tr>');
+          }
+        </script>
+      </tbody>
+    </table>
   </body>
 </html>
