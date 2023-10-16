@@ -1,7 +1,7 @@
 # LLVM Project Governance
 
 
-*   Proposal: [LP-0001](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
+*   Proposal: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
 * Author(s): [Chris Bieneman](https://github.com/llvm-beanz), [Aaron Ballman](https://github.com/AaronBallman), [Eric Christopher](https://github.com/echristo), [Mehdi Amini](https://github.com/joker-eph/), [Reid Kleckner](https://github.com/rnk/)
 * Review Managers: TBD
 * Status: WIP
