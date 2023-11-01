@@ -1,7 +1,7 @@
 # LLVM Project Governance
 
 
-*   Proposal: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
+* Proposal: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
 * Author(s): [Chris Bieneman](https://github.com/llvm-beanz), [Aaron Ballman](https://github.com/AaronBallman), [Eric Christopher](https://github.com/echristo), [Mehdi Amini](https://github.com/joker-eph/), [Reid Kleckner](https://github.com/rnk/)
 * Review Managers: TBD
 * Status: WIP
@@ -24,7 +24,7 @@ One such long-term problem is the lack of adequate code ownership. Many parts of
 
 ## Proposed solution
 
-The goal of this proposal is to codify a structure for how decisions are made and who makes the final decision. This proposal builds on [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md), and assumes that process will be used for contentious decisions. At the core of this proposal is the adoption of consensus-seeking decision making rather than formal consensus methods, and a recognition that decision making isn’t always binary.
+The goal of this proposal is to codify a structure for how decisions are made and who makes the final decision. This proposal builds on [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md), and assumes that contentious decisions go through that process. For the context of this proposal and **[LP0001]**, a contentious decision is one where general agreement is not reached through discussion on [Discourse](https://discourse.llvm.org). At the core of this proposal is the adoption of consensus-seeking decision making rather than formal consensus methods, and a recognition that decision making isn’t always binary.
 
 This proposal creates structures and bodies to act as decision makers, to provide oversight, and to be responsible for shepherding the community. The new teams take over key roles in [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md). They are also empowered to mediate disputes and given responsibility for supporting the community health of their areas.
 
@@ -53,14 +53,14 @@ We embrace a _broad definition of contribution_. Throughout this document we tal
 
 The spirit of [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) is to provide a framework to help the community arrive at a decision around contentious topics. As described the process does not follow a fully democratic process and it acknowledges the possibility that consensus cannot be reached. These are strengths of that proposal process and nothing in this proposal is intended to weaken that.
 
-Formal consensus processes (i.e. voting, surveys, etc) are _extremely_ difficult to execute on decentralized projects like LLVM, and not necessary for healthy community growth. Formal consensus is not a goal.
+Formal consensus and majority opinion (i.e. voting, surveys, etc) processes are _extremely_ difficult to execute on decentralized projects like LLVM, and not necessary for healthy community growth. Formal consensus or majority opinion are not goals.
 
-Consensus-seeking decision making instead focuses on efforts to build consensus and address concerns. It does not require that all concerns are addressed, nor that a full consensus is reached.
+Consensus-seeking decision making instead focuses on efforts to build consensus and address concerns. It does not require that all concerns are addressed, nor that a full consensus is reached. It also does not require a majority approval.
 
-This proposal gives decision making authority to project governance structures defined below.
+This proposal gives the responsibility for facilitating consensus-seeking and last-resort decision making authority to project governance structures defined below.
 
 
-###  Role of Code Owners
+### Role of Code Owners
 
 This proposal does not change the role of code owners as defined in the [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#code-owners). As stated in the policy:
 
@@ -106,7 +106,7 @@ Second, _area teams_ are responsible for maintaining an up-to-date and comprehen
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
-When acting to facilitate decision making the _area team _should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue.
+When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue.
 
 _Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team’s_ role is as a steward and moderator ensuring the health and smooth operation of the area.
 
@@ -121,7 +121,7 @@ With this proposal a group of initial _area teams_ will be formed with defined d
 
 In dividing the LLVM project into _area teams_, this proposal seeks to break up areas of the project based on contribution volume and number of active contributors. This proposal assumes that areas of the project with more unique contributors are more likely to have contributor disagreements, and that areas with more highly active contributors will be more likely to have diverse _area team_ formations.
 
-This proposal puts a possible set of _area teams_ to form with the specified areas of ownership. One notable point is that LLVM (`:/llvm`) had 945 unique authors contribute over the 12 month period used for statistics. This is far more than any other part of the project, and it justified splitting LLVM into two teams, which are separated as the _LLVM Backend_ and _LLVM Middle-end_. Clang had 706 unique authors, which is also significantly higher than other sub-projects. To represent different parts of the Clang community the _Clang_ and _Clang Tooling_ teams are separated below.
+This proposal puts a possible set of _area teams_ to form with the specified areas of responsibility. One notable point is that LLVM (`:/llvm`) had 945 unique authors contribute over the 12 month period used for statistics. This is far more than any other part of the project, and it justified splitting LLVM into two teams, which are separated as the _LLVM Backend_ and _LLVM Middle-end_. Clang had 706 unique authors, which is also significantly higher than other sub-projects. To represent different parts of the Clang community the _Clang_ and _Clang Tooling_ teams are separated below.
 
 * LLVM Backend (CodeGen, MC, Target)
 * LLVM Middle-end (Everything not covered by LLVM Backend)
@@ -140,15 +140,15 @@ This proposal puts a possible set of _area teams_ to form with the specified are
 
 The _Community_ and _Infrastructure_ _area teams_ have different responsibilities from the other _area teams_ because they aren’t restricted to specific software components of the LLVM project. Their goals are more holistic to provide for the needs of the whole project and wider community.
 
-Both the _community_ and _infrastructure area teams_ will select one member of their team to act as a liaison with the LLVM Foundation. The liaisons will be responsible for managing the relationship between their _area team_ and the employees and directors of the LLVM Foundation.
+In addition to a team chair and secretary, both the _community_ and _infrastructure area teams_ will select one member of their team to act as a liaison with the LLVM Foundation. The liaisons will be responsible for managing the relationship between their _area team_ and the employees and directors of the LLVM Foundation. The liaison may be any member of the _area team_ including the chair or secretary.
 
 ##### Voting by Area
 
-Every _voting contributor_ is eligible to vote for the project-wide _Community_ and _Infrastructure_ teams. Eligibility for voting on other _area teams_ is determined by _meaningful contributions_ to the areas those teams cover. For example, in order to vote on the **LLVM Backend** _area team_, a contributor would need to contribute code to the LLVM `CodeGen`, `MC`, or `Target` libraries, or to vote on the members of the **Flang** team, a contributor would need to contribute code to the `flang` project. There is no limit to the number of _area teams_ a contributor can vote on if they have made contributions to the relevant areas.
+Every _voting contributor_ is eligible to vote for the project-wide _Community_ and _Infrastructure_ teams. Eligibility for voting on other _area teams_ is determined by _meaningful contributions_ to the areas those teams cover. For example, in order to vote on the **LLVM Backend** _area team_, a contributor would need to contribute to the LLVM `CodeGen`, `MC`, or `Target` libraries, or to vote on the members of the **Flang** team, a contributor would need to contribute to the `flang` project. There is no limit to the number of _area teams_ a contributor can vote on if they have made contributions to the relevant areas.
 
 #### Vacancies
 
-A member of an _area team_ can resign at any time. Additionally as life can sometimes happen unexpectedly a member of an _area team_ may be unable to fulfill their duties or resign. In that case a majority of the remaining _area team_ may vote to declare the member removed in absentia after a 90-day absence.
+A member of an _area team_ can resign at any time. As life can sometimes happen unexpectedly, a member of an _area team_ may be unable to fulfill their duties or resign. In that case, a majority of the remaining _area team_ may vote to declare the member removed in absentia after a 90-day absence.
 
 If someone resigns or is otherwise removed from an _area team_, the remaining members of the _area team_ may appoint a replacement to serve the remainder of the term through any process they choose.
 
@@ -166,9 +166,17 @@ The _project council_ has a mandate to:
 * Facilitate seeking consensus among the LLVM Community and _area teams_.
 * As a last resort, act as the final decision maker on debates.
 
-The _project council_ has the power to form and dissolve _area teams_. Forming an _area team_ requires a majority vote. Dissolving an _area team_, or altering the boundaries of an _area team_ requires a consenting vote of the chair of the _area team(s)_ being altered and a majority vote of the _project council_.
+The _project council_ has the power to form and dissolve _area teams_. Forming an _area team_ requires a majority vote. Any changes to the _area team_ structures must be publicly disclosed including the motivation for the changes. Dissolving an _area team_, or altering the boundaries of an _area team_ requires a consenting vote of the chair of the _area team(s)_ being altered and a majority vote of the _project council_.
+
+If the _project council_ is seeking to dissolve an _area team_ and the chair of that team does not consent, the team may be dissolved with a unanimous vote of the remaining _project council_ members only after consultation with the Code of Conduct Committee to ensure that all project policies are appropriately followed.
 
 Representatives to the _project council_ are also term limited. An individual may not serve on the _project council_ for more than two consecutive terms. This limit may also be waived by the _project council_ if and only if the respective team is unable to produce a different representative.
+
+### Governance Team Meetings
+
+Each _Area Team_ and the _Steering Council_ should have one scheduled public meeting per month. The date of the scheduled meeting should be on the LLVM Community Calendar. The calendar invite will have a link to a public meeting agenda. The teams may have non-public meetings for discussion, deliberation. planning or other purposes.
+
+Notes from all _Area Team_ and _Steering Council_ meetings shall be publicly posted. Notes shall exclude reference to any private information, or information that otherwise needs to be confidential.
 
 ### Role of the LLVM Foundation
 
@@ -203,17 +211,17 @@ Public notice of any vote will be published on the LLVM discussion forums under 
 
 Voter eligibility will be determined 7 days before voting opens by the rules for defining _voting contributors_. Voting will be executed using a private poll hosted by [Concordcet Internet Voting Service]([https://civs1.civs.us/](https://civs1.civs.us/)). Concordcet uses a ranked choice polling process.
 
+> Note: Concordcet Internet Voting Service suggested here is a placeholder. A more through review of voting systems needs to be conducted. This will overlap with voter registration data collection.
+
 All eligible _voting contributors_ will be contacted via email with instructions on how to vote on the day voting opens.
 
 ### Elections
 
-Elections for _area teams_ will be conducted in January of each year. A two week long nomination period will begin the second Monday in January. During the nomination period any _voting contributor_ can nominate themselves or another _voting contributor_ to run for any one _area team_. No individual can run for more than one _area team_ in a single election. Nominations will be recorded publicly for community visibility.
+The LLVM Foundation will act as a facilitator for community elections. The LLVM Foundation will maintain a voter registration database in compliance with local and international privacy laws. The LLVM Foundation will publish a privacy policy relating to the voter registration system.
 
-Voting begins the fourth Monday in January and continues for 2 weeks. Election results will be announced no later than the second Monday in February. The term of the newly elected _area team_ begins the first Monday in March. Each _area team_ will meet during the first week in March to elect from themselves the team chair to re-constitute the _project council_.
+Elections for _area teams_ occur in January of each year. A two week long nomination period begins the second Monday in January. During the nomination period any _voting contributor_ can nominate themselves or another _voting contributor_ to run for any one _area team_. No individual can run for more than one _area team_ in a single election. An individual nominated for more than one area team will be responsible for choosing which team they want to run for. Nominations will be recorded publicly for community visibility. Unsuccessful results in an election do not impact nomination eligibility in subsequent elections.
 
-### Mandatory Voting
-
-To encourage participation in elections voting is considered mandatory. Any _eligible voting contributor_ who does not vote in an election will be ineligible to vote in the next election and their registration will be removed if they do not vote in the next election they are eligible to vote in.
+Voting begins the fourth Monday in January and continues for 2 weeks. Election results will be announced no later than the second Monday in February. The term of the newly elected _area team_ begins the first Monday in March. Each _area team_ will meet during the first week in March to elect from themselves the team secretary and chair to re-constitute the _project council_.
 
 ## Amending This Document
 
@@ -230,6 +238,8 @@ If there were common questions that came up in the pitch phase, please summarize
 ## Appendix 1: LLVM Community Metrics Methods
 
 This document references some LLVM community metrics. This appendix contains the methodology and tools used to produce the metrics cited above. The metrics are gathered from git metadata with a scoped date range of September 1, 2022 through September 1, 2023. Using a specific date range allows these metrics to be re-generated consistently, however the metrics should be extended to encompass the latest usage patterns when driving decision making.
+
+**These scripts are not intended to drive voter eligibility.** These scripts computed data that informed the formation of _area teams_, but the data is severely limited and insufficient for application to voter eligibility.
 
 ### git-crawler.py
 
@@ -283,15 +293,15 @@ for dir in results:
  high = counters.most_common(10)
  print('%s:' % dir)
  for val in high:
-   print('  %s: %d' % (str(val[0]), val[1])) \
-````
+   print('  %s: %d' % (str(val[0]), val[1]))
+```
 
 ### Quick Sum Commits by Author for a Directory
 
 In some places a quick listing of the sum of commits per author for a given tree directory is used. In those cases a shorthand command line was used:
 
 ```
-`git log --pretty="%an" --since="September 1, 2022" --until="September 1, 2023" -- :/llvm/ | sort | uniq -c | sort`
+git log --pretty="%an" --since="September 1, 2022" --until="September 1, 2023" -- :/llvm/ | sort | uniq -c | sort
 ```
 
 In the script above `:/llvm/` can be replaced with any other path inside the repository.
