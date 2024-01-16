@@ -9,6 +9,9 @@
         <a href="#gsoc24">Google Summer of Code 2024</a>
         <ul>
           <li><b>LLVM Core</b>
+            <ul>
+              <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
+           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
         </ul>
       </li>
@@ -23,7 +26,6 @@
                <li><a href="#llvm_new_jitlink_backends">JITLink new backends</a></li>
                <li><a href="#llvm_improving_compile_times">Improving compile times</a></li>
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
-               <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
                <li><a href="#llvm_mlgo_latency_model">Better performance models for MLGO training</a></li>
                <li><a href="#llvm_mlgo_passes_2023">Machine Learning Guided Ordering of Compiler Optimization Passes</a></li>
                <li><a href="#llvm_map_value_to_src_expr">Map LLVM values to corresponding source-level expressions</a></li>
@@ -371,6 +373,44 @@
 
 
 <!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="remove_ub_tests">Remove undefined behavior from tests</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Many of LLVM's unit tests have been reduced automatically from larger tests.
+    Previous-generation reduction tools used undef and poison as placeholders
+    everywhere, as well as introduced undefined behavior (UB).
+    Tests with UB are not desirable because 1) they are fragile since in the
+    future the compiler may start optimizing more aggressively and break the
+    test, and 2) it breaks translation validation tools such as
+    <a href="https://github.com/AliveToolkit/alive2/">Alive2</a> (since it's
+    correct to translate a fuction that is always UB into anything).
+
+    <br />
+    The major steps include:
+    <ol>
+      <li>Replace known patterns such as branch on undef/poison, memory accesses
+          with invalid pointers, etc with non-UB patterns.</li>
+      <li>Use Alive2 to detect further patterns (by searching for tests that are
+          always UB.</li>
+      <li>Report any LLVM bug found by Alive2 that is exposed when removing
+          UB.</li>
+    </ol>
+  </p>
+
+  <p><b>Expected result:</b>
+    The majority of LLVM's unit tests will be free of UB.</p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b> <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a></p>
+</div>
+
+
+<!-- *********************************************************************** -->
 <div class="www_sectiontitle">
   <a name="gsoc23">Google Summer of Code 2023</a>
 </div>
@@ -601,44 +641,6 @@
   <p><b>Confirmed Mentor:</b> <a href="https://github.com/nikic">Nikita Popov</a></p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/llvm-addressing-rust-optimization-failures-in-llvm/68096">URL</a>
-</div>
-
-
-<!-- *********************************************************************** -->
-<div class="www_subsubsection">
-  <a name="remove_ub_tests">Remove undefined behavior from tests</a>
-</div>
-<!-- *********************************************************************** -->
-
-<div class="www_text">
-  <p><b>Description of the project:</b>
-    Many of LLVM's unit tests have been reduced automatically from larger tests.
-    Previous-generation reduction tools used undef and poison as placeholders
-    everywhere, as well as introduced undefined behavior (UB).
-    Tests with UB are not desirable because 1) they are fragile since in the
-    future the compiler may start optimizing more aggressively and break the
-    test, and 2) it breaks translation validation tools such as
-    <a href="https://github.com/AliveToolkit/alive2/">Alive2</a> (since it's
-    correct to translate a fuction that is always UB into anything).
-
-    <br />
-    The major steps include:
-    <ol>
-      <li>Replace known patterns such as branch on undef/poison, memory accesses
-          with invalid pointers, etc with non-UB patterns.</li>
-      <li>Use Alive2 to detect further patterns (by searching for tests that are
-          always UB.</li>
-      <li>Report any LLVM bug found by Alive2 that is exposed when removing
-          UB.</li>
-    </ol>
-  </p>
-
-  <p><b>Expected result:</b>
-    The majority of LLVM's unit tests will be free of UB.</p>
-
-  <p><b>Project size:</b> Either medium or large.</p>
-  <p><b>Difficulty:</b> Medium</p>
-  <p><b>Confirmed Mentor:</b> <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a></p>
 </div>
 
 
