@@ -6,6 +6,14 @@
   <li>Google Summer of Code Ideas & Projects
     <ul>
       <li>
+        <a href="#gsoc24">Google Summer of Code 2024</a>
+        <ul>
+          <li><b>LLVM Core</b>
+          <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
+        </ul>
+      </li>
+
+      <li>
         <a href="#gsoc23">Google Summer of Code 2023</a>
         <ul>
           <li>
@@ -17,7 +25,7 @@
                <li><a href="#llvm_addressing_rust_optimization_failures">Addressing Rust optimization failures</a></li>
                <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
                <li><a href="#llvm_mlgo_latency_model">Better performance models for MLGO training</a></li>
-               <li><a href="#llvm_mlgo_passes_2023">Machine Learning Guided Ordering of Compiler Optimization Passes</a></li>               
+               <li><a href="#llvm_mlgo_passes_2023">Machine Learning Guided Ordering of Compiler Optimization Passes</a></li>
                <li><a href="#llvm_map_value_to_src_expr">Map LLVM values to corresponding source-level expressions</a></li>
             </ul>
           </li>
@@ -43,6 +51,7 @@
               <li><a href="#llvm_lld_embedded">LLD Linker Improvements for Embedded Targets</a></li>
             </ul>
           </li>
+
           <li>
             <b>MLIR</b>
             <ul>
@@ -50,6 +59,7 @@
               <li><a href="#llvm_mlir_query">Interactively query MLIR IR</a></li>
             </ul>
           </li>
+
           <li>
             <b>Code Coverage</b>
             <ul>
@@ -57,12 +67,14 @@
               <li><a href="#llvm_patch_coverage">Patch based test coverage for quick test feedback</a></li>
             </ul>
           </li>
+
           <li>
             <b>ClangIR</b>
             <ul>
               <li><a href="#clangir">Build and run SingleSource benchmarks using ClangIR</a></li>
             </ul>
           </li>
+
           <li>
             <b><a href="https://enzyme.mit.edu">Enzyme</a></b>
             <ul>
@@ -324,13 +336,13 @@
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
-  <a name="gsoc23">Google Summer of Code 2023</a>
+  <a name="gsoc24">Google Summer of Code 2024</a>
 </div>
 <!-- *********************************************************************** -->
 
 <div class="www_text">
   <p>
-    Welcome prospective Google Summer of Code 2023 Students! This document is
+    Welcome prospective Google Summer of Code 2024 Students! This document is
     your starting point to finding interesting and important projects for LLVM,
     Clang, and other related sub-projects. This list of projects is not only
     developed for Google Summer of Code, but open projects that really need
@@ -354,6 +366,23 @@
     different and look forward to hearing your proposals. For information on how
     to submit a proposal, please visit the Google Summer of Code main
     <a href="https://summerofcode.withgoogle.com/">website.</a>
+  </p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc23">Google Summer of Code 2023</a>
+</div>
+<!-- *********************************************************************** -->
+
+
+<div class="www_text">
+  <p>
+    Google Summer of Code 2023 was very successful for LLVM project. For the
+    list of accepted and completed projects, please take a look into Google
+    Summer of
+    Code <a href="https://summerofcode.withgoogle.com/archive/2023/organizations/llvm-compiler-infrastructure">website</a>.
   </p>
 </div>
 
@@ -438,7 +467,7 @@
     implementations of JITLink for MachO/arm64, MachO/x86-64, ELF/x86-64,
     ELF/aarch64 and COFF/x86-64, while the implementations for ELF/riscv,
     ELF/aarch32 and COFF/i386 are still relatively new.
-    <br />    
+    <br />
     You can either work on an entirely new architecture like PowerPC or eBPF,
     or complete one of the recently added JITLink implementations. In both cases
     you will likely reuse the existing generic code for one of the target object
@@ -1157,7 +1186,7 @@
 </div>
 <!-- *********************************************************************** -->
 <div class="www_text">
-<p><strong>Description</strong>: 
+<p><strong>Description</strong>:
   The project aims to develop an interactive query language for MLIR that enables developers to query the MLIR IR dynamically.
   The tool will provide a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as
   "isConstant" and "resultOf". The proposed tool is intended to be similar to clang-query, which allows developers to match
@@ -1380,7 +1409,7 @@
 <!-- *********************************************************************** -->
 <div class="www_text">
   <p><b>Description of the project</b>
-  
+
   Developers often use compiler generated remarks and analysis reports to optimize their code. While
   compilers in general are good at including source code positions (i.e line and column numbers) in the
   generated messages, it is useful if these generated messages also include the corresponding source-level
@@ -1394,22 +1423,22 @@
   optimizations. As an example, we can use this information to report memory access dependences that
   inhibit vectorization.
   </p>
-  
+
   <p><b>Project size:</b> Medium</p>
-  
+
   <p><b>Difficulty:</b> Medium</p>
-  
+
   <p><b>Skills:</b> Intermediate C++, familiarity with LLVM core or willingness to learn the same.</p>
-  
+
   <p><b>Expected result:</b> Provide an interface which takes an LLVM value and returns a string corresponding
     to the equivalent source-level expression. We are especially interested in using this interface to map
     addresses used in load/store instructions to equivalent source-level memory references.</p>
-  
+
   <p><b>Confirmed Mentors:</b>
     Satish Guggilla (satish.guggilla@intel.com)
     Karthik Senthil (karthik.senthil@intel.com)
   </p>
-  
+
   <p>
   <b>Discourse:</b>
   <a href="https://discourse.llvm.org/t/map-llvm-values-to-corresponding-source-level-expressions/68450">URL</a>
