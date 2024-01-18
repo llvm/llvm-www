@@ -12,10 +12,10 @@
             <ul>
               <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
            </ul>
+           <ul>
+             <li><a href="#spirv_tablegen">Automatically generate TableGen file for SPIR-V instruction set</a></li>
+          </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
-            <ul>
-              <li><a href="#spirv_tablegen">Automatically generate TableGen file for SPIR-V instruction set</a></li>
-           </ul>
         </ul>
       </li>
 
@@ -420,12 +420,12 @@
 
 <div class="www_text">
   <p><b>Description of the project:</b>
-    The existing file that describes the instruction set for the SPIR-V backend
-    in Clang was manually created and is not always complete or up to date.
-    Whenever new instructions need to be added to the SPIR-V backend, the file
-    must be amended. In addition, since it is not created in a systematic way,
-    there are often slight discrepancies between how an instruction is described
-    in the SPIR-V spec and how it is declared in the TableGen file. Since SPIR-V
+    The existing file that describes the SPIR-V instruction set in LLVM was
+    manually created and is not always complete or up to date. Whenever new
+    instructions need to be added to the SPIR-V backend, the file must be
+    amended. In addition, since it is not created in a systematic way, there are
+    often slight discrepancies between how an instruction is described in the
+    SPIR-V spec and how it is declared in the TableGen file. Since SPIR-V
     backend developers often use the spec as a reference when developing new
     features, having a consistent mapping between the specification and TableGen
     records will ease development. This project proposes creating a script
