@@ -18,6 +18,7 @@
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
               <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
+              <li><a href="#clang-plugins-windows">Support clang plugins on Windows</a>
             </ul>
         </ul>
       </li>
@@ -523,6 +524,51 @@
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-out-of-process-execution-for-clang-repl/68225">URL</a>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-plugins-windows">Support clang plugins on Windows</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The Clang compiler is part of the LLVM compiler infrastructure and supports
+    various languages such as C, C++, ObjC and ObjC++. The design of LLVM and
+
+    Clang allows the compiler to be extended with plugins[1]. A plugin makes it
+    possible to run extra user defined actions during a compilation. Plugins
+    are supported on unix and darwin but not on windows due to some specifics of
+    the windows platform.
+    <br /> <br />
+    This project would expose the participant to a broad cross section of the LLVM codebase. It involves exploring the API surface, classifying the interfaces as being public or private, and annotating that information to the API declarations. It would also expose the participant to details and differences of different platforms as this work is cross-platform (Windows, Linux, Darwin, BSD, etc). The resulting changes would improve LLVM on Linux and Windows while enabling new functionality on Windows.
+  </p>
+
+  <p><b>Expected result:</b>
+    This project aims to allow make clang -fplugin=windows/plugin.dll work. The
+    implementation approach should extend the working prototype [3] and extend
+    the annotation tool [4]. The successful candidate should be prepared to
+    attend a weekly meeting, make presentations and prepare blog posts upon
+    request.
+  </p>
+
+  <p><i>Further reading</i>
+    [1] https://clang.llvm.org/docs/ClangPlugins.html
+    <br /> <br />
+    [2] https://discourse.llvm.org/t/clang-plugins-on-windows
+    <br /> <br />
+    [3] https://github.com/llvm/llvm-project/pull/67502
+    <br /> <br />
+    [4] https://github.com/compnerd/ids
+  </p>
+  <p><b>Project size:</b>Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/compnerd>Saleem Abdulrasool</a>
+  </p>
+
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/support-clang-plugins-on-windows/76408">URL</a>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
