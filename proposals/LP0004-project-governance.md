@@ -34,6 +34,13 @@ This proposal seeks to codify three new structures within the LLVM community:
 * Area Teams
 * Project Council
 
+This proposal is a starting point. The fundamental goal of this proposal is to create a process that instills within our community a structure that allows the community to address existing problems and adapt to unforeseen challenges. If adopted, it should become a living document that evolves as the project and community evolve. This document, [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md), and other community governance documents should evolve through the proposal process.
+
+### Goals and Non-Goals
+
+The goal of this proposal _is not_ to solve the hard problems. In the absence of a process to make decisions that the community acknowledges problems either don't get solved, or they get solved in ways that fragment the community. Individuals in our community are still upset about decisions made years ago, often more because of how the decision was made rather than the actual outcome.
+
+The goal of this proposal is to create a system that allows our project and community to break through and make decisions in a way that everyone can acknowledge the validity of the result even if they don't agree with it.
 
 ### Core Values
 
@@ -73,6 +80,15 @@ All participants in the LLVM Community must follow the LLVM Community Code of Co
 
 Misconduct in elections or governance roles such as fraudulent voting are violations of the Code of Conduct.
 
+### RFC vs Proposal
+
+Historically LLVM has relied on an informal RFC process. Our project documentation mentions the use of RFCs, but there is no documentation on the RFC process. This can lead to specific ambiguity about community acceptance of RFCs.
+
+A core component of this proposal is a shift to encourage more proposals to use the process defined in [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md). This proposal suggests the following guidance for when to use the Proposal process:
+
+1) Any change to project governance or governance related documents should use the proposal process.
+2) Any change to the LLVM developer policy should use the proposal process.
+3) Any RFC that has significant community divide which cannot reach resolution informally should use the proposal process.
 
 ### Voting Contributors
 
@@ -104,11 +120,13 @@ First, they are responsible for electing from among themselves a team secretary 
 
 Second, _area teams_ are responsible for maintaining an up-to-date and comprehensive list of code owners for their area of the project. They can nominate any individual they deem appropriate as code owner of any area they are responsible for. The role of _code owner_ remains a volunteer role, and any individual can accept, decline, or resign the role for themselves as they feel appropriate.
 
+> Note: This proposal does not change the existing developer policy for code owner are nominated, nor does it give area teams the exclusive ability to nominate code owners. 
+
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
 When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue.
 
-_Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team’s_ role is as a steward and moderator ensuring the health and smooth operation of the area.
+_Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team's_ role is as a steward and moderator ensuring the health and smooth operation of the area.
 
 Each _area team_ will have 5 members elected by the _voting contributors_. Candidates for _area teams_ must be a _voting contributor_ and self-nominated. An individual cannot serve on two _area teams_.
 
@@ -131,7 +149,8 @@ This proposal puts a possible set of _area teams_ to form with the specified are
 * Compiler Runtimes (`compiler-rt`, `openmp`)
 * Flang (`flang`)
 * MLIR (`mlir`)
-* Binary tools (`lldb`, `lld`, `bolt`)
+* LLDB (`lldb`)
+* Binary tools (`lld`, `bolt`)
 * Incubator (`circt`, `torch-mlir`, `Polygeist`, `clangir`, etc)
 * Project Infrastructure (`zorg`, `utils`, `llvm-test-suite`, CI/CD, hosting, etc)
 * Community (Discord, Discourse, etc)
@@ -174,9 +193,9 @@ Representatives to the _project council_ are also term limited. An individual ma
 
 ### Governance Team Meetings
 
-Each _Area Team_ and the _Steering Council_ should have one scheduled public meeting per month. The date of the scheduled meeting should be on the LLVM Community Calendar. The calendar invite will have a link to a public meeting agenda. The teams may have non-public meetings for discussion, deliberation. planning or other purposes.
+Each _area team_ and the _project Council_ should have one scheduled public meeting per month. The date of the scheduled meeting should be on the LLVM Community Calendar. The calendar invite will have a link to a public meeting agenda. The teams may have non-public meetings for discussion, deliberation. planning or other purposes.
 
-Notes from all _Area Team_ and _Steering Council_ meetings shall be publicly posted. Notes shall exclude reference to any private information, or information that otherwise needs to be confidential.
+Notes from all _area team_ and _project Council_ meetings shall be publicly posted. Notes shall exclude reference to any private information, or information that otherwise needs to be confidential.
 
 ### Role of the LLVM Foundation
 
@@ -233,9 +252,35 @@ This proposal impacts all LLVM projects and all contributors to the LLVM communi
 
 ## Frequently Asked Questions
 
-If there were common questions that came up in the pitch phase, please summarize them and what you think the answer is.  Doing so gives you a chance to address them before the formal review starts up, which can lead to a more productive review thread - one that spends less time rehashing points that have already come up.
+### Why create new structures instead of expanding the role of code owners?
 
-## Appendix 1: LLVM Community Metrics Methods
+The role of code owners divides the community today. The official developer policy describes the role narrowly, but community convention often assumes code owners have more responsibility and authority. This is not a bad thing. This is consistent with LLVM's core value that _authority is earned_. Code owners do a lot of work for the project and the most active code owners earn a greater degree of authority than the role provides. The important distinction here is that the authority comes not from the role of being a code owner, but from the merit of the contributions and efforts of the individual. This creates an obvious challenge because not all code owners contribute equally, and in fact some code owners are inactive entirely.
+
+One key part of this proposal is a belief that we do not have enough code owners as the role is defined today. It is unclear that adding more authority and responsibilities to the role will increase participation or decrease hurdles for new code owners, so the proposal leaves the role unchanged and instead adds new roles.
+
+A second important argument for having new roles is that the new roles rely on a different system for empowerment. Code owners today draw their authority from the merit of their contributions and a nomination system with an intentionally low bar, but not one that is always inclusive. The responsibility of a code owner is to facilitate the maintenance of a defined technical component or area. None of these mean that a given code owner is a person that the community wants facilitating decision making for larger community issues. As we look at issues that impact the whole community like this proposal, proposals related to source control or other project infrastructure, or significant changes to the developer policy, while it is certainly true that code owners will have important feedback, it isn't as clear that they should make the decisions.
+
+### Why is the LLVM Foundation forcing another change on the community?
+
+There has been a perception that this proposal comes from the LLVM Foundation exerting its will on the community. That could not be further from the truth. While members of the LLVM Foundation board have driving this and deeply invested in this proposal, the proposal did not come out of the LLVM Foundation. In fact, it was iterated on and circulated with all the co-signed authors before it was shared with the LLVM Foundation Board.
+
+The LLVM Foundation is a stakeholder for this proposal. The proposal requires that the LLVM Foundation facilitate elections, and it seeks to define some aspects of the relationship between the Foundation and the Community.
+
+Please keep in mind that the LLVM Foundation Board is comprised of individuals, and that one of the most important qualifications for someone to be on the LLVM Foundation Board is that they care deeply for the LLVM project and community. All of the members of the board care deeply about the health and prosperity of the LLVM project and community. All of the members of the board are also individuals who donate their time to supporting the project and community.
+
+Adopting this proposal requires community buy-in. It cannot and will not be forced by the Foundation.
+
+### Why should we allow non-technical people to be on area teams?
+
+This proposal is not advocating that _area teams_ be composed of people with no technical background or that members not be technical leaders. The sentence in the proposal that sparks this question is:
+
+> There are no skill or experience requirements to be on an _area team_.
+
+Taken with no context this seems to be saying we could end up with _area teams_ filled with people who know nothing about the project, but the context is important.
+
+Members of area teams are elected by _voting contributors_, who in turn are individuals who contribute to the project. The individuals contributing to the project are overwhelmingly highly technical and extremely intelligent. This proposal assumes that placing faith in our community to elect decision makers is a safe bet. Given that assumption, and a core value of inclusivity, adopting explicitly inclusive language seems to be the right approach.
+
+## Appendix 1: LLVM Community Metrics Method
 
 This document references some LLVM community metrics. This appendix contains the methodology and tools used to produce the metrics cited above. The metrics are gathered from git metadata with a scoped date range of September 1, 2022 through September 1, 2023. Using a specific date range allows these metrics to be re-generated consistently, however the metrics should be extended to encompass the latest usage patterns when driving decision making.
 
