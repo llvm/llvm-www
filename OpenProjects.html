@@ -14,7 +14,10 @@
            </ul>
            <ul>
              <li><a href="#spirv_tablegen">Automatically generate TableGen file for SPIR-V instruction set</a></li>
-          </ul>
+           </ul>
+           <ul>
+             <li><a href="#bitstream_cas">LLVM bitstream integration with CAS (content-addressable storage)</a></li>
+           </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
               <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
@@ -467,6 +470,50 @@
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/clang-automatically-generate-tablegen-file-for-spir-v-instruction-set/76369">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="bitstream_cas">LLVM bitstream integration with CAS (content-addressable storage)</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The LLVM bitstream file format is used for serialization of intermediate
+    compiler artifacts, such as LLVM IR or Clang modules. There are situations
+    where multiple bitstream files store identical information, and this
+    duplication leads to increased storage requirements.
+    <br><br>
+    This project aims to integrate the LLVM CAS library into the LLVM bitstream
+    file format. If we factor out the frequently duplicated part of a bitstream
+    file into a separate CAS object, we can replace all copies with a small
+    reference to the canonical CAS object, saving storage.
+    <br><br>
+    The primary motivating use-case for this project is the dependency scanner
+    that's powering "implicitly-discovered, explicitly-built" Clang modules.
+    There are real-world situations where even coarse de-duplication on the
+    block level could halve the size of the scanning module cache.
+  </p>
+
+  <p><b>Expected result:</b>
+    There's a way to configure the LLVM bitstream writer/reader to use CAS as
+    the backing storage.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate knowledge of C++, some familiarity with data serialization, self-motivation.
+  </p>
+
+  <p><b>Project size:</b> Medium or large</p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/jansvoboda11/">Jan Svoboda</a>,
+    <a href="https://github.com/cachemeifyoucan/">Steven Wu</a></p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/llvm-bitstream-integration-with-cas-content-addressable-storage/76757">URL</a>
   </p>
 </div>
 
