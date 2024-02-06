@@ -13,6 +13,7 @@
               <li><a href="#remove_ub_tests">Remove undefined behavior from tests</a></li>
              <li><a href="#spirv_tablegen">Automatically generate TableGen file for SPIR-V instruction set</a></li>
              <li><a href="#bitstream_cas">LLVM bitstream integration with CAS (content-addressable storage)</a></li>
+             <li><a href="#three_way_comparison">Add 3-way comparison intrinsics</a></li>
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -510,6 +511,58 @@
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/llvm-bitstream-integration-with-cas-content-addressable-storage/76757">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="three_way_comparison">Add 3-way comparison intrinsics</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href="https://en.wikipedia.org/wiki/Three-way_comparison">3-way comparisons</a>
+    return the values -1, 0 or 1 depending on whether the values compare lower,
+    equal or greater. They are exposed in C++ via the spaceship operator
+    (operator&lt;=&gt;) and in Rust via the PartialOrd and Ord traits.
+    Currently, such comparisons produce sub-optimal codegen and optimization
+    results in some cases.
+    <br/><br/>
+    The goal of this project is to resolve these optimization issues by
+    implementing new 3-way comparison intrinsics, as described in
+    <a href="https://discourse.llvm.org/t/rfc-add-3-way-comparison-intrinsics/76685">[RFC] Add 3-way comparison intrinsics</a>.
+    The implementation steps are broadly:
+    <ol>
+      <li>Add the intrinsics to LLVM IR.</li>
+      <li>Implement legalization/expansion support in SelectionDAG and
+          GlobalISel.</li>
+      <li>Implement optimization support in ConstantFolding, InstSimplify,
+          InstCombine, CorrelatedValuePropagation, IndVarSimplify,
+          ConstraintElimination, IPSCCP, and other relevant transforms.</li>
+      <li> Make use of the intrinsics via InstCombine canonicalization or
+          direct emission in clang/rustc.</li>
+    </ol>
+    Adding new target-independent intrinsics is a good way of becoming familiar with a broad slice of LLVM!
+  </p>
+
+  <p><b>Expected result:</b>
+    Support for the intrinsics in the backend and the most important
+    optimization passes. Ideally full integration starting at the frontend.
+  </p>
+
+  <p><b>Skills:</b> Intermediate knowledge of C++ </p>
+
+  <p><b>Project size:</b> Medium or large</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/nikic">Nikita Popov</a>,
+    <a href="https://github.com/dc03">Dhruv Chawla</a></p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/llvm-add-3-way-comparison-intrinsics/76807">URL</a>
   </p>
 </div>
 
