@@ -98,21 +98,24 @@
       </td>
       <td>
         <p>
-          Shivam Kunwar<br />
+          Ivan Ivanov,<br />
+          Jens Domke,<br />
+          Toshio Endo,<br />
+          Johannes Doerfert<br />
         </p>
       </td>
       <td>
         <p>
-          <a href="#talk1">Map LLVM Values to corresponding source-level expression</a>
+          <a href="#talk1">Automatic Parallelization and OpenMP Offloading of Fortran</a>
           <!-- <br/><span style="font-family: monospace;">[<a href="slides/RL4ReAl.pdf">slides</a>]</span> -->
         </p>
       </td>
       <td>
-        <p>	
-          LLVM<br />
-          C++<br />
-          Loop Vectorization<br />
-          Debug Info<br /></p>
+        <p> 
+          Fortran<br />
+          OpenMP<br />
+          Offloading<br />
+        </p>
       </td>
     </tr>
     <!-- Talk 2 -->
@@ -344,24 +347,21 @@
       </td>
       <td>
         <p>
-          Ivan Ivanov,<br />
-          Jens Domke,<br />
-          Toshio Endo,<br />
-          Johannes Doerfert<br />
+          Shivam Kunwar<br />
         </p>
       </td>
       <td>
         <p>
-          <a href="#talk9">Automatic Parallelization and OpenMP Offloading of Fortran</a>
+          <a href="#talk9">Map LLVM Values to corresponding source-level expression</a>
           <!-- <br/><span style="font-family: monospace;">[<a href="slides/RL4ReAl.pdf">slides</a>]</span> -->
         </p>
       </td>
       <td>
-        <p> 
-          Fortran<br />
-          OpenMP<br />
-          Offloading<br />
-        </p>
+        <p>	
+          LLVM<br />
+          C++<br />
+          Loop Vectorization<br />
+          Debug Info<br /></p>
       </td>
     </tr>
     <!-- Open Discussion -->
@@ -406,11 +406,13 @@
 
 <div class="www_sectiontitle">Abstracts</div>
 
-<h3 id="talk1" class="cgo-title" style="font-weight: bold;">Map LLVM Values to corresponding source level expression<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
-<h4>Shivam Kunwar</h4>
-<!-- <h5><sup>1</sup>Pacific Northwest National Laboratory</h5> -->
+<h3 id="talk9" class="cgo-title" style="font-weight: bold;">Automatic Parallelization and OpenMP Offloading of Fortran<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Iva Ivanov<sup>1, 2</sup>, Jens Domke<sup>3</sup>, Toshio Endo<sup>1</sup>, Johannes Doerfert<sup>2</sup></h4>
+<h5><sup>1</sup>Tokyo Institute of Technology, <sup>2</sup>Lawrence Livermore National Laboratory, <sup>3</sup>RIKEN Center for Computational Science (R-CCS)</h5>
 <p>
-  The primary objective of this project is to enhance the effectiveness of compiler-generated remarks and analysis reports for code optimization. These messages, while often comprehensive, lack direct connections to the corresponding source-level expressions. The goal is to bridge this gap by utilizing LLVM's intrinsic functions, which establish mappings between LLVM program entities and source-level expressions. The project specifically focuses on utilizing these intrinsic functions to generate or derive source expressions from LLVM values. This functionality is particularly important for enhancing memory access optimizations, including the reporting of memory access dependences that hinder vectorization.
+  The most substantial compute power found in most modern HPC systems is in their accelerators, namely GPUs. Thus, it is extremely important to utilize them in order to maximize performance of scientific computing applications. Fortran is still prevalent in the scientific community and there are vast amounts of important existing applications written in it, however, legacy Fortran code was not written with accelerators in mind, so enabling scientists to easily make use of modern hardware with minimal effort is an important goal.
+
+  OpenMP has been widely used as a way to accelerate these programs, and the 6.0 version of the standard which is scheduled to be released in late 2024 introduces a new directive with this goal in mind, called coexecute. It allows the programmer to instruct the compiler to automatically parallelize and offload a sequence of array operations and calls to intrinsic functions. This requires extensive compiler transformations such as splitting device kernels and parallelization of loops, which we implement in LLVM's MLIR based compiler, Flang. We show how automatic parallelization and offloading of existing fortran code to accelerators is possible with just simple annotations from the programmer.
 </p>
 
 <h3 id="talk2" class="cgo-title" style="font-weight: bold;">Using LLVM to inspect, and fix, the Physical Structure of a Large Scale Software - The Codevis Project<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
@@ -477,88 +479,12 @@
   In LLVM and other modern compilers, single static assignment (SSA) is a crucial theory for internal representations, enabling optimizations in the presence of imperative code. A fundamental function of SSA is calculating and using dominance relations to determine where immutable variables can be referenced. Dominator trees have historically been a good approximation of the dominator relation and efficiently computable. However, there are programs for which the dominator tree fails to capture precise dominance relations, preventing optimizations. In this work, we give examples of these kinds of programs, and show how removing the restriction to tree relations enables more precise dominance relations, therefore enabling more optimization. We discuss how one can use properties of SSA to implement a more general dominance relation using a small set of trees corresponding to shared branches, which we call a dominator grove. We present a work-in-progress implementation of a dominator grove in LLVM, along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. Using the implementation, we collect empirical data on the frequency of non-tree dominance relations in real code. We present some basic formal properties of the approach, and end with a discussion of future work, including concurrent extensions to SSA theory.
 </p>
 
-<h3 id="talk9" class="cgo-title" style="font-weight: bold;">Automatic Parallelization and OpenMP Offloading of Fortran<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
-<h4>Iva Ivanov<sup>1, 2</sup>, Jens Domke<sup>3</sup>, Toshio Endo<sup>1</sup>, Johannes Doerfert<sup>2</sup></h4>
-<h5><sup>1</sup>Tokyo Institute of Technology, <sup>2</sup>Lawrence Livermore National Laboratory, <sup>3</sup>RIKEN Center for Computational Science (R-CCS)</h5>
+<h3 id="talk9" class="cgo-title" style="font-weight: bold;">Map LLVM Values to corresponding source level expression<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h4>Shivam Kunwar</h4>
+<!-- <h5><sup>1</sup>Pacific Northwest National Laboratory</h5> -->
 <p>
-  The most substantial compute power found in most modern HPC systems is in their accelerators, namely GPUs. Thus, it is extremely important to utilize them in order to maximize performance of scientific computing applications. Fortran is still prevalent in the scientific community and there are vast amounts of important existing applications written in it, however, legacy Fortran code was not written with accelerators in mind, so enabling scientists to easily make use of modern hardware with minimal effort is an important goal.
-
-  OpenMP has been widely used as a way to accelerate these programs, and the 6.0 version of the standard which is scheduled to be released in late 2024 introduces a new directive with this goal in mind, called coexecute. It allows the programmer to instruct the compiler to automatically parallelize and offload a sequence of array operations and calls to intrinsic functions. This requires extensive compiler transformations such as splitting device kernels and parallelization of loops, which we implement in LLVM's MLIR based compiler, Flang. We show how automatic parallelization and offloading of existing fortran code to accelerators is possible with just simple annotations from the programmer.
+  The primary objective of this project is to enhance the effectiveness of compiler-generated remarks and analysis reports for code optimization. These messages, while often comprehensive, lack direct connections to the corresponding source-level expressions. The goal is to bridge this gap by utilizing LLVM's intrinsic functions, which establish mappings between LLVM program entities and source-level expressions. The project specifically focuses on utilizing these intrinsic functions to generate or derive source expressions from LLVM values. This functionality is particularly important for enhancing memory access optimizations, including the reporting of memory access dependences that hinder vectorization.
 </p>
-
-<div class="www_sectiontitle">Call for Speakers</div>
-<p>
-  We invite speakers from academia and industry to present their work on the following list of topics (including and not
-  limited to:)
-</p>
-<ul>
-  <li>Improving performance and code-size of applications built by LLVM toolchains</li>
-  <li>Improving performance of LLVM's runtime libraries</li>
-  <li>Improving the security of generated code</li>
-  <li>Any tools or products developed by using one of the libraries in LLVM infrastructure</li>
-  <li>Performance tracking over time</li>
-  <li>Compiler flags, annotations and remarks to understand and improve performance</li>
-  <li>Any other topic related to improving and maintaining the performance and quality of LLVM generated code</li>
-</ul>
-<p>
-
-  While the primary focus of the workshop is on these topics, we welcome
-  any submission related to the LLVM-project, its sub-projects (clang,
-  mlir, lldb, Polly, lld, openmp, pstl, compiler-rt, etc.), as well as
-  their use in industry and academia.
-</p>
-
-<p>We are looking for:</p>
-<ul>
-  <li>keynote speakers (30-60minutes),</li>
-  <li>technical presentations (30 minutes plus questions and discussion),</li>
-  <li>tutorials (30-60minutes),</li>
-  <li>panels (30-60minutes),</li>
-  <li>BOFs (30-60minutes)</li>
-</ul>
-
-<p>
-  Proposals should provide sufficient information for the review
-  committee to be able to judge the quality of the submission. Proposals
-  can be submitted under the form of an extended abstract, full paper,
-  or slides. Accepted presentations will be presented
-  online. The presentations will be publicly available on
-  <a href="https://llvm.org/devmtg/">https://llvm.org/devmtg/</a>
-</p>
-
-<p>
-  In case of any queries please reach out to the workshop organizers: Johannes
-  Doerfert (jdoerfert at llnl.gov), Aditya (hiraditya at msn.com),
-  Jose M Monsalve Diaz (jmonsalvediaz at anl.gov),
-  Shilei Tian (i at tianshilei.me), or Rafael (rafaelhg at udel.edu).
-</p>
-
-<h4>What types of people attend?</h4>
-<ul>
-  <li>Active developers of projects in the LLVM Umbrella (LLVM core, Clang, LLDB, libc++, compiler_rt, klee, lld,
-    OpenMP, etc).</li>
-  <li>Anyone interested in using these as part of another project.</li>
-  <li>Students and Researchers.</li>
-  <li>Compiler, programming language, and runtime enthusiasts.</li>
-  <li>Those interested in using compiler and toolchain technology in novel and interesting ways.</li>
-</ul>
-
-
-<h4>Panels</h4>
-Panel sessions are guided discussions about a specific topic. The panel consists of ~3 developers who discuss a topic
-through prepared questions from a moderator. The audience is also given the opportunity to ask questions of the panel.
-
-<h4>Birds of a Feather (BoF)</h4>
-A BoF session, an informal meeting at conferences, where the attendees group together based on a shared interest and
-carry out discussions without any pre-planned agenda.
-
-<h4>Technical Talks</h4>
-These 20-30 minute talks cover all topics from core infrastructure talks, to project's using LLVM's infrastructure.
-Attendees will take away technical information that could be pertinent to their project or general interest.
-
-<h4>Tutorials</h4>
-Tutorials are 30-60 minute sessions that dive down deep into a technical topic. Expect in depth examples and
-explanations.
 
 <div class="www_sectiontitle" id="coc">Code of Conduct</div>
 <p>The LLVM Foundation is dedicated to providing an inclusive and safe
