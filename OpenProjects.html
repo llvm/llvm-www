@@ -19,6 +19,7 @@
             <ul>
               <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
               <li><a href="#clang-plugins-windows">Support clang plugins on Windows</a>
+              <li><a href="#clang-on-demand-parsing">On Demand Parsing in Clang</a>
             </ul>
         </ul>
       </li>
@@ -646,13 +647,13 @@
     request.
   </p>
 
-  <p><i>Further reading</i>
+  <p><i>Further reading</i><br />
     [1] https://clang.llvm.org/docs/ClangPlugins.html
-    <br /> <br />
+    <br />
     [2] https://discourse.llvm.org/t/clang-plugins-on-windows
-    <br /> <br />
+    <br />
     [3] https://github.com/llvm/llvm-project/pull/67502
-    <br /> <br />
+    <br />
     [4] https://github.com/compnerd/ids
   </p>
   <p><b>Project size:</b>Either medium or large.</p>
@@ -665,6 +666,159 @@
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/support-clang-plugins-on-windows/76408">URL</a>
 </div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-on-demand-parsing">On Demand Parsing in Clang</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b> Clang, like any C++ compiler, parses a
+    sequence of characters as they appear, linearly. The linear character
+    sequence is then turned into tokens and AST before lowering to machine
+    code. In many cases the end-user code uses a small portion of the C++
+    entities from the entire translation unit but the user still pays the price
+    for compiling all of the redundancies.
+    <br /> <br />
+    This project proposes to process the heavy compiling C++ entities upon using
+    them rather than eagerly. This approach is already adopted in Clang’s
+    CodeGen where it allows Clang to produce code only for what is being
+    used. On demand compilation is expected to significantly reduce the
+    compilation peak memory and improve the compile time for translation units
+    which sparsely use their contents. In addition, that would have a
+    significant impact on interactive C++ where header inclusion essentially
+    becomes a no-op and entities will be only parsed on demand.
+    <br /> <br />
+    The Cling interpreter implements a very naive but efficient
+    cross-translation unit lazy compilation optimization which scales across
+    hundreds of libraries in the field of high-energy physics.
+    <br /> <br />
+    <pre>
+// A.h
+#include &lt;string&gt;
+#include &lt;vector&gt;
+template &lt;class T, class U = int&gt; struct AStruct {
+  void doIt() { /*...*/ }
+  const char* data;
+  // ...
+};
+
+template&lt;class T, class U = AStruct&lt;T&gt;&gt;
+inline void freeFunction() { /* ... */ }
+inline void doit(unsigned N = 1) { /* ... */ }
+
+// Main.cpp
+#include &quot;A.h&quot;
+int main() {
+  doit();
+  return 0;
+}
+    </pre>
+    <br /> <br />
+    This pathological example expands to 37253 lines of code to process. Cling
+    builds an index (it calls it an autoloading map) where it contains only
+    forward declarations of these C++ entities. Their size is 3000 lines of
+    code. The index looks like:
+    <pre>
+// A.h.index
+namespace std{inline namespace __1{template &lt;class _Tp, class _Allocator&gt; class __attribute__((annotate(&quot;$clingAutoload$vector&quot;)))  __attribute__((annotate(&quot;$clingAutoload$A.h&quot;)))  __vector_base;
+  }}
+...
+template &lt;class T, class U = int&gt; struct __attribute__((annotate(&quot;$clingAutoload$A.h&quot;))) AStruct;
+    </pre>
+    <br /> <br />
+    Upon requiring the complete type of an entity, Cling includes the relevant
+    header file to get it. There are several trivial workarounds to deal with
+    default arguments and default template arguments as they now appear on the
+    forward declaration and then the definition. You can read more in [1].
+    <br /> <br />
+    Although the implementation could not be called a reference implementation,
+    it shows that the Parser and the Preprocessor of Clang are relatively
+    stateless and can be used to process character sequences which are not
+    linear in their nature. In particular namespace-scope definitions are
+    relatively easy to handle and it is not very difficult to return to
+    namespace-scope when we lazily parse something. For other contexts such as
+    local classes we will have lost some essential information such as name
+    lookup tables for local entities. However, these cases are probably not very
+    interesting as the lazy parsing granularity is probably worth doing only for
+    top-level entities.
+    <br /> <br />
+    Such implementation can help with already existing issues in the standard
+    such as CWG2335, under which the delayed portions of classes get parsed
+    immediately when they're first needed, if that first usage precedes the end
+    of the class. That should give good motivation to upstream all the
+    operations needed to return to an enclosing scope and parse something.
+    <br /> <br />
+    <b>Implementation approach</b>: Upon seeing a tag definition during parsing
+    we could create a forward declaration, record the token sequence and mark it
+    as a lazy definition. Later upon complete type request, we could re-position
+    the parser to parse the definition body. We already skip some of the
+    template specializations in a similar way [2, 3].
+    <br /> <br />
+    Another approach is every lazy parsed entity to record its token stream and
+    change the Toks stored on LateParsedDeclarations to optionally refer to a
+    subsequence of the externally-stored token sequence instead of storing its
+    own sequence (or maybe change CachedTokens so it can do that
+    transparently). One of the challenges would be that we currently modify the
+    cached tokens list to append an "eof" token, but it should be possible to
+    handle that in a different way.
+    <br /> <br />
+    In some cases, a class definition can affect its surrounding context in a
+    few ways you'll need to be careful about here:
+    <br /> <br />
+    1) `struct X` appearing inside the class can introduce the name `X` into the
+        enclosing context.
+    <br /> <br />
+    2) `static inline` declarations can introduce global variables with
+        non-constant initializers that may have arbitrary side-effects.
+    <br /> <br />
+    For point (2), there's a more general problem: parsing any expression can
+    trigger a template instantiation of a class template that has a static data
+    member with an initializer that has side-effects. Unlike the above two
+    cases, I don't think there's any way we can correctly detect and handle such
+    cases by some simple analysis of the token stream; actual semantic analysis
+    is required to detect such cases. But perhaps if they happen only in code
+    that is itself unused, it wouldn't be terrible for Clang to have a language
+    mode that doesn't guarantee that such instantiations actually happen.
+    <br /> <br />
+    Alternative and more efficient implementation could be to make the lookup
+    tables range based but we do not have even a prototype proving this could be
+    a feasible approach.
+  </p>
+
+  <p><b>Expected result:</b>
+    <ul>
+      <li>Design and implementation of on-demand compilation for non-templated functions</li>
+      <li>Support non-templated structs and classes</li>
+      <li>Run performance benchmarks on relevant codebases and prepare report</li>
+      <li>Prepare a community RFC document</li>
+      <li>[Stretch goal] Support templates</li>
+    </ul>
+
+    The successful candidate should commit to regular participation in weekly
+    meetings, deliver presentations, and contribute blog posts as
+    requested. Additionally, they should demonstrate the ability to navigate the
+    community process with patience and understanding.
+  </p>
+
+  <p><i>Further reading</i><br/>
+    [1] https://github.com/root-project/root/blob/master/README/README.CXXMODULES.md#header-parsing-in-root
+    <br />
+    [2] https://github.com/llvm/llvm-project/commit/b9fa99649bc99
+    <br />
+    [3] https://github.com/llvm/llvm-project/commit/0f192e89405ce
+  </p>
+  <p><b>Project size:</b>Large</p>
+  <p><b>Difficulty:</b> Hard</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>,
+    <a href=https://github.com/mizvekov>Matheus Izvekov</a>
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/on-demand-parsing-in-clang/76912">URL</a>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
