@@ -29,6 +29,7 @@
           <li><a href="http://openmp.llvm.org/"><b>(OpenMP) Offload</b></a>
             <ul>
               <li><a href="#gpu-delta-debugging">GPU Delta Debuggin</a>
+              <li><a href="#offload-libcxx">Offloading libcxx</a>
             </ul>
         </ul>
 
@@ -1071,7 +1072,7 @@ LLVM-reduce, and similar tools perform delta debugging but are less useful if ma
 
 <p><b>Size of the project.</b></p>
 
-<p>medium (~175h)</p>
+<p>medium</p>
 
 <p><b>An easy, medium or hard rating if possible</b></p>
 
@@ -1079,6 +1080,55 @@ LLVM-reduce, and similar tools perform delta debugging but are less useful if ma
 
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="offload-libcxx">Offloading libcxx</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>
+Modern C++ defines parallel algorithms as part of the standard library, like `std::transform_reduce(std::execution::par_unseq, vec.begin(), vec.end(), 0, std::plus<int>, …)`. In this project we want to extend an implementation of those that is using OpenMP, including GPU offload, where reasonable. While some algorithms might be amenable to GPU offload via a pure (wrapper) runtime solution, we know others, especially those featuring user provided functors, will also require static program analysis and potentially transformation for additional data management. The goal of the project is to explore different algorithms and the options we have to execute them on the host as well as on accelerator devices, esp. GPUs, automatically via OpenMP.
+</p>
+  
+<p><b>Expected outcomes</b></p>
+
+  <p> Improvements to the prototype support of offloading in libcxx. Evaluations against other offloading approaches and documentation on the missing parts and shortcommings. </p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>v
+  <li>Johannes Doerfert jdoerfert@llnl.gov
+  <li>Tom Scogland scogland1@llnl.gov
+  <li>Tom Deakin tom.deakin@bristol.ac.uk
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Good understanding of C++ and C++ standard algorithms
+  <li>Familiarity with GPUs and (OpenMP) offloading
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Experience with libcxx (development).
+  <li>Experience debugging and profiling GPU code.
+</ul>
+
+<p><b>Size of the project.</b></p>
+
+<p>large</p>
+
+<p><b>An easy, medium or hard rating if possible</b></p>
+
+<p>medium</p>
+
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
