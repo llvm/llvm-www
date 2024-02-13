@@ -30,6 +30,7 @@
             <ul>
               <li><a href="#gpu-delta-debugging">GPU Delta Debugging</a>
               <li><a href="#offload-libcxx">Offloading libcxx</a>
+              <li><a href="#parameter-tuning">The 1001 thresholds in LLVM</a>
             </ul>
         </ul>
 
@@ -1127,6 +1128,55 @@ Modern C++ defines parallel algorithms as part of the standard library, like `st
 <p><b>An easy, medium or hard rating if possible</b></p>
 
 <p>medium</p>
+
+</div>
+
+    
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="parameter-tuning">The 1001 thresholds in LLVM</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>
+LLVM has lots of thresholds and flags to avoid "costly cases". However, it is unclear if these thresholds are useful, their value is reasonable, and what impact they really have. Since there are a lot, we cannot do a simple exhaustive search. In some prototype work we introduced a C++ class that can replace hardcoded values and offers control over the threshold, e.g., you can increase the recursion limit via a command line flag from the hardcoded "6" to a different number. In this project we want to explore the thresholds, when they are hit, what it means if they are hit, how we should select their values, and if we need different "profiles".
+</p>
+  
+<p><b>Expected outcomes</b></p>
+
+  <p> Statistical evidence on the impact of various thresholds inside of LLVM's code base, including compile time changes, impact on transformations, and performance measurements. </p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>
+  <li>Jan Hueckelheim jhueckelheim@anl.gov
+  <li>Johannes Doerfert jdoerfert@llnl.gov
+  <li>William Moses wmoses@mit.edu
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Profiling skills and knowledge of statistical reasoning
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Good understanding of the LLVM code base and optimization flow
+</ul>
+
+<p><b>Size of the project.</b></p>
+
+<p>medium</p>
+
+<p><b>An easy, medium or hard rating if possible</b></p>
+
+<p>easy</p>
 
 </div>
 
