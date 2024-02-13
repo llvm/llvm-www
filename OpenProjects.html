@@ -26,6 +26,10 @@
             <ul>
               <li><a href="#rich-disassembler-for-lldb">Rich disassembler for LLDB</a>
             </ul>
+          <li><a href="http://openmp.llvm.org/"><b>(OpenMP) Offload</b></a>
+            <ul>
+              <li><a href="#gpu-delta-debugging">GPU Delta Debuggin</a>
+            </ul>
         </ul>
 
       </li>
@@ -1023,6 +1027,55 @@ a.out`main:
 <p><b>An easy, medium or hard rating if possible</b></p>
 
 <p>hard</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="gpu-delta-debugging">GPU Delta Debugging</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>
+LLVM-reduce, and similar tools perform delta debugging but are less useful if many implicit constraints exist and violation could easily lead to errors similar to the cause that is to be isolated. This project is about developing a GPU-aware version, especially for execution time bugs, that can be used in conjunction with LLVM/OpenMP GPU-record-and-replay, or simply a GPU loader script, to minimize GPU test cases more efficiently and effectively.
+</p>
+  
+<p><b>Expected outcomes</b></p>
+
+  <p>A tool to reduce GPU errors without loosing the original error. Optionally, other properties could be the focus of the reduction, not only errors. </p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>
+  <li>Parasyris, Konstantinos parasyris1@llnl.gov
+  <li>Johannes Doerfert jdoerfert@llnl.gov
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Good understanding of C++
+  <li>Familiarity with GPUs and LLVM-IR
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Compiler knowledge including data flow and control flow analysis is a plus.
+  <li>Experience with debugging and bug reduction techniques (llvm-reduce) is helpful
+</ul>
+
+<p><b>Size of the project.</b></p>
+
+<p>medium (~175h)</p>
+
+<p><b>An easy, medium or hard rating if possible</b></p>
+
+<p>medium</p>
 
 </div>
 
