@@ -32,6 +32,7 @@
               <li><a href="#offload-libcxx">Offloading libcxx</a>
               <li><a href="#parameter-tuning">The 1001 thresholds in LLVM</a>
               <li><a href="#gpu-libc">Performance tuning the GPU libc</a>
+                <li><a href="#gpu-first">Improve GPU First</a>
             </ul>
         </ul>
 
@@ -962,15 +963,15 @@ a.out`main:
   0x100000f95 <+53>: popq  %rbx
 ...
 </pre>
-  
+
 <p>using the debug information that LLDB also has access to (observe how the source variable i is in r15 from [0x100000f77+slide))</p>
 
 
 <pre>
-$ dwarfdump demo.dSYM --name  i 
+$ dwarfdump demo.dSYM --name  i
 demo.dSYM/Contents/Resources/DWARF/demo: file format Mach-O 64-bit x86-64
 0x00000076: DW_TAG_variable
- DW_AT_location (0x00000098: 
+ DW_AT_location (0x00000098:
  [0x0000000100000f60, 0x0000000100000f77): DW_OP_consts +0, DW_OP_stack_value
  [0x0000000100000f77, 0x0000000100000f91): DW_OP_reg15 R15)
  DW_AT_name ("i")
@@ -1044,7 +1045,7 @@ a.out`main:
 <p>
 LLVM-reduce, and similar tools perform delta debugging but are less useful if many implicit constraints exist and violation could easily lead to errors similar to the cause that is to be isolated. This project is about developing a GPU-aware version, especially for execution time bugs, that can be used in conjunction with LLVM/OpenMP GPU-record-and-replay, or simply a GPU loader script, to minimize GPU test cases more efficiently and effectively.
 </p>
-  
+
 <p><b>Expected outcomes</b></p>
 
   <p>A tool to reduce GPU errors without loosing the original error. Optionally, other properties could be the focus of the reduction, not only errors. </p>
@@ -1093,7 +1094,7 @@ LLVM-reduce, and similar tools perform delta debugging but are less useful if ma
 <p>
 Modern C++ defines parallel algorithms as part of the standard library, like `std::transform_reduce(std::execution::par_unseq, vec.begin(), vec.end(), 0, std::plus<int>, …)`. In this project we want to extend an implementation of those that is using OpenMP, including GPU offload, where reasonable. While some algorithms might be amenable to GPU offload via a pure (wrapper) runtime solution, we know others, especially those featuring user provided functors, will also require static program analysis and potentially transformation for additional data management. The goal of the project is to explore different algorithms and the options we have to execute them on the host as well as on accelerator devices, esp. GPUs, automatically via OpenMP.
 </p>
-  
+
 <p><b>Expected outcomes</b></p>
 
   <p> Improvements to the prototype support of offloading in libcxx. Evaluations against other offloading approaches and documentation on the missing parts and shortcommings. </p>
@@ -1132,7 +1133,7 @@ Modern C++ defines parallel algorithms as part of the standard library, like `st
 
 </div>
 
-    
+
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a name="parameter-tuning">The 1001 thresholds in LLVM</a>
@@ -1144,7 +1145,7 @@ Modern C++ defines parallel algorithms as part of the standard library, like `st
 <p>
 LLVM has lots of thresholds and flags to avoid "costly cases". However, it is unclear if these thresholds are useful, their value is reasonable, and what impact they really have. Since there are a lot, we cannot do a simple exhaustive search. In some prototype work we introduced a C++ class that can replace hardcoded values and offers control over the threshold, e.g., you can increase the recursion limit via a command line flag from the hardcoded "6" to a different number. In this project we want to explore the thresholds, when they are hit, what it means if they are hit, how we should select their values, and if we need different "profiles".
 </p>
-  
+
 <p><b>Expected outcomes</b></p>
 
   <p> Statistical evidence on the impact of various thresholds inside of LLVM's code base, including compile time changes, impact on transformations, and performance measurements. </p>
@@ -1225,6 +1226,58 @@ We have begun work on a libc library targeting GPUs. This will allow users to ca
 <p><b>An easy, medium or hard rating if possible</b></p>
 
 <p>easy</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="gpu-libc">Improve GPU First Framework</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>
+  <a href="https://arxiv.org/abs/2306.11686">GPU First</a> is a methodology and framework that can enable any existing host code to execute the entire program on a GPU without any modification from users.
+  The goal of this project is two folded:
+  1) Port <a href="https://github.com/shiltian/llvm-project/tree/direct_gpu_compilation">host code</a> to handle RPC to the new plugin and rewrite it with the host RPC framework introduced in the GPU LibC project.
+  2) Explore the support for MPI among multiple thread blocks on a single GPU, or even multiple GPUs.
+</p>
+
+<p><b>Expected outcomes</b></p>
+
+  <p> More efficient GPU First framework that can support both NVIDIA and AMD GPUs. Optionally, upstream the framework. </p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>
+  <li>Johannes Doerfert jdoerfert@llnl.gov
+  <li>Shilei Tian i@tianshilei.me
+  <li>Joseph Huber joseph.huber@amd.com
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Good understanding of C++ and GPU architecture
+  <li>Familiarity with GPUs and LLVM IR
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Good understanding of the LLVM code base and OpenMP target offloading
+</ul>
+
+<p><b>Size of the project.</b></p>
+
+<p>medium</p>
+
+<p><b>An easy, medium or hard rating if possible</b></p>
+
+<p>medium</p>
 
 </div>
 
