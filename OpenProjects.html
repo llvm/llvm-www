@@ -31,6 +31,7 @@
               <li><a href="#gpu-delta-debugging">GPU Delta Debugging</a>
               <li><a href="#offload-libcxx">Offloading libcxx</a>
               <li><a href="#parameter-tuning">The 1001 thresholds in LLVM</a>
+              <li><a href="#gpu-libc">Performance tuning the GPU libc</a>
             </ul>
         </ul>
 
@@ -1173,6 +1174,53 @@ LLVM has lots of thresholds and flags to avoid "costly cases". However, it is un
 <p><b>Size of the project.</b></p>
 
 <p>medium</p>
+
+<p><b>An easy, medium or hard rating if possible</b></p>
+
+<p>easy</p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="gpu-libc">Performance tuning the GPU libc</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>
+We have begun work on a libc library targeting GPUs. This will allow users to call functions such as malloc or memcpy while executing on the GPU. However, it is important that these implementations be functional and performant. The goal of this project is to benchmark the implementations of certain libc functions on the GPU. Work would include writing benchmarks to test the current implementations as well as writing more optimal implementations. Implementing a high performance malloc would be of principal importance.
+</p>
+
+<p><b>Expected outcomes</b></p>
+
+  <p> In-depth performance for libc functions. Overhead of GPU-to-CPU remote procedure calls. More optimal implementations of 'libc' functions. </p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>
+  <li>Johannes Doerfert jdoerfert@llnl.gov
+  <li>Joseph Huber joseph.huber@amd.com
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Profiling skills and understanding of GPU architecture
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Experience with libc utilities
+</ul>
+
+<p><b>Size of the project.</b></p>
+
+<p>small</p>
 
 <p><b>An easy, medium or hard rating if possible</b></p>
 
