@@ -21,6 +21,7 @@
               <li><a href="#clang-repl-out-of-process">Out-of-process execution for clang-repl</a>
               <li><a href="#clang-plugins-windows">Support clang plugins on Windows</a>
               <li><a href="#clang-on-demand-parsing">On Demand Parsing in Clang</a>
+              <li><a href="#clang-doc-improve-usability">Improve Clang-Doc Usability</a>
             </ul>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
             <ul>
@@ -922,6 +923,64 @@ template &lt;class T, class U = int&gt; struct __attribute__((annotate(&quot;$cl
   </p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/on-demand-parsing-in-clang/76912">URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-doc-improve-usability">Improve Clang-Doc Usability</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href=https://clang.llvm.org/extra/clang-doc.html>Clang-Doc</a> is a
+    C/C++ documentation generation tool created as an alternative for Doxygen
+    and built on top of LibTooling. This effort started in 2018 and critical
+    mass has landed in 2019, but the development has been largely dormant since
+    then, mostly due to a lack of resources.
+    <br /> <br />
+    The tool can currently generate documentation in Markdown and HTML formats,
+    but the tool has some structural issues, is difficult to use, the generated
+    documentation has usability issues and is missing several key features:
+    <ul>
+      <li>Not all C/C++ constructs are currently handled by the Markdown and
+        HTML emitter limiting the tool’s usability.</li>
+      <li>The generated HTML output does not scale with the size of the
+        codebase making it unusable for larger C/C++ projects.</li>
+      <li>The implementation does not always use the most efficient or
+        appropriate data structures which leads to correctness and performance
+        issues.</li>
+      <li>There is a lot of duplicated boiler plate code which could be
+        improved with templates and helpers.</li>
+    </ul>
+  </p>
+
+  <p><b>Expected result:</b>
+    The goal of this project is to address the existing shortcomings and
+    improve the usability of Clang-Doc to the point where it can be used to
+    generate documentation for large scale projects such as LLVM. The ideal
+    outcome is that the LLVM project will use Clang-Doc for generating its <a
+    href=https://llvm.org/doxygen/>reference documentation</a>.
+    <br /><br />
+    Successful proposals should focus not only on addressing the existing
+    limitations, but also draw inspiration for other potential improvements
+    from other similar tools such as <a href=https://hdoc.io/>hdoc</a> or <a
+    href=https://github.com/chromium/subspace/tree/main/subdoc>subdoc</a>.
+  </p>
+
+  <p><b>Skills:</b>
+    Experience with web technologies (HTML, CSS, JS) and an intermediate
+    knowledge of C++. Previous experience with Clang/LibTooling is a bonus but
+    not required.
+  </p>
+
+  <p><b>Project size:</b>Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/petrhosek>Petr Hosek</a>,
+    <a href=https://github.com/ilovepi>Paul Kirth</a>
+  </p>
+
+  <p><b>Discourse:</b><a href="https://discourse.llvm.org/t/TBD">URL</a>
 </div>
 
 <!-- *********************************************************************** -->
