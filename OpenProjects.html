@@ -35,6 +35,10 @@
               <li><a href="#gpu-libc">Performance tuning the GPU libc</a>
                 <li><a href="#gpu-first">Improve GPU First Framework</a>
             </ul>
+          <li><a href="https://clangir.org"><b>ClangIR</b></a>
+            <ul>
+              <li><a href="#clangir-gpu">Compile GPU kernels using ClangIR</a></li>
+            </ul>
         </ul>
 
       </li>
@@ -1338,6 +1342,89 @@ We have begun work on a libc library targeting GPUs. This will allow users to ca
 
 <p>medium</p>
 
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clangir-gpu">Compile GPU kernels using ClangIR</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    Heterogeneous programming models such as
+    <a href="https://sycl.tech">SYCL</a>,
+    <a href="https://www.openmp.org">OpenMP</a> and
+    <a href="https://www.openacc.org">OpenACC</a> help developers to offload
+    computationally intensive kernels to GPUs and other accelerators.
+    <a href="https://mlir.llvm.org">MLIR</a> is expected to unlock new
+    high-level optimisations and better code generation for the next generation
+    of compilers for heterogeneous programming models. However, the availability
+    of a robust MLIR-emitting C/C++ frontend is a prerequisite for these
+    efforts.
+  </p><p>
+    The <a href="https://clangir.org">ClangIR</a> (CIR) project aims to
+    establish a new intermediate representation (IR) for Clang. Built on top of
+    MLIR, it provides a dialect for C/C++ based languages in Clang, and the
+    necessary infrastructure to emit it from the Clang AST, as well as a
+    lowering path to the LLVM-IR dialect. Over the last year, ClangIR has
+    evolved into a mature incubator project, and a recent
+    <a href="https://discourse.llvm.org/t/rfc-upstreaming-clangir/76587">RFC</a>
+    on upstreaming it into the LLVM monorepo has seen positive comments and
+    community support.
+  </p><p>
+    The overall goal of this GSoC project is to identify and implement missing
+    features in ClangIR to make it possible to compile GPU kernels in the
+    <a href="https://registry.khronos.org/OpenCL/specs/3.0-unified/html/OpenCL_C.html">OpenCL C language</a>
+    to LLVM-IR for the
+    <a href="https://registry.khronos.org/SPIR-V">SPIR-V</a> target. The OpenCL
+    to SPIR-V flow is a great environment for this project because a) it is
+    <a href="https://clang.llvm.org/docs/OpenCLSupport.html">already supported</a>
+    in Clang and b) OpenCL's work-item- and work-group-based programming model
+    still captures modern GPU architectures well. The contributor will extend
+    the AST visitors, the dialect and the LLVM-IR lowering, to add support e.g.
+    for multiple address spaces, vector and custom floating point types, and the
+    <code>spir_kernel</code> and <code>spir_func</code> calling conventions.
+  </p><p>
+    A good starting point for this work is the
+    <a href="https://github.com/sgrauerg/polybenchGpu/tree/master/OpenCL">Polybench-GPU</a>
+    benchmark suite. It contains self-contained small- to medium sized OpenCL
+    implementations of common algorithms. We expect only the device code (*.cl
+    files) to be compiled via ClangIR. The existing OpenCL support in Clang can
+    be used to create lit tests with reference LLVM-IR output to guide the
+    development. Optionally, the built-in result verification and time
+    measurements in Polybench could also be used to assess the correctness and
+    quality of the generated code.
+  </p>
+
+  <p><b>Expected result:</b>
+    Polybench-GPU's
+    <a href="https://github.com/sgrauerg/polybenchGpu/blob/master/OpenCL/2DCONV/2DConvolution.cl"><code>2DCONV</code></a>,
+    <a href="https://github.com/sgrauerg/polybenchGpu/blob/master/OpenCL/GEMM/gemm.cl"><code>GEMM</code></a> and
+    <a href="https://github.com/sgrauerg/polybenchGpu/blob/master/OpenCL/CORR/correlation.cl"><code>CORR</code></a>
+    OpenCL kernels can be compiled with ClangIR to LLVM-IR for SPIR-V.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate C++ programming skills and familiarity with basic compiler
+    design concepts are required. Prior experience with LLVM IR, MLIR, Clang or
+    GPU programming is a big plus, but willingness to learn is also a
+    possibility.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="https://github.com/jopperm">Julian Oppermann</a>,
+    <a href="https://github.com/Naghasan">Victor Lom&uuml;ller</a>,
+    <a href="https://github.com/bcardosolopes">Bruno Cardoso Lopes</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/clangir-compile-gpu-kernels-using-clangir/76984">URL</a>
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
