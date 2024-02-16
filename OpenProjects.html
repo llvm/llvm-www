@@ -39,7 +39,11 @@
             <ul>
               <li><a href="#clangir-gpu">Compile GPU kernels using ClangIR</a></li>
             </ul>
-        </ul>
+          <li><a href="http://libc.llvm.org/"><b>LLVM libc</b></a>
+            <ul>
+              <li><a href="#half-precision-libc">Half precision in LLVM libc</a>
+            </ul>
+          </ul>
 
       </li>
 
@@ -1426,6 +1430,59 @@ We have begun work on a libc library targeting GPUs. This will allow users to ca
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/clangir-compile-gpu-kernels-using-clangir/76984">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="half-precision-libc">Half precision in LLVM libc</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b></p>
+
+  <p>
+    Half precision is an IEEE 754 floating point format that has been widely
+    used recently, especially in machine learning and AI. It has been
+    standardized as _Float16 in the latest C23 standard, bringing its support to
+    the same level as float or double data types. The goal for this project is
+    to implement C23 half precision math functions in the LLVM libc library.
+  </p>
+
+  <p><b>Expected result:</b></p>
+
+  <ul>
+    <li> Setup the generated headers properly so that the type and the functions
+         can be used with various compilers (+versions) and architectures. </li>
+    <li> Implement generic basic math operations supporting half precision data
+         types that work on supported architectures: x86_64, arm (32 + 64),
+         risc-v (32 + 64), and GPUs. </li>
+    <li> Implement specializations using compiler builtins or special hardware
+         instructions to improve their performance whenever possible. </li>
+    <li> If time permits, we can start investigating higher math functions for
+         half precision. </li>
+  </ul>
+
+  <p><b>Skills:</b></p>
+  
+  <p>
+    Intermediate C++ programming skills and familiarity with basic compiler
+    design concepts are required. Prior experience with LLVM IR, MLIR, Clang or
+    GPU programming is a big plus, but willingness to learn is also a
+    possibility.
+  </p>
+
+  <p><b>Project size:</b> Medium </p>
+
+  <p><b>Difficulty:</b> Easy/Medium</p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="mailto:lntue@google.com">Tue Ly</a>,
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/libc-gsoc-2024-half-precision-in-llvm-libc/77027">URL</a>
   </p>
 </div>
 
