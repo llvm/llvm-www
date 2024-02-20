@@ -107,6 +107,7 @@
   <a href="http://lnt.llvm.org/">LNT</a><br>
   <a href="/reports/scan-build/">Scan-build</a><br>
   <a href="https://lab.llvm.org/coverage/coverage-reports/index.html">llvm-cov</a><br>
+  <a href="https://llvm-compile-time-tracker.com/">Compile-time tracker</a><br>
 </div>
 
 <br>
