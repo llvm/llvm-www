@@ -335,7 +335,12 @@
         </p>
       </td>
       <td>
-        <p> - </p>
+        <p> 
+          Arrays<br />
+          Loops<br />
+          Structured Data<br />
+          Finch, TACO<br />
+        </p>
       </td>
     </tr>
     <!-- Talk 8 -->
@@ -479,7 +484,7 @@
   In LLVM and other modern compilers, single static assignment (SSA) is a crucial theory for internal representations, enabling optimizations in the presence of imperative code. A fundamental function of SSA is calculating and using dominance relations to determine where immutable variables can be referenced. Dominator trees have historically been a good approximation of the dominator relation and efficiently computable. However, there are programs for which the dominator tree fails to capture precise dominance relations, preventing optimizations. In this work, we give examples of these kinds of programs, and show how removing the restriction to tree relations enables more precise dominance relations, therefore enabling more optimization. We discuss how one can use properties of SSA to implement a more general dominance relation using a small set of trees corresponding to shared branches, which we call a dominator grove. We present a work-in-progress implementation of a dominator grove in LLVM, along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. Using the implementation, we collect empirical data on the frequency of non-tree dominance relations in real code. We present some basic formal properties of the approach, and end with a discussion of future work, including concurrent extensions to SSA theory.
 </p>
 
-<h3 id="keynote" class="cgo-title" style="font-weight: bold;">Keynote<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
+<h3 id="keynote" class="cgo-title" style="font-weight: bold;">Arrays 2.0: Extending the Scope of the Array Abstraction<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
 <h4>Saman Amarasinghe<sup>1</sup></h4>
 <h5><sup>1</sup> Massachusetts Institute of Technology</h5>
 <p>
@@ -491,6 +496,7 @@ In this talk, I will attempt to expand the familiar arrays and loops abstraction
 <br/>
 I will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compiler's output rivals the performance of best-of-class handcrafted codes. I hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes.
 
+<br/>
 <br/>
 Saman Amarasinghe is a Professor in the Department of Electrical Engineering and Computer Science at Massachusetts Institute of Technology and a member of its Computer Science and Artificial Intelligence Laboratory (CSAIL) where he leads the Commit compiler group. Under Saman's guidance, the Commit group has developed a myriad of pioneering programming languages and compilers including the StreamIt, StreamJIT, PetaBricks, Halide, Simit, MILK, Cimple, TACO, GraphIt, BioStream, CoLa and Seq programming languages and compilers, DynamoRIO, Helium, Tiramisu, Codon and BuildIt compiler/runtime frameworks, Superword Level Parallelism (SLP), goSLP and VeGen for vectorization, Ithemal machine learning based performance predictor, Program Shepherding to protect programs against external attacks, the OpenTuner extendable autotuner, and the Kendo deterministic execution system. He was the co-leader of the Raw architecture project. Beyond academia, Saman was a co-founder of Determina, Lanka Internet Services Ltd., Venti Technologies, DataCebo and Exaloop corporations.  Saman received his BS in Electrical Engineering and Computer Science from Cornell University in 1988, and his MSEE and Ph.D. from Stanford University in 1990 and 1997, respectively.  He is an ACM Fellow.
 </p>
