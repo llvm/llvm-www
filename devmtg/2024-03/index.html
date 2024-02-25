@@ -330,7 +330,7 @@
       </td>
       <td>
         <p>
-          <a href="#keynote"> Keynote</a>
+          <a href="#keynote"> Keynote: "Arrays 2.0: Extending the Scope of the Array Abstraction"</a>
           <!-- <br/><span style="font-family: monospace;">[<a href="slides/RL4ReAl.pdf">slides</a>]</span> -->
         </p>
       </td>
@@ -483,8 +483,16 @@
 <h4>Saman Amarasinghe<sup>1</sup></h4>
 <h5><sup>1</sup> Massachusetts Institute of Technology</h5>
 <p>
-  Shepherding to protect programs against external attacks, the OpenTuner extendable autotuner, and the Kendo deterministic execution system. He was the co-leader of the Raw architecture project. Beyond academia, Saman was a co-founder of Determina, Lanka Internet Services Ltd., Venti Technologies, DataCebo and Exaloop corporations.  Saman received his BS in Electrical Engineering and Computer Science from Cornell University in 1988, and his MSEE and Ph.D. from Stanford University in 1990 and 1997, respectively.  He is an ACM Fellow.
+FORTRAN, the first programming language introduced over a half a century ago, ushered in multi-dimensional arrays to store data and FOR loops to iterate over them. Since then, the programming world has evolved to introduce a plethora of data structures ranging from lists and sets to trees and graphs. Yet, when it comes to handling immense data sets, arrays and loops remain a practical mainstay.  Every imperative programming language has implemented arrays and loops and most programmers learn to use them early on. Many important features in modern hardware from caches to prefetchers were created to efficiently execute array accesses by loops.  Even in LLVM, many optimizations including loop invariant code motion, vectorization and polyhedral optimizations were dedicated to optimizing loopy codes with array accesses. 
+<br/>
+The scope of the array data structure, a multi-dimensional, dense, integer grid of points in a rectilinear space, first introduced in FOTRAN, haven't expanded beyond this definition.  However, a significant portion of real-world data, either originating from sensors, computational processes, or human input, embodies innate structures such as sparsity, repeated value sequences, symmetry and continuous real-valued indices. These characteristics are evident in diverse fields like scientific computing, data analytics, graph processing, and machine learning.
+<br/>
+In this talk, I will attempt to expand the familiar arrays and loops abstraction beyond the original scope of FORTRAN with the TACO and Finch compilers. TACO pioneered auto-generating of kernels for any sparse tensor algebra operation across prevalent formats. Finch, on the other hand, has seamlessly integrated the management of structured data, capturing nuances like sparsity, repeated values, symmetry and arrays where indices are real values.
+<br/>
+I will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compiler's output rivals the performance of best-of-class handcrafted codes. I hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes.
 
+<br/>
+Saman Amarasinghe is a Professor in the Department of Electrical Engineering and Computer Science at Massachusetts Institute of Technology and a member of its Computer Science and Artificial Intelligence Laboratory (CSAIL) where he leads the Commit compiler group. Under Saman's guidance, the Commit group has developed a myriad of pioneering programming languages and compilers including the StreamIt, StreamJIT, PetaBricks, Halide, Simit, MILK, Cimple, TACO, GraphIt, BioStream, CoLa and Seq programming languages and compilers, DynamoRIO, Helium, Tiramisu, Codon and BuildIt compiler/runtime frameworks, Superword Level Parallelism (SLP), goSLP and VeGen for vectorization, Ithemal machine learning based performance predictor, Program Shepherding to protect programs against external attacks, the OpenTuner extendable autotuner, and the Kendo deterministic execution system. He was the co-leader of the Raw architecture project. Beyond academia, Saman was a co-founder of Determina, Lanka Internet Services Ltd., Venti Technologies, DataCebo and Exaloop corporations.  Saman received his BS in Electrical Engineering and Computer Science from Cornell University in 1988, and his MSEE and Ph.D. from Stanford University in 1990 and 1997, respectively.  He is an ACM Fellow.
 </p>
 
 <h3 id="talk8" class="cgo-title" style="font-weight: bold;">Automatic Parallelization and OpenMP Offloading of Fortran<br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span></h3>
