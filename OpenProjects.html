@@ -16,6 +16,7 @@
               <li><a href="#three_way_comparison">Add 3-way comparison intrinsics</a></li>
               <li><a href="#llvm_www">Improve the LLVM.org Website Look and Feel</a></li>
               <li><a href="#parameter-tuning">The 1001 thresholds in LLVM</a></li>
+              <li><a href="#llvm_mlgo_latency_model_2024">Better performance models for MLGO training</a></li>
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -663,6 +664,57 @@
   </p>
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/improve-the-llvm-org-website-look-and-feel/76864">URL</a>
+  </p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm_mlgo_latency_model_2024">Better performance models for MLGO training</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    Reinforcement learning trained machine learning guided optimization (MLGO)
+    models for register allocation-eviction and inlining for size are being used
+    in real-life deployments. However, the reward signals produced by existing
+    cost models with their insufficient ability to account for many of the
+    dynamic effects associated with runtime as a result of assumptions made
+    about the execution environment and runtime behavior of code, leave much to
+    be desired. Unaccounted for cache misses and branch mispredictions can set
+    throughput estimates off by orders of magnitude making modeling them a high
+    priority.
+    <br/><br/>
+    Expanding to more performance areas is impeded by the reduced prediction
+    quality of our performance estimation models in these scenarios. Improving
+    those is critical to enabling the application of MLGO systematically to more
+    optimizations.
+  </p>
+
+  <p><b>Expected result:</b>
+    Improved modeling of the execution environment by including additional
+    runtime/profiling information, such as additional PMU data, LLC miss
+    probabilities or branch mispredictions. This involves (1) building a data
+    collection pipeline that covers additional runtime information, (2)
+    modifying the ML models to allow processing this data, and (3) modifying the
+    training and inference process for the models to make use this data;
+    possibly building upon the work of the GSoC 2023 project of the same name.
+  </p>
+
+  <p><b>Skills:</b>
+    C++ and Python, along with some ML experience and some compiler experience.
+  </p>
+
+  <p><b>Difficulty:</b> Medium</p>
+
+  <p><b>Project size:</b> Medium or Large</p>
+
+  <p><b>Contacts:</b>
+    Ondrej Sykora, Mircea Trofin, Aiden Grossman, Viraj Shah
+  </p>
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2024-better-performance-models-for-mlgo-training/77266">URL</a>
   </p>
 </div>
 
