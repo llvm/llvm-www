@@ -42,7 +42,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;17.0.6</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;18.1.1</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">Fedora Snapshot Packages</a><br>
@@ -115,19 +115,14 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  18.1.1: <a href="https://discourse.llvm.org/t/llvm-18-1-1-released/77540">Mar 2024</a><br>
+  18.1.0: <a href="https://discourse.llvm.org/t/llvm-18-1-0-released/77448">Mar 2024</a><br>
   17.0.6: <a href="https://discourse.llvm.org/t/llvm-17-0-6-released/75281">Nov 2023</a><br>
   17.0.5: <a href="https://discourse.llvm.org/t/llvm-17-0-5-released/74906">Nov 2023</a><br>
   17.0.4: <a href="https://discourse.llvm.org/t/llvm-17-0-4-released/74548">Oct 2023</a><br>
   17.0.3: <a href="https://discourse.llvm.org/t/llvm-17-0-3-released/74172">Oct 2023</a><br>
   17.0.2: <a href="https://discourse.llvm.org/t/llvm-17-0-2-released/73840">Oct 2023</a><br>
   17.0.1: <a href="https://discourse.llvm.org/t/llvm-17-0-1-released/73549">Sep 2023</a><br>
-  16.0.6: <a href="https://discourse.llvm.org/t/16-0-6-release/71344/3">June 2023</a><br>
-  16.0.5: <a href="https://discourse.llvm.org/t/16-0-5-releae/71097">June 2023</a><br>
-  16.0.4: <a href="https://discourse.llvm.org/t/16-0-4-release/70692">May 2023</a><br>
-  16.0.3: <a href="https://discourse.llvm.org/t/16-0-3-release/70341">May 2023</a><br>
-  16.0.2: <a href="https://discourse.llvm.org/t/llvm-16-0-2-release/70107">Apr 2023</a><br>
-  16.0.1: <a href="https://discourse.llvm.org/t/llvm-16-0-1-release/69774">Apr 2023</a><br>
-  16.0.0: <a href="https://discourse.llvm.org/t/llvm-16-0-0-release/69326">Mar 2023</a><br>
   <a href="https://discourse.llvm.org/c/announce/46">All Announcements</a><br>
   </span>
 </div>
