@@ -3,7 +3,7 @@
 
 * Proposal: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
 * Author(s): [Chris Bieneman](https://github.com/llvm-beanz), [Aaron Ballman](https://github.com/AaronBallman), [Eric Christopher](https://github.com/echristo), [Mehdi Amini](https://github.com/joker-eph/), [Reid Kleckner](https://github.com/rnk/)
-* Review Managers: TBD
+* Review Managers: [Tom Stellard](https://github.com/tstellar), TBD...
 * Status: WIP
 
 
@@ -98,16 +98,12 @@ The LLVM Foundation will maintain a voter database that identifies voters by nam
 
 An individual may be deemed ineligible to vote for violations of the community Code of Conduct. Acting fraudulently or any other method of subverting an LLVM election is a violation of the Code of Conduct.
 
-Voter eligibility is based on recent community participation in the form of _meaningful contributions_. A _meaningful contribution_ may be a pull request contribution, or it could be other activities that help the community function like screening issues, moderating community spaces, hosting community events, or participating in code reviews.
+To be eligible to vote an individual must have a GitHub account that is a member of the LLVM GitHub Organization, and register with the voter registration database. If a user removes themselves or is otherwise removed from the LLVM GitHub Organization (i.e. due to LLVM project policy or disciplinary action), they are no longer eligible to vote and may be removed from the voter registration database. If they later re-join the LLVM GitHub organization, they may need to re-register to vote in future elections.
 
 7 days before voting begins a list of eligible voters is constructed from the registered voters including only those that have participated in LLVM community interactions in the preceding 12 months.
 
 Using the methodologies defined in Appendix 2, and only looking at the main LLVM repository, we have 1667 eligible _voting contributors_ based on code contributions alone. This number should expand as we incorporate participation in code reviews, issues, and discussion forums.
 
-
-#### Alternative Considered: Commit Access
-
-Alternatively, the _voting contributor_ base could be defined by commit access. This methodology has two flaws. One is that our commit access list gets stale, and is unwieldy to maintain. The other problem is that with the move to GitHub PRs, commit access is significantly less important. We may begin getting more contributions from users that never bother to request commit privileges.
 
 
 ### Area Teams
@@ -120,7 +116,7 @@ First, they are responsible for electing from among themselves a team secretary 
 
 Second, _area teams_ are responsible for maintaining an up-to-date and comprehensive list of code owners for their area of the project. They can nominate any individual they deem appropriate as code owner of any area they are responsible for. The role of _code owner_ remains a volunteer role, and any individual can accept, decline, or resign the role for themselves as they feel appropriate.
 
-> Note: This proposal does not change the existing developer policy for code owner are nominated, nor does it give area teams the exclusive ability to nominate code owners. 
+> Note: This proposal does not change the existing developer policy for code owner are nominated, nor does it give area teams the exclusive ability to nominate code owners.
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
@@ -130,7 +126,7 @@ _Area teams_ are not intended to be direction setters or primary maintainers of 
 
 Each _area team_ will have 5 members elected by the _voting contributors_. Candidates for _area teams_ must be a _voting contributor_ and self-nominated. An individual cannot serve on two _area teams_.
 
-Members of an _area team_ are elected for 1 year terms. Individuals are encouraged to not run for more than two consecutive terms. To encourage turnover, incumbent members of an _area team_ must place in the top 4 candidates during an election. The fifth spot will always go to a non-incumbent candidate.
+Members of an _area team_ are elected for 1 year terms.
 
 
 #### Initial Area Teams
@@ -161,17 +157,11 @@ The _Community_ and _Infrastructure_ _area teams_ have different responsibilitie
 
 In addition to a team chair and secretary, both the _community_ and _infrastructure area teams_ will select one member of their team to act as a liaison with the LLVM Foundation. The liaisons will be responsible for managing the relationship between their _area team_ and the employees and directors of the LLVM Foundation. The liaison may be any member of the _area team_ including the chair or secretary.
 
-##### Voting by Area
-
-Every _voting contributor_ is eligible to vote for the project-wide _Community_ and _Infrastructure_ teams. Eligibility for voting on other _area teams_ is determined by _meaningful contributions_ to the areas those teams cover. For example, in order to vote on the **LLVM Backend** _area team_, a contributor would need to contribute to the LLVM `CodeGen`, `MC`, or `Target` libraries, or to vote on the members of the **Flang** team, a contributor would need to contribute to the `flang` project. There is no limit to the number of _area teams_ a contributor can vote on if they have made contributions to the relevant areas.
-
 #### Vacancies
 
 A member of an _area team_ can resign at any time. As life can sometimes happen unexpectedly, a member of an _area team_ may be unable to fulfill their duties or resign. In that case, a majority of the remaining _area team_ may vote to declare the member removed in absentia after a 90-day absence.
 
 If someone resigns or is otherwise removed from an _area team_, the remaining members of the _area team_ may appoint a replacement to serve the remainder of the term through any process they choose.
-
-A removed member of an _area team’s_ full term is counted toward term limits, not just the time served. For an appointed member the time acting counts toward term limits, but should not impair the ability to run and serve two complete concurrent terms, unless they were previously term-limited in which case, being appointed to serve a partial term does not allow for the 1 year break between terms.
 
 ### Project Council
 
