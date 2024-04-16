@@ -11,13 +11,12 @@
 
 <div class="www_title">
   The <strong>LLVM</strong> Compiler Infrastructure
+  <img src="img/LLVMWyvernSmall.png" style="height:1em; width:auto">
 </div>
 
 <table width="100%" border=0 cellpadding=10>
 <tr>
 <td valign=top align=center>
-
-<!-- <img src="img/DragonSmall.png" width="136" height="136"> -->
 
 <b>Site Map:</b>
 <div class="www_sidebar">
