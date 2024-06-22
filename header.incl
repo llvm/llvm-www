@@ -41,7 +41,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;18.1.7</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;18.1.8</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">Fedora Snapshot Packages</a><br>
@@ -114,6 +114,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  18.1.8: <a href="https://discourse.llvm.org/t/18-1-8-released/79725">Jun 2024</a><br>
   18.1.7: <a href="https://discourse.llvm.org/t/18-1-7-released/79433">Jun 2024</a><br>
   18.1.6: <a href="https://discourse.llvm.org/t/18-1-6-released/79068">May 2024</a><br>
   18.1.5: <a href="https://discourse.llvm.org/t/18-1-5-released/78740">May 2024</a><br>
