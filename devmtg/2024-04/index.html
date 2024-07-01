@@ -423,7 +423,7 @@ The choice of a floating point representation is often key to the success of an 
 
 <p>
 OpenSSF Scorecard - Do we need to improve our security practices? <br>
-Marius Brehler [ <a href="https://youtu.be/X9igMS_CR4o">Video</a> ] [ <a href="Brehler-OpenSSFScorecard-Do-we-need-to-improve.pdf">Slides</a> ] <br>
+Marius Brehler [ <a href="https://youtu.be/X9igMS_CR4o">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/LightningTalks/Brehler-OpenSSFScorecard-Do-we-need-to-improve.pdf">Slides</a> ] <br>
 Scorecard is an automated tool created by OpenSSF to help maintainers of open source software to improve their security best practices and to help consumers of open source software to assess whether their dependencies are safe. The scores can be used to identify areas that need to be improved in order to enhance the security of a project. With https://github.com/llvm/llvm-project/pull/69933 a OpenSSF Scorecard action and badge were added to the LLVM repository. This presentation gives a brief analysis of the current OpenSSF Scorecard report and points out which actions were and still can be taken to improve the score.
 </p>
 
@@ -433,43 +433,43 @@ Scorecard is an automated tool created by OpenSSF to help maintainers of open so
 
 <p>
 Developing an LLVM Backend for VLIW RISC-V Vector Extension Architectures <br>
-Hao-Chun Chang [ <a href="Chang-VLIW-RISC-V-VectorExt-Poster.pdf">Poster</a> ] <br>
+Hao-Chun Chang [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Chang-VLIW-RISC-V-VectorExt-Poster.pdf">Poster</a> ] <br>
 In this poster, an experimental VLIW RISC-V target with Vector extension is presented. We summarize the process of LLVM compiler implementation for this experimental target. In addition, we also enable Swing Modulo Scheduling for our target to enhance performance with software pipelining. There are issues related to LMUL issues. We incorporate LMUL design in RVV into Swing Modulo Scheduling. We will discuss the problem encountered and the approach to handle it. Eventually, we show the experimental result of performance improvement.
 </p>
 
 <p>
 Hybrid Execution: Combining Ahead-of-Time and Just-in-Time Compilation of LLVM Bitcode <br>
-Christoph Pichler [ <a href="Pichler-Poster-CombiningExecutionModes-of-LLVMBitCodeOn-GraalVM.pdf">Poster</a> ] <br>
+Christoph Pichler [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Pichler-Poster-CombiningExecutionModes-of-LLVMBitCodeOn-GraalVM.pdf">Poster</a> ] <br>
 Compiler research has been putting high effort into statically generating efficient native code ahead of time (AOT), as it can be seen in the LLVM project and clang, for example. In contrast, GraalVM is a polyglot execution engine that can also execute LLVM bitcode, and comes with an aggressively optimizing just-in-time (JIT) compiler. We present an approach that combines together the advantages of both AOT and JIT compilation, where the overhead of JIT compilation is avoided by utilizing natively executed methods and improving the warm-up performance. The goal of our current follow-up work is to more automatically determine which code candidates are suitable for native execution. We would like to be able to traverse certain parts in the call graph of the code and be able to identify whether the execution of a certain function should happen natively or through the GraalVM JIT compiler.
 </p>
 
 <p>
 Dynamic Evolution of Instruction Set Simulators: A Practical Approach with "ALPACA" <br>
-Nicholas Fry [ <a href="Fry-Poster-GeneratingInstructionSetSimulatorsFromHardwareDescription-WithCIRCTMLIR.pdf">Poster</a> ] <br>
+Nicholas Fry [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Fry-Poster-GeneratingInstructionSetSimulatorsFromHardwareDescription-WithCIRCTMLIR.pdf">Poster</a> ] <br>
 We present ALPACA, a work-in-progress CIRCT MLIR approach to generating an ISS for emerging accelerator architectures from their RTL/HLS description. ALPACA facilitates the automatic generation of state update functions, enabling the ISS to dynamically evolve with hardware implementations.
 </p>
 
 <p>
 PoTATo: Points-to analysis via domain specific MLIR dialect <br>
-Robert Konicar [ <a href="Konicar-Lauko-PotatoPoster.pdf">Poster</a> ] <br>
+Robert Konicar [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Konicar-Lauko-PotatoPoster.pdf">Poster</a> ] <br>
 Addressing the diverse needs of points-to analysis in various use-cases requires a flexible approach. In this talk you can learn about a new unifying framework, PoTATo, designed to allow users to select an algorithm that suits their specific needs. PoTATo employs a novel approach, representing memory effects as a simplified dialect generated from a source IR. This simplified representation abstracts away unnecessary IR details, unifying the analysis process. Furthermore, leveraging general MLIR tooling, the representation can be optimised, significantly reducing the points-to analysis problem. This talk showcases how PoTATo has successfully transformed the complexity of points-to analysis into a streamlined dialect transition.
 </p>
 
 <p>
 VAST: MLIR compiler for C/C++ <br>
-Henrich Lauko [ <a href="Lauko-Poster-VAST.pdf">Poster </a>] <br>
+Henrich Lauko [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Lauko-Poster-VAST.pdf">Poster </a>] <br>
 This poster will introduce the distinctive architecture of VAST, an MLIR-based compiler specifically designed for program analysis of C/C++. At the heart of VAST lies a versatile stack of intermediate representations (tower of IRs), empowering users to select the most suitable representations for program analysis or subsequent abstraction. Emphasizing its core infrastructure built around the IR stack, we will demonstrate its practical applications in diverse compilation scenarios, including static analysis, language transpilation, and decompilation.
 </p>
 
 <p>
 IR Around the World: Statistical Analysis of a Massive Multi-Language Corpus of IR <br>
-Khoi Nguyen, Andrew Kallai [ <a href="Grossman-IRAroundTheWorld">Poster</a> ] <br>
+Khoi Nguyen, Andrew Kallai [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Grossman-IRAroundTheWorld">Poster</a> ] <br>
 Within this walk, we present statistical analyses of the properties of the generated IR, and the optimization pipeline itself. We quantify a number of factors related to the optimization pipeline including which optimizations are run, how long they take, and perform an analysis of the code at the end on a massive corpus of multi-language IR. We anticipate our results to be a starting point for deeper specific investigations on issues like the optimality of the current pass pipelines and help to better understand where compile time is spent. Initial results are presented here but the talk will focus on knowledge filtered out of this data and more we will gather in the meantime.
 </p>
 
 <p>
 Solving Phase Ordering with Off-Policy Deep Reinforcement Learning Algorithms <br>
-Oliver Chang [ <a href="Chang-Poster-SolvingPhaseOrdering-WithOffPolicyDeepReinforcement.pdf">Poster</a> ] <br>
+Oliver Chang [ <a href="https://llvm.org/devmtg/2024-04/slides/Posters/Chang-Poster-SolvingPhaseOrdering-WithOffPolicyDeepReinforcement.pdf">Poster</a> ] <br>
 We address the phase ordering problem in an LLVM compiler, using off-policy deep reinforcement learning (DRL). Previous work applying DRL in the phase ordering problem have mainly used policy optimization techniques which is sample inefficient compared to off-policy approaches or Deep Q-learning which has been surpassed by novel algorithms. In particular, we use Double Deep Q-learning as our algorithm and the Compiler Gym framework to facilitate the reinforcement learning environment (LLVM), program inputs, reward function, and action space. We show success in reducing intermediate representation (IR) instruction count while using a light-weight neural network and small memory buffer.
 </p>
 
