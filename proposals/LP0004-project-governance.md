@@ -1,18 +1,15 @@
 # LLVM Project Governance
 
-
 * Proposal: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
 * Author(s): [Chris Bieneman](https://github.com/llvm-beanz), [Aaron Ballman](https://github.com/AaronBallman), [Eric Christopher](https://github.com/echristo), [Mehdi Amini](https://github.com/joker-eph/), [Reid Kleckner](https://github.com/rnk/)
 * Review Managers: [Tom Stellard](https://github.com/tstellar), TBD...
 * Status: WIP
-
 
 ## Introduction
 
 The LLVM project has grown significantly, and the processes we use to make decisions have not evolved to keep pace with the project growth. We struggle to make decisions in a way that is timely and ensures that all contributors have a voice. Our request-for-comment (RFC) email threads and our latest [decision making process](proposals/LP0001-LLVMDecisionMaking.md) aren’t perfect solutions. The former tends to favor the loudest voices, and the latter has a single point of failure (Chris Lattner), and thus cannot scale.
 
 This proposal seeks to address our community challenges by introducing a project governance system that will empower community leaders to make decisions. This framework is inspired by other open source communities with specific considerations for the factors that make our community unique.
-
 
 ## Motivation
 
@@ -66,13 +63,11 @@ Consensus-seeking decision making instead focuses on efforts to build consensus 
 
 This proposal gives the responsibility for facilitating consensus-seeking and last-resort decision making authority to project governance structures defined below.
 
-
 ### Role of Code Owners
 
 This proposal does not change the role of code owners as defined in the [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#code-owners). As stated in the policy:
 
     The sole responsibility of a code owner is to ensure that a commit to their area of the code is appropriately reviewed, either by themself or by someone else.
-
 
 ### Code of Conduct
 
@@ -104,19 +99,17 @@ To be eligible to vote an individual must have a GitHub account that is a member
 
 Using the methodologies defined in Appendix 2, and only looking at the main LLVM repository, we have 1667 eligible _voting contributors_ based on code contributions alone. This number should expand as we incorporate participation in code reviews, issues, and discussion forums.
 
-
-
 ### Area Teams
 
 The second structure this proposal establishes is a collection of _area teams_. Members of _area teams_ are not required or expected to be experts in the area the team is responsible for. There are no skill or experience requirements to be on an _area team_.
 
 _Area teams_ have three main responsibilities.
 
-First, they are responsible for electing from among themselves a team secretary who will take notes of any team meetings and a team chair who represents the team on the _project council_.
+First, they are responsible for electing from among themselves a team secretary who will take notes of any team meetings and a team chair who facilitates team meetings and represents the team on the _project council_.
 
 Second, _area teams_ are responsible for maintaining an up-to-date and comprehensive list of code owners for their area of the project. They can nominate any individual they deem appropriate as code owner of any area they are responsible for. The role of _code owner_ remains a volunteer role, and any individual can accept, decline, or resign the role for themselves as they feel appropriate.
 
-> Note: This proposal does not change the existing developer policy for code owner are nominated, nor does it give area teams the exclusive ability to nominate code owners.
+> Note: This proposal does not change the existing developer policy for code owner nomination, nor does it give area teams the exclusive ability to nominate code owners.
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
@@ -124,32 +117,27 @@ When acting to facilitate decision making the _area team_ should act as a mediat
 
 _Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team's_ role is as a steward and moderator ensuring the health and smooth operation of the area.
 
-Each _area team_ will have 5 members elected by the _voting contributors_. Candidates for _area teams_ must be a _voting contributor_ and self-nominated. An individual cannot serve on two _area teams_.
+Each _area team_ will have an odd number of members with a minimum of three (3) members and a maximum of nine (9) elected by the _voting contributors_. Candidates for _area teams_ must be a _voting contributor_ and self-nominated. An individual cannot serve on two _area teams_.
+
+An _area team_ with less than nine members may increase its size up to nine members with a majority vote. The _area team_ may then appoint members to fill any vacancies as normal. If at the beginning of an election there are insufficient candidates to fill all vacancies on an area team, the team size will decrease to the largest odd number that all the candidates can fill. If less than three candidates run for election for an _area team_ the _project council_ will either recruit members or disband the team.
 
 Members of an _area team_ are elected for 1 year terms.
 
-
 #### Initial Area Teams
 
-With this proposal a group of initial _area teams_ will be formed with defined domain areas. The members of each _area team_ will be defined by an election held after the adoption of the proposal. The initial _area teams_ proposed below are based on statistics generated from the LLVM project repository (See Appendix 2 for applicable scripts).
+This proposal suggests the formation of a small number of _area teams_ based on the most active parts of the project. These _area teams_ will form the initial _project council_ and it will be the _project council's_ responsibility to form additional _area teams_ to meet the project's needs.
 
-In dividing the LLVM project into _area teams_, this proposal seeks to break up areas of the project based on contribution volume and number of active contributors. This proposal assumes that areas of the project with more unique contributors are more likely to have contributor disagreements, and that areas with more highly active contributors will be more likely to have diverse _area team_ formations.
+* LLVM
+* Clang
+* MLIR
+* Infrastructure
+* Community
 
-This proposal puts a possible set of _area teams_ to form with the specified areas of responsibility. One notable point is that LLVM (`:/llvm`) had 945 unique authors contribute over the 12 month period used for statistics. This is far more than any other part of the project, and it justified splitting LLVM into two teams, which are separated as the _LLVM Backend_ and _LLVM Middle-end_. Clang had 706 unique authors, which is also significantly higher than other sub-projects. To represent different parts of the Clang community the _Clang_ and _Clang Tooling_ teams are separated below.
+#### Process for New Area Teams
 
-* LLVM Backend (CodeGen, MC, Target)
-* LLVM Middle-end (Everything not covered by LLVM Backend)
-* Clang (All the `clang` sub-project except tooling and format libraries and tools)
-* Clang Tooling (`clang-tools-extra` and the tooling and format libraries from `clang`)
-* C/C++ Runtime Libraries (`libcxx`, `libc`, `libunwind`, `libcxxabi`)
-* Compiler Runtimes (`compiler-rt`, `openmp`)
-* Flang (`flang`)
-* MLIR (`mlir`)
-* LLDB (`lldb`)
-* Binary tools (`lld`, `bolt`)
-* Incubator (`circt`, `torch-mlir`, `Polygeist`, `clangir`, etc)
-* Project Infrastructure (`zorg`, `utils`, `llvm-test-suite`, CI/CD, hosting, etc)
-* Community (Discord, Discourse, etc)
+Any project area that has at least three members interested in forming an _area team_ can request the _project council_ form one. The _project council_ will then consider the needs of the project and determine whether to form a new team or not.
+
+When the _project council_ forms a new area team, the project council will nominate members for the team to serve until the next elections.
 
 ##### Community & Infrastructure Area Teams
 
@@ -175,6 +163,8 @@ The _project council_ has a mandate to:
 * Facilitate seeking consensus among the LLVM Community and _area teams_.
 * As a last resort, act as the final decision maker on debates.
 
+The _project council_ will elect from among themselves a secretary who will take notes of all meetings, a chair who facilitates meetings, and a liaison to the LLVM Foundation to manage the relationship between the _project council_ and the LLVM Foundation.
+
 The _project council_ has the power to form and dissolve _area teams_. Forming an _area team_ requires a majority vote. Any changes to the _area team_ structures must be publicly disclosed including the motivation for the changes. Dissolving an _area team_, or altering the boundaries of an _area team_ requires a consenting vote of the chair of the _area team(s)_ being altered and a majority vote of the _project council_.
 
 If the _project council_ is seeking to dissolve an _area team_ and the chair of that team does not consent, the team may be dissolved with a unanimous vote of the remaining _project council_ members only after consultation with the Code of Conduct Committee to ensure that all project policies are appropriately followed.
@@ -183,9 +173,9 @@ Representatives to the _project council_ are also term limited. An individual ma
 
 ### Governance Team Meetings
 
-Each _area team_ and the _project Council_ should have one scheduled public meeting per month. The date of the scheduled meeting should be on the LLVM Community Calendar. The calendar invite will have a link to a public meeting agenda. The teams may have non-public meetings for discussion, deliberation. planning or other purposes.
+Each _area team_ and the _project Council_ should have two scheduled public meetings per month. The date of the scheduled meetings should be on the LLVM Community Calendar. The calendar invite will have a link to a public meeting agenda. The teams may have non-public meetings for discussion, deliberation, planning or other purposes. The team may cancel a meeting if no items are on the agenda or to accommodate member schedules (holidays, personal time, etc).
 
-Notes from all _area team_ and _project Council_ meetings shall be publicly posted. Notes shall exclude reference to any private information, or information that otherwise needs to be confidential.
+Notes from all _area team_ and _project Council_ meetings will be publicly posted. Notes will exclude reference to any private information, or information that otherwise needs to be confidential.
 
 ### Role of the LLVM Foundation
 
@@ -198,7 +188,6 @@ The LLVM Foundation's core mission is to support the long-term health of the LLV
 As the owner of project assets, the Foundation gets the final say when allocating funding or decisions requiring legal oversight. The Foundation can approve or reject requests for funding on any basis it deems appropriate in accordance with applicable laws and policies.
 
 Members of the LLVM Foundation Board and employees of the LLVM Foundation are also members of the LLVM Community, as such they can also fill roles in any of the community structures defined in this proposal.
-
 
 ### Modifications to the LLVM Decision Making Process
 
@@ -431,7 +420,6 @@ Below is a partial list of external sources reviewed during the drafting of this
 * “3392-leadership-council.md,” The Rust Project, last modified July 26, 2023. [https://github.com/rust-lang/rfcs/blob/master/text/3392-leadership-council.md](https://github.com/rust-lang/rfcs/blob/master/text/3392-leadership-council.md).
 * “Add RFC on governance, establishing the Leadership Council,” The Rust Project, accessed September 15, 2023. [https://github.com/rust-lang/rfcs/pull/3392](https://github.com/rust-lang/rfcs/pull/3392).
 * “mod team resignation,” The Rust Project, accessed September 15, 2023. [https://github.com/rust-lang/team/pull/671](https://github.com/rust-lang/team/pull/671).
-
 
 ### Other
 
