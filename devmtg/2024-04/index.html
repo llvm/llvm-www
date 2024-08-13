@@ -101,7 +101,7 @@ NVIDIA Hopper Tensor Core brings groundbreaking performance, requiring the utili
 
 <p>
 Revamping Sampling-Based PGO with Context-Sensitivity and Pseudo-Instrumentation <br>
-Wenlei He [ <a href="https://youtu.be/boa6jcPTSOw">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/He-Yu-Wang-Oh-RevampingSamplingBasedPGO.pdf">Slides</a> ] <br>
+Wenlei He [ <a href="https://youtu.be/HYJne9WjSd0">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/He-Yu-Wang-Oh-RevampingSamplingBasedPGO.pdf">Slides</a> ] <br>
 This talk describes CSSPGO, a context-sensitive sampling-based PGO framework with pseudo-instrumentation. It leverages pseudo instrumentation to improve profile quality without incurring the overhead of traditional instrumentation. It also enriches profile with context-sensitivity to aid more effective optimizations through a novel profiling methodology using synchronized LBR and stack sampling. We will also share how CSSPGO is used to lift performance of Meta's server workloads.
 </p>
 
@@ -155,7 +155,7 @@ CMake now supports building C++ modules with Clang. We will briefly present what
 
 <p>
 Mojo debugging: extending MLIR and LLDB <br>
-Walter Erquinigo, Billy Zhu [ <a href="https://youtu.be/y85-1g39X3E">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/MojoDebugging.pdf">Slides</a> ] <br>
+Walter Erquinigo, Billy Zhu [ <a href="https://youtu.be/9jfukpjCPIg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/MojoDebugging.pdf">Slides</a> ] <br>
 Modular has made great strides towards bringing full-fledged debugging support for the Mojo programming language in LLDB. Our commitment goes beyond making basic debugging work; we aspire to place debugging in a first-class status for Mojo. We'll dive into the unique technical challenges we've faced in this journey, and how we extended MLIR and LLDB for proper language debugging using DWARF, highlighting our open-source contributions. We'll also explore the approach we are taking to create a great user-centric debugging experience, focusing first on VS Code.
 </p>
 
@@ -305,13 +305,13 @@ Indirect memory writes are present in many AI and HPC applications. However, aut
 
 <p>
 Arcilator for ages five and up: flexible self-contained hardware simulation made easy <br>
-Théo Degioanni [ Video ] [ <a href="Degioanni-Arcilator.pdf">Slides</a> ] <br>
+Théo Degioanni [ <a href="https://youtu.be/lE7ynoMstQA">Video</a> ] [ <a href="Degioanni-Arcilator.pdf">Slides</a> ] <br>
 Arcilator is a simulator for hardware specified in CIRCT dialects (the MLIR hardware modelling subproject). We introduce a new dialect-based interface for Arcilator, which eliminates the need to build heavy C++ wrapper hand-crafted for each hardware model needing simulation. We explain how it is built internally and showcase interesting use cases.
 </p>
 
 <p>
 3 years of experience with the LLVM security group -- successes and remaining challenges <br>
-Kristof Beyls [ <a href="">Video</a> ][ <a href="https://llvm.org/devmtg/2024-04/slides/QuickTalks/Belys-LLVMSecurityGroup-3YearExperiences.pdf">Slides</a> ] <br>
+Kristof Beyls [ <a href="https://youtu.be/vbBOumh8iSo">Video</a> ][ <a href="https://llvm.org/devmtg/2024-04/slides/QuickTalks/Belys-LLVMSecurityGroup-3YearExperiences.pdf">Slides</a> ] <br>
 The LLVM security group was established 3 years ago to enable responsible coordinated disclosure of LLVM security issues. This presentation will briefly summarize what the group is doing; what it has achieved in the past 3 years; and which areas for improvements become clear after analyzing the kinds of issues that were reported. Those include areas such as threat modeling, improving quality of mitigation features, supply chain attacks and how to communicate public security issues that are not CVE-worthy.
 </p>
 
@@ -347,7 +347,7 @@ When we were adding macros to the Swift language in Swift 5.9, we faced a challe
 
 <p>
 From C++ ranges to shorter template names: A C++ Debugging journey <br>
-Michael Buch [ <a href="https://youtu.be/VT6-fL2hiN8">Video</a> ] [ <a href="Buch-FromSTDRanges.pd">Slides</a> ] <br>
+Michael Buch [ <a href="https://youtu.be/VT6-fL2hiN8">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-04/slides/QuickTalks/Buch-FromSTDRanges.pdf">Slides</a> ] <br>
 LLDB’s expression evaluator permits execution of arbitrary C++ expressions. It relies on an interplay between a wide range of LLVM components - the Clang frontend, LLVM’s JIT APIs, DebugInfo, clang modules and more. This quick talk outlines how all of these components fit together by showcasing some recent work we have done on LLDB to improve C++ debugging experience. Namely we describe the process of how we added support for default template arguments and Clang's preferred_name attribute in the variable view.
 </p>
 
@@ -417,7 +417,7 @@ Devices for neuromorphic computing are still prone to defects and limitations. H
 
 <p>
 Automatic Retuning of Floating-Point Precision <br>
-Ivan R. Ivanov, William S. Moses [ <a href="https://youtu.be/QOjgIzEsmzQ">Videos</a> ] [ <a href="">Slides</a> ] <br>
+Ivan R. Ivanov, William S. Moses [ <a href="https://youtu.be/QOjgIzEsmzQ">Videos</a> ] [ Slides ] <br>
 The choice of a floating point representation is often key to the success of an algorithm's implementation. Using too large of a floating-point type can limit performance, whereas using too small a floating-point type reduces accuracy. This has been especially critical in machine learning applications, where manually tuning floating point type is required to ensure large language models do not overwhelm the available memory bandwidth. Typically, a programmer makes a choice of the floating operation in their application, and any changes require require extensive rewrites of the code. This both limits the ability of changing representation for any large codebases, and is especially restrictive if one wants to search over the space of available floating point sizes. Integrated as part of the Enzyme framework, we introduce a pass to automatically change the floating point precision in existing applications. This can be applied at both a whole-application level, as well as planned support for individual operations. A motivation for building this within an AD framework is to leverage the floating-point error results that can be generated by AD to automatically select which floating point computations can be changed without substantially changing the accuracy of the end program.
 </p>
 
