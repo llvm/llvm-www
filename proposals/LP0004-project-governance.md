@@ -7,7 +7,7 @@
 
 ## Introduction
 
-The LLVM project has grown significantly, and the processes we use to make decisions have not evolved to keep pace with the project growth. We struggle to make decisions in a way that is timely and ensures that all contributors have a voice. Our request-for-comment (RFC) email threads and our latest [decision making process](proposals/LP0001-LLVMDecisionMaking.md) aren’t perfect solutions. The former tends to favor the loudest voices, and the latter has a single point of failure (Chris Lattner), and thus cannot scale.
+The LLVM project has grown significantly, and the processes we use to make decisions have not evolved to keep pace with the project growth. We struggle to make decisions in a way that is timely and ensures that all contributors have a voice. Our request-for-comment (RFC) [LLVMDiscourse](https://discourse.llvm.org/) threads and our latest [decision making process](proposals/LP0001-LLVMDecisionMaking.md) aren't perfect solutions. The former tends to favor the loudest voices, and the latter has a single point of failure (Chris Lattner), and thus cannot scale.
 
 This proposal seeks to address our community challenges by introducing a project governance system that will empower community leaders to make decisions. This framework is inspired by other open source communities with specific considerations for the factors that make our community unique.
 
@@ -71,7 +71,7 @@ This proposal does not change the role of code owners as defined in the [LLVM De
 
 ### Code of Conduct
 
-All participants in the LLVM Community must follow the LLVM Community Code of Conduct. That applies to the representatives of governance bodies just as it does to any other individual in the community. The Code of Conduct Committee can suspend or revoke the privilege of any individual to participate in the LLVM Governance process for violations of the Code of Conduct.
+All participants in the LLVM Community must follow the [LLVM Community Code of Conduct](https://llvm.org/docs/CodeOfConduct.html). That applies to the representatives of governance bodies just as it does to any other individual in the community. The [Code of Conduct Committee](https://llvm.org/docs/CodeOfConduct.html#code-of-conduct-committee) can suspend or revoke the privilege of any individual to participate in the LLVM Governance process for violations of the Code of Conduct.
 
 Misconduct in elections or governance roles such as fraudulent voting are violations of the Code of Conduct.
 
@@ -91,7 +91,7 @@ The first structure is to define the _voting contributor_ base. The _voting cont
 
 The LLVM Foundation will maintain a voter database that identifies voters by name, email, and the accounts used on services used by the LLVM project. The voter database will only be used for election-related purposes. A full privacy policy that complies with appropriate laws will be published, and it will include a process for removing your personal information from the voter database. To be a _voting contributor_ an individual must register with the LLVM Foundation voter database, and meet eligibility requirements.
 
-An individual may be deemed ineligible to vote for violations of the community Code of Conduct. Acting fraudulently or any other method of subverting an LLVM election is a violation of the Code of Conduct.
+An individual may be deemed ineligible to vote for violations of the community Code of Conduct.
 
 To be eligible to vote an individual must have a GitHub account that is a member of the LLVM GitHub Organization, and register with the voter registration database. If a user removes themselves or is otherwise removed from the LLVM GitHub Organization (i.e. due to LLVM project policy or disciplinary action), they are no longer eligible to vote and may be removed from the voter registration database. If they later re-join the LLVM GitHub organization, they may need to re-register to vote in future elections.
 
@@ -113,7 +113,7 @@ Second, _area teams_ are responsible for maintaining an up-to-date and comprehen
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
-When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue.
+When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue. If an _area team_ cannot reach consensus, it may request the _project council_ to resolve the disagreement.
 
 _Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team's_ role is as a steward and moderator ensuring the health and smooth operation of the area.
 
@@ -241,7 +241,7 @@ A second important argument for having new roles is that the new roles rely on a
 
 ### Why is the LLVM Foundation forcing another change on the community?
 
-There has been a perception that this proposal comes from the LLVM Foundation exerting its will on the community. That could not be further from the truth. While members of the LLVM Foundation board have driving this and deeply invested in this proposal, the proposal did not come out of the LLVM Foundation. In fact, it was iterated on and circulated with all the co-signed authors before it was shared with the LLVM Foundation Board.
+There has been a perception that this proposal comes from the LLVM Foundation exerting its will on the community. That could not be further from the truth. While members of the LLVM Foundation board are driving this and deeply invested in this proposal, the proposal did not come out of the LLVM Foundation. In fact, it was iterated on and circulated with all the co-signed authors before it was shared with the LLVM Foundation Board.
 
 The LLVM Foundation is a stakeholder for this proposal. The proposal requires that the LLVM Foundation facilitate elections, and it seeks to define some aspects of the relationship between the Foundation and the Community.
 
