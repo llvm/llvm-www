@@ -6,6 +6,7 @@
 *   Status: Accepted June 14, 2020 [[thread](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142250.html)]
 *   Review Discussion: [[thread](http://lists.llvm.org/pipermail/llvm-dev/2020-June/142017.html)]
 *   Pitch threads: [[1](http://lists.llvm.org/pipermail/llvm-dev/2020-January/138267.html)] [[2](http://lists.llvm.org/pipermail/llvm-dev/2020-May/141810.html)]
+*   Amended by: [LP-0004](https://github.com/llvm/llvm-www/blob/HEAD/proposals/LP0004-project-governance.md)
 
 ## Introduction
 
@@ -57,12 +58,12 @@ This process consists of several phases:
 
 1. Start with a normal LLVM RFC using the existing community process to make a decision.  If it can be resolved through normal means, great - no need for additional process.  We expect this to continue to be the common case.
 2. If a discussion turns controversial, escalate the RFC into a "proposal pitch", to help frame both sides of the discussion.  This occurs as a "[PITCH]" thread on the [LLVM Forum](https://discourse.llvm.org/c/llvm/).  The outcome of this discussion is a proposal written up [using this standardized template](LP0000-Template.md).  The pitch phase can be ignored by people who aren't interested in following all of the details of a discussion.
-3. A group of either 2 or 4 community members are selected as "Review Managers" to help with the review, aiming to be representative of both sides of an issue.  These people are proposed in the pitch document itself.
-4. Chris takes a look, gives high level guidance to improve the quality of the proposal, approves (or suggests changes to) the Review Manager list, and decides whether it makes sense to run.  He will reject proposals that are obviously inappropriate or that can be addressed with lighter-weight processes.
+3. A group of either 2 or 4 community members are selected as "Review Managers" to help with the review, aiming to be representative of both sides of an issue.  These people are proposed in the pitch document itself.  The pitch document will also identify the relevant _area team_ to oversee the proposal.  If there is no relevant _area team_, or if the decision spans across the domains of multiple _area teams_ the _project council_ will oversee the proposal.  The selected team will be called the _overseeing team_.
+4. The overseeing team takes a look, gives high level guidance to improve the quality of the proposal, approves (or suggests changes to) the Review Manager list, and decides whether it makes sense to run.  He will reject proposals that are obviously inappropriate or that can be addressed with lighter-weight processes.
 5. A review manager checks the proposal into a directory (llvm/llvm-www/proposals) so it is version controlled.  This allows better tracking over time of the evolution of the discussion and proposal: for an extreme example of how this is useful, see the header on [this Swift proposal](https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-wrappers.md).
 6. That review manager starts a thread on the [LLVM Forum](https://discourse.llvm.org/c/llvm/) using a template (see below) in a new "[PROPOSAL]" thread on the [LLVM Forum](https://discourse.llvm.org/c/llvm/).  Formal discussions occur on this thread over a specific time period (selected by the review manager team, depending on the issue) e.g. one or two weeks.
 7. The review managers are responsible for facilitating and moderating the discussion - helping to keep the discussion on-topic and civil, without trying to overtly influence the discussion.  They can also raise awareness of the discussion in affected external communities.  They can also make clarifications and minor improvements to the proposal that don't fundamentally alter its nature.
-8. When the discussion concludes, Chris and the review managers have a video chat to review the outcome of the discussion.  The goal of this private discussion is to achieve consensus on an outcome between the review managers and Chris, but if that isn't possible, then Chris will tie break. The outcome may be Approve, Deny, Approve with Changes, or to kick it back to the pitch phase for more discussion.
+8. When the discussion concludes, the overseeing team have a video chat to review the outcome of the discussion.  The goal of this private discussion is to achieve consensus on an outcome among the overseeing team. The outcome may be Approve, Deny, Approve with Changes, or to kick it back to the pitch phase for more discussion.
 9. A review manager writes up a summary of the outcome and shares that with the community on the [LLVM Forum](https://discourse.llvm.org/c/llvm/).  The outcome is added to the proposal in github to build a history of proposals and their outcomes.
 
 The goal of this is to allow virtually everyone interested in LLVM to participate in the discussion.  The review managers and Chris can weigh this feedback with a goal of being fair, learning from the community, and producing the best outcome for the community at large: there is no voting.
@@ -75,33 +76,33 @@ After checking in the proposal, a review manager starts a new thread on the [LLV
 
     Hello LLVM community,
 
-    The review of "((PROPOSAL NAME))" begins now and runs through 
-    ((REVIEW END DATE)). The proposal is [available online](URL of proposal on 
+    The review of "((PROPOSAL NAME))" begins now and runs through
+    ((REVIEW END DATE)). The proposal is [available online](URL of proposal on
     github).
 
-    Feedback is an important part of the LLVM Proposal process. All review 
-    feedback should be either on this thread or, if you would like to 
+    Feedback is an important part of the LLVM Proposal process. All review
+    feedback should be either on this thread or, if you would like to
     keep your feedback private, directly to one of the review managers.
 
     **What goes into a review?**
 
-    The goal of the review process is to improve the proposal under review 
-    through constructive criticism and, eventually, determine the direction of 
-    LLVM. When writing your response, here are some questions you might want 
+    The goal of the review process is to improve the proposal under review
+    through constructive criticism and, eventually, determine the direction of
+    LLVM. When writing your response, here are some questions you might want
     to answer in your review:
 
-    *   What is your evaluation of the proposal?  What positive or negative 
+    *   What is your evaluation of the proposal?  What positive or negative
         implications would accepting this have?
-    *   Do you have experience from other communities that relates to this 
+    *   Do you have experience from other communities that relates to this
         issue and is important to consider?
-    *   How involved have you been in the LLVM project?  Frequent contributor, 
+    *   How involved have you been in the LLVM project?  Frequent contributor,
         occasional contributor, user of LLVM libraries, user of LLVM-based tools,
         or other?
     *   Self Evaluation: How much effort did you put into your review and how
-        knowledgeable are you about this area? For example, a quick reading or an 
+        knowledgeable are you about this area? For example, a quick reading or an
         in-depth study?
 
-    In addition to your opinion and thoughts, please include any additional 
+    In addition to your opinion and thoughts, please include any additional
     framing that may be useful.
 
     Thank you,
