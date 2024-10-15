@@ -135,7 +135,7 @@ This proposal suggests the formation of a small number of _area teams_ based on 
 
 #### Process for New Area Teams
 
-Any project area that has at least three members interested in forming an _area team_ can request the _project council_ form one. The _project council_ will then consider the needs of the project and determine whether to form a new team or not.W
+Any project area that has at least three members interested in forming an _area team_ can request the _project council_ form one. The _project council_ will then consider the needs of the project and determine whether to form a new team or not.
 
 When the _project council_ forms a new area team, the project council will nominate members for the team to serve until the next elections.
 
