@@ -37,7 +37,7 @@ This proposal is a starting point. The fundamental goal of this proposal is to c
 
 On adoption this proposal will be a living document. Changes to the process will be proposed through PRs and reviewed through the [Decision Making process](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md). This proposal is not perfect, and should never be assumed to be static or fixed.
 
-Each year, the _Project Council_ will collect feedback from _area teams_, _maintainers_ and the wider community on what is working, not working, or could be improved. That feedback will be discussed and this proposal will evolve to meet the needs of the community.
+Each year, the _Project Council_ will collect feedback from _area teams_, _maintainers_, and the wider community on what is working, not working, or could be improved. That feedback will be discussed and this proposal will evolve to meet the needs of the community.
 
 The _Project Council_ is strongly encouraged to hold sessions or roundtable discussions at the LLVM Developer Meetings to collect and discuss feedback on the governance process.
 
