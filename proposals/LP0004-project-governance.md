@@ -37,9 +37,9 @@ This proposal is a starting point. The fundamental goal of this proposal is to c
 
 On adoption this proposal will be a living document. Changes to the process will be proposed through PRs and reviewed through the [Decision Making process](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md). This proposal is not perfect, and should never be assumed to be static or fixed.
 
-Each year, the _Project Council_ will collect feedback from _area teams_, _maintainers_, and the wider community on what is working, not working, or could be improved. That feedback will be discussed and this proposal will evolve to meet the needs of the community.
+Each year, the _project council_ will collect feedback from _area teams_, _maintainers_ and the wider community on what is working, not working, or could be improved. That feedback will be included in an annual report from the _project council_ on the state of the project and community. The report will be shared ahead of each election cycle, and may include proposals to evolve and improve community processes in the coming year.
 
-The _Project Council_ is strongly encouraged to hold sessions or roundtable discussions at the LLVM Developer Meetings to collect and discuss feedback on the governance process.
+The _project council_ is strongly encouraged to hold sessions or roundtable discussions at the LLVM Developer Meetings to collect and discuss feedback on the governance process.
 
 ### Goals and Non-Goals
 
@@ -114,6 +114,8 @@ Second, _area teams_ are responsible for maintaining an up-to-date and comprehen
 > Note: This proposal does not change the existing developer policy for maintainer nomination, nor does it give area teams the exclusive ability to nominate maintainers.
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
+
+_Area teams_ should prepare a meeting agenda by collecting all the active RFCs in the community or significant disagreements in pull requests. During the team meeting, the _area team_ should try to identify actionable next steps or information to gather so the RFC or pull request can proceed. An _area team_ may escalate to the project council as needed.
 
 When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue. If an _area team_ cannot reach consensus, it may request the _project council_ to resolve the disagreement.
 
