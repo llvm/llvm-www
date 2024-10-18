@@ -127,6 +127,8 @@ Each _area team_ will have an odd number of members with a minimum of three (3) 
 
 An _area team_ with less than nine members may increase its size up to nine members with a majority vote. The _area team_ may then appoint members to fill any vacancies as normal. If at the beginning of an election there are insufficient candidates to fill all vacancies on an area team, the team size will decrease to the largest odd number that all the candidates can fill. If less than three candidates run for election for an _area team_ the _project council_ will either recruit members or disband the team.
 
+The _area team_ will take an active role in identifying potential candidates to join the _area team_ in future terms. In this capacity, the _area team_ should keep a focus on growth and development of contributors in the community, and the community values promoting diversity and inclusivity.
+
 Members of an _area team_ are elected for 1 year terms.
 
 #### Initial Area Teams
@@ -166,6 +168,7 @@ The _project council_ has a mandate to:
 * Prioritize the long term health of the LLVM project and community.
 * Shape the community to be accessible, inclusive, and sustainable.
 * Maintain the relationship between the LLVM Community and the LLVM Foundation.
+* Assist _area teams_ in identifying and growing community leaders.
 * Facilitate seeking consensus among the LLVM Community and _area teams_.
 * Act as, or delegate to, an _area team_ for all issues that are not covered by an _area team_, or span across multiple project areas.
 * As a last resort, act as the final decision maker on debates.
