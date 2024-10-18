@@ -133,11 +133,11 @@ Members of an _area team_ are elected for 1 year terms.
 
 This proposal suggests the formation of a small number of _area teams_ based on the most active parts of the project. These _area teams_ will form the initial _project council_ and it will be the _project council's_ responsibility to form additional _area teams_ to meet the project's needs.
 
-* LLVM
-* Clang
-* MLIR
-* Infrastructure
-* Community
+* LLVM - [Covering `llvm` source area](https://github.com/llvm/llvm-project/tree/main/llvm)
+* Clang - [Covering `clang` source area](https://github.com/llvm/llvm-project/tree/main/clang)
+* MLIR - [Covering `mlir` source area](https://github.com/llvm/llvm-project/tree/main/mlir)
+* Infrastructure - Covering project-wide automation, build, bug tracking and other infrastructure.
+* Community - Covering community issues including moderation, collaboration and communication tools.
 
 #### Process for New Area Teams
 
