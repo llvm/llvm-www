@@ -99,7 +99,7 @@ To be a _voting contributor_ an individual must be a member of the LLVM GitHub O
 
 7 days before voting begins a list of eligible voters is generated from the GitHub organization and activity.
 
-> Note: Recent changes to [commit access criteria](https://discourse.llvm.org/t/rfc2-new-criteria-for-commit-access/77110), and [GitHub email requirements](https://github.com/llvm/llvm-project/pull/109318), have enabled a simpler approach. While this approach may not be perfect, it is simpler, and can be fully automated without requiring maintaining databases or OAuth identification verification.
+> Note: Recent changes to [commit access criteria](https://discourse.llvm.org/t/rfc2-new-criteria-for-commit-access/77110), and [GitHub email requirements](https://llvm.org/docs/DeveloperPolicy.html#making-and-submitting-a-patch), have enabled a simpler approach. While this approach may not be perfect, it is simpler, and can be fully automated without requiring maintaining databases or OAuth identification verification.
 
 ### Area Teams
 
