@@ -17,7 +17,7 @@ As the LLVM community continues to grow, the systemic problems with making decis
 
 The lack of community governance not only impacts our community's ability to make contentious decisions, it stands as a roadblock for resolving other lingering issues. The lack of a process for resolving disagreement causes a state of paralysis in the community for dealing with systemic issues because there is no clear path to resolution.
 
-One such long-term problem is the lack of adequate code ownership. Many parts of the LLVM codebase lack owners or have owners that are way out of date. In our current model, nobody is responsible for auditing and ensuring code ownership. This problem has existed for years because nobody is responsible for it and there is no clear path to resolving it unless a contributor is willing to take on the potentially unpopular task. This root problem causes increasing challenges getting code reviewed as the burden to review falls on a small group of individuals.
+One such long-term problem is the lack of adequate maintainer coverage. Many parts of the LLVM codebase lack maintainers or have maintainers that are way out of date. In our current model, nobody is responsible for auditing and ensuring maintainer coverage. This problem has existed for years because nobody is responsible for it and there is no clear path to resolving it unless a contributor is willing to take on the potentially unpopular task. This root problem causes increasing challenges getting code reviewed as the burden to review falls on a small group of individuals.
 
 ## Proposed solution
 
@@ -32,6 +32,14 @@ This proposal seeks to codify three new structures within the LLVM community:
 * Project Council
 
 This proposal is a starting point. The fundamental goal of this proposal is to create a process that instills within our community a structure that allows the community to address existing problems and adapt to unforeseen challenges. If adopted, it should become a living document that evolves as the project and community evolve. This document, [LP0001 LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md), and other community governance documents should evolve through the proposal process.
+
+### Living Document
+
+On adoption this proposal will be a living document. Changes to the process will be proposed through PRs and reviewed through the [Decision Making process](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md). This proposal is not perfect, and should never be assumed to be static or fixed.
+
+Each year, the _project council_ will collect feedback from _area teams_, _maintainers_ and the wider community on what is working, not working, or could be improved. That feedback will be included in an annual report from the _project council_ on the state of the project and community. The report will be shared ahead of each election cycle, and may include proposals to evolve and improve community processes in the coming year.
+
+The _project council_ is strongly encouraged to hold sessions or roundtable discussions at the LLVM Developer Meetings to collect and discuss feedback on the governance process.
 
 ### Goals and Non-Goals
 
@@ -63,11 +71,9 @@ Consensus-seeking decision making instead focuses on efforts to build consensus 
 
 This proposal gives the responsibility for facilitating consensus-seeking and last-resort decision making authority to project governance structures defined below.
 
-### Role of Code Owners
+### Role of Maintainers
 
-This proposal does not change the role of code owners as defined in the [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#code-owners). As stated in the policy:
-
-    The sole responsibility of a code owner is to ensure that a commit to their area of the code is appropriately reviewed, either by themself or by someone else.
+This proposal does not change the role of maintainers as defined in the [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#maintainers). Maintainers are the front line for managing smooth operation of contributions and project workflows.
 
 ### Code of Conduct
 
@@ -89,15 +95,11 @@ A core component of this proposal is a shift to encourage more proposals to use 
 
 The first structure is to define the _voting contributor_ base. The _voting contributor_ base seeks to represent the active project contributors. In the context of project governance, the only responsibility of a _voting contributor_ is to vote to elect members of the _area teams_.
 
-The LLVM Foundation will maintain a voter database that identifies voters by name, email, and the accounts used on services used by the LLVM project. The voter database will only be used for election-related purposes. A full privacy policy that complies with appropriate laws will be published, and it will include a process for removing your personal information from the voter database. To be a _voting contributor_ an individual must register with the LLVM Foundation voter database, and meet eligibility requirements.
+To be a _voting contributor_ an individual must be a member of the LLVM GitHub Organization, and either have a public email address on their GitHub profile or have made a commit to the LLVM project using a non-private email address. The email address on the GitHub public profile or retrieved via commit metadata will be used for all election-related communication.
 
-An individual may be deemed ineligible to vote for violations of the community Code of Conduct.
+7 days before voting begins a list of eligible voters is generated from the GitHub organization and activity.
 
-To be eligible to vote an individual must have a GitHub account that is a member of the LLVM GitHub Organization, and register with the voter registration database. If a user removes themselves or is otherwise removed from the LLVM GitHub Organization (i.e. due to LLVM project policy or disciplinary action), they are no longer eligible to vote and may be removed from the voter registration database. If they later re-join the LLVM GitHub organization, they may need to re-register to vote in future elections.
-
-7 days before voting begins a list of eligible voters is constructed from the registered voters including only those that have participated in LLVM community interactions in the preceding 12 months.
-
-Using the methodologies defined in Appendix 2, and only looking at the main LLVM repository, we have 1667 eligible _voting contributors_ based on code contributions alone. This number should expand as we incorporate participation in code reviews, issues, and discussion forums.
+> Note: Recent changes to [commit access criteria](https://discourse.llvm.org/t/rfc2-new-criteria-for-commit-access/77110), and [GitHub email requirements](https://llvm.org/docs/DeveloperPolicy.html#making-and-submitting-a-patch), have enabled a simpler approach. While this approach may not be perfect, it is simpler, and can be fully automated without requiring maintaining databases or OAuth identification verification.
 
 ### Area Teams
 
@@ -107,13 +109,17 @@ _Area teams_ have three main responsibilities.
 
 First, they are responsible for electing from among themselves a team secretary who will take notes of any team meetings and a team chair who facilitates team meetings and represents the team on the _project council_.
 
-Second, _area teams_ are responsible for maintaining an up-to-date and comprehensive list of code owners for their area of the project. They can nominate any individual they deem appropriate as code owner of any area they are responsible for. The role of _code owner_ remains a volunteer role, and any individual can accept, decline, or resign the role for themselves as they feel appropriate.
+Second, _area teams_ are responsible for maintaining an up-to-date and comprehensive list of maintainers for their area of the project. They can nominate any individual they deem appropriate as maintainer of any area they are responsible for. The role of _maintainer_ remains a volunteer role, and any individual can accept, decline, or resign the role for themselves as they feel appropriate.
 
-> Note: This proposal does not change the existing developer policy for code owner nomination, nor does it give area teams the exclusive ability to nominate code owners.
+> Note: This proposal does not change the existing developer policy for maintainer nomination, nor does it give area teams the exclusive ability to nominate maintainers.
 
 Finally, _area teams_ are responsible for facilitating decision making for their area of the project. Facilitating decision making can take any number of forms ranging from contributing to RFC discussions, helping mediate disagreements, or fulfilling roles originally delegated to Chris Lattner in the [LLVM Decision Making](https://github.com/llvm/llvm-www/blob/main/proposals/LP0001-LLVMDecisionMaking.md) process.
 
+_Area teams_ should prepare a meeting agenda by collecting all the active RFCs in the community or significant disagreements in pull requests. During the team meeting, the _area team_ should try to identify actionable next steps or information to gather so the RFC or pull request can proceed. An _area team_ may escalate to the project council as needed.
+
 When acting to facilitate decision making the _area team_ should act as a mediator between different perspectives helping find common ground and recognizing that decisions need not be binary. The _area team_ should seek to find the best solution to the framed problem, which may not be any of the proposed alternatives. If agreement cannot be reached, the _area team_ may act as the final decision maker. In that capacity decisions of an _area team_ are considered final, but can be overruled by a 2/3 majority vote of the _project council_ or the _area team_ itself revisiting the issue. If an _area team_ cannot reach consensus, it may request the _project council_ to resolve the disagreement.
+
+A fast "no" is often a better outcome than an indefinite "maybe". In recognition of that, an _area team_, when acting as the facilitator of decision making, will publicly communicate a timeline for discussion and decision making. The _area team_ will communicate when a topic is on the agenda for a meeting with sufficient notice for relevant parties to participate.
 
 _Area teams_ are not intended to be direction setters or primary maintainers of their areas, although individuals on an _area team_ may fulfill that role separately. The _area team's_ role is as a steward and moderator ensuring the health and smooth operation of the area.
 
@@ -121,17 +127,19 @@ Each _area team_ will have an odd number of members with a minimum of three (3) 
 
 An _area team_ with less than nine members may increase its size up to nine members with a majority vote. The _area team_ may then appoint members to fill any vacancies as normal. If at the beginning of an election there are insufficient candidates to fill all vacancies on an area team, the team size will decrease to the largest odd number that all the candidates can fill. If less than three candidates run for election for an _area team_ the _project council_ will either recruit members or disband the team.
 
+The _area team_ will take an active role in identifying potential candidates to join the _area team_ in future terms. In this capacity, the _area team_ should keep a focus on growth and development of contributors in the community, and the community values promoting diversity and inclusivity.
+
 Members of an _area team_ are elected for 1 year terms.
 
 #### Initial Area Teams
 
-This proposal suggests the formation of a small number of _area teams_ based on the most active parts of the project. These _area teams_ will form the initial _project council_ and it will be the _project council's_ responsibility to form additional _area teams_ to meet the project's needs.
+This proposal suggests the formation of a small number of _area teams_ based on the most active parts of the project. These _area teams_ will form the initial _project council_ and it will be the _project council's_ responsibility to form additional _area teams_ to meet the project's needs. Each of these teams when initially formed will have three (3) members.
 
-* LLVM
-* Clang
-* MLIR
-* Infrastructure
-* Community
+* LLVM - [Covering `llvm` source area](https://github.com/llvm/llvm-project/tree/main/llvm)
+* Clang - [Covering `clang` source area](https://github.com/llvm/llvm-project/tree/main/clang)
+* MLIR - [Covering `mlir` source area](https://github.com/llvm/llvm-project/tree/main/mlir)
+* Infrastructure - Covering project-wide automation, build, bug tracking and other infrastructure.
+* Community - Covering community issues including moderation, collaboration and communication tools.
 
 #### Process for New Area Teams
 
@@ -160,7 +168,9 @@ The _project council_ has a mandate to:
 * Prioritize the long term health of the LLVM project and community.
 * Shape the community to be accessible, inclusive, and sustainable.
 * Maintain the relationship between the LLVM Community and the LLVM Foundation.
+* Assist _area teams_ in identifying and growing community leaders.
 * Facilitate seeking consensus among the LLVM Community and _area teams_.
+* Act as, or delegate to, an _area team_ for all issues that are not covered by an _area team_, or span across multiple project areas.
 * As a last resort, act as the final decision maker on debates.
 
 The _project council_ will elect from among themselves a secretary who will take notes of all meetings, a chair who facilitates meetings, and a liaison to the LLVM Foundation to manage the relationship between the _project council_ and the LLVM Foundation.
@@ -209,6 +219,8 @@ Public notice of any vote will be published on the LLVM discussion forums under 
 
 Voter eligibility will be determined 7 days before voting opens by the rules for defining _voting contributors_. Voting will be executed using a private poll hosted by [Concordcet Internet Voting Service]([https://civs1.civs.us/](https://civs1.civs.us/)). Concordcet uses a ranked choice polling process.
 
+Any _voting contributor_ can vote for members of any _area team_. Voting is not mandatory, and _voting contributors_ may abstain from any individual vote or election at their discretion.
+
 > Note: Concordcet Internet Voting Service suggested here is a placeholder. A more through review of voting systems needs to be conducted. This will overlap with voter registration data collection.
 
 All eligible _voting contributors_ will be contacted via email with instructions on how to vote on the day voting opens.
@@ -219,7 +231,7 @@ The LLVM Foundation will act as a facilitator for community elections. The LLVM 
 
 Elections for _area teams_ occur in January of each year. A two week long nomination period begins the second Monday in January. During the nomination period any _voting contributor_ can nominate themselves or another _voting contributor_ to run for any one _area team_. No individual can run for more than one _area team_ in a single election. An individual nominated for more than one area team will be responsible for choosing which team they want to run for. Nominations will be recorded publicly for community visibility. Unsuccessful results in an election do not impact nomination eligibility in subsequent elections.
 
-Voting begins the fourth Monday in January and continues for 2 weeks. Election results will be announced no later than the second Monday in February. The term of the newly elected _area team_ begins the first Monday in March. Each _area team_ will meet during the first week in March to elect from themselves the team secretary and chair to re-constitute the _project council_.
+Voting begins the fourth Monday in January and continues for 2 weeks. Election results will be announced no later than two days after voting closes. The term of the newly elected _area team_ begins the first Monday in March. Each _area team_ will meet during the first week in March to elect from themselves the team secretary and chair to re-constitute the _project council_.
 
 ## Amending This Document
 
@@ -229,9 +241,28 @@ This document should be amended through public proposals following the [LP0001 L
 
 This proposal impacts all LLVM projects and all contributors to the LLVM community.
 
+## Timeline for Initial Implementation
+
+The initial implementation will have the schedule as listed below:
+
+* December 2, 2024 - Voter identification scripts will be published for review
+* December 9, 2024 - Voter identification test 1
+* December 16, 2024 - Voter identification test 2 (optional)
+* January 6, 2025 - Voter identification test 3 (optional)
+* January 13, 2025 - Area Team nominations begin
+* January 27, 2025 - Voting opens
+* February 10, 2025 - Voting closes
+* February 11, 2025 - Results announced on Discourse
+
+The voter identification tests will involve running the voter identification scripts to identify all eligible voting contributors and sending an email notification to the identified email addresses. A post will be made on Discourse after each round of emails are sent to notify contributors to find the sent messages. Tests will be run through December 2024 and the first week of January 2025 to verify smooth identification of voters.
+
+The _project council_ will meet in August 2025 and discuss the governance process. They will collect feedback on how the process has gone in the initial months of implementation and prepare a session for the 2025 US LLVM Developer Meeting to discuss that feedback and any proposed changes.
+
 ## Frequently Asked Questions
 
 ### Why create new structures instead of expanding the role of code owners?
+
+> Note: Between the time of drafting this document and its acceptance the role of "code owner" was replaced by "maintainer". This section in the FAQ is intentionally left unmodified, however much of its content still applies directly to the maintainer role. For more information about the maintainer role please see the [discourse post](https://discourse.llvm.org/t/rfc-proposing-changes-to-the-community-code-ownership-policy/80714).
 
 The role of code owners divides the community today. The official developer policy describes the role narrowly, but community convention often assumes code owners have more responsibility and authority. This is not a bad thing. This is consistent with LLVM's core value that _authority is earned_. Code owners do a lot of work for the project and the most active code owners earn a greater degree of authority than the role provides. The important distinction here is that the authority comes not from the role of being a code owner, but from the merit of the contributions and efforts of the individual. This creates an obvious challenge because not all code owners contribute equally, and in fact some code owners are inactive entirely.
 
@@ -385,6 +416,8 @@ From Rust I took a hierarchy of teams that have defined areas of responsibility 
 For LLVM I tried to break down the teams into areas based on rough contribution volume. I codified the wide purview of the LLVM Community Code of Conduct.
 
 I deliberately did not change the role of code owners from what is codified in our Developer Policy. I recognize that our community expects code owners to take a wider role, and we (generally) respect a wider authority for code owners.
+
+> Note: Since original publication the role of code owner has been redefined as maintainers to encompass the broader community role. See the [discourse post](https://discourse.llvm.org/t/rfc-proposing-changes-to-the-community-code-ownership-policy/80714).
 
 Defining and refining the LLVM Developer Policy should be a priority for elected governance.
 
