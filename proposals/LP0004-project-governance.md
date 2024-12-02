@@ -356,7 +356,7 @@ for dir in results:
 In some places a quick listing of the sum of commits per author for a given tree directory is used. In those cases a shorthand command line was used:
 
 ```
-git log --pretty="%an" --since="September 1, 2022" --until="September 1, 2023" -- :/llvm/ | sort | uniq -c | sort
+git log --pretty="%an" --since="September 1, 2022" --until="September 1, 2023" -- :/llvm/ | sort | uniq -c | sort -n
 ```
 
 In the script above `:/llvm/` can be replaced with any other path inside the repository.
