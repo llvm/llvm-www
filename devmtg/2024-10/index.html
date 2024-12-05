@@ -12,6 +12,7 @@
 <td valign="top">
 <ol>
         <li><a href="#about">About</a></li>
+        <li><a href="#program">Program</a></li>
         <li><a href="#coc">Code of Conduct</a></li>
         <li><a href="#contact">Contact</a></li>
 </ol>
@@ -72,6 +73,564 @@ and interesting ways.</li>
 <p>The LLVM Developers' Meeting strives to be the <i>best conference</i> to meet other LLVM developers and users.</p>
 
 <p>For future announcements or questions: Please visit the LLVM Discourse forums. Most posts are in the Announcements or Community categories and tagged with usllvmdevmtg.</p> 
+
+<div class="www_sectiontitle" id="program">Program</div>
+
+<p>
+<b>Keynotes:</b>
+</p>
+
+<p>
+Rust ❤️ LLVM<br>
+<i>Nikita Popov</i>
+[ <a href="https://youtu.be/Kqz-umsAnk8">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/keynote/Popov-Rust_Heart_LLVM.pdf">Slides</a> ]<br>
+This talk is about how Rust uses LLVM, how the two projects interact, and the challenges and opportunities that arise.
+</p>
+
+<p>
+State of Clang as a C and C++ Compiler<br>
+<i>Aaron Ballman</i>
+[ <a href="https://youtu.be/hKY7OLLZw1w">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/keynote/Ballman-StateofClang2024.pdf">Slides</a> ]<br>
+Come along with Clang's lead maintainer on a whirlwind tour of what new standard C and C++ language features have been added to Clang in the past 1-2 years, an overview of what standards-related work the community is actively implementing for Clang 20 and beyond, and discussion of what challenges the community is facing and could use help with.
+</p>
+
+<p><b>Tutorials:</b></p>
+
+<p>
+Using MLIR from C and Python<br>
+<i>Alex Zinenko</i>
+[ <a href="https://youtu.be/E2xLXcrkOTE">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Zinenko-UsingMLIR-from-C-and-Python.pdf">Slides</a> ]<br>
+MLIR, like the rest of LLVM, is primarily written in C++. However, the C++ API is known to be complex and unstable. Moreover, both quick prototyping and deep integration with client frameworks calls for uses of different languages to work with MLIR, most often Python for its simplicity and C for its ubiquity. This talk will present the MLIR C API and demonstrate how it is used to construct Python bindings. Attendees of this talk will learn how to expose custom dialects in both C and Python as well as how to leverage C API to interact with MLIR from different languages</p>
+
+<p>
+LLVM Supply Chain Security: From developer’s desk to user’s device.<br>
+<i>Tom Stellard</i>
+[ <a href="https://youtu.be/eBHgcsz-HPg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Stellard-SupplyChainSecurity">Slides</a> ]<br>
+Compilers are often the last line of defense in securing against dangerous exploits. Compiler features like “Stack Protector”, “Safe Stack” , and “Stack Clash Protection” can help protect code from common programmer mistakes and thwart malicious actors trying to take advantage of buggy code. However, even the most sophisticated protection can be rendered useless if the compiler itself can’t be delivered safely to its users. In this talk we take a look at LLVM’s approach to supply chain security. How we get code from a developer’s desk safely into the hands of users. We’ll look at our release process, our access policies, and our project infrastructure to see how we are approaching supply chain security and what we can do to make it better.
+</p>
+
+<p>
+A Beginners’ Guide to SelectionDAG<br>
+<i>Alex MacLean, Justin Fargnoli</i>
+[ <a href="https://youtu.be/nNQ6AF6i5FI">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/MacLean-Fargnoli-ABeginnersGuide-to-SelectionDAG.pdf">Slides</a> ]<br>
+SelectionDAG is a crucial framework within LLVM for lowering LLVM IR into efficient machine code. However, little beginner-friendly documentation exists for it. This talk fills that void by covering the framework's architecture, target-specific optimizations, and integration with LLVM IR and Machine IR. By the end of the session, participants will be well-prepared to make their first contributions to backends using the SelectionDAG framework.</p>
+
+
+<p>
+Support a new Calling Convention in LLVM<br>
+<i>Brandon Wu</i>
+[ <a href="">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Wu-Support-a-NewCallingConvention.pdf">Slides</a> ]<br>
+Vector processors play a big role among high performance computing applications such as image processing, machine learning as well as gaming, thus handling vector registers efficiently is important in terms of performance. Calling Convention(CC) is one of the most significant aspects that can affect the execution speed and spills can be avoided if vector registers between procedural calls are controlled and assigned efficiently. In this talk, we will show the design and implementation of RISC-V Vector Calling Convention for C/C++.</p>
+
+<p><b>Panel:</b></p>
+
+<p>
+Is MLIR feature complete? Production ready?<br>
+<i>Alex Zinenko, Stella Laurenzo, Renato Golin, Tobias Grosser, Mehdi Amini, Chris Lattner</i>
+[ <a href="https://youtu.be/T5H1HjOSE_I">Video</a> ] <br>
+Once the most fast-paced part of the LLVM source tree, the MLIR project is slowing down significantly both in the amount and complexity of changes committed. The project had a few open meetings since the start of this year as opposed to more than a dozen the year before, 1183 commits tagged with “[mlir]” were made to the tree in the first seven months of 2024 as opposed to 2045 during the same period of 2023, etc. At the same time, the increasing amount of work is focused on downstream projects using MLIR, ranging from in-tree CIR and Flang, to incubated CIRCT and Polygeist, to out-of-tree OSS projects like IREE and XLA, to the many proprietary stacks. Are these the signs of MLIR reaching a certain maturity level? Or are these the warning signs of the worrying community disengagement? Should we declare MLIR feature-complete and redirect larger changes to client projects or, on the contrary, actively lift the common parts from downstreams? What is preventing individuals and teams from collaborating more actively in the open? This panel brings together leaders from academia, start-ups and established industry players to discuss their takes on these and other hot questions about MLIR strategy.
+
+</p>
+
+<p><b>Technical Talks:</b></p>
+
+<p>
+Modern Embedded Development with LLVM<br>
+<i>Petr Hosek</i>
+[ <a href="https://youtu.be/5hHQi-Uj34I">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Hosek-ModernEmbeddedDevelopment-with-LLVM.pdf">Slides</a> ]<br>
+Modern day embedded development is anything but modern. I believe that we can change the way embedded development is done by using a modern toolchain based on LLVM and adopting practices that have become commonplace for C/C++ user-space software development. In this talk, I will cover our experience from migrating several internal and external baremetal projects to the Clang toolchain, the issues we encountered and the opportunities we discovered.</p>
+
+
+<p>
+What we learned from building Mojo’s optimization pipeline<br>
+<i>Weiwei Chen</i>
+[ <a href="https://youtu.be/yuSBEXkjfEA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Weiwei-What-We-Learned-Building-Mojo-OptimizationPipeline.pdf">Slides</a> ]<br>
+Mojo is a programming language for heterogenous compute built on top of MLIR and LLVM. Like many other programming languages and compiler systems built this way, the LLVM pipeline is often the bottleneck for compilation time. In this talk, we will share our strategies for wrestling with LLVM and leveraging MLIR passes in our pipeline design to significantly reduce compilation time without sacrificing generated code performance. As a result, we cut time spent in LLVM from 80% to 20% of overall Mojo compilation time.</p>
+
+
+<p>
+Floating Point in LLVM: the Good, the Bad, and the Absent<br>
+<i>Joshua Cranmer</i>
+[ <a href="https://youtu.be/sSNAGFXNXYU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Cranmer-FloatingPoint-in-LLVM.pdf">Slides</a> ]<br>
+This talk will cover the current state of semantics in floating-point for LLVM: the things that work, the things that don't work, and the things that are just plain missing entirely.</p>
+
+<p>
+Higher-Level Linker Scripts for Embedded Systems<br>
+<i>Daniel Thornburgh</i>
+[ <a href="https://youtu.be/t-lvIFmggmA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Thornburgh-Higher-LevelLinkerScripts-forEmbeddedSystems.pdf">Slides</a> ]<br>
+Embedded systems intrinsically place idiosyncratic constraints on the memory addresses of code and data. These constraints are typically met by explicitly placing sections using linker scripts. This talk explores these constraints and introduces section classes, a new LLD feature that provides a higher-level way to control placement. This largely removes the toil of updating linker scripts in response to changes to code/data sizes.</p>
+
+
+<p>
+Towards Useful Fast-Math<br>
+<i>Andy Kaylor</i>
+[ <a href="https://youtu.be/3Uf_3Su1NEc">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Kaylor-Towards-Useful-Fast-Math.pdf">Slides</a> ]<br>
+Fast-math semantic modes provide a way to selectively relax the default rules for numeric consistency used by the compiler. Relaxing these rules can improve performance, but it can also introduce accuracy errors. This talk will describe a technique to track down the cause of such errors and introduce a proposal for new LLVM optimizer infrastructure to make the debugging process easier.</p>
+
+<p>
+LLVM libc math library - Current status and future directions<br>
+<i>Tue Ly</i>
+[ <a href="https://youtu.be/-8zb8rHbvcQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Ly-LLVM-libc-math-library-CurrentStatus.pdf">Slides</a> ]<br>
+LLVM libc math library aim to be a correctly rounded, performant, and complete C23 math library that supports various targets and use-cases. In this talk, we will go over some of the recent milestones and production usages of the LLVM libc math library, and our plans and directions for the near future.
+</p>
+
+<p>
+Exploiting MLIR Abstractions for Hardware Verification<br>
+<i>Bea Healy, Luisa Cicolini</i>
+[ <a href="https://youtu.be/ga0VHhwmKMM">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Healy-Cicolini-ExploitingMLIR-Abstractions-for-HardwareVerification.pdf">Slides</a> ]<br>
+Hardware verification is a fundamental, yet often painful, step of hardware design. This talk will discuss how MLIR can accelerate this process through the CIRCT infrastructure, an MLIR hardware compiler containing dialects that describe hardware at both high and low levels of abstraction. We will describe how to generate models for verification from such high-level abstractions - specifically from the finite state machine (FSM) dialect - to check properties at higher levels and optimize the overall verification procedure.</p>
+
+<p>
+Advancing SPIR-V Backend Stability: Navigating GlobalISel Compromises<br>
+<i>Michal Paszkowski, Vyacheslav Levytskyy</i>
+[ <a href="https://youtu.be/oLuTsD4mLXE">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Paszkowski-Levytskyy-AdvancingSPIR-V-BackendStability.pdf">Slides</a> ]<br>
+This presentation outlines the recent advancements and ongoing challenges in the development of the SPIR-V backend, which has become a crucial component for supporting OpenCL, SYCL/DPC++, and soon Vulkan inside LLVM. The talk highlights the inherent complexities of generating SPIR-V, a higher-level representation compared to LLVM IR, through conventional GlobalISel translation schema. Key issues such as the translation of opaque pointers, pointer and builtin type inference, and the integration of new SPIR-V extensions are discussed. The session will cover strategies for ensuring backward compatibility with older LLVM IR, maintaining [g]MIR correctness across passes, and verifying SPIR-V binaries through GitHub actions using existing LIT tests and external tools. Plans to further integrate SPIR-V into LLVM with a new frontend are also presented.</p>
+
+<p>
+New llvm-exegesis Support for RISC-V Vector Extension<br>
+<i>Min Hsu</i>
+[ <a href="https://youtu.be/h2tDWoTWUnw">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Hsu-RVV-Exegesis.pdf">Slides</a> ]<br>
+llvm-exegesis has been instrumental in calibrating LLVM's scheduling models using hardware-collected metrics, such as instruction latency. In this talk, we'll unveil the first-ever llvm-exegesis support for RISC-V vector (RVV) instructions. We'll explore the challenges of scaling llvm-exegesis to accommodate the extensive range of RVV opcodes and configurations, and how we've significantly enhanced its efficiency for use in pre-silicon hardware development environments like FPGA. Our work not only advances RISC-V but also benefits the broader LLVM community by improving the quality of scheduling models with llvm-exegesis.</p>
+
+<p>
+Loop Vectorisation: a quantitative approach to identify/evaluate opportunities<br>
+<i>Sjoerd Meijer</i>
+[ <a href="https://youtu.be/u7W3_xL_3NQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Meijer-Loop-Vectorisation">Slides</a> ]<br>
+In previous LLVM developer conferences, there have been several presentations and discussions on loop vectorisation, focusing on the progress of the VPlan infrastructure and vectorisation for specific back-ends. In this talk, we aim to take a different approach by identifying patterns and types of loops that the loop vectoriser cannot vectorise. Specifically, we want to: i) identify the deficiencies and missing features of the loop vectoriser, ii) group these deficiencies and find common root causes for missed vectorisation opportunities, and iii) develop a vectorisation plan to enhance code-generation quality based on these insights. Therefore, the contributions of this work and talk include: 1. A quantitative approach to find loop vectorisation opportunities and evaluate deficiencies, 2. A presentation of benchmark numbers for two loop-based benchmarks TSVC-2 and RAJAPerf, 3. A first analysis of loop vectoriser deficiencies and opportunities. 4. Thoughts on measuring and evaluating compiler changes with the LLVM test-suite. Although we concentrated on AArch64 platforms for our results, most of your findings are broadly applicable.</p>
+
+<p>
+Enhance SYCL offloading support to use the new offloading model<br>
+<i>Ravi Narayanaswamy</i>
+[ <a href="https://youtu.be/4Qof7vtfhuk">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Narayanaswamy-EnhanceSYCL-offloading-support.pdf">Slides</a> ]<br>
+Driven by Intel, SYCL compiler is an LLVM-based project that implements support for the SYCL language. In our downstream implementation, We (Intel) have made several changes to the clang-linker-wrapper tool to support SYCL device code linking and wrapping. This talk includes discussion of key changes to clang-linker-wrapper tool to enable JIT/AOT compilation flow for SYCL offloading, addition of a new sycl-post-link library, SYCL specific options passed to clang-linker-wrapper, and use of existing mechanism for propagating SYCL specific metadata from the compiler to SYCL runtime library.</p>
+
+<p>
+The State of Pattern-Based IR Rewriting in MLIR<br>
+<i>Matthias Springer</i>
+[ <a href="https://youtu.be/xIeihq2WZOU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Springer-Pattern-Based-IR-Rewriting-in-MLIR.pdf">Slides</a> ]<br>
+Pattern-based IR rewriting through the greedy pattern rewriter and the dialect conversion framework is widely used and one of the core mechanisms of MLIR. This talk will touch upon the parts of their APIs that have evolved/changed over the last years. The main part of the talk is a set of best practices that programmers can follow when designing pattern-based rewrites. Finally, this talk will briefly touch upon a new, simpler dialect conversion driver (without pattern rollback and automatic materializations) that is currently in development.</p>
+
+<p>
+Vectorization in MLIR: Towards Scalable Vectors and Matrices (Part 2)<br>
+<i>Andrzej Warzyński</i>
+[ <a href="https://youtu.be/gaSb4BRRcmM">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Warzynski-Vectorization-in-MLIR.pdf">Slides</a> ]<br>
+This presentation builds on the "Vectorization in MLIR" talk delivered at LLVM Dev Meeting 2023, delving deeper into the Linalg Vectorizer's capabilities within MLIR. The Linalg Vectorizer combines a simple tiling and basic-block vectorization approach with advanced concepts such as vector masking or support for scalable vectors. In this follow-up session, we will explore the implementation details of the Linalg Vectorizer, focusing on how it handles Linalg operations beyond linalg.matmul, which was covered in the previous talk. We'll also compare various vectorization pre-processing strategies—such as masking, peeling, and padding—and demonstrate how to effectively apply these strategies. Additionally, we will address the unique challenges posed by scalable vectors, including our approach to extending value-bounds analysis to accommodate these complexities. Specifically, we'll provide an update on the ongoing support for the Scalable Matrix Extension (SME), a CPU extension that enables 2D scalable vectors.</p>
+
+<p>
+Efficient Coroutine Implementation in MLIR<br>
+<i>Steffi Stumpos</i>
+[ <a href="https://youtu.be/ILjuvj13EpQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Stumpos-EfficientCoroutineImplementatio-inMLIR.pdf">Slides</a> ]<br>
+Because of the growing need to offload compute to GPUs and other types of customized hardware, asynchronous programming has become a necessary feature of modern programming languages. In this talk we will share our experience in designing and implementing the asynchronous programming feature in Mojo, an MLIR based language. We will reflect on our poor experience trying to use LLVM’s coroutines and walk through how we mitigated the same deficiencies when rewriting the passes in MLIR.</p>
+
+<p>
+LLVM Premerge Testing: Current State and Next Steps<br>
+<i>Lucile Rose Nihlen</i>
+[ <a href="https://youtu.be/CLczt-RJzAA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Nihlen-LLVM-Premerge-Testing.pdf">Slides</a> ]<br>
+Presenting a detailed technical overview of the current LLVM Premerge Infrastructure, the challenges it is facing and their proposed solutions, and a roadmap for the future development of the system.
+</p>
+
+<p>
+Fine-grained compilation caching using llvm-cas<br>
+<i>Shubham Rastogi</i>
+[ <a href="https://youtu.be/c629Cggdes4">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Rastogi-Fine-grained-compilation-caching-using-llvm-cas.pdf">Slides</a> ]<br>
+Last year, we demonstrated how debug information can be efficiently represented in fine-grained caching. Since then, we have used this technology to build a drop-in replacement for ccache. It is built into clang, and therefore supports advanced features necessary for real-world use, such as caching of Clang modules. Debug information can make up to 90% of an object file, therefore, efficiently handling it is paramount for the size of a build cache, and its replay speed. This year, we further improved the size of debug information by redesigning the CAS schema, and applying compression. We also made improvements to the debug info decoder to maximize replay performance.</p>
+
+<p>
+Release Engineering Strategies: How LLVM and GCC Navigate Development and Maintenance<br>
+<i>Tom Stellard, David Edelsohn</i>
+[ <a href="https://youtu.be/HwrQyOQBIpQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Edelsohn-GCC-and-LLVMDevelopment-and-Maintenance.pdf">Slides</a> ]<br>
+LLVM and GCC have evolved very different policies for release engineering (development cycle, scheduling, type of maintenance, duration of maintenance) that impacts the manner in which it is consumed and deployed by individual users, packagers (Linux distributions and product-versions of the compilers), and downstream projects. This session explores the differing approaches and if either compiler should consider changes in its policies to better address the needs of its user community or to make the development and release engineering process more efficient. The session will describe the release engineering process of the two compiler ecosystems followed by a conversation among the attendees about potential paths forward.</p>
+
+<p>
+Two Compilers, One Language, No Specification<br>
+<i>Chris Bieneman</i>
+[ <a href="https://youtu.be/sVq5khCXkbw">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Bieneman-Two-Compilers-One-Language-NoSpecification.pdf">Slides</a> ]<br>
+The High Level Shader Language (HLSL) is a popular cross-platform programming language for GPUs focused on realtime graphics applications. Through its over 20 year life HLSL has had two reference compilers, but no specification. As HLSL support in Clang progresses, the implementers are working through challenges caused by the lack of a specification and the language inconsistencies between the reference implementations.</p>
+
+<p>
+Making upstream MLIR more friendly to programming languages: current upstream limitations, the ptr dialect, and the road ahead<br>
+<i>Mehdi Amini, Fabian Mora Cordero</i>
+[ <a href="https://youtu.be/Bt__BDQivxo">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Amini-Cordero-MakingUpstreamMLIRMoreFriendly.pdf">Slides</a> ]<br>
+In this talk, we discuss the existing limitations of upstream MLIR for representing generic programming languages and propose solutions to address some of these issues. As part of our proposed solutions, we will discuss the potential modularization of the LLVM dialect. We also present the status of the recently upstreamed ptr dialect as a first step in the modularization of LLVM and the lessons learned from this ongoing upstreaming process. Finally, we discuss the road ahead for making MLIR more attractive for compiler developers for programming languages, like finally standardizing the C/C++ calling convention on MLIR.</p>
+
+<p>
+Hand-In-Hand: LLVM-libc and libc++ code sharing.<br>
+<i>Michael Jones, Christopher Di Bella</i>
+[ <a href="https://youtu.be/VAEO86YtTHA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Jones-DiBella-hand-in-hand.pdf">Slides</a> ]<br>
+Have you ever wondered how libc++ implements functions that are similar to libc? For example, consider std::from_chars(float) and strtof. They both take a string and output a float, but from_chars also takes an end pointer and a format argument. They operate similarly behind the scenes. Their interfaces mean that from_chars can’t easily be implemented in terms of strtof. This talk will explain Project Hand-In-Hand, an LLVM-libc and libc++ collaboration to share the internal code for very similar functions that have incompatible interfaces.</p>
+
+<p>
+Challenges in Using LLVM as a Quantum Intermediate Representation<br>
+<i>Andrew Litteken</i>
+[ <a href="https://youtu.be/lzl-qdswIgU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Litteken-Challenges-Using-LLVM-as-a-QuantumIntermediate-Representation.pdf">Slides</a> ]<br>
+The most efficient programming and compilation paradigms for quantum computing are still being explored as new applications and architectures are developed. This talk lays out several challenges of performing quantum compilation, and how the Intel Quantum Compiler meets the requirements of quantum computation by using the LLVM infrastructure. Additionally, we will discuss how the Intel Quantum Compiler makes the quantum intermediate representation more approachable to users who are not familiar with compiler infrastructure including the Function Language Extension for Quantum (FLEQ) and Quantum Circuit Object framework.</p>
+
+<p>
+(Offload) ASAN via Software Managed Virtual Memory<br>
+<i>Johannes Doerfert</i>
+[ <a href="https://youtu.be/B60jp4khrvc">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Doerfert-Offload-ASAN.pdf">Slides</a> ]<br>
+We present LLVM/Offload Sanitizer, an address sanitizer (ASAN) designed for GPUs. In contrast to the classic CPU ASAN, the offload sanitizer will avoids high memory overhead, and even memory traffic, via software managed virtual memory. Allocations result in "virtual pointers" that are checked and translated prior to accesses but without buffer zones and, in case of shared and local GPU memory, even without additional memory traffic. Our performance results show huge advantages against the classic CPU design ported to the GPU, however, we will details various pitfalls that make efficient sanitization of GPU code especially hard. Finally, we will show some initial comparison of this design against classic ASAN on the CPU.</p>
+
+<p>
+A C++ Toolchain for Your GPU<br>
+<i>Joseph Huber</i>
+[ <a href="https://youtu.be/4TxGWis1mws">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Huber-A-CPlusPlus-Toolchain-for-Your-GPU.pdf">Slides</a> ]<br>
+This project seeks to treat the GPU as a standard hosted target by porting the LLVM C library, compiler runtime, and C++ runtime all to run on the GPU. We show how LLVM/Clang can be used to compile regular, freestanding C++ to target the GPU as well as show how to use this to create GPU libraries that can be stacked upon eachother.
+</p>
+
+<p>
+When unsafe code is slow - Automatic Differentiation in Rust<br>
+<i>Manuel Drehwald</i>
+[ <a href="https://youtu.be/xEcoNuzhfBI">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Drehwald-AutomaticDifferentiation-in-Rust.pdf">Slides</a> ]<br>
+Automatic Differentiation was accepted as an experimental Rust feature for HPC, ML, and Scientific Computing applications. We present Rust-Enzyme, an LLVM-based autodiff tool and show that differentiating idiomatic Rust can lead to significantly better performance than differentiating similar C++ code. We will discuss rustc, LLVM, JAX, Enzyme and C++ limitations to explain benchmark differences and prove that old performance assumptions for libraries and languages won't hold when compiler-based automatic differentiation is applied.
+</p>
+
+<p>
+A new constant expression interpreter for Clang<br>
+<i>Timm Baeder</i>
+[ <a href="https://youtu.be/eMT1dBlaggQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Baeder-A-new-constant-expression-interpreter-for-Clang">Slides</a> ]<br>
+In this talk, we will look at the development status of the new bytecode interpreter for constant expressions in Clang, implementation challenges as well as future development plans.
+</p>
+
+<p>
+Generic implementation strategies in Carbon and Clang<br>
+<i>Richard Smith</i>
+[ <a href="https://youtu.be/j0BL52NdjAU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Smith-Generic-implementation-strategies-in-Carbon-and-Clang">Slides</a> ]<br>
+A dive into the generics implementation in the Carbon toolchain and the templates implementation in Clang. This talk will contrast the approaches taken and discuss some benefits of each direction.</p>
+
+<p>
+JSIR - Adversarial JavaScript Detection With MLIR<br>
+<i>Zhixun Tan</i>
+[ <a href="https://youtu.be/SY1ft5EXI3I">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Tan-JSIR.pdf">Slides</a> ]<br>
+Adversarial JavaScript is everywhere - web pages, mobile apps, browser extensions… you name it! To better support the detection of adversarial JavaScript, Google is using MLIR to develop JSIR, a JavaScript intermediate representation. JSIR needs to support dataflow analysis to extract suspicious signals from the code, source-to-source transformations to simplify obfuscated code, and even binary-to-source transformations for bytecode decompilation. In this talk, we describe several IR design choices we made due to the unique requirements of adversarial code analysis.
+</p>
+
+<p>
+Clang Modules at Scale<br>
+<i>Michael Spencer, Ian Anderson</i>
+[ <a href="https://youtu.be/tcB1vXc4L8M">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Anderson-Spencer-ClangModules-at-Scale.pdf">Slides</a> ]<br>
+This presentation shares some of the things we've learned in the more than 10 years of deploying Clang modules in the SDKs. We explain what what a modular header actually is, what it takes to build thousands of modules, and the issues you may encounter when using Clang modules at scale.
+</p>
+
+<p>
+Shardy: An MLIR-based Tensor Partitioning System for All Dialects<br>
+<i>Bart Chrzaszcz, Zixuan Jiang</i>
+[ <a href="https://youtu.be/po-Cxq2Acig">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Chrzaszcz-Jiang-Shardy.pdf">Slides</a> ]<br>
+Generative AI models are so large that the tensor programs they are represented as are required to be chunked (partitioned) into programs on thousands of hardware accelerators. Within Google DeepMind these models are being partitioned across TPU super clusters of over 4096 devices. In this presentation, we present a new MLIR tensor propagation system we have been developing and deploying to train these large AI models. We’ve defined our own dialect that expresses tensor shardings and compiler transformation rules as MLIR attributes. It is MLIR dialect agnostic, and has improved debugging capabilities and more configurability to the propagation algorithm over past systems.
+</p>
+
+<p>
+Swift Explicitly-Built Modules<br>
+<i>Artem Chikin</i>
+[ <a href="https://youtu.be/DEjbcVRfSKA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Chikin-Swift-Explicitly-Built-Modules.pdf">Slides</a> ]<br>
+Swift relies on modules exclusively for units of code distribution and library interface. Swift’s interoperability with C, ObjectiveC, and C++ leads to a heavy use of the concept of modules in the C family of languages. Building on top of Clang & LLVM infrastructure for dependency scanning, Swift is undergoing a transition to an Explicitly-Built Modules compilation model where all dependencies are discovered upfront, pre-built, and are specified as explicit inputs to compilation. This talk will describe this approach, its benefits compared to the prior Implicit Module Loading model, lessons learned along the way, and the extensive use of Clang infrastructure to support Swift’s interoperability with modules in the C family of languages.
+</p>
+
+<p>
+Simplifying GPU Programming with Parametric Tile-Level Tensors In Mojo<br>
+<i>Ahmed Taei</i>
+[ <a href="https://youtu.be/sOZWhPVvRdw">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Taei-Simplifying-GPU-Programming-with-Parametric-Tile-Level-Tensors-In-Mojo.pdf">Slides</a> ]<br>
+Today’s AI GPU workloads are dominated by operations such as matrix multiplication (matmul) and flash-attention, with state-of-the-art implementations designed to leverage the compute and memory hierarchy of modern GPUs at a tile-level granularity. Expressing these algorithms at this level, rather than using the low-level SIMT (Single Instruction, Multiple Threads) model, presents a significant challenge for kernel developers. In this talk, we will demonstrate how Mojo, a systems programming language built on MLIR, addresses this challenge through its powerful metaprogramming capabilities. Mojo enables the creation of simple yet powerful composable abstractions for parametric Tensor types, which can be tiled, distributed across the compute hierarchy, and vectorized. Additionally, the language provides GPU library authors with direct access to MLIR, making it easier for library authors to specialize high-level library operations for specific hardware targets, which facilitates the efficient development of state-of-the-art GPU kernels that outperform vendor libraries like cuBLAS.
+</p>
+
+<p>
+lean-mlir: A Workbench for formally verifying Peephole Optimizations for MLIR<br>
+<i>Alex Keizer, Siddharth Bhat</i>
+[ <a href="https://youtu.be/4lh2NnLOxvQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Keizer-Bhat-lean-mlir.pdf">Slides</a> ]<br>
+We aim to combine the convenience of automation with the versatility of ITPs for verifying peephole rewrites across domain-specific IRs. Our tool (lean-mlir) built in the Lean proof assistant provides: (a) a user-friendly frontend, (b) scaffolding for defining and verifying peephole rewrites, and (c) proof automation for semi-automatically verifying common compiler IR patterns. In this talk, we will showcase our work in bringing an Alive-style workflow for peephole optimizations over an LLVM style IR in Lean. We will sketch out our future vision, with the goal of making formal verification a core part of the day-to-day compiler development workflow. We hope to engage the community into providing formal semantics for many of the more complex IRs in the MLIR ecosystem.
+</p>
+
+<p>
+Improving optimized code line table quality<br>
+<i>Orlando Cazalet-Hyams</i>
+[ <a href="https://youtu.be/yj1EUzXVP1I">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Cazalet-Hyams-Improving-optimized-code-line-table-quality.pdf">Slides</a> ]<br>
+Debug line tables are a key part of many development processes, including SPGO, debugging, and crash dumps. When optimising code, LLVM struggles to maintain attribution of source-lines to instructions, or to make debugger-stepping behaviours similar to the debugging unoptimised code. We propose techniques to solve to these issues, and present our evaluation of how they perform.
+</p>
+
+<p>
+Implementing Linear / Non-destructible Types in Vale and Mojo<br>
+<i>Evan Ovadia</i>
+[ <a href="https://youtu.be/IpuvQUVB8Cg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Ovadia-LinearTypes-in-Vale-and-Mojo.pdf">Slides</a> ]<br>
+Linear types are the secret ingredient to ensuring "liveness": the guarantee that desired future operations will happen. With them, you can solve caching problems, guarantee the completion of futures, ensure messages to other threads are actually handled, and a lot of other unexpected benefits. We'll talk about what they are, how they're implemented in Vale, and how we can add them to the Mojo compiler to bring them into the mainstream.
+</p>
+
+<p>
+Adding Pointer Authentication ABI support for your ELF platform<br>
+<i>Anton Korobeynikov</i>
+[ <a href="https://youtu.be/bytWm7BzJVE">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Korobeynikov-Adding-Pointer-Authentication-ABI-support.pdf">Slides</a> ]<br>
+Recently the majority of the patches required to support Pointer Authentication C/C++ ABI were ported from downstream implementation for arm64e platform and were submitted & integrated into LLVM mainline (and are included in the LLVM 19 release). We have complemented them with the required changes to enable pointer authentication on ELF platforms. In this talk we will present the current status of Pointer Authentication ABI for ELF platforms, its components, their specifics and the different choices that platform should make to deploy the said ABI. We will also discuss the required changes that platforms must undertake beyond the compiler toolchain and present some proofs of concept implementations based on the Musl library.
+</p>
+
+<p>
+Manifesto for faster build times<br>
+<i>Alexandre Ganea, Francisco Cabrita</i>
+[ <a href="https://youtu.be/1Gi9nPVUZro">Video</a> ] [ <a href="">Slides</a> ]<br>
+Build times and developer iteration are important to you? Wait no more! This talk will discuss a user's point of view and then sketch out a plan for reducing the compilation times of large C++ projects. We will discuss how the LLVM fundations could be incrementaly changed to achieve this goal, and how collaboration could be shaped.
+</p>
+
+<p>
+Mitigating use-after-free security vulnerabilities in C and C++ with language support for type-isolating allocators<br>
+<i>Oliver Hunt</i>
+[ <a href="https://youtu.be/GGGaiGpm5BY">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Hunt-Mitigating-use-after-free-security-vulnerabilities.pdf">Slides</a> ]<br>
+Type based segregation of heap allocations has long been acknowledged as an effective mechanism to mitigate memory safety vulnerabilities in real world C and C++. A core problem in the general deployment of segregating allocators is the lack of language level support, such that all adoption must be manual, and existing code must be manually updated to adopt new allocator APIs. In this talk we will be presenting our work to address this problem through our proposed typed memory operations extension for Clang, and our proposal for typed allocation support in the C++ language specification.
+</p>
+
+<p><b>Student Talks:</b></p>
+
+<p>
+Half-precision in LLVM libc<br>
+<i>Nicolas Celik</i>
+[ <a href="https://youtu.be/H6aOFSVwSSM">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Celik-Half-precision-in-LLVM-libc.pdf">Slides</a> ]<br>
+C23 defines new floating-point types, such as _Float16, which corresponds to the IEEE 754 standard's binary16 interchange format, also known as half-precision floating-point or FP16. C23 also defines variants of the C standard library's math functions for these new types. This talk will present the implementation of _Float16 math functions in LLVM libc, their performance, and the challenges encountered while implementing them.
+</p>
+
+<p>
+DynamicAPInt: Infinite-Precision Arithmetic for LLVM<br>
+<i>Arjun Pitchanathan</i>
+[ <a href="https://youtu.be/eFMTHtS3y1U">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Pitchanathan-DynamicAPInt-Infinite-PrecisionArithmetic-for-LLVM.pdf">Slides</a> ]<br>
+We announce a new class, DynamicAPInt, that can perform infinite-precision integer arithmetic. Unlike APInt, the user does not have to specify a particular maximum size. We also provide a more friendly user interface with overloaded operators. Finally, the class implements a small-value optimization making it significantly faster than APInt when operating on small values. In particular, we see a 2.8x speedup on an addition microbenchmark where the values always stay small. We describe the performance optimizations that we applied to achieve this level of performance.
+</p>
+
+<p>
+FPOpt: Balancing Cost and Accuracy of Floating-Point Computations in LLVM IR<br>
+<i>Siyuan Brant Qian</i>
+[ <a href="https://youtu.be/b0COW_6v4m0">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Qian-FPOpt.pdf">Slides</a> ]<br>
+This talk introduces FPOpt, an optimization pass integrated into the LLVM-based Enzyme automatic differentiation framework, which automatically discovers improvements for floating-point programs using Herbie and tries to maximize overall accuracy of programs subject to a customizable computation cost budget. To make optimization decisions that respect realistic program behaviors, FPOpt leverages numeric profile data generated by a specialized logging functionality in Enzyme.
+</p>
+
+<p>
+A data-driven approach to debug info quality<br>
+<i>Emil Pedersen</i>
+[ <a href="https://youtu.be/zluvVkxK6oY">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Pedersen-DataDrivenApproachToDebugInfoQuality.pdf">Slides</a> ]<br>
+Debugging optimized code is frustrating: often, variables are missing. But some of these variables could be salvaged. In this talk, we will present a new analysis that detects when variables are lost in the compiler. This has two advantages: It allows to focus work on fixing optimizer passes that lose the most debug variables, and, by running it on real-world code, it also makes it easy to find concrete test cases where variable debug info is lost. We will use the work done on passes in the Swift frontend as an example, where we were able to increase the number of variables available in LLDB using this approach.
+</p>
+
+<p>
+GISel for Scalable Vectors: Expanding the Horizon<br>
+<i>Jiahan Xie</i>
+[ <a href="https://youtu.be/nOcMt7JdIkg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Xie-GISel.pdf">Slides</a> ]<br>
+Discover the groundbreaking implementation of GISel for scalable vectors, targeting the RISC-V vector extension. This talk delves into the challenges and solutions of supporting scalable vector ALU and load/store instructions, offering insights and best practices for LLVM developers working on GISel for other targets.
+</p>
+
+<p>
+The syntax dialect: creating a parser generator with MLIR<br>
+<i>Fabian Mora-Cordero</i>
+[ <a href="https://youtu.be/b9jprrQjmq4">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/studenttalks/Cordero-The-syntax-dialect.pdf">Slides</a> ]<br>
+This talk presents the syntax dialect, an MLIR dialect for formal language analysis and parser generation, and its associated tools. The syntax dialect is an MLIR dialect that can represent regular and context-free languages and parsing expression grammars (PEG). We found that using MLIR simplified the introduction of complex concepts like macros over formal languages, as we can reuse passes like function inlining to handle their intricacies. Finally, we discuss future work of creating lowerings to other MLIR dialects to be able to dynamically create and JIT lexers and parsers by using the MLIR execution engine.
+</p>
+
+<p><b>Quick Talks:</b></p>
+
+<p>
+Instrumenting MLIR Based ML Compilers for GPU Performance Analysis and Optimization<br>
+<i>Corbin Robeck</i>
+[ <a href="https://youtu.be/raZR06JgeEc">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Robeck-Instrumenting-MLIR-Based-ML-Compilers.pdf">Slides</a> ]<br>
+Correlating GPU kernel performance bottleneck analysis information back to program source within modern machine learning frameworks, that use MLIR and JIT style kernels, remains a challenge as it can often be difficult to attribute the performance issue to specific points within the compiler tool chain and the various lowering passes (Python/C++, GPU kernel source, multiple MLIR IRs, LLVM IR, and architecture specific ISA). In this talk we give an overview of a developed set of open source and extendible GPU kernel instrumentation passes to address this issue and how they can be integrated within popular MLIR based machine learning compilers.
+</p>
+
+<p>
+PyDSL: A MLIR DSL for Python developers<br>
+<i>Kai Ting Wang</i>
+[ <a href="https://youtu.be/iYLxgTRe8TU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Wang-PyDSL.pdf">Slides</a> ]<br>
+This talk introduces new improvements to PyDSL, a compiler research project that transforms a subset of Python down to MLIR which was originally introduced in an MLIR ODM in December 2023. While the existing MLIR infrastructure is essential to our optimization stack, it does not yet provide a language that can describe MLIR program behaviors that also benefits end-developer productivity. As such, PyDSL aims to bridge this gap by providing a faithful Python-based syntax and programming style to writing MLIR programs. The presentation will review aspects of PyDSL and introduce new ways we manage typing, translate Python syntax into MLIR, and improve the modularity and usability of the language.
+</p>
+
+<p>
+Embedding Domain-Specific Languages in C++ with Polygeist<br>
+<i>Lorenzo Chelini</i>
+[ <a href="https://youtu.be/ikI0vUhC_qA">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Chelini-EmbeddingDomain-SpecifcLanguagesWithPolygiest.pdf">Slides</a> ]<br>
+Domain-specific languages (DSLs) and compilers allow high-level abstraction and optimal performance by directly mapping abstractions to hardware. DSLs are becoming more prevalent, spanning fields from linear algebra to quantum computing, yet they often remain isolated, complicating multi-domain application optimization and integration with C++ codebases. In this talk, we propose embedding DSLs and their optimizations into general-purpose code (C or C++) using Polygeist. Our approach leverages modern compiler technology and facilitates domain-specific compilation, bridging the gap between specialized and general-purpose programming.
+</p>
+
+<p>
+Vector-DDG (Vector Data Dependence Graph): For Better Visualization and Verification of Vectorized LLVM-IR<br>
+<i>Sumukh Bharadwaj, Raghesh Aloor</i>
+[ <a href="https://youtu.be/gDT1dPYZ0Qc">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Bharadwaj-Aloor-Vector-DDG.pdf">Slides</a> ]<br>
+We propose Vector-DDG (Vector Data Dependence Graph), a tool to visualize and verify the complicated data flow in vectorized LLVM-IR. The visualization helps to understand the vectorized IR better and to further improve the quality of the same. The automatic verification helps improve the developer productivity by catching the vectorization errors early.
+</p>
+
+<p>
+From Fallbacks to Performance: Towards Better GlobalISel Performance on AArch64 Advanced SIMD Platforms<br>
+<i>Madhur Amilkanthwar</i>
+[ <a href="https://youtu.be/PuuSsAOAf38">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Amilkanthwar-Towards-Better-GlobalISel-Performance-On-AArch64">Slides</a> ]<br>
+In this talk, we will present our work on enhancing the Global Instruction Selection (GISel) framework for AArch64 Advanced SIMD platforms. We addressed its fallback to the traditional SelectionDAG due to incomplete support for certain instructions and patterns. We will present our experience with using GISel on TSVC-2, RajaPerf, and LLVM Test Suite benchmarks, which identify fallbacks across GISel due to a lack of support for various SVE instructions and AAPCS ABI. Our contributions include eliminating fallbacks in GISel, particularly for the TSVC-2 benchmark, by introducing patches across the phases of GISel. We also present our work on optimizations of GISel’s generated code which has significantly closed the performance gap between GISel and SelectionDAG on Advanced SIMD-based AArch64 platforms, especially for the TSVC-2 benchmark. These advancements mark an important step forward in improving the GISel framework, bringing us one step closer to making it default. However, we also acknowledge that further effort is required for full SVE support and tuning for other workloads.
+</p>
+
+<p>
+Extending MLIR Dialects for Deep Learning Compilers<br>
+<i>Charitha Saumya, Jianhui Li</i>
+[ <a href="https://youtu.be/amLHnkSD1zc">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Saumya-Li-Extending-MLIR-Dialects-for-DeepLearningCompilers.pdf">Slides</a> ]<br>
+This talk discusses the design of XeTile, a dialect developed for expressing and compilation of deep learning kernels. XeTile demonstrates that with a few critical extensions, MLIR dialects can be used as building blocks to support deep learning compiler development for high-performant code generation. With the "Tile" data type and a few operations, XeTile dialect greatly simplifies the lowering of dense operations. Any tile-based GEMM-like algorithms can easily be expressed in a few lines of code, including advanced optimizations like cooperative load/prefetch, K-slicing, and software pipelining.
+
+
+</p>
+
+<p>
+Unlocking High Performance in Mojo through User-Defined Dialects<br>
+<i>Mathieu Fehr, Jeff Niu</i>
+[ <a href="https://youtu.be/Lpr_GcX5uKE">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Fehr-Niu-UnlockingHighPerformanceInMojo.pdf">Slides</a> ]<br>
+Traditionally, a clear separation exists between language libraries and compiler intermediate representations (IRs): libraries are typically limited to API calls that the compiler cannot reason with, while IRs consist of instructions that only the compiler can analyze and transform. Embedded DSLs typically blur this line, as they often use the host language introspection mechanism, or macro system, to include their own compiler. In this talk, we will present how we merge the concept of libraries and embedded DSLs by providing in Mojo first-class support for extending its MLIR-based compiler.
+</p>
+
+<p>
+Speeding up Intel Gaudi deep-learning accelerators using an MLIR-based compiler<br>
+<i>Jayaram Bobba</i>
+[ <a href="https://youtu.be/IrOibLzfFtE">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Bobba-SpeedingUpIntelGaudi.pdf">Slides</a> ]<br>
+Middle-end optimizations play a critical role in generating high-performance code for deep learning accelerators. In this talk, we will present an MLIR-based fusing compiler that generates optimized LLVM IR from high-level graph IR, which is then compiled by an LLVM backend for execution on tensor processing cores in Intel Gaudi deep learning (DL) accelerator. This compiler has been in use for the past three generations of Gaudi products and provides around 54% average performance improvements at a model-level. The talk will cover the lowering pipeline, how we leverage upstream MLIR dialects and some key optimizations and learnings for compiling deep learning workloads to Gaudi.
+</p>
+
+<p>
+Quidditch: An End-to-End Deep Learning Compiler for Occamy using IREE & xDSL<br>
+<i>Markus Böck, Sasha Lopoukhine</i>
+[ <a href="https://youtu.be/RSTjn_wA16A">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Bock-Lopoukhine-Quidditch.pdf">Slides</a> ]<br>
+We present Quidditch, a neural network compiler and runtime, that provides an end-to-end workflow from a high-level network description to high-performance code running on ETH Occamy, one of the first chiplet-based AI research hardware accelerators. Quidditch builds on IREE, an AI compiler and runtime focused on GPUs, and a micro-kernel compiler for RISC-V-based accelerators in xDSL.
+</p>
+
+<p>
+Atomic Reduction Operations<br>
+<i>Gonzalo Brito Gadeschi</i>
+[ <a href="https://youtu.be/aUwv2vlOZK4">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Brito-Atomic-reductions.pdf">Slides</a> ]<br>
+Atomic reductions are atomic read-modify-write operations that do not return a value, enabling them to leverage hardware support in architectures like Arm, X86, and GPUs like PTX. Despite the significant performance improvements they offer, these operations are not currently exposed in LLVM IR. This talk introduces atomic reduction operations, explores their performance benefits, explains why optimizing atomicrmw into atomic reductions is - in general - unsound, and discusses how to provide first-class exposure for them in LLVM IR.
+</p>
+
+<p>
+LLVM Governance Update<br>
+<i>Chris Bieneman</i>
+[ <a href="https://youtu.be/dCzd05hCRqs">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Bieneman-LLVM-Project-Governance.pdf">Slides</a> ]<br>
+Come hear the latest updates about the LLVM Governance Proposal presented at the 2023 US LLVM Developer Meeting. This talk will give a brief overview of the current state of the proposal as well as discussing the next steps as the proposal continues to move forward.
+</p>
+
+<p>
+Why You Should Use Scudo<br>
+<i>Chia-Hung Duan, Christopher Ferris</i>
+[ <a href="https://youtu.be/bRomqthp9Ck">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Duan-Ferris-WhyYouShouldUseScudo">Slides</a> ]<br>
+This session will introduce Scudo, a modern memory allocator that provides additional security features. Scudo strikes a balance between allocation speed, memory footprint, and security. We will show how Scudo can help find memory bugs on Android and explain how to build your own Scudo configuration to fit your project's requirement.
+</p>
+
+<p>  
+Building glibc with LLVM<br>
+<i>Carlos Seo</i>
+[ <a href="https://youtu.be/AcA_Dh7srRY">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Seo-Building-glibc-withLLVM.pdf">Slides</a> ]<br>
+The GNU C Library (glibc) is a known missing link for any Linux distribution that aims to use clang as the default compiler. This talk walks through the required changes to make it buildable using the LLVM toolchain.
+</p>
+
+<p>
+RISC-V Support into LLVM’s libc: Challenges and Solutions for 32-bit and 64-bit<br>
+<i>Mikhail R. Gadelha</i>
+[ <a href="https://youtu.be/GytmaH64wFo">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Gadelha-RISC-V-SupportIntoLLVM-libc.pdf">Slides</a> ]<br>
+This talk covers the integration of RISC-V support into LLVM's libc, focusing on the unique challenges posed by RISC-V's syscall interface, the 32-bit architecture complexities, and testing without hardware. Attendees will gain insights into the process of adding support for new architectures in LLVM's libc.
+</p>
+
+<p>
+Benchmarking Clang on Windows on Arm: Building and Running SPEC 2017<br>
+<i>Muhammad Omair Javaid</i>
+[ <a href="https://youtu.be/MVgDQNzNDB0">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/quicktalks/Javaid-SPEC-2017.pdf">Slides</a> ]<br>
+In this session we go through the process of building and running SPEC 2017 benchmark suite to evaluate performance of Clang on Windows on Arm platform. We aims to provide a preliminary overview of the current state of Clang performance on Windows, particularly on the Arm platform We will discuss which benchmarks build and run successfully and identify those that fail, providing insights into the strengths and limitations of Clang on the quickly evolving Windows on Arm platform. We will present initial performance numbers, comparing Clang's results with MSVC, and highlighting key differences in their performance across various benchmarks. Additionally, we will briefly touch on how tools like the Windows Perf can improve our understanding of these results, setting the stage for future optimization efforts and deeper analysis.
+</p>
+
+<p><b>Lightning Talks:</b></p>
+
+<p>
+Using llvm-libc in LLVM Embedded Toolchain for Arm<br>
+<i>Peter Smith</i>
+[ <a href="https://youtu.be/ctgkbaYwT_I">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/lightning/Smith-Using-llvm-libc.pdf">Slides</a> ]<br>
+Using llvm-libc in LLVM Embedded Toolchain for Arm Arm have recently added support for LLVM's libc to the LLVM Embedded Toolchain for Arm as an overlay package. This presentation will cover: * How to build the toolchain with llvm-libc libraries. * How to use the llvm-libc libraries with the toolchain. * What works with llvm-libc and what doesn't. * A comparison of llvm-libc with the embedded toolchains' picolibc. The LLVM Embedded Toolchain for Arm is one of the easiest ways to try out llvm-libc for embedded projects. We would like to encourage people to try out llvm-libc to gather feedback for its future development.
+</p>
+
+<p>
+"Hey, do you want a RISC-V debugger?" - Enabling RISC-V support in LLDB <br>
+<i>Ted Woodward</i>
+[ <a href="https://youtu.be/YSdeFLdL5DM">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/lightning/Woodward-RISC-V-Debugger.pdf">Slides</a> ]<br>
+"Hey, do you want a RISC-V debugger?" That question started my odyssey that lead to a working upstream LLDB for RISC-V. This talk will discuss that journey.
+</p>
+
+<p>
+MD5 Checksums in LLDB<br>
+<i>Jonas Devlieghere</i>
+[ <a href="https://youtu.be/JIBhafjL_oo">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/lightning/Devlieghere-MD5-Checksums-In-LLDB.pdf">Slides</a> ]<br>
+Support for DWARF MD5 checksums in LLDB.
+</p>
+
+<p>
+Experiments with two-phase expression evaluation for a better debugging experience<br>
+<i>Ilya Kuklin</i>
+[ <a href="https://youtu.be/mYze6ndZuZ8">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/lightning/Kuklin-Experiments-with-two-phase-expression-evaluation.pdf">Slides</a> ]<br>
+LLDB can spend a substantial amount of time on evaluating expressions during debugging. This is an issue with debugging large real-world applications. We experimented with the idea of having a limited but fast way of evaluating expressions with the ability to fall back to the current LLDB. For this purpose, we revamped a project called `lldb-eval` and integrated it into LLDB. Our experiments with this approach on large real-world applications showed that most expressions are simple enough and could be evaluated much faster making debugging experience noticeably smoother.
+</p>
+
+<p>
+Flang Update<br>
+<i>Steve Scalpone</i>
+[ <a href="https://youtu.be/xfBANFcMhCo">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/lightning/Scalpone-FlangUpdate.pdf">Slides</a> ]<br>
+Flang is an LLVM subproject which is a ground-up implementation of a Fortran front end written in modern C++. Flang uses MLIR as in intermediate language and implements OpenMP for CPUs and GPUs. This lightning talk touches on current development efforts, testing coverage, feature status, and performance.
+</p>
+
+<p><b>Posters:</b></p>
+
+<p>
+Fuzzlang: Generating Compilation Errors to Teach ML Code Fixes<br>
+<i>Baodi Shan</i>
+[ <a href="https://llvm.org/devmtg/2024-10/slides/poster/Shan-Fuzzlang-Poster.pdf">Poster</a> ]<br>
+In the realm of code repair, the diversity and accuracy of error datasets are critical for enhancing model performance. Fuzzlang, a newly developed Clang Python wrapper, addresses this need by generating a wide range of compilation errors through modifications to compilation commands or source code. It systematically collects error messages, corresponding correct and erroneous code, and AST information to build a comprehensive dataset. Fuzzlang’s dataset offers significantly greater error diversity than existing resources like Deepfix and C-Pack-IPAs, as measured against the different error kinds in Clang’s diagnostic files. In a small study we applied Fuzzlang on the llvm-project and identified 417 unique compilation errors. We fine-tuned both the Llama3-8b model and the GPT-4o-mini model, and the code correction accuracy for the observed error catergories improved from 37.22% to 93.97% for Llama3-8b and from 72.29% to 96.70% for GPT-4o-mini.
+</p>
+
+<p>
+The XLG framework: an MLIR replacement for ASTs<br>
+<i>Fabian Mora-Cordero </i>
+[ Poster ]<br>
+In this talk, we present the XLG framework, a novel intermediate representation capable of replacing ASTs with MLIR. As part of the talk, we will also examine how to perform semantic analysis, code generation, and constant evaluation on XLG. Furthermore, we will demonstrate how these tasks can be performed in an extensible manner, allowing the introduction of new semantics rules or constructs as plugins.
+Finally, we present how to interoperate XLG with existing dialects and leverage existing MLIR passes to handle often tricky programming notions like meta-programming.
+</p>
+
+<p>
+accfg: Eliminating Setup Overhead for Accelerator Dispatch<br>
+<i>Anton Lydike, Josse Van Delm</i>
+[ Poster]<br>
+Modern computing is moving toward heterogeneous architectures with general compute cores and specialized accelerators. However, these accelerators require increasing cycles for configuration, creating a new bottleneck that limits peak performance. Fortunately, modern compiler techniques can address this issue. We introduce a general optimization dialect designed to eliminate setup overhead and demonstrate significant speed-ups on three accelerator platforms.
+</p>
+
+<p>
+MLIR and Pytorch: A Compilation Pipeline targeting Huawei's Ascend Backend<br>
+<i>Amy Wang</i>
+[ <a href="https://llvm.org/devmtg/2024-10/slides/poster/Wang-MLIR-and-PyTorch-Poster.pdf">Poster</a> ]<br>
+We present our work on compiling PyTorch code through MLIR to target Ascend AI Processors. The approach starts from PyTorch to Torch-MLIR followed by an MLIR Pipeline, converting down to a custom AscendC Dialect, where C-like AscendC code is produced with enhanced EmitC utilities. This method not only benefits Ascend users but also opens up more optimization opportunities from Ascend back to MLIR. We aim to enhance the MLIR ecosystem by sharing our experiences and we welcome any discussion about potential improvements to our pipeline, to better target AI processors.
+</p>
+
+<p>
+Developing an HLSL intrinsic for the SPIR-V and DirectX backends<br>
+<i>Farzon Lotfi</i>
+[ Poster ]<br>
+The tutorial will cover the basics of writing an HLSL intrinsic. From frontend to backend development to writing code gen, sema, and backend test cases. Examples included will cover how to handle cases where an intrinsic maps directly to a DXIL or SPIRV op and cases where an intrinsic needs to be replaced with an instruction expansion.
+</p>
+
+
+<p>
+New Headergen<br>
+<i>Rose Zhang, Aaryan Shukla</i>
+[ Poster ] [ <a href="">Slides</a> ]<br>
+LLVM-libc’s headers just got a major upgrade! We ditched the old, complex Tablegen system for a sleek new YAML-based generator. This means easier cross-compiling, faster builds, and a smoother path to use LLVM-libc. Come and see how we transformed header creation and why it’s a game-changer.
+</p>
+
+<p>
+xdsl-gui: A Playground for the Compiler Optimization Game<br>
+<i>Dalia Shaaban</i>
+[ Video ] [ <a href="">Slides</a> ]<br>
+Optimizing compilers built on MLIR use customizable pipelines of passes and transformations to implement various optimization strategies. While MLIR provides tools like mlir-opt for controlling compilation flows, the complexity of selecting and sequencing passes can be overwhelming due to the large number of available passes and the manual, time-intensive experimentation required. This talk introduces xdsl-gui, an interactive environment that enhances control and transparency during the compilation process. Users input source code or IR, select and apply passes, and display the updated IR. xdsl-gui also filters relevant passes and offers real-time feedback on pass selection, helping developers optimize strategies effectively.
+</p>
+
+<p>
+Autostack: a novel approach to implementing shared stack for image size savings<br>
+<i>Sundeep Kushwaha</i>
+[ Poster ]<br>
+We propose a new technique called Autostack to share stack memory across multiple software threads which results in significant image size savings. Additionally, Autostack can also be used to improve performance by transitioning the stack from slower memory to faster memory.
+</p>
+
+<p>
+MLIR Interfaces for Generic High-Level Program Representations<br>
+<i>Henrich Lauko</i>
+[ Poster ]<br>
+Discover how the VAST MLIR-based compiler for C/C++ extends MLIR's capabilities beyond low-level IRs to support high-level features like custom symbols and AST-like operations. This poster unveils advanced symbol tables that enable shadowing, diverse symbol types, and customizable lookups. Learn about our MLIR interfaces that integrate seamlessly with the Clang ecosystem, allowing tools such as AST queries and the Clang Static Analyzer to operate on MLIR. We will demonstrate how MLIR can replicate Clang AST behavior and represent Clang CFG primitives, enabling interoperability and analysis using Clang's high-level tools.
+</p>
 
 
 <div class="www_sectiontitle" id="coc">Code of Conduct</div>
