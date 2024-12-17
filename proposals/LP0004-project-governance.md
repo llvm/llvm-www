@@ -217,11 +217,11 @@ Public notice of any vote will be published on the LLVM discussion forums under 
 * 48 hours before voting closes.
 * 24 hours before voting closes.
 
-Voter eligibility will be determined 7 days before voting opens by the rules for defining _voting contributors_. Voting will be executed using a private poll hosted by [Concordcet Internet Voting Service]([https://civs1.civs.us/](https://civs1.civs.us/)). Concordcet uses a ranked choice polling process.
+Voter eligibility will be determined 7 days before voting opens by the rules for defining _voting contributors_. Voting will be executed using a private poll hosted by [Condorcet Internet Voting Service]([https://civs1.civs.us/](https://civs1.civs.us/)). Condorcet uses a ranked choice polling process.
 
 Any _voting contributor_ can vote for members of any _area team_. Voting is not mandatory, and _voting contributors_ may abstain from any individual vote or election at their discretion.
 
-> Note: Concordcet Internet Voting Service suggested here is a placeholder. A more through review of voting systems needs to be conducted. This will overlap with voter registration data collection.
+> Note: Condorcet Internet Voting Service suggested here is a placeholder. A more through review of voting systems needs to be conducted. This will overlap with voter registration data collection.
 
 All eligible _voting contributors_ will be contacted via email with instructions on how to vote on the day voting opens.
 
