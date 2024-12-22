@@ -102,7 +102,7 @@ MLIR, like the rest of LLVM, is primarily written in C++. However, the C++ API i
 <p>
 LLVM Supply Chain Security: From developer’s desk to user’s device.<br>
 <i>Tom Stellard</i>
-[ <a href="https://youtu.be/eBHgcsz-HPg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Stellard-SupplyChainSecurity">Slides</a> ]<br>
+[ <a href="https://youtu.be/eBHgcsz-HPg">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Stellard-SupplyChainSecurity.pdf">Slides</a> ]<br>
 Compilers are often the last line of defense in securing against dangerous exploits. Compiler features like “Stack Protector”, “Safe Stack” , and “Stack Clash Protection” can help protect code from common programmer mistakes and thwart malicious actors trying to take advantage of buggy code. However, even the most sophisticated protection can be rendered useless if the compiler itself can’t be delivered safely to its users. In this talk we take a look at LLVM’s approach to supply chain security. How we get code from a developer’s desk safely into the hands of users. We’ll look at our release process, our access policies, and our project infrastructure to see how we are approaching supply chain security and what we can do to make it better.
 </p>
 
@@ -116,7 +116,7 @@ SelectionDAG is a crucial framework within LLVM for lowering LLVM IR into effici
 <p>
 Support a new Calling Convention in LLVM<br>
 <i>Brandon Wu</i>
-[ <a href="">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Wu-Support-a-NewCallingConvention.pdf">Slides</a> ]<br>
+[ <a href="https://youtu.be/6ZaiFA8eyHk">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/tutorial/Wu-Support-a-NewCallingConvention.pdf">Slides</a> ]<br>
 Vector processors play a big role among high performance computing applications such as image processing, machine learning as well as gaming, thus handling vector registers efficiently is important in terms of performance. Calling Convention(CC) is one of the most significant aspects that can affect the execution speed and spills can be avoided if vector registers between procedural calls are controlled and assigned efficiently. In this talk, we will show the design and implementation of RISC-V Vector Calling Convention for C/C++.</p>
 
 <p><b>Panel:</b></p>
@@ -192,7 +192,7 @@ llvm-exegesis has been instrumental in calibrating LLVM's scheduling models usin
 <p>
 Loop Vectorisation: a quantitative approach to identify/evaluate opportunities<br>
 <i>Sjoerd Meijer</i>
-[ <a href="https://youtu.be/u7W3_xL_3NQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Meijer-Loop-Vectorisation">Slides</a> ]<br>
+[ <a href="https://youtu.be/u7W3_xL_3NQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Meijer-Loop-Vectorisation.pdf">Slides</a> ]<br>
 In previous LLVM developer conferences, there have been several presentations and discussions on loop vectorisation, focusing on the progress of the VPlan infrastructure and vectorisation for specific back-ends. In this talk, we aim to take a different approach by identifying patterns and types of loops that the loop vectoriser cannot vectorise. Specifically, we want to: i) identify the deficiencies and missing features of the loop vectoriser, ii) group these deficiencies and find common root causes for missed vectorisation opportunities, and iii) develop a vectorisation plan to enhance code-generation quality based on these insights. Therefore, the contributions of this work and talk include: 1. A quantitative approach to find loop vectorisation opportunities and evaluate deficiencies, 2. A presentation of benchmark numbers for two loop-based benchmarks TSVC-2 and RAJAPerf, 3. A first analysis of loop vectoriser deficiencies and opportunities. 4. Thoughts on measuring and evaluating compiler changes with the LLVM test-suite. Although we concentrated on AArch64 platforms for our results, most of your findings are broadly applicable.</p>
 
 <p>
@@ -285,14 +285,14 @@ Automatic Differentiation was accepted as an experimental Rust feature for HPC, 
 <p>
 A new constant expression interpreter for Clang<br>
 <i>Timm Baeder</i>
-[ <a href="https://youtu.be/eMT1dBlaggQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Baeder-A-new-constant-expression-interpreter-for-Clang">Slides</a> ]<br>
+[ <a href="https://youtu.be/eMT1dBlaggQ">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Baeder-A-new-constant-expression-interpreter-for-Clang.pdf">Slides</a> ]<br>
 In this talk, we will look at the development status of the new bytecode interpreter for constant expressions in Clang, implementation challenges as well as future development plans.
 </p>
 
 <p>
 Generic implementation strategies in Carbon and Clang<br>
 <i>Richard Smith</i>
-[ <a href="https://youtu.be/j0BL52NdjAU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Smith-Generic-implementation-strategies-in-Carbon-and-Clang">Slides</a> ]<br>
+[ <a href="https://youtu.be/j0BL52NdjAU">Video</a> ] [ <a href="https://llvm.org/devmtg/2024-10/slides/techtalk/Smith-Generic-implementation-strategies-in-Carbon-and-Clang.pdf">Slides</a> ]<br>
 A dive into the generics implementation in the Carbon toolchain and the templates implementation in Clang. This talk will contrast the approaches taken and discuss some benefits of each direction.</p>
 
 <p>
@@ -361,7 +361,7 @@ Recently the majority of the patches required to support Pointer Authentication 
 <p>
 Manifesto for faster build times<br>
 <i>Alexandre Ganea, Francisco Cabrita</i>
-[ <a href="https://youtu.be/1Gi9nPVUZro">Video</a> ] [ <a href="">Slides</a> ]<br>
+[ <a href="https://youtu.be/1Gi9nPVUZro">Video</a> ] [ Slides]<br>
 Build times and developer iteration are important to you? Wait no more! This talk will discuss a user's point of view and then sketch out a plan for reducing the compilation times of large C++ projects. We will discuss how the LLVM fundations could be incrementaly changed to achieve this goal, and how collaboration could be shaped.
 </p>
 
