@@ -14,9 +14,12 @@
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
             </ul>
+          </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
             <ul>
+              <li><a href="#rich-disassembler-for-lldb-2025">Rich disassembler for LLDB</a></li>
             </ul>
+          </li>
         </ul>
       </li>
 
@@ -416,6 +419,117 @@
     <a href="https://summerofcode.withgoogle.com/">website.</a>
   </p>
 </div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="rich-disassembler-for-lldb-2025">Rich Disassembler for LLDB</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+<p><b>Description</b></p>
+
+<p>Use the variable location information from the debug info to annotate LLDB’s disassembler (and `register read`) output with the location and lifetime of source variables. The rich disassembler output should be exposed as structured data and made available through LLDB’s scripting API so more tooling could be built on top of this. In a terminal, LLDB should render the annotations as text.</p>
+
+<p><b>Expected outcomes</b></p>
+
+For example, we could augment the disassembly for the following function
+
+<pre>
+frame #0: 0x0000000100000f80 a.out`main(argc=1, argv=0x00007ff7bfeff1d8) at demo.c:4:10 [opt]
+  1   void puts(const char*);
+  2   int main(int argc, char **argv) {
+  3    for (int i = 0; i < argc; ++i)
+→ 4      puts(argv[i]);
+  5    return 0;
+  6   }
+(lldb) disassemble
+a.out`main:
+...
+  0x100000f71 <+17>: movl  %edi, %r14d
+  0x100000f74 <+20>: xorl  %r15d, %r15d
+  0x100000f77 <+23>: nopw  (%rax,%rax)
+→  0x100000f80 <+32>: movq  (%rbx,%r15,8), %rdi
+  0x100000f84 <+36>: callq 0x100000f9e ; symbol stub for: puts
+  0x100000f89 <+41>: incq  %r15
+  0x100000f8c <+44>: cmpq  %r15, %r14
+  0x100000f8f <+47>: jne 0x100000f80 ; <+32> at demo.c:4:10
+  0x100000f91 <+49>: addq  $0x8, %rsp
+  0x100000f95 <+53>: popq  %rbx
+...
+</pre>
+
+<p>using the debug information that LLDB also has access to (observe how the source variable i is in r15 from [0x100000f77+slide))</p>
+
+
+<pre>
+$ dwarfdump demo.dSYM --name  i
+demo.dSYM/Contents/Resources/DWARF/demo: file format Mach-O 64-bit x86-64
+0x00000076: DW_TAG_variable
+ DW_AT_location (0x00000098:
+ [0x0000000100000f60, 0x0000000100000f77): DW_OP_consts +0, DW_OP_stack_value
+ [0x0000000100000f77, 0x0000000100000f91): DW_OP_reg15 R15)
+ DW_AT_name ("i")
+ DW_AT_decl_file ("/tmp/t.c")
+ DW_AT_decl_line (3)
+ DW_AT_type (0x000000b2 "int")
+</pre>
+
+to produce output like this, where we annotate when a variable is live and what its location is:
+
+<pre>
+(lldb) disassemble
+a.out`main:
+...                                                               ; i=0
+  0x100000f74 <+20>: xorl  %r15d, %r15d                           ; i=r15
+  0x100000f77 <+23>: nopw  (%rax,%rax)                            ; |
+→  0x100000f80 <+32>: movq  (%rbx,%r15,8), %rdi                   ; |
+  0x100000f84 <+36>: callq 0x100000f9e ; symbol stub for: puts    ; |
+  0x100000f89 <+41>: incq  %r15                                   ; |
+  0x100000f8c <+44>: cmpq  %r15, %r14                             ; |
+  0x100000f8f <+47>: jne 0x100000f80 ; <+32> at t.c:4:10          ; |
+  0x100000f91 <+49>: addq  $0x8, %rsp                             ; i=undef
+  0x100000f95 <+53>: popq  %rbx
+</pre>
+
+<p>The goal would be to produce output like this for a subset of unambiguous cases, for example, variables that are constant or fully in registers.</p>
+
+<p><b>Confirmed mentors and their contacts</p></b>
+
+<ul>
+  <li>Adrian Prantl aprantl@apple.com (primary contact)
+  <li>Jonas Devlieghere jdevlieghere@apple.com
+</ul>
+
+<p><b>Required / desired skills</b></p>
+
+<p>Required:</p>
+
+<ul>
+  <li>Good understanding of C++
+  <li>Familiarity with using a debugger on the terminal
+  <li>Need to be familiar with all the concepts mentioned in the example above
+  <li>Need to have a good understanding of at least one assembler dialect for machine code (x86_64 or AArch64).
+</ul>
+
+<p>Desired:</p>
+
+<ul>
+  <li>Compiler knowledge including data flow and control flow analysis is a plus.
+  <li>Being able to navigate debug information (DWARF) is a plus.
+</ul>
+
+<p><b>Size of the project:</b></p>
+
+<p>medium (~175h)</p>
+
+<p><b>Project difficulty:</b></p>
+
+<p>hard</p>
+
+<p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/rich-disassembler-for-lldb/76952">URL</a></p>
+</div>
+
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
