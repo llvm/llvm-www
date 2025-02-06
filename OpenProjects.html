@@ -20,6 +20,11 @@
               <li><a href="#rich-disassembler-for-lldb-2025">Rich disassembler for LLDB</a></li>
             </ul>
           </li>
+          <li><a href="http://libc.llvm.org/"><b>LLVM libc</b></a>
+            <ul>
+              <li><a href="bfloat16-libc">Bfloat16 in LLVM libc</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -530,6 +535,62 @@ a.out`main:
 <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/rich-disassembler-for-lldb/76952">URL</a></p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="bfloat16-libc">Bfloat16 in LLVM libc</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b></p>
+
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">Bfloat16</a>
+    is a recently developed floating point format tailored to machine
+    learning and AI, and in the latest <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf">C++23 standard</a>,
+    it is officially standardized as std::bfloat16_t. Its support could be found
+    in many modern hardware, ranging from CPUs of all the major vendors
+    including Intel, AMD, Apple, and Amazon, to GPUs (nVidia and AMD GPUs) and
+    Google TPUs. On the software side, it is supported in all major accelerator
+    libraries, such as CUDA, ROCm, oneAPI, PyTorch, and Tensorflow. The goal for
+    this project is to implement bfloat16 math functions in the LLVM libc
+    library.
+  </p>
+
+  <p><b>Expected result:</b></p>
+
+  <ul>
+    <li> Setup the generated headers properly so that the type and the functions
+         can be used with various compilers (+versions) and architectures. </li>
+    <li> Implement generic basic math operations supporting bfloat16 data types
+         that work on supported architectures: x86_64, arm (32 + 64), risc-v
+         (32 + 64), and GPUs. </li>
+    <li> Implement specializations using compiler builtins or special hardware
+         instructions to improve their performance whenever possible. </li>
+    <li> If time permits, we can start investigating higher math functions for
+         bfloat16. </li>
+  </ul>
+
+  <p><b>Skills:</b></p>
+
+  <p>
+    Basic C & C++ skills + Interest in knowing / learning more about the
+    delicacy of floating point formats.
+  </p>
+
+  <p><b>Project size:</b> Large </p>
+
+  <p><b>Difficulty:</b> Easy/Medium </p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="mailto:lntue.h@gmail.com">Tue Ly</a>,
+    <a href="mailto:its.overmighty@gmail.com">Nicolas Celik</a>,
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/libc-gsoc-2025-bfloat16-in-llvm-libc/84469">URL</a>
+  </p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
