@@ -707,14 +707,14 @@ a.out`main:
 <div class="www_text">
   <p><b>Description:</b>
     The <a href="https://clang.llvm.org/docs/ClangStaticAnalyzer.html">Clang Static Analyzer</a> (CSA) 
-    can already find a wide range of memory temporal memory errors. These checks often have hardcoded
+    can already find a wide range of temporal memory errors. These checks often have hardcoded
     knowledge about the behavior of some APIs. For example, the <code>cplusplus.InnerPointer</code> checker knows
     the semantics of <code>std::string::data</code>. The Clang community introduced some lifetime
     annotations including <code>[[clang::lifetimebound]]</code> and <code>[[clang::lifetime_capture_by(X)]]</code>
     and made <a href="https://discourse.llvm.org/t/lifetime-analysis-improvements-in-clang/81374">many improvements</a>
     to Clang's default warnings. Unfortunately, the compiler's warnings only do statement local analysis.
     The CSA is capable of advanced inter-procedural analysis. Generalizing the existing checks like 
-    <code>cplusplus.InnerPointer</code> could enable the analyzer to find even more errors for annotated code.
+    <code>cplusplus.InnerPointer</code> could enable the analyzer to find even more errors in annotated code.
     This can become even more impactful once the standard library
     <a href="https://github.com/llvm/llvm-project/pull/112751">gets annotated</a>.
   </p>
