@@ -30,6 +30,11 @@
               <li><a href="#clangir-codegen-tests">Validate existing Clang CodeGen test coverage with ClangIR</a></li>
             </ul>
           </li>
+          <li><a href="https://clang.llvm.org/docs/ClangStaticAnalyzer.html"><b>Clang Static Analyzer</b></a>
+            <ul>
+              <li><a href="#csa-lifetime-annotations">Teach the Clang Static Analyzer to understand lifetime annotations</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -690,6 +695,57 @@ a.out`main:
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/clangir-gsoc2025-validate-existing-clang-codegen-test-coverage-with-clangir/84481">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="csa-lifetime-annotations">Teach the Clang Static Analyzer to understand lifetime annotations</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    The <a href="https://clang.llvm.org/docs/ClangStaticAnalyzer.html">Clang Static Analyzer</a> (CSA) 
+    can already find a wide range of memory temporal memory errors. These checks often have hardcoded
+    knowledge about the behavior of some APIs. For example, the <code>cplusplus.InnerPointer</code> checker knows
+    the semantics of <code>std::string::data</code>. The Clang community introduced some lifetime
+    annotations including <code>[[clang::lifetimebound]]</code> and <code>[[clang::lifetime_capture_by(X)]]</code>
+    and made <a href="https://discourse.llvm.org/t/lifetime-analysis-improvements-in-clang/81374">many improvements</a>
+    to Clang's default warnings. Unfortunately, the compiler's warnings only do statement local analysis.
+    The CSA is capable of advanced inter-procedural analysis. Generalizing the existing checks like 
+    <code>cplusplus.InnerPointer</code> could enable the analyzer to find even more errors for annotated code.
+    This can become even more impactful once the standard library
+    <a href="https://github.com/llvm/llvm-project/pull/112751">gets annotated</a>.
+  </p>
+
+  <p><b>Expected result:</b>
+    <ol>
+    <li>Identify the checks that can benefit from the <code>[[clang::lifetimebound]]</code> and <code>[[clang::lifetime_capture_by(X)]]</code> annotations.</li>
+    <li>Extend those checks to support these annotations.</li>
+    <li>Make sure the generated bug reports are high quality, the diagnostics properly explain how the analyzer took these annotations into account.</li>
+    <li>Validate the results on real world projects.</li>
+    <li>Potentially warn about faulty annotations (stretch goal).</li>
+    </ol>
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate C++ programming skills and familiarity with basic compiler
+    design concepts are required. Prior experience with Clang or
+    CSA programming is a big plus, but willingness to learn is also a
+    possibility.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b>Hard</p>
+
+  <p><b>Potential Mentors:</b>
+    <a href="https://github.com/Xazax-hun">Gabor Horvath</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/clang-static-analyzer-gsoc-2025-teach-the-clang-static-analyzer-to-understand-lifetime-annotations/84487">URL</a>
   </p>
 </div>
 
