@@ -25,6 +25,11 @@
               <li><a href="bfloat16-libc">Bfloat16 in LLVM libc</a></li>
             </ul>
           </li>
+          <li><a href="https://clangir.org"><b>ClangIR</b></a>
+            <ul>
+              <li><a href="#clangir-codegen-tests">Validate existing Clang CodeGen test coverage with ClangIR</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -589,6 +594,102 @@ a.out`main:
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/libc-gsoc-2025-bfloat16-in-llvm-libc/84469">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clangir-codegen-tests">Validate existing Clang CodeGen test coverage with ClangIR</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    The <a href="https://clangir.org">ClangIR</a> (CIR) project aims to
+    establish a new intermediate representation (IR) for Clang. Built on top of
+    MLIR, it provides a dialect for C/C++ based languages in Clang, and the
+    necessary infrastructure to emit it from the Clang AST, as well as a
+    lowering path to the LLVM-IR dialect. ClangIR <a href="https://discourse.llvm.org/t/rfc-upstreaming-clangir/76587">upstreaming</a>
+    is currently in progress.
+  </p><p>
+    In order to give community more frequent updates it'd be great if we can
+    report ClangIR progress by measuring the coverage of existing Clang's
+    CodeGen tests in face of a ClangIR enabled pipeline. By collecting
+    information on crashing, passing or failing tests we can come up with a
+    metric that is easier to report and understand, provide entry points for
+    newcomers looking for tasks and help the project by classifying existing issues.
+    
+    Existing Clang CodeGen tests live in clang/test/CodeGen* and can be found
+    in different states regarding ClangIR support:
+    <ul>
+      <li><b>FileCheck fails</b>. LLVM IR builds but FileCheck fails to match output
+      <ul>
+        <li> LLVM IR differs because ClangIR pipeline is emitting different IR
+        (e.g. different instructions are used, missing attributes). Issues
+        need to be created and ClangIR needs to be fixed. </li>
+        <li> LLVM IR differs because CHECK lines need be made more flexible (LLVM-IR
+        dialect output is different, SSA value names, order of attributes, etc).
+        It's possible a tool like llvm-canon might be of good use here. </li>
+      </ul></li>
+      <li><b>Test crash / error</b>. ClangIR doesn't support some C/C++ construct or LLVM lowering
+      hasn't been implemented.</li>
+      <li><b>Test pass</b>. Yay!</li>
+    </ul>
+
+  <p>
+    In order to retrieve the information above, the student needs to make
+    changes to Clang's testing infra (LIT configs, scripts, tests, ???)
+    such that it's easier to replay the same invocations with ClangIR enabled,
+    compare against traditional pipeline result or retrieve special directives
+    from tests.
+  </p>
+
+  <p>
+    It's not clear what is the best methodology just yet, but it's
+    expected that submitted proposals that want to be taken seriously should
+    present few possible ideas on how to achieve this, prior discussion with
+    other members of the community is encouraged. The student is also expected
+    to interact with the ClangIR community, file github issues, investigate
+    and/or make changes to failing codegen tests.
+  </p>
+
+  <p><b>Expected result:</b>
+    <ol>
+    <li>Build the infrastructure to run tests and collect results.</li>
+    <li>Present the results in a way that can be placed on a webpage.</li>
+    <li>File issues or change check lines for 50% of the "FileCheck fails" category
+    above. The only subdirectories that need consideration for the moment are:
+    <pre>
+    clang/test/CodeGen
+    clang/test/CodeGenCXX
+    clang/test/CodeGenOpenCL
+    clang/test/CodeGenCUDA
+    </pre>
+    </li>
+    </ol>
+    <ul>
+    <li> Bonus point: find ways to automate/facilitate changes to tests, put PRs to
+    fix problems in ClangIR.</li>
+    </ul>
+  </p>
+
+  <p><b>Skills:</b>
+    Python, intermediate C++ programming skills and familiarity with basic compiler
+    design concepts are required. Prior experience with LLVM IR, MLIR, Clang or
+    ClangIR programming is a big plus, but willingness to learn is also a
+    possibility.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Potential Mentors:</b>
+    <a href="https://github.com/bcardosolopes">Bruno Cardoso Lopes</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/clangir-gsoc2025-validate-existing-clang-codegen-test-coverage-with-clangir/84481">URL</a>
   </p>
 </div>
 
