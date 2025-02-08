@@ -13,6 +13,7 @@
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
+              <li><a href="#clang-driver-modules">Simple C++20 modules without a build system</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -747,6 +748,42 @@ a.out`main:
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/clang-static-analyzer-gsoc-2025-teach-the-clang-static-analyzer-to-understand-lifetime-annotations/84487">URL</a>
   </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-driver-modules">Simple C++20 modules without a build system</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description</b></p>
+  
+  <p>Currently there is no easy way to take a collection of source files using C++20 modules and build an executable from them. This makes it hard to create simple tests or tiny programs using C++20 modules without first setting up a build system. This project's goal is to extend the extremely simple build system in Clang's driver to handle these cases.</p>
+  <p>This can be done by using Clang's existing support for scanning for C++20 modules to discover the dependencies between the source files that have been passed in, and then build them in that order, passing in the right PCM files where needed. This may also be extended to support explicitly building Clang modules discovered via module map files too.</p>
+
+  <p><b>Expected outcomes</b></p>
+
+  <p>Invoking clang similarly to <pre>clang -o program -std=c++20 main.cpp A.cppm B.cppm</pre> should compile successfully where each translation-unit only imports modules defined in other source files on the command line, or the standard library. This should add no overhead to cases where modules are not used.</p>
+
+  <p><b>Confirmed mentors and their contacts</p></b>
+
+  <ul>
+    <li><a href="https://github.com/Bigcheese">Michael Spencer</a></li>
+  </ul>
+  
+  <p><b>Required skills</b></p>
+
+  <p>Intermediate knowledge of C++; familiarity with how C++ code is built. Familiarity with C++20 modules is an asset, but not required.</p>
+    
+  <p><b>Size of the project:</b></p>
+  
+  <p>medium (~175h)</p>
+  
+  <p><b>Project difficulty:</b></p>
+  
+  <p>medium</p>
+  
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-support-simple-c-20-modules-use-from-the-clang-driver-without-a-build-system/84511">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
