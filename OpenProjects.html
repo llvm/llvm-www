@@ -36,6 +36,11 @@
               <li><a href="#csa-lifetime-annotations">Teach the Clang Static Analyzer to understand lifetime annotations</a></li>
             </ul>
           </li>
+          <li><a href="https://enzyme.mit.edu"><b>Enzyme</b></a>
+            <ul>
+              <li><a href="#rust-enzyme-improvements">Improve Enzyme reliability and compile times for Rust</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -784,6 +789,52 @@ a.out`main:
   <p>medium</p>
   
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-support-simple-c-20-modules-use-from-the-clang-driver-without-a-build-system/84511">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="rust-enzyme-improvements">Improve Enzyme reliability and compile times for Rust</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description</b></p>
+ 
+  <p>Enzyme requires good information about the memory layout of types. LLVM-IR is intentionally opaque, e.g. `&f32` and `&f64` both have the LLVM-IR type `ptr`.
+  Enzyme is generally able to infer the underlying type (e.g. f32 vs f64) through usage analysis, but that process is slow and can in some cases fail. 
+  To make autodiff more robust, we should lower either MIR or THIR type information into LLVM-IR metadata. This analysis is recursive, for example `&[T]` is a fat pointer
+  and therefore will be represented as a (ptr, int) pair in LLVM-IR. In this case the algorithm should recursively also analyze `T` and generate metadata for it.</p>
+
+  <p>The function <a href="https://github.com/rust-lang/rust/blob/d4bdd1ed551fed0c951eb47b4be2c79d7a02d181/compiler/rustc_monomorphize/src/partitioning/autodiff.rs#L30">here</a> can be extended to generate metadata from rusts Mid-level IR (MIR). A prototype of the parser was implemented <a href="https://github.com/EnzymeAD/rust/blob/58fee1abf3f2cd0e73ee8b98e53869d6fc3ba604/compiler/rustc_middle/src/ty/mod.rs#L2826">here</a> and can be used for inspiration. Various LLVM-IR examples for the metadata which we want to generate can be found in <a href="https://github.com/EnzymeAD/Enzyme/blob/main/enzyme/test/TypeAnalysis">this</a> test folder. Look for annotations in the style of ` {[-1]:Pointer, [-1,0]:Float@float}`.</p>
+
+  <p>The online compiler <a href="https://enzyme.mit.edu/explorer/">Explorer</a> fork can be used to trigger related bugs, starting with "can not deduce type of X".</p>
+
+  <p><b>Expected outcomes</b></p>
+
+  <p>The participant should find and select some interesting testcases, in which Enzyme either fails to differentiate an example due to inssuficient Type Information, or takes unreasonable long times (e.g. > 20x slower than compiling the code without autodiff). In the second case, a profiler should be used to verify that Enzyme causes a long compile time due to type analysis. The participant should then write (or later extend) the Type parser to generate the correct metadata, such that Enzyme can handle the new testcases. The LIT testcases should be added to the rust compiler, to avoid further regressions.</p>
+
+  <p>Examples for code that currently is not handled correctly can be discussed in the project proposal phase.</p>
+
+  <p><b>Confirmed mentors and their contacts</p></b>
+
+  <ul>
+    <li><a href="https://github.com/ZuseZ4">Manuel Drehwald</a></li>
+    <li><a href="https://github.com/oli-obk">Oli Scherer</a></li>
+    <li><a href="https://github.com/jdoerfert">Johannes Doerfert</a></li>
+  </ul>
+  
+  <p><b>Required skills</b></p>
+
+  <p>Intermediate knowledge of Rust and C++; Familiarity with profilers or LLVM metadata is an asset, but not required.</p>
+    
+  <p><b>Size of the project:</b></p>
+  
+  <p>medium (~175h)</p>
+  
+  <p><b>Project difficulty:</b></p>
+  
+  <p>medium</p>
+  
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
