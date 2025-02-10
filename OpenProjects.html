@@ -14,6 +14,7 @@
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
               <li><a href="#clang-driver-modules">Simple C++20 modules without a build system</a></li>
+              <li><a href="#clang-improve-trapping-ubsan-2025">Usability Improvements for trapping Undefined Behavior Sanitizer (UBSan)</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -791,6 +792,58 @@ a.out`main:
   <p>medium</p>
   
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-support-simple-c-20-modules-use-from-the-clang-driver-without-a-build-system/84511">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clang-improve-trapping-ubsan-2025">Usability Improvements for trapping Undefined Behavior Sanitizer (UBSan)</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>Undefined Behavior Sanitizer (UBSan) is a useful compilation mode in Clang for finding uses of undefined behavior (e.g. signed integer overflow) and problematic C/C++ code (e.g. unsigned integer overflow). The default version of UBSan uses a compiler runtime that only works in userspace (e.g. it won’t work in the kernel or for embedded applications) and is not considered secure enough for use in production environments.  To handle these other environments UBSan provides a trapping mode that emits trap instructions that immediately halts the application rather than calling into the UBSan runtime which normally diagnoses the problem and then carries on execution.</p>
+
+  <p>Unfortunately trapping UBSan has some deficiencies which make it hard to use. In particular:</p>
+  <ul>
+    <li>Clang silently ignores the <tt>-fsanitize-trap=undefined</tt> flag when it's passed without <tt>-fsanitize=undefined</tt>. This project would fix this as a “warm up task” to get familiar with the Clang codebase.</li>
+    <li>When a UBSan trap is hit with the debugger attached it is not convenient to figure out the reason UBSan trapped. For x86_64 and arm64 some information is encoded in the instruction but decoding this is very inconvenient. While LLDB could be taught to look at the instruction and decode the meaning this is brittle because it depends on undocumented compiler ABI. Instead we can build upon the <tt>__builtin_verbose_trap</tt> work to encode the reason for trapping inside the debug information.</li>
+  </ul>
+
+  <p><b>Expected outcomes</b></p>
+  <ul>
+    <li>When the <tt>-fsanitize-trap=undefined</tt> flag is passed on its own the compiler silently ignores it. Currently Clang requires that the <tt>-fsanitize-trap=</tt> flag is also passed. Clang should be taught to warn about this.</li>
+    <li>Teach Clang to emit the UBSan trap reasons in debug information on UBSan trap instructions similar to how <tt>__builtin_verbose_trap</tt> works.</li>
+    <li>Confirm LLDB is able to recognize the UBSan trap reasons and add tests for this.</li>
+  </ul>
+
+
+  <p><b>Confirmed mentors and their contacts</p></b>
+
+  <ul>
+    <li><a href="https://github.com/delcypher">Dan Liew</a></li>
+    <li><a href="https://github.com/Michael137">Michael Buch</a></li>
+  </ul>
+
+  <p><b>Required skills</b></p>
+
+  <p>Good understanding of C++</p>
+
+  <p><b>Desirable skills</b></p>
+
+  <ul>
+    <li>Familiarity with UBSan</li>
+    <li>Familiarity with LLDB</li>
+  </ul>
+
+  <p><b>Size of the project:</b></p>
+
+  <p>small (~10h). but can be extended if time allows</p>
+
+  <p><b>Project difficulty:</b></p>
+
+  <p>Easy. This project would be good to a beginner to LLVM. If we end up having lots of extra time we can investigate improving the UBSan reasons by encoding other useful information that the compiler knows into the trap reason.</p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-usability-improvements-for-trapping-undefined-behavior-sanitizer/84568">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
