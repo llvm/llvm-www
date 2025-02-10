@@ -24,6 +24,8 @@
           <li><a href="http://libc.llvm.org/"><b>LLVM libc</b></a>
             <ul>
               <li><a href="#bfloat16-libc">Bfloat16 in LLVM libc</a></li>
+              <li><a href="#io_uring-libc">Direct I/O from the GPU with io_uring</a></li>
+              <li><a href="#testing-math-libc">Profiling and testing the LLVM libc GPU math</a></li>
             </ul>
           </li>
           <li><a href="https://clangir.org"><b>ClangIR</b></a>
@@ -605,6 +607,113 @@ a.out`main:
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/libc-gsoc-2025-bfloat16-in-llvm-libc/84469">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="io_uring-libc">Direct I/O from the GPU with io_uring</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b></p>
+
+  <p>
+    Modern GPUs are capable of unified addressing with the host. We currently use
+    this to provide I/O support using the <a href="https://libc.llvm.org/gpu/rpc.html">RPC interface</a>. However, this
+    requires a dedicated user thread on the CPU to handle the server code. We want
+    to explore alternatives to providing I/O from the GPU using the Linux 
+    <a href="https://en.wikipedia.org/wiki/Io_uring">io_uring</a> interface.
+  </p>
+
+  <p>
+    This interface is a ring buffer designed to accelerate syscalls. However, it
+    provides a <a href="https://unixism.net/loti/tutorial/sq_poll.html#sq-poll">polling mode</a>
+    that allows the kernel to flush the ring buffer without the user initiating a
+    system call. We should be able to register <code>mmap()</code> memory with the
+    GPU using <a href="https://github.com/ROCm/ROCR-Runtime/blob/amd-staging/runtime/hsa-runtime/inc/hsa_ext_amd.h#L3022">AMD</a>
+    and <a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__UNIFIED.html">NVIDIA</a>
+    API calls. This interface should allow us to implement a rudimentary
+    read/write interface which can be thought of as the same as the syscall on the
+    CPU. That can then be used to implement a whole file interface.
+  </p>
+
+  <p><b>Expected result:</b></p>
+
+  <ul>
+    <li>An implementation of <code>pwrite</code> and <code>pread</code> that runs on the GPU.</li>
+    <li>Support for <code>printf</code> by forwarding <code>snprintf</code> into <code>pwrite</code>.</li>
+    <li>If time permits, exploring GPU file APIs.</li>
+  </ul>
+
+  <p><b>Skills:</b></p>
+
+  <p>
+    Basic C & C++ skills + access to a GPU, Linux kernel knowledge, GPU knowledge.
+  </p>
+
+  <p><b>Project size:</b> Small </p>
+
+  <p><b>Difficulty:</b> Hard </p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="mailto:joseph.huber@amd.com">Joseph Huber</a>, 
+    <a href="mailto:i@tianshilei.me">Tian Shilei</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href=https://discourse.llvm.org/t/libc-gsoc-2025-direct-i-o-from-the-gpu-with-io-uring/84569>URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="testing-math-libc">Profiling and testing the LLVM libc GPU math</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b></p>
+
+  <p>
+    The LLVM C library provides implementations of math functions. We want to profile these against existing implementations, 
+    such as CUDA's <code>libdevice</code>, ROCm's <code>device libs</code>, and OpenCL's <code>libclc</code>. 
+    Last year we worked on some interfaces to support these tests, now they need to be refined and filled out for the interesting functions.
+  </p>
+
+  <p>
+    Additionally, we want to verify the accuracy of these functions when run on the GPU via brute force testing. 
+    The goal is to verify that the implementations are correct and at least conformant to the error ranges in the 
+    <a href="https://registry.khronos.org/OpenCL/specs/3.0-unified/html/OpenCL_C.html#relative-error-as-ulps">OpenCL standard</a>. 
+    This will require a set of unit tests written in the <code>offload/</code> project, ideally using the new API that @callumfare is working on.
+  </p>
+
+  <p><b>Expected result:</b></p>
+
+  <ul>
+    <li>Final performance results similar to <a href="https://dl.acm.org/doi/fullHtml/10.1145/3624062.3624166">Old results</a> 
+        but with the more optimized functions and higher accuracy.</li>
+    <li>A test suite that can do brute force testing to confirm that the implementations are conformant.</li>
+  </ul>
+
+  <p><b>Skills:</b></p>
+
+  <p>
+    Basic C & C++ skills + access to a GPU, some math knowledge
+  </p>
+
+  <p><b>Project size:</b> Small </p>
+
+  <p><b>Difficulty:</b> Easy / Medium </p>
+
+  <p><b>Confirmed Mentors:</b>
+    <a href="mailto:joseph.huber@amd.com">Joseph Huber</a>, 
+    <a href="mailto:lntue.h@gmail.com">Tue Ly</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href=https://discourse.llvm.org/t/libc-gsoc-2025-profiling-and-testing-of-the-llvm-libc-gpu-math/84570>URL</a>
   </p>
 </div>
 
