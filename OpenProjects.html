@@ -10,6 +10,7 @@
         <ul>
           <li><b>LLVM Core</b>
             <ul>
+              <li><a href="#llvm-abi-lowering">Introduce an ABI lowering library</a></li>
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -837,6 +838,61 @@ a.out`main:
   <p>medium</p>
   
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc2025-improve-rust-enzyme-reliability-and-compile-times/84523">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="llvm-abi-lowering">Introduce an ABI lowering library</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    Currently, every LLVM-based frontend that wants to support calling into C
+    code (FFI) needs to re-implement a substantial amount of complex call ABI
+    handling. The goal of this project is to introduce an LLVM ABI library,
+    which can be reused across different frontends, including Clang. More
+    details on the motivation and a broad outline of the design are available
+    in the <a href="https://discourse.llvm.org/t/rfc-an-abi-lowering-library-for-llvm/84495/1">corresponding RFC</a>.
+  </p>
+
+  <p>
+    The initial phase of the project will be to implement a prototype that can
+    handle at least the x86_64 System V ABI. This will involve implementing the
+    ABI type system, mapping of Clang types to ABI types and moving at least
+    part of the X86 ABIInfo implementation from Clang to the new ABI library.
+    This is to demonstrate general feasibility, figure out design questions and
+    analyze compilation-time impact.
+  </p>
+
+  <p>
+    Assuming the results from the prototype are positive, the next step would
+    be to upstream the implementation by splitting it into smaller PRs. Finally,
+    the implementation can be expanded to cover additional targets, ultimately
+    removing Clang's ABI handling code entirely.
+  </p>
+
+  <p><b>Expected result:</b>
+    The minimum result is a prototype for the x86_64 ABI. The maximum result is
+    fully upstreamed support for all targets. The expected result is somewhere
+    in the middle between those two.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate C++. Some familiarity with LLVM is a plus, but not required.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b> Hard</p>
+
+  <p><b>Confirmed mentors:</b>
+    <a href="https://github.com/nikic">Nikita Popov</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/llvm-introduce-an-abi-lowering-library/84554">URL</a>
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
