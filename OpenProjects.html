@@ -15,6 +15,7 @@
             <ul>
               <li><a href="#clang-driver-modules">Simple C++20 modules without a build system</a></li>
               <li><a href="#clang-improve-trapping-ubsan-2025">Usability Improvements for trapping Undefined Behavior Sanitizer (UBSan)</a></li>
+              <li><a href="#improve-documentation-parsing-in-clang">Improve documentation parsing in Clang</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -953,6 +954,70 @@ a.out`main:
   <p>Easy. This project would be good to a beginner to LLVM. If we end up having lots of extra time we can investigate improving the UBSan reasons by encoding other useful information that the compiler knows into the trap reason.</p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-usability-improvements-for-trapping-undefined-behavior-sanitizer/84568">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="improve-documentation-parsing-in-clang">Improve documentation parsing in Clang</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    <a href=https://clang.llvm.org/extra/clang-doc.html>Clang-Doc</a> is a
+    C/C++ documentation generation tool created as an alternative for Doxygen
+    and built on top of LibTooling. This effort started in 2018 and critical
+    mass has landed in 2019, but the development has been largely stagnant
+    mostly due to a lack of resources until last year when the development
+    restarted as a successful Google Summer of Code project.
+    <br /> <br />
+    The tool is built on top of LibTooling and leverages Clang parsers which
+    supports parsing of Doxygen commands in documentation comments (this
+    support is also used in the implementation of Clang’s
+    <pre>-Wdocumentation</pre> which can be used to validate the content of
+    documentation comments during
+    compilation).
+    <br /> <br />
+    Unfortunately, Clang’s documentation parser is incomplete and has several issues:
+    <ul>
+      <li>Not all Doxygen commands are supported, limiting the Clang-Doc’s usability.
+      <li>Not all C/C++ constructs are currently handled, most notably C++20 features such as concepts.
+      <li>Markdown support in documentation comments introduced in Doxygen version 1.8.0 is missing.
+    </ul>
+  </p>
+
+  <p><b>Expected result:</b>
+    The goal of this project is to implement the missing features in Clang’s
+    documentation parser as well as their handling in Clang-Doc to improve the
+    quality of the generated documentation. The eventual goal is for the LLVM
+    project to start using Clang-Doc for generating its reference
+    documentation, but before we can do that we need to ensure that all
+    required features are implemented.
+    <br /><br />
+    Successful proposals should focus not only on addressing the existing
+    limitations, but also draw inspiration for other potential improvements
+    from other documentation tools such as <a href=https://hdoc.io/>hdoc</a>, <a
+    href=https://github.com/standardese/standardese>standardese</a>, <a
+    href=https://github.com/chromium/subspace/tree/main/subdoc>subdoc</a> or
+    <a href=https://cs.opensource.google/fuchsia/fuchsia/+/main:tools/cppdocgen/>cppdocgen</a>.
+    <br /><br />
+    Over the course of the project, the candidate will have an opportunity to
+    gain significant experience with LLVM and Clang internals (including lexer
+    and parser) and C/C++ language.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate knowledge of C++; interest in compilers and parsers. Previous
+    experience with Clang/LibTooling is a bonus but not required.
+  </p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/petrhosek>Petr Hosek</a>,
+    <a href=https://github.com/ilovepi>Paul Kirth</a>
+  </p>
+
+  <p><b>Discourse:</b> <a href=https://discourse.llvm.org/t/improve-documentation-parsing-in-clang/84513>URL</a>
 </div>
 
 <!-- *********************************************************************** -->
