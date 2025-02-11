@@ -46,6 +46,11 @@
               <li><a href="#rust-enzyme-improvements">Improve Enzyme reliability and compile times for Rust</a></li>
             </ul>
           </li>
+          <li><a href="https://discourse.llvm.org/t/offload-new-subproject-pending-move-of-libomptarget/78185"><b>Offload</b></a> (Former <a href="https://openmp.llvm.org/"><b>OpenMP Offloading</b></a>)
+            <ul>
+              <li><a href="#offload-remarks-visualization">LLVM Compiler Remarks Visualization Tool for Offload Proposal</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -1122,6 +1127,111 @@ a.out`main:
   </p>
 </div>
 
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="offload-remarks-visualization">LLVM Compiler Remarks Visualization Tool for Offload Proposal</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    LLVM offers different information via remarks, profiling, or runtime debug annotations 
+    (e.g., LIBOMPTARGET_INFO=-1). However, as projects increase, dissecting this information 
+    becomes difficult for users. For example, it is difficult to collect all this data, 
+    visualize it, and learn from it when building large projects.
+  </p>
+  
+  <p>
+    Currently, some of this information—for example, compilation remarks—can be exported 
+    in JSON format. We want to create a tool to visualize, aggregate, and summarize the 
+    information. To aid accelerator development, we will start with the offload project 
+    as the primary candidate.
+  </p>
+
+  <p>
+    Similar tools, such as opt-viewer, can be used as references and starting points.
+  </p>
+
+  <p><b>Expected outcomes:</b>
+    The expected outcome is a tool (e.g., in the form of a compiler wrapper such as 
+    ccache) that will allow the dump of all the compiler-generated information in 
+    JSON format and organize it in a project structure.
+  </p>
+
+  <p>
+    The tool should generate an HTML-based report to help visualize the remarks. We
+    envision a small client-server application using Python to spawn a local server 
+    as the visualization's front end. The server will expose the different reports 
+    and perform early analysis and aggregation.
+  </p>
+
+  <p>
+    Additionally, the tool should be designed so that, in the future, the analysis of 
+    the remarks can provide generalized guidelines for the developer (e.g., show the 
+    most common remark, use LLM models to explain actions, etc.). The client (HTML viewer) 
+    will display the aggregated data, in-line remarks, profile information, etc. We do 
+    not expect the project to have all the features at the end of the GSoC but to 
+    serve as a placeholder for growth in the future.
+  </p>
+
+  <p>
+    In particular, the outcomes of this project should be:
+    <ul>
+      <li>
+        Together with the mentors, help the design of the compiler wrapper, 
+        data storage layer, and client/server infrastructure. This includes the 
+        server API. The outcome of this task is a design document (similar to an RFC).
+      </li>
+      <li>
+        Create a compiler wrapper that will dump different information in JSON 
+        format into the data storage layer (e.g., folders).
+      </li>
+      <li>
+        Create a simple server layer that exposes the backend API to the front 
+        end. Python is the right way to do this, but we welcome other suggestions 
+        that align with the LLVM project. We would like to avoid relying on 
+        external projects (e.g., Flask) to avoid adding more dependencies to 
+        the LLVM project.
+      </li>
+      <li>
+        Create a simple client-side visualization tool that can be extended in 
+        the future to show more reports.
+      </li>
+    </ul>
+  </p>
+
+  <p><b>Mentors:</b>
+    <a href="https://github.com/shiltian">@shiltian</a>, 
+    <a href="https://github.com/jdoerfert">@jdoerfert</a>, 
+    <a href="https://github.com/josemonsalve2">@josemonsalve2</a>
+  </p>
+
+  <p><b>Required/desired skills:</b>
+    <ul>
+      <li>
+        Basic understanding of the LLVM Compiler to be able to generate 
+        compiler remarks, profiling data, and other information from the 
+        compiler.
+      </li>
+      <li>
+        Proficiency in Python and C++.
+      </li>
+      <li>
+        Full-stack web development.
+      </li>
+    </ul>
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b> Easy</p>
+
+  <p><b>Discourse Link:</b> 
+    <a href="https://discourse.llvm.org/t/gsoc-offload-llvm-compiler-remarks-visualization-tool-for-offload-proposal/84596">[GSoC][Offload]LLVM Compiler Remarks Visualization Tool for Offload Proposal</a>
+  </p>
+</div>
+
+    
 <!-- *********************************************************************** -->
 <div class="www_sectiontitle">
   <a name="gsoc24">Google Summer of Code 2024</a>
