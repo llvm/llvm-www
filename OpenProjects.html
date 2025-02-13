@@ -17,6 +17,7 @@
               <li><a href="#clang-driver-modules">Simple C++20 modules without a build system</a></li>
               <li><a href="#clang-improve-trapping-ubsan-2025">Usability Improvements for trapping Undefined Behavior Sanitizer (UBSan)</a></li>
               <li><a href="#improve-documentation-parsing-in-clang">Improve documentation parsing in Clang</a></li>
+              <li><a href="#improve-symbol-discovery-clang-repl">Advanced symbol resolution and reoptimization for clang-repl</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -1024,6 +1025,51 @@ a.out`main:
   </p>
 
   <p><b>Discourse:</b> <a href=https://discourse.llvm.org/t/improve-documentation-parsing-in-clang/84513>URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="improve-symbol-discovery-clang-repl">Advanced symbol resolution and reoptimization for clang-repl</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    The Clang compiler is part of the LLVM compiler infrastructure and supports
+    various languages such as C, C++, ObjC and ObjC++. The design of LLVM and
+    Clang enables them to be used as libraries, and has led to the creation of
+    an entire compiler-assisted ecosystem of tools. The relatively friendly
+    codebase of Clang and advancements in the JIT infrastructure in LLVM further
+    enable research into different methods for processing C++ by blurring the
+    boundary between compile time and runtime. Challenges include incremental
+    compilation and fitting compile/link time optimizations into a more dynamic
+    environment. Incremental compilation pipelines process code chunk-by-chunk
+    by building an ever-growing translation unit. Code is then lowered into the
+    LLVM IR and subsequently run by the LLVM JIT. Such a pipeline allows
+    creation of efficient interpreters. The interpreter enables interactive
+    exploration and makes the C++ language more user friendly. Clang-Repl is one
+    example.
+  </p>
+
+  <p><b>Expected result:</b>
+    The project aims to develop a robust mechanism for resolving missing symbols
+    by dynamically identifying and loading the appropriate shared objects or
+    static archives. Additionally, it will explore use cases where adapting
+    symbols based on execution profiles leads to measurable performance
+    improvements, optimizing the efficiency of just-in-time compilation and
+    dynamic execution environments.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate knowledge of C++, Understanding of LLVM and the LLVM JIT in particular
+  </p>
+
+  <p><b>Project size:</b>Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/vgvassilev>Vassil Vassilev</a>
+  </p>
+
+  <p><b>Discourse:</b> <a https://discourse.llvm.org/t/gsoc2025-advanced-symbol-resolution-and-reoptimization-for-clang-repl>URL</a>
 </div>
 
 <!-- *********************************************************************** -->
