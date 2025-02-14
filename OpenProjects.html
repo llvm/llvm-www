@@ -11,6 +11,7 @@
           <li><b>LLVM Core</b>
             <ul>
               <li><a href="#llvm-abi-lowering">Introduce an ABI lowering library</a></li>
+              <li><a href="#byte-type">Byte type</a></li>
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
@@ -1170,6 +1171,56 @@ a.out`main:
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/llvm-introduce-an-abi-lowering-library/84554">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="byte-type">Byte type</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    LLVM IR can't represent implementations of memcpy, memcmp, etc correctly
+    due to the lack of a way to represent raw memory. This project aims to
+    add a new 'byte' type to the LLVM IR to represent raw memory.
+  </p>
+
+  <p>
+    In addition to adding the new type, the project involves changing clang
+    to lower chars to the new b8 type instead of i8, fixing incorrect lowerings
+    of memory intrinsics, and tracking down the performance regressions.
+  </p>
+
+  <p>
+    There is already a
+    <a href="https://github.com/georgemitenkov/GSoC-2021">prototype</a>
+    implementation of the byte type for an older version of LLVM.
+    More information
+    <a href="https://gist.github.com/georgemitenkov/3def898b8845c2cc161bd216cbbdb81f">here</a>.
+  </p>
+
+  <p><b>Expected result:</b>
+    The minimum result is a port of the existing prototype to the current LLVM,
+    fixing all known incorrect optimizations, add support for the byte type to
+    Alive2, and a performance analysis.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate C++, familiarity with LLVM, profiling.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b> Hard</p>
+
+  <p><b>Confirmed mentors:</b>
+    <a href="https://web.ist.utl.pt/nuno.lopes/">Nuno Lopes</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2025-byte-type/84636">URL</a>
   </p>
 </div>
 
