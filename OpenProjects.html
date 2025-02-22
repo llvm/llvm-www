@@ -36,6 +36,7 @@
           <li><a href="https://clangir.org"><b>ClangIR</b></a>
             <ul>
               <li><a href="#clangir-codegen-tests">Validate existing Clang CodeGen test coverage with ClangIR</a></li>
+              <li><a href="#clangir-codegen-upstreaming">Participate in ClangIR upstreaming</a></li>
             </ul>
           </li>
           <li><a href="https://clang.llvm.org/docs/ClangStaticAnalyzer.html"><b>Clang Static Analyzer</b></a>
@@ -821,6 +822,68 @@ a.out`main:
 
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/clangir-gsoc2025-validate-existing-clang-codegen-test-coverage-with-clangir/84481">URL</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="clangir-upstreaming">Participate in ClangIR Upstreaming</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description:</b>
+    <a href="https://clangir.org">ClangIR</a> is a new, MLIR_based intermediate
+    representation of C and C++ code. It has been developed in an LLVM incubator
+    project, but work is now underway to migrate the code from the incubator to
+    the main LLVM repository. As the code is moved, it must be updated to align
+    with LLVM coding standards and quality expectations. The goal for this
+    project is to participate in the ClangIR upstreaming process and help
+    improve both the code and the upstreaming process.
+  </p><p>
+    The ClangIR project intends to unlock the possibility of better
+    optimization, analysis, and diagnostics for C and C++ code by adding new
+    abstractions that more closely model the source constructs, preserving
+    more details than are available in standard LLVM IR. The ClangIR dialect
+    is already being used to solve real-world problems using the implementation
+    available in the ClangIR incubator, but we need to move this into the
+    main LLVM repository in order to make this functionality available to a
+    larger audience.
+  </p><p>
+    This project will be an opportunity to gain hands-on experience with MLIR
+    development with a focus on day-to-day software engineering discipline.
+    Participants will work side-by-side with other LLVM contributors to achieve
+    a common goal, and in the process will gain a deep understanding of the
+    ClangIR dialect.
+  </p>
+
+  <p><b>Expected result:</b>
+    <ol>
+    <li>Migrate ClangIR support for C and C++ language features into the main
+        LLVM repository</li>
+    <li>Improve the quality of code as it is being migrated</li>
+    <li>Suggest ways to improve the migration process</li>
+    </ol>
+  </p>
+
+  <p><b>Skills:</b>
+    Proficiency with modern C++ programming and familiarity with basic compiler
+    design concepts are required. Prior experience with LLVM IR, MLIR, Clang or
+    ClangIR programming is a big plus, but since the goal of this project is to
+    gain such experience, it is not a prerequisite.
+  </p>
+
+  <p><b>Project size:</b> Medium to Large</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Potential Mentors:</b>
+    <a href="https://github.com/andykaylor">Andy Kaylor</a>
+    <a href="https://github.com/bcardosolopes">Bruno Cardoso Lopes</a>
+  </p>
+
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/clangir-gsoc-2025-clangir-upstreaming/84766">URL</a>
   </p>
 </div>
 
