@@ -988,7 +988,7 @@ a.out`main:
   <p>Unfortunately trapping UBSan has some deficiencies which make it hard to use. In particular:</p>
   <ul>
     <li>Clang silently ignores the <tt>-fsanitize-trap=undefined</tt> flag when it's passed without <tt>-fsanitize=undefined</tt>. This project would fix this as a “warm up task” to get familiar with the Clang codebase.</li>
-    <li>When a UBSan trap is hit with the debugger attached it is not convenient to figure out the reason UBSan trapped. For x86_64 and arm64 some information is encoded in the instruction but decoding this is very inconvenient. While LLDB could be taught to look at the instruction and decode the meaning this is brittle because it depends on undocumented compiler ABI. Instead we can build upon the <tt>__builtin_verbose_trap</tt> work to encode the reason for trapping inside the debug information.</li>
+    <li>When a UBSan trap is hit with the debugger attached it is not convenient to figure out the reason UBSan trapped. For x86_64 and arm64 some information is encoded in the instruction but decoding this is very inconvenient. While LLDB could be taught to look at the instruction and decode the meaning this is brittle because it depends on undocumented compiler ABI. Instead we can build upon the <tt>__builtin_verbose_trap</tt> work to encode the reason for trapping ("trap reasons") inside the debug information. If time permits we can also investigate emitting more precise trap reasons</li>
   </ul>
 
   <p><b>Expected outcomes</b></p>
@@ -996,6 +996,7 @@ a.out`main:
     <li>When the <tt>-fsanitize-trap=undefined</tt> flag is passed on its own the compiler silently ignores it. Currently Clang requires that the <tt>-fsanitize-trap=</tt> flag is also passed. Clang should be taught to warn about this.</li>
     <li>Teach Clang to emit the UBSan trap reasons in debug information on UBSan trap instructions similar to how <tt>__builtin_verbose_trap</tt> works.</li>
     <li>Confirm LLDB is able to recognize the UBSan trap reasons and add tests for this.</li>
+    <li>If time permits we should investigate emitting more precise trap reasons by using information available in the compiler. We may want to implement a "Sema Diagnostic" like approach where trap reason strings can easily be constructed inside the compiler. This task is more open-ended and has potentially uses outside of UBSan (e.g. <tt>-fbounds-safety</tt>).</li>
   </ul>
 
 
@@ -1019,11 +1020,11 @@ a.out`main:
 
   <p><b>Size of the project:</b></p>
 
-  <p>small (~10h). but can be extended if time allows</p>
+  <p>small (~90h). but can be extended if time allows</p>
 
   <p><b>Project difficulty:</b></p>
 
-  <p>Easy. This project would be good to a beginner to LLVM. If we end up having lots of extra time we can investigate improving the UBSan reasons by encoding other useful information that the compiler knows into the trap reason.</p>
+  <p>Easy. This project would be good for a beginner to LLVM. Note the "emitting more precise trap reasons" portion is more open ended and so the difficulty of this is entirely down to direction the applicant chooses.</p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/clang-gsoc-2025-usability-improvements-for-trapping-undefined-behavior-sanitizer/84568">URL</a></p>
 </div>
