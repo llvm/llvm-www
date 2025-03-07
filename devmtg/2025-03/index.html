@@ -17,9 +17,9 @@
 
 <p>
   The Ninth LLVM Performance Workshop will be held at
-  (<a href="https://2025.cgo.org/track/cgo-2025-workshops-and-tutorials">CGO 2025</a>). The 
+  (<a href="https://2025.cgo.org/track/cgo-2025-workshops-and-tutorials">CGO 2025</a>). The
   workshop is co-located with CC, HPCA, and PPoPP.
-  If you are interested in attending the workshop, please register at the 
+  If you are interested in attending the workshop, please register at the
   (<a href="https://conf.researchr.org/home/cgo-2025">CGO website</a>).
   The LLVM workshop at CGO will be in-person.
 </p>
@@ -128,7 +128,12 @@
     <tr>
       <td><p>14:00 - 14:30 (30 min)</p></td>
       <td><p>Ehsan Amiri, Rouzbeh Paktinatkeleshteri, Hao Jin, Eric Wang, Jose Nelson Amaral</p></td>
-      <td><p><a href="#talk7">Container Class Annotations in C++ Improve the Capability of Static Analysis in MLIR</a></p></td>
+      <td>
+        <p>
+          <a href="#talk7">Container Class Annotations in C++ Improve the Capability of Static Analysis in MLIR</a>
+          <br/>[<a href="slides/container-class-annotations.pdf">slides</a>]
+        </p>
+      </td>
       <td><p>Performance, Data Layout Optimization, Static Analysis, C++, MLIR, LLVM IR</p></td>
     </tr>
     <!-- Talk 8 -->
@@ -187,7 +192,7 @@
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
 <h4>Corbin Robeck, Yuanwei Fang, Keren Zhou</h4>
-<p> 
+<p>
 Modern machine learning compilers make heavy use of MLIR to generate code optimally for complex AI operators (sophisticated matrix multiplications, flash attention, etc.). To target the latest generation of GPU accelerators with minimal user intervention and make full use of the available hardware and software features (matrix/tensor cores, warp specialization, wave priority and scheduling, loop pipelining), requires specialized compiler passes to make performance critical decisions to map the domain specific algorithms to the underlying hardware resources. This makes performance analysis and profiling tools that integrate directly into the domain-specific language's (DSL) operations critical to achieving performance comparable to handwritten kernels.
 <br/>
 In this talk we present the Proton Dialect: A compiler-integrated, intra-kernel, MLIR operation set for performance analysis and optimization. The dialect approach integrates profiling and performance analysis features directly into both the upper-level ML compiler language (e.g. Python) operations and the various MLIR ops and lowerings allowing operation aware passes, like loop pipelining, to handle the dialect like any other registered dialect's operations (e.g. loads, stores, control flow, etc.).
@@ -217,7 +222,7 @@ Compilers play a pivotal role in software development, evolving alongside the in
 To address these challenges, we introduce Fuzzlang, a novel framework for generating extensive datasets of compiler errors, both in isolation and within real-world code contexts. Fuzzlang comprises the Fuzzlang Transformer, which systematically generates diverse compilation errors from existing code, and Fuzzlang Agent, which employs large language models (LLMs) to analyze and isolate complex errors from internal compiler tests. Together, Fuzzlang generates five times more independent error types than the DeepFix database and achieves 83.1% coverage of error conditions triggered by LLVM/Clang's internal testing.
 <br/>
 Our evaluation demonstrates that fine-tuning LLMs with the Fuzzlang dataset substantially enhances their code repair capabilities. The precision of Llama3-8B improved from 37.22% to 93.97%, and GPT-4o-mini rose from 72.29% to 96.70%. These results highlight Fuzzlang's potential as an effective tool for advancing intelligent code repair and compiler diagnostics research through comprehensive dataset generation.
-  
+
 </p>
 
 <!-- Abstract for Talk 4 -->
@@ -227,7 +232,7 @@ Our evaluation demonstrates that fine-tuning LLMs with the Fuzzlang dataset subs
 </h3>
 <h4>Miguel Romero Rosas, Rudolph Eigenmann</h4>
 <p>
-Automatic parallelization, still cannot achieve the required performance to be considered a true alternative to hand parallelization. However, when combined with effective tuning techniques, it provides a promising alternative to manual parallelization of sequential programs by leveraging the computational potential of modern multi-core architectures. While automatic parallelization focuses on identifying potential parallelism in code, tuning systems refine performance by optimizing efficient parallel code segments and serializing inefficient ones based on runtime metrics. 
+Automatic parallelization, still cannot achieve the required performance to be considered a true alternative to hand parallelization. However, when combined with effective tuning techniques, it provides a promising alternative to manual parallelization of sequential programs by leveraging the computational potential of modern multi-core architectures. While automatic parallelization focuses on identifying potential parallelism in code, tuning systems refine performance by optimizing efficient parallel code segments and serializing inefficient ones based on runtime metrics.
 <br/>
 This study investigates the performance gap between automatically and manually parallelized OpenMP applications, addressing whether this gap can be closed through compile-time solutions or if it necessitates user-interactive or dynamic approaches. We propose a novel tuning system that employs an efficient algorithm, Combined Elimination (CE), to partition and optimize program sections individually. CE demonstrates a significant advancement over existing methods by achieving equivalent performance while reducing tuning time to 57% of the closest alternative.
 <br/>
@@ -323,7 +328,7 @@ Offloading host computations to accelerators frequently incurs a substantial pen
 
 <div class="www_sectiontitle">Call for Speakers</div>
 <p>
-  We invite speakers from academia and industry to present their work on the following list of topics 
+  We invite speakers from academia and industry to present their work on the following list of topics
   (including and not limited to:):
 </p>
 <ul>
@@ -351,10 +356,10 @@ Offloading host computations to accelerators frequently incurs a substantial pen
 </ul>
 
 <p>
-  Proposals should provide sufficient information for the review 
+  Proposals should provide sufficient information for the review
   committee to be able to judge the quality of the submission.
   Proposals can be submitted under the form of an extended abstract, full paper, or slides.
-  Accepted presentations will be presented online. The presentations will be publicly available on 
+  Accepted presentations will be presented online. The presentations will be publicly available on
   <a href="https://llvm.org/devmtg/">https://llvm.org/devmtg/</a>
 </p>
 
