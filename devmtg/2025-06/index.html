@@ -143,10 +143,10 @@ Speaker: Shin Ando</b><br>
 <p>TableGen is essential for LLVM backend development, but the current development experience leaves much to be desired. This talk presents a new language server tailored for TableGen, with improved performance, stability, and dedicated support for backend development. Through robust parsing, advanced analysis, and a rich set of LSP features, we show how the development experience can be significantly improved.</p>
 </p>
 
-<p><b>  
-12:05 - 12:15 | Quick Talk<br>
-Speaker:</b><br>
-Abstract:
+<p><b>   
+12:05 - 12:15 | Improvements to LoopInterchange to accelerate vectorization<br>
+Speaker: Ryotaro Kasuga</b><br>
+<p>LoopInterchange is a transform pass that exchanges the order of loops within a nested loop. It accelerates loop vectorization in some cases, especially the vectorization of the innermost loop. This talk is about how LoopInterchange affects vectorization and improvements to LoopInterchange to boost vectorization.</p>
 </p>
 </ol>
 
@@ -179,68 +179,63 @@ Speaker: Yongtai Li</b><br>
 </p>
 
 <p><b>
-14:45 - 15:30 | Lightning Talks Session
+14:45 - 15:25 | Lightning Talks Session
 </b></p>
 
 <ol>
-<p><b>  
-14:45 - 14:50 | Improvements to LoopInterchange to accelerate vectorization<br>
-Speaker: Ryotaro Kasuga</b><br>
-<p>LoopInterchange is a transform pass that exchanges the order of loops within a nested loop. It accelerates loop vectorization in some cases, especially the vectorization of the innermost loop. This talk is about how LoopInterchange affects vectorization and improvements to LoopInterchange to boost vectorization.</p>
-</p>
 
 <p><b>  
-14:50 - 14:55 | Fujitsu Compiler Test Suite: New Test Suite for Fortran/C/C++<br>
+14:45 - 14:50 | Fujitsu Compiler Test Suite: New Test Suite for Fortran/C/C++<br>
 Speaker: Takahiro Kawashima</b><br>
 <p>Fujitsu released Fujitsu Compiler Test Suite <a href="https://github.com/fujitsu/compiler-test-suite">https://github.com/fujitsu/compiler-test-suite</a>, a test suite for Fortran/C/C++ compilers, at the end of 2023. It is used in the Flang CI <a href="https://linaro.atlassian.net/wiki/spaces/FLANGCI/overview">https://linaro.atlassian.net/wiki/spaces/FLANGCI/overview</a>, one of unofficial CI (continuous integration) systems in the LLVM community, to detect regressions of LLVM. This talk explains what the Fujitsu Compiler Test Suite and the Flang CI are and how the LLVM community can leverage them.</p>
 </p>
 
 <p><b>  
-14:55 - 15:00 | Complex Number Division Calculation Methods and Our Work in MLIR<br>
+14:50 - 14:55 | Complex Number Division Calculation Methods and Our Work in MLIR<br>
 Speaker: Shunsuke Watanabe</b><br>
 <p>Our investigation revealed that the optimization of loops involving complex number division in Flang performs worse than Gfortran. This performance difference was confirmed in SPEC CPU 2017’s cam4 benchmark. The reason for this is that the current Flang can only lower complex number division to scalar runtime functions (such as “__divdc3”), preventing vectorization and inlining. Therefore, we considered using the MLIR’s complex dialect to compute complex number division. This talk will explain the calculation methods for complex number division and our work in MLIR.</p>
 </p>
 
 <p><b>
-15:00 - 15:05 | Wanco: WebAssembly AOT Compiler That Supports Live Migration<br>
+14:55 - 15:00 | Wanco: WebAssembly AOT Compiler That Supports Live Migration<br>
 Speaker: Raiki Tamura</b><br>
 <p>We introduce Wanco, an AOT compiler for WebAssembly that enables migration across platforms, making it ideal for edge computing and IoT devices. Leveraging LLVM, Wanco introduces up to 50% overhead while storing snapshots in a CPU- and OS-independent format, enhancing the portability of WebAssembly programs.</p>
 </p>
 
 <p><b>
-15:05 - 15:10 | Toward a Practical Double-Fetch Checker for Clang Static Analyzer: Early Results and Future Directions for OS Security<br>
+15:00 - 15:05 | Toward a Practical Double-Fetch Checker for Clang Static Analyzer: Early Results and Future Directions for OS Security<br>
 Speaker: Fumiya Shigemitsu</b><br>
 <p>Double-fetch vulnerabilities - a form of TOCTOU (Time-of-Check to Time-of-Use) bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. In this talk, we present our newly developed double-fetch checker for the Clang Static Analyzer, which builds on research prototypes (e.g., DFTracker) and uses memory-access provenance, alias relationships, and control-flow analysis to detect repeated reads from user memory. We’ll share how we reduce false positives through tailored heuristics, explore extensions for RTOS-specific environments, and outline future directions aimed at improving kernel and embedded security.</p>
 </p>
 
 <p><b>
-15:10 - 15:15 | Nanpanjiang Project: Helping Female Engineers Succeed in Compilers and Tools<br>
+15:05 - 15:10 | Nanpanjiang Project: Helping Female Engineers Succeed in Compilers and Tools<br>
 Speaker: Ji Qiu</b><br>
 <p>The Nanpanjiang Project, established in 2023 by technology enthusiasts in the HelloLLVM community in mainland China, aims to support female engineers in achieving career goals in compilers and virtual machines. Originating from the first “Women in Compilers and Tools Workshop” (WiCT) by the LLVM Foundation, it offers lectures, tutorials, and mentorship. So far, over 20 seminars have been held, with projections indicating outreach will grow from 200 to 20,000 by 2036, mentorship participants from 20 to 5,000, and active maintainers from 2 to 200. The project will continue to promote gender diversity and contribute to the technology community’s prosperity.  
 </p>
 </p>
 
 <p><b>
-15:15 - 15:20 | Leverage AArch64 SME/SVE instructions to support clang matrix_type<br>
+15:10 - 15:15 | Leverage AArch64 SME/SVE instructions to support clang matrix_type<br>
 Speaker: Zheng Chen</b><br>
 <p>AArch64 has SME instructions to operate on the ZA register which works great for Clang matrix_type operations. I would like to share what we did in Huawei to leverage AArch64 SME instructions to support fast Clang matrix_type operations.</p>
 </p>
 
 <p><b>
-15:20 - 15:25 | Bolting the Linux kernel with profile instrumentation<br>
+15:15 - 15:20 | Bolting the Linux kernel with profile instrumentation<br>
 Speaker: WEI WEI</b><br>
 <p>This presentation focuses on several enhancements to BOLT for Linux kernel, including support for AArch64, relocation mode and instrumentation. We will talk about the motivations, the challenges, and what we have achieved including early performance results, and further work, with an emphasis on instrumentation.</p>
 </p>
 
 <p><b>
-15:25 - 15:30 | Reflection of standard attributes in Clang<br>
+15:20 - 15:25 | Reflection of standard attributes in Clang<br>
 Speaker: Aurelien Cassagnes</b><br>
 <p>This talk will discuss the implementation experience when adding “attributes reflection” to Clang, from the perspective of a first time contributor.</p>
 </p>
 </ol>
 
 <p><b>
-15:30 - 16:00 | BREAK - FOYER</b>
+15:25 - 16:00 | BREAK - FOYER</b>
 </p>
 
 <p><b>
