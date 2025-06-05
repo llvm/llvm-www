@@ -84,6 +84,8 @@ Opening Remarks from the Executive Director and President of the Board of the LL
 <p><b>
 9:15 - 9:45 | Keynote<br>
 <br>
+LLVM's First 25 Years and the Road Ahead<br>
+<br>
 Speaker: Chris Lattner</b><br>
 The creator of LLVM, Swift, Clang, MLIR and currently the co-founder and CEO of Modular AI, will be our keynote speaker at the AsiaLLVM Developers’ Meeting!
 </p>
@@ -127,7 +129,7 @@ Speaker: Bruno Cardoso Lopes</b><br>
 
 <p><b>
 11:35 - 11:45 | The Data Inspection Language: Fast & Simple Expression Evaluation in LLDB<br>
-Speaker: Ilya Kuklin</b><br>
+Speaker: Andrei Lebedev</b><br>
 <p>LLDB often spends a substantial amount of time evaluating expressions needed for displaying certain debug information in an IDE. Currently, this work must be done by LLDB’s full expression evaluator, a very powerful but somewhat slow and heavyweight mechanism. However, these expressions tend to be small and simple, so most of them could be evaluated much faster. The approach of a fast limited expression evaluator was leveraged in lldb-eval for a limited C++ subset proving that the approach is viable. In this talk we introduce the Data Inspection Language (DIL) – a new LLVM mainline effort based partly on lldb-eval that aims to expand its capabilities, make it more robust and language-agnostic. The goal of DIL is to eventually replace the existing frame variable mechanism in LLDB, permitting it to be used for simple expression evaluation. This new implementation will greatly increase the capabilities of ‘frame variable’, allowing it to quickly and directly evaluate simple expressions, in turn allowing to bypass the full expression evaluator in many common cases.</p>
 </p>
 
