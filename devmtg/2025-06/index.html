@@ -116,44 +116,38 @@ Speaker: Matthias Springer</b><br>
 
 <ol>
 <p><b>
-11:15 - 11:25 | Understanding Tablegen generated files in LLVM Backend<br>
-Speaker: Prerona Chaudhuri</b><br>
-<p>While working with LLVM, one needs to deal with tablegen generated files which are quite tricky to understand, especially for beginners. And its important to understand these files so that one can debug failures for eg: while building a new backend or adding a new feature in the backend. In this short technical talk, I would like to summarize the common and important tablegen generated files that we can encounter in the llvm backend, what is the semantics of the C++ generated code etc.</p>
-</p>
-
-<p><b>
-11:25 - 11:35 | ClangIR’s Footprint: Compile Time Impact<br>
+11:15 - 11:25 | ClangIR’s Footprint: Compile Time Impact<br>
 Speaker: Bruno Cardoso Lopes</b><br>
 <p>This presentation explores recent measurements of ClangIR’s impact on compile time. It addresses community concerns from the upstreaming RFC about compilation performance while providing updates on ClangIR’s status.</p>
 </p>
 
 <p><b>
-11:35 - 11:45 | The Data Inspection Language: Fast & Simple Expression Evaluation in LLDB<br>
+11:25 - 11:35 | The Data Inspection Language: Fast & Simple Expression Evaluation in LLDB<br>
 Speaker: Andrei Lebedev</b><br>
 <p>LLDB often spends a substantial amount of time evaluating expressions needed for displaying certain debug information in an IDE. Currently, this work must be done by LLDB’s full expression evaluator, a very powerful but somewhat slow and heavyweight mechanism. However, these expressions tend to be small and simple, so most of them could be evaluated much faster. The approach of a fast limited expression evaluator was leveraged in lldb-eval for a limited C++ subset proving that the approach is viable. In this talk we introduce the Data Inspection Language (DIL) – a new LLVM mainline effort based partly on lldb-eval that aims to expand its capabilities, make it more robust and language-agnostic. The goal of DIL is to eventually replace the existing frame variable mechanism in LLDB, permitting it to be used for simple expression evaluation. This new implementation will greatly increase the capabilities of ‘frame variable’, allowing it to quickly and directly evaluate simple expressions, in turn allowing to bypass the full expression evaluator in many common cases.</p>
 </p>
 
 <p><b>
-11:45 - 11:55 | A technology for lifting machine code to high-performance LLVM IR<br>
+11:35 - 11:45 | A technology for lifting machine code to high-performance LLVM IR<br>
 Speaker: Masashi Yoshimura</b><br>
 <p>Introducing a technology for lifting machine code to high-performance LLVM IR. This approach transforms Linux/ELF binaries into executables for various target platforms through ahead-of-time compilation. It converts code sections into LLVM IR using a tool that translates machine instructions into equivalent IR, then applies a sophisticated optimization that leverages virtual registers to enhance performance. In this session, we’ll explore the underlying architecture, key optimization strategies, and discuss future challenges and opportunities for advancing cross-platform binary translation.</p>
 </p>
 
 <p><b>
-11:55 - 12:05 | Improving LLVM Backend Development with a New TableGen Language Server<br>
+11:45 - 11:55 | Improving LLVM Backend Development with a New TableGen Language Server<br>
 Speaker: Shin Ando</b><br>
 <p>TableGen is essential for LLVM backend development, but the current development experience leaves much to be desired. This talk presents a new language server tailored for TableGen, with improved performance, stability, and dedicated support for backend development. Through robust parsing, advanced analysis, and a rich set of LSP features, we show how the development experience can be significantly improved.</p>
 </p>
 
 <p><b>   
-12:05 - 12:15 | Improvements to LoopInterchange to accelerate vectorization<br>
+11:55 - 12:05 | Improvements to LoopInterchange to accelerate vectorization<br>
 Speaker: Ryotaro Kasuga</b><br>
 <p>LoopInterchange is a transform pass that exchanges the order of loops within a nested loop. It accelerates loop vectorization in some cases, especially the vectorization of the innermost loop. This talk is about how LoopInterchange affects vectorization and improvements to LoopInterchange to boost vectorization.</p>
 </p>
 </ol>
 
 <p><b>
-12:15 - 13:15 | LUNCH
+12:05 - 13:15 | LUNCH
 </b></p>
 
 <p><b>
@@ -250,10 +244,10 @@ Speaker: Christopher Di Bella</b><br>
 
 <p><b>
 16:30 - 17:00 | Technical Talk<br>
+Understanding Tablegen generated files in LLVM Backend<br>
 <br>
-Let’s build LLVM faster<br>
-Speaker: Takumi Nakamura</b><br>
-<p>Clang, one of the world’s most popular compilers, is built many times per day by LLVM developers both at their desks and in continuous integration environments, highlighting the importance of optimizing its build speed. This talk will explore various changes to build tools commonly used by LLVM developers and the LLVM sources themselves to enhance compile time in Clang. Key topics will include optimizing CMake scripts, enhancing the Ninja-build schedule, and approaches to improving build caching. Attendees will gain insights into building software quickly in a highly parallel world through concrete examples of build improvements, and the talk aims to spark a discussion on improving Clang’s build time, a critical issue affecting many members of the LLVM community.</p>
+Speaker: Prerona Chaudhuri</b><br>
+<p>While working with LLVM, one needs to deal with tablegen generated files which are quite tricky to understand, especially for beginners. And its important to understand these files so that one can debug failures for eg: while building a new backend or adding a new feature in the backend. In this short technical talk, I would like to summarize the common and important tablegen generated files that we can encounter in the llvm backend, what is the semantics of the C++ generated code etc.</p>
 </p>
 
 <p><b>
