@@ -41,7 +41,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;20.1.6</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;20.1.7</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">RPM Snapshots</a><br>
@@ -109,6 +109,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  20.1.7: <a href="https://discourse.llvm.org/t/llvm-20-1-7-released/86855">Jun 2025</a></br>
   20.1.6: <a href="https://discourse.llvm.org/t/llvm-20-1-6-released/86598">May 2025</a></br>
   20.1.5: <a href="https://discourse.llvm.org/t/llvm-20-1-5-released/86371">May 2025</a></br>
   20.1.4: <a href="https://discourse.llvm.org/t/llvm-20-1-4-released/86147">Apr 2025</a></br>
