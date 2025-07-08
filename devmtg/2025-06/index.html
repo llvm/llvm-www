@@ -78,7 +78,7 @@ Keynote
 
 <ol>
 <p>
-LLVM's First 25 Years and the Road Ahead [ <a href="https://youtu.be/crmqvh4Z7YI"></a>Video</a> ] [ <a href="slides/keynote/lattner-keynote.pdf">Slides</a> ]<br>
+LLVM's First 25 Years and the Road Ahead [ <a href="https://youtu.be/crmqvh4Z7YI">Video</a> ] [ <a href="slides/keynote/lattner-keynote.pdf">Slides</a> ]<br>
 Speaker: Chris Lattner<br>
 <p>The creator of LLVM, Swift, Clang, MLIR, co-founder and CEO of Modular on the history and future of the LLVM Project.</p>
 </p>
@@ -90,55 +90,55 @@ Technical Talks
 
 <ol>
 <p>
-ONNX-MLIR: An MLIR-based Compiler for ONNX AI models [ <a href="https://youtu.be/cXHTu2wI5Ps"></a>Video</a> ] [ <a href="slides/technical-talk/le-onnx.pdf">Slides</a> ] <br>
+ONNX-MLIR: An MLIR-based Compiler for ONNX AI models [ <a href="https://youtu.be/cXHTu2wI5Ps">Video</a> ] [ <a href="slides/technical-talk/le-onnx.pdf">Slides</a> ] <br>
 Speaker: Tung D. Le<br>
 <p>Open Neural Network Exchange (ONNX) is an open standard for representing deep neural networks, and MLIR is emerging as a flexible compiler infrastructure. In this talk, we present a technical report on our open-source compiler, namely ONNX-MLIR, which uses MLIR to compile ONNX models into native code on different architectures e.g., x86, IBM Power, IBM Z. We will discuss the core design of ONNX-MLIR, the optimizations it deploys, and how it supports custom AI accelerators. ONNX-MLIR has been developed since 2019, shortly after MLIR was introduced. Thus, we would also like to discuss some lessons learned when building ONNX-MLIR in parallel with the growth of MLIR compiler infrastructure.</p>
 </p>
 
 <p>
-Sanitizing MLIR Programs with Runtime Operation Verification [ <a href="https://youtu.be/O1nGbW6hKBU"></a>Video</a> ] [<a href="slides/technical-talk/springer-sanitizing.pdf">Slides</a> ] <br>
+Sanitizing MLIR Programs with Runtime Operation Verification [ <a href="https://youtu.be/O1nGbW6hKBU">Video</a> ] [<a href="slides/technical-talk/springer-sanitizing.pdf">Slides</a> ] <br>
 Speaker: Matthias Springer<br>
 <p>Operation verification is a core MLIR feature and a powerful tool for building robust compilers. MLIR verifies all operations between pass boundaries, but only static invariants based on compile-time information can be verified. This talk shows how to additionally verify operations at runtime, ranging from low-level properties such as out-of-bounds accesses into tensors/memrefs to high-level properties such as mismatching tensor shapes on linalg structured operations. This talk will also show how to build a memory leak sanitizer based on runtime operation verification.</p>
 </p>
 
 <p>
-Data-Tiling in IREE: Achieving High Performance Through Compiler Design [ <a href="https://youtu.be/iANJWUL_SOo"></a>Video</a> ] [ <a href="slides/technical-talk/wang-data-tilling.pdf">Slides</a> ] <br>
+Data-Tiling in IREE: Achieving High Performance Through Compiler Design [ <a href="https://youtu.be/iANJWUL_SOo">Video</a> ] [ <a href="slides/technical-talk/wang-data-tilling.pdf">Slides</a> ] <br>
 Speaker: Han-Chung Wang<br>
 <p>This talk explores how IREE, a retargetable MLIR-based compiler for tensor programs, achieves high performance through data-tiling. By rearranging input data into target-specific layouts and utilizing tensor encodings, IREE bridges the gap between host and device. These encodings enable efficient data handling and unlock optimizations like folding, fusion, and propagation, which reduce the cost of relayouting operations. Learn how IREE integrates data-tiling to optimize performance in a compiler context.</p>
 </p>
 
 <p>
-Safety at Scale: Advancing Safety with hundreds of millions of lines of C++ [ <a href="https://youtu.be/BUhYJtAq1n8"></a>Video</a> ] [ <a href="slides/technical-talk/yasuda-safety.pdf">Slides</a> ] <br>
+Safety at Scale: Advancing Safety with hundreds of millions of lines of C++ [ <a href="https://youtu.be/BUhYJtAq1n8">Video</a> ] [ <a href="slides/technical-talk/yasuda-safety.pdf">Slides</a> ] <br>
 Speaker: Kinuko Yasuda<br>
 <p>Memory safety is increasingly recognized as a top priority in the industry, and the adoption of memory-safe languages for new code has become a key common methodology. However, significantly improving the safety of large existing C++ codebases remains a major challenge. In this talk, I will share our recent experience deploying several safety improvements across our C++ codebase at Google. Specifically, I will talk about the deployment of hardened libc++, and explain a series of improvements and extensions we made to Clang’s compile-time pointer lifetime analysis around lifetimebound annotations. By enabling hardened libc++ in all of our products, and adopting the annotations in our key core libraries, we have been able to reduce a significant number of safety violations, and improve the reliability and correctness of our code. I will also touch on ongoing efforts and future work in this area.</p>
 </p>
 
 <p>
-LLVM vs. GCC on RISC-V Using SPEC CPU Benchmarks: Methods, Gaps, and Optimizations [ <a href="https://youtu.be/T30hxDUqfVY"></a>Video</a> ] [ <a href="slides/technical-talk/li-risc.pdf">Slides</a> ] <br>
+LLVM vs. GCC on RISC-V Using SPEC CPU Benchmarks: Methods, Gaps, and Optimizations [ <a href="https://youtu.be/T30hxDUqfVY">Video</a> ] [ <a href="slides/technical-talk/li-risc.pdf">Slides</a> ] <br>
 Speaker: Yongtai Li<br>
 <p>This work details a systematic approach for comparing LLVM and GCC compilers on RISC-V using SPEC CPU 2006 and 2017 benchmarks, with full results disclosed for the 2017 suite. We expose critical performance gaps through code size, dynamic instruction counts (DIC), and vectorization efficiency, while proposing actionable fixes for compiler-specific inefficiencies.</p>
 </p>
 
 <p>
-Breaking std::vector's ABI for performance gains: A Horror Story [ <a href="https://youtu.be/RKdkHwbgXfY"></a>Video</a> ] [ <a href="slides/technical-talk/di-bella-vector.pdf">Slides</a> ] <br>
+Breaking std::vector's ABI for performance gains: A Horror Story [ <a href="https://youtu.be/RKdkHwbgXfY">Video</a> ] [ <a href="slides/technical-talk/di-bella-vector.pdf">Slides</a> ] <br>
 Speaker: Christopher Di Bella<br>
 <p>This talk chronicles the story of modifying std::vector to directly track its size instead of its allocated buffer, and the associated performance improvements we gained as a result. We’ll also tell the story of applying these changes to libc++ so that it can be upstreamed, and the far more terrifying story of addressing any and all downstream reliance on the previous implementation quirks of vector to see this optimisation deployed internally.</p>
 </p>
 
 <p>
-Understanding Tablegen generated files in LLVM Backend [ <a href="https://youtu.be/vkVjIAlzdMw"></a>Video</a> ] [ <a href="slides/technical-talk/chaudhuri-tablegen.pdf">Slides</a> ] <br>
+Understanding Tablegen generated files in LLVM Backend [ <a href="https://youtu.be/vkVjIAlzdMw">Video</a> ] [ <a href="slides/technical-talk/chaudhuri-tablegen.pdf">Slides</a> ] <br>
 Speaker: Prerona Chaudhuri<br>
 <p>While working with LLVM, one needs to deal with tablegen generated files which are quite tricky to understand, especially for beginners. And its important to understand these files so that one can debug failures for eg: while building a new backend or adding a new feature in the backend. In this short technical talk, I would like to summarize the common and important tablegen generated files that we can encounter in the llvm backend, what is the semantics of the C++ generated code etc.</p>
 </p>
 
 <p>
-Reducing Code Size with Speculative Inlining [ <a href="https://youtu.be/lmpBcKu7teo"></a>Video</a> ] [ <a href="slides/technical-talk/lee-inlining.pdf">Slides</a> ] <br>
+Reducing Code Size with Speculative Inlining [ <a href="https://youtu.be/lmpBcKu7teo">Video</a> ] [ <a href="slides/technical-talk/lee-inlining.pdf">Slides</a> ] <br>
 Speaker: Vincent Lee<br>
 <p>Inlining has generally been seen as a critical optimization for performance at the cost of size. But, it can also be used for size optimizations in the mobile space. In this talk, we discuss a new inlining technique that explores the full set of inlining candidates to uncover cases where inlining will generate size improvements due to downstream simplifications. It uncovers beneficial inlining that the traditional cost modeling overlooks resulting in non-trivial app size and performance improvements.</p>
 </p>
 
 <p>
-LLVM in the Automotive Industry: Bringing Functional Safety to Open Source [ <a href="https://youtu.be/wAQ1XBjXfog"></a>Video</a> ] [ <a href="slides/technical-talk/urribarri-automotive.pdf">Slides</a> ] <br>
+LLVM in the Automotive Industry: Bringing Functional Safety to Open Source [ <a href="https://youtu.be/wAQ1XBjXfog">Video</a> ] [ <a href="slides/technical-talk/urribarri-automotive.pdf">Slides</a> ] <br>
 Speaker: Wendi Urribarri<br>
 <p>This talk explores the importance of functional safety in automotive software and the need to qualify compilers under ISO 26262 to prevent undetected errors. It looks into the challenges of ensuring compilers don’t introduce undetected errors and propose a collaborative, open-source approach to qualifying LLVM. Attendees will gain insights into the qualification process, key challenges, and the benefits of making safety compliance more accessible. Let’s discuss how we can align LLVM with industry standards and enable its broader adoption in safety-critical systems.</p>
 </p>
@@ -150,31 +150,31 @@ Quick Talks
 
 <ol>
 <p>
-ClangIR’s Footprint: Compile Time Impact [ <a href="https://youtu.be/Dh_RObp5SUE"></a>Video</a> ] [ <a href="slides/quick-talk/lopes-compile-time.pdf">Slides</a> ] <br>
+ClangIR’s Footprint: Compile Time Impact [ <a href="https://youtu.be/Dh_RObp5SUE">Video</a> ] [ <a href="slides/quick-talk/lopes-compile-time.pdf">Slides</a> ] <br>
 Speaker: Bruno Cardoso Lopes<br>
 <p>This presentation explores recent measurements of ClangIR’s impact on compile time. It addresses community concerns from the upstreaming RFC about compilation performance while providing updates on ClangIR’s status.</p>
 </p>
 
 <p>
-The Data Inspection Language: Fast & Simple Expression Evaluation in LLDB [ <a href="https://youtu.be/tgsDbrQga_w"></a>Video</a> ] [ <a href="slides/quick-talk/lebedev-lldb.pdf">Slides</a> ] <br>
+The Data Inspection Language: Fast & Simple Expression Evaluation in LLDB [ <a href="https://youtu.be/tgsDbrQga_w">Video</a> ] [ <a href="slides/quick-talk/lebedev-lldb.pdf">Slides</a> ] <br>
 Speaker: Andrei Lebedev<br>
 <p>LLDB often spends a substantial amount of time evaluating expressions needed for displaying certain debug information in an IDE. Currently, this work must be done by LLDB’s full expression evaluator, a very powerful but somewhat slow and heavyweight mechanism. However, these expressions tend to be small and simple, so most of them could be evaluated much faster. The approach of a fast limited expression evaluator was leveraged in lldb-eval for a limited C++ subset proving that the approach is viable. In this talk we introduce the Data Inspection Language (DIL) – a new LLVM mainline effort based partly on lldb-eval that aims to expand its capabilities, make it more robust and language-agnostic. The goal of DIL is to eventually replace the existing frame variable mechanism in LLDB, permitting it to be used for simple expression evaluation. This new implementation will greatly increase the capabilities of ‘frame variable’, allowing it to quickly and directly evaluate simple expressions, in turn allowing to bypass the full expression evaluator in many common cases.</p>
 </p>
 
 <p>
-A technology for lifting machine code to high-performance LLVM IR [ <a href="https://youtu.be/oXQ6b2wZWpU"></a>Video</a> ] [ <a href="slides/quick-talk/yoshimura-ir.pdf">Slides</a>] <br>
+A technology for lifting machine code to high-performance LLVM IR [ <a href="https://youtu.be/oXQ6b2wZWpU">Video</a> ] [ <a href="slides/quick-talk/yoshimura-ir.pdf">Slides</a>] <br>
 Speaker: Masashi Yoshimura<br>
 <p>Introducing a technology for lifting machine code to high-performance LLVM IR. This approach transforms Linux/ELF binaries into executables for various target platforms through ahead-of-time compilation. It converts code sections into LLVM IR using a tool that translates machine instructions into equivalent IR, then applies a sophisticated optimization that leverages virtual registers to enhance performance. In this session, we’ll explore the underlying architecture, key optimization strategies, and discuss future challenges and opportunities for advancing cross-platform binary translation.</p>
 </p>
 
 <p>
-Improving LLVM Backend Development with a New TableGen Language Server [ <a href="https://youtu.be/XrF9HWCBkBE"></a>Video</a> ] [ <a href="slides/quick-talk/ando-backend.pdf">Slides</a> ] <br>
+Improving LLVM Backend Development with a New TableGen Language Server [ <a href="https://youtu.be/XrF9HWCBkBE">Video</a> ] [ <a href="slides/quick-talk/ando-backend.pdf">Slides</a> ] <br>
 Speaker: Shin Ando<br>
 <p>TableGen is essential for LLVM backend development, but the current development experience leaves much to be desired. This talk presents a new language server tailored for TableGen, with improved performance, stability, and dedicated support for backend development. Through robust parsing, advanced analysis, and a rich set of LSP features, we show how the development experience can be significantly improved.</p>
 </p>
 
 <p>   
-Improvements to LoopInterchange to accelerate vectorization [ <a href="https://youtu.be/VV5nFm1ByY0"></a>Video</a> ] [ <a href="slides/quick-talk/kasuga-loopinterchange.pdf">Slides</a> ] <br>
+Improvements to LoopInterchange to accelerate vectorization [ <a href="https://youtu.be/VV5nFm1ByY0">Video</a> ] [ <a href="slides/quick-talk/kasuga-loopinterchange.pdf">Slides</a> ] <br>
 Speaker: Ryotaro Kasuga<br>
 <p>LoopInterchange is a transform pass that exchanges the order of loops within a nested loop. It accelerates loop vectorization in some cases, especially the vectorization of the innermost loop. This talk is about how LoopInterchange affects vectorization and improvements to LoopInterchange to boost vectorization.</p>
 </p>
@@ -187,50 +187,50 @@ Lightning Talks
 <ol>
 
 <p>  
-Fujitsu Compiler Test Suite: New Test Suite for Fortran/C/C++ [ <a href="https://youtu.be/_k2zKR5xVoQ"></a>Video</a> ] [ <a href="slides/lightning-talk/kawashima-fujitsu.pdf">Slides</a> ] <br>
+Fujitsu Compiler Test Suite: New Test Suite for Fortran/C/C++ [ <a href="https://youtu.be/_k2zKR5xVoQ">Video</a> ] [ <a href="slides/lightning-talk/kawashima-fujitsu.pdf">Slides</a> ] <br>
 Speaker: Takahiro Kawashima<br>
 <p>Fujitsu released Fujitsu Compiler Test Suite <a href="https://github.com/fujitsu/compiler-test-suite">https://github.com/fujitsu/compiler-test-suite</a>, a test suite for Fortran/C/C++ compilers, at the end of 2023. It is used in the Flang CI <a href="https://linaro.atlassian.net/wiki/spaces/FLANGCI/overview">https://linaro.atlassian.net/wiki/spaces/FLANGCI/overview</a>, one of unofficial CI (continuous integration) systems in the LLVM community, to detect regressions of LLVM. This talk explains what the Fujitsu Compiler Test Suite and the Flang CI are and how the LLVM community can leverage them.</p>
 </p>
 
 <p>  
-Complex Number Division Calculation Methods and Our Work in MLIR [ <a href="https://youtu.be/0QR-EtoYIlI"></a>Video</a> ] [ <a href="slides/lightning-talk/watanabe-division.pdf">Slides</a> ] <br>
+Complex Number Division Calculation Methods and Our Work in MLIR [ <a href="https://youtu.be/0QR-EtoYIlI">Video</a> ] [ <a href="slides/lightning-talk/watanabe-division.pdf">Slides</a> ] <br>
 Speaker: Shunsuke Watanabe<br>
 <p>Our investigation revealed that the optimization of loops involving complex number division in Flang performs worse than Gfortran. This performance difference was confirmed in SPEC CPU 2017’s cam4 benchmark. The reason for this is that the current Flang can only lower complex number division to scalar runtime functions (such as “__divdc3”), preventing vectorization and inlining. Therefore, we considered using the MLIR’s complex dialect to compute complex number division. This talk will explain the calculation methods for complex number division and our work in MLIR.</p>
 </p>
 
 <p>
-Wanco: WebAssembly AOT Compiler That Supports Live Migration [ <a href="https://youtu.be/gVvgSn7dyts"></a>Video</a> ] [ <a href="slides/lightning-talk/tamura-webassembly.pdf">Slides</a> ] <br>
+Wanco: WebAssembly AOT Compiler That Supports Live Migration [ <a href="https://youtu.be/gVvgSn7dyts">Video</a> ] [ <a href="slides/lightning-talk/tamura-webassembly.pdf">Slides</a> ] <br>
 Speaker: Raiki Tamura<br>
 <p>We introduce Wanco, an AOT compiler for WebAssembly that enables migration across platforms, making it ideal for edge computing and IoT devices. Leveraging LLVM, Wanco introduces up to 50% overhead while storing snapshots in a CPU- and OS-independent format, enhancing the portability of WebAssembly programs.</p>
 </p>
 
 <p>
-Toward a Practical Double-Fetch Checker for Clang Static Analyzer: Early Results and Future Directions for OS Security [ <a href="https://youtu.be/LcYdysH5CQs"></a>Video</a> ] [ <a href="slides/lightning-talk/shigemitsu-tiling.pdf">Slides</a> ] <br>
+Toward a Practical Double-Fetch Checker for Clang Static Analyzer: Early Results and Future Directions for OS Security [ <a href="https://youtu.be/LcYdysH5CQs">Video</a> ] [ <a href="slides/lightning-talk/shigemitsu-tiling.pdf">Slides</a> ] <br>
 Speaker: Fumiya Shigemitsu<br>
 <p>Double-fetch vulnerabilities - a form of TOCTOU (Time-of-Check to Time-of-Use) bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. In this talk, we present our newly developed double-fetch checker for the Clang Static Analyzer, which builds on research prototypes (e.g., DFTracker) and uses memory-access provenance, alias relationships, and control-flow analysis to detect repeated reads from user memory. We’ll share how we reduce false positives through tailored heuristics, explore extensions for RTOS-specific environments, and outline future directions aimed at improving kernel and embedded security.</p>
 </p>
 
 <p>
-Nanpanjiang Project: Helping Female Engineers Succeed in Compilers and Tools [ <a href="https://youtu.be/faRR-Y8e00g"></a>Video</a> ] [ <a href="slides/lightning-talk/qiu-nanpangjiang.pdf">Slides</a> ] <br>
+Nanpanjiang Project: Helping Female Engineers Succeed in Compilers and Tools [ <a href="https://youtu.be/faRR-Y8e00g">Video</a> ] [ <a href="slides/lightning-talk/qiu-nanpangjiang.pdf">Slides</a> ] <br>
 Speaker: Ji Qiu<br>
 <p>The Nanpanjiang Project, established in 2023 by technology enthusiasts in the HelloLLVM community in mainland China, aims to support female engineers in achieving career goals in compilers and virtual machines. Originating from the first “Women in Compilers and Tools Workshop” (WiCT) by the LLVM Foundation, it offers lectures, tutorials, and mentorship. So far, over 20 seminars have been held, with projections indicating outreach will grow from 200 to 20,000 by 2036, mentorship participants from 20 to 5,000, and active maintainers from 2 to 200. The project will continue to promote gender diversity and contribute to the technology community’s prosperity.  
 </p>
 </p>
 
 <p>
-Leverage AArch64 SME/SVE instructions to support clang matrix_type [ <a href="https://youtu.be/EC0oPWoXDnY"></a>Video</a> ] [ <a href="slides/lightning-talk/zheng-matrix.pdf">Slides</a> ] <br>
+Leverage AArch64 SME/SVE instructions to support clang matrix_type [ <a href="https://youtu.be/EC0oPWoXDnY">Video</a> ] [ <a href="slides/lightning-talk/zheng-matrix.pdf">Slides</a> ] <br>
 Speaker: Zheng Chen<br>
 <p>AArch64 has SME instructions to operate on the ZA register which works great for Clang matrix_type operations. I would like to share what we did in Huawei to leverage AArch64 SME instructions to support fast Clang matrix_type operations.</p>
 </p>
 
 <p>
-Bolting the Linux kernel with profile instrumentation [ <a href="https://youtu.be/5ympgoV_Uqo"></a>Video</a> ] [ <a href="slides/lightning-talk/wei-instrumentation.pdf">Slides</a> ] <br>
+Bolting the Linux kernel with profile instrumentation [ <a href="https://youtu.be/5ympgoV_Uqo">Video</a> ] [ <a href="slides/lightning-talk/wei-instrumentation.pdf">Slides</a> ] <br>
 Speaker: Wei Wei<br>
 <p>This presentation focuses on several enhancements to BOLT for Linux kernel, including support for AArch64, relocation mode and instrumentation. We will talk about the motivations, the challenges, and what we have achieved including early performance results, and further work, with an emphasis on instrumentation.</p>
 </p>
 
 <p>
-Reflection of standard attributes in Clang [ <a href="https://youtu.be/VyaV5sCcbyk"></a>Video</a> ] [ <a href="slides/lightning-talk/cassagnes-clang.pdf">Slides</a> ] <br>
+Reflection of standard attributes in Clang [ <a href="https://youtu.be/VyaV5sCcbyk">Video</a> ] [ <a href="slides/lightning-talk/cassagnes-clang.pdf">Slides</a> ] <br>
 Speaker: Aurelien Cassagnes<br>
 <p>This talk will discuss the implementation experience when adding “attributes reflection” to Clang, from the perspective of a first time contributor.</p>
 </p>
