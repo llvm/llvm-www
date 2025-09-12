@@ -41,7 +41,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;21.1.0</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;21.1.1</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">RPM Snapshots</a><br>
@@ -109,6 +109,7 @@
 <b>Release&nbsp;Emails</b>
 <div class="www_sidebar">
   <span style="font-size:smaller">
+  21.1.1: <a href="https://discourse.llvm.org/t/llvm-21-1-1-released/88244">Sep 2025</a></br>
   21.1.0: <a href="https://discourse.llvm.org/t/llvm-21-1-0-released/88066">Aug 2025</a></br>
   20.1.8: <a href="https://discourse.llvm.org/t/llvm-20-1-8-released/87259">Jul 2025</a></br>
   20.1.7: <a href="https://discourse.llvm.org/t/llvm-20-1-7-released/86855">Jun 2025</a></br>
