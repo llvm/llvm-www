@@ -41,7 +41,7 @@
 <b>Download!</b>
 <div class="www_sidebar">
 <span style="font-size:smaller">Download now:</span>
-<a href="https://releases.llvm.org/"><b>LLVM&nbsp;21.1.2</b></a><br>
+<a href="https://releases.llvm.org/"><b>LLVM&nbsp;21.1.3</b></a><br>
 <a href="/releases/">All Releases</a><br>
 <a href="https://apt.llvm.org/">APT Packages</a><br>
 <a href="https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/">RPM Snapshots</a><br>
