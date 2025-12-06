@@ -156,7 +156,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Enhancing MLGO Inlining with IR2Vec Embeddings</i> [ <a href="https://youtu.be/ywe1-lI9H4k"></a>Video</a> ] [ <a href="slides/technical_talks/venkatakeerthy.pdf">Slides</a> ]<br>
+        <i>Enhancing MLGO Inlining with IR2Vec Embeddings</i> [ <a href="https://youtu.be/ywe1-lI9H4k">Video</a> ] [ <a href="slides/technical_talks/venkatakeerthy.pdf">Slides</a> ]<br>
         Speaker: S. VenkataKeerthy<br>
         <p>Our initial experiments on internal binaries demonstrate that combining existing MLGO features with IR2Vec embeddings yields additional code size reductions of up to 5% in comparison to `-Os` and 4% in comparison to `-Os` with MLGO Inliner. This talk will outline the design of IR2Vec, the plan for upstreaming its support into LLVM, and discuss experimental results validating its effectiveness and scalability on real-world datacenter binaries. Specifically, we will describe how IR2Vec embeddings are used for driving ML-Guided Compiler Optimizations, focusing on our efforts to enhance current MLGO infrastructure and its possible extensions.</p>
         </p>
@@ -246,7 +246,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>LT-Uh-Oh: Adventures using LTO with libc</i> [ <a href="https://youtu.be/cG278WjmIFs">Video</a ] [ <a href="slides/technical_talks/kirth_thornburgh.pdf">Slides</a> ]<br>
+        <i>LT-Uh-Oh: Adventures using LTO with libc</i> [ <a href="https://youtu.be/cG278WjmIFs">Video</a> ] [ <a href="slides/technical_talks/kirth_thornburgh.pdf">Slides</a> ]<br>
         Speakers: Paul Kirth, Daniel Thornburgh<br>
         <p>Link-Time Optimization (LTO) can be a powerful tool for improving the performance of C and C++ code. However, it can also be a source of subtle and hard-to-debug bugs. In this talk, we will discuss our adventures using LTO with libc. We will discuss the challenges we faced, the solutions we came up with, and the lessons we learned. We will also discuss how this work can be used to improve the quality of LTO in LLVM.</p>
         </p>
@@ -291,15 +291,6 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Taming GPU programming in safe Rust</i> [ <a href="https://youtu.be/ASUek97s5P0">Video</a> ] [ <a href="slides/technical_talks/drehwald.pdf">Slides</a> ]<br>
-        Speaker: Manuel Drehwald (ZuseZ4)<br>
-        <p>Safe Rust is a new programming language that is designed to be both fast and safe. In this talk, we will discuss how we can use LLVM to tame GPU programming in safe Rust. We will discuss the challenges we faced, the solutions we came up with, and the lessons we learned. We will also discuss how this work can be used to improve the quality of GPU support in LLVM.</p>
-        </p>
-        
-</div>
-
-<div class="session-entry">
-        <p>
         <i>CUTLASS Python DSL Infrastructure</i> [ <a href="https://youtu.be/5NXd6MbKYNQ">Video</a> ] [ <a href="slides/technical_talks/ozen.pdf">Slides</a> ]<br>
         Speaker: Guray Ozen<br>
         <p>CUTLASS is a new Python DSL for writing high-performance GPU kernels. In this talk, we will discuss the CUTLASS Python DSL infrastructure. We will discuss the challenges we faced, the solutions we came up with, and the lessons we learned. We will also discuss how this work can be used to improve the quality of GPU support in LLVM.</p>
@@ -318,7 +309,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Instruction Cost-Modelling: Is it Reasonable?</i> [ <a href="https://youtu.be/uvOiF0RtaGs">Video</a> ] [ <a href="slides/technical_talks/hickey.pdf">Slides</a> ]<br>
+        <i>Instruction Cost-Modelling: Can We Do Better?</i> [ <a href="https://youtu.be/uvOiF0RtaGs">Video</a> ] [ <a href="slides/technical_talks/hickey.pdf">Slides</a> ]<br>
         Speaker: Neil Hickey<br>
         <p>Instruction cost-modelling is a key component of many compiler optimizations. In this talk, we will discuss the challenges of instruction cost-modelling. We will present a new approach to instruction cost-modelling, and we will show how it can be used to improve the quality of compiler optimizations in LLVM. We will also discuss how this work can be generalized to other compilers, and how it can be used to improve the quality of compiler optimizations.</p>
         </p>
@@ -354,7 +345,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Triton-San: Toward Precise Debugging of Triton Kernels via LLVM Sanitizers</i> [ <a href="https://youtu.be/87UUMVpBAOU">Video</a> ] [ <a href="slides/technical_talks/lu.pdf">Slides</a> ]<br>
+        <i>Triton-San: Toward Precise Debugging of Triton Kernels via LLVM Sanitizers</i> [ <a href="https://youtu.be/Ncvjewv6hZ0">Video</a> ] [ <a href="slides/technical_talks/lu.pdf">Slides</a> ]<br>
         Speaker: Tim Lu<br>
         <p>We evaluated Triton-San on both synthetic micro-benchmarks and real-world kernels from the official Triton tutorial and TritonBench. Our results show that Triton-San detected all known bugs with no false positives and introduced acceptable runtime and memory overhead. This talk will present the motivation, design, and implementation of Triton-San, along with key findings from our evaluation. We will also provide guidance on how to use Triton-San and share details about its public release on GitHub.</p>
         </p>
@@ -575,7 +566,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>MLIR based graph compiler for in-memory inference compute</i> [ <a href="https://youtu.be/vtE_3xit044">Video</a> ] [ <a href="slides/quick_talks/jain_srivastava.pdf">Slides</a> ]<br>
+        <i>MLIR based graph compiler for in-memory inference computing</i> [ <a href="https://youtu.be/vtE_3xit044">Video</a> ] [ <a href="slides/quick_talks/jain_srivastava.pdf">Slides</a> ]<br>
         Speakers: Kshitij Jain, Satyam Srivastava<br>
         <p>Inference for LLMs has brought newer challenges to be addressed in compute space like KV-cache. d-matrix has designed an accelerator which is suited for llm inference. In this talk we would like to address the design challenges faced while designing a compiler for the hierarchical distributed shared memory inference chip. An MLIR based compiler tool chain was designed from ground up to tackle the native code generation issues. Novel bottom up based fine grained scale out solution was designed at affine dialect level to address the inference scale out. The talk will also address the integration of subset of triton language to the PyTorch compiler tool chain.</p>
         </p>
@@ -685,7 +676,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Continuous Integration System for Global ISel</i> [ <a href="https://youtu.be/SImisNPSNpM">Video ] [ <a href="slides/lightning_talks/hickey.pdf">Slides</a> ]<br>
+        <i>Continuous Integration System for Global ISel</i> [ <a href="https://youtu.be/SImisNPSNpM">Video</a> ] [ <a href="slides/lightning_talks/hickey.pdf">Slides</a> ]<br>
         Speaker: Neil Hickey<br>
         <p>The Global ISel (GISel) framework in LLVM has gained traction as a modern alternative for instruction selection and is also the default selector at O0 for AArch64. Unlike the traditional SelectionDAG approach, GISel works directly on a linear intermediate representation, aiming to improve compile-time performance by bypassing DAG construction. However, GISel's adoption across all backends is limited by its incomplete coverage of instruction selection cases, which necessitates fallbacks to SelectionDAG. To address and monitor these limitations, we developed a specialized continuous integration (CI) system that automatically builds the latest LLVM daily, compiles a broad set of benchmarks (like RajaPerf, TSVC, SPEC 2017, and the LLVM test suite), and reports every fallback event with detailed phase and instruction data. This CI system provides a visualization dashboard for real-time tracking, fostering transparency and enabling the LLVM community to systematically close GISel's gaps. While significant progress has been made—such as achieving fallback-free runs for TSVC—fallbacks still occur in other benchmarks like RajaPerf, underscoring the ongoing need for comprehensive monitoring and targeted improvements.</p>
         </p>
@@ -703,7 +694,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Towards Collection-Oriented Compilation in LLVM</i> [ <a href="https://youtu.be/N2Qv_o5lhCE">Video ] [ <a href="slides/lightning_talks/mcmichen.pdf">Slides</a> ]<br>
+        <i>Shared Representation across Languages</i> [ <a href="https://youtu.be/N2Qv_o5lhCE">Video</a> ] [ <a href="slides/lightning_talks/mcmichen.pdf">Slides</a> ]<br>
         Speaker: Tommy McMichen<br>
         <p>The LLVM compiler has a low-level view of memory, permitting fine-grained control over memory in source languages. This low level representation hinders analysis and optimization, and the freedoms it grants are not always needed. We find that most memory used in performance-critical C/C++ applications implement data collections with high-level properties that can be leveraged in the compiler. In this talk, we describe MEMOIR, an extension to the LLVM IR that provides a first-class representation for common data collection types and operations. We will demonstrate how our extension improves conventional compiler analysis and transformation, and enables new optimizations on memory layout and collection implementation. We conclude by presenting ongoing work on front-end support for C/C++ and Rust that pave the way towards collection-oriented compilers in both LLVM and MLIR.</p>
         </p>
@@ -719,7 +710,7 @@ and interesting ways.</li>
 </div>
 <div class="session-entry">
         <p>
-        <i>llvm-exegesis on AArch64: What Works and What Doesn't?</i> [ Video ] [ <a href="slides/lightning_talks/meijer.pdf">Slides</a> ]<br>
+        <i>llvm-exegesis on AArch64: What Works and What Doesn't?</i> [ <a href="https://youtu.be/YIgWZihk85s">Video</a> ] [ <a href="slides/lightning_talks/meijer.pdf">Slides</a> ]<br>
         Speaker: Sjoerd Meijer<br>
         <p>This talk provides an update on the effort to improve AArch64 support for llvm-exegesis, a benchmarking tool that measures instruction characteristics. Initially, the tool was largely dysfunctional on AArch64, with the vast majority of its ~6,000 generated tests failing due to issues like uninitialized operands, pseudo-instructions, and segmentation faults. Through systematic improvements—including expanding register class support, disabling unsupported instructions, and adding basic load/store functionality—the team has dramatically increased the number of cleanly-running test cases from just over 100 to more than 4,300. The presentation will detail these fixes and outline future work, which will focus on enhancing support for load/store instructions and improving the accuracy of latency measurements.</p>
         </p>
@@ -770,7 +761,7 @@ Student Technical Talks
 
 <div class="session-entry">
         <p>
-        <i>Translation Validation for LLVM's RISC-V Backend</i> [ <a href="https://youtu.be/yf85YPkwlJY">Video</a> ] [ <a href="slides/student_talks/briles.pdf">Slides</a> ]<br>
+        <i>Translation Validation for LLVM's RISC-V Backend</i> [ <a href="https://youtu.be/znMGXxQC12A">Video</a> ] [ <a href="slides/student_talks/briles.pdf">Slides</a> ]<br>
         Speaker: Mitch Briles<br>
         <p>With algorithms such as instruction selection, instruction folding, and register allocation, LLVM's backends have the job of lowering IR to assembly or object code while being mindful of the semantics of each language. Starting with AArch64, we're leveraging Alive2 to validate these target-dependent optimizations and translations. After using our tool to find 44 miscompiles in the AArch64 backend, the natural progression is to branch out to other architectures. Our next focus is a much smaller ISA: RISC-V. The new tool, RISCV-TV, is early in development, but has already detected 2 miscompiles! Bugs can be found in existing tests, but these tools are most effective when paired with a fuzzer. We anticipate more results by the time of the meeting.</p>
         </p>
