@@ -125,13 +125,20 @@
     <!-- Talk 7 -->
     <tr>
       <td><p>14:30 - 15:00 (30 min)</p></td>
+      <td><p>Konstantinos Parasyris</p></td>
+      <td><p><a href="#talk7">An End-to-End Workflow for Data-Driven GPU Optimization with LLVM</a></p></td>
+      <td><p>LLVM, GPU, Data Collection, Performance Optimization</p></td>
+    </tr>
+    <!-- Talk 8 -->
+    <tr>
+      <td><p>15:00 - 15:30 (30 min)</p></td>
       <td><p>Kevin Sala, Krishna Chaitanya Sankisa, Krzysztof Parzyszek, Michael Klemm</p></td>
-      <td><p><a href="#talk7">Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features</a></p></td>
+      <td><p><a href="#talk8">Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features</a></p></td>
       <td><p>OpenMP, GPU, Accelerator, Target, LLVM, Clang</p></td>
     </tr>
     <!-- Closing Remarks -->
     <tr>
-      <td><p>15:00 - 15:10 (10 min)</p></td>
+      <td><p>15:30 - 15:40 (10 min)</p></td>
       <td>
         <p>
           <a href="https://www.linkedin.com/in/josemonsalve2/">Jose M Monsalve Diaz</a><br />
@@ -221,6 +228,21 @@ Evaluating architectural ideas on realistic workloads is increasingly challengin
 
 <!-- Abstract for Talk 7 -->
 <h3 id="talk7" class="cgo-title" style="font-weight: bold;">
+  An End-to-End Workflow for Data-Driven GPU Optimization with LLVM
+  <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
+</h3>
+<h4>Konstantinos Parasyris</h4>
+<p>
+Collecting representative GPU benchmarks remains a fundamental challenge for compiler and performance researchers: real applications are complex, dynamic, and difficult to extract into reproducible kernels without losing important optimization context. Reasoning about how modern compilers optimize such workloads—and how individual optimization decisions impact performance, code size, compilation time, or register pressure—is even harder. As a result, automating performance optimization and enabling data-driven approaches often requires substantial manual effort and deep compiler expertise.
+
+LLVM provides powerful analysis and transformation capabilities, but its steep learning curve and compiler-centric tooling make it difficult for data scientists and ML researchers to engage effectively. These communities need realistic datasets, controllable optimization knobs, and programmatic access to compiler behavior—not ad-hoc benchmarks or handcrafted microkernels.
+Mneme addresses this gap by providing an end-to-end framework for GPU performance experimentation built on LLVM. Mneme records kernels directly from real GPU applications, enabling the collection of representative workloads without modifying application source code. It supports automated replay and autotuning across multiple optimization parameters, while exposing rich metrics including execution time, compilation time, executable size, and register pressure. Through Python bindings, Mneme integrates naturally with the broader data science and ML ecosystem, enabling large-scale dataset construction and data-driven optimization studies.
+
+By lowering the barrier to collecting, analyzing, and optimizing realistic GPU workloads, Mneme can make LLVM-based GPU research more accessible, reproducible, and data-centric.
+</p>
+
+<!-- Abstract for Talk 8 -->
+<h3 id="talk8" class="cgo-title" style="font-weight: bold;">
   Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
