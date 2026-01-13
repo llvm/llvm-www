@@ -83,7 +83,7 @@
     <!-- Talk 3 -->
     <tr>
       <td><p>11:00 - 11:30 (30 min)</p></td>
-      <td><p>Yizhe Zhang, Bocheng Han, Zhengyi Yang, Boge Liu, Yi Jin</p></td>
+      <td><p>Yizhe Zhang, Bocheng Han, Zhengyi Yang</p></td>
       <td><p><a href="#talk3">Polymer: An explainable database execution engine based on MLIR</a></p></td>
       <td><p>MLIR, Database Execution Engine, JIT Compilation, Query Optimization, Pipeline Execution</p></td>
     </tr>
@@ -187,7 +187,7 @@ This work demonstrates that domain-specific MLIR dialects enable effective compi
   Polymer: An explainable database execution engine based on MLIR
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
-<h4>Yizhe Zhang, Bocheng Han, Zhengyi Yang, Boge Liu, Yi Jin</h4>
+<h4>Yizhe Zhang, Bocheng Han, Zhengyi Yang</h4>
 <p>
 Despite significant advances in database execution engine performance through Just-in-Time (JIT) compilation and optimized execution strategies, database systems continue to suffer from limited explainability and extensibility. Evaluating individual operator implementations typically requires modifying source code, and database operation reuse remains constrained by language boundaries. We present Polymer, a framework that leverages MLIR's hierarchical intermediate representation to model database execution engines. Polymer treats database operations as composable MLIR operators, enabling fine-grained debugging and systematic optimization across operator boundaries. By representing query execution plans as MLIR modules and lowering them to LLVM IR for execution via LLVM's ORC JIT runtime, Polymer provides a unified platform for evaluating query optimizers, comparing data format I/O performance, and identifying performance bottlenecks at the operator level. Our approach transforms database execution into a compiler-centric problem, enabling the application of mature compiler optimization techniques to database systems while preserving explainability through MLIR's multi-level representation.
 </p>
