@@ -149,7 +149,35 @@ and interesting ways.</li>
         <p>
         <i>Automating the search aspects of compiler engineering: IR for auto-tuning & beyond</i> [ <a href="https://youtu.be/UgKvsIz0Jhs">Video</a> ] [ <a href="slides/technical_talks/morel.pdf">Slides</a> ]<br>
         Speaker: Rolf Morel<br>
-        <p>Compilers are becoming more and more complex, with an increasing number of optimizations and heuristics that need to be tuned. At the same time, the hardware landscape is becoming more diverse, with a wide range of architectures and micro-architectures that need to be supported. This makes it increasingly difficult to manually tune compilers for optimal performance. In this talk, we will explore how we can automate the search aspects of compiler engineering. We will discuss how we can use MLIR as a foundation for building auto-tuning systems that can automatically explore the space of possible optimizations and find the best ones for a given application and hardware target. We will also discuss how we can use MLIR to build systems that can automatically generate code for new hardware targets, without requiring any manual effort from the compiler developer.</p>
+        <p>This talk is about automating the mechanical bits of your job. The main ingredients:</p>
+<ol>
+    <li>Encoding plans for pipeline/schedule-manipulations into an IR for pipelines/schedules, and</li>
+    <li>Having tools automatically perform the optimization-through-considering-alternatives loop.</li>
+</ol>
+
+<p>Consider an average compiler engineer's plan for an average day:</p>
+<ul>
+    <li>Out of all possible optimizations, first try optimization F. Evaluate. If perf isn't there...</li>
+    <li>Then tweak F's knobs. Evaluating each time.</li>
+    <li>Try optimization G next. Evaluate.</li>
+    <li>Then tweak G's knobs. Evaluate.</li>
+    <li>Now try F;G. Tweak knobs. Evaluate.</li>
+    <li>Then G;F. Tweak knobs. Evaluate.</li>
+</ul>
+
+<p>Most of this is pretty repetitive and hence mechanizable. Except for formulating the plan—this is where you as an engineer are essential.</p>
+
+<p>We build on MLIR's Transform-dialect [0], which exposes fine-grained transformations as operations which compose into schedules. (SSA-values fed into and produced by ops control transform ordering; parameters, i.e. attributes, are tweakable knobs.) We introduce transform ops with non-deterministic choice semantics. For example, an op's parameter can be the result of our new op which represents non-det selection among valid options. We go further: an op which chooses among regions to represent a choice between alternative sub-schedules. Further still: we employ SSA to encode that choices are tied together. E.g., we can encode that a sub-schedule later on should only be selected if a particular sub-schedule was chosen early on.</p>
+
+<p>We demonstrate one approach to dealing with the non-determinism: a driver that obtains all choices—and their dependencies and constraints—and throws them to a solver. The solver selects a viable overall configuration which we use to rewrite the schedule so it no longer has non-determinism (to our knowledge, the first instance of a useful schedule IR rewrite). Thus obtained deterministic schedules are then automatically applied to payloads to obtain perf numbers, which we feed back into the solver for it to learn about the parameter space. The driver runs in a loop until a stopping criteria has been reached (e.g. until you come back into work in the morning).</p>
+
+<p>Finally, we emphasize we go beyond:</p>
+<ul>
+    <li><strong>Auto-tuning</strong>, as we "reify" choices into (transform) IR and tune more than just parameters,</li>
+    <li><strong>Auto-scheduling</strong> (systems which automatically compose transforms), as we allow the engineer to effectively specify templates with composition choices at just the places they would have considered in the course of the day.</li>
+</ul>
+
+<p>In short, our approach enables both expressiveness and controllable tractability.</p>
         </p>
         
 </div>
