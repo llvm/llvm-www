@@ -4,7 +4,7 @@
 
 <ul>
   <li><b>What:</b> Tenth LLVM Performance Workshop at CGO</li>
-  <li><b>When:</b> January 31st - February 4th, 2026 (Saturday - Wednesday)</li>
+  <li><b>When:</b> January 31st, 2026 (Saturday)</li>
   <li><b>Where:</b> Sydney, Australia</li>
   <a href="https://2026.cgo.org/track/cgo-2026-workshops-and-tutorials" target="_blank"> International Convention Centre Sydney, Sydney, Australia </a> [In person]
   <li><b>Proposals should be submitted to:</b>  <a href="https://easychair.org/conferences?conf=llvmcgo2026">Easychair</a></li>
@@ -46,7 +46,7 @@
     </tr>
     <!-- Opening Remarks -->
     <tr>
-      <td><p>8:30 - 9:30 (60 min)</p></td>
+      <td><p>8:45 - 9:00 (15 min)</p></td>
       <td>
         <p>
           <a href="https://www.linkedin.com/in/josemonsalve2/">Jose M Monsalve Diaz</a><br />
@@ -56,21 +56,21 @@
           <a href="https://www.linkedin.com/in/kevinsalapenades/">Kevin Sala</a>
         </p>
       </td>
-      <td><p>Opening Remarks. Keynote TBA</p></td>
-      <td><p>Welcome, Introduction and Keynote</p></td>
+      <td><p>Welcome and Opening Remarks</p></td>
+      <td><p></p></td>
+    </tr>
+    <!-- Keynote -->
+    <tr>
+      <td><p>9:00 - 10:00 (60 min)</p></td>
+      <td><p>Mircea Trofin</p></td>
+      <td><p>Keynote: <a href="#keynote">ML Optimizations in Production LLVM: The Next Research Challenges (an engineer's opinion)</a></p></td>
+      <td><p>ML, Optimization, Industry</p></td>
     </tr>
     <!-- Talk 1 -->
     <tr>
-      <td><p>9:30 - 10:00 (30 min)</p></td>
-      <td><p>Mircea Trofin</p></td>
-      <td><p><a href="#talk1">ML Optimizations in Production LLVM: The Next Research Challenges (an engineer's opinion)</a></p></td>
-      <td><p>ML, Optimization, Industry</p></td>
-    </tr>
-    <!-- Talk 2 -->
-    <tr>
       <td><p>10:00 - 10:30 (30 min)</p></td>
       <td><p>Miguel Andrés Cárdenas Sierra, Rafael A Herrera Guaitero, Isaac David Bermudez Lara, Jose M Monsalve Diaz</p></td>
-      <td><p><a href="#talk2">Compiling Agentic AI Programs for Dataflow Execution: An MLIR Approach</a></p></td>
+      <td><p><a href="#talk1">Compiling Agentic AI Programs for Dataflow Execution: An MLIR Approach</a></p></td>
       <td><p>MLIR, Dataflow Compilation, Agentic AI, Compiler Optimization, Concurrency</p></td>
     </tr>
     <!-- Coffee Break -->
@@ -80,65 +80,58 @@
       <td><p>Coffee Break</p></td>
       <td><p>-</p></td>
     </tr>
-    <!-- Talk 3 -->
+    <!-- Talk 2 -->
     <tr>
       <td><p>11:00 - 11:30 (30 min)</p></td>
       <td><p>Yizhe Zhang, Bocheng Han, Zhengyi Yang</p></td>
-      <td><p><a href="#talk3">Polymer: An explainable database execution engine based on MLIR</a></p></td>
+      <td><p><a href="#talk2">Polymer: An explainable database execution engine based on MLIR</a></p></td>
       <td><p>MLIR, Database Execution Engine, JIT Compilation, Query Optimization, Pipeline Execution</p></td>
     </tr>
-    <!-- Talk 4 -->
+    <!-- Talk 3 -->
     <tr>
       <td><p>11:30 - 12:00 (30 min)</p></td>
       <td><p>Lei Qiu, Yikang Fan, Yanxia Wu, Fang Lyu</p></td>
-      <td><p><a href="#talk4">Profile Once, Optimize Anywhere: Architecture-agnostic Profile-Guided Optimization</a></p></td>
+      <td><p><a href="#talk3">Profile Once, Optimize Anywhere: Architecture-agnostic Profile-Guided Optimization</a></p></td>
       <td><p>Profile-Guided Optimization, Cross-Architecture Optimization, Compiler Optimization, HPC</p></td>
+    </tr>
+    <!-- Talk 4 -->
+    <tr>
+      <td><p>12:00 - 12:30 (30 min)</p></td>
+      <td><p>Yingchi Long, Jun Jiang, Yanhe Zhai, Yaohui Han, Ying Liu, Zheng Lin, Yuyang Zhang, Zhongcheng Zhang, Jiahao Shan, Zhenchuan Chen, Xiaobing Feng, Huimin Cui</p></td>
+      <td><p><a href="#talk4">Practice on Optimizing SPEC CPU 2017 for Sunway Architecture</a></p></td>
+      <td><p>Sunway Architecture, LLVM Compiler, Vectorization, Partial Redundancy Elimination, Constant Propagation</p></td>
     </tr>
     <!-- Lunch Break -->
     <tr>
-      <td><p>12:00 - 13:00 (60 min)</p></td>
+      <td><p>12:30 - 13:45 (75 min)</p></td>
       <td><p>-</p></td>
       <td><p>Lunch Break</p></td>
       <td><p>-</p></td>
     </tr>
     <!-- Talk 5 -->
     <tr>
-      <td><p>13:00 - 13:30 (30 min)</p></td>
-      <td><p>Yingchi Long, Jun Jiang, Yanhe Zhai, Yaohui Han, Ying Liu, Zheng Lin, Yuyang Zhang, Zhongcheng Zhang, Jiahao Shan, Zhenchuan Chen, Xiaobing Feng, Huimin Cui</p></td>
-      <td><p><a href="#talk5">Practice on Optimizing SPEC CPU 2017 for Sunway Architecture</a></p></td>
-      <td><p>Sunway Architecture, LLVM Compiler, Vectorization, Partial Redundancy Elimination, Constant Propagation</p></td>
+      <td><p>13:45 - 14:15 (30 min)</p></td>
+      <td><p>Zhantong Qiu, Mahyar Samani, Jason Lowe-Power</p></td>
+      <td><p><a href="#talk5">Nugget: Portable Program Snippets</a></p></td>
+      <td><p>Computer Architecture, Simulation, Workload Reduction, Sampling Methodology, Portable Program Snippets</p></td>
     </tr>
     <!-- Talk 6 -->
     <tr>
-      <td><p>13:30 - 14:00 (30 min)</p></td>
-      <td><p>Zhantong Qiu, Mahyar Samani, Jason Lowe-Power</p></td>
-      <td><p><a href="#talk6">Nugget: Portable Program Snippets</a></p></td>
-      <td><p>Computer Architecture, Simulation, Workload Reduction, Sampling Methodology, Portable Program Snippets</p></td>
-    </tr>
-    <!-- Afternoon Coffee Break -->
-    <tr>
-      <td><p>14:00 - 14:30 (30 min)</p></td>
-      <td><p>-</p></td>
-      <td><p>Coffee Break</p></td>
-      <td><p>-</p></td>
+      <td><p>14:15 - 14:45 (30 min)</p></td>
+      <td><p>Konstantinos Parasyris</p></td>
+      <td><p><a href="#talk6">An End-to-End Workflow for Data-Driven GPU Optimization with LLVM</a></p></td>
+      <td><p>LLVM, GPU, Data Collection, Performance Optimization</p></td>
     </tr>
     <!-- Talk 7 -->
     <tr>
-      <td><p>14:30 - 15:00 (30 min)</p></td>
-      <td><p>Konstantinos Parasyris</p></td>
-      <td><p><a href="#talk7">An End-to-End Workflow for Data-Driven GPU Optimization with LLVM</a></p></td>
-      <td><p>LLVM, GPU, Data Collection, Performance Optimization</p></td>
-    </tr>
-    <!-- Talk 8 -->
-    <tr>
-      <td><p>15:00 - 15:30 (30 min)</p></td>
+      <td><p>14:45 - 15:15 (30 min)</p></td>
       <td><p>Kevin Sala, Krishna Chaitanya Sankisa, Krzysztof Parzyszek, Michael Klemm</p></td>
-      <td><p><a href="#talk8">Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features</a></p></td>
+      <td><p><a href="#talk7">Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features</a></p></td>
       <td><p>OpenMP, GPU, Accelerator, Target, LLVM, Clang</p></td>
     </tr>
     <!-- Closing Remarks -->
     <tr>
-      <td><p>15:30 - 15:40 (10 min)</p></td>
+      <td><p>15:15 - 15:30 (15 min)</p></td>
       <td>
         <p>
           <a href="https://www.linkedin.com/in/josemonsalve2/">Jose M Monsalve Diaz</a><br />
@@ -149,15 +142,15 @@
         </p>
       </td>
       <td><p>Closing Remarks</p></td>
-      <td><p>Getting Feedback</p></td>
+      <td><p></p></td>
     </tr>
   </tbody>
 </table>
 
 <div class="www_sectiontitle">Abstracts</div>
 
-<!-- Abstract for Talk 1 -->
-<h3 id="talk1" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Keynote -->
+<h3 id="keynote" class="cgo-title" style="font-weight: bold;">
   ML Optimizations in Production LLVM: The Next Research Challenges (an engineer's opinion)
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -168,8 +161,8 @@ LLVM has had support for ML-Guided Optimizations for the last 5 years, applied f
 This talk is about open problems from the challenges we encountered. Specifically, it is a call for collaboration between academia and industry on addressing what we learned to be the key challenging compiler problems which, once solved, can unlock the wide-spread replacement of optimization decisions with policies trained via automatic techniques (ML or AI), at large scale in the industry.
 </p>
 
-<!-- Abstract for Talk 2 -->
-<h3 id="talk2" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 1 -->
+<h3 id="talk1" class="cgo-title" style="font-weight: bold;">
   Compiling Agentic AI Programs for Dataflow Execution: An MLIR Approach
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -182,8 +175,8 @@ We introduce an MLIR dialect for agentic AI that represents data dependencies ex
 This work demonstrates that domain-specific MLIR dialects enable effective compiler optimization for AI workloads where latency dominates execution time.
 </p>
 
-<!-- Abstract for Talk 3 -->
-<h3 id="talk3" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 2 -->
+<h3 id="talk2" class="cgo-title" style="font-weight: bold;">
   Polymer: An explainable database execution engine based on MLIR
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -192,8 +185,8 @@ This work demonstrates that domain-specific MLIR dialects enable effective compi
 Despite significant advances in database execution engine performance through Just-in-Time (JIT) compilation and optimized execution strategies, database systems continue to suffer from limited explainability and extensibility. Evaluating individual operator implementations typically requires modifying source code, and database operation reuse remains constrained by language boundaries. We present Polymer, a framework that leverages MLIR's hierarchical intermediate representation to model database execution engines. Polymer treats database operations as composable MLIR operators, enabling fine-grained debugging and systematic optimization across operator boundaries. By representing query execution plans as MLIR modules and lowering them to LLVM IR for execution via LLVM's ORC JIT runtime, Polymer provides a unified platform for evaluating query optimizers, comparing data format I/O performance, and identifying performance bottlenecks at the operator level. Our approach transforms database execution into a compiler-centric problem, enabling the application of mature compiler optimization techniques to database systems while preserving explainability through MLIR's multi-level representation.
 </p>
 
-<!-- Abstract for Talk 4 -->
-<h3 id="talk4" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 3 -->
+<h3 id="talk3" class="cgo-title" style="font-weight: bold;">
   Profile Once, Optimize Anywhere: Architecture-agnostic Profile-Guided Optimization
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -202,8 +195,8 @@ Despite significant advances in database execution engine performance through Ju
 Profile-Guided Optimization (PGO) is a widely used technique for guiding compiler optimizations with runtime behavior. However, its adoption is limited by the high cost of collecting architecture-specific profiles, especially on resource-constrained devices or slow simulation platforms. We propose APGO, an architecture-agnostic PGO framework that enables "profile once, optimize anywhere". APGO treats profile transfer as a region-level alignment problem: APGO directly reuses matched profile regions and employs an AI-Guided Synthesizer to reconstruct missing profile data through architecture-aware layout adaptation and profile mapping. This approach removes the requirement for native profiling on divergent targets, enabling efficient profile reuse. Experimental results show that APGO reduces up to 32.78x profiling time compared to native architecture profiling, while achieving comparable performance on the majority of workloads (34/54 single-core and 11/20 multi-threaded) across RISC-V and ARM. Notably, APGO even surpasses native PGO on 14 single-core and 6 multi-threaded workloads, with peak improvements of 13%.
 </p>
 
-<!-- Abstract for Talk 5 -->
-<h3 id="talk5" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 4 -->
+<h3 id="talk4" class="cgo-title" style="font-weight: bold;">
   Practice on Optimizing SPEC CPU 2017 for Sunway Architecture
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -216,8 +209,8 @@ This work introduces four such optimizations integrated into the LLVM: 1) custom
 Evaluated on the SPEC CPU 2017 benchmark suite across two 64-core Sunway CPUs (SW3231 and WX-H8000), the enhanced compiler achieves ratio increases of 20.62% for integer and 28.28% for floating-point workloads, compared to a non-vectorized baseline.
 </p>
 
-<!-- Abstract for Talk 6 -->
-<h3 id="talk6" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 5 -->
+<h3 id="talk5" class="cgo-title" style="font-weight: bold;">
   Nugget: Portable Program Snippets
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -226,8 +219,8 @@ Evaluated on the SPEC CPU 2017 benchmark suite across two 64-core Sunway CPUs (S
 Evaluating architectural ideas on realistic workloads is increasingly challenging due to the prohibitive cost of detailed simulation and the lack of portable sampling tools. Existing targeted sampling techniques are often tied to specific binaries, incur significant overhead, and make rapid validation across systems infeasible. To address these limitations, we introduce Nugget, a flexible framework that enables portable sampling across simulators, hardware, architectural differences, and libraries. Nugget leverages LLVM IR to perform binary-independent interval analysis, then generates lightweight, cross-platform executable snippets (nuggets), that can be validated natively on real hardware before use in simulation. This approach decouples samples from specific binaries, dramatically reduces analysis overhead, and allows researchers to iterate on sampling methodologies while efficiently validating samples across diverse systems.
 </p>
 
-<!-- Abstract for Talk 7 -->
-<h3 id="talk7" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 6 -->
+<h3 id="talk6" class="cgo-title" style="font-weight: bold;">
   An End-to-End Workflow for Data-Driven GPU Optimization with LLVM
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
@@ -241,8 +234,8 @@ Mneme addresses this gap by providing an end-to-end framework for GPU performanc
 By lowering the barrier to collecting, analyzing, and optimizing realistic GPU workloads, Mneme can make LLVM-based GPU research more accessible, reproducible, and data-centric.
 </p>
 
-<!-- Abstract for Talk 8 -->
-<h3 id="talk8" class="cgo-title" style="font-weight: bold;">
+<!-- Abstract for Talk 7 -->
+<h3 id="talk7" class="cgo-title" style="font-weight: bold;">
   Equipping LLVM/OpenMP with Advanced OpenMP GPU Offloading Features
   <br/><span style="font-size: x-small;"><a href="#workshop-schedule"> &#9650; back to schedule</a></span>
 </h3>
