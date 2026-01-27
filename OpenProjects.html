@@ -32,7 +32,11 @@
               <li><a href="#unified-host–device-compilation-in-clangir">Unified Host–Device Compilation in ClangIR (CIR): Enabling Cross-Boundary Analysis and Optimization</a></li>
             </ul>
           </li>
-
+          <li><a href="http://clangd.llvm.org/"><b>Clangd</b></a>
+            <ul>
+              <li><a href="#enable-clangd-hlsl-support">Enable Clangd support for HLSL</a></li>
+            </ul>
+          </li>
           <!-- Add other subprojects as necessary -->
         </ul>
       </li>
@@ -774,6 +778,108 @@
     <a href="https://discourse.llvm.org/t/gsoc-2026-host-device-cir-combine-pipeline-project-idea-discussion/89623">URL</a>
   </p>
 
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc26">Google Summer of Code 2026</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>
+    Welcome prospective Google Summer of Code 2026 Students! This document is
+    your starting point to finding interesting and important projects for LLVM,
+    Clang, and other related sub-projects. This list of projects is not only
+    developed for Google Summer of Code, but open projects that really need
+    developers to work on and are very beneficial for the LLVM community.
+  </p>
+
+  <p>We encourage you to look through this list and see which projects excite
+    you and match well with your skill set. We also invite proposals not on this
+    list. More information and discussion about GSoC can be found in
+    <a href="https://discourse.llvm.org/c/community/gsoc" target="_blank">
+      discourse
+    </a>. If you have questions about a particular project please find the
+    relevant entry in discourse, check previous discussion and ask. If there is
+    no such entry or you would like to propose an idea please create a new
+    entry. Feedback from the community is a requirement for your proposal to be
+    considered and hopefully accepted.
+  </p>
+
+  <p>The LLVM project has participated in Google Summer of Code for many years
+    and has had some very successful projects. We hope that this year is no
+    different and look forward to hearing your proposals. For information on how
+    to submit a proposal, please visit the Google Summer of Code main
+    <a href="https://summerofcode.withgoogle.com/">website.</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enable-clangd-hlsl-support">Enable Clangd support for HLSL</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+
+  <p>
+    <a href="https://microsoft.github.io/hlsl-specs/specs/hlsl.pdf" target="_blank">HLSL</a> is
+    a GPU shader programming language and there is an ongoing effort to
+    <a href="https://clang.llvm.org/docs/HLSL/HLSLSupport.html" target="_blank">add HLSL support into Clang.</a>
+    HLSL is built on the C++11 standard, and as such, clangd already has
+    semi-functional support for HLSL, however, it does not handle all
+    language-specific constructs. The goal for this project is to add
+    holistic support for HLSL into clangd.
+  </p>
+
+  <p><b>Expected outcomes</b></p>
+
+  <ul>
+    <li>Survey the current support gaps when using clangd for HLSL.
+    <li>Create an RFC documenting the gaps and propose the best way to address them.
+    <li>After refining the RFC, generate issues for the groundwork of implementation.
+    <li>Implement these issues to complete HLSL support in clangd.
+  </ul>
+
+  <p>
+    We do not expect all issues to be resolved and for full support of HLSL to
+    be in clangd. It is however expected that the first 3 steps take ~90 hrs,
+    and the remaining ~90 hrs are dedicated towards implementation.
+  </p>
+
+  <p><b>Required / desired skills</b></p>
+
+  <p>Required:</p>
+
+  <ul>
+    <li>Intermediate proficiency of C++.
+    <li>Familiarity of how Language Server Protocols (LSP) work.
+    <li>Interest in learning/knowing the HLSL language specification.
+  </ul>
+
+  <p>Desired:</p>
+
+  <ul>
+    <li>Previous experience programming with HLSL is a plus.
+    <li>Previous experience developing with LSPs is a plus.
+  </ul>
+
+  <p><b>Size of the project:</b></p>
+
+  <p>Medium (~180hr).</p>
+
+  <p><b>Project difficulty:</b></p>
+
+  <p>Medium.</p>
+
+  <p><b>Mentors:</b>
+    <a href="mailto:mail@inbelic.dev">Finn Plummer</a>,
+    <a href="mailto:ascoleman@microsoft.com">Ashley Coleman</a>
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc-2026-enable-clangd-support-for-hlsl/89664">URL</a></p>
 </div>
 
 <!-- *********************************************************************** -->
