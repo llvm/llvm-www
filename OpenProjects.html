@@ -23,6 +23,12 @@
             <ul>
             </ul>
           </li>
+          <li><a href="https://llvm.github.io/clangir/"><b>ClangIR</b></a>
+            <ul>
+              <li><a href="#unified-host–device-compilation-in-clangir">Unified Host–Device Compilation in ClangIR (CIR): Enabling Cross-Boundary Analysis and Optimization</a></li>
+            </ul>
+          </li>
+
           <!-- Add other subprojects as necessary -->
         </ul>
       </li>
@@ -439,6 +445,114 @@
 
 <div class="doc_author">
   <p>Written by the <a href="/">LLVM Team</a></p>
+</div>
+
+
+<!-- *********************************************************************** -->
+<div class="www_sectiontitle">
+  <a name="gsoc26">Google Summer of Code 2026</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p>
+    Welcome prospective Google Summer of Code 2026 Students! This document is
+    your starting point to finding interesting and important projects for LLVM,
+    Clang, and other related sub-projects. This list of projects is not only
+    developed for Google Summer of Code, but open projects that really need
+    developers to work on and are very beneficial for the LLVM community.
+  </p>
+
+  <p>We encourage you to look through this list and see which projects excite
+    you and match well with your skill set. We also invite proposals not on this
+    list. More information and discussion about GSoC can be found in
+    <a href="https://discourse.llvm.org/c/community/gsoc" target="_blank">
+      discourse
+    </a>. If you have questions about a particular project please find the
+    relevant entry in discourse, check previous discussion and ask. If there is
+    no such entry or you would like to propose an idea please create a new
+    entry. Feedback from the community is a requirement for your proposal to be
+    considered and hopefully accepted.
+  </p>
+
+  <p>The LLVM project has participated in Google Summer of Code for many years
+    and has had some very successful projects. We hope that this year is no
+    different and look forward to hearing your proposals. For information on how
+    to submit a proposal, please visit the Google Summer of Code main
+    <a href="https://summerofcode.withgoogle.com/">website.</a>
+  </p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="unified-host–device-compilation-in-clangir">Unified Host–Device Compilation in ClangIR (CIR): Enabling Cross-Boundary Analysis and Optimization</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+	Modern heterogeneous applications rely heavily on GPU offloading, yet today’s compilation pipelines 
+	strictly separate host and device compilation. This separation prevents whole-program reasoning across 
+	host–device boundaries and limits optimization opportunities such as kernel specialization, launch-bound 
+	inference, and cross-boundary constant propagation.
+ </p>
+ <p>
+ 	This project proposes extending <a href="https://clangir.org">ClangIR</a> with a combine compilation pipeline 
+ 	that merges host and device CIR modules into a unified representation, enables joint analysis and transformation, 
+ 	and then safely re-splits the code for final target-specific lowering. 
+ 	The work builds directly on an existing work-in-progress implementation and aims to upstream a robust, tested, and documented workflow.
+ </p>
+
+  <p><b>Background and Motivation</b></p>
+	<p>The Clang compiler today emits separate compilation artifacts for host and device code (e.g., CUDA/HIP). While this model simplifies handling, it introduces fundamental limitations:</p>
+	<ul>
+	  <li>No cross-boundary analysis: The compiler cannot reason about kernel launches, argument values, or launch configuration at the call site.</li>
+	  <li>Missed optimization opportunities: Kernel specialization, dead code elimination, and launch-bound inference require joint host–device visibility.</li>
+	</ul>
+	<p>LLVM’s MLIR-based CIR provides a unique opportunity to address this limitation. Because both host and device code are represented in a structured, high-level IR, it becomes feasible to temporarily merge them, perform joint analyses and transformations, and then re-split them for conventional lowering.</p> 
+
+	<p>This project directly explores that opportunity.<\p>
+
+
+  <p><b>Related Work and Current State</b></p>
+
+   <p> ClangIR is actively being upstreamed and already supports emitting CIR from Clang’s AST and lowering to LLVM IR. Initial experiments have demonstrated that host and device CIR modules can be merged in a controlled way.</p>
+
+   <p>A work-in-progress implementation already exists which is capable of merging but there is still work to be done in incorporating the merging with the clang driver</p>
+  <ul>
+    <li> A WIP <a href="https://github.com/llvm/clangir/pull/2097">PR</a> on the incubator project presenting some of the required steps 
+    <li> An <a href="https://github.com/llvm/llvm-project/issues/175871">issue</a> loosely tracking changes regarding the offload support on ClangIR. 
+  </ul>
+  <p><b>Expected Result</b></p>
+  <ol>
+    <li>Clang Driver extensions to optionally enable the capability.</li>
+    <li>Build the infrastructure to contain within a single translation unit both device and host code</li>
+    <li>Build the infrastructure to properly split a "combined" translation unit to individual ones representing device and host code</li>
+    <li>End to End execution of the new driver pipeline on benchmarks from PolyBench.</li>
+    <li>Reporting on compilation time overheads and execution time overheads.</li>
+    <li>Bonus Point: Implement an optimization pass that infers launch bounds from the host call site</li>
+  </ol>
+
+  <p><b>Skills:</b>
+    Intermediate C++ programming skills and familiarity with basic compiler
+    design concepts are required. Prior experience with LLVM IR, MLIR, Clang or
+    ClangIR programming is a big plus, but willingness to learn is also a
+    possibility.
+  </p>
+
+  <p><b>Project size:</b> Large</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Potential Mentors:</b>
+    <a href="https://github.com/koparasy">Konstantinos (Dinos) Parasyris</a>
+  </p>
+
+   <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2026-host-device-cir-combine-pipeline-project-idea-discussion/89623">URL</a>
+  </p>
+
 </div>
 
 <!-- *********************************************************************** -->
