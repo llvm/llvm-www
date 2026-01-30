@@ -13,6 +13,7 @@
            </ul>
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
+              <li><a href="#expanding-api-notes-for-cpp">Expanding API Notes for C++</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -482,6 +483,46 @@
     <a href="https://summerofcode.withgoogle.com/">website.</a>
   </p>
 </div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="expanding-api-notes-for-cpp">Expanding API Notes for C++</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    API notes are a YAML-based "sidecar" file mechanism in Clang that allows users to add attributes to existing headers without modifying the header files themselves.
+    This is particularly useful for Swift developers who want to annotate third-party C/C++ libraries and frameworks for better interoperability.
+    However, API notes have limited support for C++ syntax (e.g., type conversion operators), and cannot annotate specific function overloads or template instantiations.
+  </p>
+
+  <p><b>Expected Result:</b>
+    Extend API notes to better support C++ language features.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate C++, familiarity or experience with compiler development
+  </p>
+
+  <p><b>Project size:</b>
+    Small or Medium, depending on scope of the proposal
+  </p>
+
+  <p><b>Difficulty:</b>
+    Medium
+  </p>
+
+  <p><b>Potential Mentors:</b>
+    <a href="https://github.com/j-hui">John Hui</a>
+    <a href="https://github.com/egorzhdan">Egor Zhdan</a>
+    <a href="https://github.com/Xazax-hun">Gábor Horváth</a>
+  </p>
+
+   <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2026-expanding-api-notes-for-c/89638">URL</a>
+  </p>
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
