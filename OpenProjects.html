@@ -23,6 +23,7 @@
           </li>
           <li><a href="http://libc.llvm.org/"><b>LLVM libc</b></a>
             <ul>
+              <li><a href="#enable_float80_float128_for_unsupported_target">Enable float80 and float128 math support on unsupported targets for LLVM libc</a></li>
             </ul>
           </li>
           <li><a href="https://llvm.github.io/clangir/"><b>ClangIR</b></a>
@@ -525,6 +526,8 @@
     <a href="https://discourse.llvm.org/t/gsoc-2026-expanding-api-notes-for-c/89638">URL</a>
   </p>
 
+</div>
+
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
   <a name="upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a>
@@ -567,6 +570,78 @@
   </p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc-2026-participating-in-upstreaming-fbounds-safety/89649">URL</a></p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="enable_float80_float128_for_unsupported_target">Enable float80 and float128 math support on unsupported targets for LLVM libc</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    The LLVM libc project aims to provide a complete, correct, and high-performance C23 standard library. A key
+    differentiator is its focus on correctly rounded math functions for all floating-point types, including float,
+    double, long double, and float128 (IEEE 754 quad precision).
+  </p>
+  <p>However, not all compilers or architectures support these types natively. For example:</p>
+  <ul>
+    <li>MSVC on Windows treats long double as 64-bit double and lacks a native __float128 type.</li>
+    <li>AArch64 targets typically use 128-bit long double, but lack the 80-bit extended precision format.</li>
+    <li>Clang on certain non-x86 targets may not enable __float128 by default.</li>
+  </ul>
+  <p>
+    This lack of host compiler support prevents LLVM libc from building and testing its high-precision math routines on
+    these platforms.
+  </p>
+
+  <p><b>The Goal</b></p>
+  <p>
+    The goal of this project is to implement standalone C++ classes (e.g., within LIBC_NAMESPACE::fputil) that emulate
+    float80 and float128 semantics in software. These classes should provide the necessary operator overloads and
+    storage (using UInt&lt;128&gt; or similar) to allow the existing templated math implementations to compile and run
+    even when the host compiler does not support the native types.
+  </p>
+
+  <p><b>Proposed Solution</b></p>
+  <ul>
+    <li>Type Abstraction: Create wrapper classes that mimic the behavior of native floating-point types.</li>
+    <li>Soft-Float Arithmetic: Implement or connect these classes to soft-float arithmetic routines (add, sub, mul, div)
+      so that math algorithms (like polynomial evaluation) can be executed.</li>
+    <li>Integration: Refactor the math function entry points to instantiate templates with these emulated types when
+      native support is missing.</li>
+  </ul>
+
+  <p><b>Expected Results</b></p>
+  <ul>
+    <li>A header-only C++ implementation of float80 and float128 types that can be used where native support is missing.</li>
+    <li>Basic arithmetic operations (+, -, *, /) implemented for these types.</li>
+    <li>Demonstration of LLVM libc math functions compiling and passing tests using these emulated types on a target that
+      lacks native support (e.g., building float80 math on Mac arm64, float128 math with MSVC).</li>
+  </ul>
+
+  <p><b>Project size:</b>Medium or Large</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Requirements</b></p>
+  <ul>
+    <li>Basic C++ skills.</li>
+    <li>Interest in understanding the intricacies of floating-point formats (IEEE 754 and extended precision).</li>
+  </ul>
+
+  <p><b>Mentors:</b>
+    <a href="mailto:lntue.h@gmail.com">Tue Ly</a>,
+    <a href="mailto:michaelrj@google.com">Michael Jones</a>,
+    <a href="mailto:its.overmighty@gmail.com">Nicolas Celik</a>,
+  </p>
+
+   <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2026-libc-enable-float80-and-float128-math-support-on-unsupported-targets-for-llvm-libc/89647">URL</a>
+  </p>
+
 </div>
 
 <!-- *********************************************************************** -->
