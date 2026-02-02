@@ -24,6 +24,7 @@
           <li><a href="http://libc.llvm.org/"><b>LLVM libc</b></a>
             <ul>
               <li><a href="#enable_float80_float128_for_unsupported_target">Enable float80 and float128 math support on unsupported targets for LLVM libc</a></li>
+              <li><a href="#use_llvm_libc_math_for_compiler_rt_builtins">Use LLVM libc math routines for compiler-rt floating point routines</a></li>
             </ul>
           </li>
           <li><a href="https://llvm.github.io/clangir/"><b>ClangIR</b></a>
@@ -640,6 +641,65 @@
 
    <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/gsoc-2026-libc-enable-float80-and-float128-math-support-on-unsupported-targets-for-llvm-libc/89647">URL</a>
+  </p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="use_llvm_libc_math_for_compiler_rt_builtins">Use LLVM libc math routines for compiler-rt floating point routines</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    compiler-rt builtins provide essential floating-point computation routines to support runtime execution when the
+    underlying hardware does not support specific floating-point types natively. Unfortunately, the current
+    implementations are under tested, leaving subtle numerical bugs lying dormant for years. Additionally, they are
+    written in a mix of C and hand-written assembly, which substantially increases the maintenance burden.
+  </p>
+  <p>
+    In contrast, LLVM libc implements these basic floating-point operations with rigorous testing and formal verification.
+    A recent <a href="https://libc.llvm.org/hand_in_hand.html">effort</a> (see also
+    <a href="https://github.com/llvm/llvm-project/issues/147386">Issue #147386</a>) has refactored LLVM libc math
+    routines to be free-standing and header-only. This work has significantly lowered the barrier to use LLVM libc
+    implementations, allowing other LLVM projects to consume LLVM libc logic directly via header inclusions without
+    introducing complex build and link dependencies.
+  </p>
+  <p>
+    Our goal is to demonstrate the feasibility and benefits of replacing legacy compiler-rt floating-point builtins with
+    the modern, verified equivalents from LLVM libc.
+  </p>
+
+  <p><b>Expected Results</b></p>
+  <ul>
+    <li>Infrastructure: Ensure basic floating-point operations in LLVM libc are exposed as shared, free-standing headers
+      suitable for inclusion in compiler-rt.</li>
+    <li>Integration: Add a CMake build option allowing compiler-rt builtins to be compiled using LLVM libc math routines
+      instead of the legacy implementations.</li>
+    <li>Validation & Performance: Benchmark the new implementation on embedded targets. Analyze code size and
+      performance, optimizing the build to achieve parity with the current C or hand-written assembly implementations.</li>
+  </ul>
+
+  <p><b>Project size:</b>Medium or Large</p>
+
+  <p><b>Difficulty:</b>Medium</p>
+
+  <p><b>Requirements</b></p>
+  <ul>
+    <li>Basic C++ skills.</li>
+    <li>Interest in understanding the intricacies of floating-point formats (IEEE 754) and the low-level implementation of arithmetic operations.</li>
+  </ul>
+
+  <p><b>Mentors:</b>
+    <a href="mailto:lntue.h@gmail.com">Tue Ly</a>,
+    <a href="mailto:michaelrj@google.com">Michael Jones</a>,
+    <a href="mailto:muhammad.m.bassiouni@gmail.com">Muhammad Bassiouni</a>,
+  </p>
+
+   <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/gsoc-2026-libc-use-llvm-libc-math-routines-for-compiler-rt-floating-point-builtins/89648">URL</a>
   </p>
 
 </div>
