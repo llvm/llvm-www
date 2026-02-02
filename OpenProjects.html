@@ -14,6 +14,7 @@
           <li><a href="http://clang.llvm.org/"><b>Clang</b></a>
             <ul>
               <li><a href="#expanding-api-notes-for-cpp">Expanding API Notes for C++</a></li>
+              <li><a href="#upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -523,6 +524,50 @@
    <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/gsoc-2026-expanding-api-notes-for-c/89638">URL</a>
   </p>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    The -fbounds-safety extension for C adds bounds annotations and compiler-enforced bounds checking to prevent buffer overflow vulnerabilities. Developed by Apple and maintained in a <a href="https://github.com/swiftlang/llvm-project">downstream fork</a>, the extension is being incrementally upstreamed to mainline Clang. See the <a href="https://discourse.llvm.org/t/rfc-enforcing-bounds-safety-in-c-fbounds-safety/70854">RFC</a> and <a href="https://clang.llvm.org/docs/BoundsSafety.html">documentation</a> for details.
+  </p>
+
+  <p>
+    The student will contribute to upstreaming by:
+  </p>
+  <ul>
+    <li>Taking a subset of features identified by the mentor</li>
+    <li>Extracting a relevant downstream feature and refactoring to meet upstream LLVM standards, writing tests and documentation</li>
+    <li>Backporting to the downstream fork to validate correctness in the full -fbounds-safety context</li>
+  </ul>
+
+  <p><b>Expected results:</b>
+    Upstreamed patches with tests and documentation; validated backports to downstream.
+  </p>
+
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/rapidsna>Yeoul Na</a>, [co-mentors TBD]
+  </p>
+
+  <p><b>Desired skills:</b>
+    C/C++, compiler concepts, managing patches across branches. Clang/LLVM experience and memory safety knowledge are a plus.
+  </p>
+
+  <p><b>Project size:</b>
+    Medium or Large (features can be scoped to match the participant's skill level)
+  </p>
+
+  <p><b>Difficulty:</b>
+    Medium or Hard (features can be scoped to match the participant's skill level)
+  </p>
+
+  <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc-2026-participating-in-upstreaming-fbounds-safety/89649">URL</a></p>
+</div>
 
 <!-- *********************************************************************** -->
 <div class="www_subsubsection">
