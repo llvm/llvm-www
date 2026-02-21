@@ -15,6 +15,7 @@
             <ul>
               <li><a href="#expanding-api-notes-for-cpp">Expanding API Notes for C++</a></li>
               <li><a href="#upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a></li>
+              <li><a href="#incremental-build-support-modules-driver">Incremental build support for the modules driver</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -575,6 +576,51 @@
   </p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc-2026-participating-in-upstreaming-fbounds-safety/89649">URL</a></p>
+
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="incremental-build-support-modules-driver">Incremental build support for the modules driver</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    The newly introduced -fmodules-driver mode enables explicit module builds directly from Clang’s driver, supporting both Clang modules discovered via module map files and C++20 named modules.
+    Currently, these modules are precompiled from scratch on every invocation because the modules driver does not provide any caching.
+    This is especially costly for large modules (e.g., the Standard library modules), adding substantial overhead to each compilation.
+  </p>
+  <p>
+    This project aims to add compilation-job-level caching across the entire modules-driver build graph to enable incremental compilation.
+    Using the dependency-scan results, the driver should track header and module dependencies for each input and determine which jobs must be rebuilt and which can be safely reused from the cache.
+  </p>
+
+  <p><b>Expected Result:</b>
+    On repeated compilations, the modules driver should only execute compile jobs that are affected by changed or newly introduced inputs.
+    All other unaffected jobs should be reused from the cache. If multiple Clang instances run simultaneously, the cache must remain correct and safe under concurrent access.
+  </p>
+
+  <p><b>Skills:</b>
+    Intermediate knowledge of C++; familiarity with how C++ code is built. Familiarity with C++20 modules/Clang modules is an asset, but not required.
+  </p>
+
+  <p><b>Project size:</b>
+    Large
+  </p>
+
+  <p><b>Difficulty:</b>
+    Medium
+  </p>
+
+  <p><b>Mentors:</b>
+    <a href="https://github.com/naveen-seth">Naveen Hanig</a>
+  </p>
+
+   <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/clang-gsoc-2026-incremental-build-support-for-the-modules-driver/89667">URL</a>
+  </p>
 
 </div>
 
