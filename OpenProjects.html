@@ -16,6 +16,7 @@
               <li><a href="#expanding-api-notes-for-cpp">Expanding API Notes for C++</a></li>
               <li><a href="#upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a></li>
               <li><a href="#incremental-build-support-modules-driver">Incremental build support for the modules driver</a></li>
+              <li><a href="#improving-clang-doc">Improving Clang-Doc</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -622,6 +623,99 @@
     <a href="https://discourse.llvm.org/t/clang-gsoc-2026-incremental-build-support-for-the-modules-driver/89667">URL</a>
   </p>
 
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="improving-clang-doc">Improving Clang-Doc</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    Clang-Doc is a modern C/C++ documentation generation tool created as an alternative for Doxygen and built on top
+    of LibTooling. This effort started in 2018 and critical mass has landed in 2019, but the development has been largely
+    stagnant mostly due to a lack of resources until the last two years when the development restarted and made significant
+    progress with two successful Google Summer of Code projects:
+  </p>
+  <ul>
+    <li><a href=https://blog.llvm.org/posts/2024-12-04-improve-clang-doc/>GSoC 2024: Improve Clang-Doc</a></li>
+    <li><a href=https://blog.llvm.org/posts/2025-gsoc-clang-doc/>GSoC 2025: Improving Core Clang-Doc Functionality</a></li>
+  </ul>
+  <p>
+    <a href="https://www.youtube.com/watch?v=vuHF_ZeAPVI">Clang-Doc: Where We’ve Been and Where We’re Going</a> talk presented
+    at 2025 LLVM Developers’ Meeting gives a great overview of Clang-Doc architecture and its biggest strengths such as support
+    for latest C++ features and scalable architecture.
+  </p>
+  <p>
+    Clang-Doc still has significant room for improvement though. Below are some of the ideas we would like to explore.
+  </p>
+  <ul>
+    <li>
+      <em>Improved Markdown Parsing</em>: One of the most pressing needs is improved Markdown parsing within Doxygen comments. This
+      enhancement would enable support for richer text formatting, code blocks, and tables directly within code comments,
+      making the documentation more readable and informative. Currently, the lack of full Markdown support limits the expressive
+      power of inline documentation.
+    </li>
+    <li>
+      <em>Clang AST Support for Group Comments</em>: Another critical area is the Clang AST support for Doxygen group comments. As 
+      highlighted in GitHub issue <a href="https://github.com/llvm/llvm-project/issues/151184">#151184</a>, robust support for Doxygen’s 
+      grouping commands (e.g., \defgroup, \addtogroup) is crucial for generating accurate and comprehensive API documentation that reflects 
+      the intended module structure of large projects.
+    </li>
+    <li>
+      <em>Making The Output More Indexable</em>: Most developers navigate to the generated documentation via search engine and more recently 
+      LLM agents. Making the generated documentation more optimized for indexers can improve its overall usability.
+    </li>
+    <li>
+      <em>Optimizing Clang’s Frontend Actions</em>: Optimizing Clang’s “Frontend Actions” would directly reduce documentation generation time, 
+      especially for large codebases. This involves streamlining the processes by which Clang-doc extracts information from the AST, leading 
+      to faster build times and a more efficient documentation workflow. As discussed in various LLVM developer forums, performance is a 
+      continuous focus for Clang tools.
+    </li>
+    <li>
+      <em>Arena Allocation for Memory Management</em>: Arena allocation is a memory management technique that could significantly improve 
+      Clang-doc’s execution speed and reduce memory overhead, particularly when processing large ASTs. By allocating objects from a 
+      pre-allocated memory block, arena allocation can reduce the overhead associated with individual memory allocations and deallocations, 
+      leading to better performance, a common optimization in compilers and static analysis tools.
+    </li>
+  </ul>
+
+  <p><b>Expected Result:</b>
+    The high-level goal of this project is to implement the missing features in Clang’s documentation parser as well as their handling in Clang-Doc 
+    to improve the quality of the generated documentation. The eventual goal is for the LLVM project to start using Clang-Doc for generating its 
+    reference documentation, but before we can do that we need to ensure that all required features are implemented.
+  </p>
+  <p>
+    Note that each of the aforementioned ideas could be a medium-sized project on its own and we expect candidates to select one (or more) that match 
+    their interest. Successful proposals should focus not only on addressing the existing limitations, but also draw inspiration for other potential 
+    improvements from other documentation tools such as
+    <a href=https://hdoc.io/>hdoc</a>, 
+    <a href=https://github.com/standardese/standardese>standardese</a>, 
+    <a href=https://github.com/chromium/subspace/tree/main/subdoc>subdoc</a>,
+    <a href=https://cs.opensource.google/fuchsia/fuchsia/+/main:tools/cppdocgen/>cppdocgen</a>,
+    <a href="https://github.com/celerity/leafy-green-doc">leafy-green-doc</a>, or
+    <a href="https://www.mrdocs.com/">Mr.Docs</a>.
+  </p>
+  <p>
+    Over the course of the project, the candidate will have an opportunity to gain significant experience with LLVM and Clang internals (including 
+    lexer and parser) and C/C++ language.
+  </p>
+
+  <p><b>Skills:</b>
+    Experience with web technologies (HTML, CSS, JS) and an intermediate knowledge of C++. Previous experience with Clang/LibTooling is a bonus but not required.
+  </p>
+ 
+  <p><b>Project size:</b> Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/evelez7>Erick Velez</a>,
+    <a href=https://github.com/ilovepi>Paul Kirth</a>,
+    <a href=https://github.com/petrhosek>Petr Hosek</a>
+  </p>
+
+  <p><b>Discourse:</b> <a href=https://discourse.llvm.org/t/gsoc-2026-improving-clang-doc/89662>URL</a>
 </div>
 
 <!-- *********************************************************************** -->
