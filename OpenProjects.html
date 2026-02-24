@@ -17,6 +17,7 @@
               <li><a href="#upstreaming-fbounds-safety">Participating in Upstreaming -fbounds-safety</a></li>
               <li><a href="#incremental-build-support-modules-driver">Incremental build support for the modules driver</a></li>
               <li><a href="#improving-clang-doc">Improving Clang-Doc</a></li>
+              <li><a href="#improving-lit">Improving lit</a></li>
             </ul>
           </li>
           <li><a href="http://lldb.llvm.org/"><b>LLDB</b></a>
@@ -716,6 +717,53 @@
   </p>
 
   <p><b>Discourse:</b> <a href=https://discourse.llvm.org/t/gsoc-2026-improving-clang-doc/89662>URL</a>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="improving-lit">Improving lit</a>
+</div>
+<!-- *********************************************************************** -->
+
+<div class="www_text">
+  <p><b>Description of the project:</b>
+    LLVM’s main test running tool, <a href="https://llvm.org/docs/CommandGuide/lit.html"><code>lit</code></a> (LLVM&#39;s integrated tester), is a key part of LLVM’s testing practices for end-to-end testing of the compiler and related tools. <code>lit</code> is a tool that can parse and execute <code>RUN:</code> commands added in source file comments. Chiefly, these commands are shell commands that invoke tools that are being tested—like <code>clang</code> or <code>lld</code>—and whose output can be programmatically checked in conjunction with other tooling, like LLVM’s <a href="https://llvm.org/docs/CommandGuide/FileCheck.html"><code>FileCheck</code></a> utility.
+  </p>
+  <p>
+    Over the last couple years, we’ve worked towards improving <code>lit</code>’s internal shell enough, so that it could be the default mode for running LLVM tests (see <a href="https://discourse.llvm.org/t/rfc-enabling-the-lit-internal-shell-by-default/80179">[RFC] Enabling the Lit Internal Shell by Default</a>). Today, <code>lit</code> already uses the internal shell by default in LLVM’s CI, which has improved test performance and increased consistency across platforms. However, there are still many aspects of the current implementation that could be improved, though.
+  </p>
+  <ul>
+    <li>
+      <em>Modernize the lit Python implementation</em>: Today, lit’s current implementation is, to a large extent, a direct translation of the old Python 2.7 implementation to Python 3. There are numerous language improvements that would allow us to simplify the code and follow best practices. This would require an audit of the current implementation and subsequent refactoring. Note that we’re not advocating a complete rewrite, but targeted well scoped changes to bring the current implementation into line with more modern Python standards.
+    </li>
+    <li>
+      <em>Reduced process overhead</em>: Using <code>asyncio</code> for subprocess handling is likely a significant improvement in terms of performance, since <code>lit</code> spawns many subprocesses and waits for their results when it could frequently take care of unrelated work. Further, some of the out-of-process builtins should be moved back so that they can run in-process (see <a href="https://discourse.llvm.org/t/rfc-reducing-process-creation-overhead-in-llvm-regression-tests/88612">[RFC] Reducing process creation overhead in LLVM regression tests</a>).
+    </li>
+    <li>
+      <em>Improve shell utilities</em>:  A few of the internal shell replacements for common programs have some issues with common usage. For instance, the built-in <code>env</code> has some problems with pipelines (see <a href="https://github.com/llvm/llvm-project/issues/115578">#115578</a>), and the ergonomics around <code>readfile</code> and environment variables in some compiler-rt tests are problematic.
+    </li>
+    <li>
+      <em>Performance tuning</em>: <code>lit</code> and the various pieces of its internal shell implementation have never been properly profiled and optimized.  For instance, commands like <code>echo</code> and <code>cat</code>, while functional, employ suboptimal algorithms and data structures. There is a big opportunity here to leverage profiling information, specifically via <a href="https://github.com/plasma-umass/scalene">Scalene</a>, to pinpoint inefficiencies, such as contention on the Global Interpreter Lock (GIL), excessive memory usage, and redundant data copies.
+    </li>
+  </ul>
+
+  <p><b>Expected Result:</b>
+    The goal of this project is to improve <code>lit</code>’s performance, usability, and maintainability. Successful proposals should provide a detailed plan for improving <code>lit</code>’s implementation. Applicants are encouraged to look more deeply into these areas, and provide concrete plans for what they propose to change, over only vague descriptions of improvements.
+  </p>
+
+  <p><b>Skills:</b>
+   Python
+  </p>
+
+  <p><b>Project size:</b> Either medium or large.</p>
+  <p><b>Difficulty:</b> Medium</p>
+  <p><b>Confirmed Mentor:</b>
+    <a href=https://github.com/boomanaiden154>Aiden Grossman</a>,
+    <a href=https://github.com/ilovepi>Paul Kirth</a>,
+    <a href=https://github.com/petrhosek>Petr Hosek</a>
+  </p>
+
+  <p><b>Discourse:</b> <https://discourse.llvm.org/t/gsoc-2026-improving-lit/89663>URL</a>
 </div>
 
 <!-- *********************************************************************** -->
