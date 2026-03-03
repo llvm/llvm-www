@@ -40,6 +40,11 @@
               <li><a href="#enable-clangd-hlsl-support">Enable Clangd support for HLSL</a></li>
             </ul>
           </li>
+          <li><a href="https://mlir.llvm.org//"><b>MLIR</b></a>
+            <ul>
+              <li><a href="#static_memory_planner_for_mlir">Static Memory Planner For MLIR</a></li>
+            </ul>
+          </li>
           <!-- Add other subprojects as necessary -->
         </ul>
       </li>
@@ -1033,6 +1038,77 @@
   </p>
 
   <p><b>Discourse:</b> <a href="https://discourse.llvm.org/t/gsoc-2026-enable-clangd-support-for-hlsl/89664">URL</a></p>
+</div>
+
+<!-- *********************************************************************** -->
+<div class="www_subsubsection">
+  <a name="static_memory_planner_for_mlir">Static Memory Planner for MLIR</a>
+</div>
+<!-- *********************************************************************** -->
+<div class="www_text">
+  <p><b>Description</b></p>
+  <p>
+    Tensors in MLIR are abstract, read-only values without an assigned memory location.
+    Bufferization is the process of allocating/assigning memory buffers to tensor values
+    and rewriting tensor-based operations as memref-based operations. Bufferization is
+    necessary to make IR with tensor types executable. In MLIR, this transformation is
+    performed by the One-Shot-Bufferization infrastructure. This infrastructure
+    allocates new buffers with `memref.alloc`. Cleanup / deallocation of memory buffers
+    in the form of `memref.dealloc`, is done by the ownership-based buffer deallacation
+    infrastructure.
+  </p>
+  <p>
+    `memref.alloc` and `memref.dealloc` model dynamic memory allocation (like C malloc/free),
+    which is not suitable for many accelerators.
+    On such hardware, memory usage must typically be planned before the kernel launch.
+    The goal of this project is to design and implement a static memory planner that turns
+    dynamic allocations into static ones. In essence, instead of relying on a dynamic memory
+    allocator, pre-allocating a large enough buffer and managing it manually.
+    This will require reasoning about alias sets and live ranges of allocations.
+    The focus will be well-structured workloads that typically appear in high-performance
+    computing or machine learning models.
+  </p>
+  <p>
+    Multiple downstream projects have expressed interest in a static memory planner and
+    several already maintain their own implementations. Providing a uniform solution within
+     MLIR will encourage wider adoption of MLIR components and reduce duplicated effort
+     across the community.
+  </p>
+
+  <p><b>Expected Results</b></p>
+  <p>
+    An analysis and IR rewriting pass that analyzes allocations and deallocations of input
+    IR and generates new IR where all allocations are turned to memref.subviews of a
+    statically-allocated memref. The subviews take care of the liveness of buffers and
+    at the same time exploits reuse of memory as much as possible.
+  </p>
+
+  <p><b>Documentation</b></p>
+  <ul>
+    <li>User-facing documentation explaining the analysis, APIs, and how downstream projects can
+        integrate with it.</li>
+    <li>Design notes describing trade-offs and future extensions. </li>
+  </ul>
+
+  <p><b>Skills:</b>
+    C++ proficiency, familiarity with MLIR and good understanding of bufferization,
+    memory allocations, lifetimes, alias and dataflow analysis.
+  </p>
+
+  <p><b>Project size:</b>
+    350 hours
+  </p>
+
+  <p><b>Difficulty:</b>
+    High
+  </p>
+
+  <p><b>Mentors:</b>
+    Javed Absar(https://github.com/javedabsar1), Matthias Springer (https://github.com/matthias-springer)
+  </p>
+  <p><b>Discourse:</b>
+    <a href="https://discourse.llvm.org/t/rfc-gsoc-buffer-reuse-pass-for-non-overlapping-allocations-after-lower-deallocations/89885">RFC: GSoC Buffer Reuse Pass</a>
+  </p>
 </div>
 
 <!-- *********************************************************************** -->
