@@ -1078,7 +1078,7 @@
   <p><b>Expected Results</b></p>
   <p>
     An analysis and IR rewriting pass that analyzes allocations and deallocations of input
-    IR and generates a new IR where all allocations are turned to memref.subviews of a
+    IR and generates new IR where all allocations are turned to memref.subviews of a
     statically-allocated memref. The subviews take care of the liveness of buffers and
     at the same time exploits reuse of memory as much as possible.
   </p>
@@ -1104,7 +1104,7 @@
   </p>
 
   <p><b>Mentors:</b>
-    Javed Absar, Matthias Springer
+    Javed Absar(https://github.com/javedabsar1), Matthias Springer (https://github.com/matthias-springer)
   </p>
   <p><b>Discourse:</b>
     <a href="https://discourse.llvm.org/t/rfc-gsoc-buffer-reuse-pass-for-non-overlapping-allocations-after-lower-deallocations/89885">RFC: GSoC Buffer Reuse Pass</a>
