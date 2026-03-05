@@ -54,6 +54,14 @@
     sort of tools that can be built using the Clang frontend as a library to
     parse C/C++ code.</p></li>
 
+<li><p><b><a href="https://flang.llvm.org">Flang</a></b> is a modern
+    Fortran compiler with an associated runtime, which aims to generate
+    high-performance code, and support Fortran 2023 and all official Fortran
+    standards going back to Fortran 77, including a number of widely-used
+    <a href="https://flang.llvm.org/docs/Extensions.html">extensions</a>. Flang
+    supports <a href="https://flang.llvm.org/docs/OpenMPSupport.html">OpenMP</a>
+    for both CPUs and GPUs.</p></li>
+
 <li><p>The <b><a href="https://lldb.llvm.org">LLDB</a></b> project builds on
     libraries provided by LLVM and Clang to provide a great native debugger.
     It uses the Clang ASTs and expression parser, LLVM JIT, LLVM disassembler,
@@ -94,7 +102,7 @@
 
 <li><p>The <b><a href="https://openmp.llvm.org">OpenMP</a></b> subproject
     provides an <a href="https://openmp.org">OpenMP</a> runtime for use with the
-    OpenMP implementation in Clang.</p></li>
+    OpenMP implementation in Clang and Flang.</p></li>
 
 <li><p>The <b><a href="https://polly.llvm.org/">polly</a></b> project implements
     a suite of cache-locality optimizations as well as auto-parallelism and
