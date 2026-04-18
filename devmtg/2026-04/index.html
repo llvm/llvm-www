@@ -102,7 +102,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>Fast-math flags: a bag of issues and a handful of solutions</i> [ Slides ]<br>
+        <i>Fast-math flags: a bag of issues and a handful of solutions</i> [ <a href="slides/technical_talk/technical_talk_pirog.pdf">Slides</a> ]<br>
         Speaker: Mikolaj Pirog<br>
         <p>LLVM's fast-math flags allow users to specify which floating-point transformations they want to see. Unfortunately, their semantics are both not entirely respected by LLVM and underspecified. This talk covers a number of fast-math issues, an overview of efforts to address them and gives an outlook for the future, more systemic approach to fast-math flags.</p>
         </p>
@@ -111,7 +111,7 @@ and interesting ways.</li>
 
 <div class="session-entry">
         <p>
-        <i>MLIR-iteration cycle goes brrr: defining ops and rewrites in Python</i> [ Slides ]<br>
+        <i>MLIR-iteration cycle goes brrr: defining ops and rewrites in Python</i> [ <a href="slides/technical_talk/technical_talk_morel.pdf">Slides</a> ]<br>
         Speaker: Rolf Morel<br>
         <p>This is a tutorial on MLIR's new Python bindings for defining (1) dialects and ops, via an embedded op-definition DSL, as well as (2) writing rewrites (passes, pattern rewrites, and transform ops) that integrate with the existing infrastructure. These features enable a new iteration cycle for developing MLIR compilers: we can now do rapid prototyping of dialects and rewrites in a high-level language without having a compiler in the loop!</p>
         </p>
@@ -299,7 +299,7 @@ The talk also covers the new "arith-to-apfloat" infrastructure for software emul
 
 <div class="session-entry">
         <p>
-        <i>Creating a runtime using the LLVM_ENABLE_RUNTIMES system</i> [ Slides ]<br>
+        <i>Creating a runtime using the LLVM_ENABLE_RUNTIMES system</i> [ <a href="slides/tutorial/tutorial_kruse.pdf">Slides</a> ]<br>
         Speaker: Michael Kruse<br>
         <p>Few will need to create a new runtime library for LLVM, and it is not actually the goal of this tutorial. We intend to illustrate the inner workings and conventions of the LLVM build system. Currently, our runtimes (compiler-rt, libc++, openmp, ...) build code is still mostly based on the patterns from when each runtime had its own SVN repository, had to be able to be built independently, and therefore all runtimes implement their own boilerplate. Eventually, they should converge instead of each runtime introducing their own solutions to their build problems.</p>
 
