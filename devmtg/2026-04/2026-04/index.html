@@ -1,0 +1,697 @@
+<!--#include virtual="../../header.incl" -->
+
+<div class="www_sectiontitle"><h1>2026 EuroLLVM Developers' Meeting</h1></div>
+<div style="float:left; width:68%;">
+<br>
+<div style="width:100%;">
+
+<table><tr>
+<td valign="top">
+<ol>
+        <li><a href="#about">About</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#coc">Code of Conduct</a></li>
+        <li><a href="#contact">Contact</a></li>
+</ol>
+</td>
+
+<td valign="top">
+<ul>
+   <li><b>Conference Date</b>: April 14-15, 2026</li>
+   <li><b>Location</b>: <a href="https://www.claytonhotels.com/burlington-road/">Clayton Hotel Burlington Road</a>, Dublin, Ireland</li>
+   <li><b><a href="https://llvm.swoogo.com/2026eurollvm/">Event Website</a></b></li>
+</ul>
+</td>
+</tr></table>
+</div>
+
+<div class="www_sectiontitle" id="about"><h3>About</h3></div>
+
+<p>The EuroLLVM Developers' Meeting is a bi-annual gathering of the entire LLVM Project community. The conference is organized by the LLVM Foundation and many volunteers within the LLVM community. Developers and users of LLVM, Clang, and related subprojects will enjoy attending interesting talks, impromptu discussions, and networking with the many members of our community. Whether you are a new to the LLVM project or a long time member, there is something for each attendee.
+</p>
+
+<h3>What can you can expect at an LLVM Developers' Meeting?</h3>
+<dl>
+<dt><b>Keynotes</b></dt>
+<dd>Keynotes are 40-45 minute talks that provide an overview of a topic or project and often capture the history and impact of choices made and what that means for current and future development.</dd>
+        
+<dt><b>Technical Talks</b></dt>
+<dd>These 20-30 minute talks cover all topics from core infrastructure talks, to project's using LLVM's infrastructure. Attendees will take away technical information that could be pertinent to their project or general interest.</dd>
+
+<dt><b>Tutorials</b></dt>
+<dd>Tutorials are 50-60 minute sessions that dive down deep into a technical topic. Expect in depth examples and explanations.</dd>
+
+<dt><b>Lightning Talks</b></dt>
+<dd>These are fast 5 minute talks that give you a taste of a project or topic. Attendees will hear a wide range of topics and probably leave wanting to learn more.</dd>
+
+<dt><b>Quick Talks</b></dt>
+<dd>Quick 10 minute talks that dive a bit deeper into a topic, but not as deep as a Technical Talk.</dd>
+
+<dt><b>Student Technical Talks</b></dt>
+<dd>Graduate or Undergraduate students present their work using LLVM.</dd>
+
+<dt><b>Panels</b></dt>
+<dd>Panel sessions are guided discussions about a specific topic. The panel consists of ~3 developers who discuss a topic through prepared questions from a moderator. The audience is also given the opportunity to ask questions of the panel.
+</dd>
+
+</dl>
+
+<h3>Who attends?</h3>
+<ul>
+<li>Active developers of projects in the LLVM Umbrella
+(LLVM core, Clang, LLDB, libc++, compiler_rt, flang, lld, MLIR, etc).</li>
+<li>Anyone interested in using these as part of another project.</li>
+<li>Students and Researchers</li>
+<li>Compiler, programming language, and runtime enthusiasts.</li>
+<li>Those interested in using compiler and toolchain technology in novel
+and interesting ways.</li>
+<li>Sponsors and partners utilizing LLVM technology in their products.</li>
+</ul>
+
+<p>The LLVM Developers' Meeting strives to be the <i>best conference</i> to meet other LLVM developers and users.</p>
+
+<p>For future announcements or questions: Please visit the <a href="https://discourse.llvm.org">LLVM Discourse forums</a>. Most posts are in the Announcements or Community categories and tagged with <a href="https://discourse.llvm.org/tag/eurollvm">eurollvm</a></p> 
+
+<div class="www_sectiontitle" id="program"><h3>Program</h3></div>
+
+<p><b>Keynotes</b></p>
+
+<div class="session-entry">
+        <i>Capabilities Great and Small: CHERI, CHERIoT, and LLVM</i> [ <a href="slides/keynote/keynote_anderson.pdf">Slides</a> ]<br>
+        Speakers: Owen Anderson, presented by Edoardo Marangoni, Q&A featuring Owen Anderson and David Chisnall<br>
+        <p>Support for the CHERI capability architecture and its embedded derivative, CHERIoT, is being upstreamed to LLVM. This talk explores what that means for LLVM developers, which parts of the toolchain are affected, and how these changes may interact with existing frontend, optimizer, backend, and linker work. We’ll take a look at work to date, the status of upstreaming, and open problems where community involvement could help.</p>
+        
+</div>
+
+<div class="session-entry">
+        <i>Keynote: The Testing Funnel: Validating LLVM at Scale</i> [ <a href="slides/keynote/keynote_kleckner.pdf">Slides</a> ]<br>
+        Speaker: Reid Kleckner<br>
+        <p>LLVM is foundational software, so stakes for making changes to it are very high, and most downstream vendors of LLVM have elaborate testing pipelines to validate all of the properties they care about. However, because these private pipelines are often slow and disconnected from the community, detecting defects is expensive and leads to labor-intensive negotiations over misaligned technical requirements. To improve the experience for both contributors and downstreams, this talk shares lessons from 15 years of LLVM continuous integration experience to advocate for shared upstream CI infrastructure that "shifts left" on testing, to create a better, more harmonious experience for contributors and consumers alike.</p>
+        
+</div>
+
+<p><b>Technical Talks</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>Fast-math flags: a bag of issues and a handful of solutions</i> [ <a href="slides/technical_talk/technical_talk_pirog.pdf"> Slides</a> ]<br>
+        Speaker: Mikolag Pirog<br>
+        <p>LLVM's fast-math flags allow users to specify which floating-point transformations they want to see. Unfortunately, their semantics are both not entirely respected by LLVM and underspecified. This talk covers a number of fast-math issues, an overview of efforts to address them and gives an outlook for the future, more systemic approach to fast-math flags.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>MLIR-iteration cycle goes brrr: defining ops and rewrites in Python</i> [ <a href="slides/technical_talk/technical_talk_morel.pdf"> Slides</a> ]<br>
+        Speaker: Rolf Morel<br>
+        <p>This is a tutorial on MLIR’s new Python bindings for defining (1) dialects and ops, via an embedded op-definition DSL, as well as (2) writing rewrites (passes, pattern rewrites, and transform ops) that integrate with the existing infrastructure. These features enable a new iteration cycle for developing MLIR compilers: we can now do rapid prototyping of dialects and rewrites in a high-level language without having a compiler in the loop!</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Scaling Certified Instruction Selection For LLVM IR Through Bitblasting</i> [ <a href="slides/technical_talk/technical_talk_cicolini_kuhn.pdf">Slides</a> ]<br>
+        Speakers: Sarah Linh Kuhn, Luisa Cicolini<br>
+        <p>Instruction selection is responsible for turning high-level languages into efficient, reliable machine code. Yet, today’s LLVM backends often introduce subtle bugs through complex optimizing rewrites which are coupled with code generation passes. Fully verified backends like CompCert's avoid these issues at the cost of heavy, complex manual proofs. 
+We present an LLVM instruction selector verified in Lean, which benefits from a small trusted base, strong automation, and relies on authoritative RISC-V semantics. Using Sail’s new Lean backend, we formalize the RISC-V ISA and automatically verify real LLVM instruction selection and optimization patterns, exploiting Lean’s bitvector library and its verified bitblaster. Our selector achieves performance comparable to LLVM’s GlobalISel (11.9% more cycles estimated with MCA, geomean) while providing machine-checked correctness. This demonstrates that practical, trustworthy verification can scale to modern, rapidly evolving compiler ecosystems.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>The LLVM Release Process, a status update</i> [ <a href="slides/technical_talk/technical_talk_hieta_rhoades_yung.pdf"> Slides</a> ]<br>
+        Speakers: Tobias Hieta, Cullen Rhodes, Douglas Yung<br>
+        <p>LLVM’s release process is an ever-evolving chaos machine. Since our last talk on it in 2023, we have shipped six releases and made a number of changes to how we plan, cut, and stabilize a release. This talk is a practical status update on what changed, why it changed, what works well today, and what still creates stress for release managers and contributors. I’ll also introduce our two new Release Managers and close with ideas for where the process should go next, with the goal of fewer surprises when “the release is coming.”</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Toward A More Declarative InstCombine: Generalization & Parametric Bitvector Algorithms</i> [ <a href="slides/technical_talk/technical_talk_bhat.pdf">Slides</a> ]<br>
+        Speaker: Siddharth Bhat<br>
+        <p>LLVM contains thousands of bitwidth-dependent rewrites that are hard to maintain and reason about. We introduce new parametric bitvector algorithms that automatically generalize these rewrites across all widths. By applying a mixed unary–binary encoding and finite-state reasoning, our solver lifts concrete LLVM test cases into true width-independent identities, recovering  parametric rewrites from LLVM's test suite that has fixed width rewrites. This moves LLVM toward a declarative InstCombine specification, where rewrite rules are uniform, provably correct, and mechanically derived.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Rust or CHERI?</i> [ <a href="slides/technical_talk/technical_talk_marangoni.pdf">Slides</a> ]<br>
+        Speakers: Edoardo Marangoni<br>
+        <p>CHERI and Rust may, at first, appear as two mutually exclusive and clashing philosophies that want to solve the same problems. We claim that it is the opposite: Rust and CHERI (and CHERIoT, in particular) are complementary and work best when used together, as Rust provides compile-time guarantees for safe code whereas CHERI provides runtime guarantees for every fragment of unsafe code. In this talk we will show evidence to back our claim, presents recent work to bring production-quality Rust support to CHERIoT leveraging to the maturity of the CHERIoT port of LLVM and Rust’s strict provenance model (which aligns naturally with CHERI’s capabilities) and discuss our plans to engage with the Rust and LLVM communities.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Tracking Warnings at Scale: Extending Clang Diagnostics to Support Issue Baselining and Backslide Prevention</i> [ <a href="slides/technical_talk/technical_talk_bartolomeo.pdf">Slides</a> ]<br>
+        Speaker: Dave Bartolomeo<br>
+        <p>Compiler warnings are an effective tool for developers to catch potential security, compatibility, and correctness problems — however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. This talk describes how we have extended Clang's diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining (i.e., reporting only newly introduced warnings) and backslide prevention (informing project maintainers when a warning has accidentally been turned off).</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Lighthouse: infrastructure for end-to-end MLIR-compilers and testing</i> [ <a href="slides/technical_talk/technical_talk_golin.pdf">Slides</a> ]<br>
+        Speaker: Renato Golin<br>
+        <p>Last year, a new project was added to the LLVM family: Lighthouse. Its main purpose to guide the development and testing of MLIR based compilers. Like the LLVM test-suite, it should be a common ground for validating upstream assumptions about code, IR, dialects. At the same time, it enables building specific compilers in minutes, using the evolving Python API and MLIR’s Python bindings. In this talk, we’ll show the project main structure, including its components and how to use them to build a simple compiler. We’ll then show the infrastructure that uses those components to validate assumptions in MLIR (canonical forms, invariants, applicability of transforms and passes, correctness tests, etc), and how you can create your own on top of that. Finally, we’ll provide a number of pipeline examples, going from generic PyTorch models to performant execution on various targets.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>What Compiler Implementers and Language Designers Need to Know About Pointer Authentication</i> [ <a href="slides/technical_talk/technical_talk_hunt.pdf">Slides</a> ]<br>
+        Speaker: Oliver Hunt<br>
+        <p>In this talk, which is targeted at compiler implementers and languages designers, we will give a high-level overview of the security benefits of pointer authentication and why LLVM-based compilers should adopt it.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Effective Clang Tidy</i> [ <a href="slides/technical_talk/technical_talk_james.pdf">Slides</a> ]<br>
+        Speaker: Tom James<br>
+        <p>This talk explores strategies that have worked well when writing custom clang-tidy checks for Simcenter STAR-CCM+, a complex real-world codebase.  It is intended to be intermediate level, so some familiarity with clang-tidy is assumed. In particular, participants should be familiar with writing Clang AST matchers.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>CppInterOp: Interactive C++ as a Service and Advanced Language Interoperability</i> [ <a href="slides/technical_talk/technical_talk_jomy.pdf">Slides</a> ]<br>
+        Speaker: Aaron Jomy<br>
+        <p>CppInterOp provides compiler-as-a-service capabilities using Clang-REPL, enabling dynamic languages to interoperate with C++. This talk covers its technical architecture, including runtime template instantiation, C++ overload resolution, and JitCall - a lightweight runtime wrapper generator. We demonstrate how CppInterOp's API, built on Clang's AST, enables practical Python-C++ interoperability, including use cases like invoking CUDA kernels from Python and cross-language inheritance between Python and C++ classes.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>clang-reforge: Automatic whole-codebase source code rewriting tool for security hardening</i> [ <a href="slides/technical_talk/technical_talk_korous.pdf">Slides</a> ]<br>
+        Speaker: Jan Korous<br>
+        <p>We're building clang-reforge, an automatic source code rewriting tool that enables adoption of bounds-safety in large existing C++ codebases. clang-reforge analyzes source code to identify unsafe pointer operations and capture pointer flow. It replaces built-in pointers with bounds-safe types in pointer flow segments from allocation sites to unsafe operations, such as pointer arithmetic. We have a working internal prototype and we're now rebuilding it on top of clang's Scalable Static Analysis Framework.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Finding Injection Vulnerabilities: Improvements of the Taint Analysis of the Clang Static Analyzer</i> [ <a href="slides/technical_talk/technical_talk_krupp.pdf">Slides</a> ]<br>
+        Speaker: Daniel Krupp<br>
+        <p>Clang Static Analyzer provides a configurable taint analysis checker optin.taint.GenericTaint and a few specialized taint checkers (in the  optin.taint group) which can identify potential improper input validation security vulnerabilities.
+Although promising, the current implementation is still in its early stages, and its limitations prevent it from efficient industrial use. We were able to identify key issues after taking measurements on both the synthetic Juliet test suite and real-world projects. Based on these findings, we propose some improvements to the current solution, which we prototyped and evaluated.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Bounds Checking with the Clang Static Analyzer: Improvements and Insights</i> [ <a href="slides/technical_talk/technical_talk_nagy.pdf">Slides</a> ]<br>
+        Speaker: Donat Nagy<br>
+        <p>This talk presents my improvements in the checker `security.ArrayBound`, which become ready for production use in April 2025. In addition to the results, I will also showcase an educational issue that had plagued the older prototype-quality bounds validator checker; and briefly speak about the planned generalizations that would extend my improvements to other related checkers.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Floating-Point Types in MLIR: Infrastructure, New Types and Dialect Design</i> [ <a href="slides/technical_talk/technical_talk_springer.pdf">Slides</a> ]<br>
+        Speaker: Matthias Springer<br>
+        <p>This technical talk summarizes recent improvements to MLIR’s floating-point type infrastructure, focusing on how to represent and lower the rapidly growing zoo of low-precision and block-scaled formats used in modern ML workloads.
+
+It introduces the "FloatTypeInterface", explains the interaction with LLVM’s "APFloat" and "fltSemantics", and shows step-by-step how to add new floating-point types, from extending "APFloat" to defining lowering rules and dialect design for "special" FP types across high-level and low-level dialects.
+
+The talk also covers the new "arith-to-apfloat" infrastructure for software emulation of low-precision FP arithmetics on CPUs, discusses current limitations of adding FP types without patching LLVM, and outlines future directions for more extensible, vendor-friendly floating-point type systems in MLIR.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Optimising small AArch64 cores: stories from the trenches</i> [ <a href="slides/technical_talk/technical_talk_stuij.pdf">Slides</a> ]<br>
+        Speaker: Ties Stuij<br>
+        <p>Optimizing LLVM for AArch64 has in the past mostly concentrated on big cores which prioritized performance over efficiency. As the market has become more interested in smaller AArch64 cores outside of mobile phones, we have been putting effort into optimizing LLVM for these more constrained cores, which flirt with the embedded space. In this talk we discuss why LLVM has left performance off the table for these smaller cores, and we will give some examples of how we improved this. We will also touch on how benchmarking for these cores differs from benchmarking the bigger AArch64 cores.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Writing a Formal Execution and Memory Model for Execution Synchronization Primitives on AMD GPUs.</i> [ <a href="slides/technical_talk/technical_talk_van_houtryve.pdf">Slides</a> ]<br>
+        Speaker: Pierre van Houtryve<br>
+        <p>Overview of ongoing efforts to develop and document a formal execution model for the execution synchronization primitives (barriers) of the AMDGPU backend, and how they integrate with the LLVM and AMDGPU target-specific memory models. The talk will also cover the motivation for this work, the benefits for users and developers, and the challenges we faced and are still facing.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Adding Nullability Checking and Annotations to Many Millions of Lines of Code</i> [ <a href="slides/technical_talk/technical_talk_voung.pdf">Slides</a> ]<br>
+        Speaker: Jan Voung<br>
+        <p>At Google, our team has been working on reducing null pointer dereference crashes in a huge and diverse C++ codebase by: (a) adopting the Clang nullability annotations and (b) implementing a flow-sensitive intra-procedural dataflow analysis in ClangTidy that verifies that code adheres to the contracts of the annotations. However, to get the most coverage, we need to introduce the annotations to millions of lines of code. To assist with that, we've developed an inter-TU annotation inference tool, and added inferred annotations through a "large-scale change". This talk introduces how the ClangTidy verification and inference tools work, but also discusses the practical experience and the challenges we faced attempting to infer the annotations in "legacy" C++.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>rocMLIR: High-Performance ML Compilation for AMD GPUs with MLIR</i> [ <a href="slides/technical_talk/technical_talk_martinez.pdf">Slides</a> ]<br>
+        Speaker: Pablo Antonio Martinez<br>
+        <p>This talk presents rocMLIR, a kernel generator for AMD GPUs using MLIR. We present the compilation flow from high-level IR (TOSA and Linalg dialects) to low-level code generation using downstream and upstream MLIR dialects (AMDGPU and ROCDL). We focus on implementing MI300X/MI350X features in MLIR, including double-rate MFMAs, DirectToLDS, and support for MXFP4/FP4 data types. We also cover application-specific optimizations such as SplitK for GEMMs and KV Cache for attention, along with fusion strategies.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>LLVM Foundation Updates</i> [ <a href="slides/llvm_foundation/llvm_foundation_updates.pdf">Slides</a> ]<br>
+        Speaker: LLVM Foundation Board of Directors<br>
+        <p>The LLVM Foundation Board of Directors gives an update on status of the LLVM Foundation.</p>
+        </p>
+        
+</div>
+
+<p><b>Tutorials</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>All About Alias Analysis</i> [ <a href="slides/tutorial/tutorial_popov.pdf">Slides</a> ]<br>
+        Speaker: Nikita Popov<br>
+        <p>This tutorial introduces "alias analysis", which is the fundamental building block for most memory optimizations. The tutorial covers both high-level concepts and usage of alias analysis, as well as important aspects of the alias analysis implementation.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Creating a runtime using the LLVM_ENABLE_RUNTIMES system</i> [ <a href="slides/tutorial/tutorial_kruse.pdf">Slides</a> ]<br>
+        Speaker: Michael Kruse<br>
+        <p>Few will need to create a new runtime library for LLVM, and it is not
+actually the goal of this tutorial. We intend to illustrate the inner
+workings and conventions of the LLVM build system. Currently, our
+runtimes (compiler-rt, libc++, openmp, ...) build code is still mostly
+based on the patterns from when each runtime had its own SVN
+repository, had to be able to be built independently, and therefore
+all runtimes implement their own boilerplate. Eventually, they should
+converge instead of each runtime introducing their own solutions to
+their build problems.</p>
+
+<p>
+In addition to an introduction to the history of the
+LLVM_ENABLE_RUNTIMES system and its rationale, what better way to
+establish a common ground for our runtimes than creating a new runtime
+that does not suffer from the burden of breaking existing builds?
+Let's build a template runtime from scratch in 15 steps:</p>
+
+<p>
+<li>1. Register with the LLVM Build System</li>
+<li>2. Build a Library Artifact</li>
+<li>3. Create an Program Using the Library</li>
+<li>4. Build Modes</li>
+<li>5. CMake Cache Files</li>
+<li>6. Artifact Output Location</li>
+<li>7. Installation</li>
+<li>8. Shared and Static Libraries</li>
+<li>9. Regression Testing</li>
+<li>10. Unittests</li>
+<li>11. Sphinx Docs</li>
+<li>12. Doxygen Docs</li>
+<li>13. Cross-Compilation</li>
+<li>14. Accelerator Offloading</li>
+<li>15. Depending on Other LLVM Libraries</li></p>
+
+<p>Some basic knowledge of CMake is expected. The primary intended target
+audience is LLVM runtime-library and downstream maintainers who have
+to keep their build working and regularly have to adapt CMake code.
+Also join if you just want to know what happens when you run `ninja
+check-compiler-rt`.
+In this tutorial we will create a new runtime to exemplify the working of the often misunderstood LLVM_ENABLE_RUNTIMES system. Few contributors will ever feel the need to create a new runtime from scratch, but understanding it helps identifying and fixing build issues for configuration that no CI is actively testing. The talk will go into details of how multi-stage bootstrapping, cross-compilation, multilib, GPU-offloading, multi-compiler support, and inter-dependent runtimes are designed to work. We also explore configuration options and which corners could still be improved.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>HIVM: MLIR Dialect Stack for Ascend NPU Compilation</i> [ <a href="slides/tutorial/tutorial_tarasov.pdf"> Slides</a> ]<br>
+        Speakers: Vladislav Tarasov, presented by Hugo Trachino, Q&A with Vladislav Tarasov and Andrey Bokhanko<br>
+        <p>Huawei Ascend NPUs combine DaVinci AI cores with a rich memory/synchronization hierarchy and, on newer generations, a SIMD+SIMT execution model, making performance-oriented compilation challenging. We present HIVM, an open-source family of MLIR dialects that lowers PyTorch/Inductor -&gt; Triton -&gt; MLIR (HIVM) -&gt; LLVM IR, enabling Ascend-specific optimizations such as layout assignment/propagation, vector intrinsic selection/legalization, and explicit DMA/transfer scheduling with synchronization. The pipeline ultimately targets the BiSheng LLVM-based backend to produce executable code for Ascend chips. The talk walks step-by-step through the key IR levels and transformation passes, serving as a practical baseline for developers building MLIR toolchains for Ascend.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Hands-on Using Clang as a library</i> [ <a href="slides/tutorial/tutorial_jomy.pdf">Slides</a> ]<br>
+        Speaker: Aaron Jomy<br>
+        <p>This tutorial teaches how to use Clang as a library to build a C++ REPL with incremental compilation by splitting translation units into partial compilation steps. We demonstrate how to create a compiler-as-a-service that enables programmatic instantiation and invocation of C++ template functions from client code. Finally, we integrate these components with the Python runtime to examine practical cross-language interoperability.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Implementing C++26 std::simd with LLVM: A Layered, Compiler-First Approach</i> [ <a href="slides/tutorial/tutorial_towner.pdf">Slides</a> ]<br>
+        Speaker: Daniel Towner<br>
+        <p>The C++26 standard introduces std::simd for portable data parallelism. We present a complete implementation built on LLVM using a layered architecture: a minimal base layer interfaces with LLVM's SIMD capabilities, while higher-level features build on this foundation. Multi-target support emerges naturally by building upon LLVM's own architecture support, and a dispatch tag system isolates target-specific code to minimal locations. This design has proven particularly effective for x86, cleanly handling the many ISA variants (SSE, AVX, AVX-512, etc.), and should extend naturally to any SIMD target LLVM supports. As the compiler's support improves, the library improves too. We'll share our architectural patterns, performance results, and areas where LLVM could be enhanced to enable better code generation. The authors have been involved in the C++ standardisation process for this the library and our goal is to release it as open source.</p>
+        </p>
+        
+</div>
+
+<p><b>Quick Talks</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>Challenges in binary rewriting: enabling BOLT to optimize CFI-hardened binaries</i> [ <a href="slides/quick_talk/quick_talk_balint.pdf">Slides</a> ]<br>
+        Speaker: Gergely Balint<br>
+        <p>BOLT is increasingly adopted as it can provide additional performance uplift on top of LTO+PGO optimized binaries. At the same time, AArch64 binaries are commonly deployed with Control Flow Integrity features (PAC and BTI) enabled. This creates a practical challenge: until recently, BOLT couldn’t optimize such binaries. It would either crash, or worse: emit incorrect binaries, crashing at runtime. The talk introduces our work on enabling these features, and describes key engineering challenges, including how implementing such features differs from their compiler counterparts.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Anatomy of Tiling and Vectorizing linalg.pack and linalg.unpack</i> [ <a href="slides/quick_talk/quick_talk_beysel.pdf">Slides</a> ]<br>
+        Speaker: Ege Beysel<br>
+        <p>linalg.pack and linalg.unpack enable explicit data-tiling and layout transformations in MLIR, but their use in data-tiled compilation flows raises subtle questions about alignment, legality, and vectorization. This talk explores how these operations interact with MLIR’s tiling and vectorization infrastructure, focusing on alignment constraints, masking semantics, and performance implications. Using an end-to-end data-tiled matmul example, the talk highlights practical guidance and performance gains for developers building high-performance tensor pipelines.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Leveraging BOLT to improve data prefetching for AArch64 binaries</i> [ <a href="slides/quick_talk/quick_talk_chen_wei.pdf">Slides</a> ]<br>
+        Speakers: Shanzhi Chen, Wei Wei<br>
+        <p>The post-link optimizer BOLT has provided a bunch of binary-level optimizations which mostly focus on code layout and effectively reduce front-end stalls in the Top-Down performance analysis view. In addition, we found that BOLT could also be a handy tool to emit prefetching instructions in binaries and to alleviate back-end stalls resulting from cache misses. In this talk, we will cover how to leverage BOLT to improve data prefetching for AArch64 binaries. A new pass is added to BOLT to provide prefetching support for different variations of AArch64 load instructions. And the existing dataflow analysis framework in BOLT is also enabled for AArch64 to provide register liveness information for prefetching addresses. In addition, the ARM SPE-based profiling technique is employed to provide valuable insights into memory operations and to complete the overall profile-guided data prefetching optimization in BOLT.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Mojo Compile-time Interpreter in MLIR</i> [ <a href="slides/quick_talk/quick_talk_chen.pdf">Slides</a> ]<br>
+        Speaker: Weiwei Chen<br>
+        <p>Mojo supports powerful compile time meta-programming that helps to unlock performance on heterogeneous accelerators by enabling generic abstractions across different targets. Almost any runtime Mojo code can be moved to compile-time to trade for runtime performance while constants evaluated at compile-time can be materialized into runtime values. In this talk, we will dive into the architecture of Mojo’s MLIR based compile-time interpreter which is at the core of materializing generic code into concrete form during compilation. We'll share implementation insights, performance challenges, and lessons learned, while fostering discussion on building meta-programming compilers with MLIR.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Self-Contained, Target-Specific GEMM Code Generation in MLIR</i> [ <a href="slides/quick_talk/quick_talk_golin_morel_siemieniuk.pdf">Slides</a> ]<br>
+        Speakers: Adam Siemieniuk, Renato Golin, Rolf Morel<br>
+        <p>We present an MLIR-based approach for generating target-specific, highly optimized GEMM kernels that is fully self-contained within the LLVM/MLIR compiler infrastructure and does not rely on external libraries such as LIBXSMM, Intel MKL, or oneDNN. Building on prior work in the TPP-MLIR compiler, we upstream FP32, BF16, and INT8 code-generation techniques into MLIR and propose a transform schedule that combines existing and newly upstreamed passes to lower matmul, batch matmul, and batch-reduce matmul operations into optimized kernels, achieving performance competitive with the LIBXSMM library. As a future work, we plan to leverage auto-tuning techniques to select efficient tile sizes based on hardware characteristics and problem dimensions.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>LLVM JIT — Upcoming Challenges and Opportunities</i> [ <a href="slides/quick_talk/quick_talk_hames.pdf">Slides</a> ]<br>
+        Speaker: Lang Hames<br>
+        <p>LLVM's JIT can now run arbitrary real-world applications, as demonstrated by Xcode's Previews feature. Despite this success, enormous opportunities for improvement remain—especially in performance, memory consumption, tooling, and optimization. This talk will describe the most promising opportunities in these areas, sketch a roadmap for tackling them, and discuss how the community can collaborate to accelerate progress.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Apple GPU Support in Mojo</i> [ <a href="slides/quick_talk/quick_talk_panchenko.pdf">Slides</a> ]<br>
+        Speaker: Kolya Panchenko<br>
+        <p>Mojo's powerful compile-time meta-programming system and unified syntax make it exceptionally well-suited for heterogeneous accelerator programming, with proven success on CUDA and ROCm platforms. As many developers work on Apple products (such as iMacs, MacBooks, Mac Studios etc) adding Apple GPU support to Mojo is a natural next step. However, unlike CUDA and ROCm, which have open-source compiler toolchains in upstream LLVM, Apple's GPU compiler stack is proprietary. We will present chosen design and discuss challenges of Apple GPU’s integration into Mojo.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Attack of the Clones: Speeding Up Coroutine Compilation</i> [ <a href="slides/quick_talk/quick_talk_pianykh.pdf">Slides</a> ]<br>
+        Speaker: Artem Pianykh<br>
+        <p>Compiling coroutines with full debug information shouldn't be dramatically slower than with line tables — but we found CoroSplitPass running over 100x slower, adding minutes to compilation time. The cause traced back to LLVM's function cloning, where processing debug info metadata was O(Module) rather than O(Function). This talk covers the investigation, the upstream patches, and how the fix ended up benefiting all users of the function cloning API.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Tracking Operations Through MLIR Pass Pipelines Using Source Locations</i> [ <a href="slides/quick_talk/quick_talk_walbroel.pdf">Slides</a> ]<br>
+        Speaker: Florian Walbroel<br>
+        <p>This talk presents a source-location-driven approach for tracking the evolution of MLIR operations across deep pass pipelines. Motivated by real-world optimization work on quantized convolutions in IREE, it shows how preserved source locations can be used to reconstruct operation lineage across IR stages, enabling systematic reasoning about transformation effects. The talk surveys source location semantics under common MLIR transformations and demonstrates a reusable Python-based tool that supports interactive, cross-stage operation tracking for improved debuggability in large MLIR programs.</p>
+        </p>
+        
+</div>
+
+<p><b>Lightning Talks</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>Using MLIR Linalg Category Ops for Smarter Compilation</i> [ <a href="slides/lightning_talk/lightning_talk_absar.pdf">Slides</a> ]<br>
+        Speaker: Javed Absar<br>
+        <p>Linalg dialect of MLIR recently added `category ops` as an intermediate abstraction between the two existing forms: named ops and generic ops. A mechanism (-linalg-morph-ops=_-to-_) to move between these forms was also introduced. When something new appears, adoption is often slow due to existing workflows and lack of awareness.
+This talk will:
+(a) Motivate the reason for this additional representation
+(b) Explain what now exists and how to benefit from it
+(c) Show how category ops can help certain compilation flows.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Highlighting function names in LLDB backtraces</i> [ <a href="slides/lightning_talk/lightning_talk_buch.pdf">Slides</a> ]<br>
+        Speaker: Michael Buch<br>
+        <p>C++ backtraces tend to be hard to read because function names are hidden amongst many layers of namespaces, template arguments and function parameters. In the debugger, a user often wants to simply get a quick overview of the function callstack. But traditionally this has been difficult to decipher. To improve readability, LLDB recently gained the ability to selectively hide or format various parts of C++ function names. This talk describes how we implemented this by extending the LLVM demangler and how other language plugins can take advantage of this infrastructure.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Engineering a Hybrid Rust and MLIR Toolchain for AI Agents</i> [ <a href="slides/lightning_talk/lightning_talk_cardenas.pdf">Slides</a> ]<br>
+        Speaker: Miguel Cárdenas<br>
+        <p>Developing a compiler for Agentic AI workloads presents a unique challenge because the runtime demands the safety and ergonomics of Rust while the optimization pipeline requires the mature infrastructure of MLIR. This talk presents the architecture of a toolchain designed to leverage the strengths of both ecosystems. We discuss how we structured a hybrid build system where Rust drives the compilation process and defines runtime semantics, while C++ manages the core MLIR dialect and transformations. The session covers the practical engineering required to bridge these worlds, from orchestrating CMake and Cargo to managing the boundary between Rust runtime metadata and MLIR operation definitions. We share lessons learned about the complexity of linking, the tradeoffs of code generation, and the reality of maintaining a custom dialect across the language barrier.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Compact Unwind Information for ELF</i> [ <a href="slides/lightning_talk/lightning_talk_engelke.pdf">Slides</a> ]<br>
+        Speaker: Alexis Engelke<br>
+        <p>ELF unwind information is encoded as DWARF bytecode for most architectures, which results in a large size overhead and is complex to interpret, precluding its use in e.g. tracing profilers. This talk will present a compact format for asynchronous unwind info that can accurately represent almost all functions generated by LLVM -O3 for x86-64 with a substantially smaller size. We will also discuss portability to other architectures, differences from other unwinding/tracing formats, and interoperability with other toolchains.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Coverage directed codebase reduction for the procedural generation of LIT tests</i> [ <a href="slides/lightning_talk/lightning_talk_fewtrell.pdf">Slides</a> ]<br>
+        Speaker: Freya Fewtrell<br>
+        <p>The LIT test suite, whilst extensive, still leaves many parts of the LLVM codebase uncovered. Compiling large real-world C++ code from Sony Interactive Entertainment’s downstream integration test suite routinely exercises code paths that the upstream LIT suite never reaches. To shift this testing leftwards, we have built a tool that uses coverage-directed reduction to automatically turn such high-coverage sources into minimal, self-contained LLVM IR fragments suitable for inclusion as upstream LIT tests. This lightning talk describes how the tool works, the challenges encountered when trying to automate test reduction at scale, and whether increasing coverage alone is sufficient motivation for new upstream LIT tests.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Improving DemandedBits Analysis for Shift Operations in LLVM</i> [ <a href="slides/lightning_talk/lightning_talk_karouzakis.pdf">Slides</a> ]<br>
+        Speaker: Panagiotis Karouzakis<br>
+        <p>The DemandedBits analysis is utilized in some optimization passes, such as vectorization and dead code elimination; a similar analysis is employed in InstCombine. We improve DemandedBits reasoning for all basic shift operations, enabling more precise bit-level information propagation. Our improvements reduced code size, enabled additional loop-invariant code motion, and lead to more instruction-level simplifications.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>STRTAB Hash & Slash: Reducing STRTAB size by hashing its entries</i> [ <a href="slides/lightning_talk/lightning_talk_nguyen.pdf">Slides</a> ]<br>
+        Speaker: Vy Nguyen<br>
+        <p>The string table(STRTAB) accounts for a significant portion of object file overhead at Google, with long mangled names, such as those from Protos, frequently reaching 35% of the total file size. Optimizing this space is the key to faster builds and leaner binaries. In this talk, we propose an approach to reduce the string table through hashing its entries, demonstrating a reduction in overall binary size</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Extending Lifetime Safety: Verification of [[clang:noescape]] annotation</i> [ <a href="slides/lightning_talk/lightning_talk_pradeep.pdf">Slides</a> ]<br>
+        Speaker: Abhinav Pradeep<br>
+        <p>Clang features an intra-procedural, flow-sensitive lifetime analysis designed to catch temporal safety errors like use-after-free, use-after-scope, and use-after-return. The talk presents work on leveraging this analysis to verify [[clang::noescape]] annotations. This effort focuses on applying the "Origins and Loans" model to enforce memory safety guarantees that were previously unverified by the compiler.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Reproducible Large-Workload Recipes for BOLT with Nixpkgs</i> [ <a href="slides/lightning_talk/lightning_talk_waller.pdf">Slides</a> ]<br>
+        Speaker: Peter Waller<br>
+        <p>BOLT needs large, realistic binaries for integration testing, but distributing binaries directly creates governance and supply-chain problems and makes it hard to reproduce the exact toolchains and build flags that shape BOLT behaviour. We show our pinned, auditable Nixpkgs build recipes (including emit-relocs Chromium) and discuss how this enables teams to reproduce identical workloads, generate provenance/SBOMs, and compare results consistently across machines and CI.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>What’s new in LLDB on Windows</i> [ <a href="slides/lightning_talk/lightning_talk_zablit.pdf">Slides</a> ]<br>
+        Speaker: Charles Zablit<br>
+        <p>We've been improving LLDB and LLDB-DAP on Windows, adding key features like STDIO support, Unicode handling, better Python integration, and switching to an open-source PDB implementation to bring Windows debugging up to par with other platforms.</p>
+        </p>
+        
+</div>
+
+<p><b>Student Technical Talks</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>IR2Vec Python Bindings: Native Integration for Pythonic, ML Workflows</i> [ <a href="slides/student_technical_talk/student_technical_talk_sachdeva.pdf"> Slides</a> ]<br>
+        Speaker: Nishant Sachdeva<br>
+        <p>IR2Vec is a widely adopted framework for generating vector embeddings from LLVM IR to enable machine-learning–driven compiler optimizations. This work introduces native Python bindings for IR2Vec using pybind11, enabling seamless and efficient integration with Python-based ML ecosystems such as PyTorch and TensorFlow. By replacing subprocess-based CLI invocation with a direct programmatic interface, the bindings eliminate process overhead, provide inbuilt C++–Python type conversion, and support robust exception handling. The implementation and usage are demonstrated through practical embedding-generation examples. The project is currently under active development for upstream integration into the LLVM monorepo, with multiple pull requests already accepted, and is available in beta form via TestPyPI.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>GPU optimizations, and where Rust knows more than LLVM</i> [ <a href="slides/student_technical_talk/student_technical_talk_dominguez.pdf">Slides</a> ]<br>
+        Speaker: Marcelo Domínguez<br>
+        <p>In this talk we compare the performance of Rust's `std:offload` interface on various benchmarks with C++ OpenMP, CUDA, and ROCm implementations. We show the impact of a new set of LLVM-IR optimizations, and the performance difference between "safe" and "unsafe" Rust. We briefly introduce two aliasing models that are under consideration in the Rust community, and how higher-level Rust alias info can be combined with our lower-level LLVM-IR opt pass.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Accelerating Pass Order Auto-tuning via Profile-Guided Cost Modeling</i> [ <a href="slides/student_technical_talk/student_technical_talk_gao.pdf">Slides</a> ]<br>
+        Speaker: Bingyu Gao, presented by Wei Wei<br>
+        <p>LLVM pass ordering auto-tuning can outperform standard -O3, but it is often hindered by an enormous search space and the high overhead of hundreds of dynamic measurements. This talk presents an efficient auto-tuning framework that minimizes expensive measurements using a profile-guided relative cost model and calibrated beam search. Evaluation on cBench shows an average 10.46% speedup over -O3 with only ​20 dynamic measurements​, significantly accelerating the search for optimal pass sequences.</p>
+        </p>
+        
+</div>
+
+<p><b>Panels</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>Clang and LLVM in Modern Gaming Platforms</i> [ <a href="slides/panel/panel_bieneman_haehnle_hieta_klinge_morse.pdf">Slides</a> ]<br>
+        Speakers: Nicolai Hähnle, Tobias Hieta, Felix Klinge, Chris Bieneman, Jeremy Morse<br>
+        <p>A moderated panel with AMD, Intel, Sony, and Microsoft will examine how Clang/LLVM power real-world game production, from platform SDKs and build pipelines to shader compilers and security tooling and identify where upstream collaboration can have the biggest impact.</p>
+        </p>
+        
+</div>
+
+<p><b>Posters</b></p>
+
+<div class="session-entry">
+        <p>
+        <i>MemorySSA-Based Reaching Definitions for IR2Vec Flow-Aware Embeddings</i> [ <a href="slides/poster/poster_sachdeva.pdf">Slides</a> ]<br>
+        Speaker: Nishant Sachdeva<br>
+        <p>IR2Vec is a widely adopted framework for generating program embeddings from LLVM IR, supporting both Symbolic and Flow-Aware inference modes. The Flow-Aware mode captures data dependencies by computing reaching definitions over memory operations, but its original implementation relies on a custom control-flow graph traversal, effectively reimplementing analyses already available in LLVM. This work replaces the custom reaching-definitions logic with LLVM’s MemorySSA framework, yielding more semantically rich embeddings while significantly simplifying the implementation. By leveraging MemorySSA’s def-use chains, the new approach correctly handles complex memory behaviors including pointer indirection, loop-carried dependencies, structured data access, and dynamic allocation. Through detailed IR case studies, we demonstrate how the MemorySSA-based design eliminates spurious dependencies and enables richer, more accurate flow-aware embeddings.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Bridging Runtime Gaps in LLVM: Vendor-Agnostic Dispatch for ML Kernels</i> [ <a href="slides/poster/poster_akash.pdf">Slides</a> ]<br>
+        Speaker: S Akash<br>
+        <p>While LLVM and MLIR have revolutionized portable code generation for machine learning, a significant "runtime gap" remains: the inability to dynamically introspect hardware and dispatch kernels across heterogeneous NVIDIA, AMD, and CPU environments without per-target recompilation. We explore the architecture of vendor-agnostic rerouting, and existing works like SYCL alongside lightweight, header-only approaches.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Engineering a Hybrid Rust and MLIR Toolchain for AI Agents</i> [ <a href="slides/poster/poster_cardenas.pdf">Slides</a> ]<br>
+        Speaker: Miguel Cárdenas<br>
+        <p>Developing a compiler for Agentic AI workloads presents a unique challenge because the runtime demands the safety and ergonomics of Rust while the optimization pipeline requires the mature infrastructure of MLIR. This talk presents the architecture of a toolchain designed to leverage the strengths of both ecosystems. We discuss how we structured a hybrid build system where Rust drives the compilation process and defines runtime semantics, while C++ manages the core MLIR dialect and transformations. The session covers the practical engineering required to bridge these worlds, from orchestrating CMake and Cargo to managing the boundary between Rust runtime metadata and MLIR operation definitions. We share lessons learned about the complexity of linking, the tradeoffs of code generation, and the reality of maintaining a custom dialect across the language barrier.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Floating-Point Datapaths in CIRCT via FloPoCo AST Export and flopoco-arith-to-comb lowering</i> [ <a href="slides/poster/poster_cochard_de_dinechin_ledoux.pdf">Slides</a> ]<br>
+        Speaker: Louis Ledoux<br>
+        <p>This work bridges the gap between floating-point arithmetic in MLIR and circuit-level hardware representations in CIRCT.
+While many accelerators are dominated by floating-point datapaths, existing flows either defer floating-point realization to HLS-oriented dialects or rely on external generators, limiting compiler visibility at the stage where hardware-specific trade-offs are most naturally expressed.
+The approach restructures FloPoCo to expose arithmetic hardware as explicit combinational graphs and introduces a new MLIR lowering pass that progressively translates floating-point regions into CIRCT-compatible datapaths.
+Multiple lowering strategies are supported, ranging from IEEE-754–preserving operator mappings to fused and specialized datapaths that reduce rounding, area, and numerical error.
+As a concrete result, a floating-point kernel extracted from a PyTorch LLaMA layer is compiled end-to-end to a 1.5 mm² chip in a 130 nm process node.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Adding Compilation Metadata To Binaries To Make Disassembly Decidable</i> [ <a href="slides/poster/poster_engel.pdf">Slides</a> ]<br>
+        Speaker: Daniel Engel<br>
+        <p>Once a program has been compiled into a binary, it is nigh impossible to lift it back into a higher-level representation that is well-suited for analyses, instrumentation, and patching.
+Disassemblers run into undecidable problems such as "which bytes are instructions?" or "how are the data sections structured?".
+Producing a representation that can be recompiled correctly is even harder.
+Standard debugging formats such as DWARF do not contain enough information to make this task possible.
+However, at some point during the compilation process, the compiler knew all this information.
+In this talk, we explore which information can be extracted from the standard ELF format, which information clang can already emit, and which remains inaccessible.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>A CPU Autotuning Pipeline for MLIR-IREE</i> [ <a href="slides/poster/poster_huang_lee.pdf">Slides</a> ]<br>
+        Speakers: Chun Lin Huang, Jenq Kuen Lee<br>
+        <p>We present an autotuning pipeline for IREE’s LLVM-CPU backend that enables Transform Dialect–driven, compile-time multi-level tiling with CPU-specific constraints. In single-dispatch experiments, our constrained tuning flow achieves up to 20% speedup. We also outline next steps toward joint tuning of per-layer sub-FP8 precision variants and tiling using an XGBoost-guided, budgeted evaluation strategy under a quality floor.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>A stride towards generating segment accesses in RVV</i> [ <a href="slides/poster/poster_kastoras.pdf">Slides</a> ]<br>
+        Speaker: Athanasios Kastoras<br>
+        <p>We present an unconventional way of emitting RVV segment access instructions based on a loop-vectorize pass that emits strided accesses instead of gathers and scatters. We implement a pass that groups consecutive strided accesses, represented as VP intrinsics, and, if feasible, lowers them to RVV intrinsics of segment instructions. Then, we reuse the analysis part of this pass to cost groups of recipes as a single segment instruction, which enables the vectorization of loops that otherwise were going to be deemed unprofitable.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Non-destructive PDL Rewriting for Multi-Level Equality Saturation</i> [ <a href="slides/poster/poster_lopoukhine_merckx.pdf">Slides</a> ]<br>
+        Speakers: Jules Merckx, Sasha Lopoukhine<br>
+        <p>We present our work on representing e-graphs directly in MLIR IR. We extend the PDL dialect with new operations to allow for non-destructive rewriting. We implement our approach both in xDSL (Python) and MLIR, which makes equality saturation at multiple levels of abstraction accessible to compiler developers. Finally, we show that this system can be used to achieve comparable results to Herbie, a state-of-the-art tool to optimize floating-point expressions for accuracy.</p>
+        </p>
+        
+</div>
+
+<div class="session-entry">
+        <p>
+        <i>Confirming the Impact of Warning Message Quality in the Clang Static Analyzer</i> [ <a href="slides/poster/poster_umann.pdf">Slides</a> ]<br>
+        Speaker: Kristóf Umann<br>
+        <p>The Clang Static Analyzer has enjoyed almost 2 decades of industrial adoption, with more and more focus on its usability. Prior research indicated that, among other things, warning message quality is a leading source of dissatisfaction with static analysis tools, which developers of the Clang Static Analyzer tackled but never conclusively proved the benefits of these changes. This talk fills this gap by presenting a method for measuring warning message quality through a human experiment. We sent out surveys in three stages to fine-tune our methodology, with our final one receiving 64 responses from regular static analysis users. We were able to confirm many long-suspected but never confirmed theories circulating among the Clang Static Analyzer contributors: the value of summarizing functions, trimming bug reports, and simplifying low-level code. Based on these results, we also created and landed a bug report improvement, which is available since Clang 19.0.0.</p>
+        </p>
+        
+</div>
+
+<div class="www_sectiontitle" id="coc"><h3>Code of Conduct</h3></div>
+<p>The LLVM Foundation is dedicated to providing an inclusive and safe
+experience for everyone. We do not tolerate harassment of participants in any
+form. By registering for this event, we expect you to have read and agree to
+the <a href="http://llvm.org/docs/CodeOfConduct.html">LLVM Code of Conduct</a>.
+</p>
+
+<div class="www_sectiontitle" id="contact"><h3>Contact</h3></div>
+<p>To contact the organizer, email
+<a href="mailto:events@llvm.org"> events@llvm.org</a>
+</p>
+</div>
+
+<!-- *********************************************************************** -->
+
+<!--#include virtual="sponsors.incl" -->
+
+<hr>
+
+<!--#include virtual="../../footer.incl" -->
